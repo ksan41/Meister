@@ -42,8 +42,8 @@
 </style>
 </head>
 <body>
-	 <%@ include file="views/common/menubar.jsp" %>
-	 <%@ include file="views/common/menubarIndexIMG.jsp"%>
+	 <%@ include file="views/common_user/menubar.jsp" %>
+	 <%@ include file="views/common_user/menubarIndexIMG.jsp"%>
 
     <!-- 배달/포장주문 버튼 -->
     <div class="orderBtns">
@@ -68,22 +68,22 @@
                     <div class="customer_active owl-carousel">
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common/img/testmonial/event1.png" alt="">
+                                <img src="views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common/img/testmonial/event1.png" alt="">
+                                <img src="views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common/img/testmonial/event1.png" alt="">
+                                <img src="views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common/img/testmonial/event1.png" alt="">
+                                <img src="views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -91,6 +91,6 @@
             </div>
         </div>
     </div>
-	<%@ include file="views/common/footer.jsp"%>
+	<%@ include file="views/common_user/footer.jsp"%>
 </body>
 </html>

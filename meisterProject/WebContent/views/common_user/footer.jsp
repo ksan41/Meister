@@ -27,7 +27,7 @@
     <!-- footer  -->
         <footer class="footer">
             <div id="footer-logo-area" style="margin-top:10px;">
-                <img src="/Meister/views/common/img/logo.png">
+                <img src="/Meister/views/common_user/img/logo.png">
                 <h2 style="margin-top: 42px;">1588-0505</h2>
             </div>
             <br>
