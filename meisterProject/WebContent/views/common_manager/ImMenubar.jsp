@@ -76,13 +76,13 @@
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="">지점</a><a class="nav-link" href="">고객</a></nav>
                             </div>
 
-                            <a class="nav-link" href=""><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
                                 <i class="fas fa-gift"></i></div>이벤트</a>
                           
                             <div class="sb-sidenav-menu-heading">문의</div>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa fa-question-circle"></i></div>FAQ</a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa fa-reply"></i></div>1:1문의</a>
                         </div>
                     </div>
