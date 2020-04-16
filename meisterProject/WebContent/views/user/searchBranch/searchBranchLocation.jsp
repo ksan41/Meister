@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%@ include file="../../common_user/menubar.jsp" %>
 </body>
 </html>
