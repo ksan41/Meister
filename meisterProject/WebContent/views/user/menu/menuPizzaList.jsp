@@ -6,13 +6,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-    
+     	<%@ include file="../../common_user/menubar.jsp" %>
+		<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
         
         <!-- 모달 부트스트랩-->
         <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        
         <!-- 모달 부트스트랩 -->
         
         <style>
@@ -25,6 +26,62 @@
             margin-top: 100px;
             margin-bottom: 150px;
         }
+        
+        a{
+        	text-decoration: none !important;;
+        }
+        
+        h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+  			margin-bottom:0;
+ 			font-weight: 500;
+  			line-height: 1.2;
+		} 
+        
+         h1, .h1 {
+  			font-size: 2em;
+  			display: block;
+    		margin-block-start: 0.67em;
+   			margin-block-end: 0.67em;
+    		margin-inline-start: 0px;
+    		margin-inline-end: 0px;
+    		font-weight: bold;
+		}
+
+		h2, .h2 {
+  			
+  			display: block;
+    		font-size: 1.5em;
+    		margin-block-start: 0.83em;
+    		margin-block-end: 0.83em;
+    		margin-inline-start: 0px;
+    		margin-inline-end: 0px;
+   			 font-weight: bold;
+		}
+
+		h3, .h3 {
+  			display: block;
+    		font-size: 1.17em;
+   			 margin-block-start: 1em;
+    		margin-block-end: 1em;
+    		margin-inline-start: 0px;
+    		margin-inline-end: 0px;
+    		font-weight: bold;
+		}
+
+		h4, .h4 {
+  			font-size: 1rem;
+		}
+
+        p {
+   		 display: block;
+   		 margin-block-start: 1em;
+    		margin-block-end: 1em;
+   		 margin-inline-start: 0px;
+    		margin-inline-end: 0px;
+		}
+        
+        
         
         .outer *{
             font-family: 'NanumSquare';
@@ -309,7 +366,7 @@
   </div>
    <!-- 모달 끝 -->
     </div>
-    
+    <%@ include file="../../common_user/footer.jsp" %>
     
 </body>
 </html>
