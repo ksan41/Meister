@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,29 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<!-- <%@ include file="../../common_manager/ImMenubar.jsp"%>-->
+<%@ include file="../../common_manager/ImMenubar.jsp"%>
 	<div id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">
-			<h1 class="mt-4">ÁöÁ¡ °øÁö»çÇ×</h1>
+			<h1 class="mt-4">ì§€ì  ê³µì§€ì‚¬í•­</h1>
 			<div align="right">
-				<button class="button" onclick="">µî·Ï</button>
-				<button class="button" onclick="">¼öÁ¤</button>
-				<button class="button" onclick="">»èÁ¦</button>
+				<button class="button" onclick="">ë“±ë¡</button>
+				<button class="button" onclick="">ìˆ˜ì •</button>
+				<button class="button" onclick="">ì‚­ì œ</button>
 			</div>
-
-			<!-- <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="menubar_im.html">È¨</a></li>
-                            <li class="breadcrumb-item active">ÁöÁ¡ °øÁö»çÇ×</li>
-                        </ol> -->
-			<!-- <div class="card mb-4">
-                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
-                        </div> -->
-
 			<div class="card mb-4">
 				<div class="card-header">
-					<i class="fas fa-table mr-1"></i> ÁöÁ¡ °øÁö»çÇ×
+					<i class="fas fa-table mr-1"></i> ì§€ì  ê³µì§€ì‚¬í•­
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -39,9 +29,9 @@
 								<tr>
 									<th><input type="checkbox"></th>
 									<th>No</th>
-									<th>Á¦¸ñ</th>
-									<th>µî·ÏÀÏ</th>
-									<th>Á¶È¸¼ö</th>
+									<th>ì œëª©</th>
+									<th>ë“±ë¡ì¼</th>
+									<th>ì¡°íšŒìˆ˜</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -299,7 +289,5 @@
 		</main>
 
 	</div>
-
-
 </body>
 </html>
