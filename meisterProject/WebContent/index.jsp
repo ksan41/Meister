@@ -47,7 +47,7 @@
 
     <!-- 배달/포장주문 버튼 -->
     <div class="orderBtns">
-        <div id="deliveryBtn"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic.png" alt="">배달주문</div>
+        <div id="deliveryBtn"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic.png" alt="" onclick="orderDelivery();">배달주문</div>
         <div id="takeOutBtn"><img src="<%=contextPath %>/resources/siteImgs/pageImg/takeOutPic.png" alt="">포장주문</div>
     </div>
     <!-- 배달/포장주문 버튼 -->
@@ -92,5 +92,11 @@
         </div>
     </div>
 	<%@ include file="views/common_user/footer.jsp"%>
+	
+	<script>
+		function orderDelivery(){
+			location.href="<%=contextPath%>/views/user/order/orderDelivery.jsp";
+		};
+	</script>
 </body>
 </html>
