@@ -115,13 +115,14 @@
     <script src="<%=contextPath %>/views/common_user/js/gijgo.min.js"></script>
 
     <!--contact js-->
-    <script src="<%=contextPath %>/views/common_user/js/contact.js"></script>
+    <!-- 모달이랑 같이 적용했을때 오류나서 주석해뒀습니다. 혹시 문제생길 시 말씀해주세요 (산)-->
+ <!--   <script src="<%=contextPath %>/views/common_user/js/contact.js"></script>
     <script src="<%=contextPath %>/views/common_user/js/jquery.ajaxchimp.min.js"></script>
     <script src="<%=contextPath %>/views/common_user/js/jquery.form.js"></script>
     <script src="<%=contextPath %>/views/common_user/js/jquery.validate.min.js"></script>
     <script src="<%=contextPath %>/views/common_user/js/mail-script.js"></script>
 
-    <script src="<%=contextPath %>/views/common_user/js/main.js"></script>
+    <script src="<%=contextPath %>/views/common_user/js/main.js"></script> -->
 </body>
 
 </html>

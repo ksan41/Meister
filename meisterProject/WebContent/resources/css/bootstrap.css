@@ -100,7 +100,7 @@ address {
   line-height: inherit;
 }
 
-ol,
+/*ol,
 ul,
 dl {
   margin-top: 0;
@@ -112,7 +112,7 @@ ul ul,
 ol ul,
 ul ol {
   margin-bottom: 0;
-}
+}*/
 
 dt {
   font-weight: 700;
@@ -152,6 +152,7 @@ sup {
   top: -.5em;
 }
 
+/*
 a {
   color: #007bff;
   text-decoration: none;
@@ -172,7 +173,7 @@ a:not([href]):hover {
   color: inherit;
   text-decoration: none;
 }
-
+*/
 pre,
 code,
 kbd,
@@ -191,11 +192,12 @@ figure {
   margin: 0 0 1rem;
 }
 
+/*
 img {
   vertical-align: middle;
   border-style: none;
 }
-
+*/
 svg {
   overflow: hidden;
   vertical-align: middle;
@@ -355,12 +357,12 @@ template {
   display: none !important;
 }
 
-/* h1, h2, h3, h4, h5, h6,
+ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
-} */
+} 
 
 /* h1, .h1 {
   font-size: 2.5rem;
