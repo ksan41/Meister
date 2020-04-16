@@ -1,6 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
@@ -39,7 +43,6 @@
             font-weight: bolder;
         }
 
-        
 
         /* 서브메뉴 스타일 끝 */
         #order-info{
@@ -115,6 +118,10 @@
     </style>
 </head>
 <body>
+<body>
+	<%@ include file="../../common_user/menubar.jsp"%>
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
+
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         <h1>나의 정보</h1>
@@ -196,8 +203,9 @@
                 <div id="btns" align="center"><button class="middle_btn" id="#">피자 주문하기</button></div>
 
         </div>
-
-
     </div>
+    
+        <%@ include file="../../common_user/footer.jsp"%>
+
 </body>
 </html>
