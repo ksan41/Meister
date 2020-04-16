@@ -6,136 +6,132 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-        
-        <style>
-        /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
-        div{box-sizing: border-box;}
-        .outer{
-            width:1000px;
-            box-sizing: border-box;
-            margin: auto;
-            margin-top: 100px;
-            margin-bottom: 150px;
-        }
-        
-        .outer *{
-            font-family: 'NanumSquare';
-        }
-
-        .outer a{text-decoration: none;}
-
-        #index-area{
-           text-align: right;
-           font-size: 12px;
-        }
-        #index-area a{color:gray}
-
-
-        .sub-menu-area *{
-            padding: 5px;
-        }
-        .sub-menu-area>a{
-            font-size: 17px;
-            color:black;
-            font-weight: bolder;
-        }
-
-        
-
-        /* 서브메뉴 스타일 끝 */
-        #order-info{
-                        
-            width:1000px;
-            height:200px;
-            border:1px solid rgb(76, 60, 60);
-            background-color: rgb(76, 60, 60);
-            margin-top:20px;
-            color: white;
-            
-        }
-
-        
-
-        .bline {
-             background-color: skyblue;
-             height: 2px;
-             border:0px;
-             width: 300px;
-             margin-left: 0;
-             margin: 50px;
-             margin-bottom: 12px;
-         }
-
-        /* .pagination {
-            display: inline-block;
-        } */
-        .pagination a {
-            color: black;
-            padding: 5px 10px;
-            text-decoration: none;
-            transition: background-color .3s;
-            border: 1px solid #ddd;
-            margin: 0 2px;
-            font-size:12px;
-        }
-
-        .pagination a.active {
-            background-color: orange;
-            color: white;
-            border: 1px solid orange;
-        }
-        .pagination a:hover:not(.active) {background-color: #ddd;}
-
-        #noticeList>tbody td{text-align: center;}
-        #noticeList *{
-            height:30px;
-            font-size:12px;
-            border-bottom:1px solid lightgray;
-        }
-        #noticeList{border-top:1px solid black;}
-        #noticeList>thead th{
-            font-size:14px;
-            font-weight:750;
-        }
-
-        #noticeList>tbody :nth-child(1){cursor: pointer;}
-
-
-      /* 중간버튼 스타일 */
-      #btns{
-          text-align: center;
-      }
-      .middle_btn{
-                /* display: block; */
-                height:40px;
-                width:150px;
-                margin: 0 auto;
-                font-size: 15px;
-                font-weight: bolder;
-                color:white;
-                background-color: rgb(76, 60, 60);
-                border:0;
-                border-radius: 5px;
-                margin-left: 10px;
-            }
-        /* 중간버튼 스타일 */
-
-        
-
-        #middleTable td{
-            margin-left: 10px;
-        }
-        
-        /* 내용 테이블 */
-        .aa{
-            margin: auto;
-            margin-left: 25px;
-            margin-bottom: 30px;
-        }
-    </style>
+	<style>
+	    /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
+	    div{box-sizing: border-box;}
+	    .outer{
+	        width:1000px;
+	        box-sizing: border-box;
+	        margin: auto;
+	        margin-top: 100px;
+	        margin-bottom: 150px;
+	    }
+	    
+	    .outer *{
+	        font-family: 'NanumSquare';
+	    }
+	
+	    .outer a{text-decoration: none;}
+	
+	    #index-area{
+	       text-align: right;
+	       font-size: 12px;
+	    }
+	    #index-area a{color:gray}
+	
+	
+	    .sub-menu-area *{
+	        padding: 5px;
+	    }
+	    .sub-menu-area>a{
+	        font-size: 17px;
+	        color:black;
+	        font-weight: bolder;
+	    }
+	
+	    
+	
+	    /* 서브메뉴 스타일 끝 */
+	    #order-info{
+	                    
+	        width:1000px;
+	        height:200px;
+	        border:1px solid rgb(76, 60, 60);
+	        background-color: rgb(76, 60, 60);
+	        margin-top:20px;
+	        color: white;
+	        
+	    }
+	
+	    
+	
+	    .bline {
+	         background-color: skyblue;
+	         height: 2px;
+	         border:0px;
+	         width: 300px;
+	         margin-left: 0;
+	         margin: 50px;
+	         margin-bottom: 12px;
+	     }
+	
+	    /* .pagination {
+	        display: inline-block;
+	    } */
+	    .pagination a {
+	        color: black;
+	        padding: 5px 10px;
+	        text-decoration: none;
+	        transition: background-color .3s;
+	        border: 1px solid #ddd;
+	        margin: 0 2px;
+	        font-size:12px;
+	    }
+	
+	    .pagination a.active {
+	        background-color: orange;
+	        color: white;
+	        border: 1px solid orange;
+	    }
+	    .pagination a:hover:not(.active) {background-color: #ddd;}
+	
+	    #noticeList>tbody td{text-align: center;}
+	    #noticeList *{
+	        height:30px;
+	        font-size:12px;
+	        border-bottom:1px solid lightgray;
+	    }
+	    #noticeList{border-top:1px solid black;}
+	    #noticeList>thead th{
+	        font-size:14px;
+	        font-weight:750;
+	    }
+	
+	    #noticeList>tbody :nth-child(1){cursor: pointer;}
+	
+	
+	  /* 중간버튼 스타일 */
+	  #btns{
+	      text-align: center;
+	  }
+	  .middle_btn{
+	            /* display: block; */
+	            height:40px;
+	            width:150px;
+	            margin: 0 auto;
+	            font-size: 15px;
+	            font-weight: bolder;
+	            color:white;
+	            background-color: rgb(76, 60, 60);
+	            border:0;
+	            border-radius: 5px;
+	            margin-left: 10px;
+	        }
+	    /* 중간버튼 스타일 */
+	
+	    
+	
+	    #middleTable td{
+	        margin-left: 10px;
+	    }
+	    
+	    /* 내용 테이블 */
+	    .aa{
+	        margin: auto;
+	        margin-left: 25px;
+	        margin-bottom: 30px;
+	    }
+	</style>
 </head>
 <body>
 
