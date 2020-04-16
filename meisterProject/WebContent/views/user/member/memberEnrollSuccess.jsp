@@ -67,7 +67,7 @@
 	
     <%@ include file="../../common_user/menubar.jsp"%>
 		
-	
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 	
 
  <div class="outer">
