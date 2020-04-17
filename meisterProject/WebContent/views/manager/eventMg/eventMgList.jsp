@@ -82,7 +82,6 @@
 
 </style>
 <body class="sb-nav-fixed">
-<<<<<<< HEAD
 
 
 	<div id="layoutSidenav_content">
@@ -326,7 +325,6 @@
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
 
-=======
 
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<a class="navbar-brand" href="menubar_im.html"
@@ -668,7 +666,6 @@
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
 
->>>>>>> 6f56149ab2954c797b228d0901f26be74b232c71
 	<script>
             function deleteConfirm(){
                 confirm('해당 이벤트를 삭제하시겠습니까?');
@@ -676,8 +673,6 @@
         </script>
 
 
-<<<<<<< HEAD
-=======
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		crossorigin="anonymous"></script>
 	<script
@@ -697,6 +692,5 @@
 		crossorigin="anonymous"></script>
 	<script src="assets/demo/datatables-demo.js"></script>
 
->>>>>>> 6f56149ab2954c797b228d0901f26be74b232c71
 </body>
 </html>
