@@ -38,13 +38,8 @@
 	     color:black;
 	     font-weight: bolder;
 	 }
-	
-	
-	
+
 	 /* 서브메뉴 스타일 끝 */
-	
-	
-	
 	 #order-info{
 	                 width:1000px;
 	                 height:200px;
@@ -57,16 +52,12 @@
 	 #order-title,#order-status{
 	     margin-left: 25px;
 	 }
-	
-	
-	
+
 	 .xo{
 	     width:0;
 	     height:150px;
 	 }
-	
-	
-	
+
 	 .middle_btn{
 	     display: block;
 	     height:40px;
@@ -80,9 +71,7 @@
 	     border-radius: 5px;
 	     margin-top:10px;
 	 }
-	
-	
-	
+
 	 #dbtn{margin-right: 3%; margin-right: 3%; box-sizing:border-box;}
 	 #mbtn{margin-left: 3%; margin-right: 2%; box-sizing:border-box;} 
 	 #lbtn{margin-left: 3%; box-sizing:border-box;} 
@@ -129,7 +118,7 @@
                 주문번호 000000000</h4>  
               <hr>
               <br>
-              <h3 id="order-status">수령완료</h3>
+              <h3 id="order-status" style="font-weight:600;">수령완료</h3>
               <br>
               <hr>
 
@@ -141,7 +130,7 @@
                 <table style="font-size: 15px;" width="1000px" height="200px">
                     <tr>
                         <th width="495px" style="padding-left: 2px;">
-                            <p class="order_text_left" style="text-align: left; margin-left: 80px;">
+                            <p class="order_text_left" style="text-align: left; margin-left: 80px; color:black;">
                                 <b style="font-size: 17px;">주문내역</b>
                                 <br><br>
                                 블랙타이거 슈림프 L X 1 / 35,900원<br>                               
@@ -159,7 +148,7 @@
 
                                     <tr>
                                         <td style="text-align: left;">할인금액</td>
-                                        <td style="padding-right: 8px;color:orangered;font-size: 16px;">-14,360 원</td>
+                                        <td style="padding-right:8px;color:orangered;font-size: 16px;">-14,360 원</td>
                                     </tr>
 
                                     <tr>
@@ -183,14 +172,14 @@
                <br>
 
                <hr>
-               <h4 id="order-title">주문정보</h4>
+               <p id="order-title" style="font-size:20px; font-weight:600; color:black;">주문정보</p>
                <hr>
 
                <div id="order-info2">
                
                <table id="order-info2-table" border="0">
                    <tr>
-                       <td class="order-info2-td" style="width: 100px; padding-left: 25px;">결제방법 </td>
+                       <td class="order-info2-td" style="width:200px; padding-left: 25px;">결제방법 </td>
                        <td>신용카드</td>
                    </tr>
                    <tr>
@@ -222,7 +211,7 @@
                <br>
 
                <div id="btns">           
-                <button class="middle_btn" id="listBack">목록</button>
+                <button class="middle_btn" id="listBack" style="cursor:pointer;">목록</button>
                </div>
 
             </div>
