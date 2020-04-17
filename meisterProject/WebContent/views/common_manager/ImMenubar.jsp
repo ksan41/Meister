@@ -23,7 +23,7 @@
 
         <style>
             #layoutSidenav_content{
-                width:1100px;
+                width:1300px;
                 height:auto;
                 margin: auto;
                 margin-top: 100px;
