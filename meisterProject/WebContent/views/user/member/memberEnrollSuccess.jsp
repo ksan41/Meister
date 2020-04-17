@@ -22,7 +22,7 @@
         }
 
         .outer a{text-decoration: none;}
-
+		
         #index-area{
            text-align: right;
            font-size: 12px;
