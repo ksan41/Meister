@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<%@ include file="../../common_user/menubar.jsp"%>
+<%@ include file="../../common_user/menubarMenuIMG.jsp"%>
+
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
 	href="../../../resources/css/bootstrap.css">
@@ -187,9 +191,7 @@ table {
 </head>
 <body>
 
-	<%@ include file="../../common_user/menubar.jsp"%>
-	<%@ include file="../../common_user/menubarMenuIMG.jsp"%>
-
+	
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 		<h1>나의 정보</h1>
@@ -212,14 +214,17 @@ table {
 			<div id="order-info">
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
-						<th width="495px" style="padding-left: 30px;">
-							<b style="font-weight: bold; font-size: 1.5em; float: left; margin-left: 48px;">본인여부확인</b>
-							<b style="font-size: 0.7em; color: gray; float: left; margin-left: 48px; margin-bottom: 45px;">회원님의
-								정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</b>
+						<th width="495px" style="padding-left: 30px; padding-top:35px;">
+							<b style="font-weight: bold; font-size: 1.5em; float: left; margin-left: 48px;">개인정보 입력 안내문</b>
+							<hr class="bline">
+							<p style="font-size: 0.9em; color:lightgray; float: left; margin-left: 48px; margin-bottom: 45px;">
+								회원정보를 정확히 기입하셔야 주문이나 이벤트에 대한 불이익이 없습니다.</p>
 						</th>
 					</tr>
 				</table>
+
 			</div>
+		</div>
 
 			<br><br><hr>
 
@@ -347,7 +352,7 @@ table {
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title" style="margin: auto; padding: 0;">본인여부
+						<h4 class="modal-title" style="margin: auto; padding: 0; font-family: 'nanumsquare';">본인여부
 							확인</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							style="margin: 0; padding: 0;">&times;</button>
