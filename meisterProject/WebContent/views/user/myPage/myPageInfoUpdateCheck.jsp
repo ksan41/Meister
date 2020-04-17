@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>myPageInfoUpdateCheck</title>
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
 div {
@@ -124,7 +124,7 @@ input {
 
 th {
 	height: 50px;
-	width: 200px;
+	width: 100px;
 }
 
 table {
@@ -139,10 +139,10 @@ table {
 /* 작은버튼 스타일 */
 .small_btn {
 	display: block;
-	height: 25px;
+	height: 32px;
 	width: 60px;
 	margin: 0 auto;
-	font-size: 10px;
+	font-size: 13px;
 	font-weight: bolder;
 	color: white;
 	background-color: rgb(76, 60, 60);
@@ -180,12 +180,10 @@ table {
 
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
-
 			<div id="order-info">
-
-				<table style="font-size: 16px; border:1px solid white;" width="1000px" height="200px">
+				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
-						<th width="495px" style="padding-left: 30px;">
+						<th width="495px" style="padding-left: 30px; padding-top:32px;">
 							<b style="font-weight: bold; font-size: 1.5em; float: left; margin-left: 48px;">본인여부확인</b>
 							<hr class="bline">
 							<p style="font-size: 0.9em; color:lightgray; float: left; margin-left: 48px; margin-bottom: 45px;">
@@ -203,12 +201,11 @@ table {
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
-					<td>meisterpizza</td>
-					<td style="margin: 100px;"></td>
+					<td colspan="2">meisterpizza</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td colspan="2"><input type="text"></td>
+					<td><input type="text"></td>
 					<td><button class="small_btn" id="#" style="margin: 10px">확인</button></td>
 				</tr>
 			</table>
