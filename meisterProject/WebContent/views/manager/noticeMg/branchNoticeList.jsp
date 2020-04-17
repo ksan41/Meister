@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<%@ include file="../../common_manager/ImMenubar.jsp"%>
 	<div id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">
