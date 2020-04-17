@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>menuSideList</title>
 
 <!-- 메뉴바 여기에 include -->
 <%@ include file="../../common_user/menubar.jsp"%>
