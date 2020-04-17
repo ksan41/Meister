@@ -165,7 +165,7 @@
 
             <div class="inner">
                 <br><br>
-                <div align="left" style="font-size:22px; font-weight:700; padding-bottom:10px;">피자 주문</div>
+                <div align="left" style="font-size:22px; font-weight:700; padding-bottom:15px;">피자 주문</div>
     
                 <table id="noticeList" align="center" width="1000px">
                     <thead>
