@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<%@ include file="../../common_user/menubar.jsp"%>
+<%@ include file="../../common_user/menubarMenuIMG.jsp"%>
+
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
 	href="../../../resources/css/bootstrap.css">
@@ -187,9 +191,7 @@ table {
 </head>
 <body>
 
-	<%@ include file="../../common_user/menubar.jsp"%>
-	<%@ include file="../../common_user/menubarMenuIMG.jsp"%>
-
+	
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 		<h1>나의 정보</h1>
@@ -350,7 +352,7 @@ table {
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h4 class="modal-title" style="margin: auto; padding: 0;">본인여부
+						<h4 class="modal-title" style="margin: auto; padding: 0; font-family: 'nanumsquare';">본인여부
 							확인</h4>
 						<button type="button" class="close" data-dismiss="modal"
 							style="margin: 0; padding: 0;">&times;</button>
