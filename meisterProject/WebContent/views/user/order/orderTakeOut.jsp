@@ -137,7 +137,7 @@
 	
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1>주문방법 선택</h1>
+        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">주문방법 선택</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 주문방법 선택</div>
@@ -159,7 +159,7 @@
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h3>여수지점&nbsp;&nbsp;&nbsp;031-2222-8282</h3>전라남도 여수시 문수동 문수로 76
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">여수지점&nbsp;&nbsp;&nbsp;031-2222-8282</h4>전라남도 여수시 문수동 문수로 76
                 </div>
                 <div>
                     <button id="remove">―</button>

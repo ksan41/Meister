@@ -162,7 +162,7 @@
 	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1>주문방법 선택</h1>
+        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">주문방법 선택</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 주문방법 선택</div>
@@ -184,7 +184,7 @@
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold">홈스윗홈</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">홈스윗홈</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
                 </div>
                 <div>
                     <button id="remove">―</button>
@@ -195,7 +195,7 @@
                 <div>
                     <input type="checkbox">
                 </div>
-                <div><br><h4 style="font-weight:bold">회사</h4>강남지점&nbsp;&nbsp;&nbsp;031-0000-8282
+                <div><br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">회사</h4>강남지점&nbsp;&nbsp;&nbsp;031-0000-8282
                 </div>
                 <div>
                     <button id="remove">―</button>
@@ -207,7 +207,7 @@
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold">별장1</h4>여수지점&nbsp;&nbsp;&nbsp;031-0000-8282
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">별장1</h4>여수지점&nbsp;&nbsp;&nbsp;031-0000-8282
                 </div>
                 <div>
                     <button id="remove">―</button>
