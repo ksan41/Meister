@@ -49,12 +49,6 @@
 	    color:white;
 	}
 	
-	.xo{
-	    width:0;
-	    height:180px;
-	    margin-right: 20px;
-	}
-	
 	.bline {
 	     background-color: skyblue;
 	     height: 2px;
@@ -62,9 +56,9 @@
 	     width: 270px;
 	 }
 	
-	/* .pagination {
-	    display: inline-block;
-	} */
+	.pagination {
+		display:inline-block;
+	}
 	.pagination a {
 	    color: black;
 	    padding: 5px 10px;
@@ -140,12 +134,11 @@
                 
                 <table id="table1" style="font-size: 16px;" width="1000px" height="250px">
                     <tr>
-                        <th rowspan="2" width="400px" height="100px" style="text-align:center;">
+                        <th rowspan="2" width="50%" height="100px" style="text-align:center;">
 	                        <b style="font-weight:bold; font-size: 1.5em;">절대미각</b>님이 주문하신 내역입니다.
 	                        <hr class="bline">
 	                        <p style="font-size: 0.7em; color:white">주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</p>
                         </th>
-                        <th rowspan="2" style="padding-left: 10px;"><hr class="xo"></th>
                         <th width="300px" style="padding-top: 10px">
                             <p align="left" style="color:white;">
                                 	주문<br>
@@ -154,8 +147,7 @@
                             </p>
                     </th>
                         
-                        <th rowspan="2" style="padding-left: 10px;"><hr class="xo"></th>
-                        <th width="300px" style="padding-top: 10px">
+                        <th width="25%" style="padding-top: 10px">
                             <p align="left" style="color:white;">
                                 	주문금액<br>
                                 (2020.01~2020.03)
@@ -163,7 +155,7 @@
                         </th>
                     </tr>
                     <tr>
-                        <th height="100px" style="font-weight:bold; font-size: 4.0em; padding-bottom: 20px">0</th>
+                        <th height="25%" style="font-weight:bold; font-size: 4.0em; padding-bottom: 20px">0</th>
                         <th style="font-weight:bold; font-size: 4.0em; padding-bottom: 20px">0</th>
                     </tr>
                     
@@ -177,7 +169,7 @@
     
                 <table id="noticeList" align="center" width="1000px">
                     <thead>
-                        <tr>
+                        <tr style="text-align:center;">
                             <th style="width:80px;">포장(배달)</th>
                             <th style="width:430px;">주문목록</th>
                             <th style="width:200px;">주문번호</th>
