@@ -67,6 +67,7 @@
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
                                 <a href="#">로그인</a>
                                 <a href="#">회원가입</a>
+                                <!-- 로그인정보 없을시(회원로그인x시) 로그아웃,마이페이지 보여지도록 -->
                             </div>
                             <div class="logo" style="margin-left:105%;">
                                 <a href="index.html">
@@ -80,7 +81,7 @@
                                     <ul id="navigation">
                                         <li><a href="#">메뉴</a></li>
                                         <li><a href="#">이벤트</a></li>
-                                        <li><a href="<%=contextPath%>/branchLo.se">매장검색</a>                                    
+                                        <li><a href="#">매장검색</a>                                    
                                         </li>
                                         <li><a href="#">고객센터</a></li>
                                         <li><a href="#">공지사항</a></li>
