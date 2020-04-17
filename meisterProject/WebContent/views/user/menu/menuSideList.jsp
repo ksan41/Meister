@@ -95,6 +95,7 @@ p {
 }
 
 /* 부트스트랩 덮어씌우기용 스타일 */
+
 .outer * {
 	font-family: 'NanumSquare';
 }
@@ -259,7 +260,6 @@ p {
 </head>
 <body>
 
-
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 		<h1>메뉴</h1>
@@ -270,115 +270,96 @@ p {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="" style="color: orange">피자</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="">사이드디시</a>
-			<span style="color: lightgray; font-size: 17px;">|</span> <a href="">음료&기타</a>
+			<a href="">피자</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="" style="color: orange">사이드디시</a> <span
+				style="color: lightgray; font-size: 17px;">|</span> <a href="">음료&기타</a>
 		</div>
 		<hr>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<!-- 프리미엄 -->
-			<div class="menu-area premium">
-				<h1 align="center">프리미엄</h1>
+			<div class="menu-area">
 				<div id="menu-thumb">
 					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
+						<img src="sides/food-2757966_1280.jpg" alt="">
 					</div>
 					<div id="menu-info">
 						<h3>
-							치즈케이크 피자<img id="menu-detail"
+							까르보나라 스파게티<img id="menu-detail"
 								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
 								alt="" data-toggle="modal" data-target="#menu-detail-modal">
 						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
+						<p>18000원</p>
 					</div>
 				</div>
 				<div id="menu-thumb">
 					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
+						<img src="sides/food-2757966_1280.jpg" alt="">
 					</div>
 					<div id="menu-info">
 						<h3>
-							치즈케이크 피자<img id="menu-detail"
+							까르보나라 스파게티<img id="menu-detail"
 								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
 								alt="" data-toggle="modal" data-target="#menu-detail-modal">
 						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
+						<p>18000원</p>
 					</div>
 				</div>
 				<div id="menu-thumb">
 					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
+						<img src="sides/food-2757966_1280.jpg" alt="">
 					</div>
 					<div id="menu-info">
 						<h3>
-							치즈케이크 피자<img id="menu-detail"
+							까르보나라 스파게티<img id="menu-detail"
 								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
 								alt="" data-toggle="modal" data-target="#menu-detail-modal">
 						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
+						<p>18000원</p>
+					</div>
+				</div>
+				<div id="menu-thumb">
+					<div id="menu-img">
+						<img src="sides/food-2757966_1280.jpg" alt="">
+					</div>
+					<div id="menu-info">
+						<h3>
+							까르보나라 스파게티<img id="menu-detail"
+								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
+								alt="" data-toggle="modal" data-target="#menu-detail-modal">
+						</h3>
+						<p>18000원</p>
+					</div>
+				</div>
+				<div id="menu-thumb">
+					<div id="menu-img">
+						<img src="sides/food-2757966_1280.jpg" alt="">
+					</div>
+					<div id="menu-info">
+						<h3>
+							까르보나라 스파게티<img id="menu-detail"
+								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
+								alt="" data-toggle="modal" data-target="#menu-detail-modal">
+						</h3>
+						<p>18000원</p>
+					</div>
+				</div>
+				<div id="menu-thumb">
+					<div id="menu-img">
+						<img src="sides/food-2757966_1280.jpg" alt="">
+					</div>
+					<div id="menu-info">
+						<h3>
+							까르보나라 스파게티<img id="menu-detail"
+								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
+								alt="" data-toggle="modal" data-target="#menu-detail-modal">
+						</h3>
+						<p>18000원</p>
 					</div>
 				</div>
 			</div>
 			<!-- 프리미엄 -->
-			<!-- 클래식 -->
-			<br>
-			<br>
-			<div class="menu-area classic">
-				<h1 align="center">클래식</h1>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-			</div>
-			<!-- 클래식 -->
+
 		</div>
 		<!-- 모달 시작 -->
 		<div class="modal fade" id="menu-detail-modal">
@@ -389,8 +370,8 @@ p {
 
 					<!-- Modal Header -->
 					<div class="modal-header">
-						<h2 class="modal-title" style="margin: auto; padding: 0;">치즈케이크
-							피자</h2>
+						<h2 class="modal-title" style="margin: auto; padding: 0;">까르보나라
+							스파게티</h2>
 						<button type="button" class="close" data-dismiss="modal"
 							style="margin: 0; padding: 0;">&times;</button>
 					</div>
@@ -399,7 +380,7 @@ p {
 					<div class="modal-body">
 						<div id="menu-detail1-modal">
 							<div id="menu-detail1-modal-img">
-								<img id="menu-detail-img" src="pizzas/pizza-2802332_1280.jpg"
+								<img id="menu-detail-img" src="sides/food-2757966_1280.jpg"
 									alt="">
 							</div>
 							<div id="menu-detail1-modal-info">

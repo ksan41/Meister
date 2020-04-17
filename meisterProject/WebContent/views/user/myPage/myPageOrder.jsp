@@ -40,7 +40,6 @@
 	
 	/* 서브메뉴 스타일 끝 */
 	#order-info{
-	                
 	    width:1000px;
 	    height:250px;
 	    border:1px solid rgb(76, 60, 60);
