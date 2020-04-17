@@ -80,7 +80,7 @@
                                     <ul id="navigation">
                                         <li><a href="#">메뉴</a></li>
                                         <li><a href="#">이벤트</a></li>
-                                        <li><a href="#">매장검색</a>                                    
+                                        <li><a href="<%=contextPath%>/branchLo.se">매장검색</a>                                    
                                         </li>
                                         <li><a href="#">고객센터</a></li>
                                         <li><a href="#">공지사항</a></li>

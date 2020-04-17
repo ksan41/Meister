@@ -4,9 +4,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        
+        <!-- 모달 부트스트랩 시작-->
+        <!-- 원래 모달 css링크 : <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- 모달 부트스트랩 끝 -->
+
+
+        <!-- 주소검색 API : https://www.poesis.org/postcodify/guide/freeapi -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+        <!-- 스타일 링크 1-->
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
         
+        <!-- 원래 모달 css 링크 h1~6 주석으로 막도록 수정본 ^^  -->
+        <link rel="stylesheet" href="css/modal_revision_jinah.css">
+        
         <style>
+            
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
         div table tr td tbody{box-sizing: border-box;}
         .outer{
@@ -34,10 +52,11 @@
             /* border:1px solid red; */
             box-sizing:border-box;
         }
-        .inner>div:nth-child(1)>div:nth-child(1):hover, .inner>div:nth-child(1)>div:nth-child(2):hover{
+        .inner>div:nth-child(1)>div:nth-child(1){
             background-color: rgb(76, 60, 60);
             color:white;
         }
+        
         .inner a{
             font-size:18px;
             /* border:1px solid red; */
@@ -124,8 +143,18 @@
             color:rgb(76, 60, 60);
         }
         #remove{
-            font-size:20px;
+            font-size:20px; 
         }
+        /* 주문방법 상세페이지 스타일 끝 */   
+
+         /* 모달 스타일 시작*/
+         .modal-body{
+            margin:auto;
+        }
+        /* 모달 스타일 끝*/
+
+
+
     </style>
 </head>
 <body>
@@ -139,8 +168,8 @@
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
             <div>
-                <div><a id="deliveryOrder">배달주문</a></div>
-                <div><a id="deliveryOrder">포장주문</a></div>
+                <div><a id="orderDelivery">배달주문</a></div>
+                <div><a id="orderTakeOut">포장주문</a></div>
             </div>
             <div style="background-color:rgb(76, 60, 60);">
                 
@@ -185,7 +214,7 @@
                 <div id="bottom">
                 </div>
                 <div id="bottom" style="width:50%;">
-                    <button style="width:120px; height:40px; font-size:14px; margin-top:8px; margin-left:10%;">+&nbsp;&nbsp;배달주소등록</button>
+                    <button type="button" class="addDeliveryAddress" data-toggle="modal" ,  data-target="#myModal" style="width:120px; height:40px; font-size:14px; margin-top:10px; margin-left:10%;" >+&nbsp;&nbsp;배달주소등록</button>
                 </div>
                 <div id="bottom" style="width:40%; padding-left:15%;">
                     <h5 style="color:white;">* 배달주소는 최대 5개까지 등록 가능합니다.</h5>
@@ -203,7 +232,54 @@
             </div>
           
         </div>
+
+
+
     </div>
     
+     <!-- 다른 요소에 모달 적용하고 싶으면, 속성에 data-toggle="modal" ,  data-target="#myModal" 타겟명은 따로 지정 -->
+  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><!-- modal별 id 변경해주세요
+    버튼
+  </button>-->
+  
+          <!-- 모달 시작 -->
+          <div class="modal fade" id="myModal"> <!-- modal별 id 변경해주세요-->
+            <div class="modal-dialog">
+              <div class="modal-content">
+              
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title" style="margin:auto;padding:0; color:rgb(76, 60, 60);">배달주소 선택</h4>
+                  <button type="button" class="close" data-dismiss="modal" style="margin:0;padding:0;">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" placeholder="주소를 입력하세요">&nbsp;&nbsp;<img src="img\post\magnifier2.png" style="width:20px;" onclick="init();">
+                    <form id="form" name="form" method="post">
+                        <input type="hidden" id="confmKey" name="confmKey" value=""/>
+                        <input type="hidden" id="returnUrl" name="returnUrl" value=""/>
+                        <input type="hidden" id="resultType" name="resultType" value=""/>
+                        <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START-->
+                        <!-- 
+                        <input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
+                            -->
+                        <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
+                    </form>
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer" style="margin:auto;">
+                    <!-- 하단버튼 영역-->
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                  style="width:200px; height:50px;">Close</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+           <!-- 모달 끝 -->
+
+
 </body>
 </html>
