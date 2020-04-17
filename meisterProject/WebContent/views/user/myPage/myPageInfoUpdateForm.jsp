@@ -212,14 +212,17 @@ table {
 			<div id="order-info">
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
-						<th width="495px" style="padding-left: 30px;">
-							<b style="font-weight: bold; font-size: 1.5em; float: left; margin-left: 48px;">본인여부확인</b>
-							<b style="font-size: 0.7em; color: gray; float: left; margin-left: 48px; margin-bottom: 45px;">회원님의
-								정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인합니다.</b>
+						<th width="495px" style="padding-left: 30px; padding-top:35px;">
+							<b style="font-weight: bold; font-size: 1.5em; float: left; margin-left: 48px;">개인정보 입력 안내문</b>
+							<hr class="bline">
+							<p style="font-size: 0.9em; color:lightgray; float: left; margin-left: 48px; margin-bottom: 45px;">
+								회원정보를 정확히 기입하셔야 주문이나 이벤트에 대한 불이익이 없습니다.</p>
 						</th>
 					</tr>
 				</table>
+
 			</div>
+		</div>
 
 			<br><br><hr>
 
