@@ -83,36 +83,8 @@ div {
 	border: 1px solid orange;
 }
 
-.pagination
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
- 
-
-a:hover
-
-
-:not
-
- 
-
-(
-.active
-
- 
-
-)
-{
-background-color
-
-
-:
-
- 
-
-#ddd
-
-
-;
-}
 #noticeList>tbody td {
 	text-align: center;
 }
