@@ -68,22 +68,22 @@
                     <div class="customer_active owl-carousel">
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common_user/img/testmonial/event1.png" alt="">
+                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common_user/img/testmonial/event1.png" alt="">
+                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common_user/img/testmonial/event1.png" alt="">
+                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="views/common_user/img/testmonial/event1.png" alt="">
+                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
                             </div>
                         </div>
                     </div>
