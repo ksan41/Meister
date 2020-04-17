@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>myPageOneOnOneList</title>
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
 div {
@@ -150,9 +150,7 @@ div {
 
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
-
 			<div id="order-info">
-
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="65%" style="padding-left: 2px; text-align:center;">
@@ -165,9 +163,7 @@ div {
 							</p>
 						</th>
 					</tr>
-
 				</table>
-
 			</div>
 
 			<div class="inner">

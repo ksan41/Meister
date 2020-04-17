@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>myPageOrder</title>
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
 div {
@@ -63,8 +63,8 @@ div {
 	width: 270px;
 }
 
-.pagination {
-	display: inline-block;
+.pagination div {
+	margin:auto;
 }
 
 .pagination a {
@@ -221,8 +221,10 @@ div {
 				<br>
 
 				<div class="pagination" align="center">
-					<a href="#">&laquo;</a> <a href="#" class="active">1</a> <a
-						href="#">&raquo;</a>
+					<div>
+						<a href="#">&laquo;</a> <a href="#" class="active">1</a>
+						<a href="#">&raquo;</a>
+					</div>
 				</div>
 			</div>
 		</div>
