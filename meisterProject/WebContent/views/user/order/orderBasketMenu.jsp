@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -136,6 +138,8 @@
     </style>
 </head>
 <body onload="init();">
+	<%@ include file="../../common_user/menubar.jsp" %>
+	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         <h1 style="font-weight:bold; color:rgb(76, 60, 60);">장바구니</h1>
@@ -266,7 +270,7 @@
             <table id="orderB3" border="0px">
                 <tr>
                     <th>
-                        <p>
+                        <p style="text-align:left;">
                         * 할인 적용은 다음 단계에서 가능합니다.<br>
                         * 피클&소스 기본 제공 안내 <br>
                         - L : 피클 L(120g) 1개 / 핫소스 2개 / 갈릭디핑소스 15g 2개, M : 피클 M (75g) 1개 / 핫소스 1개 / 갈릭디핑소스 15g 1개<br>
@@ -295,6 +299,7 @@
 
     </div>
 	
+	<%@ include file="../../common_user/footer.jsp"%>
 	
     <script language="JavaScript">
         

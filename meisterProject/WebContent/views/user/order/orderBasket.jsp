@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -110,6 +112,9 @@
     </style>
 </head>
 <body>
+	<%@ include file="../../common_user/menubar.jsp" %>
+	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         <h1 style="font-weight:bold; color:rgb(76, 60, 60);">장바구니</h1>
@@ -161,7 +166,7 @@
 
 
     </div>
-	
+
 	<%@ include file="../../common_user/footer.jsp"%>
    
 
