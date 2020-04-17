@@ -6,13 +6,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+     	
+     	<!-- 메뉴바 여기에 include -->
      	<%@ include file="../../common_user/menubar.jsp" %>
 		<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
+        <!-- 메뉴바 여기에 include -->
+        
+        
         
         <!-- 모달 부트스트랩-->
         <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        
+        <!-- 밑에 이거 삭제해주세요.(menubar에 중복) -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
         
         <!-- 모달 부트스트랩 -->
         
@@ -27,6 +35,7 @@
             margin-bottom: 150px;
         }
         
+        /* 부트스트랩 덮어씌우기용 스타일 */
         a{
         	text-decoration: none !important;;
         }
@@ -82,6 +91,7 @@
 		}
         
         
+        /* 부트스트랩 덮어씌우기용 스타일 */
         
         .outer *{
             font-family: 'NanumSquare';

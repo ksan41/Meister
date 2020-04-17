@@ -164,10 +164,10 @@
             <div class="main">
                 <input id="tab1" type="radio" name="tabs" style="width: 200; height: 50;" checked><!--디폴트 메뉴-->
                 <label for="tab1" style="width: 175px; border-top-left-radius: 10px;">회원 로그인</label>
-            
+            	
                 <input id="tab2" type="radio" name="tabs">
                 <label for="tab2" style="width: 175px; border-top-right-radius: 10px;">비회원 주문</label>
-                
+                	
                 <section id="content1">
                     <br><br>
                     <input type="text" name="userId" style="width: 200px;" placeholder="아이디"> <br>
@@ -175,27 +175,16 @@
                     <br><br>
                     <button class="middle_btn" id="#" >로그인</button>
                     <br><br>
+                    
+                    <br>
+                    
 					
                     <a href="">아이디찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="">회원가입</a>
                 </section>
                 
-                <section id="content2" style="padding-top: 35px;">
-                    <input type="text" name="userId" style="width: 200px;" placeholder="아이디"><br>
-                    <input class="text-area" style="width: 90px; margin-left: 2px; margin-top:10px;" type="email" name="email1" >
-                    <b style="color: white;">@</b>
-                    <select id="email_area" name="email2" style="margin-right: 3px; height: 30px; border-radius: 5px;">
-                        <option value="gmail.com">gmail.com</option>
-                        <option value="naver.com">naver.com</option>
-                        <option value="daum.net">daum.net</option>
-                    </select>
-                    <br><br>
-                    <button class="sub_btn" id="#" style="font-size:smaller; width: 222px;">이메일 인증번호 발송</button>
-                    <br><br>
-                    <input type="text" name="certifiedNumber" style="width: 200px;" placeholder="인증번호 입력"><br><br>
-                    <button class="middle_btn" id="#" style="width: 222px; background-color: orangered;">주문하기</button>
-                </section>
+              
             </div>
         </div>
     </div>
