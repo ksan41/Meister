@@ -64,7 +64,7 @@ div {
 }
 
 .pagination div {
-	margin:auto;
+	margin: auto;
 }
 
 .pagination a {
@@ -83,10 +83,39 @@ div {
 	border: 1px solid orange;
 }
 
-.pagination a:hover:not (.active ) {
-	background-color: #ddd;
-}
+.pagination
 
+ 
+
+a
+
+
+:hover
+
+
+:not
+
+ 
+
+(
+.active
+
+ 
+
+)
+{
+background-color
+
+
+:
+
+ 
+
+#ddd
+
+
+;
+}
 #noticeList>tbody td {
 	text-align: center;
 }
@@ -185,8 +214,7 @@ div {
 			</div>
 
 			<div class="inner">
-				<br>
-				<br>
+				<br> <br>
 				<div align="left"
 					style="font-size: 22px; font-weight: 700; padding-bottom: 15px;">피자
 					주문</div>
@@ -217,18 +245,18 @@ div {
 					</tbody>
 				</table>
 
-				<br>
-				<br>
+				<br> <br>
 
 				<div class="pagination" align="center">
 					<div>
-						<a href="#">&laquo;</a> <a href="#" class="active">1</a>
-						<a href="#">&raquo;</a>
+						<a href="#">&laquo;</a> <a href="#" class="active">1</a> <a
+							href="#">&raquo;</a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<%@ include file="../../common_user/footer.jsp"%>
+	<%@ include file="../../common_user/footer.jsp"%>
 </body>
 </html>
