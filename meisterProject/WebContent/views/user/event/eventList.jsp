@@ -1,12 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-        	
-        <style>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+  <style>
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
         div{box-sizing: border-box;}
         .outer{
@@ -53,9 +53,13 @@
         }
         /* 이벤트 목록 스타일 끝 */
     </style>
+
+
 </head>
 <body>
-    <div class="outer">
+
+
+   <div class="outer">
         <!-- 서브메뉴 타이틀 -->
 <h1>이벤트</h1>
         <br>
@@ -91,5 +95,8 @@
 
 
     </div>
+
+
+
 </body>
 </html>
