@@ -203,32 +203,32 @@ div {
 				<table id="middleTable" width="900px" height="500px" align="center">
 					<tr>
 						<td width="270px" height="50px" align="center"
-							style="font-size: 1.2em; color: gray;">아이디</td>
+							style="font-size: 1.2em; font-weight:700; color: gray;">아이디</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">MeisterPizza</td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
-							style="font-size: 1.2em; color: gray;">연락처</td>
+							style="font-size: 1.2em; font-weight:700; color: gray;">연락처</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">010-7777-7777</td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
-							style="font-size: 1.2em; color: gray;">이메일</td>
+							style="font-size: 1.2em; font-weight:700; color: gray;">이메일</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">MeisterPizza@naver.com</td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
-							style="font-size: 1.2em; color: gray;">문의유형</td>
+							style="font-size: 1.2em; font-weight:700; color: gray;">문의유형</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">단순문의</td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
-							style="font-size: 1.2em; color: gray;">제목</td>
+							style="font-size: 1.2em; font-weight:700; color: gray;">제목</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">왜 이렇게 맛있나요??</td>
 					</tr>
 					<tr>
 						<td width="270px" height="200px" align="center" valign="top"
-							style="font-size: 1.2em; color: gray; padding-top: 2%;">내용</td>
+							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
 							valign="top"><textarea id="contentArea"
 								style="font-size: 1.1em;" disabled>너무 맛있는데요 비결이 뭐에요??</textarea>
@@ -236,7 +236,7 @@ div {
 					</tr>
 					<tr>
 						<td width="270px" height="200px" align="center" valign="top"
-							style="font-size: 1.2em; color: gray; padding-top: 2%;">답변</td>
+							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">답변</td>
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
 							valign="top"><textarea id="contentArea"
 								style="font-size: 1.0em; color: cornflowerblue" disabled>처리중...</textarea>
@@ -248,7 +248,7 @@ div {
 						<b style="font-size: 1.0em; color: gray;">등록하신 내용 및
 								답변은 회원정보상의 이메일로도 발송이 됩니다. 상담원과 통화를 원하시면</b><br>
 						<b style="color: darkslategrey;">고객만족 센터</b>
-						<b style="font-size: 1.2em; color: skyblue;">080-888-8888</b></th>
+						<b style="font-size: 1.2em; color: skyblue;"> 080-888-8888</b></th>
 					</tr>
 				</table>
 
@@ -262,6 +262,7 @@ div {
 					<button class="middle_btn" id="lbtn">목록</button>
 				</div>
 			</div>
+		</div>
 		</div>
 
 		<%@ include file="../../common_user/footer.jsp"%>

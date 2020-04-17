@@ -87,10 +87,7 @@ div {
 
  
 
-a
-
-
-:hover
+a:hover
 
 
 :not

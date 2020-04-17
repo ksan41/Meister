@@ -211,6 +211,7 @@ div {
 
 			</div>
 		</div>
+		</div>
 
 		<%@ include file="../../common_user/footer.jsp"%>
 </body>
