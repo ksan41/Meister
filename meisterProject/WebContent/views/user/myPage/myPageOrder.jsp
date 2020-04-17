@@ -140,27 +140,24 @@
                 
                 <table id="table1" style="font-size: 16px;" width="1000px" height="250px">
                     <tr>
-                        <th rowspan="2" width="400px" height="100px">
-                            <p >
-                                <b style="font-weight:bold; font-size: 1.5em;">절대미각</b>님이 주문하신 내역입니다.
-                                <hr class="bline">
-                                <p style="font-size: 0.7em; color:gray">주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</p>
-                                
-                            </p>
+                        <th rowspan="2" width="400px" height="100px" style="text-align:center;">
+	                        <b style="font-weight:bold; font-size: 1.5em;">절대미각</b>님이 주문하신 내역입니다.
+	                        <hr class="bline">
+	                        <p style="font-size: 0.7em; color:white">주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</p>
                         </th>
-                        <th rowspan="2" style="padding-left: 10px;"s><hr class="xo"></th>
+                        <th rowspan="2" style="padding-left: 10px;"><hr class="xo"></th>
                         <th width="300px" style="padding-top: 10px">
-                            <p align="left">
-                                주문<br>
+                            <p align="left" style="color:white;">
+                                	주문<br>
                                 (2020.01~2020.03)
                                 <b></b>
                             </p>
-                        </th>
+                    </th>
                         
                         <th rowspan="2" style="padding-left: 10px;"><hr class="xo"></th>
                         <th width="300px" style="padding-top: 10px">
-                            <p align="left">
-                                주문금액<br>
+                            <p align="left" style="color:white;">
+                                	주문금액<br>
                                 (2020.01~2020.03)
                             </p>
                         </th>
@@ -175,15 +172,10 @@
             </div>
 
             <div class="inner">
-                <br>
-                <div align="center">
-               
-                    <h3>피자 주문</h3>
-
-                </div>
-                <br>
+                <br><br>
+                <div align="left" style="font-size:22px; font-weight:700; padding-bottom:10px;">피자 주문</div>
     
-                <table id="noticeList" align="center">
+                <table id="noticeList" align="center" width="1000px">
                     <thead>
                         <tr>
                             <th style="width:80px;">포장(배달)</th>
