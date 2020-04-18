@@ -19,7 +19,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <!-- 모달 부트스트랩 -->
 
-</head>
 <style>
 	/* 부트스트랩 덮어씌우기용 스타일 */
         a{
@@ -81,6 +80,7 @@
 
 
 </style>
+</head>
 <body class="sb-nav-fixed">
 
 
