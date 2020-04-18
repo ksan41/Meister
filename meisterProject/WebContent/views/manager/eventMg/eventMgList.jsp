@@ -104,7 +104,7 @@
 					<table id="eventListTable" align="center">
 						<tr>
 							<td><img
-								src="../../resources/admin/img_meister/eventThumbnail/20200331_wCMr6nqu.jpg">
+								src="../../resources/siteImgs/eventImg/에 event1.png">
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red">배너 등록중</p>
@@ -324,7 +324,14 @@
 		</div>
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
-
+	
+	<!-- 
+	<script>
+		function deleteConfirm(){
+		    confirm('해당 이벤트를 삭제하시겠습니까?');
+		};
+	</script>
+	 -->
 
 </body>
 </html>
