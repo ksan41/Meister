@@ -126,11 +126,11 @@
 								</div></td>
 							<td>
 								<div class="eventImg">
-									<img style="width: 350px;" src="../../resources/admin/img_meister/eventThumbnail/20200331_lYlQ96T4.jpg">
+									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
+									<p class="bannerStatus" style="color: red">ddd</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -141,8 +141,7 @@
 						<tr>
 							<td>
 								<div class="eventImg">
-									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200311_K62y1s4N.jpg">
+									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
@@ -155,12 +154,40 @@
 								</div></td>
 							<td>
 								<div class="eventImg">
-									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200327_4X39ZmU4.jpg">
+									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
+									<p class="bannerStatus" style="color: red"> </p>
+									<div align="center">
+										<button class="button" onclick="" data-toggle="modal"
+											data-target="#eventUpdateModal">수정</button>
+										<button class="button" onclick="deleteConfirm();">삭제</button>
+									</div>
+								</div></td>
+						</tr>
+						<tr>
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
+								</div>
+								<div align="center">
+									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
+									<p class="bannerStatus" style="color: red"> </p>
+									<div align="center">
+										<button class="button" onclick="" data-toggle="modal"
+											data-target="#eventUpdateModal">수정</button>
+										<button class="button" onclick="deleteConfirm();">삭제</button>
+									</div>
+								</div></td>
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
+								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
+								</div>
+								<div align="center">
+									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
+									<p class="bannerStatus" style="color: red"> </p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -172,11 +199,11 @@
 							<td>
 								<div class="eventImg">
 									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200331_wCMr6nqu.jpg">
+								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
+									<p class="bannerStatus" style="color: red"> </p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -186,41 +213,11 @@
 							<td>
 								<div class="eventImg">
 									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200120_ZdUq5370.jpg">
+								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200131_Npy27D5Z.jpg">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;"
-								src="../../resources/admin/img_meister/eventThumbnail/20200120_h72eVUM8.jpg">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"></p>
+									<p class="bannerStatus" style="color: red"> </p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
