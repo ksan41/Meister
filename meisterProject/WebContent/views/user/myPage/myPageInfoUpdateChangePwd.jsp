@@ -231,7 +231,7 @@ table {
 				<tr>
 					<th>새 비밀번호 확인</th>
 					<td><input type="text">
-						<button class="small_btn" style="display: inline-block;" id="#">수정하기</button>
+						<button class="small_btn" onclick="updatePwdBtn();" style="display: inline-block;" id="#">수정하기</button>
 					</td>
 				</tr>
 				<tr>
@@ -262,7 +262,7 @@ table {
 				<tr>
 					<th>인증번호 발송</th>
 					<td><input type="radio"> 이메일
-						<button class="small_btn" style="display: inline-block;" id="#">인증번호 발송</button>
+						<button class="small_btn" onclick="certificationBtn();" style="display: inline-block;" id="#">인증번호 발송</button>
 					</td>
 				</tr>
 				<tr>
@@ -283,15 +283,32 @@ table {
 			<br><br><br><br>
 
 			<div id="btns">
-				<button style="color: white;" border:1px solid
-					darkgray" class="middle_btn" id="cbtn">초기화</button>
-				<button class="middle_btn" id="mbtn" onclick="confirm('해당 내용으로 수정하시겠습니까?')" 
+				<button style="color: white;" class="middle_btn" id="cbtn">초기화</button>
+				<button class="middle_btn" id="mbtn" onclick="updateBtn();" 
 					style="background-color:red;">수정하기</button>
 			</div>
 
 		</div>
-	</div>
-
+	
+	<script>
+		function updatePwdBtn(){
+			
+		}
+	
+		function certificationBtn(){
+			
+			if(confirm('인증번호 발송 후에는 휴대전화 및 이메일 수정이 불가합니다.\n인증번호를 발송하시겠습니까?')){
+				
+				alert('인증번호가 발송되었습니다.\n인증번호 입력란에 수신된 인증번호를 입력해주세요.');
+				
+			}
+			
+		}
+		
+		function updateBtn(){
+			confirm('해당 내용으로 수정하시겠습니까?');
+		}
+	</script>
 
 	<%@ include file="../../common_user/footer.jsp"%>
 </body>
