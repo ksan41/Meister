@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>myPageInfoUpdateForm</title>
 
 <%@ include file="../../common_user/menubar.jsp"%>
 <%@ include file="../../common_user/menubarMenuIMG.jsp"%>
@@ -150,10 +150,10 @@ table {
 /* 작은버튼 스타일 */
 .small_btn {
 	display: block;
-	height: 20px;
-	width: 80px;
+	height: 35px;
+	width: 90px;
 	margin: 0 auto;
-	font-size: 10px;
+	font-size: 13px;
 	font-weight: bolder;
 	color: white;
 	background-color: rgb(76, 60, 60);
@@ -186,6 +186,7 @@ table {
 .modal-body {
 	margin: auto;
 }
+.modal-footer{padding-bottom:40px; margin:auto;}
 /* 모달 스타일 끝*/
 </style>
 </head>
@@ -231,7 +232,7 @@ table {
 			<table style="text-align: left;">
 				<tr>
 					<th>이름</th>
-					<td colspan="2" style="width: 550px;"><input type="text"></td>
+					<td colspan="2" style="width: 630px;"><input type="text"></td>
 				</tr>
 				<tr>
 					<th>아이디</th>
@@ -242,21 +243,21 @@ table {
 					<td>
 						<button class="small_btn" id="bb" style="margin: 1px;"
 							onclick="show();">비밀번호변경</button>
-						<div id="aa" style="display: none;">
+						<div id="aa" style="display: none; margin-top:10px;">
 							<table>
 								<tr>
-									<td style="height: 35px;">현재비밀번호</td>
-									<td><input type="password" size="35"></td>
+									<td style="height: 35px;">현재 비밀번호</td>
+									<td style="padding-left:10px;"><input type="password" size="35"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
-									<td><input type="password" size="35"
-										placeholder="8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
+									<td style="padding-left:10px;"><input type="password" size="35"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
 								</tr>
 								<tr>
-									<td style="height: 35px;">새 비밀번호 확인</td>
-									<td><input type="password" size="35"
-										placeholder="8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
+									<td style="height: 35px;">새 비밀번호 확인 </td>
+									<td style="padding-left:10px;"><input type="password" size="35"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
 									<td style="padding-left: 15px;"><button class="small_btn"
 											style="margin: 1px;">수정하기</button></td>
 								</tr>
@@ -271,33 +272,35 @@ table {
 				<tr>
 					<th>휴대전화</th>
 					<td colspan="2">
-						<select id="txtMobile1">
+						<select id="txtMobile1" style="height:33px; width:80px;">
 							<option value="010">010</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="019">019</option>
 							<option value="011">011</option>
-					</select> - <input type="text" id="pel1" size="6" onkeypress="onlyNumber();">
-						- <input type="text" id="pel2" size="6" /></td>
+					</select> - <input type="text" id="pel1" size="7" onkeypress="onlyNumber();">
+						- <input type="text" id="pel2" size="7" /></td>
 					<!-- <td> -->
 					<!-- <input type="text" id="pel2" size="4" /> -->
 					<!-- </td> -->
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td colspan="2"><input type="email"></td>
+					<td colspan="2">
+						<input type="email" size="30">
+					</td>
 				</tr>
 				<tr>
 					<th>인증번호 발송</th>
-					<td><input type="radio">이메일
-						<button class="small_btn" style="display: inline-block;" id="#">인증번호
-							발송</button></td>
+					<td><input type="radio"> 이메일
+						<button class="small_btn" style="display: inline-block;" id="#">인증번호 발송</button>
+					</td>
 				</tr>
 				<tr>
 					<td>
 					<th colspan="5px"
-						style="font-size: 0.7em; color: gray; width: 300px; vertical-align: top;">
-						<label>- 휴대전화 번호 및 이메일 주소를 변경하셨을 경우에 한하여 인증절차를 거쳐야 정보수정이
+						style="font-size: 0.7em; color: gray; width: 400px; vertical-align: top;">
+						<label>휴대전화 번호 및 이메일 주소를 변경하셨을 경우에 한하여 인증절차를 거쳐야 정보수정이
 							완료됩니다.</label>
 					</th>
 				</tr>
@@ -320,10 +323,10 @@ table {
 			<table>
 				<tr>
 					<th
-						style="font-size: 0.7em; color: gray; width: 330px; vertical-align: top; padding-top: 20px; padding-left: 15px;">
-						도미노피자를 더 이상 이용하지 않는다면 <a href="" data-toggle="modal"
+						style="font-size: 0.9em; color: gray; width: 450px; vertical-align: top; padding-top: 20px; padding-left: 15px;">
+						마이스터 피자를 더 이상 이용하지 않는다면 <a href="" data-toggle="modal"
 						data-target="#myModal" style="color: black;"> <span
-							style="text-decoration: underline;">회원탈퇴 바로가기></span>
+							style="text-decoration: underline;"> 회원탈퇴 바로가기></span>
 					</a>
 					</th>
 				</tr>
@@ -362,7 +365,7 @@ table {
 					<div class="modal-body">탈퇴처리를 위해 본인여부를 다시 한 번 확인해 주세요.</div>
 
 					<!-- Modal footer -->
-					<div class="modal-footer" style="margin: auto;">
+					<div class="modal-footer">
 						<!-- 하단버튼 영역-->
 						<table>
 							<tr>

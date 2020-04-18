@@ -223,7 +223,7 @@ div {
 			<table id="middleTable">
 				<tr class="middleTable_tr" style="height:35px;">
 					<th style="font-size: 20px; width: 80px;">탈퇴사유</th>
-					<td style="width: 276px; padding-left: 77px;">
+					<td style="width: 276px; padding-left: 85px;">
 						<input id="reason1" type="radio" name="group"
 						style="vertical-align: text-bottom;"> 관리자 답변 불만</td>
 					<td style="width: 276px; padding-left: 77px;">
@@ -237,7 +237,7 @@ div {
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
-					<td style="padding-left: 77px;">
+					<td style="padding-left: 85px;">
 					<input id="reason4"
 						type="radio" name="group" style="vertical-align: text-bottom;"> 사이트
 						정보 미흡</td>
@@ -248,7 +248,7 @@ div {
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
-					<td style="padding-left: 77px;"><input id="reason7"
+					<td style="padding-left: 85px;"><input id="reason7"
 						type="radio" name="group" style="vertical-align: text-bottom;"> 기타</td>
 				</tr>
 			</table>
@@ -260,7 +260,7 @@ div {
 					<!--  colspan="3" -->
 					<td style="padding-top: 3%; width: 920px; padding-right: 30px;">
 						<textarea class="aa" name="" id="" cols="97" rows="30"
-							style="margin-left: 83px;"></textarea>
+							style="margin-left: 83px; resize:none;"></textarea>
 					</td>
 				</tr>
 			</table>
