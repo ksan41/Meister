@@ -78,8 +78,16 @@
         
         /* 부트스트랩 덮어씌우기용 스타일 */
 
-
-</style>
+		.eventImg{
+			width: 350px;
+		    height: auto;
+		    overflow: hidden;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    margin: auto;
+		}
+	</style>
 </head>
 <body class="sb-nav-fixed">
 
@@ -103,8 +111,10 @@
 
 					<table id="eventListTable" align="center">
 						<tr>
-							<td><img
-								src="../../resources/siteImgs/eventImg/에 event1.png">
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red">배너 등록중</p>
@@ -114,8 +124,10 @@
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 								</div></td>
-							<td><img
-								src="../../resources/admin/img_meister/eventThumbnail/20200331_lYlQ96T4.jpg">
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;" src="../../resources/admin/img_meister/eventThumbnail/20200331_lYlQ96T4.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
@@ -127,8 +139,11 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200311_K62y1s4N.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red">배너 등록중</p>
@@ -138,8 +153,11 @@
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 								</div></td>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200327_4X39ZmU4.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
@@ -151,8 +169,11 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200331_wCMr6nqu.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
@@ -162,8 +183,11 @@
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 								</div></td>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200120_ZdUq5370.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
@@ -175,8 +199,11 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200131_Npy27D5Z.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
@@ -186,8 +213,11 @@
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 								</div></td>
-							<td><img
+							<td>
+								<div class="eventImg">
+									<img style="width: 350px;"
 								src="../../resources/admin/img_meister/eventThumbnail/20200120_h72eVUM8.jpg">
+								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
 									<p class="bannerStatus" style="color: red"></p>
