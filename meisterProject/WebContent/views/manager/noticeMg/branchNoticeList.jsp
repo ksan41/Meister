@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+	<meta charset="EUC-KR">
+	<title>meister_통합 - 지점공지사항 리스트</title>
+	
+	<!-- 메뉴바 include여기에 해주세요 -->
+	<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<!-- 메뉴바 include여기에 해주세요 -->
 </head>
 <body>
-	<%@ include file="../../common_manager/ImMenubar.jsp"%>
 	<div id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">

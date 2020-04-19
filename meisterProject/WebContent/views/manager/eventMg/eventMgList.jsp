@@ -4,23 +4,22 @@
 <html>
 <head>
 
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>meister_통합 - 이벤트관리</title>
 	
-		<!-- 메뉴바 include여기에 해주세요 -->
-		<%@ include file="../../common_manager/ImMenubar.jsp"%>
-		<!-- 메뉴바 include여기에 해주세요 -->
-		
-		
-       <!-- 모달 부트스트랩-->
-        <link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <!-- 모달 부트스트랩 -->
+	<!-- 메뉴바 include여기에 해주세요 -->
+	<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<!-- 메뉴바 include여기에 해주세요 -->
+	
+	<!-- 모달 부트스트랩-->
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- 모달 부트스트랩 -->
 
-<style>
-	/* 부트스트랩 덮어씌우기용 스타일 */
+	<style>
+		/* 부트스트랩 덮어씌우기용 스타일 */
         a{
         	text-decoration: none !important;;
         }
