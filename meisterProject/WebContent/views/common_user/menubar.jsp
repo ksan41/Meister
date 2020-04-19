@@ -38,7 +38,7 @@
 
         #user-area{
             margin-top:15px;
-            width:200px;
+            width:210px;
             height:100px;
             position: absolute;
             left:1500px;
@@ -68,7 +68,12 @@
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
                                 <a href="#">로그인</a>
                                 <a href="#">회원가입</a>
+
                                 <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
+                                
+                                <!--<a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
+                                <a href="#">로그아웃</a>
+                                <a href="#">마이페이지</a>-->
                             </div>
                             <div class="logo" style="margin-left:105%;">
                                 <a href="index.html">
