@@ -287,7 +287,7 @@
 						<p id="addPostInput">
 						
 						</p>
-						<input type="button" onclick="addPostInput(); sample3_execDaumPostcode();" value="우편번호 찾기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(243, 156, 18); font-weight:bold;"><br>
+						<input type="button" onclick="addPostInput(); sample3_execDaumPostcode();" value="우편번호 찾기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(76, 60, 60); font-weight:bold;"><br>
 						<div id="wrap" style="display:none; border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 						</div>
@@ -295,7 +295,7 @@
 							<input type="text" id="addressName" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="배달지 이름">
 							<input type="text" id="addressName" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="담당 지점">
 						</div>
-						<input type="button" onclick="" value="등록하기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(76, 60, 60); font-weight:bold;"><br>
+						<input type="button" onclick="" value="등록하기" style="background-color:rgb(243, 156, 18); border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; font-weight:bold;"><br>
                     </form>
                 </div>
                 
