@@ -1,26 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>meister_통합</title>
-        <link href="resources/admin/dist/css/styles.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-
-
-         <!-- 모달 부트스트랩-->
-         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-         <!-- 모달 부트스트랩 -->
-
-
-        <style>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>meister_통합-피자리스트</title>
+	
+	<!-- 메뉴바 include여기에 해주세요 -->
+	<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<!-- 메뉴바 include여기에 해주세요 -->
+	<!-- 모달 부트스트랩-->
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- 모달 부트스트랩 -->
+	
+	<style>
         /* 부트스트랩 덮어씌우기용 스타일 */
         a{
         	text-decoration: none !important;;
@@ -378,8 +378,8 @@
         }
         /* 메뉴수정 모달 스타일 */
         </style>
-    </head>
-    <body class="sb-nav-fixed">
+</head>
+<body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="menubar_im.html" style="font-style:italic;">Meister Pizza</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- 검색바 -->
@@ -665,5 +665,5 @@
                 </div>
               </div>
                <!-- 메뉴수정 모달 끝 -->
-    </body>
+</body>
 </html>

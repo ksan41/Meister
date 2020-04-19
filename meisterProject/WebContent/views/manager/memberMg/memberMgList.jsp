@@ -111,155 +111,156 @@
 <body class="sb-nav-fixed">
 
 	<div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                        <h1 class="mt-4">회원관리</h1>
-                        <br>
-                        <div class="card mb-4">
-                            <div class="card-header"><i class="fas fa-table mr-1"></i> 회원조회</div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0" align="center">
-                                        <thead align="center">
-                                            <tr>
-                                                <th style="height:50px;" width="20%">
-                                                    <label for="answer"></label>
-                                                    <select name="answer" id="answer">
-                                                        <option value="processing" selected>회원정보 선택</option>
-                                                        <option value="reply">전체</option>
-                                                        <option value="reply">회원명</option>
-                                                        <option value="reply">회원정보</option>
-                                                    </select>
-                                                </th>
-                                                
-                                                <th width="70%"><input type="text" id="search" style="width: 100%; height:50px" placeholder="검색어를 입력해주세요."></th>
-                                                <th width="10%"><button class="button button5">검색</button></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                         
-                                        </tbody>
-                                    </table>
+		<main>
+		<div class="container-fluid">
+			<h1 class="mt-4">회원관리</h1>
+			<br>
+			<div class="card mb-4">
+				<div class="card-header">
+					<i class="fas fa-table mr-1"></i> 회원조회
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-bordered" id="dataListTable"
+							width="100%" cellspacing="0" align="center">
+							<thead align="center">
+								<tr>
+									<th style="height: 50px;" width="20%"><label for="answer"></label>
+										<select name="answer" id="answer">
+											<option value="processing" selected>회원정보 선택</option>
+											<option value="reply">전체</option>
+											<option value="reply">회원명</option>
+											<option value="reply">회원정보</option>
+									</select></th>
 
-                                    <br>
+									<th width="70%"><input type="text" id="search"
+										style="width: 100%; height: 50px" placeholder="검색어를 입력해주세요."></th>
+									<th width="10%"><button class="button button5">검색</button></th>
+								</tr>
+							</thead>
+							<tbody>
 
-                                    <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th width="10%">순번</th>
-                                                <th width="20%">아이디</th>
-                                                <th width="20%">이름</th>
-                                                <th width="20%">회원가입일</th>
-                                                <th width="15%">보유쿠폰(수량)</th>
-                                                <th width="15%">탈퇴처리</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>user01</td>
-                                                <td>New York</td>
-                                                <td>2011/12/12</td>
-                                                <td>21</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>user02</td>
-                                                <td>Sidney</td>
-                                                <td>2010/09/20</td>
-                                                <td>23</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>user03</td>
-                                                <td>London</td>
-                                                <td>2009/10/09</td>
-                                                <td>47</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>user04</td>
-                                                <td>Edinburgh</td>
-                                                <td>2010/12/22</td>
-                                                <td>42</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>user05</td>
-                                                <td>Singapore</td>
-                                                <td>2010/11/14</td>
-                                                <td>28</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>user06</td>
-                                                <td>San Francisco</td>
-                                                <td>2011/06/07</td>
-                                                <td>28</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>user07</td>
-                                                <td>San Francisco</td>
-                                                <td>2010/03/11</td>
-                                                <td>48</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>user08</td>
-                                                <td>Tokyo</td>
-                                                <td>2011/08/14</td>
-                                                <td>20</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>user09</td>
-                                                <td>Sidney</td>
-                                                <td>2011/06/02</td>
-                                                <td>37</td>
-                                                <th>
-                                                    <button class="button" onclick="deleteMem()">탈퇴</button>
-                                                </th>
-                                            </tr>
+							</tbody>
+						</table>
 
-                                        </tbody>
-                                    </table>
-                                    
+						<br>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-<script>
-            function deleteMem(){
-                confirm('해당 회원을 탈퇴처리 하시겠습니까?');
-            };
-        </script>
+						<table class="table table-bordered" id="dataListTable"
+							width="100%" cellspacing="0">
+							<thead>
+								<tr>
+									<th width="10%">순번</th>
+									<th width="20%">아이디</th>
+									<th width="20%">이름</th>
+									<th width="20%">회원가입일</th>
+									<th width="15%">보유쿠폰(수량)</th>
+									<th width="15%">탈퇴처리</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>9</td>
+									<td>user01</td>
+									<td>New York</td>
+									<td>2011/12/12</td>
+									<td>21</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>user02</td>
+									<td>Sidney</td>
+									<td>2010/09/20</td>
+									<td>23</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>user03</td>
+									<td>London</td>
+									<td>2009/10/09</td>
+									<td>47</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>user04</td>
+									<td>Edinburgh</td>
+									<td>2010/12/22</td>
+									<td>42</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>user05</td>
+									<td>Singapore</td>
+									<td>2010/11/14</td>
+									<td>28</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>user06</td>
+									<td>San Francisco</td>
+									<td>2011/06/07</td>
+									<td>28</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>user07</td>
+									<td>San Francisco</td>
+									<td>2010/03/11</td>
+									<td>48</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>user08</td>
+									<td>Tokyo</td>
+									<td>2011/08/14</td>
+									<td>20</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>user09</td>
+									<td>Sidney</td>
+									<td>2011/06/02</td>
+									<td>37</td>
+									<th>
+										<button class="button" onclick="deleteMem()">탈퇴</button>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+	</div>
+	
+	<script>
+		function deleteMem(){
+		    confirm('해당 회원을 탈퇴처리 하시겠습니까?');
+		};
+	</script>
 </body>
 </html>
