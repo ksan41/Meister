@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>주문방법 선택</title>
 	
 	<%@ include file="../../common_user/menubar.jsp" %>
 	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
@@ -156,12 +156,20 @@
 	 }
 	 /* 주문방법 상세페이지 스타일 끝 */   
 	
-	  /* 모달 스타일 시작*/
-	  .modal-body{
+	 /* 모달 스타일 시작*/
+	 .modal-body{
 	     margin:auto;
 	 }
+	 
+	 .modal-content {
+	  width:600px;
+	  margin:auto;
+	 }
+	 #addPostInput{
+	 	margin-bottom:2px;
+	 }
 	 /* 모달 스타일 끝*/
-
+	
 
 
 </style>
@@ -264,7 +272,7 @@
                 </div>
                 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="margin:auto;">
                     <form id="form" name="form" method="post">
                         <input type="hidden" id="confmKey" name="confmKey" value=""/>
                         <input type="hidden" id="returnUrl" name="returnUrl" value=""/>
@@ -274,16 +282,20 @@
                         <input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
                             -->
                         <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
-                        <input type="text" id="sample3_postcode" placeholder="건물명, 도로명, 지번으로 검색하세요" readonly>
-						<input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input type="hidden" id="sample3_address" placeholder="주소" style="display:hidden;"><br>
-						<input type="hidden" id="sample3_detailAddress" placeholder="상세주소">
-						<input type="hidden" id="sample3_extraAddress" placeholder="참고항목">
+                        <input type="text" id="sample3_postcode" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="건물명, 도로명, 지번으로 검색하세요" readonly >
 						
-						<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+						<p id="addPostInput">
+						
+						</p>
+						<input type="button" onclick="addPostInput(); sample3_execDaumPostcode();" value="우편번호 찾기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(243, 156, 18); font-weight:bold;"><br>
+						<div id="wrap" style="display:none; border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 						</div>
-
+						<div>
+							<input type="text" id="addressName" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="배달지 이름">
+							<input type="text" id="addressName" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="담당 지점">
+						</div>
+						<input type="button" onclick="" value="등록하기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(76, 60, 60); font-weight:bold;"><br>
                     </form>
                 </div>
                 
@@ -300,15 +312,22 @@
            <!-- 모달 끝 -->
 
 	<script>
+	
     // 우편번호 찾기 찾기 화면을 넣을 element
     var element_wrap = document.getElementById('wrap');
-
+    function addPostInput(){
+    	document.getElementById('addPostInput').innerHTML = "<input type='text' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_address' placeholder='주소'><br> <input type='text' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_detailAddress' placeholder='상세주소'> <input type='text' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_extraAddress' placeholder='참고항목'>";    	
+    	document.getElementById('sample3_postcode').placeholder = "우편번호";
+    	
+    };
+    
     function foldDaumPostcode() {
         // iframe을 넣은 element를 안보이게 한다.
         element_wrap.style.display = 'none';
-    }
+    };
 
     function sample3_execDaumPostcode() {
+    	element_wrap.style.width="568px";
         // 현재 scroll 위치를 저장해놓는다.
         var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
         new daum.Postcode({
@@ -374,7 +393,7 @@
         element_wrap.style.display = 'block';
         
         
-    }
+    };
 	</script>
 </body>
 </html>
