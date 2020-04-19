@@ -89,8 +89,6 @@
 	</style>
 </head>
 <body class="sb-nav-fixed">
-
-
 	<div id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">
@@ -225,10 +223,8 @@
 								</div></td>
 						</tr>
 					</table>
-
 				</div>
 			</div>
-
 		</div>
 		</main>
 	</div>

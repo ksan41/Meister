@@ -22,8 +22,6 @@
     </style>
 </head>
 <body class="sb-nav-fixed">
-	
-	
 
 	<div id="layoutSidenav_content">
 		<main>
