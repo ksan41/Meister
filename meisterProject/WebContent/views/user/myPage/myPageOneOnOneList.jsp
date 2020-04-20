@@ -125,6 +125,7 @@ div {
 	background-color: rgb(76, 60, 60);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 /* 중간버튼 스타일 */
 </style>
@@ -144,10 +145,10 @@ div {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
-			<a href="">쿠폰함</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="/myOrderList.my">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="/myCouponList.my">쿠폰함</a> <span style="color: lightgray; font-size: 17px;">|</span>
 			<a href="" style="color: orange">1:1문의</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="">정보수정</a>
+				style="color: lightgray; font-size: 17px;">|</span> <a href="/myInfoUpdateCheck.my">정보수정</a>
 		</div>
 		<hr>
 
@@ -157,12 +158,12 @@ div {
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="65%" style="padding-left: 2px; text-align:center;">
-							<b style="font-weight: bold; font-size: 1.5em;">절대미각</b>님께서 문의하신 내용입니다.
+							<b style="font-weight: bold; font-size: 1.5em;"><%= loginUser.getMemberName() %></b>님께서 문의하신 내용입니다.
 							<hr class="bline">
 						</th>
 						<th width="35%" style="text-align:left;">
 							<p style="color:white;">
-								문의하신 내용은 <b style="font-weight: bold; font-size: 1.5em;">총 2건</b>입니다.
+								문의하신 내용은 <b style="font-weight: bold; font-size: 1.5em;">총 <%= list.size() %>건</b>입니다.
 							</p>
 						</th>
 					</tr>
@@ -182,19 +183,22 @@ div {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>2</td>
-							<td>안녕하세요 절대미각입니다.</td>
-							<td>2020.03.31</td>
-							<td>처리중</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>안녕하세요 장인피자 너무 맛있어요</td>
-							<td>2020.03.20</td>
-							<td>완료</td>
-						</tr>
-
+						<% if(list.isEmpty()){ %>
+							<tr>
+								<td colspan="4">존재하는 문의가 없습니다.</td>
+							</tr>
+						<% }else { %>
+							
+							<% for(Center c : list){ %>
+							<tr>
+								<td>1</td>
+								<td>안녕하세요 절대미각입니다.</td>
+								<td>2020.03.31</td>
+								<td>처리중</td>
+							</tr>							
+							<% } %>
+							
+						<% } %>
 					</tbody>
 				</table>
 
@@ -208,7 +212,7 @@ div {
 				<br><br><br>
 
 				<div id="btns" align="center">
-					<button class="middle_btn" id="#">문의하기</button>
+					<button class="middle_btn" id="#" onclick="location.href='/cOneForm.ce';">문의하기</button>
 				</div>
 			</div>
 		</div>
