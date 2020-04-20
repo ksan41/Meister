@@ -239,7 +239,7 @@
             <button class="big_btn" id="#">결제하기</button>
         </div>
     </div>
-    
+    <%@ include file="../../common_user/footer.jsp"%>
     
 </body>
 </html>
