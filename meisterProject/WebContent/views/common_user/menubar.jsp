@@ -66,7 +66,7 @@
                             <div id="user-area">
                             	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
-                                <a href="#">로그인</a>
+                                <a href="<%=contextPath %>/showLoginUPage.me">로그인</a>
                                 <a href="#">회원가입</a>
 
                                 <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
