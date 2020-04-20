@@ -133,6 +133,9 @@
         <hr><br><br>
 
         <!-- inner영역에 콘텐츠 작성 -->
+        
+        
+        <form id="" action="<%= contextPath %>/memberInsert.me">
         <div class="inner">
             <table style="text-align: left;">
                 <tr>
@@ -177,19 +180,14 @@
                 <tr>
                     <th>휴대전화</th>
                     <td colspan="2">
-                        <input class="text-area" id="phone" type="tel" placeholder="-포함해서 입력해주세요">
+                        <input class="text-area" id="phone" name="phone" type="tel" placeholder="-포함해서 입력해주세요">
                     </td>
                 </tr>
                 <tr>
                     <th>이메일</th>
                     <td colspan="2">
-                        <input class="text-area" type="email" name="email1">
-                        &nbsp;@&nbsp;
-                        <select id="email_area" name="email2">
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="daum.net">daum.net</option>
-                        </select>
+                        <input class="text-area" type="email" name="email">
+                   
                     </td>
                 </tr>
             </table>
@@ -199,7 +197,14 @@
                 <button class="middle_btn" id="enroll_btn">가입하기</button>
             </div>
         </div>
+        
+         </form>
+         
     </div>
+    
+   
+    
+    
     
     <%@ include file="../../common_user/footer.jsp"%>
 

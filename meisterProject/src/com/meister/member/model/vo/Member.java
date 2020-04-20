@@ -23,6 +23,7 @@ public class Member {
 
 	}
 
+	
 	public Member(int memberNo, String memberName, String memberId, String memberPwd, Date memberBirth,
 			String memberGender, String memberPhone, String memberEmail, Date memberEnrolldate, Date modifyDate,
 			String memberStatus, String leaveType, String leaveReason, String paymentType) {
@@ -44,17 +45,20 @@ public class Member {
 		this.paymentType = paymentType;
 	}
 
-	// 회원가입시 사용하는 매개변수생성자
-	public Member(String memberName, String memberId, String memberPwd, String memberGender, String memberPhone,
-			String memberEmail) {
+	
+	// 회원가입시 사용하는 매개변수 생성자
+	public Member(String memberName, String memberId, String memberPwd, Date memberBirth, String memberGender,
+			String memberPhone, String memberEmail) {
 		super();
 		this.memberName = memberName;
 		this.memberId = memberId;
 		this.memberPwd = memberPwd;
+		this.memberBirth = memberBirth;
 		this.memberGender = memberGender;
 		this.memberPhone = memberPhone;
 		this.memberEmail = memberEmail;
 	}
+
 
 	public int getMemberNo() {
 		return memberNo;

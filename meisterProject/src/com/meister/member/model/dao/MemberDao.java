@@ -88,6 +88,42 @@ private Properties prop = new Properties();
 	}
 	
 	
+		// 회원가입
+        public int insertMember(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertMember");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getMemberName());
+			pstmt.setString(2, m.getMemberId());
+			pstmt.setString(3, m.getMemberPwd());
+			// 생일?? 
+			pstmt.setDate(4, m.getMemberBirth());
+			
+			pstmt.setString(5, m.getMemberGender());
+			pstmt.setString(6, m.getMemberPhone());
+			pstmt.setString(7, m.getMemberEmail());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+		
+	}
+	
+	
 }
 
 

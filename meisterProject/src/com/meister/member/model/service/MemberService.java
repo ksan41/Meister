@@ -27,5 +27,28 @@ public class MemberService {
 		
 	}
 	
+	
+	   // 회원가입
+       public int insertMember(Member m) {
+		
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().insertMember(conn,m);
+		
+		if(result > 0) {
+			
+			commit(conn);
+			
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
 
 }
