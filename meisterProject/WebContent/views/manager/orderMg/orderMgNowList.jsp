@@ -11,7 +11,7 @@
 	<title>meister_지점 - 주문현황</title>
 	
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/imMenubar.jsp"%>
+	<%@ include file="../../common_manager/bmMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<!-- 모달 부트스트랩-->
@@ -100,6 +100,8 @@
 	</style>
 </head>
 <body class="sb-nav-fixed">
+
+
 
 	<div id="layoutSidenav_content" id="layoutSidenav_content">
 		<main>
