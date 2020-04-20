@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class Coupon {
 	
-	private int couponNo;
-	private String couponName;
-	private double couponDiscount;
-	private Date couponStart;
-	private Date couponEnd;
-	private Date couponRegisterDate;
-	private Date couponModifyDate;
+	private int couponNo;			// 쿠폰번호
+	private String couponName;		// 쿠폰명
+	private double couponDiscount;	// 할인율
+	private Date couponStart;		// 시작기간
+	private Date couponEnd;			// 종료기간
+	private Date couponRegisterDate;// 등록일
+	private Date couponModifyDate;	// 수정일
 	
 	
 	public Coupon() {}
@@ -26,6 +26,15 @@ public class Coupon {
 		this.couponEnd = couponEnd;
 		this.couponRegisterDate = couponRegisterDate;
 		this.couponModifyDate = couponModifyDate;
+	}
+	
+
+	public Coupon(int couponNo, String couponName, Date couponStart, Date couponEnd) {
+		super();
+		this.couponNo = couponNo;
+		this.couponName = couponName;
+		this.couponStart = couponStart;
+		this.couponEnd = couponEnd;
 	}
 
 

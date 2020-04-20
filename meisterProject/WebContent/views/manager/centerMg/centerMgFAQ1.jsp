@@ -104,10 +104,10 @@
 				</div>
 				<div class="card-body">
 					<div class="faqBtns">
-						<button id="activeMgFAQ1">피자 주문하기</button>
-						<button id="activeMgFAQ2">주문확인</button>
-						<button id="activeMgFAQ3">포장 주문</button>
-						<button id="activeMgFAQ4">홈페이지 관련</button>
+						<button class="active">피자 주문하기</button>
+						<button>주문확인</button>
+						<button>포장 주문</button>
+						<button>홈페이지 관련</button>
 					</div>
 					<div align="right">
 						<button class="button" onclick="" data-toggle="modal"
@@ -327,9 +327,9 @@
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">등록</button>
+								style="width: 100px; height: 40px; background: dimgray">등록</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+								style="width: 100px; height: 40px; background: dimgray">취소</button>
 						</div>
 					</form>
 				</div>
@@ -366,9 +366,9 @@
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">수정</button>
+								style="width: 100px; height: 40px; background: dimgray">수정</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+								style="width: 100px; height: 40px; background: dimgray">취소</button>
 						</div>
 					</form>
 				</div>
@@ -377,61 +377,60 @@
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
 
+
 	<!-- 클래스 추가 제거 이벤트 (css변경) -->
 	<!-- active1,2 버튼클릭 아이디	.content1 버튼1의 내용 -->
 	<script>
 		$("#activeMgFAQ1").click(function() {
-			if ($('.content1').css('display') == 'none')
-				$('.content1').addClass("content1").css("display", "block");
-			$('.content2').addClass("content2").css("display", "none");
-			$('.content3').addClass("content3").css("display", "none");
-			$('.content4').addClass("content4").css("display", "none");
+			if ($('.contentMg1').css('display') == 'none')
+				$('.contentMg1').addClass("contentMg1").css("display", "block");
+			$('.contentMg2').addClass("contentMg2").css("display", "none");
+			$('.contentMg3').addClass("contentMg3").css("display", "none");
+			$('.contentMg4').addClass("contentMg4").css("display", "none");
 		});
 
 		$("#activeMgFAQ2").click(function() {
-			if ($('.content2').css('display') == 'none')
-				$('.content2').addClass("content2").css("display", "block");
-			$('.content1').addClass("content1").css("display", "none");
-			$('.content3').addClass("content3").css("display", "none");
-			$('.content4').addClass("content4").css("display", "none");
+			if ($('.contentMg2').css('display') == 'none')
+				$('.contentMg2').addClass("contentMg2").css("display", "block");
+			$('.contentMg1').addClass("contentMg1").css("display", "none");
+			$('.contentMg3').addClass("contentMg3").css("display", "none");
+			$('.contentMg4').addClass("contentMg4").css("display", "none");
 		});
 
 		$("#activeMgFAQ3").click(function() {
-			if ($('.content3').css('display') == 'none')
-				$('.content3').addClass("content3").css("display", "block");
-			$('.content1').addClass("content1").css("display", "none");
-			$('.content2').addClass("content2").css("display", "none");
-			$('.content4').addClass("content4").css("display", "none");
+			if ($('.contentMg3').css('display') == 'none')
+				$('.contentMg3').addClass("contentMg3").css("display", "block");
+			$('.contentMg1').addClass("contentMg1").css("display", "none");
+			$('.contentMg2').addClass("contentMg2").css("display", "none");
+			$('.contentMg4').addClass("contentMg4").css("display", "none");
 		});
 
 		$("#activeMgFAQ4").click(function() {
-			if ($('.content4').css('display') == 'none')
-				$('.content4').addClass("content4").css("display", "block");
-			$('.content1').addClass("content1").css("display", "none");
-			$('.content2').addClass("content2").css("display", "none");
-			$('.content3').addClass("content3").css("display", "none");
+			if ($('.contentMg4').css('display') == 'none')
+				$('.contentMg4').addClass("contentMg4").css("display", "block");
+			$('.contentMg1').addClass("contentMg1").css("display", "none");
+			$('.contentMg2').addClass("contentMg2").css("display", "none");
+			$('.contentMg3').addClass("contentMg3").css("display", "none");
 		});
 	</script>
 
-	<!-- 
-        <script>
-            $(function(){
-                $(".faqQuestion").click(function(){
-                    var answer = $(this).next(); 
-    
-                    if(answer.css("display") == "none"){
-                        $(".faqAnswer").slideUp();
-                        answer.slideDown();
-                    }else{
-                        answer.slideUp(); 
-                    }
-                });
-            });
-
-            function deleteConfirm(){
-                confirm('정말 삭제하시겠습니까?');
-            };
-        </script>
-         -->
+	<script>
+	    $(function(){
+	        $(".faqQuestion").click(function(){
+	            var answer = $(this).next(); 
+	
+	            if(answer.css("display") == "none"){
+	                $(".faqAnswer").slideUp();
+	                answer.slideDown();
+	            }else{
+	                answer.slideUp(); 
+	            }
+	        });
+	    });
+	
+	    function deleteConfirm(){
+	        confirm('정말 삭제하시겠습니까?');
+	    };
+	</script>
 </body>
 </html>
