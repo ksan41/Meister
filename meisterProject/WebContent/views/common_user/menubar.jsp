@@ -95,7 +95,7 @@
                                 <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
                                 
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
-                                <a href="#">로그아웃</a>
+                                <a href="<%=contextPath %>/logoutU.me">로그아웃</a>
                                 <a href="#">마이페이지</a>-->
                                 
                                 <% } %>
