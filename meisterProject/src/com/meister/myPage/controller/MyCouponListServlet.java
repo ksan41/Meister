@@ -1,6 +1,7 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,9 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.meister.coupon.model.vo.Coupon;
-import com.meister.member.model.vo.MemberCoupon;
 import com.meister.myPage.model.service.MyPageService;
-import com.meister.myPage.model.vo.Member;
+import com.meister.member.model.vo.Member;
 
 /**
  * Servlet implementation class MyCouponListServlet
