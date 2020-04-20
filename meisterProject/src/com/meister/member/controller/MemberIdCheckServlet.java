@@ -1,4 +1,4 @@
-package com.meister.mail;
+package com.meister.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MailServlet
+ * Servlet implementation class MemberIdCheckServlet
  */
-@WebServlet("/mail")
-public class MailServlet extends HttpServlet {
+@WebServlet("/idCheck.me")
+public class MemberIdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MailServlet() {
+    public MemberIdCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

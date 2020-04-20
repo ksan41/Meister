@@ -118,6 +118,7 @@ div {
 	background-color: rgb(192, 57, 43);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 /* 중간버튼 스타일 */
 </style>
