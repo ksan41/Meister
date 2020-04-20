@@ -166,20 +166,20 @@ div {
 					</tr>
 					<tr>
 						<td>문의유형</td>
-						<td><select name="selectType" style="width: 200px; height: 30px;">
-								<option value="제품관련">제품관련</option>
-								<option value="배달서비스 관련">배달서비스 관련</option>
-								<option value="직원 서비스 관련">직원 서비스 관련</option>
-								<option value="콜센타 관련">콜센타 관련</option>
-								<option value="칭찬">칭찬</option>
-								<option value="제안">제안</option>
-								<option value="단순문의">단순문의</option>
-								<option value="기타">기타</option>
+						<td><select name="inquiryType" style="width: 200px; height: 30px;">
+								<option value="1">제품관련</option>
+								<option value="2">배달서비스 관련</option>
+								<option value="3">직원 서비스 관련</option>
+								<option value="4">콜센타 관련</option>
+								<option value="5">칭찬</option>
+								<option value="6">제안</option>
+								<option value="7">단순문의</option>
+								<option value="8">기타</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td>매장선택</td>
-						<td><select name="selectStore" style="width: 100px; height: 30px;">
+						<td><select name="store" style="width: 100px; height: 30px;">
 								<option value="역삼점">역삼점</option>
 								<option value="잠원점">잠원점</option>
 								<option value="동서초점">동서초점</option>
