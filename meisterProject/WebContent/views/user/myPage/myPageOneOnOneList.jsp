@@ -145,10 +145,10 @@ div {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="/myOrderList.my">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
-			<a href="/myCouponList.my">쿠폰함</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="<%=contextPath%>/myOrderList.my">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="<%=contextPath%>/myCouponList.my">쿠폰함</a> <span style="color: lightgray; font-size: 17px;">|</span>
 			<a href="" style="color: orange">1:1문의</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="/myInfoUpdateCheck.my">정보수정</a>
+				style="color: lightgray; font-size: 17px;">|</span> <a href="<%=contextPath%>/myInfoUpdateCheck.my">정보수정</a>
 		</div>
 		<hr>
 
@@ -216,7 +216,7 @@ div {
 				<br><br><br>
 
 				<div id="btns" align="center">
-					<button class="middle_btn" id="#" onclick="location.href='/cOneForm.ce';">문의하기</button>
+					<button class="middle_btn" id="#" onclick="location.href='<%=contextPath%>/cOneForm.ce';">문의하기</button>
 				</div>
 			</div>
 		</div>
