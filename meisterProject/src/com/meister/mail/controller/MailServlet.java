@@ -1,4 +1,4 @@
-package com.meister.mail;
+package com.meister.mail.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
