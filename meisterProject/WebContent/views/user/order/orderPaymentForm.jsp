@@ -98,7 +98,7 @@
 <body>
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1>결제하기</h1>
+        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">결제하기</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 장바구니 &gt; 결제하기</div>
@@ -124,7 +124,7 @@
                     <tr>
                         <th></th>
                         <td>
-                            <input type="checkbox">
+                            <input type="checkbox" style="vertical-align:middle; width:40px;" >
                             주문자와 동일
                         </td>
                     </tr>
@@ -170,19 +170,21 @@
             </div>
             <div style="width: 1000px; height: 250px; padding-left: 50px;">
                 <br>
-                <p>30 치즈 & 뉴욕 스트립 스테이크 슈퍼시드 함유 도우 L X 1</p>
+                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">30 치즈 & 뉴욕 스트립 스테이크 슈퍼시드 함유 도우 L X 1</h5>
                 <hr>
-                <p>30 치즈 & 뉴욕 스트립 스테이크 (슈퍼시드 함유 도우) L X 1 / 36,900원</p>
+                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">30 치즈 & 뉴욕 스트립 스테이크 (슈퍼시드 함유 도우) L X 1 / 36,900원</h5>
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 할인적용
             </div>
+            <div style="height:15px;"></div>
+            <h5 style="font-size: smaller; color: rgb(230, 145, 19);">* 모든 할인은 중복적용 불가합니다.</h5>
             <div style="width: 1000px; height: 350px; padding-left: 50px;">
-                <br><br>
+                
                 <table>
                     <tr>
                         <td></td>
-                        <td style="font-size: smaller; color: rgb(230, 145, 19);">* 모든 할인은 중복적용 불가합니다.</td>
+                        
                     </tr>
                     <tr>
                         <th>보유쿠폰</th>
@@ -196,22 +198,25 @@
                     <tr>
                         <th>방문포장</th>
                         <td>
-                            <input type="radio"> 40% 할인 (타쿠폰과 중복적용 불가)
+                            <input type="radio" style="vertical-align:middle">&nbsp; 40% 할인 (타쿠폰과 중복적용 불가)
                         </td>
                     </tr>
+                    
+                    
                 </table>
             </div>
             
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 결제수단 선택
             </div>
-            <div style="width: 1000px; height: 250px; padding-left: 50px;">
-                <br><br><br>
-                <input type="radio">카드결제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio">핸드폰결제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio">카카오페이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio">무통장입금
-                <br><br>
+            <div style="width: 1000px; height: 140px; padding-left: 50px;">
+                <br>
+                <input type="radio" style="vertical-align:middle">&nbsp;카드결제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="vertical-align:middle">&nbsp;핸드폰결제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="vertical-align:middle">&nbsp;카카오페이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="vertical-align:middle">&nbsp;무통장입금<br>
+                <hr><input type="checkbox" style="vertical-align:middle; width:25px; margin-right:5px;">기본 결제 수단으로 등록
+					
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 최종결제금액
