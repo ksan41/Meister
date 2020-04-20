@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -174,6 +177,7 @@ background-color
 
 			<table id="noticeList" align="center">
 				<thead>
+					<!--  -->
 					<tr>
 						<th style="width: 80px;">NO</th>
 						<th style="width: 480px;">제목</th>
@@ -182,6 +186,7 @@ background-color
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 
 					<tr>
 						<td>338</td>
 						<td>연극 <환상동화> 이벤트 당첨자 안내</td>
@@ -242,8 +247,30 @@ background-color
 						<td>2020-02-21</td>
 						<td>233</td>
 					</tr>
+					 -->
+					 
+					 <% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+						<tr>
+							<td colspan="5">존재하는 공지사항이 없습니다.</td>
+						</tr>
+					<% }else{ // 리스트가 비어있지 않을 경우 %>
+					
+						<% for(Notice n : list){ %>
+							
+							<tr>
+								<td><%= n.getNoticeNo() %></td>
+								<td><%= n.getNoticeTitle() %></td>
+								<td><%= n.getCreateDate() %></td>
+								<td><%= n.getCount() %></td>
+							</tr>
+						<% } %>
+					
+					<% } %>
+					 
+					 
 				</tbody>
 			</table>
+			
 
 			<br>
 			<br>
