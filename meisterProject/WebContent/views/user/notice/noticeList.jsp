@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -182,6 +185,7 @@ background-color
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 
 					<tr>
 						<td>338</td>
 						<td>연극 <환상동화> 이벤트 당첨자 안내</td>
@@ -241,7 +245,7 @@ background-color
 						<td>[공지]도미노피자 이용약관 개정 안내</td>
 						<td>2020-02-21</td>
 						<td>233</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 
