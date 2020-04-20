@@ -245,10 +245,25 @@ background-color
 						<td>[공지]도미노피자 이용약관 개정 안내</td>
 						<td>2020-02-21</td>
 						<td>233</td>
-					</tr> -->
+					</tr> 
+					-->
 					
+					<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+						<tr>
+							<td colspan="4">존재하는 공지사항이 없습니다.</td>
+						</tr>
+					<% }else{ // 리스트가 비어있지 않을 경우 %>
 					
+						<% for(Notice n : list){ %>
+							<tr>
+								<td><%= n.getNoticeNo() %></td>
+								<td><%= n.getNoticeTitle() %></td>
+								<td><%= n.getCreateDate() %></td>
+								<td><%= n.getCount() %></td>
+							</tr>
+						<% } %>
 					
+					<% } %>
 					
 				</tbody>
 			</table>
