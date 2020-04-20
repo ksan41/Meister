@@ -35,6 +35,42 @@ public class Notice {
 		this.createDate = createDate;
 		this.count = count;
 	}
+	
+	
+
+
+
+
+	/**
+	 * 2. 공지사항 상세조회용
+	 * @param noticeNo
+	 * @param noticeTitle
+	 * @param noticeContent
+	 * @param createDate
+	 * @param count
+	 */
+	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate, int count) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+		this.createDate = createDate;
+		this.count = count;
+	}
+
+	
+
+
+	/**
+	 * 3. 이전글 다음글 조회용
+	 * @param noticeNo
+	 * @param noticeTitle
+	 */
+	public Notice(int noticeNo, String noticeTitle) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+	}
 
 
 
