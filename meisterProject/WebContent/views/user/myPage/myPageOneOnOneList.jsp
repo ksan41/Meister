@@ -188,13 +188,17 @@ div {
 								<td colspan="4">존재하는 문의가 없습니다.</td>
 							</tr>
 						<% }else { %>
-							
+							<% int count = 1; %>
 							<% for(Center c : list){ %>
 							<tr>
-								<td>1</td>
-								<td>안녕하세요 절대미각입니다.</td>
-								<td>2020.03.31</td>
+								<td><%=count++ %></td>
+								<td><%=c.getInquiryTitle()%></td>
+								<td><%=c.getRegistDate()%></td>
+								<% if(c.getInquiryProStatus().equals("N")){ %>
 								<td>처리중</td>
+								<% }else { %>
+								<td>답변완료</td>
+								<% } %>
 							</tr>							
 							<% } %>
 							
