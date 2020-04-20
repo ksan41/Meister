@@ -8,7 +8,7 @@
 	<title>주문방법 선택</title>
 	
 	<%@ include file="../../common_user/menubar.jsp" %>
-	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 	
 	<!-- 주소검색 API : https://www.poesis.org/postcodify/guide/freeapi -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
