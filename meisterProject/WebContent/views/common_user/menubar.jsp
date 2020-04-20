@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.meister.member.model.vo.Member"%>
 <%
 	String contextPath = request.getContextPath();
-	//String msg = (String)session.getAttribute("msg");
-	//Member loginUser = (Member)session.getAttribute("loginUser");
+	String msg = (String)session.getAttribute("msg");
+	
+	
+	Member loginUser = (Member)session.getAttribute("loginUser");
+	
+	
 
 %>    
 <!doctype html>
@@ -53,6 +57,22 @@
         }
 
     </style>
+    
+    <script>
+    	$(function() {
+    		
+    		var message = "<%=msg%>";
+    		
+    		if(message != "null") {
+    			alert(message);
+    			<%session.removeAttribute("msg");%>
+    		}
+    		
+    	});
+    
+    </script>
+    
+    
 </head>
 <body style="margin:0; padding:0;">
 
@@ -64,16 +84,22 @@
                     <div class="row align-items-center" style="margin: 0;padding: 0;">
                         <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;">
                             <div id="user-area">
+                            
+                            
+                            	<% if(loginUser == null) { %>
                             	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
-                                <a href="<%=contextPath %>/showLoginUPage.me">로그인</a>
+                                <a href="<%=contextPath %>/showLoginPage.me">로그인</a>
                                 <a href="#">회원가입</a>
-
+								<% } else { %>
                                 <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
                                 
-                                <!--<a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
+                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
                                 <a href="#">로그아웃</a>
                                 <a href="#">마이페이지</a>-->
+                                
+                                <% } %>
+                                
                             </div>
                             <div class="logo" style="margin-left:105%;">
                                 <a href="index.html">

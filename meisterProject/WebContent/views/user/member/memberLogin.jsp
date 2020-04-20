@@ -167,11 +167,14 @@
                 
                 <section id="content1" style="padding-top: 0px">
                     <br><br>
+                    
+                    <form action="<%= contextPath %>/loginU.me" method="post">
                     <input type="text" name="userId" style="width: 200px;" placeholder="아이디"> <br>
                     <input type="text" name="userPwd" style="width: 200px; margin-top: 10px;" placeholder="비밀번호">
                     <br><br>
-                    <button class="middle_btn" id="#" >로그인</button>
+                    <input class="middle_btn" type="submit" value="로그인" >
                     <br>
+                    </form>
 
                     <a href="">아이디찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

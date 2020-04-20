@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.meister.member.model.service.MemberService;
+import com.meister.member.model.vo.Member;
 
 /**
  * Servlet implementation class LoginMemberServlet
@@ -26,9 +30,41 @@ public class LoginMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+
+		request.setCharacterEncoding("utf-8");
+		
+		String userId = request.getParameter("userId");
+		System.out.println(userId);
+		String userPwd = request.getParameter("userPwd");
+		System.out.println(userPwd);
+		
+		Member loginUser = new MemberService().loginMember(userId, userPwd);
+		
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser",loginUser);
+		
+		
+		
+		if(loginUser != null) {
+			
+			response.sendRedirect(request.getContextPath());
+			
+			//RequestDispatcher view = request.getRequestDispatcher("/views/common_user/menubar.jsp");
+			//view.forward(request, response);
+			
+			
+		} else {
+			
+			request.setAttribute("msg", "로그인에 실패했습니다");
+			response.sendRedirect("showLoginPage.me");
+			
+			System.out.println("실패");
+			
+		}
+		
+}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
