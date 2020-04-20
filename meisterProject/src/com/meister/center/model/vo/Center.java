@@ -38,6 +38,15 @@ public class Center {
 	}
 
 
+	public Center(int inquiryNo, String inquiryTitle, Date registDate, String inquiryProStatus) {
+		super();
+		this.inquiryNo = inquiryNo;
+		this.inquiryTitle = inquiryTitle;
+		this.registDate = registDate;
+		this.inquiryProStatus = inquiryProStatus;
+	}
+
+
 	public int getInquiryNo() {
 		return inquiryNo;
 	}

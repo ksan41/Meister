@@ -11,7 +11,7 @@
 	<title>meister_통합 - 지점공지사항 상세</title>
 	
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/imMenubar.jsp"%>
+	<%@ include file="../../common_manager/bmMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<!-- 모달 부트스트랩-->
