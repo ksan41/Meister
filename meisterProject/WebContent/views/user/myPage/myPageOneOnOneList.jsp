@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.center.model.vo.Center"%>
+<%
+	ArrayList<Center> list = (ArrayList<Center>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
