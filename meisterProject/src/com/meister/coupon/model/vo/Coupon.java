@@ -27,6 +27,15 @@ public class Coupon {
 		this.couponRegisterDate = couponRegisterDate;
 		this.couponModifyDate = couponModifyDate;
 	}
+	
+
+	public Coupon(int couponNo, String couponName, Date couponStart, Date couponEnd) {
+		super();
+		this.couponNo = couponNo;
+		this.couponName = couponName;
+		this.couponStart = couponStart;
+		this.couponEnd = couponEnd;
+	}
 
 
 	public int getCouponNo() {

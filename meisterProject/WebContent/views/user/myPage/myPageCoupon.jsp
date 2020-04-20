@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.member.model.vo.MemberCoupon"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.coupon.model.vo.Coupon"%>
 <%
-	ArrayList<MemberCoupon> list = (ArrayList<MemberCoupon>)request.getAttribute("list");
+	ArrayList<Coupon> list = (ArrayList<Coupon>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -184,14 +184,20 @@ div {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>쿠폰이름</td>
-							<td>시작일~종료일</td>
-						</tr>
-						<tr>
-							<td>쿠폰이름</td>
-							<td>시작일~종료일</td>
-						</tr>
+						<% if(list.isEmpty()){ 	// 리스트가 비어있을 경우 %>
+							<tr>
+								<td colspan="2">존재하는 쿠폰이 없습니다.</td>
+							</tr>
+						<% }else { 	// 리스트가 비어있지 않을 경우 %>
+							
+							<% for(Coupon c : list){ %>
+							<tr>
+								<td><%= c.getCouponName() %></td>
+								<td><%= c.getCouponStart() %> ~ <%= c.getCouponEnd() %></td>
+							</tr>
+							<% } %>
+							
+						<% } %>
 					</tbody>
 				</table>
 
