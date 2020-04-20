@@ -104,10 +104,10 @@
 				</div>
 				<div class="card-body">
 					<div class="faqBtns">
-						<button class="active">피자 주문하기</button>
-						<button>주문확인</button>
-						<button>포장 주문</button>
-						<button>홈페이지 관련</button>
+						<button id="activeMgFAQ1">피자 주문하기</button>
+						<button id="activeMgFAQ2">주문확인</button>
+						<button id="activeMgFAQ3">포장 주문</button>
+						<button id="activeMgFAQ4">홈페이지 관련</button>
 					</div>
 					<div align="right">
 						<button class="button" onclick="" data-toggle="modal"
@@ -297,7 +297,6 @@
 			</div>
 		</div>
 		</main>
-
 	</div>
 
 	<!-- 등록 버튼 모달 시작 -->
@@ -377,6 +376,42 @@
 		</div>
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
+
+	<!-- 클래스 추가 제거 이벤트 (css변경) -->
+	<!-- active1,2 버튼클릭 아이디	.content1 버튼1의 내용 -->
+	<script>
+		$("#activeMgFAQ1").click(function() {
+			if ($('.content1').css('display') == 'none')
+				$('.content1').addClass("content1").css("display", "block");
+			$('.content2').addClass("content2").css("display", "none");
+			$('.content3').addClass("content3").css("display", "none");
+			$('.content4').addClass("content4").css("display", "none");
+		});
+
+		$("#activeMgFAQ2").click(function() {
+			if ($('.content2').css('display') == 'none')
+				$('.content2').addClass("content2").css("display", "block");
+			$('.content1').addClass("content1").css("display", "none");
+			$('.content3').addClass("content3").css("display", "none");
+			$('.content4').addClass("content4").css("display", "none");
+		});
+
+		$("#activeMgFAQ3").click(function() {
+			if ($('.content3').css('display') == 'none')
+				$('.content3').addClass("content3").css("display", "block");
+			$('.content1').addClass("content1").css("display", "none");
+			$('.content2').addClass("content2").css("display", "none");
+			$('.content4').addClass("content4").css("display", "none");
+		});
+
+		$("#activeMgFAQ4").click(function() {
+			if ($('.content4').css('display') == 'none')
+				$('.content4').addClass("content4").css("display", "block");
+			$('.content1').addClass("content1").css("display", "none");
+			$('.content2').addClass("content2").css("display", "none");
+			$('.content3').addClass("content3").css("display", "none");
+		});
+	</script>
 
 	<!-- 
         <script>
