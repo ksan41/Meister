@@ -176,9 +176,9 @@
                     <br>
                     </form>	
 						
-                    <a href="">아이디찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                    <a href="">회원가입</a>
+                    <a href="<%= contextPath %>/showFindIdCheck.me">아이디찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="<%= contextPath %>/showFindPwdCheck.me">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                    <a href="<%= contextPath %>/showEnrollCheck.me">회원가입</a>
                 </section>
                 
                 <section id="content2" style="padding-top: 25px;">

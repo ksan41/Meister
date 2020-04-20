@@ -18,7 +18,7 @@
         }
         
         .outer *{
-            font-family: 'NanumSquare';
+            
         }
 
         .outer a{text-decoration: none;}
@@ -148,14 +148,14 @@
                 <tr>
                     <th>아이디</th>
                     <td colspan="2">
-                        <input class="text-area" type="text" name="userId">&nbsp;&nbsp;
+                        <input class="text-area" type="text" name="userId" placeholder="영문,숫자로만 5글자 이상~12자 이하로 입력">&nbsp;&nbsp;
                         <button class="small_btn" id="doubleCheck" style="display: inline;">중복확인</button>
                     </td>
                 </tr>
                 <tr>
                     <th>비밀번호</th>
                     <td colspan="2">
-                        <input class="text-area" type="password" name="userPwd">
+                        <input class="text-area" type="password" name="userPwd" placeholder="영문,숫자로만 8글자 이상~16자 이하로 입력">
                     </td>
                 </tr>
                 <tr>
@@ -202,6 +202,27 @@
          
     </div>
     
+    
+    <!--  <script>
+    	
+    	function test() {
+    		var regExp = /^[a-z][a-z0-9]{5,12}+$/i;
+    		
+    		
+    		if(regExp.test()){
+    			 alert("제대로 입력했습니다!!");
+    				
+    		} else {
+    			alert("유효한 값이 아닙니다!!");
+    		}
+    		
+    		
+    	}
+    	
+     
+    
+    </script>
+     -->
    
     
     

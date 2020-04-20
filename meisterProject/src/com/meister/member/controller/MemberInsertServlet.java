@@ -56,7 +56,7 @@ public class MemberInsertServlet extends HttpServlet {
 		
 		java.sql.Date d = java.sql.Date.valueOf(dateIn);
 		
-	
+		
 		Member m = new Member(name,userId,userPwd,d,gender,phone,email);
 		
 		int result = new MemberService().insertMember(m);
