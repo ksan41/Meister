@@ -100,9 +100,6 @@
             <script src="assets/demo/datatables-demo.js"></script>
 
         </div>
-
-
-        
     </body>
 </html>
     
