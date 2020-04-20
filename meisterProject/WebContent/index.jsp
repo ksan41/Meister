@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	.customer_feedback_area{
+		height:350px;
+	}
+
+
 	/* 배달/포장주문버튼 */
         .orderBtns{
             margin-top: 50px;
