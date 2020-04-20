@@ -1,32 +1,44 @@
 package com.meister.center.model.service;
 
+import java.sql.Connection;
+
+import com.meister.center.model.dao.CenterDao;
+import com.meister.center.model.vo.Center;
+import com.meister.center.model.vo.CenterImage;
+import static com.meister.common.JDBCTemplate.*;
+
 public class CenterService {
 
- 
-	public void center() {}
+	
+	/**
+	 * 1. 1:1문의 작성용 서비스
+	 * @param c		--> CENTER 테이블에 insert할 데이터가 담겨있는 객체
+	 * @param ci	--> CENTER_IMAGE 테이블에 insert할 데이터가 담겨있는 객체 (단, 첨부파일이 있을경우)
+	 * @return		--> 처리된 행의 갯수
+	 */
+	public int insertInquiry(Center c, CenterImage ci) {
 
-	public void test1() {
-
+		Connection conn = getConnection();
 		
-	}
-	
-
-	public void test1111() {
-
-	
-	
-	
-	
-	}
-	
-	public void test2() {
-
+		int result1 = new CenterDao().insertInquiry(conn, c);
+		int result2 = 1;
 		
+		if(ci != null) {
+			result2 = new CenterDao().insertInquiryImage(conn, ci);
+		}
+		
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1*result2;
 	}
 	
-	
-	
-	
+
 	
 	
 	

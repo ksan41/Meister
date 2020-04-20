@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	// 제목, 작성일, 조회수,내용
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,8 +129,7 @@ div {
 			<div id="noticeTitle">
 				<table>
 					<tr>
-						<td style="width: 850px; font-weight: 600;">연극 <환상동화>
-							이벤트 당첨자 안내</td>
+						<td style="width: 850px; font-weight: 600;">연극 <환상동화>이벤트 당첨자 안내</td>
 						<td style="width: 70px; text-align: center; font-size: 12px;">2020-02-21</td>
 						<td style="width: 70px; text-align: center; font-size: 12px;">조회
 							233</td>
@@ -197,7 +200,7 @@ div {
 		<br>
 
 		<div align="center">
-			<button class="listBtn">목록</button>
+			<button class="listBtn" onclick="location.href='<%= contextPath %>/nList.no';">목록</button>
 		</div>
 
 	</div>

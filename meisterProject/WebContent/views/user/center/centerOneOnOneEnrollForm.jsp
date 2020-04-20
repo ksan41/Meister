@@ -150,64 +150,62 @@ div {
 			</div>
 			<hr>
 
-			<form>
+			<form id="insertForm" action="<%=contextPath%>/cOneInsert.ce" method="post" enctype="multipart/form-data">
 				<table id="insertQuestionForm">
 					<tr>
 						<td style="width: 200px;">아이디</td>
-						<td>MeisterPizza</td>
+						<td><%=loginUser.getMemberId() %></td>
 					</tr>
 					<tr>
 						<td>연락처</td>
-						<td>010-7777-7777</td>
+						<td><%=loginUser.getMemberPhone() %></td>
 					</tr>
 					<tr>
 						<td>이메일</td>
-						<td>MeisterPizza@naver.com</td>
+						<td><%=loginUser.getMemberEmail() %></td>
 					</tr>
 					<tr>
 						<td>문의유형</td>
-						<td><select name="" id="" style="width: 200px; height: 30px;">
-								<option value="">제품관련</option>
-								<option value="">배달서비스 관련</option>
-								<option value="">직원 서비스 관련</option>
-								<option value="">콜센타 관련</option>
-								<option value="">칭찬</option>
-								<option value="">제안</option>
-								<option value="">단순문의</option>
-								<option value="">기타</option>
+						<td><select name="inquiryType" style="width: 200px; height: 30px;">
+								<option value="1">제품관련</option>
+								<option value="2">배달서비스 관련</option>
+								<option value="3">직원 서비스 관련</option>
+								<option value="4">콜센타 관련</option>
+								<option value="5">칭찬</option>
+								<option value="6">제안</option>
+								<option value="7">단순문의</option>
+								<option value="8">기타</option>
 						</select></td>
 					</tr>
 					<tr>
 						<td>매장선택</td>
-						<td><select name="" id="" style="width: 100px; height: 30px;">
-								<option value="">서울</option>
-								<option value="">인천</option>
-								<option value="">경기</option>
-								<option value="">대전</option>
-								<option value="">경남</option>
-								<option value="">전북</option>
-								<option value="">제주</option>
-						</select> <select name="" id="" style="width: 100px; height: 30px;">
-								<option value="">대덕점</option>
-								<option value="">역삼점</option>
-								<option value="">둔산점</option>
-								<option value="">송촌점</option>
-								<option value="">신탄진점</option>
-						</select></td>
+						<td><select name="store" style="width: 100px; height: 30px;">
+								<option value="역삼점">역삼점</option>
+								<option value="잠원점">잠원점</option>
+								<option value="동서초점">동서초점</option>
+								<option value="서초점">서초점</option>
+								<option value="양재점">양재점</option>
+								<option value="방배역점">방배역점</option>
+								<option value="잠실점">잠실점</option>
+								<option value="석촌점">석촌점</option>
+								<option value="명동점">명동점</option>
+								<option value="논현점">논현점</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td>제목</td>
-						<td><input type="text" style="height: 30px; width: 80%;"></td>
+						<td><input type="text" name="title" style="height: 30px; width: 80%;" required></td>
 					</tr>
 					<tr>
 						<td>문의내용</td>
 						<td style="height: 300px;">
-							<textarea style="width: 90%; height: 300px; resize: none;"></textarea>
+							<textarea name="content" style="width: 90%; height: 300px; resize: none;" required></textarea>
 	                    </td>
 					</tr>
 					<tr>
 						<td>첨부파일</td>
-						<td><input type="file"></td>
+						<td><input type="file" name="upfile"></td>
 					</tr>
 				</table>
 				
@@ -216,9 +214,9 @@ div {
 				<div id="btns">
 					<button
 						style="background: white; color: black; border: 1px solid darkgray"
-						class="middle_btn" id="cbtn">취소</button>
+						class="middle_btn" id="cbtn" type="reset">취소</button>
 					<br>
-					<button class="middle_btn" id="mbtn">등록</button>
+					<button type="submit" class="middle_btn" id="mbtn">등록</button>
 				</div>
 				
 			</form>

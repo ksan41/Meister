@@ -90,9 +90,10 @@ div {
 	font-weight: 750;
 }
 
+/*
 #noticeList>tbody :nth-child(2) {
 	cursor: pointer;
-}
+}*/
 
 /* .pagination {
             display: inline-block;
@@ -135,6 +136,14 @@ background-color
 	margin:auto;
 }
 /* 공지사항 목록 스타일 끝 */
+
+#noticeList>tbody>tr:hover{
+	background:orange;
+	color:white;
+	cursor:pointer;
+}
+
+
 </style>
 
 </head>
@@ -285,8 +294,27 @@ background-color
 
 		</div>
 
-
 	</div>
+	
+		<script>
+		$(function(){
+			$("#noticeList>tbody>tr").click(function(){
+				console.log("클릭");
+				
+				// 현재 클릭했을 때의 해당 공지사항의 번호
+				var nno = $(this).children().eq(0).text();
+				// 쿼리스트링 이용해서 전달값 전달
+				location.href="<%= contextPath %>/detail.no?nno=" + nno;
+				
+				
+			});
+		});
+		
+	</script>
+	
+	
+
+	
 	<%@ include file="../../common_user/footer.jsp"%>
 </body>
 </html>

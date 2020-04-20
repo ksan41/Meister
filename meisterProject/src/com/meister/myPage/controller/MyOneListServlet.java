@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.center.model.vo.Center;
 import com.meister.myPage.model.service.MyPageService;
-import com.meister.myPage.model.vo.Member;
+import com.meister.member.model.vo.Member;
 
 /**
  * Servlet implementation class MyOneListServlet

@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="<%=contextPath %>/views/common_user/css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
 
         #user-area{
@@ -55,7 +55,16 @@
          margin: auto;
          font-family: 'nanumsquare';
         }
-
+        #logoImg{
+        	position:absolute;
+			z-index:20000;
+			left:120%;
+			top:-30px;
+        }
+		#logoImg:hover{
+			cursor:pointer;
+			
+		}
     </style>
     
     <script>
@@ -82,7 +91,7 @@
         <div class="header-area "  style="margin: 0;padding: 0;">
             <div id="sticky-header" class="main-header-area "  style="margin: 0;padding: 0;">
                     <div class="row align-items-center" style="margin: 0;padding: 0;">
-                        <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;">
+                        <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;position:relative">
                             <div id="user-area">
                             
                             
@@ -96,14 +105,14 @@
                                 
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
                                 <a href="<%=contextPath %>/logoutU.me">로그아웃</a>
-                                <a href="#">마이페이지</a>-->
+                                <a href="<%=contextPath%>/myOrderList.my">마이페이지</a>
                                 
                                 <% } %>
                                 
                             </div>
                             <div class="logo" style="margin-left:105%;">
-                                <a href="index.html">
-                                    <img src="<%=contextPath %>/views/common_user/img/logo.png" alt="">
+                                <a href="<%=contextPath %>">
+                                    <img id="logoImg" src="<%=contextPath %>/views/common_user/img/logo.png" alt="">
                                 </a>
                             </div>
                         </div>
