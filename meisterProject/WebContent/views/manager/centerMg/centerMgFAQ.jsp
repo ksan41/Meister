@@ -106,7 +106,7 @@
 				</div>
 				<div class="card-body">
 					<div class="faqBtns">
-						<button id="activeMgFAQ1">피자 주문하기</button>
+						<button id="activeMgFAQ1" class="active">피자 주문하기</button>
 						<button id="activeMgFAQ2">주문확인</button>
 						<button id="activeMgFAQ3">포장 주문</button>
 						<button id="activeMgFAQ4">홈페이지 관련</button>
