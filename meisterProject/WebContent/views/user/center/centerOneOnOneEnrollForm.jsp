@@ -134,9 +134,9 @@ div {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="">자주하는 질문</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href=""
-				style="color: orange">1:1문의</a>
+			<a href="<%=contextPath%>/faqList.ce">자주하는 질문</a> <span
+				style="color: lightgray; font-size: 17px;">|</span>
+			<a href="" style="color: orange">1:1문의</a>
 		</div>
 		<hr>
 
