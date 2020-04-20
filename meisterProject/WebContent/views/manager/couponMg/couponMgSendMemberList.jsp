@@ -10,7 +10,7 @@
 	<meta name="author" content="" />
 	<title>meister_통합 - 쿠폰발송_회원리스트</title>
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<%@ include file="../../common_manager/imMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<!-- 모달 부트스트랩-->
