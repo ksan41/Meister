@@ -12,7 +12,7 @@ public class NoticeService {
 	
 	/**
 	 * 1. 공지사항 리스트 조회용 서비스
-	 * @return list --> Notice 테이블로 부터 조회돈 데이터들이 담겨있는 ArrayList
+	 * @return list --> Notice 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
 	public ArrayList<Notice> selectList(){
 		

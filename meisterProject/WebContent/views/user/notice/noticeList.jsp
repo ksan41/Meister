@@ -185,7 +185,7 @@ background-color
 					</tr>
 				</thead>
 				<tbody>
-					<!-- 
+					
 					<tr>
 						<td>338</td>
 						<td>연극 <환상동화> 이벤트 당첨자 안내</td>
@@ -246,15 +246,16 @@ background-color
 						<td>2020-02-21</td>
 						<td>233</td>
 					</tr> 
-					-->
 					
+					 
 					<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 						<tr>
-							<td colspan="4">존재하는 공지사항이 없습니다.</td>
+							<td colspan="5">존재하는 공지사항이 없습니다.</td>
 						</tr>
 					<% }else{ // 리스트가 비어있지 않을 경우 %>
 					
 						<% for(Notice n : list){ %>
+							
 							<tr>
 								<td><%= n.getNoticeNo() %></td>
 								<td><%= n.getNoticeTitle() %></td>
@@ -270,7 +271,7 @@ background-color
 
 			<br>
 			<br>
-
+			
 			<div class="pagination" align="center">
 				<div>
 					<a href="#">&laquo;</a> <a href="#">1</a> <a href="#" class="active">2</a>
@@ -278,11 +279,17 @@ background-color
 					<a href="#">&raquo;</a>
 				</div>
 			</div>
+			 
 
 		</div>
 
 
 	</div>
 	<%@ include file="../../common_user/footer.jsp"%>
+	
+	<script>
+		console.log(list);
+	</script>
+	
 </body>
 </html>

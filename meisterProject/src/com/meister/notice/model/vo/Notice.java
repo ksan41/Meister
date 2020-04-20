@@ -11,7 +11,7 @@ public class Notice {
 	private Date modifiyDate;		// 수정일
 	private int noticeType;			// 1 -> 고객 , 2 -> 지점
 	private int count;				// 조회수
-	private int noticeStatus;		// 상태값(공개여부)
+	private String noticeStatus;	// 상태값(공개여부)
 	
 	
 	public Notice() {
@@ -40,7 +40,7 @@ public class Notice {
 
 
 	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate, Date modifiyDate,
-			int noticeType, int count, int noticeStatus) {
+			int noticeType, int count, String noticeStatus) {
 		super();
 		this.noticeNo = noticeNo;
 		this.noticeTitle = noticeTitle;
@@ -123,12 +123,12 @@ public class Notice {
 	}
 
 
-	public int getNoticeStatus() {
+	public String getNoticeStatus() {
 		return noticeStatus;
 	}
 
 
-	public void setNoticeStatus(int noticeStatus) {
+	public void setNoticeStatus(String noticeStatus) {
 		this.noticeStatus = noticeStatus;
 	}
 
