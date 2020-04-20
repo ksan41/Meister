@@ -96,7 +96,7 @@
                                 
                                 <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
                                 <a href="<%=contextPath %>/logoutU.me">로그아웃</a>
-                                <a href="#">마이페이지</a>-->
+                                <a href="<%=contextPath%>/myOrderList.my">마이페이지</a>
                                 
                                 <% } %>
                                 

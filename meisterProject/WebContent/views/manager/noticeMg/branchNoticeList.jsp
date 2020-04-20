@@ -25,9 +25,9 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">지점 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="">등록</button>
-				<button class="button" onclick="">수정</button>
-				<button class="button" onclick="">삭제</button>
+				<button class="button" onclick="" style="align:right">등록</button>
+				<button class="button" onclick="" style="align:right">수정</button>
+				<button class="button" onclick="" style="align:right">삭제</button>
 			</div>
 
 			<!-- <ol class="breadcrumb mb-4">
