@@ -120,7 +120,7 @@
 						<!-- 내용작성-->
 						<table class="table table-bordered" id="dataListTable" width="60%" cellspacing="0";>
 							<thead>
-								<tr data-toggle="modal" data-target="#myModal">
+								<tr>
 									<th width="10%">주문번호</th>
 									<th width="10%">고객명</th>
 									<th width="48%">주문정보</th>

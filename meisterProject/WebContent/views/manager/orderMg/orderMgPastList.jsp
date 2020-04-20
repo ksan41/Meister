@@ -138,10 +138,9 @@ h4, .h4 {
 						</table>
 						<br>
 						<!-- 내용작성-->
-						<table class="table table-bordered" id="dataListTable" width="60%"
-							cellspacing="0";>
+						<table class="table table-bordered" id="dataListTable" width="60%" cellspacing="0";>
 							<thead>
-								<tr data-toggle="modal" data-target="#myModal">
+								<tr>
 									<th width="15%">주문번호</th>
 									<th width="13%">고객명</th>
 									<th width="50%">주문정보</th>
