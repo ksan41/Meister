@@ -141,7 +141,7 @@
 									<td>New York</td>
 									<td>2011/12/12</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -150,7 +150,7 @@
 									<td>Sidney</td>
 									<td>2010/09/20</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -159,7 +159,7 @@
 									<td>London</td>
 									<td>2009/10/09</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -168,7 +168,7 @@
 									<td>Edinburgh</td>
 									<td>2010/12/22</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -177,7 +177,7 @@
 									<td>Singapore</td>
 									<td>2010/11/14</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -186,7 +186,7 @@
 									<td>San Francisco</td>
 									<td>2011/06/07</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -195,7 +195,7 @@
 									<td>San Francisco</td>
 									<td>2010/03/11</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -204,7 +204,7 @@
 									<td>Tokyo</td>
 									<td>2011/08/14</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 								<tr>
@@ -213,7 +213,7 @@
 									<td>Sidney</td>
 									<td>2011/06/02</td>
 									<th>
-										<button class="button" onclick="deleteMem()">사유</button>
+										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
 									</th>
 								</tr>
 							</tbody>
@@ -224,10 +224,34 @@
 		</div>
 		</main>
 	</div>
-	<script>
-		function deleteMem(){
-		    confirm('해당 회원을 탈퇴처리 하시겠습니까?');
-		};
-	</script>
+	
+	
+	<!-- 모달 시작 -->
+	<div class="modal fade" id="leaveReasonModal"> <!-- modal별 id 변경해주세요-->
+		<div class="modal-dialog">
+			<div class="modal-content">
+			  
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title" style="margin:auto;padding:0;">탈퇴사유</h4>
+					<button type="button" class="close" data-dismiss="modal" style="margin:0;padding:0;">&times;</button>
+				</div>
+		
+				<!-- Modal body -->
+				<div class="modal-body">
+					OOO회원의 탈퇴사유
+					<br><br>
+					탈퇴사유불러오기
+				</div>
+		
+				<!-- Modal footer -->
+				<div class="modal-footer" style="margin:auto;">
+					<!-- 하단버튼 영역-->
+					<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:200px; height:50px;">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 모달 끝 -->
 </body>
 </html>
