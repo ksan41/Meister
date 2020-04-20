@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.member.model.vo.MemberCoupon"%>
+<%
+	ArrayList<MemberCoupon> list = (ArrayList<MemberCoupon>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,10 +141,10 @@ div {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="/myOrderList.my">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
 			<a href="" style="color: orange">쿠폰함</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="">1:1문의</a>
-			<span style="color: lightgray; font-size: 17px;">|</span> <a href="">정보수정</a>
+				style="color: lightgray; font-size: 17px;">|</span> <a href="/myOneList.my">1:1문의</a>
+			<span style="color: lightgray; font-size: 17px;">|</span> <a href="/myInfoUpdateCheck.my">정보수정</a>
 		</div>
 		<hr>
 
@@ -155,7 +158,7 @@ div {
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="495px" style="padding-left: 2px; text-align: center;">
-							<b style="font-weight: bold; font-size: 1.5em;">절대미각</b>님께서 보유하고
+							<b style="font-weight: bold; font-size: 1.5em;"><%=loginUser.getMemberName() %></b>님께서 보유하고
 							있는 할인쿠폰 내역입니다.
 							<hr class="bline">
 							<p style="font-size: 0.7em; color: white;">쿠폰을 사용하여 피자를 주문해
@@ -163,7 +166,7 @@ div {
 						</th>
 						<th width="10px"><hr class="xo"></th>
 						<th style="padding-right: 5%; text-align: center;">보유하고 있는
-							쿠폰은 <b style="font-weight: bold; font-size: 1.5em;">총 2장</b>입니다.
+							쿠폰은 <b style="font-weight: bold; font-size: 1.5em;">총 <%=list.size()%>장</b>입니다.
 						</th>
 					</tr>
 
@@ -182,12 +185,12 @@ div {
 					</thead>
 					<tbody>
 						<tr>
-							<td>[매니아]프리미엄 피자 포장 35% 할인</td>
-							<td>2020.03.23 ~ 2020.03.31</td>
+							<td>쿠폰이름</td>
+							<td>시작일~종료일</td>
 						</tr>
 						<tr>
-							<td>[마이키친] REGULAR 배달 20% 할인</td>
-							<td>2020.03.06 ~ 2020.04.02</td>
+							<td>쿠폰이름</td>
+							<td>시작일~종료일</td>
 						</tr>
 					</tbody>
 				</table>
@@ -207,7 +210,7 @@ div {
 				<br>
 
 				<div id="btns" align="center">
-					<button class="middle_btn" id="#">피자 주문하기</button>
+					<button class="middle_btn" id="#" onclick="location.href='/pizzaList.men';">피자 주문하기</button>
 				</div>
 
 			</div>
