@@ -119,55 +119,30 @@
         <div class="inner">
           
             <table>
-
                 <tr>
-
                     <td><p style="style=color:rgb(76, 60, 60);">배달주소</p></td>
-                    
-    
                 </tr>
-
                 <tr>
-
                     <th style="padding-top: 15px; font-size: 20px;" ><p>주소주소</p></th>
-
                 </tr>
-
-                
-                
-
             </table>
             
             <br>
-
-            <table> 
-
-                <tr>
-
-                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
-
-
-
-                            <img src="<%=contextPath%>/resources/siteImgs/pageImg/pizza.png" style="width:100%;"> 
-                         
-					</td>
-                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
-
-
-                      
-                            <img src="<%=contextPath%>/resources/siteImgs/pageImg/sideDish.png" style="width:100%;"> 
-    
-                      
-                    </td>
-                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
-                     	<img src="<%=contextPath%>/resources/siteImgs/pageImg/drinkEtc.png" style="width:100%;"> 
-			      	</td>
-                  
-
-                </tr>
-
+            <div>
+            <table style="margin:auto;">
+	                <tr style="margin:auto;">
+	                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
+	                    	<img src="<%=contextPath%>/resources/siteImgs/pageImg/pizza.png" style="width:100%; height:100%;"> 
+						</td>
+	                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
+	                    	<img src="<%=contextPath%>/resources/siteImgs/pageImg/sideDish.png" style="width:100%; height:100%;"> 
+	                    </td>
+	                    <td style="width: 200px; height:200px; align:cnter; border:1px solid rgb(76, 60, 60);">
+	                     	<img src="<%=contextPath%>/resources/siteImgs/pageImg/drinkEtc.png" style="width:100%; height:100%;"> 
+				      	</td>
+	                </tr>
             </table>
-
+			</div>
         </div>
 
         
