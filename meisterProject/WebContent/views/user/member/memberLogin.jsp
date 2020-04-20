@@ -174,8 +174,8 @@
                     <br><br>
                     <input class="middle_btn" type="submit" value="로그인" >
                     <br>
-                    </form>
-
+                    </form>	
+						
                     <a href="">아이디찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="">비밀번호찾기</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                     <a href="">회원가입</a>
