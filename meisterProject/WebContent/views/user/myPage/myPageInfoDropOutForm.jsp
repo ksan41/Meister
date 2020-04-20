@@ -269,7 +269,7 @@ div {
 				<button
 					style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">수정</button>
+				<button class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
 		</div>
 	

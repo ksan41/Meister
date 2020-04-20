@@ -11,7 +11,7 @@
 	<title>meister_지점 - 지난 주문내역</title>
 	
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/ImMenubar.jsp"%>
+	<%@ include file="../../common_manager/imMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<!-- 모달 부트스트랩-->
@@ -138,10 +138,9 @@ h4, .h4 {
 						</table>
 						<br>
 						<!-- 내용작성-->
-						<table class="table table-bordered" id="dataListTable" width="60%"
-							cellspacing="0";>
+						<table class="table table-bordered" id="dataListTable" width="60%" cellspacing="0";>
 							<thead>
-								<tr data-toggle="modal" data-target="#myModal">
+								<tr>
 									<th width="15%">주문번호</th>
 									<th width="13%">고객명</th>
 									<th width="50%">주문정보</th>

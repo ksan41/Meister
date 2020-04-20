@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
+    
 	<%@ include file="views/common_user/footer.jsp"%>
 	
 	<script>
@@ -100,7 +101,7 @@
 		function orderTakeOut(){
 			location.href="<%=contextPath%>/orderTakeOut.or";
 		}
-		
 	</script>
+	
 </body>
 </html>
