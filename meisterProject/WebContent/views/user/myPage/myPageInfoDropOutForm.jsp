@@ -187,72 +187,43 @@ div {
 			</div>
 		</div>
 
-			<br><br><hr>
-
-
-
-			<!--
-           <div id="xo5">
-           <form style="padding-left: 10px;">
-            <label > 탈퇴사유  </label>
-            <input id="reason1" type = "radio" name="group"> 
-            <label for="reason1">관리자 답변 불만</label>
-        
-            <input id="reason2" type="radio" name="group">
-            <label for="reason2">회사 서비스에 대한 불만</label>
-
-            <input id="reason3" type="radio" name="group">
-            <label for="reason3">시스템 성능 불만</label>
-            
-            <input id="reason4" type="radio" name="group" >
-            <label for="reason4">사이트 정보 미흡</label>
-
-            <input id="reason5" type="radio" name="group">
-            <label for="reason5">광고 메일 수신</label>
-
-            <input id="reason6" type="radio" name="group">
-            <label for="reason6">개인정보 보호</label>
-
-            <input id="reason7" type="radio" name="group">
-            <label for="reason7">기타</label>
-           </form>
-        </div>
-        -->
-			<br>
-
+		<br><br><hr><br>
+			
+		<form id="dropOutForm" action="<%=contextPath%>/서블릿명" method="post">
+		
 			<table id="middleTable">
 				<tr class="middleTable_tr" style="height:35px;">
 					<th style="font-size: 20px; width: 80px;">탈퇴사유</th>
 					<td style="width: 276px; padding-left: 85px;">
-						<input id="reason1" type="radio" name="group"
+						<input type="radio" id="reason1" name="group"
 						style="vertical-align: text-bottom;"> 관리자 답변 불만</td>
 					<td style="width: 276px; padding-left: 77px;">
-						<input id="reason2" type="radio" name="group" 
+						<input type="radio" id="reason2" name="group" 
 						style="vertical-align: text-bottom;"> 회사 서비스에 대한 불만
 					</td>
 					<td style="width: 276px; padding-left: 77px;">
-						<input id="reason3" type="radio"name="group" 
+						<input type="radio" id="reason3" name="group" 
 						style="vertical-align: text-bottom;"> 시스템 성능 불만
 					</td>
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
 					<td style="padding-left: 85px;">
-					<input id="reason4"
-						type="radio" name="group" style="vertical-align: text-bottom;"> 사이트
+						<input type="radio" id="reason4" name="group" style="vertical-align: text-bottom;"> 사이트
 						정보 미흡</td>
-					<td style="padding-left: 77px;"><input id="reason5" type="radio" name="group"
+					<td style="padding-left: 77px;"><input type="radio" id="reason5" name="group"
 						style="vertical-align: text-bottom;"> 광고 메일 수신</td>
-					<td style="padding-left: 77px;"><input id="reason6" type="radio" name="group"
+					<td style="padding-left: 77px;"><input type="radio" id="reason6" name="group"
 						style="vertical-align: text-bottom;"> 개인 정보 보호</td>
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
-					<td style="padding-left: 85px;"><input id="reason7"
-						type="radio" name="group" style="vertical-align: text-bottom;"> 기타</td>
+					<td style="padding-left: 85px;">
+						<input type="radio" id="reason7" name="group" style="vertical-align: text-bottom;"> 기타
+					</td>
 				</tr>
 			</table>
-
+		
 			<table>
 				<tr>
 					<td valign="top"
@@ -266,13 +237,14 @@ div {
 			</table>
 
 			<div id="btns">
-				<button
+				<button type="reset"
 					style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">탈퇴</button>
+				<button type="submit" class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
-		</div>
-	
+		</form>
+		
+	</div>
 
 	<%@ include file="../../common_user/footer.jsp"%>
 </body>
