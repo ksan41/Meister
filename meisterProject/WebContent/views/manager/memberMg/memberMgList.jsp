@@ -118,6 +118,7 @@
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 회원조회
+					<button style="">탈퇴회원조회</button>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
