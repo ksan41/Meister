@@ -119,6 +119,7 @@ div {
 	background-color: rgb(76, 60, 60);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 </style>
 </head>
@@ -149,8 +150,7 @@ div {
 
 			<div id="order-info">
 
-				<table id="table1" style="font-size: 16px;" width="1000px"
-					height="250px">
+				<table id="table1" style="font-size: 16px;" width="1000px" height="250px">
 					<tr>
 						<th rowspan="2" width="50%" height="100px"
 							style="text-align: center;"><b
@@ -159,23 +159,23 @@ div {
 							<hr class="bline">
 							<p style="font-size: 0.7em; color: white">주문을 취소하시려면 해당 매장으로
 								전화하셔야 합니다.</p></th>
-						<th width="300px" style="padding-top: 10px">
+						<th width="300px" height="50%" style="padding-top: 10px">
 							<p align="left" style="color: white;">
-								주문<br> (2020.01~2020.03) <b></b>
+								총 주문<br>(가입일~현재일)
 							</p>
 						</th>
 
 						<th width="25%" style="padding-top: 10px">
 							<p align="left" style="color: white;">
-								주문금액<br> (2020.01~2020.03)
+								총 주문금액<br>(가입일~현재일)
 							</p>
 						</th>
 					</tr>
 					<tr>
-						<th height="25%"
-							style="font-weight: bold; font-size: 4.0em; padding-bottom: 20px">0</th>
+						<th 
+							style="font-weight: bold; font-size: 4.0em; padding-bottom: 30px">0</th>
 						<th
-							style="font-weight: bold; font-size: 4.0em; padding-bottom: 20px">0</th>
+							style="font-weight: bold; font-size: 4.0em; padding-bottom: 30px">0</th>
 					</tr>
 
 				</table>
