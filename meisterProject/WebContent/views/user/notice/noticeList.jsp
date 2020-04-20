@@ -287,9 +287,7 @@ background-color
 	</div>
 	<%@ include file="../../common_user/footer.jsp"%>
 	
-	<script>
-		console.log(list);
-	</script>
+
 	
 </body>
 </html>
