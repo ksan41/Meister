@@ -3,17 +3,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-        <!-- 장바구니아이콘 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- 장바구니 아이콘 끝 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <!-- 장바구니아이콘 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- 장바구니 아이콘 끝 -->
 
+	<%@ include file="../../common_user/menubar.jsp" %>
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 
         <style>
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
@@ -112,8 +114,7 @@
     </style>
 </head>
 <body>
-	<%@ include file="../../common_user/menubar.jsp" %>
-	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+	
 
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
@@ -127,7 +128,7 @@
 
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
-            <table id="orderB1" border="0px;">
+            <table id="orderB1">
                 <tr>
                     <th colspan="2" style="color:white; background-color: rgb(76, 60, 60);">배달주문</th>
                 </tr>
@@ -143,7 +144,7 @@
             </table>
             <hr>
 
-            <table id="orderB2" border="0px;" align="center">
+            <table id="orderB2" style="text-align:center; margin:auto;">
                 <tr>
                     <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
                 </tr>
