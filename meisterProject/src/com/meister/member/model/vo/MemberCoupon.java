@@ -5,11 +5,11 @@ import java.sql.Date;
 public class MemberCoupon {
 
 	
-	private int couponNo;
-	private int memberNo;
-	private String couponStatus;
-	private int receiptNo;
-	private Date usedDate;
+	private int couponNo;		// 쿠폰번호
+	private int memberNo;		// 회원번호
+	private String couponStatus;// 사용여부
+	private int receiptNo;		// 주문내역번호
+	private Date usedDate;		// 사용일
 	
 	
 	public MemberCoupon() {}

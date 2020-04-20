@@ -5,20 +5,20 @@ import java.sql.Date;
 // member/model/vo의 Member객체 복사해와주세요
 public class Member {
 
-	private int memberNo;
-	private String memberName;
-	private String memberId;
-	private String memberPwd;
-	private Date memberBirth;
-	private String memberGender;
-	private String memberPhone;
-	private String memberEmail;
-	private Date memberEnrolldate;
-	private Date modifyDate;
-	private String memberStatus;
-	private String leaveType;
-	private String leaveReason;
-	private String paymentType;
+	private int memberNo;			// 회원번호
+	private String memberName;		// 이름
+	private String memberId;		// 아이디
+	private String memberPwd;		// 비밀번호
+	private Date memberBirth;		// 생년월일
+	private String memberGender;	// 성별
+	private String memberPhone;		// 휴대전화
+	private String memberEmail;		// 이메일
+	private Date memberEnrolldate;	// 가입일
+	private Date modifyDate;		// 수정일
+	private String memberStatus;	// 가입상태
+	private String leaveType;		// 탈퇴타입
+	private String leaveReason;		// 탈퇴사유
+	private String paymentType;		// 기본결제수단
 
 	public Member() {
 
