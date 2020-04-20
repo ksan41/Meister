@@ -68,6 +68,8 @@ h2, .h2 {
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 	font-weight: bold;
+	font-family: 'nanumsquare';
+	
 }
 
 h3, .h3 {
