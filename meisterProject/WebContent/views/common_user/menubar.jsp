@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="<%=contextPath %>/views/common_user/css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
 
         #user-area{
