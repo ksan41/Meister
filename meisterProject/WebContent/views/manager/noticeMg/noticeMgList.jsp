@@ -34,9 +34,9 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="">등록</button>
-				<button class="button" onclick="">수정</button>
-				<button class="button" onclick="">삭제</button>
+				<button class="button" onclick="enroll">등록</button>
+				<button class="button" onclick="modify">수정</button>
+				<button class="button" onclick="deleteNoticeMg();">삭제</button>
 			</div>
 			<!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="menubar_im.html">홈</a></li>
@@ -315,11 +315,22 @@
 			</div>
 		</div>
 		</main>
-
 	</div>
-
-	</div>
-
-
+	
+	<script>
+		// 등록하기
+		function enroll(){
+			
+		}
+		// 수정하기
+		function modify(){
+			
+		}
+		
+		//삭제하기
+		function delete(){
+			
+		}
+	</script>
 </body>
 </html>
