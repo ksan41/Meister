@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
         
         <%@ include file="../../common_user/menubar.jsp" %>
-		<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+		<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 		
         <style>
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
@@ -105,8 +105,6 @@
         <br><hr>
         <br>
         <!-- <div class="sub-menu-area"> -->
-        <br><br><br><br>
-
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner" style="font-size: 20px;">
             
@@ -114,7 +112,7 @@
                 수령인정보
             </div>
 
-            <div style="width: 1000px; height: 500px; padding-left: 50px;">
+            <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px; ">
                 <br>
                 <p >사용자입력주소(불러오기)</p>
                 <span id="branchName">매장명</span><span id="branchPhone">02-2222-2222</span>
@@ -122,17 +120,11 @@
                 <table style="text-align: left;">
 
                     <tr>
-                        <th></th>
-                        <td>
-                            <input type="checkbox" style="vertical-align:middle; width:40px;" >
-                            주문자와 동일
-                        </td>
-                    </tr>
-                    <tr>
                         <th>이름</th>
                         <td>
                             <input type="text" style="width: 100%;">
                         </td>
+                        <td style="colspan:3;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" style="vertical-align:middle; width:40px;" >주문자와 동일</td>
                     </tr>
                     <tr>
                         <th>연락처</th>
@@ -146,9 +138,9 @@
                             </select>
                             
                             &nbsp;&nbsp;-&nbsp;&nbsp;
-                            <input type="phone" size="6">
+                            <input type="tel" size="6">
                             &nbsp;&nbsp;-&nbsp;&nbsp;
-                            <input type="phone" size="6">
+                            <input type="tel" size="6">
                         </td>
                     </tr>
                     <tr>
@@ -179,8 +171,7 @@
             </div>
             <div style="height:15px;"></div>
             <h5 style="font-size: smaller; color: rgb(230, 145, 19);">* 모든 할인은 중복적용 불가합니다.</h5>
-            <div style="width: 1000px; height: 350px; padding-left: 50px;">
-                
+            <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px;">
                 <table>
                     <tr>
                         <td></td>
@@ -201,14 +192,10 @@
                             <input type="radio" style="vertical-align:middle">&nbsp; 40% 할인 (타쿠폰과 중복적용 불가)
                         </td>
                     </tr>
-                    
-                    
                 </table>
             </div>
             
-            <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
-                결제수단 선택
-            </div>
+            <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">결제수단 선택</div>
             <div style="width: 1000px; height: 140px; padding-left: 50px;">
                 <br>
                 <input type="radio" style="vertical-align:middle">&nbsp;카드결제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -216,7 +203,6 @@
                 <input type="radio" style="vertical-align:middle">&nbsp;카카오페이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" style="vertical-align:middle">&nbsp;무통장입금<br>
                 <hr><input type="checkbox" style="vertical-align:middle; width:25px; margin-right:5px;">기본 결제 수단으로 등록
-					
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 최종결제금액

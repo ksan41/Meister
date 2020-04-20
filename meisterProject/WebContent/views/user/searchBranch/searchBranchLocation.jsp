@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%@ include file="../../common_user/menubar.jsp" %>
-	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 	
 
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

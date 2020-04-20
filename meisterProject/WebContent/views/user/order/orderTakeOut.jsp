@@ -8,8 +8,7 @@
 	<title>주문방법 선택</title>
 	
 	<%@ include file="../../common_user/menubar.jsp" %>
-	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
-
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 	<!-- 스타일 링크 1-->
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
 	
