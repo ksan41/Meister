@@ -15,6 +15,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.meister.center.model.service.CenterService;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
+import com.meister.member.model.vo.Member;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -57,12 +58,14 @@ public class CenterOneOnOneInsertServlet extends HttpServlet {
 			String content = multiRequest.getParameter("content");
 			int type = Integer.parseInt(multiRequest.getParameter("inquiryType"));
 			String store = multiRequest.getParameter("store");
-			
+			int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
+					
 			Center c = new Center();
 			c.setInquiryTitle(title);
 			c.setInquiryContent(content);
 			c.setInquiryType(type);
 			c.setInquiryStore(store);
+			c.setMemberNo(memberNo);
 			
 			CenterImage ci = null;
 			
