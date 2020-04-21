@@ -134,7 +134,7 @@ div {
 
 /* input{ border-radius: 5px; width: 150px;} */
 th {
-	height: 50px;
+	height: 55px;
 	width: 200px;
 }
 
@@ -290,6 +290,7 @@ table {
 						<input type="email" size="30">
 					</td>
 				</tr>
+				<!--
 				<tr>
 					<th>인증번호 발송</th>
 					<td><input type="radio"> 이메일
@@ -309,9 +310,10 @@ table {
 					<td><input type="text">
 						<button class="small_btn" style="display: inline-block;" id="#">인증하기</button></td>
 				</tr>
+				 -->
 			</table>
 			
-			<br><br><br><br>
+			<br><br><br>
 
 			<div id="btns">
 				<button
@@ -331,7 +333,6 @@ table {
 					</th>
 				</tr>
 			</table>
-		</div>
 		</div>
 		
 		<script>
