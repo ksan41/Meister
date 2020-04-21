@@ -284,7 +284,7 @@ div {
 				<br><br><br>
 
 				<div id="btns">
-					<button class="middle_btn" id="dbtn" onclick="location.href='<%=contextPath%>/myOneDelete.my';" 
+					<button class="middle_btn" id="dbtn" onclick="deleteCenter();" 
 						style="background: orangered;">삭제</button>
 					<button class="middle_btn" id="mbtn" onclick="location.href='<%=contextPath%>/myOneUpdate.my';"
 						style="background: white; color: black; border: 1px solid darkgray">수정</button>
@@ -292,8 +292,19 @@ div {
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
+	
+	<form id="postForm" action="<%=contextPath%>/myOneDelete.my" method="post">
+		<input type="hidden" name="cno" value="<%=c.getInquiryNo()%>">
+	</form>
+		
+	<script>
+		// 삭제하기 버튼 클릭시
+		function deleteCenter(){
+			$("#postForm").submit();
+		}
+	</script>
 
-		<%@ include file="../../common_user/footer.jsp"%>
+	<%@ include file="../../common_user/footer.jsp"%>
 </body>
 </html>

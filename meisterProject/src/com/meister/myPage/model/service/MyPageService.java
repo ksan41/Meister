@@ -1,7 +1,6 @@
 package com.meister.myPage.model.service;
 
-import static com.meister.common.JDBCTemplate.close;
-import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -78,6 +77,29 @@ public class MyPageService {
 		close(conn);
 		
 		return ci;
+	}
+	
+	
+	/**
+	 * 5. 1:1문의 삭제용 서비스
+	 * @param cno	--> 삭제 요청한 문의글 번호
+	 * @return		--> 처리된 행의 갯수
+	 */
+	public int deleteCenter(int cno) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MyPageDao().deleteCenter(conn, cno);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 
 }
