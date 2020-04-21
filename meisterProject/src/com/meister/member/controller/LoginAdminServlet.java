@@ -1,11 +1,17 @@
 package com.meister.member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.meister.member.model.service.MemberService;
+import com.meister.member.model.vo.Manager;
 
 /**
  * Servlet implementation class LoginAdminServlet
@@ -32,8 +38,23 @@ public class LoginAdminServlet extends HttpServlet {
 		String managerId = request.getParameter("managerId");
 		String password = request.getParameter("password");
 		
+		Manager loginManager = new MemberService().loginManager(managerId,password);
 		
-		
+		if(loginManager != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginManager",loginManager);
+			
+			if(loginManager.getManagerType().equals("통합")) { //통합관리자 계정일때 페이지
+				RequestDispatcher view = request.getRequestDispatcher("views/manager/branch/branchList.jsp");
+				view.forward(request, response);
+			}else { //지점관리자 계정일때 페이지
+				RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgNowList.jsp");
+				view.forward(request, response);
+			}
+			
+		}else {
+			
+		}
 		
 	}
 
