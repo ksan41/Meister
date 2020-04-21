@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+    <%@ include file="../../common_user/menubar.jsp"%>
+	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
+
    <style>
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
         div{box-sizing: border-box;}
@@ -68,7 +71,7 @@
 
  <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-<h1>이벤트</h1>
+        <h1>이벤트</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 이벤트</div>
@@ -80,18 +83,21 @@
                 입맛 따라 가격 따라 다양하게 즐기는 환상 조합! 하프앤하프 시그니처 5종
                 <p style="font-size:12px; color:dimgray;">2020-04-03 ~ 2020-04-28</p>
             </div>
-
-            <img src="img_meister/eventDetail/event_list620.jpg" width="1000">
-
+			
+            <img src= width="1000">
+				
             <br><br><br><br>
-
-            <button class="middle_btn">목록보기</button>
+			
+            <a href="<%=contextPath%>/eList.ev"><button class="middle_btn">목록보기</button></a>
+          	
             
         </div>
 
 
 
     </div>
+    
+    <%@ include file="../../common_user/footer.jsp"%>
 
 </body>
 </html>

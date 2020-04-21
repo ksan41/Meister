@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,6 +193,7 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
+                            	<form method="post" action="member_find_id.php">
                                 <table style="text-align: left;">
                                     <tr>
                                         <th>이름</th>
@@ -198,12 +201,7 @@
                                             <input class="text-area" type="text" name="name" style="width: 100%;">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>생년월일</th>
-                                        <td colspan="2">
-                                            <input class="text-area" type="date" name="dateIn" style="width: 100%;">
-                                        </td>
-                                    </tr>
+                                   
                                     <tr>
                                         <th>이메일</th>
                                         <td colspan="2">
@@ -229,13 +227,17 @@
                                         </td>
                                     </tr>
                                 </table>
+                                
+                                </form>
                             </div>
 
                             <!-- Modal footer -->
                             <div class="modal-footer" style="margin:auto;">
                                 <!-- 하단버튼 영역-->
+                                
+                                <!--<a href=""></a>  -->
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                style="width:200px; height:50px; background-color: orange; border-color: orange;">아이디 조회</button>
+                                style="width:200px; height:50px; background-color: orange; border-color: orange; <%=contextPath%>/findId.me">아이디 조회</button>
                             </div>
                         </div>
                     </div>
