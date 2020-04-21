@@ -1,5 +1,7 @@
 package com.meister.member.model.dao;
 
+import static com.meister.common.JDBCTemplate.close;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,9 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.meister.member.model.vo.Manager;
 import com.meister.member.model.vo.Member;
-
-import static com.meister.common.JDBCTemplate.*;
 
 public class MemberDao {
 	
@@ -127,15 +128,45 @@ private Properties prop = new Properties();
         
 	/**권산
 	 * #관리자 로그인용 dao
-	 * @param conn
-	 * @param managerId
-	 * @param password
-	 * @return
+	 * @param conn : MemberService에서 생성한 Connection객체
+	 * @param managerId : 사용자가 관리자로그인페이지에서 입력한 id
+	 * @param password : 사용자가 관리자로그인페이지에서 입력한 비밀번호
+	 * @return 조회된 관리자객체(Manager)
 	 */
 	public Manager loginManager(Connection conn, String managerId, String password) {
 		
+		Manager loginManager = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("loginManager");
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, managerId);
+			pstmt.setString(2, password);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				loginManager = new Manager(rset.getInt("MANAGER_NO"),
+						rset.getString("MANAGER_ID"),rset.getString("MANAGER_PWD"),
+						rset.getString("MANAGER_TYPE"),rset.getString("MANAGER_NAME"),
+						rset.getString("MANAGER_PHONE"),rset.getString("MANAGER_EMAIL"),rset.getString("MANAGER_GENDER"),
+						rset.getDate("MANAGER_ENROLLDATE"),rset.getDate("MODIFY_DATE"),
+						rset.getString("MANAGER_STATUS")
+						);
+				
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
 		
+		return loginManager;
 	}
 }
 
