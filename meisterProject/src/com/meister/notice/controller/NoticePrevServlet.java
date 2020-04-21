@@ -13,16 +13,16 @@ import com.meister.notice.model.service.NoticeService;
 import com.meister.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeDetailServlet
+ * Servlet implementation class NoticePrevServlet
  */
-@WebServlet("/nDetail.no")
-public class NoticeDetailServlet extends HttpServlet {
+@WebServlet("/nDetail1.no")
+public class NoticePrevServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDetailServlet() {
+    public NoticePrevServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,26 +32,20 @@ public class NoticeDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		int nno = Integer.parseInt(request.getParameter("nno"));
+		Notice prevN = new NoticeService().prevNotice(nno);
 		
-		Notice n = new NoticeService().selectNotice(nno);
-		
-		if(n != null) {	// 조회성공
-			
-			new NoticeService().increaseCount(nno);
-
-			request.setAttribute("n", n);
+		if(prevN != null) {	// 이전글 있을때
+			request.setAttribute("prevN", prevN);
 			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeDetail.jsp");
 			view.forward(request, response);
-			
-		}else {			// 조회실패
+		}else {				// 이전글 없을때
 			
 		}
-		
-		
-
-		
-		
+	
+	
+	
 	}
 
 	/**

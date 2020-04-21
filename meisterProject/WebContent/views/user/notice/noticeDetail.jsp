@@ -4,7 +4,7 @@
 <%
 	Notice n = (Notice)request.getAttribute("n");
 	// 제목, 작성일, 조회수,내용
-	Notice prevN = (Notice)request.getAttribute("prevN");
+	//Notice prevN = (Notice)request.getAttribute("prevN");
 %>
 <!DOCTYPE html>
 <html>
@@ -151,7 +151,7 @@ div {
 				<table id="previousNotice">
 					<tr>
 						<th>이전</th>
-						<td><%= prevN.getNoticeTitle() %></td>
+						<td>이전글 없다</td>
 					</tr>
 				</table>
 			</div>
