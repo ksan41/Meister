@@ -1,11 +1,17 @@
 package com.meister.order.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.meister.order.model.service.OrderService;
+import com.meister.order.model.vo.Delivery;
 
 /**
  * Servlet implementation class InsertAddressServlet
@@ -26,8 +32,40 @@ public class InsertAddressServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		// 1. request에 담겨있는 요청시 전달값 뽑아서 변수 또는 객체에 기록하기 (getParameter)
+		int deliveryNo = 0;
+		String newAddress1 = request.getParameter("newAddress1");
+		String newAddress2 = request.getParameter("newAddress2");
+		String newPoCode = request.getParameter("newPoCode");
+		String addressStatus = "";
+		String deliveryName = request.getParameter("deliveryName");
+		int branchNo = 0;
+		int memberNo = 0;
+		//String referenceAddress = request.getParameter("sample3_extraAddress").substring(request.getParameter("sample3_extraAddress").indexOf(","));
+		String referenceAddress = request.getParameter("referenceAddress");
+
+		Delivery d = new Delivery(deliveryNo, newAddress1, newAddress2, newPoCode, addressStatus, deliveryName, branchNo, memberNo, referenceAddress);
+		
+		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기
+		int result = new OrderService().insertAddress(d);
+		
+		// 4. 처리 결과를 가지고 성공인지 실패인지 판단해서 사용자가 보게될 뷰 지정
+			if(result > 0) { // insert됨 --> 회원가입성공
+				
+				HttpSession session = request.getSession();
+				//session.setAttribute("msg", "배달주소 등록 성공!! 이 메세지 코드 지워!!");
+				//response.sendRedirect(request.getContextPath()+"views/user/order/orderDelivery.jsp");
+				
+				RequestDispatcher view = request.getRequestDispatcher("views/common_user/successPage.jsp");
+				view.forward(request, response);
+				
+			}else { // insert안됨 --> 회원가입실패
+				
+				request.setAttribute("msg", "배달주소 등록 실패!!");
+				RequestDispatcher view = request.getRequestDispatcher("views/common_user/errorPage.jsp");
+				view.forward(request, response);
+			}
 	}
 
 	/**
