@@ -82,6 +82,14 @@ public class NoticeService {
 	 */
 	public ArrayList<Notice> selectBmList(){
 		
+		Connection conn = getConnection();
+		
+		ArrayList<Notice> list = new NoticeDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
 	}
 	
 	
