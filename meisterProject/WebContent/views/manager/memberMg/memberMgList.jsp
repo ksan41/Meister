@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.member.model.vo.Member"%>
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,6 +162,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<!--  -->
 								<tr>
 									<td>9</td>
 									<td>user01</td>
@@ -249,6 +253,28 @@
 										<button class="button" onclick="deleteMem()">탈퇴</button>
 									</th>
 								</tr>
+								<!--  -->
+								
+								<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+									<tr>
+										<td colspan="4">존재하는 회원이 없습니다.</td>
+									</tr>
+								<% }else{ // 리스트가 비어있지 않을 경우 %>
+								
+									<% for(Member m : list){ %>
+										
+										<tr>
+											<td><%= m.getMemberNo() %></td>
+											<td><%= m.getMemberId() %></td>
+											<td><%= m.getMemberName() %></td>
+											<td><%= m.getMemberEnrolldate() %></td>
+											<td><%= m.get보유쿠폰() %>
+											<th>
+												<button class="button" onclick="deleteMem()">탈퇴</button>
+											</th>
+										</tr>
+									<% } %>
+								<% } %>
 							</tbody>
 						</table>
 					</div>
@@ -262,6 +288,18 @@
 		function deleteMem(){
 		    confirm('해당 회원을 탈퇴처리 하시겠습니까?');
 		};
+		
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				console.log("클릭");
+				
+				// 현재 클릭했을 때의 해당 공지사항의 번호
+				var nno = $(this).children().eq(0).text();
+				// 쿼리스트링 이용해서 전달값 전달
+				location.href="<%= contextPath %>/imNoticeDetail.nom?nno=" + nno;
+				/dropMemberList.memg
+			});
+		});
 	</script>
 </body>
 </html>
