@@ -220,25 +220,26 @@ div {box-sizing: border-box;}
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">제목</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">
-							<input type="text" value="<%=c.getInquiryTitle()%>" size="40">
+							<input type="text" name="title" value="<%=c.getInquiryTitle()%>" size="40">
 						</td>
 					</tr>
 					<tr>
 						<td width="270px" height="200px" align="center" valign="top"
 							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
-							valign="top"><textarea id="contentArea"
+							valign="top"><textarea id="contentArea" name="content"
 								style="font-size: 1.1em;">너무 맛있는데요 비결이 뭐에요??</textarea></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">첨부파일</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">
-						<%if(ci != null){ %>
-							<%=ci.getOriginName()%>
-						<%}else { %>
-							
-						<%} %>
+							<% if(ci != null){ // 기존의 첨부파일이 있었을 경우 %>
+								<%= ci.getOriginName() %> <br>
+								<input type="hidden" name="originFileNo" value="<%=ci.getFileNo()%>">
+								<input type="hidden" name="originFileName" value="<%=ci.getChangeName() %>">
+							<% } %>
+							<input type="file" name="upfile">
 						</td>						
 					</tr>
 					<tr>

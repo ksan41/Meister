@@ -197,5 +197,85 @@ public class MyPageDao {
 		
 		return result;
 	}
+	
+	
+	public int updateCenter(Connection conn, Center c) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateCenter");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getInquiryTitle());
+			pstmt.setString(2, c.getInquiryContent());
+			pstmt.setInt(3, c.getInquiryNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	public int updateCenterImage(Connection conn, CenterImage ci) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateCenterImage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ci.getOriginName());
+			pstmt.setString(2, ci.getChangeName());
+			pstmt.setString(3, ci.getFilePath());
+			pstmt.setInt(4, ci.getFileNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	public int insertCenterImage(Connection conn, CenterImage ci) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertCenterImage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ci.getOriginName());
+			pstmt.setString(2, ci.getChangeName());
+			pstmt.setString(3, ci.getFilePath());
+			pstmt.setInt(4, ci.getInqueryNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }
