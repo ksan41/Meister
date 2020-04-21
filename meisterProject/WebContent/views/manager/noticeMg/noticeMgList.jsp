@@ -56,7 +56,7 @@
 							<thead>
 								<tr>
 									<th width="10%">No</th>
-									<th width="50%">제목</th>
+									<th width="55%">제목</th>
 									<th width="20%">등록일</th>
 									<th width="15%">조회수</th>
 								</tr>

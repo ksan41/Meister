@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Meister Pizza</title>
 <style>
 	.customer_feedback_area{
 		height:350px;
