@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "com.meister.notice.model.vo.Notice"%>
+<%
+	Notice n = (Notice)request.getAttribute("n");
+	// 제목, 작성일, 조회수,내용
+	//Notice prevN = (Notice)request.getAttribute("prevN");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,48 +47,15 @@
 						<table class="table table-bordered" id="dataTable" width="100%"
 							cellspacing="0">
 							<tr>
-								<th style="height: 50px;">연극 <환상동화> 이벤트 당첨자 안내</th>
+								<th style="height: 50px;"><%= n.getNoticeTitle() %></th>
 							</tr>
 							<tr>
-								<td style="height: 500px; font-size: 13px;">안녕하세요 고객님<br>
-									언제나 저희 도미노피자를 사랑해주셔서 감사의 말씀 드리며<br> 2월 연극 <환상동화>
-									이벤트 당첨자 안내를 드립니다.(1인 2매)<br>
-									<br>
-									당첨자 여러분 모두 축하 드리며, 자세한 안내는 개별문자로 안내드릴 예정입니다.<br>
-									<br>
-									앞으로도 도미노피자에 많은 관심 부탁 드립니다. 감사합니다.<br>
-									<br>
-									<br>
-									당첨자리스트(ABC 순)<br>
-									*F3를 눌러 아이디 검색, 확인하시면 됩니다.<br>
-									<br>
-									ajach***<br>
-									anacn***<br>
-									bboya0***<br>
-									cksdn9***<br>
-									enterpr***<br>
-									eunseon0***<br>
-									guswl9***<br>
-									hanhee7***<br>
-									hape***<br>
-									hee***<br>
-									hehaery***<br>
-									hjba***<br>
-									hsl0***<br>
-									jarchiv***<br>
-									jhj841***<br>
-									jiyoun***<br>
-									keem***<br>
-									kir***<br>
-									kkh6***<br>
-									koornd***<br>
-									kspri***<br>
-									kyttt0***<br></td>
+								<td style="height: 500px; font-size: 13px;"><%= n.getNoticeContent() %></td>
 							</tr>
 						</table>
 
 						<div align="center">
-							<button class="button" onclick="">목록</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeList.nom';">목록</button>
 							<button class="button" onclick="">수정</button>
 							<button class="button" onclick="">삭제</button>
 						</div>
@@ -93,7 +65,6 @@
 			</div>
 		</div>
 		</main>
-	</div>
 	</div>
 </body>
 </html>

@@ -333,5 +333,19 @@
 		</div>
 		</main>
 	</div>
+	
+	<script>
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				console.log("클릭");
+				
+				// 현재 클릭했을 때의 해당 공지사항의 번호
+				var nno = $(this).children().eq(0).text();
+				// 쿼리스트링 이용해서 전달값 전달
+				location.href="<%= contextPath %>/imNoticeList.nom?nno=" + nno;
+			});
+		});
+	</script>
+	
 </body>
 </html>
