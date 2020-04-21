@@ -34,14 +34,18 @@ public class InsertAddressServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 1. request에 담겨있는 요청시 전달값 뽑아서 변수 또는 객체에 기록하기 (getParameter)
+		int deliveryNo = 6;
 		String newAddress1 = request.getParameter("newAddress1");
 		String newAddress2 = request.getParameter("newAddress2");
 		String newPoCode = request.getParameter("newPoCode");
+		String addressStatus = "F";
 		String deliveryName = request.getParameter("deliveryName");
+		int branchNo = 1;
+		int memberNo = 1;
 		//String referenceAddress = request.getParameter("sample3_extraAddress").substring(request.getParameter("sample3_extraAddress").indexOf(","));
 		String referenceAddress = request.getParameter("referenceAddress");
 
-		Delivery d = new Delivery(newPoCode, newAddress1, newAddress2, referenceAddress, deliveryName);
+		Delivery d = new Delivery(deliveryNo, newAddress1, newAddress2, newPoCode, addressStatus, deliveryName, branchNo, memberNo, referenceAddress);
 		
 		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기
 		int result = new OrderService().insertAddress(d);
@@ -51,7 +55,7 @@ public class InsertAddressServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("d", d);
-				RequestDispatcher view = request.getRequestDispatcher("<%=contextPath%>/orderDelivery.or");
+				RequestDispatcher view = request.getRequestDispatcher("views/user/orderDelivery.jsp"); // orderDelivery.or 서블릿 요청해라
 				view.forward(request, response);
 				
 			}else { // insert안됨 --> 회원가입실패
