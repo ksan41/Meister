@@ -125,7 +125,6 @@ public class NoticeDao {
 		}
 		
 		return result;
-		
 	}
 	
 	public Notice prevNotice(Connection conn, int nno){
@@ -147,8 +146,6 @@ public class NoticeDao {
 									rset.getString("NOTICE_TITLE"));
 				
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -158,10 +155,9 @@ public class NoticeDao {
 		}
 		
 		return prevN;
-		
 	}
 	
-	public ArrayList<Notice> selectBmList(conn){
+	public ArrayList<Notice> selectBmList(Connection conn){
 		
 		ArrayList<Notice> list = new ArrayList<>();
 		Statement stmt = null;
@@ -173,17 +169,13 @@ public class NoticeDao {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(sql);
 			
-			
 			while(rset.next()) {
 			
 				list.add(new Notice(rset.getInt("NOTICE_NO"),
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_CREATE_DATE"),
 									rset.getInt("NOTICE_COUNT")));
-				
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,7 +183,6 @@ public class NoticeDao {
 			close(rset);
 			close(stmt);
 		}
-		
 		return list;
 	}
 	

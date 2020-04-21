@@ -16,7 +16,7 @@ import com.meister.notice.model.vo.Notice;
 /**
  * Servlet implementation class NoticeMgBmListServlet
  */
-@WebServlet("/imNoticeBlist.nom")
+@WebServlet("/bmNoList.nom")
 public class NoticeMgBmListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
