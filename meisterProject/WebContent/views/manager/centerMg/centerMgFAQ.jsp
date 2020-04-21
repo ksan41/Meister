@@ -79,6 +79,10 @@
         /* 부트스트랩 덮어씌우기용 스타일 */
         
         .contentMg2, .contentMg3, .contentMg4{display:none;}
+        
+        .inactive{
+        	background:lightgray;
+        }
 	</style>
 </head>
 <body class="sb-nav-fixed">
@@ -929,54 +933,54 @@
 		$("#activeMgFAQ1").click(
 			function() {
 				if ($('.contentMg1').css('display') == 'none')
-					$('.contentMg1').addClass("contentMg1").css("display",
-							"block");
-				$('.contentMg2').addClass("contentMg2").css("display",
-						"none");
-				$('.contentMg3').addClass("contentMg3").css("display",
-						"none");
-				$('.contentMg4').addClass("contentMg4").css("display",
-						"none");
+					$('.contentMg1').addClass("contentMg1").css("display", "block");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
 		});
 
 		$("#activeMgFAQ2").click(
-				function() {
-					if ($('.contentMg2').css('display') == 'none')
-						$('.contentMg2').addClass("contentMg2").css("display",
-								"block");
-					$('.contentMg1').addClass("contentMg1").css("display",
-							"none");
-					$('.contentMg3').addClass("contentMg3").css("display",
-							"none");
-					$('.contentMg4').addClass("contentMg4").css("display",
-							"none");
-				});
+			function() {
+				if ($('.contentMg2').css('display') == 'none')
+					$('.contentMg2').addClass("contentMg2").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
+		});
 
 		$("#activeMgFAQ3").click(
-				function() {
-					if ($('.contentMg3').css('display') == 'none')
-						$('.contentMg3').addClass("contentMg3").css("display",
-								"block");
-					$('.contentMg1').addClass("contentMg1").css("display",
-							"none");
-					$('.contentMg2').addClass("contentMg2").css("display",
-							"none");
-					$('.contentMg4').addClass("contentMg4").css("display",
-							"none");
-				});
+			function() {
+				if ($('.contentMg3').css('display') == 'none')
+					$('.contentMg3').addClass("contentMg3").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
+		});
 
 		$("#activeMgFAQ4").click(
-				function() {
-					if ($('.contentMg4').css('display') == 'none')
-						$('.contentMg4').addClass("contentMg4").css("display",
-								"block");
-					$('.contentMg1').addClass("contentMg1").css("display",
-							"none");
-					$('.contentMg2').addClass("contentMg2").css("display",
-							"none");
-					$('.contentMg3').addClass("contentMg3").css("display",
-							"none");
-				});
+			function() {
+				if ($('.contentMg4').css('display') == 'none')
+					$('.contentMg4').addClass("contentMg4").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'#555555','color':'white'});
+		});
 	</script>
 
 	<script>
