@@ -125,6 +125,7 @@ div {
 	background-color: rgb(76, 60, 60);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 /* 중간버튼 스타일 */
 #contentArea {
@@ -241,6 +242,13 @@ div {
 							valign="top"><textarea id="contentArea"
 								style="font-size: 1.0em; color: cornflowerblue" disabled>처리중...</textarea>
 						</td>
+					</tr>
+					<tr>
+						<td width="270px" height="50px" align="center"
+							style="font-size: 1.2em; font-weight:700; color: gray;">첨부파일</td>
+						<td style="padding-left: 1%; font-size: 1.3em;">
+							<a href="" style="color:black; text-decoration:none;">파일명</a>
+						</td>						
 					</tr>
 					<tr>
 						<th colspan="2" align="left" style="text-align:center;">
