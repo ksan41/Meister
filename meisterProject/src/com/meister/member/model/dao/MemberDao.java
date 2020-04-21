@@ -88,7 +88,7 @@ private Properties prop = new Properties();
 		
 	}
 	
-	
+		
 		// 회원가입
         public int insertMember(Connection conn, Member m) {
 		

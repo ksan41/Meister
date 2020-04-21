@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.meister.notice.model.service.NoticeService;
 import com.meister.notice.model.vo.Notice;
 
+
+/// 통합관리자 지점공지사항 관리용 상세조회
 /**
  * Servlet implementation class NoticeDetailServlet
  */
