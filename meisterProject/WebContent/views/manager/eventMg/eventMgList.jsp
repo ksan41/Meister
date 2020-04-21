@@ -305,15 +305,14 @@
 	<!-- 등록 버튼 모달 끝 -->
 
 	<!-- 수정 버튼 모달 시작 -->
-	<div class="modal fade" id="eventUpdateModal">
+	<div class="modal fade" id="#eventDetailModal">
 		<!-- modal별 id 변경해주세요-->
 		<div class="modal-dialog">
 			<div class="modal-content">
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트
-						수정</h4>
+					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						style="margin: 0; padding: 0;">&times;</button>
 				</div>
@@ -364,7 +363,7 @@
 	<!-- 수정 버튼 모달 끝 -->
 	
 	<!-- 상세 버튼 모달 시작 -->
-	<div class="modal fade" id="eventUpdateModal">
+	<div class="modal fade" id="eventDetailModal">
 		<!-- modal별 id 변경해주세요-->
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -379,8 +378,8 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form action="" name="eventUpdateForm">
-						<table id="eventUpdateTable">
+					<form action="" name="eventDetailForm">
+						<table id="eventDetailTable">
 							<tr>
 								<th>제목</th>
 								<td><input type="text" size="40px" value="기존 이벤트 제목">
