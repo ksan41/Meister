@@ -58,6 +58,8 @@ public class Member {
 		this.memberPhone = memberPhone;
 		this.memberEmail = memberEmail;
 	}
+	
+	
 
 
 	public int getMemberNo() {
