@@ -1,21 +1,25 @@
 package com.meister.order.model.dao;
 
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
-import com.meister.member.model.vo.Member;
 import com.meister.order.model.vo.Delivery;
 
 public class OrderDao {
 	
 	private Properties prop = new Properties();
 	
+	/**
+	 * @author 곽진아
+	 */
 	public OrderDao() {
 		String filePath = OrderDao.class.getResource("/sql/order/orderQuery.properties").getPath();
 
@@ -26,6 +30,11 @@ public class OrderDao {
 		}
 	}
 	
+	/**
+	 * @author 곽진아
+	 * @param d : Delivery vo 객체
+	 * @return result : 성공여부 값
+	 */
 	public int insertAddress(Connection conn, Delivery d) {
 		
 		PreparedStatement pstmt = null;
@@ -52,8 +61,41 @@ public class OrderDao {
 		} finally {
 			close(pstmt);
 		}
-		
 		return result;
+	}
+	
+	public ArrayList<Delivery> ShowOrderDeliveryList(Connection conn, String memberId) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Delivery> deliveryList = null;
+		String sql = prop.getProperty("selectDeliveryList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				deliveryList.add(new Delivery(rset.getInt("MEMBER_NO"),
+												rset.getString("DELIVERY_NAME"),
+												rset.getString("MEM_ADDRESS1"),
+												rset.getString("MEM_ADDRESS2"),
+												rset.getString("BRANCH_NAME"),
+												rset.getString("BRANCH_PHONE")
+												)
+				);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return deliveryList;
 		
 	}
 }

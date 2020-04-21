@@ -11,8 +11,23 @@ public class Delivery {
 	private int memberNo;			// 회원번호
 	private String referenceAddress; 	// 참고주소
 
+	// 타 테이블 컬럼
+	private String branchName; 		// 지점이름
+	private String branchPhone;		// 지점전화번호
+	
 	public Delivery() {
 		
+	}
+
+	public Delivery(int memberNo, String deliveryName, String newAddress1, String newAddress2, String branchName,
+			String branchPhone) {
+		super();
+		this.memberNo = memberNo;
+		this.deliveryName = deliveryName;
+		this.newAddress1 = newAddress1;
+		this.newAddress2 = newAddress2;
+		this.branchName = branchName;
+		this.branchPhone = branchPhone;
 	}
 
 	public Delivery(int deliveryNo, String newAddress1, String newAddress2, String newPoCode, String addressStatus,

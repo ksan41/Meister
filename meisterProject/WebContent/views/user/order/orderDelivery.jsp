@@ -176,7 +176,7 @@
 </style>
 </head>
 <body>
-
+	
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         <h1 style="font-weight:bold; color:rgb(76, 60, 60);">주문방법 선택</h1>
@@ -201,7 +201,7 @@
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">홈스윗홈</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%= %></h4><h4 style="color:rgb(76, 60, 60);">상세주소1&nbsp;&nbsp;&nbsp;상세주소2</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
                 </div>
                 <div>
                     <button id="remove">―</button>
