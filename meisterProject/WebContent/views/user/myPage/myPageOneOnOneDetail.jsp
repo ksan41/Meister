@@ -269,7 +269,13 @@ div {
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">첨부파일</td>
-						<td style="padding-left: 1%; font-size: 1.3em;"><%=ci.getOriginName()%></td>						
+						<td style="padding-left: 1%; font-size: 1.3em;">
+						<%if(ci != null){ %>
+							<%=ci.getOriginName()%>
+						<%}else { %>
+							
+						<%} %>
+						</td>						
 					</tr>
 					<tr>
 						<th colspan="2" align="left" style="text-align:center;">
