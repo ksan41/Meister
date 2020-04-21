@@ -73,7 +73,7 @@ public class MyPageService {
 		
 		Connection conn = getConnection();
 		
-		CenterImage ci = new MyPageDao().selectCenterImage(conn, ci);
+		CenterImage ci = new MyPageDao().selectCenterImage(conn, cno);
 		
 		close(conn);
 		
