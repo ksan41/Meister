@@ -305,14 +305,14 @@
 	<!-- 등록 버튼 모달 끝 -->
 
 	<!-- 수정 버튼 모달 시작 -->
-	<div class="modal fade" id="#eventDetailModal">
+	<div class="modal fade" id="#eventUpdateModal">
 		<!-- modal별 id 변경해주세요-->
 		<div class="modal-dialog">
 			<div class="modal-content">
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
+					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트수정</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						style="margin: 0; padding: 0;">&times;</button>
 				</div>
@@ -365,13 +365,12 @@
 	<!-- 상세 버튼 모달 시작 -->
 	<div class="modal fade" id="eventDetailModal">
 		<!-- modal별 id 변경해주세요-->
-		<div class="modal-dialog">
+		<div class="modal-dialog" style="width:auto; display:table">
 			<div class="modal-content">
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트
-						수정</h4>
+					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						style="margin: 0; padding: 0;">&times;</button>
 				</div>
@@ -379,7 +378,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form action="" name="eventDetailForm">
-						<table id="eventDetailTable">
+						<table id="eventDetailTable" style="width:700px">
 							<tr>
 								<th>제목</th>
 								<td><input type="text" size="40px" value="기존 이벤트 제목">
@@ -392,11 +391,19 @@
 							</tr>
 							<tr>
 								<th>썸네일 이미지</th>
-								<td><input type="file" style="margin-left: 10px;"></td>
+								<td>
+									<div style="width:500px; height:250px; border:solid 1px black;">
+										
+									</div>
+								</td>
 							</tr>
 							<tr>
 								<th>상세 이미지</th>
-								<td><input type="file" style="margin-left: 10px;"></td>
+								<td>
+									<div style="width:500px; height:250px; border:solid 1px black;">
+										
+									</div>
+								</td>
 							</tr>
 							<tr>
 								<th>배너 등록여부</th>
@@ -409,10 +416,8 @@
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">수정</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+								style="width: 100px; height: 40px; background: #343a40">확인</button>
 						</div>
 					</form>
 				</div>
