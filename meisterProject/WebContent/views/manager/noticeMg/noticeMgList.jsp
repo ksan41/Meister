@@ -33,9 +33,7 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="enroll">등록</button>
 				<button class="button" onclick="modify">수정</button>
-				<button class="button" onclick="deleteNoticeMg();">삭제</button>
 			</div>
 			<!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="menubar_im.html">홈</a></li>
@@ -62,7 +60,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!--  -->
+								<!-- 
 								<tr>
 									<td><input type="checkbox"></td>
 									<td>35</td>
@@ -308,7 +306,7 @@
 									<td>2011/01/25</td>
 									<td>27</td>
 								</tr>
-								<!--  -->
+								 -->
 							</tbody>
 						</table>
 					</div>
@@ -318,20 +316,5 @@
 		</main>
 	</div>
 	
-	<script>
-		// 등록하기
-		function enroll(){
-			
-		}
-		// 수정하기
-		function modify(){
-			
-		}
-		
-		//삭제하기
-		function delete(){
-			
-		}
-	</script>
 </body>
 </html>
