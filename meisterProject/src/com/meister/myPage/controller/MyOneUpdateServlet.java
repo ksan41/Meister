@@ -88,7 +88,7 @@ public class MyOneUpdateServlet extends HttpServlet {
 			int result = new MyPageService().updateCenter(c, ci);
 			
 			if(result > 0) {	// 수정성공했을 경우 상세보기 페이지 요청!
-				response.sendRedirect("/myOneDetail.my?cno=" + cno);
+				response.sendRedirect("/Meister/myOneDetail.my?cno=" + cno);
 			}else {
 				// 에러페이지 포워딩
 				

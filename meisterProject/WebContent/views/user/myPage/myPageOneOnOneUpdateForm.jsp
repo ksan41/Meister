@@ -257,7 +257,7 @@ div {box-sizing: border-box;}
 				<input type="hidden" name="cno" value=<%=c.getInquiryNo()%>>
 
 				<div id="btns">
-					<button onclick="location.href='<%=contextPath%>/myOneList.my';"
+					<button onclick="location.href='<%=contextPath%>/myOneList.my';" 
 						style="background: white; color: black; border: 1px solid darkgray"
 						class="middle_btn" id="cbtn">취소</button>
 					<br>
