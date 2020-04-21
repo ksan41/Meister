@@ -15,14 +15,14 @@ import com.meister.notice.model.vo.Notice;
 /**
  * Servlet implementation class NoticeDetailServlet
  */
-@WebServlet("/nDetail.no")
-public class NoticeDetailServlet extends HttpServlet {
+@WebServlet("/imNoticeDetail.nom")
+public class NoticeMgDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDetailServlet() {
+    public NoticeMgDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,7 +41,7 @@ public class NoticeDetailServlet extends HttpServlet {
 			new NoticeService().increaseCount(nno);
 
 			request.setAttribute("n", n);
-			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeDetail.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/noticeMgDetail.jsp");
 			view.forward(request, response);
 			
 		}else {			// 조회실패
