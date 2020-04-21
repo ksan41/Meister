@@ -1,6 +1,7 @@
 package com.meister.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class LoginAdminServlet extends HttpServlet {
 		
 		Manager loginManager = new MemberService().loginManager(managerId,password);
 		
-		if(loginManager != null) {
+		if(loginManager != null) { //로그인 성공시
 			HttpSession session = request.getSession();
 			session.setAttribute("loginManager",loginManager);
 			
@@ -52,8 +53,11 @@ public class LoginAdminServlet extends HttpServlet {
 				view.forward(request, response);
 			}
 			
-		}else {
-			
+		}else { //로그인실패시
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('로그인 실패. 아이디나 비밀번호를 확인해주세요.');</script>");
+			out.flush();
 		}
 		
 	}
