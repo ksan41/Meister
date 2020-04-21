@@ -163,7 +163,7 @@ public class NoticeDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectList");
+		String sql = prop.getProperty("selectBmList");
 		
 		try {
 			stmt = conn.createStatement();
