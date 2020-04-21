@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.meister.member.model.vo.Manager"%>
     
 <%
 	String contextPath = request.getContextPath();
 	//String msg = (String)session.getAttribute("msg");
-	//Member loginUser = (Member)session.getAttribute("loginUser");
+	Manager loginUser = (Manager)session.getAttribute("loginManager");
 
 %>        
     
@@ -56,12 +56,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">주문</div>
-                            <a class="nav-link" href=""><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/bmOrderNow.orm"><div class="sb-nav-link-icon">
                                 <i class="fas fa-map-marker-alt"></i></div>주문현황</a>
-                            <a class="nav-link" href=""><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/bmOrderPast.orm"><div class="sb-nav-link-icon">
                                 <i class="fas fa-user-alt"></i></div>지난 주문내역</a>
                             <div class="sb-sidenav-menu-heading">공지사항</div>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="<%=contextPath%>/bmNoList.nom ">
                                 <div class="sb-nav-link-icon"><i class="fa fa-question-circle"></i></div>지점 공지사항</a>
                         </div>
                     </div>
