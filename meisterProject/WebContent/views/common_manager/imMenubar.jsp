@@ -74,7 +74,7 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="">지점</a><a class="nav-link" href="<%=contextPath%>/imNoticeList.nom">고객</a></nav>
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="<%=contextPath%>/bmNoList.nom">지점</a><a class="nav-link" href="<%=contextPath%>/imNoticeList.nom">고객</a></nav>
                             </div>
 
                             <a class="nav-link" href="#"><div class="sb-nav-link-icon">
