@@ -120,8 +120,8 @@
                             <div class="main-menu   d-none d-lg-block" style="margin: 0;padding: 0;margin-top: 5%;">
                                 <nav style="margin: 0;padding: 0;">
                                     <ul id="navigation">
-                                        <li><a href="<%= contextPath %>/pizzaList.men">메뉴</a></li>
-                                        <li><a href="#">이벤트</a></li>
+                                        <li><a href="#">메뉴</a></li>
+                                        <li><a href="<%= contextPath %>/eList.ev">이벤트</a></li>
                                         <li><a href="#">매장검색</a>                                    
                                         </li>
                                         <li><a href="#">고객센터</a></li>
