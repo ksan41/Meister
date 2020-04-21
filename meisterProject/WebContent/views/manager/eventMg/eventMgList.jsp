@@ -305,7 +305,7 @@
 	<!-- 등록 버튼 모달 끝 -->
 
 	<!-- 수정 버튼 모달 시작 -->
-	<div class="modal fade" id="#eventUpdateModal">
+	<div class="modal fade" id="eventUpdateModal">
 		<!-- modal별 id 변경해주세요-->
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -410,9 +410,7 @@
 								<td><input type="checkbox" style="margin-left: 10px;"></td>
 							</tr>
 						</table>
-
-						<br>
-						<br>
+						<br><br>
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
