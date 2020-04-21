@@ -34,14 +34,14 @@ public class InsertAddressServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 1. request에 담겨있는 요청시 전달값 뽑아서 변수 또는 객체에 기록하기 (getParameter)
-		int deliveryNo = 0;
+		int deliveryNo = 6;
 		String newAddress1 = request.getParameter("newAddress1");
 		String newAddress2 = request.getParameter("newAddress2");
 		String newPoCode = request.getParameter("newPoCode");
-		String addressStatus = "";
+		String addressStatus = "F";
 		String deliveryName = request.getParameter("deliveryName");
-		int branchNo = 0;
-		int memberNo = 0;
+		int branchNo = 1;
+		int memberNo = 1;
 		//String referenceAddress = request.getParameter("sample3_extraAddress").substring(request.getParameter("sample3_extraAddress").indexOf(","));
 		String referenceAddress = request.getParameter("referenceAddress");
 
@@ -54,10 +54,8 @@ public class InsertAddressServlet extends HttpServlet {
 			if(result > 0) { // insert됨 --> 회원가입성공
 				
 				HttpSession session = request.getSession();
-				//session.setAttribute("msg", "배달주소 등록 성공!! 이 메세지 코드 지워!!");
-				//response.sendRedirect(request.getContextPath()+"views/user/order/orderDelivery.jsp");
-				
-				RequestDispatcher view = request.getRequestDispatcher("views/common_user/successPage.jsp");
+				session.setAttribute("d", d);
+				RequestDispatcher view = request.getRequestDispatcher("views/user/orderDelivery.jsp");
 				view.forward(request, response);
 				
 			}else { // insert안됨 --> 회원가입실패
@@ -65,6 +63,8 @@ public class InsertAddressServlet extends HttpServlet {
 				request.setAttribute("msg", "배달주소 등록 실패!!");
 				RequestDispatcher view = request.getRequestDispatcher("views/common_user/errorPage.jsp");
 				view.forward(request, response);
+				
+				
 			}
 	}
 

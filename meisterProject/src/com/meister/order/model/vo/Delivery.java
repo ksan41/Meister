@@ -29,6 +29,17 @@ public class Delivery {
 		this.referenceAddress = referenceAddress;
 	}
 
+	public Delivery(String newPoCode, String newAddress1, String newAddress2, String referenceAddress,
+			String deliveryName, int memberNo) {
+		super();
+		this.newPoCode = newPoCode;
+		this.newAddress1 = newAddress1;
+		this.newAddress2 = newAddress2;
+		this.referenceAddress = referenceAddress;
+		this.deliveryName = deliveryName;
+		this.memberNo = memberNo;
+	}
+
 	public int getDeliveryNo() {
 		return deliveryNo;
 	}

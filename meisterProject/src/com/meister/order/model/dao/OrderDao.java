@@ -47,7 +47,6 @@ public class OrderDao {
 			
 			result = pstmt.executeUpdate();
 			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
