@@ -60,7 +60,7 @@
                                 <i class="fas fa-map-marker-alt"></i></div>주문현황</a>
                             <a class="nav-link" href=""><div class="sb-nav-link-icon">
                                 <i class="fas fa-user-alt"></i></div>지난 주문내역</a>
-                            <div class="sb-sidenav-menu-heading"><a href="<%=contextPath%>/imNoticeList.nom">공지사항</a></div>
+                            <div class="sb-sidenav-menu-heading">공지사항</div>
                             <a class="nav-link" href="">
                                 <div class="sb-nav-link-icon"><i class="fa fa-question-circle"></i></div>지점 공지사항</a>
                         </div>
