@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.meister.center.model.vo.*" %>
+<%
+	Center c = (Center)request.getAttribute("c");
+	CenterImage ci = (CenterImage)request.getAttribute("ci");
+	
+	int intType = c.getInquiryType();
+	
+	String type = "";
+	switch(intType){
+	case 1: type="제품관련"; break;
+	case 2: type="배달서비스 관련"; break;
+	case 3: type="직원 서비스 관련"; break;
+	case 4: type="콜센타 관련"; break;
+	case 5: type="칭찬"; break;
+	case 6: type="제안"; break;
+	case 7: type="단순문의"; break;
+	case 8: type="기타"; break;
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,6 +128,7 @@ div {box-sizing: border-box;}
 	background-color: rgb(76, 60, 60);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 /* 중간버튼 스타일 */
 #contentArea {
@@ -162,13 +181,8 @@ div {box-sizing: border-box;}
 				<table style="font-size: 16px;" width="1000px" height="200px">
 					<tr>
 						<th width="65%" style="padding-left: 2px; text-align:center;">
-							<b style="font-weight: bold; font-size: 1.5em;">절대미각</b>님께서 문의하신 내용입니다.
+							<b style="font-weight: bold; font-size: 1.5em;"><%=loginUser.getMemberName() %></b>님께서 문의하신 내용입니다.
 							<hr class="bline">
-						</th>
-						<th width="35%" style="text-align:left;">
-							<p style="color:white;">
-								문의하신 내용은 <b style="font-weight: bold; font-size: 1.5em;">총 2건</b>입니다.
-							</p>
 						</th>
 					</tr>
 				</table>
@@ -180,27 +194,34 @@ div {box-sizing: border-box;}
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">아이디</td>
-						<td style="padding-left: 1%; font-size: 1.3em;">MeisterPizza</td>
+						<td style="padding-left: 1%; font-size: 1.3em;"><%=loginUser.getMemberId() %></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">연락처</td>
-						<td style="padding-left: 1%; font-size: 1.3em;">010-7777-7777</td>
+						<td style="padding-left: 1%; font-size: 1.3em;"><%=loginUser.getMemberPhone() %></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">이메일</td>
-						<td style="padding-left: 1%; font-size: 1.3em;">MeisterPizza@naver.com</td>
+						<td style="padding-left: 1%; font-size: 1.3em;"><%=loginUser.getMemberEmail() %></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">문의유형</td>
-						<td style="padding-left: 1%; font-size: 1.3em;">단순문의</td>
+						<td style="padding-left: 1%; font-size: 1.3em;"><%=type%></td>
+					</tr>
+					<tr>
+						<td width="270px" height="50px" align="center"
+							style="font-size: 1.2em; font-weight:700; color: gray;">문의매장</td>
+						<td style="padding-left: 1%; font-size: 1.3em;"><%=c.getInquiryStore() %></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">제목</td>
-						<td style="padding-left: 1%; font-size: 1.3em;">왜 이렇게 맛있나요??</td>
+						<td style="padding-left: 1%; font-size: 1.3em;">
+							<input type="text" value="<%=c.getInquiryTitle()%>" size="40">
+						</td>
 					</tr>
 					<tr>
 						<td width="270px" height="200px" align="center" valign="top"
@@ -208,6 +229,17 @@ div {box-sizing: border-box;}
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
 							valign="top"><textarea id="contentArea"
 								style="font-size: 1.1em;">너무 맛있는데요 비결이 뭐에요??</textarea></td>
+					</tr>
+					<tr>
+						<td width="270px" height="50px" align="center"
+							style="font-size: 1.2em; font-weight:700; color: gray;">첨부파일</td>
+						<td style="padding-left: 1%; font-size: 1.3em;">
+						<%if(ci != null){ %>
+							<%=ci.getOriginName()%>
+						<%}else { %>
+							
+						<%} %>
+						</td>						
 					</tr>
 					<tr>
 						<th colspan="2" align="left" style="text-align:center;">
@@ -222,11 +254,11 @@ div {box-sizing: border-box;}
 				<br><br><br>
 
 				<div id="btns">
-					<button
+					<button onclick="location.href='<%=contextPath%>/myOneList.my';"
 						style="background: white; color: black; border: 1px solid darkgray"
 						class="middle_btn" id="cbtn">취소</button>
 					<br>
-					<button class="middle_btn" id="mbtn">수정</button>
+					<button class="middle_btn" id="mbtn" onclick="location.href='<%=contextPath%>/myOneUpdate.my';">수정</button>
 				</div>
 			</div>
 		</div>

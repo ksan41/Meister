@@ -292,7 +292,7 @@ div {
 				<div id="btns">
 					<button class="middle_btn" id="dbtn" onclick="deleteCenter();" 
 						style="background: orangered;">삭제</button>
-					<button class="middle_btn" id="mbtn" onclick="location.href='<%=contextPath%>/myOneUpdate.my';"
+					<button class="middle_btn" id="mbtn" onclick="updateCenter();"
 						style="background: white; color: black; border: 1px solid darkgray">수정</button>
 					<button class="middle_btn" id="lbtn" onclick="location.href='<%=contextPath%>/myOneList.my';">목록</button>
 				</div>
@@ -312,7 +312,7 @@ div {
 		
 		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
 		function updateCenter(){
-			$("#postForm").attr("action", "<%=contextPath%>/myOneUpdate.my");
+			$("#postForm").attr("action", "<%=contextPath%>/myOneUpdateForm.my");
 			$("#postForm").submit();
 		}
 	</script>
