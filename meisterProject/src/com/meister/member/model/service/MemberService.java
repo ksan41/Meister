@@ -1,11 +1,15 @@
 package com.meister.member.model.service;
 
-import com.meister.member.model.dao.MemberDao;
-import com.meister.member.model.vo.Member;
-
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+
+import com.meister.member.model.dao.MemberDao;
+import com.meister.member.model.vo.Manager;
+import com.meister.member.model.vo.Member;
 
 public class MemberService {
 	
@@ -50,5 +54,10 @@ public class MemberService {
 		
 	}
 	
+       
+       public Manager loginManager(String managerId,String password) {
+    	   
+    	   
+       }
 
 }
