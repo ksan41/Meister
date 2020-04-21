@@ -326,7 +326,7 @@
 							</tr>
 							<tr>
 								<th>배너 등록여부</th>
-								<td><input type="radio" style="margin-left: 10px;"></td>
+								<td><input type="checkbox" style="margin-left: 10px;"></td>
 							</tr>
 						</table>
 
