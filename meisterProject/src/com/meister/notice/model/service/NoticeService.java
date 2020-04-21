@@ -76,6 +76,14 @@ public class NoticeService {
 		
 	}
 	
+	/**
+	 * 5. 지점 공지사항 리스트 조회용 서비스
+	 * @return
+	 */
+	public ArrayList<Notice> selectBmList(){
+		
+	}
+	
 	
 
 }
