@@ -29,9 +29,13 @@ public class EventDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
 		RequestDispatcher view = request.getRequestDispatcher("views/user/event/eventDetail.jsp");
 				
 		view.forward(request, response);
+		
+		
 		
 	}
 

@@ -34,6 +34,8 @@ public class EventListServlet extends HttpServlet {
 				
 		
 		view.forward(request, response);
+		
+		
 	}
 
 	/**
