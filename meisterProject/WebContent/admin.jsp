@@ -3,8 +3,7 @@
     
 <%
 	String contextPath = request.getContextPath();
-	//String msg = (String)session.getAttribute("msg");
-	//Member loginUser = (Member)session.getAttribute("loginUser");
+	
 
 %>       
 <!DOCTYPE html>
@@ -43,9 +42,9 @@
                 <!-- 관리자페이지 로그인 폼 영역 시작 -->
                 <div id="loginForm">
                     <p id="loginSign" align="center">관리자 로그인</p>
-                    <form id="loginInputForm">
-                        <input id="loginInputId" type="text" align="center" placeholder="USERNAME"> <br>
-                        <input id="loginInputPwd" type="password" align="center" placeholder="PASSWORD"> <br>
+                    <form id="loginInputForm" action="<%= contextPath %>/loginA.me" method="post">
+                        <input name="managerId" id="loginInputId" type="text" align="center" placeholder="USERNAME"> <br>
+                        <input name="password" id="loginInputPwd" type="password" align="center" placeholder="PASSWORD"> <br>
                         <a id="loginBtn" align="center">Login</a>
                     </form>
                 </div>
