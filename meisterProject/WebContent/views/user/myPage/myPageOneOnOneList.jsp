@@ -191,15 +191,15 @@ div {
 							<% int count = list.size(); %>
 							<% for(Center c : list){ %>
 							<tr>
-								<td><%=count-- %></td>
+								<td><%=c.getInquiryNo()%></td>
 								<td><%=c.getInquiryTitle()%></td>
 								<td><%=c.getRegistDate()%></td>
 								<% if(c.getInquiryProStatus().equals("N")){ %>
-								<td>처리중</td>
+									<td>처리중</td>
 								<% }else { %>
-								<td>답변완료</td>
+									<td>답변완료</td>
 								<% }%>
-								<td><input type="hidden" id="inquiryNo" value="<%=c.getInquiryNo()%>"></td>
+								<!-- <td><input  id="inquiryNo" value="<%=c.getInquiryNo()%>"></td> -->
 							</tr>
 							<% } %>
 							
@@ -226,7 +226,7 @@ div {
 		<script>
 			$(function(){
 				$("#noticeList>tbody>tr").click(function(){
-					var cno = $("#inquiryNo").val();
+					var cno = $(this).children().eq(0).text();
 					
 					location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;
 				});

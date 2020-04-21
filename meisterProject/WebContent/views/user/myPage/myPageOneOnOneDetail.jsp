@@ -309,6 +309,12 @@ div {
 		function deleteCenter(){
 			$("#postForm").submit();
 		}
+		
+		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
+		function updateCenter(){
+			$("#postForm").attr("action", "<%=contextPath%>/myOneUpdate.my");
+			$("#postForm").submit();
+		}
 	</script>
 
 	<%@ include file="../../common_user/footer.jsp"%>
