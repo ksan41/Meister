@@ -19,13 +19,13 @@ import com.meister.notice.model.vo.Notice;
  * Servlet implementation class NoticeMgBmListServlet
  */
 @WebServlet("/bmNoList.nom")
-public class NoticeMgBmListServlet extends HttpServlet {
+public class NoticeBmListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMgBmListServlet() {
+    public NoticeBmListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
