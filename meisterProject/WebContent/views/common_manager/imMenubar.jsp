@@ -4,7 +4,7 @@
 <%
 	String contextPath = request.getContextPath();
 	//String msg = (String)session.getAttribute("msg");
-	//Member loginUser = (Member)session.getAttribute("loginUser");
+	Manager loginUser = (Manager)session.getAttribute("loginManager");
 
 %>    
 
@@ -55,13 +55,13 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">관리</div>
-                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/branchList.br"><div class="sb-nav-link-icon">
                                 <i class="fas fa-map-marker-alt"></i></div>지점관리</a>
-                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/memberList.memg"><div class="sb-nav-link-icon">
                                 <i class="fas fa-user-alt"></i></div>회원관리</a>
-                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/menuMgPizzaList.meng"><div class="sb-nav-link-icon">
                                 <i class="fas fa-book-open"></i></div>메뉴관리</a>
-                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/couponList.cm"><div class="sb-nav-link-icon">
                                 <i class="fas fa-ticket-alt"></i></div>쿠폰관리</a>
 
                             <div class="sb-sidenav-menu-heading">게시판</div>
@@ -71,16 +71,16 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="">지점</a><a class="nav-link" href="<%=contextPath%>/imNoticeList.nom">고객</a></nav>
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="<%=contextPath%>/imNoticeBlist.nom">지점</a><a class="nav-link" href="<%=contextPath%>/imNoticeMlist.nom">고객</a></nav>
                             </div>
 
-                            <a class="nav-link" href="#"><div class="sb-nav-link-icon">
+                            <a class="nav-link" href="<%=contextPath%>/evMgList.evm"><div class="sb-nav-link-icon">
                                 <i class="fas fa-gift"></i></div>이벤트</a>
                           
                             <div class="sb-sidenav-menu-heading">문의</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<%=contextPath%>/ceMgFaqList.cem">
                                 <div class="sb-nav-link-icon"><i class="fa fa-question-circle"></i></div>FAQ</a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<%=contextPath%>/ceMgOneList.cem">
                                 <div class="sb-nav-link-icon"><i class="fa fa-reply"></i></div>1:1문의</a>
                         </div>
                     </div>
