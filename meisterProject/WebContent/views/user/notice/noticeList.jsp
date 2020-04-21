@@ -258,7 +258,7 @@ background-color
 					</tr>
 					 -->
 					
-					 <% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+					<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 						<tr>
 							<td colspan="4">존재하는 공지사항이 없습니다.</td>
 						</tr>
