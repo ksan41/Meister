@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.center.model.vo.Center;
+import com.meister.center.model.vo.CenterImage;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.myPage.model.dao.MyPageDao;
 
@@ -43,6 +44,40 @@ public class MyPageService {
 		close(conn);
 		
 		return list;
+	}
+	
+	
+	/**
+	 * 3. 해당 회원이 작성한 1:1문의 상세 조회용 서비스 (게시글 정보)
+	 * @param cno	--> 조회하고자 하는 해당 문의글 번호
+	 * @return		--> 조회된 해당 문의글이 담겨있는 Center객체
+	 */
+	public Center selectCenter(int cno) {
+		
+		Connection conn = getConnection();
+		
+		Center c = new MyPageDao().selectCenter(conn, cno);
+		
+		close(conn);
+		
+		return c;
+	}
+	
+	
+	/**
+	 * 4. 해당 회원이 작성한 1:1문의 상세 조회용 서비스 (첨부파일 정보)
+	 * @param cno	--> 조회하고자 하는 해당 문의글 번호
+	 * @return		--> 조회된 해당 문의글의 첨부파일이 담겨있는 CenterImage객체
+	 */
+	public CenterImage selectCenterImage(int cno) {
+		
+		Connection conn = getConnection();
+		
+		CenterImage ci = new MyPageDao().selectCenterImage(conn, ci);
+		
+		close(conn);
+		
+		return ci;
 	}
 
 }

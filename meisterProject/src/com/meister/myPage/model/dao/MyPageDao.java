@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.center.model.vo.Center;
+import com.meister.center.model.vo.CenterImage;
 import com.meister.coupon.model.vo.Coupon;
 
 public class MyPageDao {
@@ -96,6 +97,80 @@ public class MyPageDao {
 		}
 		
 		return list;
+	}
+	
+	
+	public Center selectCenter(Connection conn, int cno) {
+		
+		Center c = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCenter");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				c = new Center();
+				c.setInquiryNo(rset.getInt("INQUIRY_NO"));
+				c.setInquiryTitle(rset.getString("INQUIRY_TITLE"));
+				c.setInquiryContent(rset.getString("INQUIRY_CONTENT"));
+				c.setInquiryAnswer(rset.getString("INQUIRY_ANSWER"));
+				c.setInquiryType(rset.getInt("INQUIRY_TYPE"));
+				c.setInquiryStore(rset.getString("INQUIRY_STORE"));
+				c.setMemberNo(rset.getInt("MEMBER_NO"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return c;
+	}
+	
+	
+	public CenterImage selectCenterImage(Connection conn, int cno) {
+		
+		CenterImage ci = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCenterImage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				ci = new CenterImage();
+				ci.setFileNo(rset.getInt("FILE_NO"));
+				ci.setOriginName(rset.getString("FILE_ORIGIN_NAME"));
+				ci.setChangeName(rset.getString("CHANGE_NAME"));
+				ci.setFilePath(rset.getString("FILE_PATH"));
+				ci.setInqueryNo(rset.getInt("INQUIRY_NO"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return ci;
 	}
 
 }

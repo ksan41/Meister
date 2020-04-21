@@ -224,6 +224,11 @@ div {
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
+							style="font-size: 1.2em; font-weight:700; color: gray;">문의매장</td>
+						<td style="padding-left: 1%; font-size: 1.3em;">역삼점</td>
+					</tr>
+					<tr>
+						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">제목</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">왜 이렇게 맛있나요??</td>
 					</tr>
