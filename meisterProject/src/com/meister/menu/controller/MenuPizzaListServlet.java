@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.menu.model.service.MenuService;
 import com.meister.menu.model.vo.Pizza;
+import com.meister.menu.model.vo.PizzaSize;
 
 /**
  * Servlet implementation class MenuPizzaListServlet
@@ -32,13 +33,22 @@ public class MenuPizzaListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		ArrayList<Pizza> list = new MenuService().selectPizzaList();
 		
-		request.setAttribute("list", list);
+		request.setCharacterEncoding("UTF-8");
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/menu/menuPizzaList.jsp");
-		view.forward(request, response);
+		ArrayList<Pizza> list1 = new MenuService().selectPizzaList();
+		
+		request.setAttribute("list1", list1);
+		
+//		RequestDispatcher view1 = request.getRequestDispatcher("views/user/menu/menuPizzaList.jsp");
+//		view1.forward(request, response);
+		
+		ArrayList<PizzaSize> list2 = new MenuService().selectPizzaSizeList();
+		
+		request.setAttribute("list2", list2);
+		
+		RequestDispatcher view2 = request.getRequestDispatcher("views/user/menu/menuPizzaList.jsp");
+		view2.forward(request, response);
 	
 	
 	}

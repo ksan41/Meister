@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.Pizza"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
 	
 <%
-	ArrayList<Pizza> list = (ArrayList<Pizza>)request.getAttribute("list");
+	ArrayList<Pizza> list1 = (ArrayList<Pizza>)request.getAttribute("list1");
+
+	ArrayList<PizzaSize> list2 = (ArrayList<PizzaSize>)request.getAttribute("list2");
 %>
 <!DOCTYPE html>
 <html>
@@ -331,7 +333,7 @@ p {
 					</div>
 				</div> -->
 				
-				<% for(Pizza p : list) { %>
+				<% for(Pizza p : list1) { %>
 					<% if(p.getPizzaType().equals("1")) {%>
 						<div id="menu-thumb">
 							<div id="menu-img">
@@ -344,9 +346,15 @@ p {
 										src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
 										alt="" data-toggle="modal" data-target="#menu-detail-modal">
 								</h3>
-								<p>
-									<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-								</p>
+								<% for(PizzaSize ps : list2) { %>
+									<p>
+									<% if(p.getPizzaNo() == ps.getPizzaNo()) { %>
+										
+										<b><%=ps.getPizzaSize() %></b> <%=ps.getPizzaPrice() %>원 
+											
+									<% } %>
+									</p>
+								<% } %>
 							</div>
 						</div>
 					<% } %>
@@ -360,6 +368,7 @@ p {
 			<br>
 			<div class="menu-area classic">
 				<h1 align="center">클래식</h1>
+				<!-- 
 				<div id="menu-thumb">
 					<div id="menu-img">
 						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
@@ -404,8 +413,11 @@ p {
 							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
 						</p>
 					</div>
-				</div>
-			</div>
+				</div>-->
+				
+				
+				
+			</div> 
 			<!-- 클래식 -->
 		</div>
 		<!-- 모달 시작 -->

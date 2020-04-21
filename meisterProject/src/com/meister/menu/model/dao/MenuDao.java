@@ -1,6 +1,8 @@
 package com.meister.menu.model.dao;
 
 
+import static com.meister.common.JDBCTemplate.close;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,8 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
-import static com.meister.common.JDBCTemplate.*;
+
 import com.meister.menu.model.vo.Pizza;
+import com.meister.menu.model.vo.PizzaSize;
 import com.meister.notice.model.dao.NoticeDao;
 
 public class MenuDao {
@@ -20,7 +23,7 @@ public class MenuDao {
 	
 	public MenuDao() {
 		
-		String filePath = NoticeDao.class.getResource("/sql/notice/noticeQuery.properties").getPath();
+		String filePath = NoticeDao.class.getResource("/sql/menu/menuQuery.properties").getPath();
 		
 		try {
 			prop.load(new FileReader(filePath));
@@ -36,7 +39,7 @@ public class MenuDao {
 		ArrayList<Pizza> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("pizzaSelectList");
+		String sql = prop.getProperty("pizzaSelectList2");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -56,6 +59,39 @@ public class MenuDao {
 				
 			}
 			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<PizzaSize> selectPizzaSizeList(Connection conn){
+		
+		ArrayList<PizzaSize> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("pizzaSelectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				PizzaSize ps = new PizzaSize();
+				ps.setSizeNo(rset.getInt("SIZE_NO"));
+				ps.setPizzaPrice(rset.getInt("PIZZA_PRICE"));
+				ps.setPizzaSize(rset.getString("PIZZA_SIZE"));
+				ps.setPizzaNo(rset.getInt("PIZZA_NO"));
+				
+				list.add(ps);
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
