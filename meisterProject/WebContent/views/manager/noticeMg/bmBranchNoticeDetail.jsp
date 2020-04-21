@@ -86,10 +86,7 @@
 
 						<div align="center">
 							<button class="button" onclick="">목록</button>
-							<button class="button" onclick="">수정</button>
-							<button class="button" onclick="">삭제</button>
 						</div>
-
 					</div>
 				</div>
 			</div>
