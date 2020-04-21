@@ -39,6 +39,8 @@ public class NoticeMgBmListServlet extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/bmBranchNoticeList.jsp");
 		view.forward(request, response);
+		
+		
 	}
 
 	/**
