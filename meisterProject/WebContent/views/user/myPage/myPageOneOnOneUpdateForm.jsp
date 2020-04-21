@@ -190,6 +190,7 @@ div {box-sizing: border-box;}
 
 			<div class="inner">
 				<br><br>
+				<form id="updateForm" action="<%=contextPath%>/myOneUpdate.my" method="post" enctype="multipart/form-data">
 				<table id="middleTable" width="900px" height="500px" align="center">
 					<tr>
 						<td width="270px" height="50px" align="center"
@@ -228,7 +229,7 @@ div {box-sizing: border-box;}
 							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">내용</td>
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
 							valign="top"><textarea id="contentArea" name="content"
-								style="font-size: 1.1em;">너무 맛있는데요 비결이 뭐에요??</textarea></td>
+								style="font-size: 1.1em;"><%=c.getInquiryContent() %></textarea></td>
 					</tr>
 					<tr>
 						<td width="270px" height="50px" align="center"
@@ -253,14 +254,16 @@ div {box-sizing: border-box;}
 				</table>
 
 				<br><br><br>
+				<input type="hidden" name="cno" value=<%=c.getInquiryNo()%>>
 
 				<div id="btns">
 					<button onclick="location.href='<%=contextPath%>/myOneList.my';"
 						style="background: white; color: black; border: 1px solid darkgray"
 						class="middle_btn" id="cbtn">취소</button>
 					<br>
-					<button class="middle_btn" id="mbtn" onclick="location.href='<%=contextPath%>/myOneUpdate.my';">수정</button>
+					<button class="middle_btn" id="mbtn" type="submit">수정</button>
 				</div>
+				</form>
 			</div>
 		</div>
 		</div>

@@ -56,7 +56,7 @@ public class MyOneUpdateServlet extends HttpServlet {
 			String title = multiRequest.getParameter("title");
 			String content = multiRequest.getParameter("content");
 			int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
-			int cno = ((Center)request.getSession().getAttribute("c")).getInquiryNo();
+			int cno = Integer.parseInt(multiRequest.getParameter("cno"));
 			
 			Center c = new Center();
 			c.setInquiryTitle(title);
@@ -91,6 +91,7 @@ public class MyOneUpdateServlet extends HttpServlet {
 				response.sendRedirect("/myOneDetail.my?cno=" + cno);
 			}else {
 				// 에러페이지 포워딩
+				
 			}
 		}		
 		
