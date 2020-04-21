@@ -55,9 +55,20 @@ public class MemberService {
 	}
 	
        
-       public Manager loginManager(String managerId,String password) {
+       /** 권산
+        * #관리자 로그인용 서비스
+     * @param managerId : 관리자 로그인페이지에서 사용자가 입력한 아이디
+     * @param password : 관리자 로그인페이지에서 사용자가 입력한 비밀번호
+     * @return : 입력한 아이디,비밀번호로 조회해온 Manager객체
+     */
+    public Manager loginManager(String managerId,String password) {
     	   
+    		Connection conn = getConnection();
+    		Manager loginManager = new MemberDao().loginManager(conn,managerId,password); 
     	   
+    		close(conn);
+    		
+    		return loginManager;
        }
 
 }
