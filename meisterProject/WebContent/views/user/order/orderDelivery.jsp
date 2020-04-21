@@ -11,7 +11,7 @@
 	<%@ include file="../../common_user/menubar.jsp" %>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 	
-	<!-- 주소검색 API : https://www.poesis.org/postcodify/guide/freeapi -->
+	<!-- 주소검색 API : https://www.poesis.org/	postcodify/guide/freeapi -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	
