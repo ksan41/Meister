@@ -6,7 +6,7 @@ public class Manager {
 	private int managerNo;	//관리자번호
 	private String managerId;	//관리자아이디
 	private String managerPwd;	//비밀번호
-	private String managerType;	//관리자타입('IM','BM')
+	private String managerType;	//관리자타입('통합','지점')
 	private String name;	//이름
 	private String phone;	//전화번호
 	private String email;	//이메일
