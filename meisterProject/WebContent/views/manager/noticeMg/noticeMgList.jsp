@@ -28,7 +28,6 @@
 </head>
 <body class="sb-nav-fixed">
 
-
 	<div id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">
@@ -63,6 +62,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<!--  -->
 								<tr>
 									<td><input type="checkbox"></td>
 									<td>35</td>
@@ -308,6 +308,7 @@
 									<td>2011/01/25</td>
 									<td>27</td>
 								</tr>
+								<!--  -->
 							</tbody>
 						</table>
 					</div>

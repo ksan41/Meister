@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,6 +59,7 @@
 								</tr>
 							</thead>
 							<tbody>
+								<!-- 
 								<tr>
 									<td><input type="checkbox"></td>
 									<td>35</td>
@@ -301,6 +305,23 @@
 									<td>2011/01/25</td>
 									<td>27</td>
 								</tr>
+								 -->
+							<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+								<tr>
+									<td colspan="4">존재하는 공지사항이 없습니다.</td>
+								</tr>
+							<% }else{ // 리스트가 비어있지 않을 경우 %>
+							
+								<% for(Notice n : list){ %>
+									
+									<tr>
+										<td><%= n.getNoticeNo() %></td>
+										<td><%= n.getNoticeTitle() %></td>
+										<td><%= n.getCreateDate() %></td>
+										<td><%= n.getCount() %></td>
+									</tr>
+								<% } %>
+							<% } %>
 							</tbody>
 						</table>
 					</div>

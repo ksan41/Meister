@@ -114,7 +114,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너 등록중</p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -127,7 +127,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">ddd</p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -142,7 +142,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너 등록중</p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -155,7 +155,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"> </p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -170,7 +170,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"> </p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -184,7 +184,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"> </p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -200,7 +200,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"> </p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -214,7 +214,7 @@
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red"> </p>
+									<p class="bannerStatus" style="color: red">배너노출상태</p>
 									<div align="center">
 										<button class="button" onclick="" data-toggle="modal"
 											data-target="#eventUpdateModal">수정</button>
@@ -267,7 +267,7 @@
 							</tr>
 							<tr>
 								<th>배너 등록여부</th>
-								<td><input type="radio" style="margin-left: 10px;"></td>
+								<td><input type="checkbox" style="margin-left: 10px;"></td>
 							</tr>
 						</table>
 
@@ -347,13 +347,11 @@
 	</div>
 	<!-- 수정 버튼 모달 끝 -->
 	
-	<!-- 
 	<script>
 		function deleteConfirm(){
 		    confirm('해당 이벤트를 삭제하시겠습니까?');
 		};
 	</script>
-	 -->
 
 </body>
 </html>
