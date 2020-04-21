@@ -112,62 +112,56 @@
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
         
-        
-        	<form id="insertForm" action="insert.th" method="post" enctype="multipart/form-data">
-        	
-				        	
-        	
- <div class="colLine">
- <div style="clear:both;">
- <div class="tdFirst" style="width:100px; height:20px;">
-  dfsdfdf
-  </div>
-  <div class="tdLast" style="width:100px; height:20px;">
-   zxczxccacasd
-  </div>
-  <div class="tdLast" style="width:200px; height:20px;">
-   sdvgsdafsdff
-  </div>
- </div>
- <div style="clear:both;">
-  <div class="tdFirst" style="width:100px; height:20px;">
-   zxczxccacasd
-  </div>
-  <div class="tdLast" style="width:100px; height:20px;">
-   zxczxccacasd
-  </div>
-  <div class="tdLast" style="width:200px; height:20px;">
-   sdvgsdafsdff
-  </div>
- </div>
- <div style="clear:both;">
-  <div style="float:left; width:100px; height:20px;">
-   zxczxccacasd
-  </div>
-  <div class="tdBottom" style="width:100px; height:20px;">
-   zxczxccacasd
-  </div>
-  <div class="tdBottom" style="width:200px; height:20px;">
-   sdvgsdafsdff
-  </div>
- </div>
-</div>
+    
+		
+		
+		        <!--  <table id="eventListTable" align="center">
+                <tr> 
+                
+                    <td><img src=""></td>
+                   
+                    
+                </tr>
+                <tr>
+                    <td><img src="img_meister/eventThumbnail/20200311_K62y1s4N.jpg"></td>
+                    <td><img src="img_meister/eventThumbnail/20200327_4X39ZmU4.jpg"></td>
+                </tr>
+                <tr>
+                    <td><img src="img_meister/eventThumbnail/20200331_wCMr6nqu.jpg"></td>
+                    <td><img src="img_meister/eventThumbnail/20200120_ZdUq5370.jpg"></td>
+                </tr>
+                <tr>
+                    <td><img src="img_meister/eventThumbnail/20200131_Npy27D5Z.jpg"></td>
+                    <td><img src="img_meister/eventThumbnail/20200120_h72eVUM8.jpg"></td>
+                </tr>
+            </table>
+            -->
+            
+           
+                 
+                  
+              <div style="width:13%; float:left;">
+              
+              	<img src="<%= contextPath %>/resources/siteImgs/eventImg/20200120_ZdUq5370.jpg">
+              	
+              </div>
+              
+              <div style="width=85%; float="right;">
+              	
+              	<img src="<%= contextPath %>/resources/siteImgs/eventImg/20200120_ZdUq5370.jpg">
+              
+              	
+              </div>
+              
+             
+                 
+                
+            
+		
+ 		
 
-
+       
         	
-            
-        	
-        	
-        	
-        	
-        	</form>
-        	
-            
-           
-           
-           
-            
-         
             
         </div>
 

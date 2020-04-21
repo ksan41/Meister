@@ -38,6 +38,10 @@ public class EventListServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		RequestDispatcher view = request.getRequestDispatcher("views/user/event/eventList.jsp");
 		view.forward(request, response);
+		
+		
+		
+		
 	}
 
 	/**
