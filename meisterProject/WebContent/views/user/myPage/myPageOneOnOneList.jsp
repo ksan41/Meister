@@ -171,7 +171,7 @@ div {
 			</div>
 
 			<div class="inner">
-				<br> <br>
+				<br><br>
 
 				<table id="noticeList" align="center" width="1000px">
 					<thead>
@@ -188,18 +188,19 @@ div {
 								<td colspan="4">존재하는 문의가 없습니다.</td>
 							</tr>
 						<% }else { %>
-							<% int count = 1; %>
+							<% int count = list.size(); %>
 							<% for(Center c : list){ %>
 							<tr>
-								<td><%=count++ %></td>
+								<td><%=count-- %></td>
 								<td><%=c.getInquiryTitle()%></td>
 								<td><%=c.getRegistDate()%></td>
 								<% if(c.getInquiryProStatus().equals("N")){ %>
 								<td>처리중</td>
 								<% }else { %>
 								<td>답변완료</td>
-								<% } %>
-							</tr>							
+								<% }%>
+								<td><input type="hidden" id="inquiryNo" value="<%=c.getInquiryNo()%>"></td>
+							</tr>
 							<% } %>
 							
 						<% } %>
@@ -221,6 +222,16 @@ div {
 			</div>
 		</div>
 		</div>
+		
+		<script>
+			$(function(){
+				$("#noticeList>tbody>tr").click(function(){
+					var cno = $("#inquiryNo").val();
+					
+					location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;
+				});
+			});
+		</script>
 
 		<%@ include file="../../common_user/footer.jsp"%>
 </body>
