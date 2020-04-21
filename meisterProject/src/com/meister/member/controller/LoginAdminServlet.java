@@ -56,7 +56,7 @@ public class LoginAdminServlet extends HttpServlet {
 		}else { //로그인실패시
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('로그인 실패. 아이디나 비밀번호를 확인해주세요.');</script>");
+			out.println("<script>alert('로그인 실패. 아이디나 비밀번호를 확인해주세요.');location.href='/Meister/admin.jsp';</script>");
 			out.flush();
 		}
 		

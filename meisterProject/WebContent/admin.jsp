@@ -3,7 +3,6 @@
     
 <%
 	String contextPath = request.getContextPath();
-	
 
 %>       
 <!DOCTYPE html>
@@ -20,7 +19,7 @@
         <link href="<%=contextPath %>/views/common_manager/resources/admin/dist/css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
         <style>
         	body{
@@ -42,14 +41,16 @@
                 <!-- 관리자페이지 로그인 폼 영역 시작 -->
                 <div id="loginForm">
                     <p id="loginSign" align="center">관리자 로그인</p>
-                    <form id="loginInputForm" action="<%= contextPath %>/loginA.me" method="post">
+                    <form name="loginManagerForm" id="loginInputForm" action="<%= contextPath %>/loginA.me" method="post">
                         <input name="managerId" id="loginInputId" type="text" align="center" placeholder="USERNAME"> <br>
                         <input name="password" id="loginInputPwd" type="password" align="center" placeholder="PASSWORD"> <br>
-                        <a id="loginBtn" align="center">Login</a>
+                        <a id="loginBtn" align="center" href="javascript:loginManagerForm.submit();">Login</a>
                     </form>
                 </div>
                 <!-- 관리자페이지 로그인 폼 영역 끝 -->
                  
             </div>
+            
+        
 </body>
 </html>
