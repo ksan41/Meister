@@ -55,7 +55,7 @@ public class InsertAddressServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("d", d);
-				RequestDispatcher view = request.getRequestDispatcher("views/user/orderDelivery.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("views/user/orderDelivery.jsp"); // orderDelivery.or 서블릿 요청해라
 				view.forward(request, response);
 				
 			}else { // insert안됨 --> 회원가입실패
