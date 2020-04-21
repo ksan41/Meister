@@ -101,5 +101,39 @@ public class MyPageService {
 		
 		return result;
 	}
+	
+	
+	/**
+	 * 6. 1:1문의 수정용 서비스
+	 * @param c		--> Center테이블 update
+	 * @param ci	--> CenterImage테이블 update 또는 insert할 데이터가 담겨있는 객체
+	 * @return		--> 처리된 행의 갯수
+	 */
+	public int updateCenter(Center c, CenterImage ci) {
+		
+		Connection conn = getConnection();
+		
+		int result1 = new MyPageDao().updateCenter(conn, c);
+		int result2 = 1;
+		
+		if(ci != null) {	// 새로이 추가된 첨부파일이 있을 경우
+		
+			if(ci.getFileNo() != 0) {	// 기존에 첨부파일이 있었을 경우 --> update
+				result2 = new MyPageDao().updateCenterImage(conn, ci);
+			}else {	// 기존에 첨부파일이 없었을 경우 --> insert
+				result2 = new MyPageDao().insertCenterImage(conn, ci);
+			}
+		}
+		
+		if(result1 > 0 && result2 > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result1*result2;
+	}
 
 }

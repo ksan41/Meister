@@ -268,7 +268,7 @@
 											<td><%= m.getMemberId() %></td>
 											<td><%= m.getMemberName() %></td>
 											<td><%= m.getMemberEnrolldate() %></td>
-											<td><%= m.get보유쿠폰() %>
+											<td><%= m.get보유쿠폰() %></td>
 											<th>
 												<button class="button" onclick="deleteMem()">탈퇴</button>
 											</th>

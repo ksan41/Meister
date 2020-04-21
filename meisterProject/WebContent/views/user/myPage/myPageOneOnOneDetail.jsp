@@ -270,10 +270,10 @@ div {
 						<td width="270px" height="50px" align="center"
 							style="font-size: 1.2em; font-weight:700; color: gray;">첨부파일</td>
 						<td style="padding-left: 1%; font-size: 1.3em;">
-						<%if(ci != null){ %>
-							<%=ci.getOriginName()%>
-						<%}else { %>
-							
+						<%if(ci != null){ // 첨부파일이 존재할 경우 %>
+							<a href="<%=contextPath%>/resources/center_upfiles/<%= ci.getChangeName() %>"><%= ci.getOriginName() %></a> 
+						<%}else { // 첨부파일이 존재하지 않을 경우 %>
+							첨부파일이 없습니다.
 						<%} %>
 						</td>						
 					</tr>

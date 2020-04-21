@@ -13,10 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.meister.notice.model.service.NoticeService;
 import com.meister.notice.model.vo.Notice;
 
+//////통합관리자 고객공지사항 리스트
 /**
  * Servlet implementation class NoticeListServlet
  */
-@WebServlet("/imNoticeList.nom")
+@WebServlet("/imNoticeMlist.nom")
 public class NoticeMgListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
