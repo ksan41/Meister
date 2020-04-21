@@ -9,9 +9,14 @@ import java.util.ArrayList;
 import com.meister.menu.model.dao.MenuDao;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.menu.model.vo.PizzaSize;
+import com.meister.menu.model.vo.Side;
 
 public class MenuService {
 	
+	/**
+	 * 1. 피자 리스트 조회용 서비스
+	 * @return	--> 조회된 피자 담은 객체
+	 */
 	public ArrayList<Pizza> selectPizzaList(){
 		
 		Connection conn = getConnection();
@@ -24,6 +29,10 @@ public class MenuService {
 		
 	}
 	
+	/**
+	 * 2. 피자 사이즈, 가격 조회용 서비스
+	 * @return	--> 조회돈 사이즈 가격 담은 객체
+	 */
 	public ArrayList<PizzaSize> selectPizzaSizeList(){
 		
 		Connection conn = getConnection();
@@ -35,5 +44,34 @@ public class MenuService {
 		return list;
 		
 	}
+	
+	
+	public ArrayList<Side> selectSideList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Side> list = new MenuDao().selectSideList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

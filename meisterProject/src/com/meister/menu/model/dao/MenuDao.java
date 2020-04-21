@@ -15,6 +15,7 @@ import java.util.Properties;
 
 import com.meister.menu.model.vo.Pizza;
 import com.meister.menu.model.vo.PizzaSize;
+import com.meister.menu.model.vo.Side;
 import com.meister.notice.model.dao.NoticeDao;
 
 public class MenuDao {
@@ -92,6 +93,44 @@ public class MenuDao {
 				
 				list.add(ps);
 			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<Side> selectSideList(Connection conn){
+		
+		ArrayList<Side> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("sideSelectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Side s = new Side();
+				s.setSideNo(rset.getInt("SIDE_NO"));
+				s.setSideName(rset.getString("SIDE_NAME"));
+				s.setSideImg(rset.getString("SIDE_IMAGE"));
+				s.setSidePrice(rset.getInt("SIDE_PRICE"));
+				s.setSideContent(rset.getString("SIDE_CONTENT"));
+				s.setSideTopping(rset.getString("SIDE_TOPPING_CONTENT"));
+				s.setSideOrigin(rset.getString("SIDE_ORIGIN"));
+				
+				list.add(s);
+				
+			}
+			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

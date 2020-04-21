@@ -277,7 +277,7 @@ p {
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
 			<a href="" style="color: orange">피자</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="">사이드디시</a>
+				style="color: lightgray; font-size: 17px;">|</span> <a href="<%= contextPath %>/sideList.men">사이드디시</a>
 			<span style="color: lightgray; font-size: 17px;">|</span> <a href="">음료&기타</a>
 		</div>
 		<hr>
@@ -344,7 +344,7 @@ p {
 								<h3>
 									<%= p.getPizzaName() %><img id="menu-detail"
 										src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-										alt="" data-toggle="modal" data-target="#menu-detail-modal<%=i%>" value="<%= p.getPizzaName() %>">
+										alt="" data-toggle="modal" data-target="#menu-detail-modal<%=i%>">
 								</h3>
 								<% for(PizzaSize ps : list2) { %>
 									<p>

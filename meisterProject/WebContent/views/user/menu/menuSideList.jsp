@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
+<%
+	ArrayList<Side> list = (ArrayList<Side>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -270,7 +273,7 @@ p {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="">피자</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="<%= contextPath %>/pizzaList.men">피자</a> <span style="color: lightgray; font-size: 17px;">|</span>
 			<a href="" style="color: orange">사이드디시</a> <span
 				style="color: lightgray; font-size: 17px;">|</span> <a href="">음료&기타</a>
 		</div>
@@ -279,6 +282,7 @@ p {
 		<div class="inner">
 			<!-- 프리미엄 -->
 			<div class="menu-area">
+				<!-- 
 				<div id="menu-thumb">
 					<div id="menu-img">
 						<img src="sides/food-2757966_1280.jpg" alt="">
@@ -356,71 +360,83 @@ p {
 						</h3>
 						<p>18000원</p>
 					</div>
-				</div>
+				</div> -->
+				
+				<% for(int i=0; i<list.size();i++) {  Side s = list.get(i);%>
+					<div id="menu-thumb">
+						<div id="menu-img">
+							<input type="hidden" value="<%= s.getSideNo() %>">
+							<img src= "<%= s.getSideImg() %>" alt="">
+						</div>
+						<div id="menu-info">
+							<h3>
+								<%= s.getSideName() %><img id="menu-detail"
+									src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
+									alt="" data-toggle="modal" data-target="#menu-detail-modal<%=i%>">
+							</h3>
+								<p>
+									<%=s.getSidePrice() %>원 
+								</p>
+						</div>
+					</div>
+				<% } %>
+				
+				
+				
 			</div>
 			<!-- 프리미엄 -->
 
 		</div>
 		<!-- 모달 시작 -->
-		<div class="modal fade" id="menu-detail-modal">
-			<!-- modal별 id 변경해주세요-->
-			<div class="modal-dialog"
-				style="max-width: 100%; width: auto; display: table;">
-				<div class="modal-content">
-
-					<!-- Modal Header -->
-					<div class="modal-header">
-						<h2 class="modal-title" style="margin: auto; padding: 0;">까르보나라
-							스파게티</h2>
-						<button type="button" class="close" data-dismiss="modal"
-							style="margin: 0; padding: 0;">&times;</button>
-					</div>
-
-					<!-- Modal body -->
-					<div class="modal-body">
-						<div id="menu-detail1-modal">
-							<div id="menu-detail1-modal-img">
-								<img id="menu-detail-img" src="sides/food-2757966_1280.jpg"
-									alt="">
+		<% for(int i=0;i<list.size();i++) { Side s = list.get(i); %>
+			<div class="modal fade" id="menu-detail-modal<%=i%>">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog"
+					style="max-width: 100%; width: auto; display: table;">
+					<div class="modal-content">
+	
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h2 class="modal-title" style="margin: auto; padding: 0;"><%= s.getSideName() %></h2>
+							<button type="button" class="close" data-dismiss="modal"
+								style="margin: 0; padding: 0;">&times;</button>
+						</div>
+	
+						<!-- Modal body -->
+						<div class="modal-body">
+							<div id="menu-detail1-modal">
+								<div id="menu-detail1-modal-img">
+									<img id="menu-detail-img" src="<%= s.getSideImg() %>"
+										alt="">
+								</div>
+								<div id="menu-detail1-modal-info">
+									<h2>메인토핑</h2>
+									<hr>
+									<span id="modal-topping-info"><%= s.getSideTopping() %></span>
+									<h2>원산지</h2>
+									<hr>
+									<span id="modal-origin-info"><%= s.getSideOrigin() %></span>
+								</div>
 							</div>
-							<div id="menu-detail1-modal-info">
-								<h2>메인토핑</h2>
+							<div id="menu-detail1-moda2">
 								<hr>
-								<span id="modal-topping-info">모차렐라, 프로볼로네, 체더, 크리미 고르곤졸라,
-									갈릭 크림 소스, 토마토 콩피(confit), 뉴욕 스트립 스테이크, 15가지 믹스 슈레드 치즈(화이트 체더,
-									몬터레이 잭, 에그몬트, 크림치즈, 에멘탈, 카망베르, 블루 치즈, 스모크 치즈, 숙성 체더, 유기농 체더,
-									고다, 리코타, 파르메산, 그뤼에르, 로마노), 11가지 믹스 옐로우 치즈(부라타, 콜비잭, 만체고, 탈레지오,
-									보코치니, 페터, 브리, 에담, 마스카포네, 그라나파다노, 미몰레트), 파슬리 드라이</span>
-								<h2>원산지</h2>
+								<h2>메뉴소개</h2>
 								<hr>
-								<span id="modal-origin-info">오리지널, 나폴리 도우(밀) : 미국산+캐나다산 /
-									씬 도우(밀) : 미국산 / 슈퍼시드 함유 도우(밀) : 미국산+캐나다산, (흑미) : 국내산 / 뉴욕 스트립
-									스테이크(쇠고기) : 호주산 / 체더치즈 : 미국, 뉴질랜드, 호주</span>
+								<span id="modal-menu-info"> <%= s.getSideContent() %> </span>
 							</div>
 						</div>
-						<div id="menu-detail1-moda2">
-							<hr>
-							<h2>메뉴소개</h2>
-							<hr>
-							<span id="modal-menu-info"> 청춘 않는 행복스럽고 아니다. 인생의 부패를 천하를
-								그들에게 청춘 싹이 피다. 장식하는 미묘한 않는 할지라도 위하여, 있는가? 얼마나 우는 자신과 만물은 가치를 실로
-								넣는 인간의 가진 운다. 고동을 품에 가치를 있다. 꾸며 피는 천지는 위하여서. 굳세게 심장은 속에 대한 있다.
-								따뜻한 유소년에게서 일월과 봄날의 않는 하는 꽃이 커다란 끓는다. 그들의 크고 방황하였으며, 간에 뿐이다.
-								평화스러운 영락과 찾아다녀도, 힘차게 밝은 풀밭에 같이, 소리다.이것은 때문이다. 실현에 이 날카로우나 청춘이
-								타오르고 끓는 있을 것이다.보라, 것이다. </span>
+	
+						<!-- Modal footer -->
+						<div class="modal-footer" style="margin: auto;">
+							<!-- 하단버튼 영역-->
+							<button class="middle_btn" id="order-btn">주문하기</button>
+							<button class="middle_btn" id="close-btn" data-dismiss="modal">닫기</button>
 						</div>
+	
 					</div>
-
-					<!-- Modal footer -->
-					<div class="modal-footer" style="margin: auto;">
-						<!-- 하단버튼 영역-->
-						<button class="middle_btn" id="order-btn">주문하기</button>
-						<button class="middle_btn" id="close-btn" data-dismiss="modal">닫기</button>
-					</div>
-
 				</div>
 			</div>
-		</div>
+		<% } %>
 		<!-- 모달 끝 -->
 	</div>
 	<%@ include file="../../common_user/footer.jsp"%>
