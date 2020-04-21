@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.meister.notice.model.service.NoticeService;
 import com.meister.notice.model.vo.Notice;
 
+//////통합관리자 고객공지사항 리스트
 /**
  * Servlet implementation class NoticeListServlet
  */
