@@ -84,7 +84,7 @@ public class NoticeService {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Notice> list = new NoticeDao().selectList(conn);
+		ArrayList<Notice> list = new NoticeDao().selectBmList(conn);
 		
 		close(conn);
 		
