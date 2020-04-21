@@ -32,7 +32,7 @@ public class LogoutManagerServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect(location);
+		response.sendRedirect(request.getContextPath()+"/admin.jsp");
 		
 	}
 
