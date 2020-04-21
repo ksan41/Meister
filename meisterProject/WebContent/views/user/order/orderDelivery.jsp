@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.meister.order.model.vo.Delivery"%>
-<%
-	Delivery d = (Delivery)session.getAttribute("d");
-%>
+    pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +20,7 @@
 	
 	<!-- 모달 부트스트랩 시작-->
 	<link rel="stylesheet" type="text/css"
-		href="../../../resources/css/bootstrap.css">
+		href="<%=contextPath %>/resources/css/bootstrap.css">
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
@@ -203,7 +201,7 @@
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName() %></h4><%=d.get %>&nbsp;&nbsp;&nbsp;031-0000-8282
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">홈스윗홈</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
                 </div>
                 <div>
                     <button id="remove">―</button>
