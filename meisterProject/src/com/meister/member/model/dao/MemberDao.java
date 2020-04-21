@@ -123,7 +123,20 @@ private Properties prop = new Properties();
 		
 	}
 	
-	
+        
+        
+	/**권산
+	 * #관리자 로그인용 dao
+	 * @param conn
+	 * @param managerId
+	 * @param password
+	 * @return
+	 */
+	public Manager loginManager(Connection conn, String managerId, String password) {
+		
+		
+		
+	}
 }
 
 

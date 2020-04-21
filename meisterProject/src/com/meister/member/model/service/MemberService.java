@@ -1,11 +1,15 @@
 package com.meister.member.model.service;
 
-import com.meister.member.model.dao.MemberDao;
-import com.meister.member.model.vo.Member;
-
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+
+import com.meister.member.model.dao.MemberDao;
+import com.meister.member.model.vo.Manager;
+import com.meister.member.model.vo.Member;
 
 public class MemberService {
 	
@@ -50,5 +54,21 @@ public class MemberService {
 		
 	}
 	
+       
+       /** 권산
+        * #관리자 로그인용 서비스
+     * @param managerId : 관리자 로그인페이지에서 사용자가 입력한 아이디
+     * @param password : 관리자 로그인페이지에서 사용자가 입력한 비밀번호
+     * @return : 입력한 아이디,비밀번호로 조회해온 Manager객체
+     */
+    public Manager loginManager(String managerId,String password) {
+    	   
+    		Connection conn = getConnection();
+    		Manager loginManager = new MemberDao().loginManager(conn,managerId,password); 
+    	   
+    		close(conn);
+    		
+    		return loginManager;
+       }
 
 }
