@@ -170,7 +170,7 @@
                     
                     <form action="<%= contextPath %>/loginU.me" method="post">
                     <input type="text" name="userId" style="width: 200px;" placeholder="아이디"> <br>
-                    <input type="text" name="userPwd" style="width: 200px; margin-top: 10px;" placeholder="비밀번호">
+                    <input type="password" name="userPwd" style="width: 200px; margin-top: 10px;" placeholder="비밀번호">
                     <br><br>
                     <input class="middle_btn" type="submit" value="로그인" >
                     <br>
