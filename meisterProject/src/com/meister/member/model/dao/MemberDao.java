@@ -236,4 +236,32 @@ private Properties prop = new Properties();
 		
 		return result;
 	}
+	
+	
+	/**산
+	 * 통합관리자-회원 탈퇴처리용 dao
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @param memberNo : 탈퇴처리할 회원번호
+	 * @return : 처리된 행의갯수
+	 */
+	public int deleteMgMember(Connection conn,int memberNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("mgDeleteMember");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
