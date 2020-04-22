@@ -38,13 +38,15 @@ public class MemberMgListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
 		String name = null; 
 		name= request.getParameter("userName");
 		
-		Date startDate=null;
-		Date endDate=null;
-//		startDate = stringToDate(request.getParameter("startDate"));
-//		endDate = stringToDate(request.getParameter("endDate"));
+		String startDate=null;
+		String endDate=null;
+		startDate = request.getParameter("startDate");
+		endDate = request.getParameter("endDate");
 
 		if (name!=null) {// 이름으로 검색시
 			ArrayList<Member> list = new MemberService().searchName(name);
