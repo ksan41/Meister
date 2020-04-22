@@ -204,5 +204,12 @@ public class MemberService {
 	 */
 	public ArrayList<Member> searchDate(Date startDate,Date endDate){
 		
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().searchDate(conn,startDate,endDate);
+		
+		close(conn);
+		
+		return list;
+		
 	}
 }
