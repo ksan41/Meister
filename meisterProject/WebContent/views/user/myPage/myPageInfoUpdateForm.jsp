@@ -247,20 +247,20 @@ table {
 							onclick="show();">비밀번호변경</button>
 						<div id="aa" style="display: none; margin-top:10px;">
 						
-						<form id="pwdAreaForm" action="" method="post">
+						<form id="pwdAreaForm" action="<%=contextPath%>/myInfoChangePwd.my" method="post">
 							<table border="1">
 								<tr>
 									<td style="height: 35px;">현재 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"></td>
+									<td style="padding-left:10px;"><input name="memberPwd" type="password" size="35"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"
+									<td style="padding-left:10px;"><input name="inputPwd1" type="password" size="35"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호 확인 </td>
-									<td style="padding-left:10px;"><input type="password" size="35"
+									<td style="padding-left:10px;"><input name="inputPwd2" type="password" size="35"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
 									<td style="padding-left: 15px;">
 										<button type="submit" class="small_btn" style="margin: 1px;">수정하기</button>
@@ -326,10 +326,9 @@ table {
 			<br><br><br>
 
 			<div id="btns">
-				<button
-					style="background: white; color: black; border: 1px solid darkgray"
-					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">수정</button>
+				<button style="background: white; color: black; border: 1px solid darkgray"
+					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
+				<button type="submit" class="middle_btn" id="mbtn">수정</button>
 			</div>
 			</form>
 
