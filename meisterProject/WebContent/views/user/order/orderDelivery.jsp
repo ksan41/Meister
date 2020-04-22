@@ -98,7 +98,7 @@
 	     width:100%;
 	     height:120px;
 	 }
-	 .inner div:nth-child(3) div{
+	 .inner div:nth-child(3) div, #content1>div:nth-child(4){
 	     width:10%;
 	     height:120px;
 	 }
@@ -112,13 +112,15 @@
 	     width:20px;
 	     height:20px;
 	 }
-	 #content1>div:nth-child(3), #content1>div:nth-child(7), #content1>div:nth-child(11){
+	 #textArea{
 	     width:auto;
 	 }
-	 #content1>div:nth-child(4), #content1>div:nth-child(8), #content1>div:nth-child(12){
-	     width:40%;
-	     padding-top:4.5%;
-	     padding-left:35%;
+	 /*#content1>div:nth-child(4), #content1>div:nth-child(8), #content1>div:nth-child(12){*/
+	 .removeArea{
+	 	/*width:10%;*/
+	    padding-top:4.5%;
+	    padding-left:35%;
+	    width:100px;
 	 }
 	 #addDeliveryAddress button{
 	     margin-top:10%;
@@ -200,46 +202,20 @@
 				<%if(!deliveryList.isEmpty()){ %>
 				<%for(int i=0; i<deliveryList.size(); i++){ %>
 					<%Delivery d = deliveryList.get(i); %>
-					<% String referenceAddress = d.getReferenceAddress(); %>
+					<%// String referenceAddress = d.getReferenceAddress(); %>
 					<%//if(referenceAddress.equals("null")) { referenceAddress = " "; } %>
-					<%System.out.println("d.getReferenceAddress() 메소드 값 : " + d.getReferenceAddress()); %>
-					<%System.out.println("referenceAddress 변수에 담은 것 : " + referenceAddress); %>
-					<%System.out.println("referenceAddress 변수 null값과 일치 비교 : " + referenceAddress.equals("null")); %>
-                <div>
+					<%//System.out.println("d.getReferenceAddress() 메소드 값 : " + d.getReferenceAddress()); %>
+					<%//System.out.println("referenceAddress 변수에 담은 것 : " + referenceAddress); %>
+					<%//System.out.println("referenceAddress 변수 null값과 일치 비교 : " + referenceAddress.equals("null")); %>
+                <div></div>
+                <div><input type="checkbox"></div>
+                <div id="textArea">
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
                 </div>
-                <div>
-                    <input type="checkbox">
-                </div>
-                <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=referenceAddress%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
-                </div>
-                <div>
-                    <button id="remove">―</button>
-                </div>
+                <div class="removeArea"><button id="remove">―</button></div>
 				<%}%>
 				<%}%>
-                <div>
-                </div>
-                <div>
-                    <input type="checkbox">
-                </div>
-                <div><br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">회사</h4>강남지점&nbsp;&nbsp;&nbsp;031-0000-8282
-                </div>
-                <div>
-                    <button id="remove">―</button>
-                </div>
-
-                <div>
-                </div>
-                <div>
-                    <input type="checkbox">
-                </div>
-                <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">별장1</h4>여수지점&nbsp;&nbsp;&nbsp;031-0000-8282
-                </div>
-                <div>
-                    <button id="remove">―</button>
-                </div>
+                
 
                 <div id="bottom">
                 </div>
