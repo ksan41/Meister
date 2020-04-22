@@ -20,7 +20,7 @@ div {
 }
 
 .outer {
-	width: 1000px;
+	width: 1400px;
 	box-sizing: border-box;
 	margin: auto;
 	margin-top: 100px;
@@ -94,15 +94,16 @@ div {
 }
 
 .inner{
-	width:1100px;
+	width:1400px;
 	height:auto;
 	margin-top:50px;
+	margin-left:100px;
 }
 
 
 .inner>div {
 	display: inline-block;
-	margin:auto;
+	margin:30px;
 }
 
 .thumbnail{/*이미지 바깥영역 div*/
@@ -153,7 +154,7 @@ div {
 			<div class="thumbnail" align="center">
 				<input type="hidden" name="a" value="1"> 
 				<img class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
-
+		
 
 			</div>
 			<% } %>
