@@ -168,6 +168,11 @@ public class MemberService {
      */
     public ArrayList<Member> searchName(String name){
     	
+    	Connection conn = getConnection();
     	
+    	ArrayList<Member> list = new MemberDao().searchName(conn,name);
+    	
+    	close(conn);
+    	return list;
     }
 }
