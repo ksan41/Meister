@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.event.model.service.EventService;
+
 /**
  * Servlet implementation class EventDetailServlet
  */
@@ -30,12 +32,9 @@ public class EventDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/event/eventDetail.jsp");
-				
-		view.forward(request, response);
-		
-		
+															
+		int bno = Integer.parseInt(request.getParameter("bno")); 
+	
 		
 	}
 

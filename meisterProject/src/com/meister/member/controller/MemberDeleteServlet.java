@@ -48,16 +48,15 @@ public class MemberDeleteServlet extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('해당 문의가 삭제되었습니다.'); location.href='myOneList.my';</script>");
-			
-			//response.sendRedirect("logout.me");
+			out.println("<script>alert('정상적으로 탈퇴되었습니다. 그동안 이용해주셔서 감사합니다.'); location.href='logoutU.me';</script>");
+
         	
         }else {	// 탈퇴 실패
            	
 			response.setContentType("text/html; charset=utf-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('해당 문의가 삭제되었습니다.'); location.href='myOneList.my';</script>");
+			out.println("<script>alert('탈퇴에 실패했습니다. 다시 시도해주세요.'); location.href='deleteMember.me';</script>");
         	
         }
         
