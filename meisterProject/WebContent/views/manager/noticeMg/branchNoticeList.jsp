@@ -41,7 +41,6 @@
 							width="100%" cellspacing="0">
 							<thead>
 								<tr>
-									<th><input type="checkbox"></th>
 									<th>No</th>
 									<th>제목</th>
 									<th>등록일</th>

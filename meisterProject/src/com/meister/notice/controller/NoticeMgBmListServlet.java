@@ -35,7 +35,7 @@ public class NoticeMgBmListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Notice> list = new NoticeService().selectList();
+		ArrayList<Notice> list = new NoticeService().selectBmList();
 		
 		request.setAttribute("list", list);
 		
