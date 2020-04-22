@@ -124,7 +124,7 @@
 					<button style="">탈퇴회원조회</button>
 				</div>
 				<div class="card-body">
-					<div class="table-responsive">
+					<div class="table-responsive" style="width:auto;height:600px;overflow-y:scroll;">
 						<table class="table table-bordered" id="dataListTable"
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
@@ -169,13 +169,13 @@
 								<%}else{ // 조회된 회원정보가 있을 경우 %>
 									<% for(Member m : list){ %> 
 										<tr>
-											<td><%=m.getMemberNo() %></td>
+											<td class="memberNo"><%=m.getMemberNo() %></td>
 											<td><%=m.getMemberId() %></td>
 											<td><%=m.getMemberName() %></td>
 											<td><%=m.getMemberEnrolldate() %></td>
 											<td><%=m.getMemberCouponCnt() %></td>
 											<th>
-												<button class="button" onclick="deleteMem()">탈퇴</button>
+												<button class="button" id="dropMemBtn">탈퇴</button>
 											</th>
 										</tr>
 									<%} %>
@@ -190,20 +190,14 @@
 	</div>
 	
 	<script>
-		function deleteMem(){
-		    confirm('해당 회원을 탈퇴처리 하시겠습니까?');
-		};
-		
-		$(function(){
-			$("#dataListTable>tbody>tr").click(function(){
-				console.log("클릭");
-				
-				// 현재 클릭했을 때의 해당 공지사항의 번호
-				var nno = $(this).children().eq(0).text();
-				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/memberList.memg?nno=" + nno;
-				/dropMemberList.memg
-			});
+		$("#dropMemBtn").click(function(){
+			var dropCheck = confirm("해당 회원을 탈퇴처리 하시겠습니까?");
+			var index = $(".button").index(this);
+			
+			if(dropCheck){ //확인 클릭시
+				var memNo = $(".memberNo:eq("+index+")").value(); //선택된 해당 회원번호
+				location.href("/deleteMember.memg");
+			}
 		});
 	</script>
 </body>
