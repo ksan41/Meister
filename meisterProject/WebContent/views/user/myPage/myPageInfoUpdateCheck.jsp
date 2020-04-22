@@ -198,6 +198,7 @@ table {
 		<br><br><hr>
 		
 		<div class="inner">
+			<form id="updateForm" action="<%=contextPath%>/myInfoUpdateCheckPwd.my" method="post">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
@@ -205,10 +206,11 @@ table {
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="text"></td>
-					<td><button class="small_btn" id="#" style="margin: 10px">확인</button></td>
+					<td><input type="text" name="inputPwd"></td>
+					<td><button type="submit" class="small_btn" id="#" style="margin: 10px">확인</button></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	</div>
 
