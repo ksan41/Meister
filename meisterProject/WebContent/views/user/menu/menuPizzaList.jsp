@@ -22,7 +22,7 @@
 
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
-	href="../../../resources/css/bootstrap.css">
+	href="<%= contextPath %>/resources/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -32,6 +32,8 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
 
 <!-- 모달 부트스트랩 -->
+
+
 
 <style>
 /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
@@ -178,6 +180,27 @@ p {
 }
 
 #menu-img>img:hover {
+	cursor: pointer;
+	opacity: 70%;
+}
+
+#menu-img2 {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 70%;
+	margin: auto;
+	border-radius: 50%;
+}
+
+#menu-img2>img {
+	width: 350px;
+	height: auto;
+}
+
+#menu-img2>img:hover {
 	cursor: pointer;
 	opacity: 70%;
 }
@@ -336,8 +359,8 @@ p {
 				<% for(int i=0; i<list1.size();i++) {  Pizza p = list1.get(i);%>
 					<% if(p.getPizzaType().equals("1")) {%>
 						<div id="menu-thumb">
-							<div id="menu-img">
-								<input type="hidden" value="<%= p.getPizzaNo() %>">
+							<div id="menu-img" class="menu-img">
+								<input type="hidden" value="<%= p.getPizzaNo()%>">
 								<img src= "<%= p.getPizzaImg() %>" alt="">
 							</div>
 							<div id="menu-info">
@@ -418,7 +441,7 @@ p {
 				<% for(int i = 0; i<list1.size();i++) { Pizza p = list1.get(i);%>
 					<% if(p.getPizzaType().equals("2")) {%>
 						<div id="menu-thumb">
-							<div id="menu-img">
+							<div id="menu-img2" class="menu-img2">
 								<input type="hidden" value="<%= p.getPizzaNo() %>">
 								<img src= "<%= p.getPizzaImg() %>" alt="">
 							</div>
@@ -561,6 +584,35 @@ p {
 		<% } %>
 		<!-- 모달 끝2 -->
 	</div>
+	
+	
+	<script>
+		$(function(){
+			$(".menu-img").click(function(){
+				var pno = $(this).children().eq(0).val();
+				//var pno = $()
+				console.log(pno);
+				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
+				
+			});
+		});
+	</script>
+	
+	<script>
+		$(function(){
+			$(".menu-img2").click(function(){
+				var pno = $(this).children().eq(0).val();
+				console.log(pno);
+				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
+				
+			});
+		});
+	</script>
+	
+	
+	
+	
+	
 	<%@ include file="../../common_user/footer.jsp"%>
 
 </body>

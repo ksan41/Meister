@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.meister.menu.model.vo.Dough;
 import com.meister.menu.model.vo.Etc;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.menu.model.vo.PizzaSize;
@@ -179,5 +180,131 @@ public class MenuDao {
 		return list;
 		
 	}
+	
+	public ArrayList<Dough> selectDoughList(Connection conn){
+		
+		ArrayList<Dough> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("doughSelectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Dough d = new Dough();
+				d.setDoughNo(rset.getInt("DOUGH_NO"));
+				d.setDoughName(rset.getString("DOUGH_NAME"));
+				d.setDoughAddPrice(rset.getInt("DOUGH_ADD_PRICE"));
+				
+				list.add(d);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<Pizza> selectPizzaDetail(Connection conn, int pno){
+		
+		ArrayList<Pizza> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("pizzaDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Pizza p = new Pizza();
+				p.setPizzaNo(rset.getInt("PIZZA_NO"));
+				p.setPizzaName(rset.getString("PIZZA_NAME"));
+				p.setPizzaType(rset.getString("PIZZA_TYPE"));
+				p.setPizzaImg(rset.getString("PIZZA_IMAGE"));
+				p.setPizzaContent(rset.getString("PIZZA_CONTENT"));
+				p.setPizzaTopping(rset.getString("PIZZA_TOPPING_CONTENT"));
+				p.setPizzaOrigin(rset.getString("PIZZA_ORIGIN"));
+				
+				list.add(p);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<PizzaSize> selectPizzaSizeDetail(Connection conn, int pno){
+		
+		ArrayList<PizzaSize> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("pizzaSizeDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				PizzaSize ps = new PizzaSize();
+				ps.setSizeNo(rset.getInt("SIZE_NO"));
+				ps.setPizzaPrice(rset.getInt("PIZZA_PRICE"));
+				ps.setPizzaSize(rset.getString("PIZZA_SIZE"));
+				ps.setPizzaNo(rset.getInt("PIZZA_NO"));
+				
+				list.add(ps);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
