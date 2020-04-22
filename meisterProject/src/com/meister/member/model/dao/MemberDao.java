@@ -286,6 +286,7 @@ private Properties prop = new Properties();
 			while(rset.next()) {
 				Member m = new Member();
 				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
 				m.setMemberId(rset.getString("MEMBER_ID"));
 				m.setLeaveType(rset.getString("LEAVE_TYPE"));
 				m.setLeaveReason(rset.getString("LEAVE_REASON"));
