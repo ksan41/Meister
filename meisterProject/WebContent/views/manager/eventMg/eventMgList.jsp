@@ -110,6 +110,7 @@
 					</div>
 
 					<table id="eventListTable" align="center">
+						<!-- 
 						<tr>
 							<td>
 								<div class="eventImg">
@@ -241,6 +242,19 @@
 									</div>
 								</div></td>
 						</tr>
+						 -->
+						<% for(Event e : list) { %>
+
+							<div class="thumbnail" align="center">
+							
+								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+								<a id="detail1">
+								<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+								</a>
+				
+							</div>
+						<% } %>
+						 
 					</table>
 				</div>
 			</div>
@@ -431,6 +445,14 @@
 		function deleteConfirm(){
 		    confirm('해당 이벤트를 삭제하시겠습니까?');
 		};
+		
+		$(function(){  		
+		    $(".thumbnail").click(function(){ 
+			
+			 	var bno = $(this).children().eq(0).val();
+				location.href="<%=contextPath%>/eDetail.ev?bno=" + bno;
+			});
+        });
 	</script>
 
 </body>
