@@ -196,7 +196,8 @@
 			
 			if(dropCheck){ //확인 클릭시
 				var memNo = $(".memberNo:eq("+index+")").value(); //선택된 해당 회원번호
-				location.href("/deleteMember.memg");
+				
+				location.href("<%=contextPath%>/deleteMember.memg");
 			}
 		});
 	</script>
