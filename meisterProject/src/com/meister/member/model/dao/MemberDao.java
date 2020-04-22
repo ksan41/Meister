@@ -349,7 +349,7 @@ private Properties prop = new Properties();
     }
     
     //회원 재조회용
-	public Member selectMember(Connection conn, String userId) {
+	public Member selectMember(Connection conn, int memberNo) {
 		Member m = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -357,7 +357,7 @@ private Properties prop = new Properties();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setInt(1, memberNo);
 			
 			rset = pstmt.executeQuery();
 			
