@@ -144,19 +144,19 @@
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
 								<tr>
-								<form name="searchName" action="<%=contextPath%>/memberList.memg" method="get">
+								<form name="searchName" action="<%=contextPath%>/memberList.memg" method="post">
 									<th style="vertical-align:middle;">회원명 검색</th>
 									<th><input name="userName" type="text" id="search"
 										style="width: 120px;height:30px">
 									<button class="small_btn" type="submit">검색</button></th>
 								</form>
-								<form name="searchDate" action="<%=contextPath %>/memberList.memg" method="post">
+								<form name="searchDate" action="<%=contextPath %>/memberList.memg" method="get">
 									<th style="vertical-align:middle;">기간별 조회</th>
 									<th>
-										<input type="date" name="startDate">
+										<input type="date" name="startDate" required>
 										~
 										<input type="date" name="endDate">
-										<button class="small_btn" type="submit">검색</button></th>
+										<button class="small_btn" type="submit" required>검색</button></th>
 									</th>
 								</form>
 								</tr>
