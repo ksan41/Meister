@@ -44,15 +44,13 @@ public class OrderDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, d.getDeliveryNo());
-			pstmt.setString(2, d.getNewAddress1());
-			pstmt.setString(3, d.getNewAddress2());
-			pstmt.setString(4, d.getNewPoCode());
-			pstmt.setString(5, d.getAddressStatus());
-			pstmt.setString(6, d.getDeliveryName());
-			pstmt.setInt(7, d.getBranchNo());
-			pstmt.setInt(8,  d.getMemberNo());
-			pstmt.setString(9, d.getReferenceAddress());
+			pstmt.setString(1, d.getNewAddress1());
+			pstmt.setString(2, d.getNewAddress2());
+			pstmt.setString(3, d.getNewPoCode());
+			pstmt.setString(4, d.getDeliveryName());
+			pstmt.setInt(5, d.getBranchNo());
+			pstmt.setInt(6,  d.getMemberNo());
+			pstmt.setString(7, d.getReferenceAddress());
 			
 			result = pstmt.executeUpdate();
 			
@@ -93,8 +91,32 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		System.out.println("다오딴 : " + deliveryList.get(0));
+		//System.out.println("다오딴 : " + deliveryList.get(0));
 		return deliveryList;
+	}
+	
+	public String getMemberNo(Connection conn, String userId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String memberNo = "";
 		
+		String sql = prop.getProperty("selectMemberNo");
+		System.out.println("지점 5 에서 userId : " + userId);
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				memberNo = rset.getString("MEMBER_NO");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return memberNo;
 	}
 }
