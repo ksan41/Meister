@@ -18,7 +18,8 @@ public class Member {
 	private String leaveType;		// 탈퇴타입
 	private String leaveReason;		// 탈퇴사유
 	private String paymentType;		// 기본결제수단
-
+	private int memberCouponCnt;     //회원 보유쿠폰 수 
+	
 	public Member() {
 
 	}
