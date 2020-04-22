@@ -38,6 +38,7 @@ public class EventMgListServlet extends HttpServlet {
 		request.setAttribute("list", list);
 		RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
 		view.forward(request, response);
+		
 	}
 
 	/**
