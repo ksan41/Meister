@@ -198,7 +198,7 @@ table {
 		<br><br><hr>
 		
 		<div class="inner">
-			<form id="updateForm" action="<%=contextPath%>/myInfoUpdateCheckPwd.my" method="post">
+			<form id="updateForm" action="<%=contextPath%>/myInfoUpdateForm.my" method="post">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
