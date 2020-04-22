@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
+	
+<%
+ArrayList<Pizza> list = (ArrayList<Pizza>)request.getAttribute("list");
+ArrayList<PizzaSize> list2 = (ArrayList<PizzaSize>)request.getAttribute("list2");
+ArrayList<Side> list3 = (ArrayList<Side>)request.getAttribute("list3");
+ArrayList<Etc> list4 = (ArrayList<Etc>)request.getAttribute("list4");
+ArrayList<Dough> list5 = (ArrayList<Dough>)request.getAttribute("list5");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +23,7 @@
 
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
-	href="../../../resources/css/bootstrap.css">
+	href="<%= contextPath %>/resources/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -158,10 +166,9 @@ p {
 }
 
 #menu-img {
-	width: 90%;
-	height: 300px;
-	margin-top: 50px;
-	padding-left: 25px;
+	width: 375px;
+	height: 375px;
+
 }
 
 #infoArea {
@@ -450,25 +457,27 @@ p {
 		<div class="inner">
 			<div class="menuArea">
 				<div id="imgArea">
-					<img id="menu-img" src="pizza/pizza-3816968_1280.jpg" alt="">
+					<img id="menu-img" src="<%= list.get(0).getPizzaImg() %>" alt="">
 					<br> <br>
 					<p id="menu-detail-btn" data-toggle="modal"
 						data-target="#menu-detail-modal">메뉴정보 상세</p>
 				</div>
 				<div id="infoArea">
 					<div id="info-title">
-						<h2>치즈케이크 피자</h2>
+						<h2><%= list.get(0).getPizzaName() %></h2>
 							<hr>
 					</div>
 					<div id="info-size">
 						<h2>사이즈 선택</h2>
-						<button class="middle_btn" id="#">L 30000원</button>
-						<button class="middle_btn" id="#">M 18000원</button>
+						<button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button>
+						<button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button>
 						<hr>
 					</div>
 					<div id="info-dough">
 						<h2>도우 선택</h2>
 						<div class="dough-select">
+							<% for(Dough d : list5){ %>
+							<!-- 
 							<span class="dough-name"><input type="radio" name="dough"
 								value="오리지널">오리지널 도우</span> <span class="dough-price"></span><br>
 							<span class="dough-name"><input type="radio" name="dough"
@@ -476,8 +485,13 @@ p {
 							<span class="dough-name"><input type="radio" name="dough"
 								value="곡물">곡물 도우</span> <span class="dough-price">+1500원</span><br>
 							<span class="dough-name"><input type="radio" name="dough"
-								value="더블치즈엣지">더블치즈 엣지</span> <span class="dough-price">+3000원</span><br>
-
+								value="더블치즈엣지">더블치즈 엣지</span> <span class="dough-price">+3000원</span><br>  -->
+								<span class="dough-name"><input type="radio" name="dough"
+								value="<%= d.getDoughName() %>"><%= d.getDoughName() %> 도우</span> <span class="dough-price">
+								<% if(d.getDoughAddPrice() > 0){ %>
+									+<%= d.getDoughAddPrice() %>
+								<%} %></span><br>
+							<% } %>
 						</div>
 						<hr>
 					</div>
@@ -494,6 +508,7 @@ p {
 					<!-- 사이드디시 영역 -->
 					<h2>사이드디시</h2>
 					<div class="side-area">
+						<!-- 
 						<div class="side-menu">
 							<div class="side-info">
 								<img src="side/close-up-1854245_1280.jpg" alt="">
@@ -561,12 +576,35 @@ p {
 									<button class="cnt_up">+</button>
 								</div>
 							</div>
-						</div>
+						</div>  -->
+						<% for(Side s : list3){ %>
+							<div class="side-menu">
+								<div class="side-info">
+									<img src="<%= s.getSideImg() %>" alt="">
+									<div class="side-info-text">
+										<b style="color:black;"><%= s.getSideName() %><br> <%=s.getSidePrice() %>원
+										</b>
+									</div>
+								</div>
+								<div class="side-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="<%=s.getSideNo() %>" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+						<% } %>
 					</div>
+					
+
+					
 					<!-- 사이드디시 영역 -->
 					<br>
 					<h2>음료&기타</h2>
 					<div class="etc-area">
+						<!-- 
 						<div class="etc-menu">
 							<div class="etc-info">
 								<img src="etc/0020020000032.png" alt="">
@@ -685,9 +723,31 @@ p {
 									<button class="cnt_up">+</button>
 								</div>
 							</div>
-						</div>
+						</div> -->
+						
+						<% for(Etc e : list4) { %>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="<%= e.getEtcImg() %>" alt="">
+									<div class="etc-info-text">
+										<b style="color:black;"><%=e.getEtcName() %><br> <%= e.getEtcPrice() %>원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="<%=e.getEtcNo() %>" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+						<% } %>
+						
+						
 					</div>
-					<br> <br> <br>
+					<br> <br> <br><br>
 					<button class="big_btn" id="#">장바구니에 추가</button>
 				</div>
 			</div>
@@ -708,8 +768,7 @@ p {
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h2 class="modal-title" style="margin: auto; padding: 0;">치즈케이크
-						피자</h2>
+					<h2 class="modal-title" style="margin: auto; padding: 0;"><%= list.get(0).getPizzaName() %></h2>
 					<button type="button" class="close" data-dismiss="modal"
 						style="margin: 0; padding: 0;">&times;</button>
 				</div>
@@ -718,34 +777,23 @@ p {
 				<div class="modal-body">
 					<div id="menu-detail1-modal">
 						<div id="menu-detail1-modal-img">
-							<img id="menu-detail-img" src="pizzas/pizza-2802332_1280.jpg"
+							<img id="menu-detail-img" src="<%= list.get(0).getPizzaImg() %>"
 								alt="">
 						</div>
 						<div id="menu-detail1-modal-info">
 							<h2>메인토핑</h2>
 							<hr>
-							<span id="modal-topping-info">모차렐라, 프로볼로네, 체더, 크리미 고르곤졸라,
-								갈릭 크림 소스, 토마토 콩피(confit), 뉴욕 스트립 스테이크, 15가지 믹스 슈레드 치즈(화이트 체더,
-								몬터레이 잭, 에그몬트, 크림치즈, 에멘탈, 카망베르, 블루 치즈, 스모크 치즈, 숙성 체더, 유기농 체더, 고다,
-								리코타, 파르메산, 그뤼에르, 로마노), 11가지 믹스 옐로우 치즈(부라타, 콜비잭, 만체고, 탈레지오, 보코치니,
-								페터, 브리, 에담, 마스카포네, 그라나파다노, 미몰레트), 파슬리 드라이</span>
+							<span id="modal-topping-info"><%= list.get(0).getPizzaTopping() %></span>
 							<h2>원산지</h2>
 							<hr>
-							<span id="modal-origin-info">오리지널, 나폴리 도우(밀) : 미국산+캐나다산 /
-								씬 도우(밀) : 미국산 / 슈퍼시드 함유 도우(밀) : 미국산+캐나다산, (흑미) : 국내산 / 뉴욕 스트립
-								스테이크(쇠고기) : 호주산 / 체더치즈 : 미국, 뉴질랜드, 호주</span>
+							<span id="modal-origin-info"><%= list.get(0).getPizzaOrigin() %></span>
 						</div>
 					</div>
 					<div id="menu-detail1-moda2">
 						<hr>
 						<h2>메뉴소개</h2>
 						<hr>
-						<span id="modal-menu-info"> 청춘 않는 행복스럽고 아니다. 인생의 부패를 천하를
-							그들에게 청춘 싹이 피다. 장식하는 미묘한 않는 할지라도 위하여, 있는가? 얼마나 우는 자신과 만물은 가치를 실로
-							넣는 인간의 가진 운다. 고동을 품에 가치를 있다. 꾸며 피는 천지는 위하여서. 굳세게 심장은 속에 대한 있다.
-							따뜻한 유소년에게서 일월과 봄날의 않는 하는 꽃이 커다란 끓는다. 그들의 크고 방황하였으며, 간에 뿐이다. 평화스러운
-							영락과 찾아다녀도, 힘차게 밝은 풀밭에 같이, 소리다.이것은 때문이다. 실현에 이 날카로우나 청춘이 타오르고 끓는
-							있을 것이다.보라, 것이다. </span>
+						<span id="modal-menu-info"> <%= list.get(0).getPizzaContent() %></span>
 					</div>
 				</div>
 

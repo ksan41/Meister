@@ -1,4 +1,4 @@
-package com.meister.member.controller;
+package com.meister.notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MemberMgSearchMemberServlet
+ * Servlet implementation class NoticeMgUpdateServlet
  */
-@WebServlet("/searchMember.memg")
-public class MemberMgSearchMemberServlet extends HttpServlet {
+@WebServlet("/imNoticeUp.nom")
+public class NoticeMgUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberMgSearchMemberServlet() {
+    public NoticeMgUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,8 @@ public class MemberMgSearchMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
 	/**

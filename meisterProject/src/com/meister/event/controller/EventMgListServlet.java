@@ -1,11 +1,17 @@
 package com.meister.event.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.event.model.service.EventService;
+import com.meister.event.model.vo.Event;
 
 /**
  * Servlet implementation class EventMgListServlet
@@ -26,8 +32,13 @@ public class EventMgListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		ArrayList<Event> list = new EventService().selectList();
+		
+		request.setAttribute("list", list);
+		RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
+		view.forward(request, response);
+		
 	}
 
 	/**

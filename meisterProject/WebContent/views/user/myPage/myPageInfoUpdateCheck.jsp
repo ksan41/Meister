@@ -148,6 +148,7 @@ table {
 	background-color: rgb(76, 60, 60);
 	border: 0;
 	border-radius: 5px;
+	cursor:pointer;
 }
 /* 작은버튼 스타일 */
 </style>

@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.meister.event.model.vo.*"%>
+    
+<%
+	Event list = (Event)request.getAttribute("list1");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>eventDetail</title>
 
     <%@ include file="../../common_user/menubar.jsp"%>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
@@ -80,7 +84,8 @@
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
             <div id="eventDetailTitle">
-                입맛 따라 가격 따라 다양하게 즐기는 환상 조합! 하프앤하프 시그니처 5종
+                <!-- 입맛 따라 가격 따라 다양하게 즐기는 환상 조합! 하프앤하프 시그니처 5종 -->
+                <%=list.getEventTitle() %>
                 <p style="font-size:12px; color:dimgray;">2020-04-03 ~ 2020-04-28</p>
             </div>
 			

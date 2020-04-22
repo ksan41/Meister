@@ -49,8 +49,8 @@
 
 						<div align="center">
 							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeMlist.nom';">목록</button>
-							<button class="button" onclick="">수정</button>
-							<button class="button" onclick="">삭제</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeUp.nom';">수정</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeDelete.nom';">삭제</button>
 						</div>
 					</div>
 				</div>

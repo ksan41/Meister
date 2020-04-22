@@ -31,6 +31,21 @@ public class Event {
 		this.eventModifyDate = eventModifyDate;
 		this.eventStatus = eventStatus;
 	}
+	
+	
+
+	public Event(int eventNo, String eventTitle, Date eventOpenTime, Date eventCloseTime, String eventImage1,
+			String eventImage2, Date eventRegisterDate, Date eventModifyDate) {
+		super();
+		this.eventNo = eventNo;
+		this.eventTitle = eventTitle;
+		this.eventOpenTime = eventOpenTime;
+		this.eventCloseTime = eventCloseTime;
+		this.eventImage1 = eventImage1;
+		this.eventImage2 = eventImage2;
+		this.eventRegisterDate = eventRegisterDate;
+		this.eventModifyDate = eventModifyDate;
+	}
 
 	public int getEventNo() {
 		return eventNo;

@@ -20,7 +20,7 @@
 	href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
-	href="../../../resources/css/bootstrap.css">
+	href="<%= contextPath %>/resources/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script

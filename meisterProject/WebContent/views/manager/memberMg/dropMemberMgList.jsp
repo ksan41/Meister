@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.member.model.vo.Member"%>
+    
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,95 +131,31 @@
 							width="100%" cellspacing="0">
 							<thead>
 								<tr>
-									<th width="10%">순번</th>
+									<th width="10%">회원번호</th>
 									<th width="25%">아이디</th>
 									<th width="20%">이름</th>
-									<th width="30%">회원탈퇴일</th>
+									<th width="30%">탈퇴타입</th>
 									<th width="15%">탈퇴사유</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>9</td>
-									<td>user01</td>
-									<td>New York</td>
-									<td>2011/12/12</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>user02</td>
-									<td>Sidney</td>
-									<td>2010/09/20</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>user03</td>
-									<td>London</td>
-									<td>2009/10/09</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>user04</td>
-									<td>Edinburgh</td>
-									<td>2010/12/22</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>user05</td>
-									<td>Singapore</td>
-									<td>2010/11/14</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>user06</td>
-									<td>San Francisco</td>
-									<td>2011/06/07</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>user07</td>
-									<td>San Francisco</td>
-									<td>2010/03/11</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>user08</td>
-									<td>Tokyo</td>
-									<td>2011/08/14</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>user09</td>
-									<td>Sidney</td>
-									<td>2011/06/02</td>
-									<th>
-										<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal">사유</button>
-									</th>
-								</tr>
+								<% if(list.isEmpty()){ //조회된 결과가 없을 경우%>
+									<tr>
+										<th colspan="5">조회된 결과가 없습니다.</th>
+									</tr>
+								<%}else{ %>
+									<%for(int i=0;i<list.size();i++){ %>
+										<tr>
+											<td><%=list.get(i).getMemberNo() %></td>
+											<td><%=list.get(i).getMemberId() %></td>
+											<td><%=list.get(i).getMemberName()%></td>
+											<td><%=list.get(i).getLeaveType()%></td>
+											<th>
+												<button class="button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveReasonModal<%=i%>">사유</button>
+											</th>
+										</tr>
+									<%} %>
+								<%} %>
 							</tbody>
 						</table>
 					</div>
@@ -225,33 +165,38 @@
 		</main>
 	</div>
 	
-	
-	<!-- 모달 시작 -->
-	<div class="modal fade" id="leaveReasonModal"> <!-- modal별 id 변경해주세요-->
-		<div class="modal-dialog">
-			<div class="modal-content">
-			  
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" style="margin:auto;padding:0;">탈퇴사유</h4>
-					<button type="button" class="close" data-dismiss="modal" style="margin:0;padding:0;">&times;</button>
-				</div>
-		
-				<!-- Modal body -->
-				<div class="modal-body">
-					OOO회원의 탈퇴사유
-					<br><br>
-					탈퇴사유불러오기
-				</div>
-		
-				<!-- Modal footer -->
-				<div class="modal-footer" style="margin:auto;">
-					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:200px; height:50px;">Close</button>
+	<% if(list.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<list.size();i++){ %>
+			<!-- 모달 시작 -->
+			<div class="modal fade" id="leaveReasonModal<%=i%>"> <!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+					  
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin:auto;padding:0;font-size: 1rem;">탈퇴사유</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin:0;padding:0;">&times;</button>
+						</div>
+				
+						<!-- Modal body -->
+						<div class="modal-body">
+							<%=list.get(i).getMemberName() %>회원의 탈퇴사유
+							<br><br>
+							<%=list.get(i).getLeaveReason() %>
+						</div>
+				
+						<!-- Modal footer -->
+						<div class="modal-footer" style="margin:auto;">
+							<!-- 하단버튼 영역-->
+							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width:200px; height:50px;">Close</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- 모달 끝 -->
+			<!-- 모달 끝 -->
+		<%} %>
+	<%} %>
+
 </body>
 </html>

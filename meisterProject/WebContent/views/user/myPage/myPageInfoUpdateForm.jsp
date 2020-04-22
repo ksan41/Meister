@@ -228,16 +228,17 @@ table {
 			</div>
 		</div>
 
-			<br><br><hr>
+		<br><br><hr>
+			
 
 			<table style="text-align: left;">
 				<tr>
 					<th>이름</th>
-					<td colspan="2" style="width: 630px;"><input type="text"></td>
+					<td colspan="2" style="width: 630px;"><%=loginUser.getMemberName()%></td>
 				</tr>
 				<tr>
 					<th>아이디</th>
-					<td>mesisterpizza</td>
+					<td><%=loginUser.getMemberId()%></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
@@ -245,30 +246,35 @@ table {
 						<button class="small_btn" id="bb" style="margin: 1px;"
 							onclick="show();">비밀번호변경</button>
 						<div id="aa" style="display: none; margin-top:10px;">
+						
+						<form id="pwdAreaForm" action="<%=contextPath%>/myInfoChangePwd.my" method="post">
 							<table>
 								<tr>
-									<td style="height: 35px;">현재 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"></td>
-								</tr>
-								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"
-										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
+									<td style="padding-left:10px;"><input name="inputPwd1" id="inputPwd1" type="password" size="40"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자(!@#$%^&*) 사용가능"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호 확인 </td>
-									<td style="padding-left:10px;"><input type="password" size="35"
-										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
-									<td style="padding-left: 15px;"><button class="small_btn"
-											style="margin: 1px;">수정하기</button></td>
+									<td style="padding-left:10px;"><input name="inputPwd2" id="inputPwd2" type="password" size="40"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자(!@#$%^&*) 사용가능"></td>
+									<td style="padding-left: 15px;">
+										
+										<input type="submit" onclick="return validPwdTest();" class="small_btn" style="margin: 1px;" value="수정하기">
+									</td>
 								</tr>
 							</table>
+						</form>	
 						</div>
 					</td>
 				</tr>
+				</table>
+				
+				<form id="updateAreaForm" action="" method="post">
+				<table style="text-align: left;">
 				<tr>
 					<th>생년월일</th>
-					<td colspan="2"><input type="date" name="dateIn"></td>
+					<td colspan="2" style="width: 630px;"><input type="date" name="dateIn"></td>
 				</tr>
 				<tr>
 					<th>휴대전화</th>
@@ -317,11 +323,11 @@ table {
 			<br><br><br>
 
 			<div id="btns">
-				<button
-					style="background: white; color: black; border: 1px solid darkgray"
-					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">수정</button>
+				<button style="background: white; color: black; border: 1px solid darkgray"
+					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
+				<button type="submit" onclick="return validTest();" class="middle_btn" id="mbtn">수정</button>
 			</div>
+			</form>
 
 			<table>
 				<tr>
@@ -346,7 +352,44 @@ table {
 					aa.style.display = 'none';
 				}
 
-			}
+			};
+			
+			// 비밀번호 수정 유효성 검사
+			function validPwdTest(){
+				// 유효성 검사할 각각의 input 요소를 변수에 받아두기
+				var pwd1 = document.getElementById("inputPwd1");
+				var pwd2 = document.getElementById("inputPwd2");
+	
+	            // 비밀번호 검사
+	            // 특수문자(!@#$%^&*), 영문자, 숫자 포함해서 총 8~16자
+	            regExp = /^[a-z\d!@#$%^&*]{8,16}$/i;
+	            if(!regExp.test(pwd1.value)){
+	                alert("유효한 값이 아닙니다. 다시 입력해주세요.");
+	                pwd1.value = "";
+	                pwd2.value = "";
+	                pwd1.focus();
+	                return false;
+	            }else if(pwd1.value != pwd2.value){
+	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+	                pwd2.value = "";
+	                pwe2.focus();
+	                return false;
+	            }else if(confirm("해당 비밀번호로 변경하시겠습니까?")){
+	            	return true;
+	            }
+
+	            /* 비밀번호값과 비밀번호확인값이 일치하는지 검사
+	            if(pwd1.value != pwd2.value){
+	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+	                pwd2.value = "";
+	                pwe2.focus();
+	                return false;
+	            }
+	            
+	            if(confirm("해당 비밀번호로 변경하시겠습니까?")){
+	            	return true;
+	            }*/
+			};
 		</script>
 
 		<!-- 모달 시작 -->

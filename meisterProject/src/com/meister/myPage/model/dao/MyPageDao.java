@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Member;
 
 public class MyPageDao {
 	
@@ -307,6 +308,32 @@ public class MyPageDao {
 		}
 		
 		return memberPwd;
+	}
+	
+	
+	public int updatePwd(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updatePwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getMemberPwd());
+			pstmt.setInt(2, m.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

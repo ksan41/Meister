@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>eventList</title>
 
 <%@ include file="../../common_user/menubar.jsp"%>
 <%@ include file="../../common_user/menubarMenuIMG.jsp"%>
@@ -134,7 +134,7 @@ div {
 </head>
 <body>
 
-
+	
 	<div class="outer">
 		<!-- 서브메뉴 타이틀 -->
 		<h1>이벤트</h1>
@@ -148,30 +148,45 @@ div {
 		<br>
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
-
+			
 			<% for(Event e : list) { %>
 
 			<div class="thumbnail" align="center">
-				<input type="hidden" name="a" value="1"> 
-				<img class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
-		
+			
+				<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+				<a id="detail1">
+				<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+				</a>
 
 			</div>
 			<% } %>
-
+																		
 		</div>
-
-		<script>
-            	$(function() {
-            		$(".thumbnail").click(function(){
-            			//console.log("클릭");
-            			var bno = $(this).children().eq(0).val();
-            			loction.href="<%=contextPath%>/eDetail.ev?a=" + bno
-            			
-            		})
-            	}) 
-            
-            
+		
+		<script>  		
+        $(function(){  		
+		    $(".thumbnail").click(function(){ 
+			//console.log("클릭");
+			
+		 	var bno = $(this).children().eq(0).val();
+		 	/* console.log(bno); */
+			location.href="<%=contextPath%>/eDetail.ev?bno=" + bno;
+			
+			
+		});
+		
+        }); 
+             
+             
+         <%-- $("#detail1").click(function (){
+			console.log($(".bnobno").val());
+        	/* var bno = $(".bnobno").val(); */
+        	
+        	location.href="<%=contextPath%>/eDetail.ev?bno=" + bno;
+        	 
+		}) --%>
+             
+        
          </script>
 
 

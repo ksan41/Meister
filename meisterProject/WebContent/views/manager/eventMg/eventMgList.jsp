@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event,java.util.ArrayList"%>
+<%
+   ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,137 +110,19 @@
 					</div>
 
 					<table id="eventListTable" align="center">
-						<tr>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;"
-								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;"
-								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-							<td>
-								<div class="eventImg">
-									<img style="width: 350px;"
-								src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
-								</div>
-								<div align="center">
-									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
-									<div align="center">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventDetailModal">상세</button>
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#eventUpdateModal">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
-									</div>
-								</div></td>
-						</tr>
+						
+						<% for(Event e : list) { %>
+
+							<div class="thumbnail" align="center">
+							
+								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+								<a id="detail1">
+								<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+								</a>
+				
+							</div>
+						<% } %>
+						 
 					</table>
 				</div>
 			</div>
@@ -428,6 +313,14 @@
 		function deleteConfirm(){
 		    confirm('해당 이벤트를 삭제하시겠습니까?');
 		};
+		
+		$(function(){  		
+		    $(".thumbnail").click(function(){ 
+			
+			 	var bno = $(this).children().eq(0).val();
+				location.href="<%=contextPath%>/evMgList.evm?bno=" + bno;
+			});
+        });
 	</script>
 
 </body>

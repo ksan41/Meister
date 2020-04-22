@@ -2,10 +2,10 @@ package com.meister.center.model.vo;
 
 public class Faq {
 	
-	private int faqNo;
-	private String faqType;
-	private String faqQuestion;
-	private String faqAnswer;
+	private int faqNo;				// FAQ번호
+	private String faqType;			// FAQ타입
+	private String faqQuestion;		// 질문
+	private String faqAnswer;		// 답변
 	
 	public Faq() {}
 
