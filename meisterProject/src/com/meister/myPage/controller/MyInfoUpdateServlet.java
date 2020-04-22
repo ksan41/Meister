@@ -1,6 +1,7 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,17 +55,22 @@ public class MyInfoUpdateServlet extends HttpServlet {
 
 		if(result > 0) { // 회원정보수정 성공시
 			// 갱신된 회원 정보 조회 --> 세션에 담겨있는 기존의 loginUser을 갱신해줘야됨
-			Member updateUser = new MemberService().selectMember(userId);
+			Member updateUser = new MemberService().selectMember(memberNo);
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", updateUser);
-			session.setAttribute("msg", "성공적으로 회원정보를 수정했습니다.");
-			response.sendRedirect("myPage.me"); // myPage.me url로 요청
+			/*session.setAttribute("msg", "성공적으로 회원정보를 수정했습니다.");
+			response.sendRedirect("myOrderList.my"); // myPage.me url로 요청*/
+			response.setContentType("text/html; charset=utf-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('회원 정보가 성공적으로 수정되었습니다.'); location.href='myOrderList.my';</script>");
 			
 		}else { // 회원정보수정 실패시
-			request.setAttribute("msg", "회원정보수정 실패!!");
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);			
+			response.setContentType("text/html; charset=utf-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('회원 정보 수정에 실패했습니다. 다시 시도해주세요.'); location.href='myOrderList.my';</script>");	
 		}
 		
 	}
