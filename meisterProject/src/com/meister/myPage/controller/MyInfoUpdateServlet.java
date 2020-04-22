@@ -39,7 +39,7 @@ public class MyInfoUpdateServlet extends HttpServlet {
 		int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
 		
 		String birth = request.getParameter("birth");
-		String phone = request.getParameter("phone1") + request.getParameter("phone2") + request.getParameter("phone3");
+		String phone = request.getParameter("phone1") + "-" + request.getParameter("phone2") + "-" + request.getParameter("phone3");
 		String email = request.getParameter("email");
 		
 		java.sql.Date b = java.sql.Date.valueOf(birth);
