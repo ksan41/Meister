@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +16,6 @@
 	<!-- 메뉴바 include여기에 해주세요 -->
 	<%@ include file="../../common_manager/imMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
-
 	
 	<style>
 		/* 부트스트랩 덮어씌우기용 스타일 */

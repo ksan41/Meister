@@ -354,7 +354,7 @@ table {
 			<!-- modal별 id 변경해주세요-->
 			<div class="modal-dialog">
 				<div class="modal-content">
-
+					
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title" style="margin: auto; padding: 0; font-family: 'nanumsquare';">본인여부
@@ -370,7 +370,7 @@ table {
 					<div class="modal-footer">
 						<!-- 하단버튼 영역-->
 						<form id="checkForm" action="<%=contextPath%>/myInfoDropForm.my" method="post">
-						<table>
+						<table>											
 							<tr>
 								<td>아이디</td>
 								<td style="padding: 10px;"><%=loginUser.getMemberId() %></td>
@@ -380,9 +380,8 @@ table {
 								<td>비밀번호</td>
 								<td style="padding: 10px;"><input type="text" name="inputPwd"></td>
 								<td>
-									<input type="submit" class="btn btn-danger"
-										data-dismiss="modal"
-										style="width: 100px; height: 30px; padding: 1px;" value="확인">
+									<button type="submit" class="btn btn-danger" 
+										style="width: 100px; height: 30px; padding: 1px;">확인</button>
 								</td>
 							</tr>
 						</table>

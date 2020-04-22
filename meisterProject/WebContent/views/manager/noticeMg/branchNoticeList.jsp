@@ -28,7 +28,7 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">지점 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="" style="align:right">수정</button>
+				<button class="button" onclick="" style="align:right">등록</button>
 			</div>
 
 			<div class="card mb-4">
@@ -47,16 +47,6 @@
 									<th>조회수</th>
 								</tr>
 							</thead>
-							<tbody>
-								<!-- 
-								<tr>
-									<td><input type="checkbox"></td>
-									<td>1</td>
-									<td>New York</td>
-									<td>2011/01/25</td>
-									<td>27</td>
-								</tr>
-								 -->
 								<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
 										<td colspan="4">존재하는 공지사항이 없습니다.</td>
@@ -89,7 +79,7 @@
 				// 현재 클릭했을 때의 해당 공지사항의 번호
 				var nno = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/imNoticeBlist.nom?nno=" + nno;
+				location.href="<%= contextPath %>/imNoticeBdetail.nom?nno=" + nno;
 			});
 		});
 	</script>

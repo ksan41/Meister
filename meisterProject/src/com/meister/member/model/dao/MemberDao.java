@@ -264,4 +264,42 @@ private Properties prop = new Properties();
 		
 		return result;
 	}
+	
+	
+	/**산
+	 * 통합관리자-탈퇴회원 리스트 조회용 서비스
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @return : 조회된 Member객체가 담긴ArrayList
+	 */
+	public ArrayList<Member> selectDropMemList(Connection conn){
+		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("mgSelectDropList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setLeaveType(rset.getString("LEAVE_TYPE"));
+				m.setLeaveReason(rset.getString("LEAVE_REASON"));
+				
+				list.add(m);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 }

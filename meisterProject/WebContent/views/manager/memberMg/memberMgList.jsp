@@ -202,7 +202,7 @@
 				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
 				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
 				
-				location.href("<%=contextPath%>/deleteMember.memg?"+memNo);
+				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
 			
 			}
 		});
