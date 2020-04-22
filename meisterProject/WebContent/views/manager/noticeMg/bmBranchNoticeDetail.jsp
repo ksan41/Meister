@@ -85,7 +85,7 @@
 						</table>
 
 						<div align="center">
-							<button class="button" onclick="">목록</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/bmNoList.nom';">목록</button>
 						</div>
 					</div>
 				</div>
