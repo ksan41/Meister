@@ -142,4 +142,14 @@ public class MemberService {
     	
     	return result;
     }
+    
+    
+    /**산
+     * 통합관리자- 탈퇴회원 리스트 조회용 서비스
+     * @return : 조회된 Member객체가 담긴ArrayList
+     */
+    public ArrayList<Member> selectselectDropMemList(){
+    	
+    	
+    }
 }
