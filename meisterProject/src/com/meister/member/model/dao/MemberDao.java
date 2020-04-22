@@ -319,8 +319,30 @@ private Properties prop = new Properties();
     	PreparedStatement pstmt = null;
     	ResultSet rset = null;
     	
-    	String sql = prop.getProperty(arg0);
+    	String sql = prop.getProperty("searchMemName");
     	
+    	try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+name+"%");
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
+				m.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				m.setMemberCouponCnt(rset.getInt("coupon_cnt"));
+				
+				list.add(m);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
     	
     	return list;
     }
