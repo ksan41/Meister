@@ -90,38 +90,38 @@
 	     text-align: center;
 	     float:left;
 	 }
-	 #colorArea{
+	 .inner div:nth-child(2){
 	     width:100%;
 	     height:40px;
-	     background-color:rgb(76, 60, 60);
-	 }
-	 .defaultSet{
-	 	width:100px;
-	 	height:120px;
-	 	float:left
-	 }
-	 #removeArea{
-	 	padding-top:45px;
-	    padding-left:35px;
 	 }
 	 .inner div:nth-child(3){
 	     width:100%;
 	     height:120px;
 	 }
-	 .content>div{
-	 	height:120px;
-	 	float:left;
+	 .inner div:nth-child(3) div, #content1>div:nth-child(4){
+	     width:10%;
+	     height:120px;
 	 }
-	 .content input {
+	 .inner div:nth-child(4){
+	     width:100%;
+	     height:70px;
+	 }
+	 #content1 input {
 	     margin-top:50%;
 	     margin-left:50%;
 	     width:20px;
 	     height:20px;
 	 }
 	 #textArea{
-	     width:60%;
+	     width:auto;
 	 }
 	 /*#content1>div:nth-child(4), #content1>div:nth-child(8), #content1>div:nth-child(12){*/
+	 .removeArea{
+	 	/*width:10%;*/
+	    padding-top:4.5%;
+	    padding-left:35%;
+	    width:100px;
+	 }
 	 #addDeliveryAddress button{
 	     margin-top:10%;
 	     margin-left:12%;
@@ -130,11 +130,17 @@
 	     font-size:85%;
 	     background-color:whitesmoke;
 	 }
+	
+	 #content1>div:nth-child(15) span{
+	     display:inline-block;
+	     margin-top:5%;
+	 }
 	 .inner button{
 	     border-radius: 3px;
 	     box-shadow:gainsboro;
 	     color:black;
 	     border:gainsboro;
+	     
 	 }
 	#bottom{
 	    height:50%;
@@ -160,6 +166,7 @@
 	 .modal-body{
 	     margin:auto;
 	 }
+	 
 	 .modal-content {
 	  width:600px;
 	  margin:auto;
@@ -188,8 +195,10 @@
                 <div><a id="orderDelivery">배달주문</a></div>
                 <div><a id="orderTakeOut">포장주문</a></div>
             </div>
-            <div id="colorArea"></div>
-            <div class="content">
+            <div style="background-color:rgb(76, 60, 60);">
+                
+            </div>
+            <div id="content1">
 				<%if(!deliveryList.isEmpty()){ %>
 				<%for(int i=0; i<deliveryList.size(); i++){ %>
 					<%Delivery d = deliveryList.get(i); %>
@@ -198,38 +207,32 @@
 					<%//System.out.println("d.getReferenceAddress() 메소드 값 : " + d.getReferenceAddress()); %>
 					<%//System.out.println("referenceAddress 변수에 담은 것 : " + referenceAddress); %>
 					<%//System.out.println("referenceAddress 변수 null값과 일치 비교 : " + referenceAddress.equals("null")); %>
-                <div class="defaultSet"></div>
-                <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
+                <div></div>
+                <div><input type="checkbox"></div>
                 <div id="textArea">
                     <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
                 </div>
-                <div class="defaultSet" id="removeArea"><button id="remove">―</button></div>
-                <div class="defaultSet"></div>
+                <div class="removeArea"><button id="remove">―</button></div>
 				<%}%>
-				<%}else{%>
-				<div class="defaultSet"></div>
-                <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
-                <div id="textArea">
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">등록된 배달지가 없습니다.</h4>
-                </div>
-                <div class="defaultSet" id="removeArea"></div>
-                <div class="defaultSet"></div>
-                <%} %>
-	
+				<%}%>
+                
+
                 <div id="bottom">
                 </div>
                 <div id="bottom" style="width:50%;">
                     <button type="button" class="addDeliveryAddress" data-toggle="modal"  data-target="#myModal" style="width:120px; height:40px; font-size:14px; margin-top:10px; margin-left:10%;" >+&nbsp;&nbsp;배달주소등록</button>
                 </div>
-                <div id="bottom" style="width:50%; padding-left:23%; padding-top:2.2%;">
+                <div id="bottom" style="width:40%; padding-left:12%; padding-top:2.2%;">
                     <h6 style="color:white;">* 배달주소는 최대 5개까지 등록 가능합니다.</h6>
                 </div>
-                <div style="width:100%; height:20px;"></div>
-                <div style="width:45%; height:40px;"></div>
+                <div style="width:100%; height:45px;">
+                </div>
+                <div style="width:45%; height:60px;">
+                </div>
                 <div style="width:35%; height:60px; padding-left:12%; padding-top:2.2%;">
                     <h6>해당 주소로 배달을 진행하시겠습니까?</h6>
                 </div>
-                <div style="width:20%; height:60px; padding-left:8%;">
+                <div style="width:20%; height:60px; padding-left:7%;">
                     <button style="width:120px; height:40px; font-size:14px; margin-top:8px; text-align:center; background-color: rgb(76, 60, 60); color:white">&nbsp;&nbsp;다음으로</button>
                 </div>
             </div>

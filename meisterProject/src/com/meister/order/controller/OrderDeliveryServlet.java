@@ -41,10 +41,10 @@ public class OrderDeliveryServlet extends HttpServlet {
 		session = request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		String userId = loginUser.getMemberId();
-		System.out.println("서블릿 딴에서 userId = " + userId);
+		System.out.println("orderDeliveryServlet 딴에서 userId = " + userId);
 		// 3. 해당 요청을 처리하는 서비스클래스의 메소드 호출 후 처리 결과 받기
 		ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(userId);
-		System.out.println("서블릿딴 : " +deliveryList.get(0));
+		//System.out.println("서블릿딴 : " +deliveryList.get(0));
 		// 4. 처리 결과를 통해 사용자가 보게될 뷰 요청
 		
 		if(!deliveryList.isEmpty()) {

@@ -34,6 +34,19 @@ public class Delivery {
 		this.branchPhone = branchPhone;
 	}
 
+	public Delivery(String newAddress1, String newAddress2, String newPoCode,
+			String deliveryName, int branchNo, int memberNo, String referenceAddress) {
+		super();
+		this.newAddress1 = newAddress1;
+		this.newAddress2 = newAddress2;
+		this.newPoCode = newPoCode;
+		this.addressStatus = addressStatus;
+		this.deliveryName = deliveryName;
+		this.branchNo = branchNo;
+		this.memberNo = memberNo;
+		this.referenceAddress = referenceAddress;
+	}
+	
 	public Delivery(int deliveryNo, String newAddress1, String newAddress2, String newPoCode, String addressStatus,
 			String deliveryName, int branchNo, int memberNo, String referenceAddress) {
 		super();

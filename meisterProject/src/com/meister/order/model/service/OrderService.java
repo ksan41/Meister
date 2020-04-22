@@ -33,8 +33,15 @@ public class OrderService {
 		ArrayList<Delivery> deliveryList = new OrderDao().ShowOrderDeliveryList(conn, userId);
 		
 		close(conn);
-		System.out.println("서비스딴 : " + deliveryList.get(0));
+		//System.out.println("서비스딴 : " + deliveryList.get(0));
 		return deliveryList;
+	}
+	
+	public String getMemberNo(String userId) {
+		Connection conn = getConnection();
+		userId = new OrderDao().getMemberNo(conn, userId);
+		close(conn);
+		return userId;
 	}
 
 }
