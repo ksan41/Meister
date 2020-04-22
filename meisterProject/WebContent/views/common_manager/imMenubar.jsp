@@ -90,8 +90,8 @@
 						<div class="collapse" id="collapseLayouts"
 							aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="<%=contextPath%>/imNoticeBlist.nom">지점</a><a
-									class="nav-link" href="<%=contextPath%>/imNoticeMlist.nom">고객</a>
+								<a class="nav-link" href="<%=contextPath%>/imNoticeBlist.nom">지점</a>
+								<a class="nav-link" href="<%=contextPath%>/imNoticeMlist.nom">고객</a>
 							</nav>
 						</div>
 
