@@ -25,6 +25,30 @@ public class Member {
 	}
 
 	
+	
+	///*산  회원 보유 쿠폰수 포함된 매개변수 생성자(회원관리용)
+	public Member(int memberNo, String memberName, String memberId, String memberPwd, Date memberBirth,
+			String memberGender, String memberPhone, String memberEmail, Date memberEnrolldate, Date modifyDate,
+			String memberStatus, String leaveType, String leaveReason, String paymentType, int memberCouponCnt) {
+		super();
+		this.memberNo = memberNo;
+		this.memberName = memberName;
+		this.memberId = memberId;
+		this.memberPwd = memberPwd;
+		this.memberBirth = memberBirth;
+		this.memberGender = memberGender;
+		this.memberPhone = memberPhone;
+		this.memberEmail = memberEmail;
+		this.memberEnrolldate = memberEnrolldate;
+		this.modifyDate = modifyDate;
+		this.memberStatus = memberStatus;
+		this.leaveType = leaveType;
+		this.leaveReason = leaveReason;
+		this.paymentType = paymentType;
+		this.memberCouponCnt = memberCouponCnt;
+	}
+
+
 	public Member(int memberNo, String memberName, String memberId, String memberPwd, Date memberBirth,
 			String memberGender, String memberPhone, String memberEmail, Date memberEnrolldate, Date modifyDate,
 			String memberStatus, String leaveType, String leaveReason, String paymentType) {
@@ -65,6 +89,16 @@ public class Member {
 	public int getMemberNo() {
 		return memberNo;
 	}
+
+	public int getMemberCouponCnt() {
+		return memberCouponCnt;
+	}
+
+
+	public void setMemberCouponCnt(int memberCouponCnt) {
+		this.memberCouponCnt = memberCouponCnt;
+	}
+
 
 	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
