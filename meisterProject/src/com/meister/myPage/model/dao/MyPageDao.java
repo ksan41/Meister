@@ -335,5 +335,33 @@ public class MyPageDao {
 		
 		return result;
 	}
+	
+	
+	public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setDate(1, m.getMemberBirth());
+			pstmt.setString(2, m.getMemberPhone());
+			pstmt.setString(3, m.getMemberEmail());
+			pstmt.setInt(4, m.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }

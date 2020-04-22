@@ -80,14 +80,74 @@
         
         /* 부트스트랩 덮어씌우기용 스타일 */
 
-		.eventImg{
-			width: 350px;
-		    height: auto;
-		    overflow: hidden;
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
-		    margin: auto;
+
+		/* 이벤트 목록 스타일 시작 */
+		#eventListTable {
+			width: 1000px;
+			height: 700px;
+		}
+		
+		#eventListTable td {
+			padding: 20px;
+		}
+		
+		#eventListTable img {
+			width: 100%;
+			cursor: pointer;
+		}
+		
+		/* 이벤트 목록 스타일 끝 */
+		.colLine {
+			float: left;
+			border: solid 1px #cccccc;
+		}
+		
+		.tdFirst {
+			float: left;
+			border-bottom: solid 1px #cccccc;
+		}
+		
+		.tdLast {
+			float: left;
+			border-left: solid 1px #cccccc;
+			border-bottom: solid 1px #cccccc;
+		}
+		
+		.tdBottom {
+			float: left;
+			border-left: solid 1px #cccccc;
+		}
+		
+		.inner{
+			width:1400px;
+			height:auto;
+			margin-top:50px;
+			margin-left:100px;
+		}
+		
+		
+		.inner>div {
+			display: inline-block;
+			margin:30px;
+		}
+		
+		.thumbnail{/*이미지 바깥영역 div*/
+			width:523px;
+			height:200px;
+			box-sizing: border-box;
+			margin-top: 50px;
+			margin-bottom: 60px;
+			margin-right: 20px;
+			margin-left: 50px;
+		}
+		
+		.thumbImg{/*이벤트 배너이미지*/
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width:523px;
+			height:auto;
 		}
 	</style>
 </head>
@@ -109,21 +169,25 @@
 							data-target="#eventEnrollModal">이벤트 등록</button>
 					</div>
 
-					<table id="eventListTable" align="center">
-						
 						<% for(Event e : list) { %>
+							
 
 							<div class="thumbnail" align="center">
-							
 								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
 								<a id="detail1">
-								<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
 								</a>
-				
+								<%=e.getEventTitle() %><br>
+								<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
+								<p class="bannerStatus" style="color: red">배너노출상태</p>
+								<div align="center">
+									<button class="detailButton" onclick="" data-toggle="modal" data-target="#eventDetailModal">상세</button>
+									<button class="modifyButton" onclick="" data-toggle="modal" data-target="#eventUpdateModal">수정</button>
+									<button class="deleteButton">삭제</button>
+								</div>
 							</div>
+							
 						<% } %>
-						 
-					</table>
 				</div>
 			</div>
 		</div>
