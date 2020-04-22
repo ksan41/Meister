@@ -175,4 +175,22 @@ public class MemberService {
     	close(conn);
     	return list;
     }
+    
+    
+	/** 지수
+	 * 회원 재 조회용 서비스 
+	 * @param userId		--> 다시 조회하고자 하는 회원 아이디
+	 * @return				--> 조회된 정보들이 담겨있는 Member 객체
+	 */
+	public Member selectMember(String userId) {
+		
+		Connection conn = getConnection();
+		
+		Member updateUser = new MemberDao().selectMember(conn, userId);
+		
+		close(conn);
+		
+		return updateUser;
+		
+	}
 }

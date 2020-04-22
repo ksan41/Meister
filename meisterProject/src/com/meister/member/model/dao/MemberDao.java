@@ -1,5 +1,6 @@
 package com.meister.member.model.dao;
 
+
 import static com.meister.common.JDBCTemplate.close;
 import static com.meister.common.JDBCTemplate.getConnection;
 
@@ -346,4 +347,45 @@ private Properties prop = new Properties();
     	
     	return list;
     }
+    
+    //회원 재조회용
+	public Member selectMember(Connection conn, String userId) {
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("MEMBER_NO"),
+						    rset.getString("MEMBER_NAME"),
+			                rset.getString("MEMBER_ID"),
+			                rset.getString("MEMBER_PWD"),
+			                rset.getDate("MEMBER_BIRTH"),
+			                rset.getString("MEMBER_GENDER"),
+			                rset.getString("MEMBER_PHONE"),
+			                rset.getString("MEMBER_EMAIL"),
+			                rset.getDate("MEMBER_ENROLLDATE"),
+			                rset.getDate("MODIFY_DATE"),
+			                rset.getString("MEMBER_STATUS"),
+			                rset.getString("LEAVE_TYPE"),
+			                rset.getString("LEAVE_REASON"),
+		                    rset.getString("PAYMENT_TYPE"));
+
+		}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
+	}
 }

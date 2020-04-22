@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+import com.meister.member.model.service.MemberService;
 import com.meister.member.model.vo.Member;
 import com.meister.myPage.model.service.MyPageService;
 
@@ -51,10 +51,8 @@ public class MyInfoUpdateServlet extends HttpServlet {
 		m.setMemberEmail(email);
 		
 		int result = new MyPageService().updateMember(m);
-		
-		/*
+
 		if(result > 0) { // 회원정보수정 성공시
-			
 			// 갱신된 회원 정보 조회 --> 세션에 담겨있는 기존의 loginUser을 갱신해줘야됨
 			Member updateUser = new MemberService().selectMember(userId);
 			
@@ -67,7 +65,7 @@ public class MyInfoUpdateServlet extends HttpServlet {
 			request.setAttribute("msg", "회원정보수정 실패!!");
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);			
-		}*/
+		}
 		
 	}
 
