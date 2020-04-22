@@ -22,7 +22,7 @@
         }
         
         .outer *{
-            font-family: 'NanumSquare';
+          
         }
 
         .outer a{text-decoration: none;}

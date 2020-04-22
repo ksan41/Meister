@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import com.meister.event.model.vo.Event;
 import com.meister.member.model.dao.MemberDao;
+import com.sun.xml.internal.ws.api.message.Attachment;
 
 public class EventDao {
 	
@@ -86,13 +87,51 @@ public class EventDao {
 		
 		return list;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+		}
+	    
+	    
+	    
+	   public Event selectAtList(Connection conn, int bno) {
+		   
+		   Event at = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rset = null;
+		   String sql = prop.getProperty("selectAttachment");
+		   
+		   try {
+			   
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+				at = new Event(
+								rset.getInt("EVENT_NO"),
+								rset.getString("EVENT_TITLE"),
+				                rset.getDate("EVENT_OPEN_TIME"),
+								rset.getDate("EVENT_CLOSE_TIME"),
+							    rset.getString("EVENT_IMAGE1"),
+							    rset.getString("EVENT_IMAGE2"),
+							    rset.getDate("EVENT_REGISTER_DATE"),
+							    rset.getDate("EVENT_MODIFY_DATE"));
+				
+				
+			    
+						            
+			}
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		   
+		   return at;
+		   
+	   }
 }
