@@ -129,17 +129,21 @@
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
 								<tr>
-									<th style="height: 50px;" width="20%"><label for="answer"></label>
-										<select name="answer" id="answer">
-											<option value="processing" selected>회원정보 선택</option>
-											<option value="reply">전체</option>
-											<option value="reply">회원명</option>
-											<option value="reply">회원정보</option>
-									</select></th>
-
-									<th width="70%"><input type="text" id="search"
-										style="width: 100%; height: 50px" placeholder="검색어를 입력해주세요."></th>
-									<th width="10%"><button class="button button5">검색</button></th>
+								<form>
+									<th style="vertical-align:middle;">회원명 검색</th>
+									<th><input type="text" id="search"
+										style="width: 120px;height:30px">
+									<button class="button button5">검색</button></th>
+								</form>
+								<form>
+									<th style="vertical-align:middle;">기간별 조회</th>
+									<th>
+										<input type="date" name="startDate">
+										~
+										<input type="date" name="endDate">
+										<button class="button button5">검색</button></th>
+									</th>
+								</form>
 								</tr>
 							</thead>
 							<tbody>
