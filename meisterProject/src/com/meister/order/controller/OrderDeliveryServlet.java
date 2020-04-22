@@ -47,16 +47,16 @@ public class OrderDeliveryServlet extends HttpServlet {
 		//System.out.println("서블릿딴 : " +deliveryList.get(0));
 		// 4. 처리 결과를 통해 사용자가 보게될 뷰 요청
 		
-		if(!deliveryList.isEmpty()) {
+		//if(!deliveryList.isEmpty()) {
 			session = request.getSession();
 			session.setAttribute("deliveryList", deliveryList);
 			RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderDelivery.jsp");
 			view.forward(request, response);
 			
-		}else {
-			RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderDelivery.jsp");
-			view.forward(request, response);
-		}
+		//}else {
+//			RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderDelivery.jsp");
+//			view.forward(request, response);
+		//}
 		
 	}
 
