@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.meister.menu.model.vo.Etc;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.menu.model.vo.PizzaSize;
 import com.meister.menu.model.vo.Side;
@@ -128,6 +129,41 @@ public class MenuDao {
 				s.setSideOrigin(rset.getString("SIDE_ORIGIN"));
 				
 				list.add(s);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<Etc> selectEtcList(Connection conn){
+		
+		ArrayList<Etc> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("etcSelectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Etc e = new Etc();
+				e.setEtcNo(rset.getInt("Etc_NO"));
+				e.setEtcName(rset.getString("Etc_NAME"));
+				e.setEtcPrice(rset.getInt("Etc_PRICE"));
+				e.setEtcImg(rset.getString("Etc_IMAGE"));
+				
+				list.add(e);
 				
 			}
 			

@@ -135,5 +135,22 @@ public class MyPageService {
 		
 		return result1*result2;
 	}
+	
+	
+	/**
+	 * 7. 개인정보 수정 전 비밀번호 확인용 서비스
+	 * @param memberId	--> 개인정보 수정을 요청한 loginUser의 아이디
+	 * @return			--> loginUser의 비밀번호를 리턴, 입력한 값과 비교할 것임
+	 */
+	public String updateCheckPwd(String memberId) {
+		
+		Connection conn = getConnection();
+		
+		String memberPwd = new MyPageDao().updateCheckPwd(conn, memberId);
+		
+		close(conn);
+		
+		return memberPwd;
+	}
 
 }

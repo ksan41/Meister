@@ -277,5 +277,36 @@ public class MyPageDao {
 		
 		return result;
 	}
+	
+	
+	public String updateCheckPwd(Connection conn, String memberId) {
+		
+		String memberPwd = "";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("updateCheckPwd");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				memberPwd = rset.getString("MEMBER_PWD");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return memberPwd;
+	}
 
 }

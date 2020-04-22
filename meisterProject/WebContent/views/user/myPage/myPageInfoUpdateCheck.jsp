@@ -163,7 +163,7 @@ table {
 		<br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		<div id="index-area">
-			<a href="">홈</a> &gt; <a href="">나의 정보</a> &gt; 정보수정
+			<a href="">홈</a> &gt; <a href="<%=contextPath%>/myOrderList.my">나의 정보</a> &gt; 정보수정
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
@@ -198,6 +198,7 @@ table {
 		<br><br><hr>
 		
 		<div class="inner">
+			<form id="updateForm" action="<%=contextPath%>/myInfoUpdateForm.my" method="post">
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
@@ -205,10 +206,11 @@ table {
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="text"></td>
-					<td><button class="small_btn" id="#" style="margin: 10px">확인</button></td>
+					<td><input type="text" name="inputPwd"></td>
+					<td><button type="submit" class="small_btn" id="#" style="margin: 10px">확인</button></td>
 				</tr>
 			</table>
+			</form>
 		</div>
 	</div>
 

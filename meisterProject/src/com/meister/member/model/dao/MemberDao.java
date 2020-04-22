@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.member.model.vo.Manager;
@@ -72,9 +74,9 @@ private Properties prop = new Properties();
 				                rset.getString("LEAVE_TYPE"),
 				                rset.getString("LEAVE_REASON"),
 
-			                   rset.getString("PAYMENT_TYPE"));
+			                    rset.getString("PAYMENT_TYPE"));
 
-							       }
+			}
 			
 			
 		} catch (SQLException e) {
@@ -149,16 +151,12 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				loginManager = new Manager(rset.getInt("MANAGER_NO"),
-						rset.getString("MANAGER_ID"),rset.getString("MANAGER_PWD"),
-						rset.getString("MANAGER_TYPE"),rset.getString("MANAGER_NAME"),
-						rset.getString("MANAGER_PHONE"),rset.getString("MANAGER_EMAIL"),rset.getString("MANAGER_GENDER"),
-						rset.getDate("MANAGER_ENROLLDATE"),rset.getDate("MODIFY_DATE"),
-						rset.getString("MANAGER_STATUS")
-						);
-				
-				
+										   rset.getString("MANAGER_ID"),rset.getString("MANAGER_PWD"),
+										   rset.getString("MANAGER_TYPE"),rset.getString("MANAGER_NAME"),
+										   rset.getString("MANAGER_PHONE"),rset.getString("MANAGER_EMAIL"),rset.getString("MANAGER_GENDER"),
+										   rset.getDate("MANAGER_ENROLLDATE"),rset.getDate("MODIFY_DATE"),
+										   rset.getString("MANAGER_STATUS"));
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -168,6 +166,41 @@ private Properties prop = new Properties();
 		
 		return loginManager;
 	}
+	
+	/**연화->산
+	 * 통합관리자-회원관리/회원정보 조회용 dao
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @return : 조회된 Member객체들이 담긴 ArrayList
+	 */
+	public ArrayList<Member> selectMemberList(Connection conn) {
+		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectMemberList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
+				m.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				m.setMemberCouponCnt(rset.getInt("coupon_cnt"));
+				
+				list.add(m);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 }
-
-

@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.menu.model.dao.MenuDao;
+import com.meister.menu.model.vo.Etc;
+import com.meister.menu.model.vo.Etc;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.menu.model.vo.PizzaSize;
 import com.meister.menu.model.vo.Side;
@@ -51,6 +53,18 @@ public class MenuService {
 		Connection conn = getConnection();
 		
 		ArrayList<Side> list = new MenuDao().selectSideList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+	
+	public ArrayList<Etc> selectEtcList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Etc> list = new MenuDao().selectEtcList(conn);
 		
 		close(conn);
 		

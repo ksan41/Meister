@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
+<%
+	ArrayList<Etc> list = (ArrayList<Etc>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -241,8 +244,8 @@ p {
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
-			<a href="">피자</a> <span style="color: lightgray; font-size: 17px;">|</span>
-			<a href="">사이드디시</a> <span
+			<a href="<%= contextPath %>/pizzaList.men">피자</a> <span style="color: lightgray; font-size: 17px;">|</span>
+			<a href="<%= contextPath %>/sideList.men">사이드디시</a> <span
 				style="color: lightgray; font-size: 17px;">|</span> <a href=""
 				style="color: orange">음료&기타</a>
 		</div>
@@ -251,6 +254,7 @@ p {
 		<div class="inner">
 			<!-- 프리미엄 -->
 			<div class="menu-area">
+				<!-- 
 				<div id="menu-thumb">
 					<div id="menu-img">
 						<img src="etc/0020020000032.png" alt="">
@@ -369,10 +373,31 @@ p {
 						<br>
 						<button class="small_btn" id="#">주문</button>
 					</div>
-				</div>
+				</div> -->
+				<% for(Etc e : list) {%>
+					<div id="menu-thumb">
+						<div id="menu-img">
+							<img src="<%= e.getEtcImg() %>" alt="">
+						</div>
+						<div id="menu-info">
+							<h3><%= e.getEtcName() %></h3>
+							<p><%= e.getEtcPrice() %>원</p>
+							<div class="cntBtn-small">
+								<button class="cnt_down">-</button>
+								<input class="menu-cnt" type="text" name="count" value="1"
+									readonly>
+								<button class="cnt_up">+</button>
+							</div>
+							<br>
+							<button class="small_btn" id="#">주문</button>
+						</div>
+					</div>
+				<% } %>
+				
+				
 			</div>
 
-
+		
 		</div>
 
 	</div>

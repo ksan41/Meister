@@ -278,7 +278,7 @@ p {
 			<!-- 현재 페이지는 orange 로 표시 -->
 			<a href="" style="color: orange">피자</a> <span
 				style="color: lightgray; font-size: 17px;">|</span> <a href="<%= contextPath %>/sideList.men">사이드디시</a>
-			<span style="color: lightgray; font-size: 17px;">|</span> <a href="">음료&기타</a>
+			<span style="color: lightgray; font-size: 17px;">|</span> <a href="<%= contextPath %>/etcList.men">음료&기타</a>
 		</div>
 		<hr>
 		<!-- inner영역에 콘텐츠 작성 -->
