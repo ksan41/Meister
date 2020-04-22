@@ -231,7 +231,7 @@ table {
 		<br><br><hr>
 			
 
-			<table style="text-align: left;" border="1">
+			<table style="text-align: left;">
 				<tr>
 					<th>이름</th>
 					<td colspan="2" style="width: 630px;"><%=loginUser.getMemberName()%></td>
@@ -248,7 +248,7 @@ table {
 						<div id="aa" style="display: none; margin-top:10px;">
 						
 						<form id="pwdAreaForm" action="<%=contextPath%>/myInfoChangePwd.my" method="post">
-							<table border="1">
+							<table>
 								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
 									<td style="padding-left:10px;"><input name="inputPwd1" id="inputPwd1" type="password" size="40"
@@ -259,7 +259,8 @@ table {
 									<td style="padding-left:10px;"><input name="inputPwd2" id="inputPwd2" type="password" size="40"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자(!@#$%^&*) 사용가능"></td>
 									<td style="padding-left: 15px;">
-										<button type="submit" onclick="return validPwdTest();" class="small_btn" style="margin: 1px;">수정하기</button>
+										
+										<input type="submit" onclick="return validPwdTest();" class="small_btn" style="margin: 1px;" value="수정하기">
 									</td>
 								</tr>
 							</table>
@@ -270,7 +271,7 @@ table {
 				</table>
 				
 				<form id="updateAreaForm" action="" method="post">
-				<table style="text-align: left;" border="1">
+				<table style="text-align: left;">
 				<tr>
 					<th>생년월일</th>
 					<td colspan="2" style="width: 630px;"><input type="date" name="dateIn"></td>
@@ -365,11 +366,19 @@ table {
 	            if(!regExp.test(pwd1.value)){
 	                alert("유효한 값이 아닙니다. 다시 입력해주세요.");
 	                pwd1.value = "";
+	                pwd2.value = "";
 	                pwd1.focus();
 	                return false;
+	            }else if(pwd1.value != pwd2.value){
+	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+	                pwd2.value = "";
+	                pwe2.focus();
+	                return false;
+	            }else if(confirm("해당 비밀번호로 변경하시겠습니까?")){
+	            	return true;
 	            }
 
-	            // 비밀번호값과 비밀번호확인값이 일치하는지 검사
+	            /* 비밀번호값과 비밀번호확인값이 일치하는지 검사
 	            if(pwd1.value != pwd2.value){
 	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
 	                pwd2.value = "";
@@ -377,7 +386,9 @@ table {
 	                return false;
 	            }
 	            
-	            return true;
+	            if(confirm("해당 비밀번호로 변경하시겠습니까?")){
+	            	return true;
+	            }*/
 			};
 		</script>
 
