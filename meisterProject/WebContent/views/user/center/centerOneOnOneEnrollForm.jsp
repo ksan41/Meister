@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList"%>
+<%
+	ArrayList<String> storeList = (ArrayList<String>)request.getAttribute("storeList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -180,16 +183,9 @@ div {
 					<tr>
 						<td>매장선택</td>
 						<td><select name="store" style="width: 100px; height: 30px;">
-								<option value="역삼점">역삼점</option>
-								<option value="잠원점">잠원점</option>
-								<option value="동서초점">동서초점</option>
-								<option value="서초점">서초점</option>
-								<option value="양재점">양재점</option>
-								<option value="방배역점">방배역점</option>
-								<option value="잠실점">잠실점</option>
-								<option value="석촌점">석촌점</option>
-								<option value="명동점">명동점</option>
-								<option value="논현점">논현점</option>
+								<% for(String s : storeList){ %>
+									<option value="<%=s%>"><%=s%></option>
+								<% } %>
 							</select>
 						</td>
 					</tr>
