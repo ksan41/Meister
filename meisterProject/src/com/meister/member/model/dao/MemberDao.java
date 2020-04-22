@@ -273,6 +273,33 @@ private Properties prop = new Properties();
 	 */
 	public ArrayList<Member> selectDropMemList(Connection conn){
 		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("mgSelectDropList");
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setLeaveType(rset.getString("LEAVE_TYPE"));
+				m.setLeaveReason(rset.getString("LEAVE_REASON"));
+				
+				list.add(m);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 }
