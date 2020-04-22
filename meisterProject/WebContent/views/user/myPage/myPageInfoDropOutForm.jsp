@@ -187,93 +187,61 @@ div {
 			</div>
 		</div>
 
-			<br><br><hr>
+			<br><br><hr><br>
 
-
-
-			<!--
-           <div id="xo5">
-           <form style="padding-left: 10px;">
-            <label > 탈퇴사유  </label>
-            <input id="reason1" type = "radio" name="group"> 
-            <label for="reason1">관리자 답변 불만</label>
-        
-            <input id="reason2" type="radio" name="group">
-            <label for="reason2">회사 서비스에 대한 불만</label>
-
-            <input id="reason3" type="radio" name="group">
-            <label for="reason3">시스템 성능 불만</label>
-            
-            <input id="reason4" type="radio" name="group" >
-            <label for="reason4">사이트 정보 미흡</label>
-
-            <input id="reason5" type="radio" name="group">
-            <label for="reason5">광고 메일 수신</label>
-
-            <input id="reason6" type="radio" name="group">
-            <label for="reason6">개인정보 보호</label>
-
-            <input id="reason7" type="radio" name="group">
-            <label for="reason7">기타</label>
-           </form>
-        </div>
-        -->
-			<br>
-
+			<form id="updateForm" action="<%=contextPath%>/deleteMember.me" method="post">
 			<table id="middleTable">
 				<tr class="middleTable_tr" style="height:35px;">
 					<th style="font-size: 20px; width: 80px;">탈퇴사유</th>
 					<td style="width: 276px; padding-left: 85px;">
 						<input id="reason1" type="radio" name="group"
-						style="vertical-align: text-bottom;"> 관리자 답변 불만</td>
+						style="vertical-align: text-bottom;" value="관리자 답변 불만"> 관리자 답변 불만</td>
 					<td style="width: 276px; padding-left: 77px;">
 						<input id="reason2" type="radio" name="group" 
-						style="vertical-align: text-bottom;"> 회사 서비스에 대한 불만
+						style="vertical-align: text-bottom;" value="회사 서비스에 대한 불만"> 회사 서비스에 대한 불만
 					</td>
 					<td style="width: 276px; padding-left: 77px;">
 						<input id="reason3" type="radio"name="group" 
-						style="vertical-align: text-bottom;"> 시스템 성능 불만
+						style="vertical-align: text-bottom;" value="시스템 성능 불만"> 시스템 성능 불만
 					</td>
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
 					<td style="padding-left: 85px;">
-					<input id="reason4"
+					<input id="reason4" value="사이트 정보 미흡" 
 						type="radio" name="group" style="vertical-align: text-bottom;"> 사이트
 						정보 미흡</td>
 					<td style="padding-left: 77px;"><input id="reason5" type="radio" name="group"
-						style="vertical-align: text-bottom;"> 광고 메일 수신</td>
+						style="vertical-align: text-bottom;" value="광고 메일 수신"> 광고 메일 수신</td>
 					<td style="padding-left: 77px;"><input id="reason6" type="radio" name="group"
-						style="vertical-align: text-bottom;"> 개인 정보 보호</td>
+						style="vertical-align: text-bottom;" value="개인 정보 보호"> 개인 정보 보호</td>
 				</tr>
 				<tr class="middleTable_tr" style="height:35px;">
 					<td></td>
-					<td style="padding-left: 85px;"><input id="reason7"
+					<td style="padding-left: 85px;"><input id="reason7" value="기타" 
 						type="radio" name="group" style="vertical-align: text-bottom;"> 기타</td>
 				</tr>
-			</table>
-
-			<table>
 				<tr>
 					<td valign="top"
-						style="padding-top: 3%; width: 80px; font-size: 20px; padding-left: 7px;"><b>내용</b></td>
-					<!--  colspan="3" -->
-					<td style="padding-top: 3%; width: 920px; padding-right: 30px;">
-						<textarea class="aa" name="" id="" cols="97" rows="30"
+						style="padding-top: 3%; width: 80px; font-size: 20px; padding-left: 7px;"><b>내용</b>
+					</td>
+					<td style="padding-top: 3%; width: 920px; padding-right: 30px;" colspan="3">
+						<textarea class="aa" name="content" id="" cols="97" rows="30"
 							style="margin-left: 83px; resize:none;"></textarea>
 					</td>
 				</tr>
 			</table>
 
 			<div id="btns">
-				<button
-					style="background: white; color: black; border: 1px solid darkgray"
+				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">탈퇴</button>
+				<button type="submit" class="middle_btn" id="mbtn">탈퇴</button>
 			</div>
+			</form>
+			
+			
 		</div>
-	
-
+		
 	<%@ include file="../../common_user/footer.jsp"%>
 </body>
 </html>
