@@ -153,7 +153,7 @@
 							width="100%" cellspacing="0">
 							<thead>
 								<tr>
-									<th width="10%">순번</th>
+									<th width="10%">회원번호</th>
 									<th width="20%">아이디</th>
 									<th width="20%">이름</th>
 									<th width="20%">회원가입일</th>
@@ -194,14 +194,16 @@
 			location.href="<%=contextPath%>/dropMemberList.memg"; //탈퇴회원조회 서블릿요청
 		};
 	
-		$("#dropMemBtn").click(function(){
+		$(document).on("click",".button",function(){
 			var dropCheck = confirm("해당 회원을 탈퇴처리 하시겠습니까?");
 			var index = $(".button").index(this);
 			
 			if(dropCheck){ //확인 클릭시
-				var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
+				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
+				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
 				
 				location.href("<%=contextPath%>/deleteMember.memg?"+memNo);
+			
 			}
 		});
 	</script>
