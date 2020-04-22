@@ -167,36 +167,40 @@ private Properties prop = new Properties();
 		return loginManager;
 	}
 	
-	/**연화
-	 * @param conn
-	 * @return
+	/**연화->산
+	 * 통합관리자-회원관리/회원정보 조회용 dao
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @return : 조회된 Member객체들이 담긴 ArrayList
 	 */
 	public ArrayList<Member> selectMemberList(Connection conn) {
 		
-		ArrayList<Member> selectMemberList = null;
-		Statement stmt = null;
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
 		String sql = prop.getProperty("selectMemberList");
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
+				m.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				m.setMemberCouponCnt(rset.getInt("coupon_cnt"));
 				
-				selectMemberList.add(new Member(rset.getInt("MEMBER_NO"),
-												rset.getString("MEMBER_ID"),
-												rset.getString("MEMBER_NAME"),
-												rset.getDate("MEMBER_ENROLLDATE"),
-												))
+				list.add(m);
 			}
 			
-			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
 		}
 		
+		return list;
 	}
 }
