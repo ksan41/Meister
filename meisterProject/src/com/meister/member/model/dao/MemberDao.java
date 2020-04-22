@@ -1,6 +1,7 @@
 package com.meister.member.model.dao;
 
 import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.getConnection;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -303,4 +304,24 @@ private Properties prop = new Properties();
 		
 		return list;
 	}
+	
+	
+
+    /**산
+     * 통합관리자- 회원리스트 이름별 검색용 서비스
+     * @param conn : MemberService에서 생성된 Connection 객체
+     * @param name : 조회할 이름(키워드)
+     * @return : 조회된 Member객체가 담긴 ArrayList
+     */
+    public ArrayList<Member> searchName(Connection conn,String name){
+    	
+    	ArrayList<Member> list = new ArrayList<>();
+    	PreparedStatement pstmt = null;
+    	ResultSet rset = null;
+    	
+    	String sql = prop.getProperty(arg0);
+    	
+    	
+    	return list;
+    }
 }
