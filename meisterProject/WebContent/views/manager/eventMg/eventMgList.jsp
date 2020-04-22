@@ -165,30 +165,31 @@
 				<div class="card-body">
 
 					<div align="right">
-						<button class="button" onclick="" data-toggle="modal"
-							data-target="#eventEnrollModal">이벤트 등록</button>
+						<button class="button" onclick="" data-toggle="modal" data-target="#eventEnrollModal">
+							이벤트 등록
+						</button>
 					</div>
-						<% if(list.isEmpty()){ %>
-							<p>조회된 결과가 없습니다</p>
-						<% } else { %>
-							<% for(int i=0;i<list.size();i++) { Event e = list.get(i); %>
-	
-								<div class="thumbnail" align="center">
-									<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
-									<a id="detail1">
-										<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
-									</a>
-									<%=e.getEventTitle() %><br>
-									<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
-									<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
-									<div align="center">
-										<button class="button" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-										<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button" class="deleteButton">삭제</button>
-									</div>
+					<% if(list.isEmpty()){ %>
+						<p>조회된 결과가 없습니다</p>
+					<% } else { %>
+						<% for(int i=0;i<list.size();i++) { Event e = list.get(i); %>
+
+							<div class="thumbnail" align="center">
+								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+								<a id="detail1">
+									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+								</a>
+								<%=e.getEventTitle() %><br>
+								<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
+								<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
+								<div align="center">
+									<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
+									<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+									<button class="button" class="deleteButton">삭제</button>
 								</div>
-							<% } %>
+							</div>
 						<% } %>
+					<% } %>
 				</div>
 			</div>
 		</div>
@@ -394,7 +395,7 @@
 	<%} %>
 	
 	<script>
-		$(document).on("click",".button",function(){
+		$(document).on("click",".mbutton",function(){
 			var dropCheck = confirm("해당 이벤트를 삭제하시겠습니까?");
 			var index = $(".deleteButton").index(this);
 			
