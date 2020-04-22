@@ -1,6 +1,9 @@
 package com.meister.myPage.model.service;
 
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -8,6 +11,7 @@ import java.util.ArrayList;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Member;
 import com.meister.myPage.model.dao.MyPageDao;
 
 public class MyPageService {
@@ -151,6 +155,29 @@ public class MyPageService {
 		close(conn);
 		
 		return memberPwd;
+	}
+	
+	
+	/**
+	 * 8. 비밀번호 변경용 서비스
+	 * @param m		--> 비밀번호 변경할 회원의 회원번호, 새 비밀번호가 담겨있는 Member객체
+	 * @return		--> 처리된 행의 갯수
+	 */
+	public int updatePwd(Member m) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MyPageDao().updatePwd(conn, m);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 
 }
