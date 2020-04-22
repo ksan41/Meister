@@ -132,24 +132,22 @@
 		}
 		
 		.thumbnail{/*이미지 바깥영역 div*/
-			  width:523px;
-		            height:200px;
-		            box-sizing: border-box;
-		            margin-top: 50px;
-		            margin-bottom: 60px;
-		            margin-right: 20px;
-		            margin-left: 50px;
+			width:523px;
+			height:200px;
+			box-sizing: border-box;
+			margin-top: 50px;
+			margin-bottom: 60px;
+			margin-right: 20px;
+			margin-left: 50px;
 		}
 		
 		.thumbImg{/*이벤트 배너이미지*/
-			 overflow: hidden;
-		            display: flex;
-		            align-items: center;
-		            justify-content: center;
-		            width:523px;
-		            height:auto;
-			
-		
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width:523px;
+			height:auto;
 		}
 	</style>
 </head>
@@ -183,12 +181,11 @@
 								<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
 								<p class="bannerStatus" style="color: red">배너노출상태</p>
 								<div align="center">
-									<button class="button" onclick="" data-toggle="modal" data-target="#eventDetailModal">상세</button>
-									<button class="button" onclick="" data-toggle="modal" data-target="#eventUpdateModal">수정</button>
-									<button class="button" onclick="deleteConfirm();">삭제</button>
+									<button class="detailButton" onclick="" data-toggle="modal" data-target="#eventDetailModal">상세</button>
+									<button class="modifyButton" onclick="" data-toggle="modal" data-target="#eventUpdateModal">수정</button>
+									<button class="deleteButton">삭제</button>
 								</div>
 							</div>
-							
 							
 						<% } %>
 				</div>
