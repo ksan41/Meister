@@ -228,16 +228,17 @@ table {
 			</div>
 		</div>
 
-			<br><br><hr>
+		<br><br><hr>
+			
 
-			<table style="text-align: left;">
+			<table style="text-align: left;" border="1">
 				<tr>
 					<th>이름</th>
-					<td colspan="2" style="width: 630px;"><input type="text"></td>
+					<td colspan="2" style="width: 630px;"><%=loginUser.getMemberName()%></td>
 				</tr>
 				<tr>
 					<th>아이디</th>
-					<td>mesisterpizza</td>
+					<td><%=loginUser.getMemberId()%></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
@@ -245,7 +246,9 @@ table {
 						<button class="small_btn" id="bb" style="margin: 1px;"
 							onclick="show();">비밀번호변경</button>
 						<div id="aa" style="display: none; margin-top:10px;">
-							<table>
+						
+						<form id="pwdAreaForm" action="" method="post">
+							<table border="1">
 								<tr>
 									<td style="height: 35px;">현재 비밀번호</td>
 									<td style="padding-left:10px;"><input type="password" size="35"></td>
@@ -259,16 +262,22 @@ table {
 									<td style="height: 35px;">새 비밀번호 확인 </td>
 									<td style="padding-left:10px;"><input type="password" size="35"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
-									<td style="padding-left: 15px;"><button class="small_btn"
-											style="margin: 1px;">수정하기</button></td>
+									<td style="padding-left: 15px;">
+										<button type="submit" class="small_btn" style="margin: 1px;">수정하기</button>
+									</td>
 								</tr>
 							</table>
+						</form>	
 						</div>
 					</td>
 				</tr>
+				</table>
+				
+				<form id="updateAreaForm" action="" method="post">
+				<table style="text-align: left;" border="1">
 				<tr>
 					<th>생년월일</th>
-					<td colspan="2"><input type="date" name="dateIn"></td>
+					<td colspan="2" style="width: 630px;"><input type="date" name="dateIn"></td>
 				</tr>
 				<tr>
 					<th>휴대전화</th>
@@ -322,6 +331,7 @@ table {
 					class="middle_btn" id="cbtn">취소</button>
 				<button class="middle_btn" id="mbtn">수정</button>
 			</div>
+			</form>
 
 			<table>
 				<tr>
