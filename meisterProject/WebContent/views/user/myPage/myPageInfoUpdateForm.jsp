@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String[] phone = request.getParameter("loginUser").split("-");
+	System.out.print(phone);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -270,23 +274,23 @@ table {
 				</tr>
 				</table>
 				
-				<form id="updateAreaForm" action="" method="post">
+				<form id="updateAreaForm" action="<%=contextPath%>/myInfoUpdate.my" method="post">
 				<table style="text-align: left;">
 				<tr>
 					<th>생년월일</th>
-					<td colspan="2" style="width: 630px;"><input type="date" name="dateIn"></td>
+					<td colspan="2" style="width: 630px;"><input type="date" name="birth" value=<%=loginUser.getMemberBirth() %>></td>
 				</tr>
 				<tr>
 					<th>휴대전화</th>
 					<td colspan="2">
-						<select id="txtMobile1" style="height:33px; width:80px;">
+						<select id="txtMobile1" name="phone1" style="height:33px; width:80px;">
 							<option value="010">010</option>
 							<option value="016">016</option>
 							<option value="017">017</option>
 							<option value="019">019</option>
 							<option value="011">011</option>
-					</select> - <input type="text" id="pel1" size="7" onkeypress="onlyNumber();">
-						- <input type="text" id="pel2" size="7" /></td>
+						</select> - <input type="text" name="phone2" id="pel1" size="7" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+						- <input type="text" name="phone3" id="pel2" size="7" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"></td>
 					<!-- <td> -->
 					<!-- <input type="text" id="pel2" size="4" /> -->
 					<!-- </td> -->
@@ -294,7 +298,7 @@ table {
 				<tr>
 					<th>이메일</th>
 					<td colspan="2">
-						<input type="email" size="30">
+						<input type="email" name="email" size="30" value="<%=loginUser.getMemberEmail()%>">
 					</td>
 				</tr>
 				<!--
@@ -325,7 +329,7 @@ table {
 			<div id="btns">
 				<button style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
-				<button type="submit" onclick="return validTest();" class="middle_btn" id="mbtn">수정</button>
+				<button type="submit" class="middle_btn" id="mbtn">수정</button>
 			</div>
 			</form>
 
