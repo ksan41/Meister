@@ -159,4 +159,15 @@ public class MemberService {
     	
     	return list;
     }
+    
+    
+    /**산
+     * 통합관리자- 회원리스트 이름별 검색용 서비스
+     * @param name : 조회할 이름(키워드)
+     * @return : 조회된 Member객체가 담긴 ArrayList
+     */
+    public ArrayList<Member> searchName(String name){
+    	
+    	
+    }
 }
