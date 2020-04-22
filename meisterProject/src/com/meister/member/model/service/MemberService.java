@@ -83,7 +83,7 @@ public class MemberService {
     
     /** 연화->산
      * 통합관리자-회원관리/회원정보 조회용 서비스
-     * @return
+     * @return : 조회된 Member객체가 담긴 ArrayList
      */
     public ArrayList<Member> selectMemberList(){
     	

@@ -38,8 +38,14 @@ public class MemberMgListServlet extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");// 여기경로 수정해야해!!!
-		view.forward(request, response);
+		if(list.isEmpty()) { //조회된 회원정보가 없을 경우
+			request.setAttribute("msg", "조회된 결과가 없습니다.");
+			RequestDispatcher view = request.getRequestDispatcher("views/user/memberMg/memberMgList.jsp");
+			view.forward(request, response);
+		}else { // 조회된 회원정보가 있을 경우
+			RequestDispatcher view = request.getRequestDispatcher("views/user/memberMg/memberMgList.jsp");
+			view.forward(request, response);			
+		}
 		
 		
 	}
