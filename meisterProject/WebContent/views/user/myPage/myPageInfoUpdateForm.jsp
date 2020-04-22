@@ -11,7 +11,7 @@
 
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
-	href="../../../resources/css/bootstrap.css">
+	href="<%=contextPath%>/resources/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -369,22 +369,25 @@ table {
 					<!-- Modal footer -->
 					<div class="modal-footer">
 						<!-- 하단버튼 영역-->
+						<form id="checkForm" action="<%=contextPath%>/myInfoDropForm.my" method="post">
 						<table>
 							<tr>
 								<td>아이디</td>
-								<td style="padding: 10px;">meisterpizza</td>
+								<td style="padding: 10px;"><%=loginUser.getMemberId() %></td>
 							</tr>
 
 							<tr>
 								<td>비밀번호</td>
-								<td style="padding: 10px;"><input type="text"></td>
+								<td style="padding: 10px;"><input type="text" name="inputPwd"></td>
 								<td>
-									<button type="button" class="btn btn-danger"
+									<input type="submit" class="btn btn-danger"
 										data-dismiss="modal"
-										style="width: 100px; height: 30px; padding: 1px;">확인</button>
+										style="width: 100px; height: 30px; padding: 1px;" value="확인">
 								</td>
 							</tr>
 						</table>
+						</form>
+						
 					</div>
 
 				</div>
