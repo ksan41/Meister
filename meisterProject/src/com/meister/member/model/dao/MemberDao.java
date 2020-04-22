@@ -203,4 +203,36 @@ private Properties prop = new Properties();
 		
 		return list;
 	}
+	
+	
+	/** 지수
+	 * @param conn		: MemberService에서 생성된 Connection 객체
+	 * @param m			: 탈퇴할 회원의 회원 번호와 탈퇴 타입, 탈퇴 사유가 담겨있는 Member객체
+	 * @return			: 처리된 행의 갯수
+	 */
+	public int deleteMember(Connection conn, Member m) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getLeaveType());
+			pstmt.setString(2, m.getLeaveReason());
+			pstmt.setInt(3, m.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

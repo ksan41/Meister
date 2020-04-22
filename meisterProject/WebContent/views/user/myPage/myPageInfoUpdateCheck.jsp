@@ -202,7 +202,7 @@ table {
 			<table style="text-align: left;">
 				<tr>
 					<th>아이디</th>
-					<td colspan="2">meisterpizza</td>
+					<td colspan="2"><%=loginUser.getMemberId() %></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
