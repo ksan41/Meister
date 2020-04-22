@@ -51,8 +51,8 @@
 						</table>
 
 						<div align="center">
-							<button class="button" onclick="">수정</button>
-							<button class="button" onclick="">취소</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeUp.nom';">수정</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeMdetail.nom';">취소</button>
 						</div>
 
 					</div>
