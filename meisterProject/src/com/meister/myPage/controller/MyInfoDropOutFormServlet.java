@@ -36,8 +36,7 @@ public class MyInfoDropOutFormServlet extends HttpServlet {
 		
 		//RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageInfoDropOutForm.jsp");
 		//view.forward(request, response);
-		System.out.println("ddd");
-		
+
 		request.setCharacterEncoding("utf-8");
 		
 		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();

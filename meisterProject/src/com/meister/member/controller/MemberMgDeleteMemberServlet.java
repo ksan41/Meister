@@ -39,7 +39,7 @@ public class MemberMgDeleteMemberServlet extends HttpServlet {
 		if(result>0) {//회원탈퇴처리 성공시
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('해당 회원이 탈퇴되었습니다.');location.href='/Meister/memberList.memg';</script>");
+			out.println("<script>alert('해당 회원을 탈퇴처리 했습니다.');location.href='/Meister/memberList.memg';</script>");
 			out.flush();
 		}else { //회원탈퇴처리 실패시
 			response.setContentType("text/html; charset=UTF-8");
