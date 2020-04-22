@@ -206,6 +206,7 @@ private Properties prop = new Properties();
 	
 	
 	/** 지수
+	 * 회원탈퇴용 dao
 	 * @param conn		: MemberService에서 생성된 Connection 객체
 	 * @param m			: 탈퇴할 회원의 회원 번호와 탈퇴 타입, 탈퇴 사유가 담겨있는 Member객체
 	 * @return			: 처리된 행의 갯수
