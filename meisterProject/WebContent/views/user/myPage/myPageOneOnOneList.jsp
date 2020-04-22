@@ -189,17 +189,18 @@ div {
 							</tr>
 						<% }else { %>
 							<% int count = list.size(); %>
-							<% for(Center c : list){ %>
-							<tr>
-								<td><%=c.getInquiryNo()%></td>
-								<td><%=c.getInquiryTitle()%></td>
-								<td><%=c.getRegistDate()%></td>
-								<% if(c.getInquiryProStatus().equals("N")){ %>
+							<% for(int i=0;i<list.size();i++){ %>
+							<tr class="trList">
+								<td><%=count--%></td>
+								<td><%=list.get(i).getInquiryTitle()%></td>
+								<td><%=list.get(i).getRegistDate()%></td>
+								<% if(list.get(i).getInquiryProStatus().equals("N")){ %>
 									<td>처리중</td>
 								<% }else { %>
 									<td>답변완료</td>
 								<% }%>
-								<!-- <td><input  id="inquiryNo" value="<%=c.getInquiryNo()%>"></td> -->
+								<td><input type="hidden" class="hiddenNo" value="<%=list.get(i).getInquiryNo()%>"></td>
+
 							</tr>
 							<% } %>
 							
@@ -224,13 +225,16 @@ div {
 		</div>
 		
 		<script>
-			$(function(){
-				$("#noticeList>tbody>tr").click(function(){
-					var cno = $(this).children().eq(0).text();
+			
+				$(document).on("click",".trList",function(){
+					//var cno = $(this).children().eq(0).text();
+					var index = $(".trList").index(this);
+					
+					var cno = $(".hiddenNo:eq("+index+")").val();
 					
 					location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;
 				});
-			});
+			
 		</script>
 
 		<%@ include file="../../common_user/footer.jsp"%>
