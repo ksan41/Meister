@@ -27,13 +27,13 @@ public class OrderService {
 		return result;
 	}
 	
-	public ArrayList<Delivery> ShowOrderDeliveryList(String memberId) {
+	public ArrayList<Delivery> ShowOrderDeliveryList(String userId) {
 		Connection conn = getConnection();
 		
-		ArrayList<Delivery> deliveryList = new OrderDao().ShowOrderDeliveryList(conn, memberId);
+		ArrayList<Delivery> deliveryList = new OrderDao().ShowOrderDeliveryList(conn, userId);
 		
 		close(conn);
-		
+		System.out.println("서비스딴 : " + deliveryList.get(0));
 		return deliveryList;
 	}
 

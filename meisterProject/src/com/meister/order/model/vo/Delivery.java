@@ -1,5 +1,9 @@
 package com.meister.order.model.vo;
 
+/**
+ * @author cocod
+ *
+ */
 public class Delivery {
 	private int deliveryNo;			// 배달번호 : PK
 	private String newAddress1;		// 기본주소
@@ -54,7 +58,7 @@ public class Delivery {
 		this.deliveryName = deliveryName;
 		this.memberNo = memberNo;
 	}
-
+	
 	public int getDeliveryNo() {
 		return deliveryNo;
 	}
@@ -126,12 +130,29 @@ public class Delivery {
 	public void setReferenceAddress(String referenceAddress) {
 		this.referenceAddress = referenceAddress;
 	}
+	
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
+	public String getBranchPhone() {
+		return branchPhone;
+	}
+
+	public void setBranchPhone(String branchPhone) {
+		this.branchPhone = branchPhone;
+	}
 
 	@Override
 	public String toString() {
 		return "Delivery [deliveryNo=" + deliveryNo + ", newAddress1=" + newAddress1 + ", newAddress2=" + newAddress2
 				+ ", newPoCode=" + newPoCode + ", addressStatus=" + addressStatus + ", deliveryName=" + deliveryName
-				+ ", branchNo=" + branchNo + ", memberNo=" + memberNo + ", referenceAddress=" + referenceAddress + "]";
+				+ ", branchNo=" + branchNo + ", memberNo=" + memberNo + ", referenceAddress=" + referenceAddress
+				+ ", branchName=" + branchName + ", branchPhone=" + branchPhone + "]";
 	}
-	
+
 }

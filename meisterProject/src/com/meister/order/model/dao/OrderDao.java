@@ -64,18 +64,18 @@ public class OrderDao {
 		return result;
 	}
 	
-	public ArrayList<Delivery> ShowOrderDeliveryList(Connection conn, String memberId) {
-		
+	public ArrayList<Delivery> ShowOrderDeliveryList(Connection conn, String userId) {
+		ArrayList<Delivery> deliveryList = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Delivery> deliveryList = null;
+		
 		String sql = prop.getProperty("selectDeliveryList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, memberId);
-			
+			pstmt.setString(1, userId);
+			System.out.println("다오 딴에서 userId = " + userId);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -84,9 +84,8 @@ public class OrderDao {
 												rset.getString("MEM_ADDRESS1"),
 												rset.getString("MEM_ADDRESS2"),
 												rset.getString("BRANCH_NAME"),
-												rset.getString("BRANCH_PHONE")
-												)
-				);
+												rset.getString("BRANCH_PHONE")));
+				System.out.println("지점1");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,7 +93,7 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		
+		System.out.println("다오딴 : " + deliveryList.get(0));
 		return deliveryList;
 		
 	}

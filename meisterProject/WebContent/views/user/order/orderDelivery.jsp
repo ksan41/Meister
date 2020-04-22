@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Delivery"%>
+<%
+	ArrayList<Delivery> deliveryList = (ArrayList<Delivery>)session.getAttribute("deliveryList");
+	for(int i=0; i<deliveryList.size(); i++){
+		Delivery d = deliveryList.get(i);
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -110,7 +116,7 @@
 	     height:20px;
 	 }
 	 #content1>div:nth-child(3), #content1>div:nth-child(7), #content1>div:nth-child(11){
-	     width:40%;
+	     width:auto;
 	 }
 	 #content1>div:nth-child(4), #content1>div:nth-child(8), #content1>div:nth-child(12){
 	     width:40%;
@@ -194,19 +200,21 @@
                 
             </div>
             <div id="content1">
-
+				<%if(!deliveryList.isEmpty()){ %>
+				
                 <div>
                 </div>
                 <div>
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%= %></h4><h4 style="color:rgb(76, 60, 60);">상세주소1&nbsp;&nbsp;&nbsp;상세주소2</h4>신촌지점&nbsp;&nbsp;&nbsp;031-0000-8282
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
                 </div>
                 <div>
                     <button id="remove">―</button>
                 </div>
-
+				<%} %>
+				<%} %>
                 <div>
                 </div>
                 <div>
