@@ -264,4 +264,15 @@ private Properties prop = new Properties();
 		
 		return result;
 	}
+	
+	
+	/**산
+	 * 통합관리자-탈퇴회원 리스트 조회용 서비스
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @return : 조회된 Member객체가 담긴ArrayList
+	 */
+	public ArrayList<Member> selectDropMemList(Connection conn){
+		
+		
+	}
 }
