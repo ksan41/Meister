@@ -121,7 +121,7 @@
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 회원조회
-					<button style="">탈퇴회원조회</button>
+					<button onclick="dropList();">탈퇴회원조회</button>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive" style="width:auto;height:600px;overflow-y:scroll;">
@@ -190,14 +190,18 @@
 	</div>
 	
 	<script>
+		function dropList(){
+			location.href="<%=contextPath%>/dropMemberList.memg"; //탈퇴회원조회 서블릿요청
+		};
+	
 		$("#dropMemBtn").click(function(){
 			var dropCheck = confirm("해당 회원을 탈퇴처리 하시겠습니까?");
 			var index = $(".button").index(this);
 			
 			if(dropCheck){ //확인 클릭시
-				var memNo = $(".memberNo:eq("+index+")").value(); //선택된 해당 회원번호
+				var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
 				
-				location.href("<%=contextPath%>/deleteMember.memg");
+				location.href("<%=contextPath%>/deleteMember.memg?"+memNo);
 			}
 		});
 	</script>
