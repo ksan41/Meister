@@ -1,6 +1,9 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +46,17 @@ public class MyInfoChangePwdServlet extends HttpServlet {
 		
 		if(result > 0) {	// 비밀번호 변경 성공
 			
+			response.setContentType("text/html; charset=utf-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('비밀번호가 성공적으로 변경되었습니다.'); location.href='myInfoUpdateCheck.my';</script>");
+			
 		}else {		// 비밀번호 변경 실패
+			
+			response.setContentType("text/html; charset=utf-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('비밀번호 변경에 실패했습니다. 다시 시도해주세요.'); location.href='myInfoUpdateCheck.my';</script>");
 			
 		}
 		
