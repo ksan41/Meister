@@ -95,4 +95,27 @@ public class MemberService {
 		
 		return list;
     }
+    
+    
+    /** 지수
+     * 회원 탈퇴용 서비스
+     * @param m	: 탈퇴할 회원의 회원 번호와 탈퇴 타입, 탈퇴 사유가 담겨있는 Member객체
+     * @return	: 처리된 행의 갯수
+     */
+    public int deleteMember(Member m) {
+    	
+    	Connection conn = getConnection();
+    	
+    	int result = new MemberDao().deleteMember(conn, m);
+    	
+    	if(result > 0) {
+    		commit(conn);
+    	}else {
+    		rollback(conn);
+    	}
+    	
+    	close(conn);
+    	
+    	return result;
+    }
 }

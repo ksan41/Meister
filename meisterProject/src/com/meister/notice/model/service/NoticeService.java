@@ -11,7 +11,7 @@ import com.meister.notice.model.vo.Notice;
 public class NoticeService {
 	
 	/**
-	 * 1. 공지사항 리스트 조회용 서비스
+	 * 1. 고객공지사항 리스트 조회용 서비스
 	 * @return list --> Notice 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
 	public ArrayList<Notice> selectList(){
@@ -27,7 +27,7 @@ public class NoticeService {
 	}
 	
 	/**
-	 * 2. 공지사항 상세조회용 서비스
+	 * 2. 고객공지사항 상세조회용 서비스
 	 * @param nno	--> 조회하고자하는 공지사항 글번호
 	 * @return		--> 글번호와 일치하는 Notice 객체
 	 */
