@@ -141,13 +141,13 @@ div {
 		<br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		<div id="index-area">
-			<a href="">홈</a> &gt; <a href="">나의 정보</a> &gt; 1:1문의
+			<a href="<%=contextPath%>">홈</a> &gt; <a href="">나의 정보</a> &gt; 1:1문의
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
 			<a href="<%=contextPath%>/myOrderList.my">주문내역</a> <span style="color: lightgray; font-size: 17px;">|</span>
 			<a href="<%=contextPath%>/myCouponList.my">쿠폰함</a> <span style="color: lightgray; font-size: 17px;">|</span>
-			<a href="" style="color: orange">1:1문의</a> <span
+			<a href="<%=contextPath%>/myOneList.my" style="color: orange">1:1문의</a> <span
 				style="color: lightgray; font-size: 17px;">|</span> <a href="<%=contextPath%>/myInfoUpdateCheck.my">정보수정</a>
 		</div>
 		<hr>
