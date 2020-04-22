@@ -6,11 +6,20 @@ import static com.meister.common.JDBCTemplate.getConnection;
 import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.meister.member.model.dao.MemberDao;
 import com.meister.member.model.vo.Manager;
 import com.meister.member.model.vo.Member;
 
+/**
+ * @author Nacho
+ *
+ */
+/**
+ * @author Nacho
+ *
+ */
 public class MemberService {
 	
 	/** 로그인 폼 
@@ -63,12 +72,27 @@ public class MemberService {
      */
     public Manager loginManager(String managerId,String password) {
     	   
-    		Connection conn = getConnection();
-    		Manager loginManager = new MemberDao().loginManager(conn,managerId,password); 
-    	   
-    		close(conn);
-    		
-    		return loginManager;
-       }
-
+		Connection conn = getConnection();
+		
+		Manager loginManager = new MemberDao().loginManager(conn,managerId,password); 
+	   
+		close(conn);
+		
+		return loginManager;
+	}
+    
+    /** 연화
+     * 관리자-회원조회용 서비스
+     * @return
+     */
+    public ArrayList<Member> selectMemberList(){
+    	
+		Connection conn = getConnection();
+		
+		Member selectMemberList = new MemberDao().selectMemberList(conn); 
+	   
+		close(conn);
+		
+		return selectMemberList;
+    }
 }

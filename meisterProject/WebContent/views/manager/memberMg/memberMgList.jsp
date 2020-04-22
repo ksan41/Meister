@@ -162,7 +162,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!--  -->
+								<!-- 
 								<tr>
 									<td>9</td>
 									<td>user01</td>
@@ -253,7 +253,7 @@
 										<button class="button" onclick="deleteMem()">탈퇴</button>
 									</th>
 								</tr>
-								<!--  -->
+								 -->
 								
 								<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
@@ -268,7 +268,7 @@
 											<td><%= m.getMemberId() %></td>
 											<td><%= m.getMemberName() %></td>
 											<td><%= m.getMemberEnrolldate() %></td>
-											<td><%= m.get() %></td>
+											<td><%= m.get????() %></td>
 											<th>
 												<button class="button" onclick="deleteMem()">탈퇴</button>
 											</th>
@@ -296,7 +296,7 @@
 				// 현재 클릭했을 때의 해당 공지사항의 번호
 				var nno = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/imNoticeDetail.nom?nno=" + nno;
+				location.href="<%= contextPath %>/memberList.memg?nno=" + nno;
 				/dropMemberList.memg
 			});
 		});

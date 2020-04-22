@@ -44,7 +44,6 @@ public class Member {
 		this.leaveReason = leaveReason;
 		this.paymentType = paymentType;
 	}
-
 	
 	// 회원가입시 사용하는 매개변수 생성자
 	public Member(String memberName, String memberId, String memberPwd, Date memberBirth, String memberGender,
@@ -59,8 +58,8 @@ public class Member {
 		this.memberEmail = memberEmail;
 	}
 	
+	// 연화
 	
-
 
 	public int getMemberNo() {
 		return memberNo;

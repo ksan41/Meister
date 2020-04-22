@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.member.model.vo.Manager;
@@ -72,9 +74,9 @@ private Properties prop = new Properties();
 				                rset.getString("LEAVE_TYPE"),
 				                rset.getString("LEAVE_REASON"),
 
-			                   rset.getString("PAYMENT_TYPE"));
+			                    rset.getString("PAYMENT_TYPE"));
 
-							       }
+			}
 			
 			
 		} catch (SQLException e) {
@@ -149,16 +151,12 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				loginManager = new Manager(rset.getInt("MANAGER_NO"),
-						rset.getString("MANAGER_ID"),rset.getString("MANAGER_PWD"),
-						rset.getString("MANAGER_TYPE"),rset.getString("MANAGER_NAME"),
-						rset.getString("MANAGER_PHONE"),rset.getString("MANAGER_EMAIL"),rset.getString("MANAGER_GENDER"),
-						rset.getDate("MANAGER_ENROLLDATE"),rset.getDate("MODIFY_DATE"),
-						rset.getString("MANAGER_STATUS")
-						);
-				
-				
+										   rset.getString("MANAGER_ID"),rset.getString("MANAGER_PWD"),
+										   rset.getString("MANAGER_TYPE"),rset.getString("MANAGER_NAME"),
+										   rset.getString("MANAGER_PHONE"),rset.getString("MANAGER_EMAIL"),rset.getString("MANAGER_GENDER"),
+										   rset.getDate("MANAGER_ENROLLDATE"),rset.getDate("MODIFY_DATE"),
+										   rset.getString("MANAGER_STATUS"));
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -168,6 +166,37 @@ private Properties prop = new Properties();
 		
 		return loginManager;
 	}
+	
+	/**연화
+	 * @param conn
+	 * @return
+	 */
+	public ArrayList<Member> selectMemberList(Connection conn) {
+		
+		ArrayList<Member> selectMemberList = null;
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMemberList");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			
+			while(rset.next()) {
+				
+				selectMemberList.add(new Member(rset.getInt("MEMBER_NO"),
+												rset.getString("MEMBER_ID"),
+												rset.getString("MEMBER_NAME"),
+												rset.getDate("MEMBER_ENROLLDATE"),
+												))
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
-
-
