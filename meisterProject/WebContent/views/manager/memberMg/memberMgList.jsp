@@ -144,7 +144,7 @@
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
 								<tr>
-								<form name="searchName" action="<%=contextPath%>/memberList.memg" method="post">
+								<form name="searchName" action="<%=contextPath%>/memberList.memg" method="get">
 									<th style="vertical-align:middle;">회원명 검색</th>
 									<th><input name="userName" type="text" id="search"
 										style="width: 120px;height:30px">
@@ -219,7 +219,7 @@
 			
 			if(dropCheck){ //확인 클릭시
 				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
-				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
+				var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text();
 				
 				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
 			
