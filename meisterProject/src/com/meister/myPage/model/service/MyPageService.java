@@ -179,5 +179,28 @@ public class MyPageService {
 		
 		return result;
 	}
+	
+	
+	/**
+	 * 9. 회원 정보 수정용 서비스
+	 * @param m		--> 정보 수정할 회원의 회원번호, 수정할 
+	 * @return
+	 */
+	public int updateMember(Member m) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MyPageDao().updateMember(conn, m);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 
 }
