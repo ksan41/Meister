@@ -42,7 +42,7 @@ public class NoticeMgDetailServlet extends HttpServlet {
 			new NoticeService().increaseCount(nno);
 
 			request.setAttribute("n", n);
-			RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/bmBranchNoticeDetail.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/noticeMgDetail.jsp");
 			view.forward(request, response);
 			
 		}else {			// 조회실패
@@ -57,5 +57,4 @@ public class NoticeMgDetailServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
