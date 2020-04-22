@@ -40,10 +40,10 @@ public class MemberMgListServlet extends HttpServlet {
 		
 		if(list.isEmpty()) { //조회된 회원정보가 없을 경우
 			request.setAttribute("msg", "조회된 결과가 없습니다.");
-			RequestDispatcher view = request.getRequestDispatcher("views/user/memberMg/memberMgList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
 			view.forward(request, response);
 		}else { // 조회된 회원정보가 있을 경우
-			RequestDispatcher view = request.getRequestDispatcher("views/user/memberMg/memberMgList.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
 			view.forward(request, response);			
 		}
 		
