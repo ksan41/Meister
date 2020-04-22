@@ -43,7 +43,7 @@ public class NoticeMgBmDetailServlet extends HttpServlet {
 			new NoticeService().increaseCount(nno);
 
 			request.setAttribute("n", n);
-			RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/noticeMgDetail.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/branchNoticeDetail.jsp");
 			view.forward(request, response);
 			
 		}else {			// 조회실패

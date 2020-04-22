@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.member.model.vo.Member;
+import com.meister.myPage.model.service.MyPageService;
+
 /**
  * Servlet implementation class MyInfoChangePwdServlet
  */
@@ -26,8 +29,17 @@ public class MyInfoChangePwdServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		request.setCharacterEncoding("utf-8");
+		
+		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
+		String memberPwd = request.getParameter("memberPwd");
+		String inputPwd1 = request.getParameter("inputPwd1");
+		String inputPwd2 = request.getParameter("inputPwd2");
+		
+		String realPwd = new MyPageService().updateCheckPwd(memberId);
+		
+		
 	}
 
 	/**

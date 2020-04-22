@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+ArrayList<Pizza> list =
+ArrayList<PizzaSize> list2 =
+ArrayList<Side> list3 =
+ArrayList<Etc> list4 =
+ArrayList<Dough> list5 =
+%>
 <!DOCTYPE html>
 <html>
 <head>

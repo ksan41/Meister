@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event,java.util.ArrayList"%>
+<%
+   ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,7 +113,7 @@
 						<tr>
 							<td>
 								<div class="eventImg">
-									<img style="width: 350px;" src="<%=contextPath%>/resources/siteImgs/eventImg/event1.png">
+									<img style="width: 350px;" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
 								</div>
 								<div align="center">
 									신학기 기념 3월 신메뉴 행사<br> 2020-02-10 ~ 2020-03-10

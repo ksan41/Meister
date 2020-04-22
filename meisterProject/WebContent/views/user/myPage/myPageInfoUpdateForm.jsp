@@ -11,7 +11,7 @@
 
 <!-- 모달 부트스트랩-->
 <link rel="stylesheet" type="text/css"
-	href="../../../resources/css/bootstrap.css">
+	href="<%=contextPath%>/resources/css/bootstrap.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -228,16 +228,17 @@ table {
 			</div>
 		</div>
 
-			<br><br><hr>
+		<br><br><hr>
+			
 
-			<table style="text-align: left;">
+			<table style="text-align: left;" border="1">
 				<tr>
 					<th>이름</th>
-					<td colspan="2" style="width: 630px;"><input type="text"></td>
+					<td colspan="2" style="width: 630px;"><%=loginUser.getMemberName()%></td>
 				</tr>
 				<tr>
 					<th>아이디</th>
-					<td>mesisterpizza</td>
+					<td><%=loginUser.getMemberId()%></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
@@ -245,30 +246,38 @@ table {
 						<button class="small_btn" id="bb" style="margin: 1px;"
 							onclick="show();">비밀번호변경</button>
 						<div id="aa" style="display: none; margin-top:10px;">
-							<table>
+						
+						<form id="pwdAreaForm" action="<%=contextPath%>/myInfoChangePwd.my" method="post">
+							<table border="1">
 								<tr>
 									<td style="height: 35px;">현재 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"></td>
+									<td style="padding-left:10px;"><input name="memberPwd" type="password" size="35"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
-									<td style="padding-left:10px;"><input type="password" size="35"
+									<td style="padding-left:10px;"><input name="inputPwd1" type="password" size="35"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호 확인 </td>
-									<td style="padding-left:10px;"><input type="password" size="35"
+									<td style="padding-left:10px;"><input name="inputPwd2" type="password" size="35"
 										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
-									<td style="padding-left: 15px;"><button class="small_btn"
-											style="margin: 1px;">수정하기</button></td>
+									<td style="padding-left: 15px;">
+										<button type="submit" class="small_btn" style="margin: 1px;">수정하기</button>
+									</td>
 								</tr>
 							</table>
+						</form>	
 						</div>
 					</td>
 				</tr>
+				</table>
+				
+				<form id="updateAreaForm" action="" method="post">
+				<table style="text-align: left;" border="1">
 				<tr>
 					<th>생년월일</th>
-					<td colspan="2"><input type="date" name="dateIn"></td>
+					<td colspan="2" style="width: 630px;"><input type="date" name="dateIn"></td>
 				</tr>
 				<tr>
 					<th>휴대전화</th>
@@ -317,11 +326,11 @@ table {
 			<br><br><br>
 
 			<div id="btns">
-				<button
-					style="background: white; color: black; border: 1px solid darkgray"
-					class="middle_btn" id="cbtn">취소</button>
-				<button class="middle_btn" id="mbtn">수정</button>
+				<button style="background: white; color: black; border: 1px solid darkgray"
+					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
+				<button type="submit" class="middle_btn" id="mbtn">수정</button>
 			</div>
+			</form>
 
 			<table>
 				<tr>
@@ -354,7 +363,7 @@ table {
 			<!-- modal별 id 변경해주세요-->
 			<div class="modal-dialog">
 				<div class="modal-content">
-
+					
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title" style="margin: auto; padding: 0; font-family: 'nanumsquare';">본인여부
@@ -369,22 +378,24 @@ table {
 					<!-- Modal footer -->
 					<div class="modal-footer">
 						<!-- 하단버튼 영역-->
-						<table>
+						<form id="checkForm" action="<%=contextPath%>/myInfoDropForm.my" method="post">
+						<table>											
 							<tr>
 								<td>아이디</td>
-								<td style="padding: 10px;">meisterpizza</td>
+								<td style="padding: 10px;"><%=loginUser.getMemberId() %></td>
 							</tr>
 
 							<tr>
 								<td>비밀번호</td>
-								<td style="padding: 10px;"><input type="text"></td>
+								<td style="padding: 10px;"><input type="text" name="inputPwd"></td>
 								<td>
-									<button type="button" class="btn btn-danger"
-										data-dismiss="modal"
+									<button type="submit" class="btn btn-danger" 
 										style="width: 100px; height: 30px; padding: 1px;">확인</button>
 								</td>
 							</tr>
 						</table>
+						</form>
+						
 					</div>
 
 				</div>

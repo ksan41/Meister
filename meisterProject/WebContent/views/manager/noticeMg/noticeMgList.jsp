@@ -36,15 +36,8 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="modify">수정</button>
+				<button class="button" onclick="modify">등록</button>
 			</div>
-			<!-- <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="menubar_im.html">홈</a></li>
-                            <li class="breadcrumb-item active">지점 공지사항</li>
-                        </ol> -->
-			<!-- <div class="card mb-4">
-                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
-                        </div> -->
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 고객 공지사항

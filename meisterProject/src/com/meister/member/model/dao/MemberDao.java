@@ -206,6 +206,7 @@ private Properties prop = new Properties();
 	
 	
 	/** 지수
+	 * 회원탈퇴용 dao
 	 * @param conn		: MemberService에서 생성된 Connection 객체
 	 * @param m			: 탈퇴할 회원의 회원 번호와 탈퇴 타입, 탈퇴 사유가 담겨있는 Member객체
 	 * @return			: 처리된 행의 갯수
@@ -234,5 +235,72 @@ private Properties prop = new Properties();
 		}
 		
 		return result;
+	}
+	
+	
+	/**산
+	 * 통합관리자-회원 탈퇴처리용 dao
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @param memberNo : 탈퇴처리할 회원번호
+	 * @return : 처리된 행의갯수
+	 */
+	public int deleteMgMember(Connection conn,int memberNo) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("mgDeleteMember");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	/**산
+	 * 통합관리자-탈퇴회원 리스트 조회용 서비스
+	 * @param conn : MemberService에서 생성된 Connection 객체
+	 * @return : 조회된 Member객체가 담긴ArrayList
+	 */
+	public ArrayList<Member> selectDropMemList(Connection conn){
+		
+		ArrayList<Member> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("mgSelectDropList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setLeaveType(rset.getString("LEAVE_TYPE"));
+				m.setLeaveReason(rset.getString("LEAVE_REASON"));
+				
+				list.add(m);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 }
