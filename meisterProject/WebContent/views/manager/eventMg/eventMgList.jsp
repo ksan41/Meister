@@ -180,11 +180,11 @@
 									</a>
 									<%=e.getEventTitle() %><br>
 									<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
-									<p class="bannerStatus" style="color: red">배너노출상태</p>
+									<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
 									<div align="center">
 										<button class="button" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-										<button class="button" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button">삭제</button>
+										<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+										<button class="button" class="deleteButton">삭제</button>
 									</div>
 								</div>
 							<% } %>
@@ -347,19 +347,19 @@
 								<table id="eventDetailTable" style="width:700px">
 									<tr>
 										<th>제목</th>
-										<td><input type="text" size="40px" value="기존 이벤트 제목">
+										<td><input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>이벤트 기간</th>
-										<td><input type="date"> ~ <input type="date">
+										<td><input type="date" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
 											<div style="width:500px; height:250px; border:solid 1px black;">
-												
+												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
 											</div>
 										</td>
 									</tr>
@@ -367,21 +367,22 @@
 										<th>상세 이미지</th>
 										<td>
 											<div style="width:500px; height:250px; border:solid 1px black;">
-												
+												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th>배너 등록여부</th>
-										<td><input type="checkbox" style="margin-left: 10px;"></td>
+										<td><input type="checkbox" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>"></td>
 									</tr>
 								</table>
 								<br><br>
 		
 								<!-- 버튼 영역 -->
 								<div class="faqBtns" style="align-content: right;" align="center">
-									<button type="button" class="btn btn-danger" data-dismiss="modal"
-										style="width: 100px; height: 40px; background: #343a40">확인</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">
+										확인
+									</button>
 								</div>
 							</form>
 						</div>
@@ -393,9 +394,31 @@
 	<%} %>
 	
 	<script>
-		function deleteConfirm(){
-		    confirm('해당 이벤트를 삭제하시겠습니까?');
-		};
+		$(document).on("click",".button",function(){
+			var dropCheck = confirm("해당 이벤트를 삭제하시겠습니까?");
+			var index = $(".deleteButton").index(this);
+			
+			if(dropCheck){ //확인 클릭시
+				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
+				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
+				
+				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
+			
+			}
+		});
+		
+		$(document).on("click",".modifyButton",function(){
+			var dropCheck = confirm("해당 이벤트를 수정하시겠습니까?");
+			var index = $(".deleteButton").index(this);
+			
+			if(dropCheck){ //확인 클릭시
+				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
+				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
+				
+				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
+			
+			}
+		});
 		
 		$(function(){  		
 		    $(".thumbnail").click(function(){ 
