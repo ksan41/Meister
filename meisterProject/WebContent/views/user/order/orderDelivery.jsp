@@ -2,9 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Delivery"%>
 <%
 	ArrayList<Delivery> deliveryList = (ArrayList<Delivery>)session.getAttribute("deliveryList");
-	for(int i=0; i<deliveryList.size(); i++){
-		Delivery d = deliveryList.get(i);
-	}
 %>
 
 <!DOCTYPE html>
@@ -201,20 +198,26 @@
             </div>
             <div id="content1">
 				<%if(!deliveryList.isEmpty()){ %>
-				
+				<%for(int i=0; i<deliveryList.size(); i++){ %>
+					<%Delivery d = deliveryList.get(i); %>
+					<% String referenceAddress = d.getReferenceAddress(); %>
+					<%//if(referenceAddress.equals("null")) { referenceAddress = " "; } %>
+					<%System.out.println("d.getReferenceAddress() 메소드 값 : " + d.getReferenceAddress()); %>
+					<%System.out.println("referenceAddress 변수에 담은 것 : " + referenceAddress); %>
+					<%System.out.println("referenceAddress 변수 null값과 일치 비교 : " + referenceAddress.equals("null")); %>
                 <div>
                 </div>
                 <div>
                     <input type="checkbox">
                 </div>
                 <div>
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
+                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=referenceAddress%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
                 </div>
                 <div>
                     <button id="remove">―</button>
                 </div>
-				<%} %>
-				<%} %>
+				<%}%>
+				<%}%>
                 <div>
                 </div>
                 <div>
