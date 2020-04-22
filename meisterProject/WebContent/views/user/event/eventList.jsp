@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>eventList</title>
 
 <%@ include file="../../common_user/menubar.jsp"%>
 <%@ include file="../../common_user/menubarMenuIMG.jsp"%>

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event,java.util.ArrayList"%>
+<%
+   ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
