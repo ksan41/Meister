@@ -323,8 +323,8 @@ table {
 			<br><br><br>
 
 			<div id="btns">
-				<button style="background: white; color: black; border: 1px solid darkgray"
-					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
+				<button type="reset" style="background: white; color: black; border: 1px solid darkgray"
+					class="middle_btn" id="cbtn" onclick="test();">취소</button>
 				<button type="submit" class="middle_btn" id="mbtn">수정</button>
 			</div>
 			</form>
@@ -335,8 +335,7 @@ table {
 						style="font-size: 0.9em; color: gray; width: 450px; vertical-align: top; padding-top: 20px; padding-left: 15px;">
 						마이스터 피자를 더 이상 이용하지 않는다면 <a href="" data-toggle="modal"
 						data-target="#myModal" style="color: black;"> <span
-							style="text-decoration: underline;"> 회원탈퇴 바로가기></span>
-					</a>
+							style="text-decoration: underline;"> 회원탈퇴 바로가기></span></a>
 					</th>
 				</tr>
 			</table>
@@ -390,6 +389,10 @@ table {
 	            	return true;
 	            }*/
 			};
+			
+			function test(){
+				location.href='<%=contextPath%>/myOrderList.my';
+			}
 		</script>
 
 		<!-- 모달 시작 -->
