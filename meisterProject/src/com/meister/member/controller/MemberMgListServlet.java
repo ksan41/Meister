@@ -38,7 +38,7 @@ public class MemberMgListServlet extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");// 여기경로 수정해야해!!!
 		view.forward(request, response);
 		
 		
