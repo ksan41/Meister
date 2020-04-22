@@ -34,10 +34,7 @@ public class MemberMgDeleteMemberServlet extends HttpServlet {
 		
 		int memberNo = Integer.parseInt(request.getParameter("memNo"));
 		
-		Member m = new Member();
-		m.setMemberNo(memberNo);
-		
-		int result = new MemberService().deleteMember(m);
+		int result = new MemberService().deleteMgMember(memberNo);
 		
 		if(result>0) {//회원탈퇴처리 성공시
 			response.setContentType("text/html; charset=UTF-8");
