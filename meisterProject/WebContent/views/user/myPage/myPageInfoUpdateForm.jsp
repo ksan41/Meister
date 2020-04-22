@@ -250,20 +250,16 @@ table {
 						<form id="pwdAreaForm" action="<%=contextPath%>/myInfoChangePwd.my" method="post">
 							<table border="1">
 								<tr>
-									<td style="height: 35px;">현재 비밀번호</td>
-									<td style="padding-left:10px;"><input name="memberPwd" type="password" size="35"></td>
-								</tr>
-								<tr>
 									<td style="height: 35px;">새 비밀번호</td>
-									<td style="padding-left:10px;"><input name="inputPwd1" type="password" size="35"
-										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
+									<td style="padding-left:10px;"><input name="inputPwd1" id="inputPwd1" type="password" size="40"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자(!@#$%^&*) 사용가능"></td>
 								</tr>
 								<tr>
 									<td style="height: 35px;">새 비밀번호 확인 </td>
-									<td style="padding-left:10px;"><input name="inputPwd2" type="password" size="35"
-										placeholder=" 8~16자 영문대소문자,숫자,특수문자 사용가능"></td>
+									<td style="padding-left:10px;"><input name="inputPwd2" id="inputPwd2" type="password" size="40"
+										placeholder=" 8~16자 영문대소문자,숫자,특수문자(!@#$%^&*) 사용가능"></td>
 									<td style="padding-left: 15px;">
-										<button type="submit" class="small_btn" style="margin: 1px;">수정하기</button>
+										<button type="submit" onclick="return validPwdTest();" class="small_btn" style="margin: 1px;">수정하기</button>
 									</td>
 								</tr>
 							</table>
@@ -328,7 +324,7 @@ table {
 			<div id="btns">
 				<button style="background: white; color: black; border: 1px solid darkgray"
 					class="middle_btn" id="cbtn" onclick="location.href='<%=contextPath%>/myOrderList.my';">취소</button>
-				<button type="submit" class="middle_btn" id="mbtn">수정</button>
+				<button type="submit" onclick="return validTest();" class="middle_btn" id="mbtn">수정</button>
 			</div>
 			</form>
 
@@ -355,7 +351,34 @@ table {
 					aa.style.display = 'none';
 				}
 
-			}
+			};
+			
+			// 비밀번호 수정 유효성 검사
+			function validPwdTest(){
+				// 유효성 검사할 각각의 input 요소를 변수에 받아두기
+				var pwd1 = document.getElementById("inputPwd1");
+				var pwd2 = document.getElementById("inputPwd2");
+	
+	            // 비밀번호 검사
+	            // 특수문자(!@#$%^&*), 영문자, 숫자 포함해서 총 8~16자
+	            regExp = /^[a-z\d!@#$%^&*]{8,16}$/i;
+	            if(!regExp.test(pwd1.value)){
+	                alert("유효한 값이 아닙니다. 다시 입력해주세요.");
+	                pwd1.value = "";
+	                pwd1.focus();
+	                return false;
+	            }
+
+	            // 비밀번호값과 비밀번호확인값이 일치하는지 검사
+	            if(pwd1.value != pwd2.value){
+	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+	                pwd2.value = "";
+	                pwe2.focus();
+	                return false;
+	            }
+	            
+	            return true;
+			};
 		</script>
 
 		<!-- 모달 시작 -->

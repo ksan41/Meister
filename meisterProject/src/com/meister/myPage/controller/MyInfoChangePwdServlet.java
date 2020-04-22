@@ -32,12 +32,20 @@ public class MyInfoChangePwdServlet extends HttpServlet {
 
 		request.setCharacterEncoding("utf-8");
 		
-		String memberId = ((Member)request.getSession().getAttribute("loginUser")).getMemberId();
-		String memberPwd = request.getParameter("memberPwd");
-		String inputPwd1 = request.getParameter("inputPwd1");
-		String inputPwd2 = request.getParameter("inputPwd2");
+		int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
+		String newPwd = request.getParameter("inputPwd1");
 		
-		String realPwd = new MyPageService().updateCheckPwd(memberId);
+		Member m = new Member();
+		m.setMemberNo(memberNo);
+		m.setMemberPwd(newPwd);
+		
+		int result = new MyPageService().updatePwd(m);
+		
+		if(result > 0) {	// 비밀번호 변경 성공
+			
+		}else {		// 비밀번호 변경 실패
+			
+		}
 		
 		
 	}
