@@ -81,18 +81,18 @@ public class MemberService {
 		return loginManager;
 	}
     
-    /** 연화
-     * 관리자-회원조회용 서비스
+    /** 연화->산
+     * 통합관리자-회원관리/회원정보 조회용 서비스
      * @return
      */
     public ArrayList<Member> selectMemberList(){
     	
 		Connection conn = getConnection();
 		
-		Member selectMemberList = new MemberDao().selectMemberList(conn); 
+		ArrayList<Member> list = new MemberDao().selectMemberList(conn); 
 	   
 		close(conn);
 		
-		return selectMemberList;
+		return list;
     }
 }
