@@ -118,4 +118,28 @@ public class MemberService {
     	
     	return result;
     }
+    
+    
+    
+    /**산
+     * 통합관리자- 회원탈퇴용 서비스
+     * @param memberNo : 탈퇴처리할 회원번호
+     * @return : 처리된 행의 갯수
+     */
+    public int deleteMgMember(int memberNo) {
+    	
+    	Connection conn = getConnection();
+    	
+    	int result = new MemberDao().deleteMgMember(conn,memberNo);
+    	
+    	if(result>0) {
+    		commit(conn);
+    	}else {
+    		rollback(conn);
+    	}
+    	
+    	close(conn);
+    	
+    	return result;
+    }
 }
