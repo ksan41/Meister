@@ -148,8 +148,15 @@ public class MemberService {
      * 통합관리자- 탈퇴회원 리스트 조회용 서비스
      * @return : 조회된 Member객체가 담긴ArrayList
      */
-    public ArrayList<Member> selectselectDropMemList(){
+    public ArrayList<Member> selectDropMemList(){
     	
     	
+    	Connection conn = getConnection();
+    	
+    	ArrayList<Member> list = new MemberDao().selectDropMemList(conn);
+    	
+    	close(conn);
+    	
+    	return list;
     }
 }
