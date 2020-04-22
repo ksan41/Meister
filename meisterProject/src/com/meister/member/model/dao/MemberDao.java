@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -387,5 +388,25 @@ private Properties prop = new Properties();
 		}
 		
 		return m;
+	}
+	
+	
+	/**산
+	 * 통합관리자 - 회원리스트 가입기간별 조회dao
+	 * @param conn : service에서 생성된 Connection객체
+	 * @param startDate : 조회할 가입일 시작날짜
+	 * @param endDate : 조회할 가입일 끝 날짜
+	 * @return : 조회된 Member객체가 담긴 ArrayList
+	 */
+	public ArrayList<Member> searchDate(Date startDate,Date endDate){
+		
+		ArrayList<Member> list = new ArrayList<>();
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty(arg0);
+		
+		
+		return list;
+		
 	}
 }
