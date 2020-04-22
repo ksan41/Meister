@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.member.model.vo.Member"%>
 <%
-	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	//ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -173,87 +173,7 @@
 										<button class="button" onclick="deleteMem()">탈퇴</button>
 									</th>
 								</tr>
-								<tr>
-									<td>8</td>
-									<td>user02</td>
-									<td>Sidney</td>
-									<td>2010/09/20</td>
-									<td>23</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>user03</td>
-									<td>London</td>
-									<td>2009/10/09</td>
-									<td>47</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>user04</td>
-									<td>Edinburgh</td>
-									<td>2010/12/22</td>
-									<td>42</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>user05</td>
-									<td>Singapore</td>
-									<td>2010/11/14</td>
-									<td>28</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>user06</td>
-									<td>San Francisco</td>
-									<td>2011/06/07</td>
-									<td>28</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>user07</td>
-									<td>San Francisco</td>
-									<td>2010/03/11</td>
-									<td>48</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>user08</td>
-									<td>Tokyo</td>
-									<td>2011/08/14</td>
-									<td>20</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>user09</td>
-									<td>Sidney</td>
-									<td>2011/06/02</td>
-									<td>37</td>
-									<th>
-										<button class="button" onclick="deleteMem()">탈퇴</button>
-									</th>
-								</tr>
-								 -->
+								-->
 								
 								<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
