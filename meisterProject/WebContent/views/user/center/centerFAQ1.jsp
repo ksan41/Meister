@@ -171,13 +171,22 @@ div {
 			<hr>
 			
 			
+            
 			<div class="content1">
+			
+			<%
+            for (Faq f : list) {
+            %>
+            
+            <%
+            if (f.getFaqType().equals("피자주문하기")) {
+            %>
 
 				<div class="faqQuestion">
 					<table>
 						<tr>
 							<th style="width: 30px; text-align: center; color: blue">Q</th>
-							<td style="width: 900px;">예약주문만 가능한 경우는 왜 그런가요?</td>
+							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
 				
@@ -190,147 +199,164 @@ div {
 						<tr>
 							<th
 								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
+							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
 						</tr>
 					</table>
 				</div>
+				
+				 <%
+               }
+                 %>
+                 <%
+               }
+                 %>
+				
+				
+				
 
 
+
+
+				</div>
+				
+		
+				
+				<div class="content2">
+				
+							<%
+            for (Faq f : list) {
+            %>
+            
+            <%
+            if (f.getFaqType().equals("주문확인")) {
+            %>
+				
 				<div class="faqQuestion">
 					<table>
 						<tr>
 							<th style="width: 30px; text-align: center; color: blue">Q</th>
-							<td style="width: 900px;">매장상태에 따른 주문불가는 무엇인가요?</td>
+							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
+				
 				</div>
-				<div class="faqAnswer">
+				
+				
+				
+			    <div class="faqAnswer">
 					<table>
 						<tr>
 							<th
 								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
+							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
 						</tr>
 					</table>
 				</div>
-
-				<div class="faqQuestion">
+				
+					 <%
+               }
+                 %>
+                 <%
+               }
+                 %>
+				
+				
+				
+				</div>
+				
+				
+				
+				<div class="content3">
+				
+			<%
+            for (Faq f : list) {
+            %>
+            
+            <%
+            if (f.getFaqType().equals("포장주문")) {
+            	
+            	
+            
+            %>
+            
+            <div class="faqQuestion">
 					<table>
 						<tr>
 							<th style="width: 30px; text-align: center; color: blue">Q</th>
-							<td style="width: 900px;">하프&하프가 무엇인가요?</td>
+							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
+				
 				</div>
-				<div class="faqAnswer">
+				
+				
+				
+			    <div class="faqAnswer">
 					<table>
 						<tr>
-							<th style="width: 30px; color: red;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
+							<th
+								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
 						</tr>
 					</table>
 				</div>
+			 
+			   <% } %>
+               <% } %>
 				
-				<div class="faqQuestion">
+				
+	         </div>
+	         
+	         
+	         
+	         <div class="content4">
+	         
+	         	<%
+            for (Faq f : list) {
+            %>
+            
+            <%
+            if (f.getFaqType().equals("홈페이지관련")) {
+            	
+            	
+            
+            %>
+            
+              <div class="faqQuestion">
 					<table>
 						<tr>
-							<th style="width: 30px; color: blue">Q</th>
-							<td style="width: 900px;">하프&하프가 무엇인가요?</td>
+							<th style="width: 30px; text-align: center; color: blue">Q</th>
+							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
+				
 				</div>
-				<div class="faqAnswer">
+				
+				
+				
+			    <div class="faqAnswer">
 					<table>
 						<tr>
-							<th style="width: 30px; color: red;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
+							<th
+								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
 						</tr>
 					</table>
 				</div>
-
-				<div class="faqQuestion">
-					<table>
-						<tr>
-							<th style="width: 30px; color: blue">Q</th>
-							<td style="width: 900px;">피자를 다량으로 주문하고 싶습니다.</td>
-						</tr>
-					</table>
+            
+            
+			   <% } %>
+               <% } %>
+				
+	         
+	         
+	         
+	         
+	         </div>
+	         
+	         
+				
 				</div>
-				<div class="faqAnswer">
-					<table>
-						<tr>
-							<th style="width: 30px; color: red;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
-						</tr>
-					</table>
-				</div>
-	
-				<div class="faqQuestion">
-					<table>
-						<tr>
-							<th style="width: 30px; color: blue">Q</th>
-							<td style="width: 900px;">주문 한 메뉴를 변경하거나 취소해야 할 경우에는 어떻게
-								하나요?</td>
-						</tr>
-					</table>
-				</div>
-	
-				
-				<div class="faqAnswer">
-					<table>
-						<tr>
-							<th style="width: 30px; color: red;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
-						</tr>
-					</table>
-				</div>
-				
-	
-								
-				<div class="faqQuestion">
-					<table>
-						<tr>
-							<th style="width: 30px; color: blue">Q</th>
-							<td style="width: 900px;">홈페이지 주문으로 피자는 몇 판까지 주문할 수 있나요?</td>
-						</tr>
-					</table>
-				</div>
-				<div class="faqAnswer">
-					<table>
-						<tr>
-							<th style="width: 30px; color: red;">A</th>
-							<td style="width: 800px;">배달사원부족, 주문폭주 등으로 부득이 하게 예약주문만 가능한
-								경우가 있습니다. 이 경우 매장이나 콜센터(1577-3082)로 전화하셔도 예약주문만 가능하기 때문에 고객님의 많은
-								양해 부탁 드립니다. 또한, 매장 오픈시간 전이나, 영업 종료 후엔느 예약 주문만 가능합니다.</td>
-						</tr>
-					</table>
-				</div>
-				
-
-
-				</div>
-				
-				
-				<div class="content2">
-				
-				ddfdfds
-				</div>
-				
-				
-				
-				</div >
 				
 				
 				</div>
