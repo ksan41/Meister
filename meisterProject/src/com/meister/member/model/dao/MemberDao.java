@@ -398,7 +398,7 @@ private Properties prop = new Properties();
 	 * @param endDate : 조회할 가입일 끝 날짜
 	 * @return : 조회된 Member객체가 담긴 ArrayList
 	 */
-	public ArrayList<Member> searchDate(Date startDate,Date endDate){
+	public ArrayList<Member> searchDate(String startDate,String endDate){
 		
 		ArrayList<Member> list = new ArrayList<>();
 		ResultSet rset = null;
