@@ -296,7 +296,7 @@ div {
 						</tr>
 					</table>
 				</div>
-
+	foreach r
 				<div class="faqQuestion">
 					<table>
 						<tr>
@@ -306,6 +306,8 @@ div {
 						</tr>
 					</table>
 				</div>
+	
+				
 				<div class="faqAnswer">
 					<table>
 						<tr>
@@ -316,6 +318,8 @@ div {
 						</tr>
 					</table>
 				</div>
+				
+	/foreach
 								
 				<div class="faqQuestion">
 					<table>
