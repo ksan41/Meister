@@ -192,7 +192,7 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form" method="get">
+                        <form name="formPizza" method="get">
                             <input type=hidden id="sell_price" name="sell_price" value="39900">
                             <input type="text" id="amount" name="amount" value="1" size="3" onchange="change();">
                             <input type="button" id="addBtn" value=" + " onclick="add();"><input type="button" id="delBtn" value=" - " onclick="del();">
@@ -233,7 +233,7 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form2" method="get">
+                        <form name="formSide" method="get">
                             <input type=hidden name="sell_price" value="39900">
                             <input type="text" name="amount" value="1" size="3" onchange="change();">
                             <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
@@ -253,7 +253,7 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form3" method="get">
+                        <form name="formEtc" method="get">
                             <input type=hidden name="sell_price" value="39900">
                             <input type="text" name="amount" value="1" size="3" onchange="change();">
                             <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
@@ -312,23 +312,35 @@
             document.form.sum.value = sell_price;
             change();
         }
+        $(function init(){
+			$(".listArea>tbody>tr").click(function(){
+				var bno = $(this).children().eq(0).text();
+				
+				location.href="<%=contextPath%>/detail.bo?bno=" + bno;
+			});
+		});
         
-        <!--function add () {
+        function add () {
             hm = document.form.amount;
             sum = document.form.sum;
             hm.value ++ ;
         
             sum.value = parseInt(hm.value) * sell_price;
-        }-->
+        }
         
         $(function add(){
+			$(this).click(function(){
+				var hm = $(this).val;
+				
+				location.href="<%=contextPath%>/detail.bo?bno=" + bno;
+			});
+		});
         
-			var currentForm = $(this).parent('form').name;
-			system.out.println(currnetForm);
-			<!--hm = currentForm.form.amount;
-			sum = currentForm.form.sum;
-            hm.value ++ ;-->
-			
+			$(".listArea>tbody>tr").click(function(){
+				var bno = $(this).children().eq(0).text();
+				
+				location.href="<%=contextPath%>/detail.bo?bno=" + bno;
+			});
 		});
         
         function del () {
