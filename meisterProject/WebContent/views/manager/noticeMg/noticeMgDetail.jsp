@@ -69,7 +69,7 @@
 		
 		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
 		function updateForm(){
-			$("#postForm").attr("action", "<%=contextPath%>/imNoticeMupdate.nom");
+			$("#postForm").attr("action", "<%=contextPath%>/imNoticeMupdateForm.nom");
 			$("#postForm").submit();
 		}
 	</script>

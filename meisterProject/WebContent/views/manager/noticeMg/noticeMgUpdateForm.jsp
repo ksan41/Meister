@@ -36,6 +36,7 @@
 				<div class="card-body">
 					<div class="table-responsive">
 						<form id="updateForm" action="<%= contextPath %>/imNoticeMupdate.nom" method="post">
+							<input type="hidden" name="nno" value="<%=n.getNoticeNo()%>">
 							<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
 								<tr>
 									<th style="height: 50px; width: 100px; text-align: center;">제목</th>
