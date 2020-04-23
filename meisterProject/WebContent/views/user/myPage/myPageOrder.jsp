@@ -244,14 +244,14 @@ div {
 									pArr.add(pStr[i]);
 								}
 								
-								if(!priceList.get(i).getSideCount().equals("null")){
+								if(priceList.get(i).getSideCount() != null){
 									String[] sStr = priceList.get(i).getSideCount().split(",");
 									for(int j=0; j<sStr.length; j++){
 										sArr.add(sStr[i]);
 									}
 								}
 								
-								if(!priceList.get(i).getEtcCount().equals("null")){
+								if(priceList.get(i).getEtcCount() != null){
 									String[] eStr = priceList.get(i).getEtcCount().split(",");
 									for(int j=0; j<eStr.length; j++){
 										eArr.add(eStr[i]);
