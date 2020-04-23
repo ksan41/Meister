@@ -56,9 +56,11 @@
 		</div>
 		</main>
 	</div>
+	
 	<form id="postForm" action="<%=contextPath%>/imNoticeMdelete.nom" method="post">
 		<input type="hidden" name="nno" value="<%= n.getNoticeNo() %>">
 	</form>
+	
 	<script>
 		// 삭제하기 버튼 클릭시
 		function deleteNotice(){
@@ -67,7 +69,7 @@
 		
 		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
 		function updateForm(){
-			$("#postForm").attr("action", "<%=contextPath%>/imNoticeMup.nom");
+			$("#postForm").attr("action", "<%=contextPath%>/imNoticeMupdate.nom");
 			$("#postForm").submit();
 		}
 	</script>

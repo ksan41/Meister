@@ -52,9 +52,6 @@ public class NoticeMgUpdateServlet extends HttpServlet {
 			response.sendRedirect("imNoticeMdetail.nom?nno=" + nno);
 			
 		}else {
-//			// errorPage.jsp 로 포워딩
-//			request.setAttribute("msg", "실패");
-//			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
 			response.setContentType("text/html; charset=UTF-8");
 			

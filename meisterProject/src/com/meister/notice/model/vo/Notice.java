@@ -83,22 +83,7 @@ public class Notice {
 	}
 
 
-	/**연화
-	 * 5. 공지사항 수정
-	 * @param noticeNo
-	 * @param noticeTitle
-	 * @param noticeContent
-	 * @param modifiyDate
-	 * @param count
-	 */
-	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date modifiyDate, int count) {
-		super();
-		this.noticeNo = noticeNo;
-		this.noticeTitle = noticeTitle;
-		this.noticeContent = noticeContent;
-		this.modifiyDate = modifiyDate;
-		this.count = count;
-	}
+
 
 
 

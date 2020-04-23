@@ -35,7 +35,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<form id="updateForm" action="<%= contextPath %>/imNoticeMup.nom" method="post">
+						<form id="updateForm" action="<%= contextPath %>/imNoticeMupdate.nom" method="post">
 							<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
 								<tr>
 									<th style="height: 50px; width: 100px; text-align: center;">제목</th>
@@ -48,7 +48,7 @@
 							</table>
 							
 							<div align="center">
-								<button type="submit" class="button">수정</button>
+								<button class="button" type="submit">수정</button>
 								<button class="button" onclick="location.href='<%= contextPath %>/imNoticeMdetail.nom';">취소</button>
 							</div>
 						</form>
