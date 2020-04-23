@@ -5,18 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 	
+		
 	<%@ include file="../../common_user/menubar.jsp"%>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
-	
-	
+		
+		
 		  
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
         <link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/bootstrap.css">
        	 
 		
-      
+      	
         <!-- 모달 부트스트랩-->
         <link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/bootstrap.css">        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -135,6 +135,9 @@
 
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner" align="center">
+        
+        
+        
             
             <h1>반갑습니다</h1>
             <p>
@@ -144,20 +147,22 @@
             </p>
             <br><br><br><br>
             <div id="btn-area">
-                <button type="button" class="big_btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            
+                <button class="big_btn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     <!-- modal별 id 변경해주세요-->
-                    이메일 인증
+                               이메일 인증
+               
                 </button>
             </div>
             <!-- 다른 요소에 모달 적용하고 싶으면, 속성에 data-toggle="modal" ,  data-target="#myModal" 타겟명은 따로 지정 -->
-
-
-
+			
+			
+			
             <!-- 모달 시작 -->
             <div class="modal fade" id="myModal"> <!-- modal별 id 변경해주세요-->
             <div class="modal-dialog">
             <div class="modal-content">
-
+			
             <!-- Modal Header -->
             <div class="modal-header">
             <h4 class="modal-title" style="margin:auto;padding:0;">이메일 인증하기</h4>
@@ -166,38 +171,40 @@
 
             <!-- Modal body -->
             <div class="modal-body">
+            
+               
                 <table style="text-align: left;">
                     <tr>
+                    		
                         <th>이메일</th>
                         <td colspan="2">
-                            <input class="text-area" type="email" name="email1">
-                            &nbsp;@&nbsp;
-                            <select id="email_area" name="email2">
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="daum.net">daum.net</option>
-                            </select>
+                        
+                            <input class="text-area" type="email" id="email" name="email">
+                            
+                            
                         </td>
                     </tr>
                     <tr>
                         <th></th>
                         <td>
-                            <button class="middle_btn" id="#" style="width: 100%;">인증번호발송</button>
+                            <button class="middle_btn" id="email_send" style="width: 100%;">인증번호발송</button>
                         </td>
                     </tr>
+                    
                     <tr>
                         <th></th>
                         <td>
-                            <input type="text" style="width: 100%;" placeholder="인증번호를 입력하세요">
+                            <input type="text" id="eamailAnswer" style="width: 100%;" placeholder="인증번호를 입력하세요">
                         </td>
                     </tr>
                 </table>
+               
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer" style="margin:auto;">
             <!-- 하단버튼 영역-->
-            <button type="button" class="btn btn-danger" data-dismiss="modal"
+            <button type="button" id="emailComplete" class="btn btn-danger" data-dismiss="modal"
             style="width:200px; height:50px;">인증완료</button>
             </div>
             </div>
@@ -209,5 +216,56 @@
     
      <%@ include file="../../common_user/footer.jsp"%>
 
+	
+	
+	<script>
+	
+	 
+      /* (이메일) 인증번호 발송 버튼 클릭시 */
+      $("#email_send").click(function(){
+        var email = document.getElementById("email"); // 이메일
+        randoumkey='';
+        // 6) 이메일 유효성검사
+        //mail이 입력되었는지 확인하기
+         var emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+           if (!emailRegExp.test(email.value)) {
+               alert("이메일 형식이 올바르지 않습니다!");
+               form.email.value = "";
+               form.email.focus();
+               return false;
+            }
+           
+       $.ajax({
+          url:"email.e",
+          data:{Email:email.value},
+          success:function(data){
+             alert("인증번호가 발송되었습니다.");
+             console.log(data);
+             randomKey = data;
+          },error:function(){
+             alert("이메일발송실패");
+          }
+       })    
+
+      });   
+      
+      
+      $(function(){
+    	 $("#emailComplete"). click(function(){
+    		 
+    		 //console.log(randomKey);
+    		 if($("#eamailAnswer").val()==randomKey){
+    			 location.href="";
+    		 }else{
+    			 alert("이메일전송을 다시해주세요.!");
+    		 }
+    		 
+    	 });
+      });
+    </script>
+	   
+	
+	
+	
 </body>
 </html>

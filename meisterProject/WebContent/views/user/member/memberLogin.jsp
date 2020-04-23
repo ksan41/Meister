@@ -9,7 +9,7 @@
     <%@ include file="../../common_user/menubar.jsp"%>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
         
-
+	
    <style>
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
         div{box-sizing: border-box;}
@@ -154,7 +154,7 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 로그인</div>
         <hr>
-
+		
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner" style="text-align: center;">
             

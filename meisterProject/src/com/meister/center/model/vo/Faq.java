@@ -8,7 +8,7 @@ public class Faq {
 	private String faqAnswer;		// 답변
 	
 	public Faq() {}
-
+	
 	public Faq(int faqNo, String faqType, String faqQuestion, String faqAnswer) {
 		super();
 		this.faqNo = faqNo;
@@ -16,6 +16,10 @@ public class Faq {
 		this.faqQuestion = faqQuestion;
 		this.faqAnswer = faqAnswer;
 	}
+	
+	
+	
+
 
 	public int getFaqNo() {
 		return faqNo;
