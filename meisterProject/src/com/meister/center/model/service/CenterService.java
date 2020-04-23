@@ -1,5 +1,6 @@
 package com.meister.center.model.service;
 
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ import static com.meister.common.JDBCTemplate.*;
 public class CenterService {
 
 	
-	/**
+	/** 지수
 	 * 1. 1:1문의 작성용 서비스
 	 * @param c		--> CENTER 테이블에 insert할 데이터가 담겨있는 객체
 	 * @param ci	--> CENTER_IMAGE 테이블에 insert할 데이터가 담겨있는 객체 (단, 첨부파일이 있을경우)
@@ -61,7 +62,20 @@ public class CenterService {
 	}
 	
 
-	
+	/** 지수
+	 * 2. 지점명 조회용 서비스
+	 * @return	--> 현재 영업중인 지점명들이 담긴 ArrayList<String>객체
+	 */
+	public ArrayList<String> selectStores(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<String> storeList = new CenterDao().selectStores(conn);
+		
+		close(conn);
+		
+		return storeList;
+	}
 	
 	
 	
