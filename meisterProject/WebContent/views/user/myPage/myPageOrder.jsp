@@ -104,9 +104,7 @@ div {
 	font-weight: 750;
 }
 
-#noticeList>tbody :nth-child(2) {
-	cursor: pointer;
-}
+#noticeList tr{height:50px;}
 
 .small_btn {
 	display: block;
