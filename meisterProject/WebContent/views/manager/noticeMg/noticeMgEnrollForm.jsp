@@ -46,7 +46,7 @@
 							
 							<div align="center">
 								<button type="submit" class="button">등록</button>
-								<button type="reset" class="button" onclick="location<%= contextPath %>/imNoticeMlist.nom">취소</button>
+								<button type="reset" class="button" onclick="location.href='<%= contextPath %>/imNoticeMlist.nom'">취소</button>
 							</div>
 						</div>
 					</form>

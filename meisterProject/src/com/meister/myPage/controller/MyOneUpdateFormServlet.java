@@ -1,6 +1,7 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,7 +39,7 @@ public class MyOneUpdateFormServlet extends HttpServlet {
 		Center c = new MyPageService().selectCenter(cno);
 		CenterImage ci = new MyPageService().selectCenterImage(cno);
 		
-		if(c != null) {
+		if(c != null) {	// 문의글 및 첨부파일 조회 성공 시
 			
 			request.setAttribute("c", c);
 			request.setAttribute("ci", ci);
@@ -46,8 +47,13 @@ public class MyOneUpdateFormServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOneOnOneUpdateForm.jsp");
 			view.forward(request, response);
 			
-		}else {
-			// 에러페이지 포워딩
+		}else {	// 문의글 및 첨부파일 조회 실패 시
+			
+			response.setContentType("text/html; charset=UTF-8");
+			 
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('다시 시도해주세요.'); location.href='myOneDetail.my';</script>");
+			out.flush();
 		}
 		
 	}
