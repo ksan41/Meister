@@ -62,7 +62,41 @@ public class CenterService {
 		
 	}
 	
-	public 
+    public ArrayList<Faq> selectrlist() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Faq> list = new CenterDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
+    
+    public ArrayList<Faq> selectpList() {
+	
+	Connection conn = getConnection();
+	
+	ArrayList<Faq> list = new CenterDao().selectList(conn);
+	
+	close(conn);
+	
+	return list;
+	
+}
+    
+    public ArrayList<Faq> selecthList() {
+	
+	Connection conn = getConnection();
+	
+	ArrayList<Faq> list = new CenterDao().selectList(conn);
+	
+	close(conn);
+	
+	return list;
+	
+}
 	
 
 	/** 지수
