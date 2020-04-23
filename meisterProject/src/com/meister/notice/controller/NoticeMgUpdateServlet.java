@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class NoticeMgUpdateServlet
  */
-@WebServlet("/imNoticeUp.nom")
+@WebServlet("/imNoticeMup.nom")
 public class NoticeMgUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
