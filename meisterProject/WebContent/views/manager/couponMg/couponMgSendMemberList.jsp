@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.member.model.vo.Member"%>
+    
+<%
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,79 +148,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>9</td>
-									<td>user01</td>
-									<td>김*은</td>
-									<td>2011/12/12</td>
-									<td>21</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>user02</td>
-									<td>홍*동</td>
-									<td>2010/09/20</td>
-									<td>23</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>user03</td>
-									<td>김*비</td>
-									<td>2009/10/09</td>
-									<td>47</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>user04</td>
-									<td>권*임</td>
-									<td>2010/12/22</td>
-									<td>42</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>user05</td>
-									<td>정*훈</td>
-									<td>2010/11/14</td>
-									<td>28</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>user06</td>
-									<td>전*영</td>
-									<td>2011/06/07</td>
-									<td>28</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>user07</td>
-									<td>이*아</td>
-									<td>2010/03/11</td>
-									<td>48</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>user08</td>
-									<td>김*똥</td>
-									<td>2011/08/14</td>
-									<td>20</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>user09</td>
-									<td>최*수</td>
-									<td>2011/06/02</td>
-									<td>37</td>
-									<th><input type="checkbox"></th>
-								</tr>
-
+								<%if(list.isEmpty()){ %>
+									<tr>
+										<th colspan="6">조회된 데이터가 없습니다.</th>
+									</tr>								
+								<%}else{ %>
+									<%for(int i=0;i<list.size();i++){ %>
+										<tr>
+											<td><%=list.get(i).getMemberNo() %></td>
+											<td><%=list.get(i).getMemberId() %></td>
+											<td><%=list.get(i).getMemberName() %></td>
+											<td><%=list.get(i).getMemberEnrolldate() %></td>
+											<td><%=list.get(i).getMemberCouponCnt() %></td>
+											<th><input type="checkbox"></th>
+										</tr>
+									<%} %>
+								<%} %>
 							</tbody>
 						</table>
 
@@ -227,10 +174,6 @@
 		</div>
 		</main>
 	</div>
-	<script>
-            function deleteMem(){
-                confirm('정말 탈퇴하시겠습니까?');
-            };
-        </script>
+
 </body>
 </html>

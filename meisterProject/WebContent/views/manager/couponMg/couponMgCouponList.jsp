@@ -156,7 +156,7 @@
 			<br>
 			<ul id="ulNavi">
 				<li><a class="active" href="">쿠폰정보</a></li>
-				<li><a href="">쿠폰발송</a></li>
+				<li><a href="<%=contextPath%>/couponSendMem.cm">쿠폰발송</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -213,6 +213,7 @@
 										<th colspan="6">조회 결과가 없습니다.</th>
 									<tr>
 								<%}else{ //조회결과 있을경우%>
+									<form name="delCouponForm" action="<%=contextPath%>/couponDelete.cm" method="get">
 									<%for(int i=0;i<list.size();i++){ %>
 										<tr>
 											<td><%=list.get(i).getCouponNo() %></td>
@@ -220,9 +221,11 @@
 											<td><%=list.get(i).getCouponStart() %> ~ <%=list.get(i).getCouponEnd() %></td>
 											<td><%=list.get(i).getCouponDiscount()%>%</td>
 											<td><%=list.get(i).getCouponRegisterDate() %></td>
-											<th><input class="cb" id="couponCheck<%=i%>" type="checkbox"></th>
+											<th><input class="cb" id="couponCheck<%=i%>" type="checkbox" name="checkCoupon" value="<%=list.get(i).getCouponNo()%>"></th>
 										</tr>
 									<%} %>
+									<input type="submit" id="hiddenDelBtn" style="display:none;">
+									</form>
 								<%} %>
 							</tbody>
 						</table>
@@ -292,7 +295,7 @@
       
       function delCoupon(){
     	  
-    	  location.href="<%=contextPath%>/";
+    	  $("#hiddenDelBtn").trigger("click");
       }
     </script>
 </body>

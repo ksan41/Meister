@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -200,6 +201,41 @@ public class CouponDao {
 			close(pstmt);
 		}
 				
+		return result;
+	}
+	
+	
+	/**산
+	 * 통합관리자- 선택쿠폰 삭제 dao
+	 * @param conn : CouponService에서 생성한 Connection객체
+	 * @param arr : 삭제할 쿠폰번호들이 담긴 String 배열
+	 * @return : 처리된 행의 개수
+	 */
+	public int deleteCoupon(Connection conn,String cArr) {
+		
+		int result=0;
+//		PreparedStatement pstmt = null;
+		Statement stmt = null;
+//		String sql = prop.getProperty("deleteCoupon");
+		String sql = "UPDATE COUPON SET COUPON_STATUS='N' "
+				+ "WHERE COUPON_NO IN("+cArr+")";
+		
+//		System.out.println(sql);
+		
+		try {
+//			pstmt = conn.prepareStatement(sql);
+//			result = pstmt.executeUpdate();
+			
+			stmt = conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(stmt);
+		}
+		
+		
 		return result;
 	}
 }
