@@ -202,5 +202,21 @@ public class MyPageService {
 		
 		return result;
 	}
+	
+	
+	/**
+	 * 10. 주문 목록 총 갯수 조회용 서비스
+	 * @return	--> 주문 목록 총 주문 갯수
+	 */
+	public int getOrderListCount(int memberNo) {
+		
+		Connection conn = getConnection();
+		
+		int listCount = new MyPageDao().getOrderListCount(conn, memberNo);
+		
+		close(conn);
+		
+		return listCount;
+	}
 
 }
