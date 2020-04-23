@@ -39,8 +39,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataTable" width="100%"
-							cellspacing="0">
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<tr>
 								<th style="height: 50px;"><%= n.getNoticeTitle() %></th>
 							</tr>
@@ -60,7 +59,7 @@
 		</div>
 		</main>
 	</div>
-		<form id="postForm" action="<%=contextPath%>/imNoticeBdelete.nom" method="post">
+	<form id="postForm" action="<%=contextPath%>/imNoticeBdelete.nom" method="post">
 		<input type="hidden" name="nno" value="<%= n.getNoticeNo() %>">
 	</form>
 	<script>

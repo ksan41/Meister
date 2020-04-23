@@ -38,7 +38,7 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 		
 		if(result > 0) {// 공지사항 삭제 성공
 			
-			request.getSession().setAttribute("msg", "공지사항 삭제 성공!");
+			request.getSession().setAttribute("msg", "지점 공지사항 삭제 성공!");
 			response.sendRedirect("imNoticeBlist.nom");
 			
 		}else {//공지사항 삭제 실패
@@ -47,7 +47,7 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('공지사항 삭제가 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeBdetail.nom?nno="+nno+"';</script>");
+			out.println("<script>alert('지점 공지사항 삭제가 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeBdetail.nom?nno="+nno+"';</script>");
 			out.flush();
 		}
 	}

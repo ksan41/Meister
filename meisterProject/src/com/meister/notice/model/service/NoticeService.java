@@ -131,7 +131,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 8. 지점 공지사항 삭제용 서비스
+	 * 8. 공지사항 삭제용 서비스
 	 * @param nno		--> 삭제요청한 공지사항 글 번호
 	 * @return			--> 처리된 행의 개수
 	 */

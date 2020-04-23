@@ -14,7 +14,7 @@ import com.meister.notice.model.service.NoticeService;
 /**
  * Servlet implementation class NoticeMgDeleteServlet
  */
-@WebServlet("/imNoticeDelete.nom")
+@WebServlet("/imNoticeMdelete.nom")
 public class NoticeMgDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,11 +33,11 @@ public class NoticeMgDeleteServlet extends HttpServlet {
 
 		int nno = Integer.parseInt(request.getParameter("nno"));
 		
-		int result = new NoticeService().deleteMnotice(nno);
+		int result = new NoticeService().deleteNotice(nno);
 		
 		if(result > 0) {// 공지사항 삭제 성공
 			
-			request.getSession().setAttribute("msg", "공지사항 삭제 성공!");
+			request.getSession().setAttribute("msg", "고객 공지사항 삭제 성공!");
 			response.sendRedirect("imNoticeMlist.nom");
 			
 		}else {//공지사항 삭제 실패
@@ -46,7 +46,7 @@ public class NoticeMgDeleteServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('공지사항 등록이 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeMdetail.nom?nno="+nno+"';</script>");
+			out.println("<script>alert('고객 공지사항 삭제가 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeMdetail.nom?nno="+nno+"';</script>");
 			out.flush();
 		}
 	}
