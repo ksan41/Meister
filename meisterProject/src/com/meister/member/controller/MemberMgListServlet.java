@@ -52,17 +52,20 @@ public class MemberMgListServlet extends HttpServlet {
 		if(endDate!=null) {
 			endDate = stringToDate(endDate);
 		}
-
+		
+		
+		
 		if (name!=null) {// 이름으로 검색시
 			ArrayList<Member> list = new MemberService().searchName(name);
 			
 			request.setAttribute("list", list);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
 			view.forward(request, response);
-		} else if (startDate != null || endDate != null) { // 기간별 검색시
+		} else if (startDate != null && endDate != null) { // 기간별 검색시
 
 			ArrayList<Member> list = new MemberService().searchDate(startDate, endDate);
-
+			
+			request.setAttribute("list", list);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
 			view.forward(request, response);
 
