@@ -100,26 +100,26 @@ div {
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
-#noticeList>tbody td {
+#orderList>tbody td {
 	text-align: center;
 }
 
-#noticeList * {
+#orderList * {
 	height: 30px;
 	font-size: 12px;
 	border-bottom: 1px solid lightgray;
 }
 
-#noticeList {
+#orderList {
 	border-top: 1px solid black;
 }
 
-#noticeList>thead th {
+#orderList>thead th {
 	font-size: 14px;
 	font-weight: 750;
 }
 
-#noticeList tr{height:50px;}
+#orderList tr{height:50px;}
 
 .small_btn {
 	display: block;
