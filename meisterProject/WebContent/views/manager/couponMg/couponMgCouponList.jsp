@@ -220,7 +220,7 @@
 											<td><%=list.get(i).getCouponStart() %> ~ <%=list.get(i).getCouponEnd() %></td>
 											<td><%=list.get(i).getCouponDiscount()%>%</td>
 											<td><%=list.get(i).getCouponRegisterDate() %></td>
-											<th><input id="couponCheck<%=i %>" type="checkbox"></th>
+											<th><input id="couponCheck<%=i%>" type="checkbox"></th>
 										</tr>
 									<%} %>
 								<%} %>
@@ -254,18 +254,18 @@
 					<table id="couponEnrollTable">
 						<tr>
 							<th>쿠폰명</th>
-							<td><input type="text" placeholder="쿠폰명을 입력해주세요"
+							<td><input name="couponName" type="text" placeholder="쿠폰명을 입력해주세요"
 								style="width: 310px;"></td>
 						</tr>
 						<tr>
 							<th>할인율(%)</th>
-							<td style="text-align: left;"><input type="number" step="5"
+							<td style="text-align: left;"><input name="discount" type="number" step="5"
 								min="0" max="100" style="width: 100px;"></td>
 						</tr>
 						<tr>
 							<th>기간</th>
-							<td><input type="date" style="width: 145px;"> ~ <input
-								type="date" style="width: 145px;"></td>
+							<td><input name="startDate" type="date" style="width: 145px;"> ~ <input
+								name="endDate" type="date" style="width: 145px;"></td>
 						</tr>
 					</table>
 				</div>
@@ -273,7 +273,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" style="margin: auto;">
 					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger" data-dismiss="modal"
+					<button id="couponEnrollBtn" type="button" class="btn btn-danger" data-dismiss="modal"
 						style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">등록완료</button>
 				</div>
 
@@ -281,5 +281,11 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
+	
+	<script>
+		$("#couponEnrollBtn").click(function(){
+			location.href="<%=contextPath%>/couponInsert.cm";			
+		});
+	</script>
 </body>
 </html>
