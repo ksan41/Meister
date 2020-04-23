@@ -150,7 +150,7 @@
 										style="width: 120px;height:30px">
 									<button class="small_btn" type="submit">검색</button></th>
 								</form>
-								<form name="searchDate" action="<%=contextPath %>/memberList.memg" method="get">
+								<form name="searchDate" action="<%=contextPath %>/memberList.memg" method="post">
 									<th style="vertical-align:middle;">기간별 조회</th>
 									<th>
 										<input type="date" name="startDate" required>
