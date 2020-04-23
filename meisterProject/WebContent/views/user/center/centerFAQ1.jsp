@@ -374,14 +374,22 @@ div {
 			$('.content2').addClass("content2").css("display", "none");
 			$('.content3').addClass("content3").css("display", "none");
 			$('.content4').addClass("content4").css("display", "none");
+		    $("#active1").css({'background':'orange','color':'white'});
+            $("#active2").css({'background':'lightgray','color':'black'});
+            $("#active3").css({'background':'lightgray','color':'black'});
+            $("#active4").css({'background':'lightgray','color':'black'});
 		});
-
+	
 		$("#active2").click(function() {
 			if ($('.content2').css('display') == 'none')
 				$('.content2').addClass("content2").css("display", "block");
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content3').addClass("content3").css("display", "none");
 			$('.content4').addClass("content4").css("display", "none");
+		    $("#active1").css({'background':'lightgray', 'color':'white'});
+            $("#active2").css({'background':'orange','color':'black'});
+            $("#active3").css({'background':'lightgray','color':'black'});
+            $("#active4").css({'background':'lightgray','color':'black'});
 		});
 
 		$("#active3").click(function() {
@@ -390,6 +398,10 @@ div {
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content2').addClass("content2").css("display", "none");
 			$('.content4').addClass("content4").css("display", "none");
+		    $("#active1").css({'background':'lightgray','color':'white'});
+            $("#active2").css({'background':'lightgray','color':'black'});
+            $("#active3").css({'background':'orange','color':'black'});
+            $("#active4").css({'background':'lightgray','color':'black'});
 		});
 
 		$("#active4").click(function() {
@@ -398,6 +410,10 @@ div {
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content2').addClass("content2").css("display", "none");
 			$('.content3').addClass("content3").css("display", "none");
+		    $("#active1").css({'background':'lightgray','color':'white'});
+            $("#active2").css({'background':'lightgray','color':'black'});
+            $("#active3").css({'background':'lightgray','color':'black'});
+            $("#active4").css({'background':'orange','color':'black'});
 		});
 	</script>
 

@@ -116,7 +116,7 @@
 							data-target="#faqEnrollModal">등록</button>
 					</div>
 					<hr>
-
+	
 					<div class="contentMg1">
 						<div class="faqQuestion">
 							<table>
