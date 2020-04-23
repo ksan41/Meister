@@ -62,6 +62,8 @@ public class CenterService {
 		
 	}
 	
+	public 
+	
 
 	/** 지수
 	 * 2. 지점명 조회용 서비스
