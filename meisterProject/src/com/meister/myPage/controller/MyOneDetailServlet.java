@@ -39,7 +39,7 @@ public class MyOneDetailServlet extends HttpServlet {
 		Center c = new MyPageService().selectCenter(cno);
 		CenterImage ci = new MyPageService().selectCenterImage(cno);
 		
-		if(c != null) { // 조회성공
+		if(c != null) { // 문의조회 성공
 			
 			request.setAttribute("c", c);
 			request.setAttribute("ci", ci);
@@ -47,7 +47,7 @@ public class MyOneDetailServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOneOnOneDetail.jsp");
 			view.forward(request, response);
 			
-		}else { // 조회시패
+		}else { // 문의조회 실패
 			
 			response.setContentType("text/html; charset=utf-8");
 			

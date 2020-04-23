@@ -1,6 +1,9 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,7 +33,23 @@ public class MyOrderDetailServlet extends HttpServlet {
 		int ono = Integer.parseInt(request.getParameter("ono"));
 		
 		
-		
+		/*
+		if(c != null) { // 문의조회 성공
+			
+			request.setAttribute("c", c);
+			request.setAttribute("ci", ci);
+			
+			RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOneOnOneDetail.jsp");
+			view.forward(request, response);
+			
+		}else { // 문의조회 실패
+			
+			response.setContentType("text/html; charset=utf-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('문의 조회에 실패했습니다. 다시 시도해주세요.'); location.href='myOneList.my';</script>");
+			out.flush();
+		}*/
 	}
 
 	/**
