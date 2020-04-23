@@ -32,7 +32,7 @@ public class NoticeMgInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//writer, title, content
+		// title, content
 		request.setCharacterEncoding("utf-8");
 		
 		String title = request.getParameter("title");
