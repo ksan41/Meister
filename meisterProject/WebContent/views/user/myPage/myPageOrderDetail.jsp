@@ -112,7 +112,7 @@ div {
 	width:100%; 
 	height:50px;
 	font-size:20px;
-	fomt-weight:600;
+	font-weight:600;
 }
 </style>
 </head>
