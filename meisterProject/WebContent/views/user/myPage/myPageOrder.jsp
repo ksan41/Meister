@@ -208,7 +208,7 @@ div {
 					</thead>
 					<tbody>
 						<% for(int i=0; i<ordersList.size(); i++){ %>
-						<tr>
+						<tr class="trList">
 							<td>
 								<% if(ordersList.get(i).getDeliveryStatus().equals("F")) { %>
 									주문처리중
@@ -258,7 +258,7 @@ div {
 								%>
 								<%=pizzaName%> 외 <%=totalCount-1%>건 <%=priceList.get(i).getTotalPrice()%>원
 							</td>
-							<td><%=ordersList.get(i).getOrderNo() %></td>
+							<td class="tdOrderNo"><%=ordersList.get(i).getOrderNo() %></td>
 							<td><button class="small_btn detailBtn">상세보기</button></td>
 						</tr>
 						<% } %>
@@ -280,14 +280,20 @@ div {
 	</div>
 	
 	<Script>
-		$(function(){
-			
-			$(".detailBtn").click(function(){
-				var ono = $(".orderList>tbody>tr").children().eq(2).text();
+		//$(function(){
+			//$(".detailBtn").click(function(){
+				//var ono = $(".orderList>tbody>tr").children().eq(2).text();
 				
-				location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
-			});
+				//location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
+			//});
+		//});
+		
+		$(document).on("click",".trList",function(){
+			var index = $(".trList").index(this);
 			
+			var ono = $(".tdOrderNo:eq("+index+")").text();
+			
+			location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
 		});
 	</Script>
 

@@ -225,16 +225,14 @@ div {
 		</div>
 		
 		<script>
-			
-				$(document).on("click",".trList",function(){
-					//var cno = $(this).children().eq(0).text();
-					var index = $(".trList").index(this);
-					
-					var cno = $(".hiddenNo:eq("+index+")").val();
-					
-					location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;
-				});
-			
+			$(document).on("click",".trList",function(){
+				//var cno = $(this).children().eq(0).text();
+				var index = $(".trList").index(this);
+				
+				var cno = $(".hiddenNo:eq("+index+")").val();
+				
+				location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;
+			});
 		</script>
 
 		<%@ include file="../../common_user/footer.jsp"%>
