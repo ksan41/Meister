@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.center.model.vo.Faq"%>
+	
+<%
+
+	ArrayList<Faq> list = (ArrayList<Faq>)request.getAttribute("list");
+	
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -144,9 +151,9 @@ div {
 				style="color: lightgray; font-size: 17px;">|</span> <a href="">1:1문의</a>
 		</div>
 		<hr>
-
-
-
+		
+			
+		
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<div class="faqComment">
@@ -173,6 +180,24 @@ div {
 						</tr>
 					</table>
 				</div>
+				
+				<% if(list.isEmpty()) { %> // 리스트가 비어 있을 경우
+				
+				<% } else { %> // 리스트가 비어 있지 않을 경우
+				
+					   <% for(Center c : list) { %>
+					   <tr>
+							<td><%=  %></td>
+							<td><%=  %></td>
+							<td><%=  %></td>
+							<td><%=  %></td>
+					    </tr>
+					<% } %>
+					
+					<% } %>
+				
+			
+				
 				<div class="faqAnswer">
 					<table>
 						<tr>
@@ -224,7 +249,7 @@ div {
 						</tr>
 					</table>
 				</div>
-
+				
 				<div class="faqQuestion">
 					<table>
 						<tr>
@@ -282,7 +307,7 @@ div {
 						</tr>
 					</table>
 				</div>
-
+								
 				<div class="faqQuestion">
 					<table>
 						<tr>

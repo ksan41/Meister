@@ -1,10 +1,13 @@
 package com.meister.center.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.meister.center.model.dao.CenterDao;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
+import com.meister.center.model.vo.Faq;
+
 import static com.meister.common.JDBCTemplate.*;
 
 public class CenterService {
@@ -36,6 +39,25 @@ public class CenterService {
 		close(conn);
 		
 		return result1*result2;
+	}
+	
+	
+	
+	
+	
+	/** FAQ 리스트 조회
+	 * @return --> Center 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
+	 */
+	public ArrayList<Faq> selectList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Faq> list = new CenterDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
 	}
 	
 

@@ -93,7 +93,7 @@
                     <div class="row align-items-center" style="margin: 0;padding: 0;">
                         <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;position:relative">
                             <div id="user-area">
-                            
+                            	
                             
                             	<% if(loginUser == null) { %>
                             	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
