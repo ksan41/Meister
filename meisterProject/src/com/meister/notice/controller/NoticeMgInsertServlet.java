@@ -1,30 +1,28 @@
-package com.meister.myPage.controller;
+package com.meister.notice.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.center.model.vo.Center;
-import com.meister.center.model.vo.CenterImage;
-import com.meister.myPage.model.service.MyPageService;
+import com.meister.notice.model.service.NoticeService;
+import com.meister.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class MyOneUpdateFormServlet
+ * Servlet implementation class NoticeMgInsertServlet
  */
-@WebServlet("/myOneUpdateForm.my")
-public class MyOneUpdateFormServlet extends HttpServlet {
+@WebServlet("/iNoticeMinsert.nom")
+public class NoticeMgInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MyOneUpdateFormServlet() {
+    public NoticeMgInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,28 +32,32 @@ public class MyOneUpdateFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int cno = Integer.parseInt(request.getParameter("cno"));
+		//writer, title, content
+		request.setCharacterEncoding("utf-8");
 		
-		Center c = new MyPageService().selectCenter(cno);
-		CenterImage ci = new MyPageService().selectCenterImage(cno);
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		
-		if(c != null) {	// 문의글 및 첨부파일 조회 성공 시
+		Notice n = new Notice();
+		n.setNoticeTitle(title);
+		n.setNoticeContent(content);
+		
+		int result = new NoticeService().insertNotice(n);
+		
+		if(result > 0) {
 			
-			request.setAttribute("c", c);
-			request.setAttribute("ci", ci);
+			request.getSession().setAttribute("msg", "공지사항이 성공적으로 등록되었습니다.");
+			response.sendRedirect("imNoticeMlist.nom");
 			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOneOnOneUpdateForm.jsp");
-			view.forward(request, response);
-			
-		}else {	// 문의글 및 첨부파일 조회 실패 시
+		}else {		// 공지사항 작성 실패!
 			
 			response.setContentType("text/html; charset=UTF-8");
-			 
+			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('다시 시도해주세요.'); location.href='myOneDetail.my';</script>");
+			
+			out.println("<script>alert('공지사항 등록이 실패했습니다. 다시 등록해주세요 T^T'); location.href='views/manager/noticeMg/noticeMgEnrollForm.jsp';</script>");
 			out.flush();
 		}
-		
 	}
 
 	/**

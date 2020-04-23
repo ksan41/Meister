@@ -6,6 +6,7 @@ import static com.meister.common.JDBCTemplate.getConnection;
 import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import com.meister.member.model.dao.MemberDao;
@@ -191,6 +192,24 @@ public class MemberService {
 		close(conn);
 		
 		return updateUser;
+		
+	}
+	
+	
+	/**산
+	 * 통합관리자 - 회원리스트 가입기간별 조회서비스
+	 * @param startDate : 조회할 가입일 시작날짜
+	 * @param endDate : 조회할 가입일 끝 날짜
+	 * @return : 조회된 Member객체가 담긴 ArrayList
+	 */
+	public ArrayList<Member> searchDate(String startDate,String endDate){
+		
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().searchDate(conn,startDate,endDate);
+		
+		close(conn);
+		
+		return list;
 		
 	}
 }

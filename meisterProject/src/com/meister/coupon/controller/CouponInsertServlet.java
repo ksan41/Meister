@@ -1,28 +1,23 @@
-package com.meister.center.controller;
+package com.meister.coupon.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.center.model.service.CenterService;
-
 /**
- * Servlet implementation class CenterOneOnOneFormServlet
+ * Servlet implementation class CouponInsertServlet
  */
-@WebServlet("/cOneForm.ce")
-public class CenterOneOnOneFormServlet extends HttpServlet {
+@WebServlet("/couponInsert.cm")
+public class CouponInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CenterOneOnOneFormServlet() {
+    public CouponInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,14 +26,8 @@ public class CenterOneOnOneFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		
-		ArrayList<String> storeList = new CenterService().selectStores();
-		request.setAttribute("storeList", storeList);
-		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/center/centerOneOnOneEnrollForm.jsp");
-		view.forward(request, response);
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

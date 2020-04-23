@@ -95,7 +95,7 @@
 <body>
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1 style="margin-top: 0px; margin-bottom: 0px; color:rgb(76, 60, 60);">메뉴카테고리</h1>
+        <h1 style="margin-top: 0px; margin-bottom: 0px; color:rgb(76, 60, 60); font-weight:bold;">메뉴카테고리</h1>
 
         <div id="index-area"><a href="">홈</a> &gt; <a href="">주문선택 방법</a></div>
         <hr>                

@@ -72,6 +72,14 @@
 	</div>
 	
 	<script>
+		// 공지사항 등록폼(imNoticeBenroll.nom)
+		$(function(){
+			$('.button').click(function(){
+				// 공지사항 등록 서블릿으로 이동
+				location.href="<%= contextPath %>/imNoticeBenroll.nom";
+			});
+		});
+	
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
 				//console.log("클릭");

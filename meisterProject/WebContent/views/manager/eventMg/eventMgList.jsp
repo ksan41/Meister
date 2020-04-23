@@ -165,30 +165,31 @@
 				<div class="card-body">
 
 					<div align="right">
-						<button class="button" onclick="" data-toggle="modal"
-							data-target="#eventEnrollModal">이벤트 등록</button>
+						<button class="button" onclick="" data-toggle="modal" data-target="#eventEnrollModal">
+							이벤트 등록
+						</button>
 					</div>
-						<% if(list.isEmpty()){ %>
-							<p>조회된 결과가 없습니다</p>
-						<% } else { %>
-							<% for(int i=0;i<list.size();i++) { Event e = list.get(i); %>
-	
-								<div class="thumbnail" align="center">
-									<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
-									<a id="detail1">
-										<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
-									</a>
-									<%=e.getEventTitle() %><br>
-									<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
-									<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
-									<div align="center">
-										<button class="button" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-										<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button" class="deleteButton">삭제</button>
-									</div>
+					<% if(list.isEmpty()){ %>
+						<p>조회된 결과가 없습니다</p>
+					<% } else { %>
+						<% for(int i=0;i<list.size();i++) { Event e = list.get(i); %>
+
+							<div class="thumbnail" align="center">
+								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+								<a id="detail1">
+									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+								</a>
+								<%=e.getEventTitle() %><br>
+								<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
+								<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
+								<div align="center">
+									<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
+									<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+									<button class="button" class="deleteButton">삭제</button>
 								</div>
-							<% } %>
+							</div>
 						<% } %>
+					<% } %>
 				</div>
 			</div>
 		</div>
@@ -253,7 +254,75 @@
 		</div>
 	</div>
 	<!-- 등록 버튼 모달 끝 -->
-
+	
+	<% if(list.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<list.size();i++){ %>
+			<!-- 상세 버튼 모달 시작 -->
+			<div class="modal fade" id="eventDetailModal<%=i%>">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog" style="width:auto; display:table">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form action="" name="eventDetailForm">
+								<table id="eventDetailTable" style="width:700px">
+									<tr>
+										<th>제목</th>
+										<td><input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>">
+										</td>
+									</tr>
+									<tr>
+										<th>이벤트 기간</th>
+										<td><input type="date" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>">
+										</td>
+									</tr>
+									<tr>
+										<th>썸네일 이미지</th>
+										<td>
+											<div style="width:500px; height:250px; border:solid 1px black;">
+												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>상세 이미지</th>
+										<td>
+											<div style="width:500px; height:250px; border:solid 1px black;">
+												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th>배너 등록여부</th>
+										<td><input type="checkbox" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>"></td>
+									</tr>
+								</table>
+								<br><br>
+		
+								<!-- 버튼 영역 -->
+								<div class="faqBtns" style="align-content: right;" align="center">
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">
+										확인
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 상세 버튼 모달 끝 -->
+		<%} %>
+	<%} %>
+	
 	<% if(list.isEmpty()){%>
 	<%}else{ %>
 		<%for(int i=0;i<list.size();i++){ %>
@@ -325,76 +394,8 @@
 		<%} %>
 	<%} %>
 	
-	<% if(list.isEmpty()){%>
-	<%}else{ %>
-		<%for(int i=0;i<list.size();i++){ %>
-			<!-- 상세 버튼 모달 시작 -->
-			<div class="modal fade" id="eventDetailModal<%=i%>">
-				<!-- modal별 id 변경해주세요-->
-				<div class="modal-dialog" style="width:auto; display:table">
-					<div class="modal-content">
-		
-						<!-- Modal Header -->
-						<div class="modal-header">
-							<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								style="margin: 0; padding: 0;">&times;</button>
-						</div>
-		
-						<!-- Modal body -->
-						<div class="modal-body">
-							<form action="" name="eventDetailForm">
-								<table id="eventDetailTable" style="width:700px">
-									<tr>
-										<th>제목</th>
-										<td><input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>">
-										</td>
-									</tr>
-									<tr>
-										<th>이벤트 기간</th>
-										<td><input type="date" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>">
-										</td>
-									</tr>
-									<tr>
-										<th>썸네일 이미지</th>
-										<td>
-											<div style="width:500px; height:250px; border:solid 1px black;">
-												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>상세 이미지</th>
-										<td>
-											<div style="width:500px; height:250px; border:solid 1px black;">
-												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<th>배너 등록여부</th>
-										<td><input type="checkbox" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>"></td>
-									</tr>
-								</table>
-								<br><br>
-		
-								<!-- 버튼 영역 -->
-								<div class="faqBtns" style="align-content: right;" align="center">
-									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">
-										확인
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 상세 버튼 모달 끝 -->
-		<%} %>
-	<%} %>
-	
 	<script>
-		$(document).on("click",".button",function(){
+		$(document).on("click",".mbutton",function(){
 			var dropCheck = confirm("해당 이벤트를 삭제하시겠습니까?");
 			var index = $(".deleteButton").index(this);
 			
@@ -403,6 +404,7 @@
 				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
 				
 				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
+				//???? 이벤트 삭제 서블릿
 			
 			}
 		});

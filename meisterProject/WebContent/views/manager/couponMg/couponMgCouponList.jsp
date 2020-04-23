@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.coupon.model.vo.Coupon"%>
+<%
+	ArrayList<Coupon> list = (ArrayList<Coupon>)request.getAttribute("list");
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,17 +168,21 @@
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
 								<tr>
-									<th style="height: 50px;" width="20%"><label for="answer"></label>
-										<select name="answer" id="answer">
-											<option value="">전체</option>
-											<option value="">등급별</option>
-											<option value="">기간별</option>
-									</select></th>
-
-									<th width="70%"><input type="text" id="search"
-										style="width: 100%; height: 50px" placeholder="쿠폰명으로 조회"></th>
-									<th width="10%"><button class="button button5">검색</button></th>
-								</tr>
+								<form name="searchName" action="<%=contextPath%>/couponList.cm" method="post">
+									<th style="vertical-align:middle;">쿠폰명 검색</th>
+									<th><input name="couponName" type="text" id="search"
+										style="width: 120px;height:30px">
+									<button class="small_btn" type="submit">검색</button></th>
+								</form>
+								<form name="searchDate" action="<%=contextPath %>/couponList.cm" method="post">
+									<th style="vertical-align:middle;">기간별 조회</th>
+									<th>
+										<input type="date" name="startDate" required>
+										~
+										<input type="date" name="endDate">
+										<button class="small_btn" type="submit" required>검색</button></th>
+									</th>
+								</form>
 							</thead>
 							<tbody>
 
@@ -200,79 +208,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>9</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2011/12/12</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>[골드] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2010/09/20</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>[실버] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2009/10/09</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2010/12/22</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2010/11/14</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2011/06/07</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2010/03/11</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2011/08/14</td>
-									<th><input type="checkbox"></th>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>[매니아] 사이드메뉴 무료 쿠폰</td>
-									<td>2020-03-01 ~ 2020-04-01</td>
-									<td>40%</td>
-									<td>2011/06/02</td>
-									<th><input type="checkbox"></th>
-								</tr>
-
+								<%if(list.isEmpty()){ //조회결과 없을경우 %>
+									<tr>
+										<th colspan="6">조회 결과가 없습니다.</th>
+									<tr>
+								<%}else{ //조회결과 있을경우%>
+									<%for(int i=0;i<list.size();i++){ %>
+										<tr>
+											<td><%=list.get(i).getCouponNo() %></td>
+											<td><%=list.get(i).getCouponName() %></td>
+											<td><%=list.get(i).getCouponStart() %> ~ <%=list.get(i).getCouponEnd() %></td>
+											<td><%=list.get(i).getCouponDiscount()%>%</td>
+											<td><%=list.get(i).getCouponRegisterDate() %></td>
+											<th><input id="couponCheck<%=i%>" type="checkbox"></th>
+										</tr>
+									<%} %>
+								<%} %>
 							</tbody>
 						</table>
 
@@ -283,11 +234,6 @@
 		</div>
 		</main>
 	</div>
-	<script>
-            function deleteMem(){
-                confirm('정말 탈퇴하시겠습니까?');
-            };
-        </script>
 
 	<!-- 모달 시작 -->
 	<div class="modal fade" id="couponEnrollModal">
@@ -308,18 +254,18 @@
 					<table id="couponEnrollTable">
 						<tr>
 							<th>쿠폰명</th>
-							<td><input type="text" placeholder="쿠폰명을 입력해주세요"
+							<td><input name="couponName" type="text" placeholder="쿠폰명을 입력해주세요"
 								style="width: 310px;"></td>
 						</tr>
 						<tr>
 							<th>할인율(%)</th>
-							<td style="text-align: left;"><input type="number" step="5"
+							<td style="text-align: left;"><input name="discount" type="number" step="5"
 								min="0" max="100" style="width: 100px;"></td>
 						</tr>
 						<tr>
 							<th>기간</th>
-							<td><input type="date" style="width: 145px;"> ~ <input
-								type="date" style="width: 145px;"></td>
+							<td><input name="startDate" type="date" style="width: 145px;"> ~ <input
+								name="endDate" type="date" style="width: 145px;"></td>
 						</tr>
 					</table>
 				</div>
@@ -327,7 +273,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" style="margin: auto;">
 					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger" data-dismiss="modal"
+					<button id="couponEnrollBtn" type="button" class="btn btn-danger" data-dismiss="modal"
 						style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">등록완료</button>
 				</div>
 
@@ -335,5 +281,11 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
+	
+	<script>
+		$("#couponEnrollBtn").click(function(){
+			location.href="<%=contextPath%>/couponInsert.cm";			
+		});
+	</script>
 </body>
 </html>

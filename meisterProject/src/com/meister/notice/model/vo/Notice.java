@@ -21,7 +21,7 @@ public class Notice {
 	
 	
 
-	/**
+	/**현영
 	 * 1. 공지사항 리스트용
 	 * @param noticeNo
 	 * @param noticeTitle
@@ -38,10 +38,7 @@ public class Notice {
 	
 	
 
-
-
-
-	/**
+	/**현영
 	 * 2. 공지사항 상세조회용
 	 * @param noticeNo
 	 * @param noticeTitle
@@ -58,10 +55,7 @@ public class Notice {
 		this.count = count;
 	}
 
-	
-
-
-	/**
+	/**현영
 	 * 3. 이전글 다음글 조회용
 	 * @param noticeNo
 	 * @param noticeTitle
@@ -70,6 +64,22 @@ public class Notice {
 		super();
 		this.noticeNo = noticeNo;
 		this.noticeTitle = noticeTitle;
+	}
+
+	
+	/**연화
+	 * 4. 공지사항 작성
+	 * @param noticeTitle
+	 * @param noticeContent
+	 * @param createDate
+	 * @param count
+	 */
+	public Notice(String noticeTitle, String noticeContent, Date createDate, int count) {
+		super();
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+		this.createDate = createDate;
+		this.count = count;
 	}
 
 

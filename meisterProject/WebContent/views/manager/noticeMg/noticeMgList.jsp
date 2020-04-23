@@ -18,7 +18,7 @@
 	<!-- 메뉴바 include여기에 해주세요 -->
     
     <link href="../resources/admin/dist/css/styles.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <style>
 	    input[type=checkbox]{
@@ -36,7 +36,7 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="modify">등록</button>
+				<button class="button">등록</button>
 			</div>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -62,7 +62,6 @@
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
 									<% for(Notice n : list){ %>
-										
 										<tr>
 											<td><%= n.getNoticeNo() %></td>
 											<td><%= n.getNoticeTitle() %></td>
@@ -81,9 +80,18 @@
 	</div>
 	
 	<script>
+		// 공지사항 등록폼(imNoticeMenroll.nom)
+		$(function(){
+			$('.button').click(function(){
+				// 공지사항 등록 서블릿으로 이동
+				location.href="<%= contextPath %>/imNoticeMenroll.nom";
+			});
+		});
+	
+		// 공지사항 상세조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
-				console.log("클릭");
+				//console.log("클릭");
 				
 				// 현재 클릭했을 때의 해당 공지사항의 번호
 				var nno = $(this).children().eq(0).text();

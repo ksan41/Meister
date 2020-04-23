@@ -109,6 +109,21 @@
     		margin-inline-end: 0px;
 		}
         /* 부트스트랩 덮어씌우기용 스타일 */
+        
+        /* 작은버튼 스타일 */
+    	.small_btn{
+            height:25px;
+            width:60px;
+            margin: 0 auto;
+            font-size: 10px;
+            font-weight: bolder;
+            color:white;
+            background-color: rgb(76, 60, 60);
+            border:0;
+            border-radius: 5px;
+        }
+    	/* 작은버튼 스타일 */
+        
     </style>
 </head>
 <body class="sb-nav-fixed">
@@ -129,19 +144,19 @@
 							width="100%" cellspacing="0" align="center">
 							<thead align="center">
 								<tr>
-								<form>
+								<form name="searchName" action="<%=contextPath%>/memberList.memg" method="post">
 									<th style="vertical-align:middle;">회원명 검색</th>
-									<th><input type="text" id="search"
+									<th><input name="userName" type="text" id="search"
 										style="width: 120px;height:30px">
-									<button class="button button5">검색</button></th>
+									<button class="small_btn" type="submit">검색</button></th>
 								</form>
-								<form>
+								<form name="searchDate" action="<%=contextPath %>/memberList.memg" method="post">
 									<th style="vertical-align:middle;">기간별 조회</th>
 									<th>
-										<input type="date" name="startDate">
+										<input type="date" name="startDate" required>
 										~
 										<input type="date" name="endDate">
-										<button class="button button5">검색</button></th>
+										<button class="small_btn" type="submit" required>검색</button></th>
 									</th>
 								</form>
 								</tr>
@@ -167,8 +182,8 @@
 							</thead>
 							<tbody>
 								<% if(list.isEmpty()){  //조회된 회원정보가 없을경우 %>
-									<tr>
-										<td colspan="4">존재하는 회원이 없습니다.</td>
+									<tr rowspan="6">
+										<td colspan="6">존재하는 회원이 없습니다.</td>
 									</tr>
 								<%}else{ // 조회된 회원정보가 있을 경우 %>
 									<% for(Member m : list){ %> 
@@ -204,7 +219,7 @@
 			
 			if(dropCheck){ //확인 클릭시
 				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
-				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
+				var memNo = $("tbody>tr:eq("+(index)+")>td:eq(0)").text();
 				
 				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
 			

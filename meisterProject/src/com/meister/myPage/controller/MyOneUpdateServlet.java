@@ -2,6 +2,7 @@ package com.meister.myPage.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -87,11 +88,17 @@ public class MyOneUpdateServlet extends HttpServlet {
 			
 			int result = new MyPageService().updateCenter(c, ci);
 			
-			if(result > 0) {	// 수정성공했을 경우 상세보기 페이지 요청!
-				response.sendRedirect("/Meister/myOneDetail.my?cno=" + cno);
-			}else {
-				// 에러페이지 포워딩
+			if(result > 0) {	// 문의 수정 성공했을 경우 상세보기 페이지 요청!
 				
+				response.sendRedirect("/Meister/myOneDetail.my?cno=" + cno);
+				
+			}else {	// 문의 수정 실패
+				
+				response.setContentType("text/html; charset=UTF-8");
+				 
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('1:1문의 수정에 실패했습니다. 다시 시도해주세요.'); location.href='myOneList.my';</script>");
+				out.flush();
 			}
 		}		
 		

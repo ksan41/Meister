@@ -86,8 +86,7 @@
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div></a>
-						<div class="collapse" id="collapseLayouts"
-							aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+						<div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="<%=contextPath%>/imNoticeBlist.nom">지점</a>
 								<a class="nav-link" href="<%=contextPath%>/imNoticeMlist.nom">고객</a>

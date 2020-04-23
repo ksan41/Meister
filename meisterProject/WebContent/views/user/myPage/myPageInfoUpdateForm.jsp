@@ -37,6 +37,10 @@ div {
 	font-family: 'NanumSquare';
 }
 
+input[type=password]{
+	font-family: 'inherit';
+}
+
 .outer a {
 	text-decoration: none;
 }

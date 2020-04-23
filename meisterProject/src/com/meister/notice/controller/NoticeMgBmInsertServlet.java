@@ -1,4 +1,4 @@
-package com.meister.member.controller;
+package com.meister.notice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MemberMgSearchMemDateServlet
+ * Servlet implementation class NoticeMgBmInsertServlet
  */
-@WebServlet("/searchMemDate.memg")
-public class MemberMgSearchMemDateServlet extends HttpServlet {
+@WebServlet("/iNoticeBinsert.nom")
+public class NoticeMgBmInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberMgSearchMemDateServlet() {
+    public NoticeMgBmInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
