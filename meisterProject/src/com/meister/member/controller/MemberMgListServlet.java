@@ -14,8 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.member.model.service.MemberService;
 import com.meister.member.model.vo.Member;
-import static com.meister.common.StringToDate.*;
-
+import static com.meister.common.DateTokenizer.*;
 /**
  * Servlet implementation class MemberMgListServlet
  */
@@ -46,7 +45,13 @@ public class MemberMgListServlet extends HttpServlet {
 		String startDate=null;
 		String endDate=null;
 		startDate = request.getParameter("startDate");
+		if(startDate!=null) {//startDate값이 존재한다면 변환
+			startDate = stringToDate(startDate);
+		}
 		endDate = request.getParameter("endDate");
+		if(endDate!=null) {
+			endDate = stringToDate(endDate);
+		}
 
 		if (name!=null) {// 이름으로 검색시
 			ArrayList<Member> list = new MemberService().searchName(name);
@@ -54,12 +59,12 @@ public class MemberMgListServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
 			view.forward(request, response);
-//		} else if (startDate != null || endDate != null) { // 기간별 검색시
-//
-//			ArrayList<Member> list = new MemberService().searchDate(startDate, endDate);
-//
-//			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
-//			view.forward(request, response);
+		} else if (startDate != null || endDate != null) { // 기간별 검색시
+
+			ArrayList<Member> list = new MemberService().searchDate(startDate, endDate);
+
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/memberMg/memberMgList.jsp");
+			view.forward(request, response);
 
 		} else {// 기본 전체조회용
 			ArrayList<Member> list = new MemberService().selectMemberList();
