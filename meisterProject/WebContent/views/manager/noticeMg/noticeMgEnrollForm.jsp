@@ -31,22 +31,22 @@
 					<i class="fas fa-table mr-1"></i> 고객 공지사항 등록
 				</div>
 				<div class="card-body">
-					<form id="noticeEnrollForm" action="<%= contextPath %>/" method="post">
+					<form id="noticeEnrollForm" action="<%= contextPath %>/iNoticeMinsert.nom" method="post">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
 								<tr>
 									<th style="height: 50px; width: 100px; text-align: center;">제목</th>
-									<td><input type="text" size="90" required></td>
+									<td><input type="text" name="title" size="90" required></td>
 								</tr>
 								<tr>
 									<th style="height: 500px; width: 100px; text-align: center;">내용</th>
-									<td><textarea name="" id="" cols="100" rows="19" style="resize: none;" required></textarea></td>
+									<td><textarea name="content" id="" cols="100" rows="19" style="resize: none;" required></textarea></td>
 								</tr>
 							</table>
-	
+							
 							<div align="center">
-								<button class="button" onclick="">등록</button>
-								<button class="button" onclick="">취소</button>
+								<button type="submit" class="button">등록</button>
+								<button type="reset" class="button" onclick="location<%= contextPath %>/imNoticeMlist.nom">취소</button>
 							</div>
 						</div>
 					</form>
@@ -54,8 +54,6 @@
 			</div>
 		</div>
 		</main>
-	</div>
-
 	</div>
 </body>
 </html>
