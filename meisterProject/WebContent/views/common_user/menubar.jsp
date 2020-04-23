@@ -63,7 +63,6 @@
         }
 		#logoImg:hover{
 			cursor:pointer;
-			
 		}
     </style>
     

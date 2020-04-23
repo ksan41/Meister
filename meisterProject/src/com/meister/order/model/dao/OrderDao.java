@@ -62,6 +62,11 @@ public class OrderDao {
 		return result;
 	}
 	
+	/**
+	 * @author 곽진아
+	 * @param userId 회원아이디
+	 * @return
+	 */
 	public ArrayList<Delivery> ShowOrderDeliveryList(Connection conn, String userId) {
 		ArrayList<Delivery> deliveryList = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -73,7 +78,6 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, userId);
-			System.out.println("다오 딴에서 userId = " + userId);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -95,6 +99,11 @@ public class OrderDao {
 		return deliveryList;
 	}
 	
+	/**
+	 * @author 곽진아
+	 * @param userId 회원아이디
+	 * @return
+	 */
 	public String getMemberNo(Connection conn, String userId) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -118,5 +127,31 @@ public class OrderDao {
 			close(pstmt);
 		}
 		return memberNo;
+	}
+	
+	public int deleteAddress(Connection conn, int index) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String sql = prop.getProperty("insertAddress");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, d.getNewAddress1());
+			pstmt.setString(2, d.getNewAddress2());
+			pstmt.setString(3, d.getNewPoCode());
+			pstmt.setString(4, d.getDeliveryName());
+			pstmt.setInt(5, d.getBranchNo());
+			pstmt.setInt(6,  d.getMemberNo());
+			pstmt.setString(7, d.getReferenceAddress());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 }

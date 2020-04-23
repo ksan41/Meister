@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% int result = 1; %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <%@ include file="../../common_user/menubar.jsp" %>
+		<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
         <!-- 장바구니아이콘 -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,9 +140,8 @@
 
     </style>
 </head>
-<body onload="init();">
-	<%@ include file="../../common_user/menubar.jsp" %>
-	<%@ include file="../../common_user/menubarIndexIMG.jsp" %>
+<body>
+	
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
         <h1 style="font-weight:bold; color:rgb(76, 60, 60);">장바구니</h1>
@@ -147,9 +149,7 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 장바구니</div>
         <hr>
-
-
-
+		<%if(result > 0){ %>
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
             <table id="orderB1" border="0px;">
@@ -158,7 +158,7 @@
                 </tr>
                 <tr style="height:15px;"></tr>
                 <tr>
-                    <th height="50px;" style="color:black">주소주소주소주소</th>
+                    <th height="50px;" style="color:black">경기도 화성시 동탄원천로 12-34 504동 1304호</th>
                     <!-- <th rowspan="2"><button class="small_btn" id="#">수정</button></th> -->
                 </tr>
                 <tr>
@@ -181,6 +181,9 @@
                     <th colspan="2">수량 / 금액</th>
                     <th></th>
                 </tr>
+                
+                
+                
                 <tr style="border-bottom:1px solid;">
                     <th>피자이미지</th>
                     <th>
@@ -192,11 +195,11 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="formPizza" method="get">
-                            <input type=hidden class="sell_price" name="sell_price" value="39900">
-                            <input type="text" class="amount" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" class="addBtn" value=" + " ><input type="button" id="delBtn" value=" - " onclick="del();">
-                            <input type="text" class="priceArea" name="sum" size="11" readonly>원
+                        <form name="formPizza" class="formPizza" method="get">
+                            <input type="hidden" class="sellPrice" name="sellPrice" value="39900">
+                            <input type="text" class="amount" name="amount" value="1" size="3"">
+                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
+                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -233,11 +236,11 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="formSide" method="get">
-                            <input type=hidden name="sell_price" value="8800">
-                            <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" class="addBtn" value=" + " ><input type="button" value=" - " onclick="del();">
-                            <input type="text" name="sum" size="11" readonly>원
+                        <form name="formSide" class="formSide" method="get">
+                            <input type=hidden class="sellPrice" value="8800">
+                            <input type="text" class="amount" name="amount" value="1" size="3"">
+                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
+                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -253,11 +256,11 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form3" method="get">
-                            <input type=hidden name="sell_price" value="39900">
-                            <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
-                            <input type="text" name="sum" size="11" readonly>원
+                        <form name="formEtc" class="formEtc" method="get">
+                            <input type=hidden class="sellPrice" value="2000">
+                            <input type="text" class="amount" name="amount" value="1" size="3"">
+                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
+                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -279,7 +282,7 @@
                         </p>
                     </th>
                     <th>
-                        총금액 <b style="font-size: 3.0em;">72,300</b>
+                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>
                     </th>
                 </tr>
             </table>
@@ -291,60 +294,46 @@
                 <br>
                 <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
             </div>
-            
-
-            
+        <%}else{ %>    
+				<table id="orderB2" style="text-align:center; margin:auto;">
+                <tr>
+                    <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
+                </tr>
+                <tr>
+                    <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
+                </tr>
+                <tr>
+                    <td style="font-size: .9em; color:darkgray;">마이스터피자의 맛있는 메뉴를 마음껏 골라 담으세요</td>
+                </tr>
+               
+            </table>
+           <%} %>
         </div>
         
         <script>
-        
-        $(function(){
-        	$('.addBtn').click(function(){
-  				console.log("클릭됨");  
-  				
+    	$(function(){
+        	$('.addBtn').click(function(){	
   				$(this).prev().val(Number($(this).prev().val())+1);
   				var amount = $(this).prev().val();
   				var price = $(this).prev().prev().val();
-  				var totalPrice = amount * price;
-  				$(this).next().next().val(totalPrice);
+  				var sumPrice = amount * price;
+  				$(this).next().next().val(sumPrice);
+        	});
+        	
+        	$('.delBtn').click(function(){
+  				$(this).prev().prev().val(Number($(this).prev().prev().val())-1);
+  				var amount = $(this).prev().prev().val();
+  				var price = $(this).prev().prev().prev().val();
+  				var sumPrice = amount * price;
+  				$(this).next().val(sumPrice);
+        	});
+        	
+        	$('input').click(function(){
+        		var totalPrice = $('.formPizza').children('input.sellPrice').val();
+            	$("b").text = 1000;
+            	console.log(totalPrice);
         	});
         });
-       
-        function init () {
-            sell_price = document.form.sell_price.value;
-            amount = document.form.amount.value;
-            document.form.sum.value = sell_price;
-            change();
-        }
-        /*
-        function add () {
-            hm = document.form.amount;
-            sum = document.form.sum;
-            hm.value ++ ;
-        
-            sum.value = parseInt(hm.value) * sell_price;
-        }
-        
-        function del () {
-            hm = document.form.amount;
-            sum = document.form.sum;
-                if (hm.value > 1) {
-                    hm.value -- ;
-                    sum.value = parseInt(hm.value) * sell_price;
-                }
-        }
-        
-        function change () {
-            hm = document.form.amount;
-            sum = document.form.sum;
-        
-                if (hm.value < 0) {
-                    hm.value = 0;
-                }
-            sum.value = parseInt(hm.value) * sell_price;
-        } */
-
-        
         </script>
         
 

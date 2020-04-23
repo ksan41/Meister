@@ -114,7 +114,6 @@
     </style>
 </head>
 <body>
-	
 
     <div class="outer">
         <!-- 서브메뉴 타이틀 -->
@@ -123,8 +122,6 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 장바구니</div>
         <hr>
-
-
 
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
