@@ -154,7 +154,7 @@ div {
 					<tr>
 						<th rowspan="2" width="50%" height="100px"
 							style="text-align: center;"><b
-							style="font-weight: bold; font-size: 1.5em;">절대미각</b>님이 주문하신
+							style="font-weight: bold; font-size: 1.5em;"><%=loginUser.getMemberName()%></b>님이 주문하신
 							내역입니다.
 							<hr class="bline">
 							<p style="font-size: 0.7em; color: white">주문을 취소하시려면 해당 매장으로
@@ -185,14 +185,13 @@ div {
 			<div class="inner">
 				<br> <br>
 				<div align="left"
-					style="font-size: 22px; font-weight: 700; padding-bottom: 15px;">피자
-					주문</div>
+					style="font-size: 22px; font-weight: 700; padding-bottom: 15px;">주문내역</div>
 
 				<table id="noticeList" align="center" width="1000px">
 					<thead>
 						<tr style="text-align: center;">
 							<th style="width: 80px;">포장(배달)</th>
-							<th style="width: 430px;">주문목록</th>
+							<th style="width: 430px;">주문</th>
 							<th style="width: 200px;">주문번호</th>
 							<th style="width: 100px;"></th>
 						</tr>

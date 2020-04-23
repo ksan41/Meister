@@ -107,6 +107,13 @@ div {
 .order-info2-td {
 	font-weight: bolder;
 }
+
+#infoTable{
+	width:100%; 
+	height:50px;
+	font-size:20px;
+	fomt-weight:600;
+}
 </style>
 </head>
 <body>
@@ -135,9 +142,17 @@ div {
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<!-- 테이블 -->
-			<h4 id="order-title">
+			<table id="infoTable" border="1">
+				<tr>
+					<td>포장</td>
+					<td>주문일시 2019-08-08 20:04</td>
+					<td>주문번호 000000000</td>
+					<td>수령완료</td>
+				</tr>
+			</table>
+			<!--<h4 id="order-title">
 				포장
-				<!-- 포장/배달여부 -->
+				<!-- 포장/배달여부 
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 주문일시
 				2019-08-08
 				20:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -145,12 +160,8 @@ div {
 			</h4>
 			<hr>
 			<br>
-			<h3 id="order-status" style="font-weight: 600;">수령완료</h3>
-			<br>
-			<hr>
-
-			<br>
-			<br>
+			<h3 id="order-status" style="font-weight: 600;">수령완료</h3>-->
+			<hr><br><br><br>
 
 
 			<div id="order-info">
@@ -244,7 +255,7 @@ div {
 			<br>
 
 			<div id="btns">
-				<button class="middle_btn" id="listBack" style="cursor: pointer;">목록</button>
+				<button class="middle_btn" id="listBack" style="cursor: pointer;">목록으로</button>
 			</div>
 
 		</div>
