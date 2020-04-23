@@ -1,6 +1,8 @@
 package com.meister.coupon.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,9 +36,10 @@ public class CouponInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String couponName = request.getParameter("couponName");
-		int discount = Integer.parseInt(request.getParameter("discount"));
-		String startDate = request.getParameter("startDate");
-		String endDate = request.getParameter("endDate");
+//		int discount = Integer.parseInt(request.getParameter("discount"));
+		int discount = request.getParameter("discount");
+		Date startDate = java.sql.Date.valueOf(request.getParameter("startDate"));
+		Date endDate = java.sql.Date.valueOf(request.getParameter("endDate"));
 		
 		Coupon newC = new Coupon();
 		newC.setCouponName(couponName);
@@ -48,9 +51,16 @@ public class CouponInsertServlet extends HttpServlet {
 		int result = new CouponService().insertCoupon(newC);
 		
 		if(result>0) { //insert성공
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('"+couponName+" 성공적으로 등록되었습니다.');location.href='/Meister/couponList.cm';</script>");
+			out.flush();
 			
 		}else {//insert실패
-			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('쿠폰등록에 실패했습니다. 다시 시도해주세요. ');location.href='/Meister/couponList.cm';</script>");
+			out.flush();
 		}
 		
 	}
