@@ -10,7 +10,7 @@ import com.meister.notice.model.vo.Notice;
 
 public class NoticeService {
 	
-	/**
+	/**현영
 	 * 1. 고객공지사항 리스트 조회용 서비스
 	 * @return list --> Notice 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
@@ -26,7 +26,7 @@ public class NoticeService {
 		
 	}
 	
-	/**
+	/**현영
 	 * 2. 고객공지사항 상세조회용 서비스
 	 * @param nno	--> 조회하고자하는 공지사항 글번호
 	 * @return		--> 글번호와 일치하는 Notice 객체
@@ -43,7 +43,7 @@ public class NoticeService {
 		
 	}
 	
-	/**
+	/**현영
 	 * 3. 조회수 증가용 서비스
 	 * @param nno	--> 상세조회된 공지사항 글 번호
 	 */
@@ -62,7 +62,7 @@ public class NoticeService {
 		
 	}
 	
-	/**
+	/**현영
 	 * 4. 이전글 서비스
 	 * @param nno	--> 조회된 공지사항 글번호
 	 * @return		--> 조회된 공지사항 이전글 Notice 객체
@@ -76,7 +76,7 @@ public class NoticeService {
 		
 	}
 	
-	/**
+	/**연화
 	 * 5. 지점 공지사항 리스트 조회용 서비스
 	 * @return
 	 */
@@ -89,6 +89,26 @@ public class NoticeService {
 		close(conn);
 		
 		return list;
+	}
+	
+	/**
+	 * 6. 공지사항 작성용 서비스
+	 * @param n		--> 제목, 내용, 작성자 회원번호가 담겨있는 Notice객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int insertNotice(Notice n) {
+		
+		Connection conn = getConnection();
+		
+		int result = new NoticeDao().insertNotice(conn, n);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 	
 }
