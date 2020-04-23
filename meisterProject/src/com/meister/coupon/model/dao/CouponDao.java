@@ -1,9 +1,12 @@
 package com.meister.coupon.model.dao;
 
+import static com.meister.common.JDBCTemplate.close;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.coupon.model.vo.Coupon;
-import static com.meister.common.JDBCTemplate.*;
 
 public class CouponDao {
 	
@@ -131,7 +133,7 @@ public class CouponDao {
 	 * @param endDate : 조회할 쿠폰기간 끝날짜
 	 * @return :조회된 Coupon객체가 담긴 ArrayList
 	 */
-	public ArrayList<Coupon> searchDate(Connection conn,String startDate,String endDate){
+	public ArrayList<Coupon> searchDate(Connection conn,Date startDate,Date endDate){
 		ArrayList<Coupon> list = new ArrayList<>();
 		ResultSet rset = null;
 		PreparedStatement pstmt = null;
@@ -139,8 +141,8 @@ public class CouponDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, startDate);
-			pstmt.setString(2, endDate);
+			pstmt.setDate(1, startDate);
+			pstmt.setDate(2, endDate);
 			
 			rset = pstmt.executeQuery();
 			

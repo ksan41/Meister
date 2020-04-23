@@ -3,6 +3,7 @@ package com.meister.coupon.controller;
 import static com.meister.common.DateTokenizer.stringToDate;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -41,16 +42,14 @@ public class CouponMgListServlet extends HttpServlet {
 		searchName = request.getParameter("couponName");
 		
 		// 쿠폰 기간별 조회시 사용할 parameter
-		String startDate=null;
-		String endDate=null;
+		Date startDate=null;
+		Date endDate=null;
 		
-		startDate = request.getParameter("startDate");
-		if(startDate!=null) {//startDate값이 존재한다면 변환
-			startDate = stringToDate(startDate);
+		if(request.getParameter("startDate")!=null) {//startDate값이 존재한다면 변환
+			startDate = java.sql.Date.valueOf(request.getParameter("startDate"));
 		}
-		endDate = request.getParameter("endDate");
-		if(endDate!=null) {
-			endDate = stringToDate(endDate);
+		if(request.getParameter("endDate")!=null) {
+			endDate = java.sql.Date.valueOf(request.getParameter("endDate"));
 		}
 		
 		
