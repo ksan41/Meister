@@ -38,7 +38,7 @@ public class CouponMgListServlet extends HttpServlet {
 		
 		// 쿠폰명으로 검색시 사용할 parameter
 		String searchName = null;
-		searchName = request.getParameter("searchName");
+		searchName = request.getParameter("couponName");
 		
 		// 쿠폰 기간별 조회시 사용할 parameter
 		String startDate=null;

@@ -19,7 +19,7 @@ public class CouponDao {
 	
 	public CouponDao() {
 		
-		String filePath = CouponDao.class.getResource("sql/coupon/couponQuery.properties").getPath();
+		String filePath = CouponDao.class.getResource("/sql/coupon/couponQuery.properties").getPath();
 		
 		try {
 			prop.load(new FileReader(filePath));
