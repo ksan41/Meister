@@ -1,11 +1,18 @@
 package com.meister.coupon.controller;
 
+import static com.meister.common.DateTokenizer.stringToDate;
+
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.coupon.model.service.CouponService;
+import com.meister.coupon.model.vo.Coupon;
 
 /**
  * Servlet implementation class CouponMgListServlet
@@ -26,8 +33,46 @@ public class CouponMgListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.setCharacterEncoding("utf-8");
+		
+		// 쿠폰명으로 검색시 사용할 parameter
+		String searchName = null;
+		searchName = request.getParameter("searchName");
+		
+		// 쿠폰 기간별 조회시 사용할 parameter
+		String startDate=null;
+		String endDate=null;
+		
+		startDate = request.getParameter("startDate");
+		if(startDate!=null) {//startDate값이 존재한다면 변환
+			startDate = stringToDate(startDate);
+		}
+		endDate = request.getParameter("endDate");
+		if(endDate!=null) {
+			endDate = stringToDate(endDate);
+		}
+		
+		
+		if(searchName!=null) {
+			ArrayList<Coupon> list = new CouponService().searchName(searchName);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("views/manager/couponMg/couponMgCouponList.jsp").forward(request, response);
+			
+		}else if(startDate!=null && endDate!=null) {
+			ArrayList<Coupon> list = new CouponService().searchDate(startDate,endDate);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("views/manager/couponMg/couponMgCouponList.jsp").forward(request, response);
+			
+		}else {
+			ArrayList<Coupon> list = new CouponService().selectCouponList();
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("views/manager/couponMg/couponMgCouponList.jsp").forward(request, response);
+			
+		}
+		
+		
+		
 	}
 
 	/**
