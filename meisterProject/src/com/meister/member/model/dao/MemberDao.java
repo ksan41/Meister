@@ -403,7 +403,7 @@ private Properties prop = new Properties();
 		ArrayList<Member> list = new ArrayList<>();
 		ResultSet rset = null;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("searchDate");
+		String sql = prop.getProperty("searchMemDate");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
