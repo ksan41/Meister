@@ -66,7 +66,11 @@
 	}
 	.buttonArea{
 		width:50%;
-		height:60px;	
+		height:60px;
+		text-align:center;
+		padding-top:15px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 	}
 	.defaultColor{
 		background-color:rgb(76, 60, 60);
@@ -103,21 +107,20 @@
 		<div class="content">
 			<div class="emptyAreaLong"></div>
 			<div class="leftSide">
-				<div class="buttonArea defaultColor"></div>
-				<div class="buttonArea"></div>
+				<div class="buttonArea defaultColor">
+					<h3>지역 검색</h3>
+				</div>
+				<div class="buttonArea">
+					<h3>매장명</h3>
+				</div>
 				<div class="emptyAreaShort defaultColor"></div>
-				<div class="selectArea"></div>
-				<div class="showBranchArea"></div>
-				<div class="showBranchArea"></div>
+				<div class="selectArea defaultColor"></div>
+				<div class="showBranchArea defaultColor"></div>
+				<div class="showBranchArea defaultColor"></div>
 			</div>
 			<div class="rightSide"></div>
 		</div>
-
-
     </div>
-	
-    
-        
 	<%@ include file="../../common_user/footer.jsp"%>
 	
 </body>
