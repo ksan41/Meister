@@ -203,19 +203,35 @@ div {
 						</tr>
 					</thead>
 					<tbody>
+						<% for(int i=0; i<ordersList.size(); i++){ %>
 						<tr>
-							<td>수령완료</td>
-							<td>MeisterPizza_KH 외 1건 23,540원</td>
-							<td>20190827863688990015</td>
+							<td>
+								<% if(ordersList.get(i).getDeliveryStatus().equals("F")) { %>
+									주문처리중
+								<% }else { %>
+									수령완료
+								<% } %>
+							</td>
+							<td>
+								<% String pizzaName = ""; %>
+								<% switch(priceList.get(i).getPizzaNo().charAt(0)+""){
+								case "1": pizzaName = pizzaList.get(0).getPizzaName(); break;
+								case "2": pizzaName = pizzaList.get(1).getPizzaName(); break;
+								case "3": pizzaName = pizzaList.get(2).getPizzaName(); break;
+								case "4": pizzaName = pizzaList.get(3).getPizzaName(); break;
+								case "5": pizzaName = pizzaList.get(4).getPizzaName(); break;
+								case "6": pizzaName = pizzaList.get(5).getPizzaName(); break;
+								case "7": pizzaName = pizzaList.get(6).getPizzaName(); break;
+								case "8": pizzaName = pizzaList.get(7).getPizzaName(); break;
+								case "9": pizzaName = pizzaList.get(8).getPizzaName(); break;
+								}
+								%>
+								<%= pizzaName %>
+							</td>
+							<td><%=ordersList.get(i).getOrderNo() %></td>
 							<td><button class="small_btn detailBtn">상세보기</button></td>
 						</tr>
-						<tr>
-							<td>수령완료</td>
-							<td>MeisterPizza_KH 외 2건 45,540원</td>
-							<td>20190827863688990015</td>
-							<td><button class="small_btn detailBtn">상세보기</button></td>
-						</tr>
-
+						<% } %>
 					</tbody>
 				</table>
 
