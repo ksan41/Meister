@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Delivery"%>
 <%
 	ArrayList<Delivery> deliveryList = (ArrayList<Delivery>)session.getAttribute("deliveryList");
+	int index = 0;
 %>
 
 <!DOCTYPE html>
@@ -193,17 +194,14 @@
 				<%if(!deliveryList.isEmpty()){ %>
 				<%for(int i=0; i<deliveryList.size(); i++){ %>
 					<%Delivery d = deliveryList.get(i); %>
-					<%// String referenceAddress = d.getReferenceAddress(); %>
-					<%//if(referenceAddress.equals("null")) { referenceAddress = " "; } %>
-					<%//System.out.println("d.getReferenceAddress() 메소드 값 : " + d.getReferenceAddress()); %>
-					<%//System.out.println("referenceAddress 변수에 담은 것 : " + referenceAddress); %>
-					<%//System.out.println("referenceAddress 변수 null값과 일치 비교 : " + referenceAddress.equals("null")); %>
+					<%index = i; %>
+				<input type="hidden" class="index" value="<%=index%>">
                 <div class="defaultSet"></div>
                 <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
                 <div id="textArea">
                     <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
                 </div>
-                <div class="defaultSet" id="removeArea"><button id="remove">―</button></div>
+                <div class="defaultSet" id="removeArea"><button id="remove" name="remove" onclick="removeAddress()">―</button></div>
                 <div class="defaultSet"></div>
 				<%}%>
 				<%}else{%>
@@ -297,19 +295,19 @@
 
 	<script>
 	
-    // 우편번호 찾기 찾기 화면을 넣을 element
+    // 우편번호 찾기 찾기 화면을 넣을 element_곽진아
     var element_wrap = document.getElementById('wrap');
     function addPostInput(){
     	document.getElementById('addPostInput').innerHTML = "<input type='text' name='newAddress1' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_address' placeholder='주소'><br> <input type='text' name='newAddress2' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_detailAddress' placeholder='상세주소'> <input type='text' name='referenceAddress' style='width:562px; height: 40px; font-size:large; margin:3px;' id='sample3_extraAddress' placeholder='참고항목'>";    	
     	document.getElementById('sample3_postcode').placeholder = "우편번호";
     	
     };
-    
+	// 주검색소함수_곽진아
     function foldDaumPostcode() {
         // iframe을 넣은 element를 안보이게 한다.
         element_wrap.style.display = 'none';
     };
-
+	// 주검색소함수_곽진아
     function sample3_execDaumPostcode() {
     	element_wrap.style.width="568px";
         // 현재 scroll 위치를 저장해놓는다.
@@ -375,9 +373,18 @@
 
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
-        
-        
     };
+    
+    // 배달지 삭제 함수_곽진아
+	function removeAddress(){
+ 		HttpSession session = setAttribute("deliveryList", deliveryList);
+    	location.href="<%=contextPath%>/deleteAddress.or&index=<%=index%>";
+    };
+
+
+    출처: https://pjsprogram.tistory.com/58 [행배]
+    	
+    
 	</script>
 </body>
 </html>

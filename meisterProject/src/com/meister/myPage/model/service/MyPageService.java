@@ -246,11 +246,11 @@ public class MyPageService {
 	 * @param memberNo
 	 * @return
 	 */
-	public ArrayList<Orders> selectOrdersList(PageInfo pi, int memberNo) {
+	public ArrayList<Orders> selectOrdersList(int memberNo) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Orders> list = new MyPageDao().selectOrdersList(conn, pi, memberNo);
+		ArrayList<Orders> list = new MyPageDao().selectOrdersList(conn, memberNo);
 		
 		close(conn);
 		
@@ -264,11 +264,11 @@ public class MyPageService {
 	 * @param memberNo
 	 * @return
 	 */
-	public ArrayList<Price> selectPriceList(PageInfo pi, int memberNo) {
+	public ArrayList<Price> selectPriceList(int memberNo) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Price> list = new MyPageDao().selectPriceList(conn, pi, memberNo);
+		ArrayList<Price> list = new MyPageDao().selectPriceList(conn, memberNo);
 		
 		close(conn);
 		

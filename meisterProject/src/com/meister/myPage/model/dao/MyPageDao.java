@@ -434,7 +434,7 @@ public class MyPageDao {
 	}
 	
 	
-	public ArrayList<Orders> selectOrdersList(Connection conn, PageInfo pi, int memberNo){
+	public ArrayList<Orders> selectOrdersList(Connection conn, int memberNo){
 		
 		ArrayList<Orders> list = new ArrayList<>();
 		
@@ -470,7 +470,7 @@ public class MyPageDao {
 	}
 	
 	
-	public ArrayList<Price> selectPriceList(Connection conn, PageInfo pi, int memberNo) {
+	public ArrayList<Price> selectPriceList(Connection conn, int memberNo) {
 		
 		ArrayList<Price> list = new ArrayList<>();
 		

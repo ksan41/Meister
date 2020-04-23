@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" 
+	import="java.util.ArrayList, com.meister.menu.model.vo.Pizza, com.meister.order.model.vo.*, com.meister.common.PageInfo"%>
+<%
+	ArrayList<Pizza> pizzaList = (ArrayList<Pizza>)request.getAttribute("pizzaList");
+	ArrayList<Orders> ordersList = (ArrayList<Orders>)request.getAttribute("ordersList");
+	ArrayList<Price> priceList = (ArrayList<Price>)request.getAttribute("priceList");
+
+		
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -212,13 +220,15 @@ div {
 				</table>
 
 				<br> <br>
-
+	
+				<!--
 				<div class="pagination" align="center">
 					<div>
 						<a href="#">&laquo;</a> <a href="#" class="active">1</a> <a
 							href="#">&raquo;</a>
 					</div>
 				</div>
+				-->
 			</div>
 		</div>
 	</div>
