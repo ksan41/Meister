@@ -6,7 +6,14 @@
 	ArrayList<Orders> ordersList = (ArrayList<Orders>)request.getAttribute("ordersList");
 	ArrayList<Price> priceList = (ArrayList<Price>)request.getAttribute("priceList");
 
-		
+	ArrayList<Object> pArr = new ArrayList<>();
+	ArrayList<Object> sArr = new ArrayList<>();
+	ArrayList<Object> eArr = new ArrayList<>();
+	
+	int pizzaCount = 0;
+	int sideCount = 0;
+	int etcCount = 0;
+	int totalCount = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -158,32 +165,37 @@ div {
 
 				<table id="table1" style="font-size: 16px;" width="1000px" height="250px">
 					<tr>
-						<th rowspan="2" width="50%" height="100px"
+						<th rowspan="2" width="45%" height="100px"
 							style="text-align: center;"><b
 							style="font-weight: bold; font-size: 1.5em;"><%=loginUser.getMemberName()%></b>님이 주문하신
 							내역입니다.
 							<hr class="bline">
 							<p style="font-size: 0.7em; color: white">주문을 취소하시려면 해당 매장으로
 								전화하셔야 합니다.</p></th>
-						<th width="300px" height="50%" style="padding-top: 10px">
+						<th width="25%" height="50%" style="padding-top: 10px">
 							<p align="left" style="color: white;">
 								총 주문<br>(가입일~현재일)
 							</p>
 						</th>
 
-						<th width="25%" style="padding-top: 10px">
+						<th width="30%" style="padding-top: 10px">
 							<p align="left" style="color: white;">
 								총 주문금액<br>(가입일~현재일)
 							</p>
 						</th>
 					</tr>
 					<tr>
-						<th 
-							style="font-weight: bold; font-size: 4.0em; padding-bottom: 30px">0</th>
-						<th
-							style="font-weight: bold; font-size: 4.0em; padding-bottom: 30px">0</th>
+						<th style="font-weight: bold; font-size: 3.0em; padding-bottom: 30px">
+							<%=ordersList.size() %> <b style="font-size:25px; color:white;">건</b>
+						</th>
+						<th style="font-weight: bold; font-size: 3.0em; padding-bottom: 30px">
+							<% int total = 0; %>
+							<% for(int i=0; i<priceList.size(); i++){ %>
+								<%total += priceList.get(i).getTotalPrice();%>
+							<% } %>
+							<%=total%> <b style="font-size:25px; color:white;">원</b>
+						</th>
 					</tr>
-
 				</table>
 
 			</div>
@@ -213,8 +225,8 @@ div {
 								<% } %>
 							</td>
 							<td>
-								<% String pizzaName = ""; %>
-								<% switch(priceList.get(i).getPizzaNo().charAt(0)+""){
+								<% String pizzaName = ""; 
+								switch(priceList.get(i).getPizzaNo().charAt(0)+""){
 								case "1": pizzaName = pizzaList.get(0).getPizzaName(); break;
 								case "2": pizzaName = pizzaList.get(1).getPizzaName(); break;
 								case "3": pizzaName = pizzaList.get(2).getPizzaName(); break;
@@ -226,7 +238,36 @@ div {
 								case "9": pizzaName = pizzaList.get(8).getPizzaName(); break;
 								}
 								%>
-								<%= pizzaName %>
+								<%
+								String[] pStr = priceList.get(i).getPizzaNo().split(",");
+								for(int j=0; j<pStr.length; j++){
+									pArr.add(pStr[i]);
+								}
+								
+								if(!priceList.get(i).getSideCount().equals("null")){
+									String[] sStr = priceList.get(i).getSideCount().split(",");
+									for(int j=0; j<sStr.length; j++){
+										sArr.add(sStr[i]);
+									}
+								}
+								
+								if(!priceList.get(i).getEtcCount().equals("null")){
+									String[] eStr = priceList.get(i).getEtcCount().split(",");
+									for(int j=0; j<eStr.length; j++){
+										eArr.add(eStr[i]);
+									}
+								}
+								
+								pizzaCount = pArr.size();
+								if(!sArr.isEmpty()){
+									sideCount = sArr.size();									
+								}
+								if(!eArr.isEmpty()){
+									etcCount = eArr.size();
+								}
+								totalCount = pizzaCount + sideCount + etcCount;
+								%>
+								<%=pizzaName%> 외 <%=totalCount-1%>건 <%=priceList.get(i).getTotalPrice()%>원
 							</td>
 							<td><%=ordersList.get(i).getOrderNo() %></td>
 							<td><button class="small_btn detailBtn">상세보기</button></td>
