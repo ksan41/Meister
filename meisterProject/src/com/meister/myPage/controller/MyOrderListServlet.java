@@ -1,6 +1,7 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.common.PageInfo;
 import com.meister.member.model.vo.Member;
 import com.meister.myPage.model.service.MyPageService;
 
@@ -107,7 +109,10 @@ public class MyOrderListServlet extends HttpServlet {
 			endPage = maxPage;
 		}		
 		
+		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 		
+		ArrayList<Orders> ordersList = new ArrayList<>();
+		ArrayList<Price> priceList = new ArrayList<>();
 		
 	}
 
