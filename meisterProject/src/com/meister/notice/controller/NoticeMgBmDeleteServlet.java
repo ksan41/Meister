@@ -1,23 +1,26 @@
 package com.meister.notice.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.notice.model.service.NoticeService;
+
 /**
- * Servlet implementation class NoticeMgDeleteServlet
+ * Servlet implementation class NoticeMgBmDeleteServlet
  */
-@WebServlet("/imNoticeDelete.nom")
-public class NoticeMgDeleteServlet extends HttpServlet {
+@WebServlet("/imNoticeBdelete.nom")
+public class NoticeMgBmDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMgDeleteServlet() {
+    public NoticeMgBmDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +29,21 @@ public class NoticeMgDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		
+		int nno = Integer.parseInt(request.getParameter("nno"));
+		
+		int result = new NoticeService().deleteBnotice(nno);
+		
+		if(result > 0) {// 공지사항 삭제 성공
+			
+			request.getSession().setAttribute("msg", "공지사항 삭제 성공!");
+			response.sendRedirect("list.no");
+			
+		}else {//공지사항 삭제 실패
+			
+			request.setAttribute("msg", "공지사항삭제실패!");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		}
 	}
 
 	/**

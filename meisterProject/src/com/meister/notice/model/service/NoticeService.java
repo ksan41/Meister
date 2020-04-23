@@ -23,7 +23,6 @@ public class NoticeService {
 		close(conn);
 		
 		return list;
-		
 	}
 	
 	/**현영
@@ -91,7 +90,7 @@ public class NoticeService {
 		return list;
 	}
 	
-	/**
+	/**연화
 	 * 6. 공지사항 작성용 서비스
 	 * @param n		--> 제목, 내용이 담겨있는 Notice객체
 	 * @return		--> 처리된 행의 개수
