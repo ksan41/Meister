@@ -1,8 +1,12 @@
 package com.meister.coupon.model.service;
 
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import com.meister.coupon.model.dao.CouponDao;
@@ -51,7 +55,7 @@ public class CouponService {
 	 * @param endDate : 조회할 쿠폰기간 끝날짜
 	 * @return : 조회된 Coupon객체가 담긴 ArrayList
 	 */
-	public ArrayList<Coupon> searchDate(String startDate,String endDate){
+	public ArrayList<Coupon> searchDate(Date startDate,Date endDate){
 		Connection conn = getConnection();
 		ArrayList<Coupon> list = new CouponDao().searchDate(conn,startDate,endDate);
 		

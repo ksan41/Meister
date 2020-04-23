@@ -192,7 +192,7 @@
 						<div align="right">
 							<button class="button" onclick="" data-toggle="modal"
 								data-target="#couponEnrollModal">등록</button>
-							<button class="button" onclick="">선택삭제</button>
+							<button class="button" onclick="delCoupon();">선택삭제</button>
 						</div>
 
 						<table class="table table-bordered" id="dataListTable"
@@ -204,7 +204,7 @@
 									<th width="25%">기간</th>
 									<th width="8%">할인율</th>
 									<th width="15%">등록일</th>
-									<th width="5%"><input type="checkbox"></th>
+									<th width="5%"><input name="all" type="checkbox" class="checkAll"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -220,7 +220,7 @@
 											<td><%=list.get(i).getCouponStart() %> ~ <%=list.get(i).getCouponEnd() %></td>
 											<td><%=list.get(i).getCouponDiscount()%>%</td>
 											<td><%=list.get(i).getCouponRegisterDate() %></td>
-											<th><input id="couponCheck<%=i%>" type="checkbox"></th>
+											<th><input class="cb" id="couponCheck<%=i%>" type="checkbox"></th>
 										</tr>
 									<%} %>
 								<%} %>
@@ -283,5 +283,17 @@
 	</div>
 	<!-- 모달 끝 -->
 	
+	 <script>
+      $( document ).ready( function() {
+        $( '.checkAll' ).click( function() {
+          $( '.cb' ).prop( 'checked', this.checked );
+        } );
+      } );
+      
+      function delCoupon(){
+    	  
+    	  location.href="<%=contextPath%>/";
+      }
+    </script>
 </body>
 </html>

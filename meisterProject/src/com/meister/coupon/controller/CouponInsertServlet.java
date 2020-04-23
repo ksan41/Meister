@@ -36,8 +36,7 @@ public class CouponInsertServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String couponName = request.getParameter("couponName");
-//		int discount = Integer.parseInt(request.getParameter("discount"));
-		int discount = request.getParameter("discount");
+		int discount = Integer.parseInt(request.getParameter("discount"));
 		Date startDate = java.sql.Date.valueOf(request.getParameter("startDate"));
 		Date endDate = java.sql.Date.valueOf(request.getParameter("endDate"));
 		
