@@ -190,7 +190,7 @@ public class NoticeDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertNotice");
+		String sql = prop.getProperty("insertMnotice");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
