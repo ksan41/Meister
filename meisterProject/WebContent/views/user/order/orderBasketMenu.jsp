@@ -192,11 +192,11 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form" method="get">
-                            <input type=hidden id="sell_price" name="sell_price" value="39900">
-                            <input type="text" id="amount" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" id="addBtn" value=" + " onclick="add();"><input type="button" id="delBtn" value=" - " onclick="del();">
-                            <input type="text" id="priceArea" name="sum" size="11" readonly>원
+                        <form name="formPizza" method="get">
+                            <input type=hidden class="sell_price" name="sell_price" value="39900">
+                            <input type="text" class="amount" name="amount" value="1" size="3" onchange="change();">
+                            <input type="button" class="addBtn" value=" + " ><input type="button" id="delBtn" value=" - " onclick="del();">
+                            <input type="text" class="priceArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -233,10 +233,10 @@
                     </th>
                     <th></th>
                     <th colspan="2">
-                        <form name="form2" method="get">
-                            <input type=hidden name="sell_price" value="39900">
+                        <form name="formSide" method="get">
+                            <input type=hidden name="sell_price" value="8800">
                             <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+                            <input type="button" class="addBtn" value=" + " ><input type="button" value=" - " onclick="del();">
                             <input type="text" name="sum" size="11" readonly>원
                         </form>
                     </th>
@@ -295,41 +295,35 @@
 
             
         </div>
-
-
-    </div>
-	
-	<%@ include file="../../common_user/footer.jsp"%>
-	
-    <script language="JavaScript">
         
-        var sell_price;
-        var amount;
+        <script>
         
+        $(function(){
+        	$('.addBtn').click(function(){
+  				console.log("클릭됨");  
+  				
+  				$(this).prev().val(Number($(this).prev().val())+1);
+  				var amount = $(this).prev().val();
+  				var price = $(this).prev().prev().val();
+  				var totalPrice = amount * price;
+  				$(this).next().next().val(totalPrice);
+        	});
+        });
+       
         function init () {
             sell_price = document.form.sell_price.value;
             amount = document.form.amount.value;
             document.form.sum.value = sell_price;
             change();
         }
-        
-        <!--function add () {
+        /*
+        function add () {
             hm = document.form.amount;
             sum = document.form.sum;
             hm.value ++ ;
         
             sum.value = parseInt(hm.value) * sell_price;
-        }-->
-        
-        $(function add(){
-        
-			var currentForm = $(this).parent('form').name;
-			system.out.println(currnetForm);
-			<!--hm = currentForm.form.amount;
-			sum = currentForm.form.sum;
-            hm.value ++ ;-->
-			
-		});
+        }
         
         function del () {
             hm = document.form.amount;
@@ -348,11 +342,18 @@
                     hm.value = 0;
                 }
             sum.value = parseInt(hm.value) * sell_price;
-        } 
+        } */
 
         
         </script>
+        
 
+
+    </div>
+	
+	<%@ include file="../../common_user/footer.jsp"%>
+	
+    
 
 <!-- <form name="form" method="get">
     수량 : <input type=hidden name="sell_price" value="5500">
