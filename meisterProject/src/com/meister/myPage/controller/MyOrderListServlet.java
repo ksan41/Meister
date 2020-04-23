@@ -3,6 +3,7 @@ package com.meister.myPage.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.meister.common.PageInfo;
 import com.meister.member.model.vo.Member;
 import com.meister.myPage.model.service.MyPageService;
+import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Price;
 
 /**
  * Servlet implementation class MyOrderListServlet
@@ -111,8 +114,15 @@ public class MyOrderListServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 		
-		ArrayList<Orders> ordersList = new ArrayList<>();
-		ArrayList<Price> priceList = new ArrayList<>();
+		ArrayList<Orders> ordersList = new MyPageService().selectOrdersList(pi, memberNo);
+		ArrayList<Price> priceList = new MyPageService().selectPriceList(pi, memberNo);
+		
+		request.setAttribute("pi", pi);
+		request.setAttribute("ordersList", ordersList);
+		request.setAttribute("priceList", priceList);
+		
+		RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOrder.jsp");
+		view.forward(request, response);
 		
 	}
 
