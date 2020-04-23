@@ -50,7 +50,7 @@ public class MyPageDao {
 			
 			while(rset.next()) {
 				
-				list.add(new Coupon(rset.getInt("COUPIN_NO"),
+				list.add(new Coupon(rset.getInt("COUPON_NO"),
 								    rset.getString("COUPON_NAME"),
 								    rset.getDate("COUPON_START"),
 								    rset.getDate("COUPON_END")));
