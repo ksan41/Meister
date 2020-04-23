@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.meister.member.model.vo.Manager"%>
-    
 <%
 	String contextPath = request.getContextPath();
 	//String msg = (String)session.getAttribute("msg");
@@ -30,56 +29,66 @@
     </style>
 </head>
 <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html" style="font-style:italic;">Meister Pizza</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- 검색바 -->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <b id="adminPage"> 지점관리자페이지 접속중</b>
-                </div>
-            </form>
-            <!-- Navbar-->
-             <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-					<a class="dropdown-item" href="<%=contextPath %>/logoutM.me" style="background:orange">Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">주문</div>
-                            <a class="nav-link" href="<%=contextPath%>/bmOrderNow.orm"><div class="sb-nav-link-icon">
-                                <i class="fas fa-map-marker-alt"></i></div>주문현황</a>
-                            <a class="nav-link" href="<%=contextPath%>/bmOrderPast.orm"><div class="sb-nav-link-icon">
-                                <i class="fas fa-user-alt"></i></div>지난 주문내역</a>
-                            <div class="sb-sidenav-menu-heading">공지사항</div>
-                            <a class="nav-link" href="<%=contextPath%>/bmNoList.nom ">
-                                <div class="sb-nav-link-icon"><i class="fa fa-question-circle"></i></div>지점 공지사항</a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        역삼점
-                    </div>
-                </nav>
-            </div>
-            <!-- footer -->
- 
-
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<%=contextPath %>/views/common_manager/resources/admin/dist/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-
-
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+		<a class="navbar-brand" href="index.html" style="font-style: italic;">Meister Pizza</a>
+		<button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+			<i class="fas fa-bars"></i>
+		</button>
+		<!-- 검색바 -->
+		<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+			<div class="input-group">
+				<b id="adminPage"> 지점관리자페이지 접속중</b>
+			</div>
+		</form>
+		<!-- Navbar-->
+		<ul class="navbar-nav ml-auto ml-md-0">
+			<li class="nav-item dropdown">
+				<a class="dropdown-item" href="<%=contextPath %>/logoutM.me" style="background: orange">Logout</a>
+			</li>
+		</ul>
+	</nav>
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+				<div class="sb-sidenav-menu">
+					<div class="nav">
+						<div class="sb-sidenav-menu-heading">주문</div>
+						<a class="nav-link" href="<%=contextPath%>/bmOrderNow.orm">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-map-marker-alt"></i>
+							</div>
+							주문현황
+						</a>
+						<a class="nav-link" href="<%=contextPath%>/bmOrderPast.orm">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-user-alt"></i>
+							</div>
+							지난 주문내역
+						</a>
+						<div class="sb-sidenav-menu-heading">공지사항</div>
+						<a class="nav-link" href="<%=contextPath%>/bmNoList.nom ">
+							<div class="sb-nav-link-icon">
+								<i class="fa fa-question-circle"></i>
+							</div>
+							지점 공지사항
+						</a>
+					</div>
+				</div>
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					역삼점
+				</div>
+			</nav>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="<%=contextPath %>/views/common_manager/resources/admin/dist/js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+	<script src="assets/demo/chart-area-demo.js"></script>
+	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+	<script src="assets/demo/datatables-demo.js"></script>
 </body>
 </html>
