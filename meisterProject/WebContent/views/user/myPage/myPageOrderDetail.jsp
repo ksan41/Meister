@@ -51,8 +51,9 @@ div {
 	width: 1000px;
 	height: 200px;
 	border: 0px;
-	background-color: lightgray;
-	margin-top: 20px;
+	background-color: #F6F6F6;
+	margin-top: 40px;
+	margin-bottom: 40px;
 	color: black;
 }
 
@@ -110,8 +111,8 @@ div {
 
 #infoTable{
 	width:95%; 
-	height:50px;
-	font-size:20px;
+	height:18px;
+	font-size:16px;
 	margin:auto;
 }
 </style>
@@ -144,19 +145,20 @@ div {
 			<!-- 테이블 -->
 			<table id="infoTable">
 				<tr>
-					<td width="10%">포장</td>
-					<td width="33%">주문일시 2019-08-08 20:04</td>
-					<td width="30%">주문번호 000000000</td>
-					<td width="27%" style="font-weight:bold; text-align:right;">
-						수령완료
-					</td>
+					<td width="7%"><b style="color:black;">포장</b></td>
+					<td width="7%"><b style="color:black;">주문일시</b></td>
+					<td width="20%">2019-08-08 20:04</td>
+					<td width="7%"><b style="color:black;">주문번호</b></td>
+					<td width="30%">000000000</td>
+					<td width="29%"></td>
 				</tr>
 			</table>
 			<hr>
+			<b style="padding-left:25px; font-size:20px; color:black;">수령완료</b>
+			<hr>
 
 			<div id="order-info">
-
-				<table style="font-size: 15px;" width="1000px" height="200px" border="1">
+				<table style="font-size: 15px;" width="1000px" height="200px">
 					<tr>
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
@@ -174,36 +176,30 @@ div {
 										<td style="text-align: left;">주문금액</td>
 										<td style="font-size: 16px;">37,900 원</td>
 									</tr>
-
 									<tr>
 										<td style="text-align: left;">할인금액</td>
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
 											-14,360원
 										</td>
 									</tr>
-
 									<tr>
 										<td colspan="2"><hr></td>
 									</tr>
-
-
 									<tr style="font-weight: bolder;">
 										<td style="text-align: left;">결제금액</td>
 										<td style="font-size: 18px;">23,540 원</td>
 									</tr>
 								</table>
-
 							</div>
 						</th>
 					</tr>
 				</table>
 			</div>
 
-			<br>
 
 			<hr>
 			<p id="order-title"
-				style="font-size: 20px; font-weight: 600; color: black;">주문정보</p>
+				style="font-size: 16px; font-weight: 600; color: black;">주문정보</p>
 			<hr>
 
 			<div id="order-info2">
