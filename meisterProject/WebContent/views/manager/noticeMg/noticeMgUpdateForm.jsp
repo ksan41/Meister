@@ -35,22 +35,23 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
-							<tr>
-								<th style="height: 50px; width: 100px; text-align: center;">제목</th>
-								<td><input type="text" size="90" value="<%= n.getNoticeTitle() %>" name="title" required></td>
-							</tr>
-							<tr>
-								<th style="height: 500px; width: 100px; text-align: center;">내용</th>
-								<td><textarea required name="content"cols="100" rows="19" style="resize: none;"><%= n.getNoticeContent() %></textarea></td>
-							</tr>
-						</table>
-
-						<div align="center">
-							<button type="submit" class="button" onclick="location.href='<%= contextPath %>/imNoticeUp.nom';">수정</button>
-							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeMdetail.nom';">취소</button>
-						</div>
-
+						<form id="updateForm" action="<%= contextPath %>/imNoticeMup.nom" method="post">
+							<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
+								<tr>
+									<th style="height: 50px; width: 100px; text-align: center;">제목</th>
+									<td><input type="text" size="90" value="<%= n.getNoticeTitle() %>" name="title" required></td>
+								</tr>
+								<tr>
+									<th style="height: 500px; width: 100px; text-align: center;">내용</th>
+									<td><textarea name="content"cols="100" rows="19" style="resize: none;" required><%= n.getNoticeContent() %></textarea></td>
+								</tr>
+							</table>
+							
+							<div align="center">
+								<button type="submit" class="button">수정</button>
+								<button class="button" onclick="location.href='<%= contextPath %>/imNoticeMdetail.nom';">취소</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
