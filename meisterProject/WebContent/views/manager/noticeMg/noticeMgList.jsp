@@ -62,7 +62,6 @@
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
 									<% for(Notice n : list){ %>
-										
 										<tr>
 											<td><%= n.getNoticeNo() %></td>
 											<td><%= n.getNoticeTitle() %></td>
@@ -81,6 +80,7 @@
 	</div>
 	
 	<script>
+		// 공지사항 상세조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
 				console.log("클릭");
