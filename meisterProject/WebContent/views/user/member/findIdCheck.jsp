@@ -198,14 +198,14 @@
                                     <tr>
                                         <th>이름</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="text" name="name" style="width: 100%;">
+                                            <input class="text-area" type="text" name="name2" style="width: 100%;">
                                         </td>
                                     </tr>
                                    
                                     <tr>
                                         <th>이메일</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="email" name="email1">
+                                            <input class="text-area" type="email" name="email">
                                             &nbsp;@&nbsp;
                                             
                                         </td>
@@ -249,9 +249,12 @@
     </div>
     
     
-    
-    <script>
+	<!-- 아이디 찾기  -->
+
 	
+		 
+		 <script>
+					
 	 
       /* (이메일) 인증번호 발송 버튼 클릭시 */
       $("#email_send").click(function(){
@@ -295,6 +298,22 @@
     	 });
       });
     </script>
+	   
+		 
+		 	
+		
+
+
+
+		​
+		
+	
+	
+	
+
+    
+    
+
 
     <%@ include file="../../common_user/footer.jsp"%>
 
