@@ -398,12 +398,36 @@ private Properties prop = new Properties();
 	 * @param endDate : 조회할 가입일 끝 날짜
 	 * @return : 조회된 Member객체가 담긴 ArrayList
 	 */
-	public ArrayList<Member> searchDate(String startDate,String endDate){
+	public ArrayList<Member> searchDate(Connection conn,String startDate,String endDate){
 		
 		ArrayList<Member> list = new ArrayList<>();
 		ResultSet rset = null;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty(arg0);
+		String sql = prop.getProperty("searchDate");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, startDate);
+			pstmt.setString(2, endDate);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Member m = new Member();
+				m.setMemberNo(rset.getInt("MEMBER_NO"));
+				m.setMemberId(rset.getString("MEMBER_ID"));
+				m.setMemberName(rset.getString("MEMBER_NAME"));
+				m.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				m.setMemberCouponCnt(rset.getInt("coupon_cnt"));
+				
+				list.add(m);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
 		
 		
 		return list;
