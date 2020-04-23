@@ -25,37 +25,31 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<br>
-			<!-- <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="menubar_im.html">홈</a></li>
-                            <li class="breadcrumb-item active">고객 공지사항</li>
-                        </ol> -->
-			<!-- <div class="card mb-4">
-                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
-                        </div> -->
+
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 고객 공지사항 등록
 				</div>
 				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-bordered" id="dataEnrollTable"
-							width="100%" cellspacing="0">
-							<tr>
-								<th style="height: 50px; width: 100px; text-align: center;">제목</th>
-								<td><input type="text" size="90"></td>
-							</tr>
-							<tr>
-								<th style="height: 500px; width: 100px; text-align: center;">내용</th>
-								<td><textarea name="" id="" cols="100" rows="19"
-										style="resize: none;"></textarea></td>
-							</tr>
-						</table>
-
-						<div align="center">
-							<button class="button" onclick="">등록</button>
-							<button class="button" onclick="">취소</button>
+					<form id="noticeEnrollForm" action="<%= contextPath %>/" method="post">
+						<div class="table-responsive">
+							<table class="table table-bordered" id="dataEnrollTable" width="100%" cellspacing="0">
+								<tr>
+									<th style="height: 50px; width: 100px; text-align: center;">제목</th>
+									<td><input type="text" size="90" required></td>
+								</tr>
+								<tr>
+									<th style="height: 500px; width: 100px; text-align: center;">내용</th>
+									<td><textarea name="" id="" cols="100" rows="19" style="resize: none;" required></textarea></td>
+								</tr>
+							</table>
+	
+							<div align="center">
+								<button class="button" onclick="">등록</button>
+								<button class="button" onclick="">취소</button>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
