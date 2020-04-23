@@ -207,17 +207,13 @@
                                         <td colspan="2">
                                             <input class="text-area" type="email" name="email1">
                                             &nbsp;@&nbsp;
-                                            <select id="email_area" name="email2">
-                                                <option value="gmail.com">gmail.com</option>
-                                                <option value="naver.com">naver.com</option>
-                                                <option value="daum.net">daum.net</option>
-                                            </select>
+                                            
                                         </td>
                                     </tr>
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <button class="middle_btn" id="#" style="width: 100%;">인증번호발송</button>
+                                            <button class="middle_btn" id="email_send" style="width: 100%;">인증번호발송</button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -251,6 +247,54 @@
 
         
     </div>
+    
+    
+    
+    <script>
+	
+	 
+      /* (이메일) 인증번호 발송 버튼 클릭시 */
+      $("#email_send").click(function(){
+        var email = document.getElementById("email"); // 이메일
+        randoumkey='';
+        // 6) 이메일 유효성검사
+        //mail이 입력되었는지 확인하기
+         var emailRegExp = /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
+           if (!emailRegExp.test(email.value)) {
+               alert("이메일 형식이 올바르지 않습니다!");
+               form.email.value = "";
+               form.email.focus();
+               return false;
+            }
+           
+       $.ajax({
+          url:"email.e",
+          data:{Email:email.value},
+          success:function(data){
+             alert("인증번호가 발송되었습니다.");
+             console.log(data);
+             randomKey = data;
+          },error:function(){
+             alert("이메일발송실패");
+          }
+       })    
+
+      });   
+      
+      
+      $(function(){
+    	 $("#emailComplete"). click(function(){
+    		 
+    		 //console.log(randomKey);
+    		 if($("#eamailAnswer").val()==randomKey){
+    			 location.href="views/user/member/memberEnrollForm.jsp";
+    		 }else{
+    			 alert("이메일전송을 다시해주세요.!");
+    		 }
+    		 
+    	 });
+      });
+    </script>
 
     <%@ include file="../../common_user/footer.jsp"%>
 
