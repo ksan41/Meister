@@ -100,8 +100,8 @@
 			<h1 class="mt-4">쿠폰관리</h1>
 			<br>
 			<ul id="ulNavi">
-				<li><a href="">쿠폰정보</a></li>
-				<li><a class="active" href="">쿠폰발송</a></li>
+				<li><a href="<%=contextPath%>/couponList.cm">쿠폰정보</a></li>
+				<li><a class="active">쿠폰발송</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -132,7 +132,7 @@
                                     </table> -->
 
 						<div align="right">
-							<button class="button" onclick="">다음으로</button>
+							<button class="button" onclick="memList();">다음으로</button>
 						</div>
 
 						<table class="table table-bordered" id="dataListTable"
@@ -144,7 +144,7 @@
 									<th width="20%">이름</th>
 									<th width="20%">회원가입일</th>
 									<th width="20%">보유쿠폰(수량)</th>
-									<th width="5%"><input type="checkbox"></th>
+									<th width="5%"><input class="checkAll" type="checkbox"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -153,6 +153,7 @@
 										<th colspan="6">조회된 데이터가 없습니다.</th>
 									</tr>								
 								<%}else{ %>
+								<form name="couponSendMemList" action="<%=contextPath%>/couponSendCpList.cm" method="post">
 									<%for(int i=0;i<list.size();i++){ %>
 										<tr>
 											<td><%=list.get(i).getMemberNo() %></td>
@@ -160,9 +161,11 @@
 											<td><%=list.get(i).getMemberName() %></td>
 											<td><%=list.get(i).getMemberEnrolldate() %></td>
 											<td><%=list.get(i).getMemberCouponCnt() %></td>
-											<th><input type="checkbox"></th>
+											<th><input class="cb" id="memCheck<%=i%>" name="checkMem" type="checkbox" value="<%=list.get(i).getMemberNo() %>"></th>
 										</tr>
 									<%} %>
+									<input type="submit" id="hiddenNextBtn" style="display:none;">
+								</form>	
 								<%} %>
 							</tbody>
 						</table>
@@ -174,6 +177,17 @@
 		</div>
 		</main>
 	</div>
-
+	<script>
+	    $( document ).ready( function() {
+	        $( '.checkAll' ).click( function() {
+	          $( '.cb' ).prop( 'checked', this.checked );
+	        } );
+	      } );
+	
+    	function memList(){
+  	  
+  	 	 	$("#hiddenNextBtn").trigger("click");
+   		 }
+	</script>
 </body>
 </html>
