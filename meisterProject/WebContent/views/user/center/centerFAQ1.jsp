@@ -8,127 +8,124 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-
-<style>
-/* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
-div {
-	box-sizing: border-box;
-}
-
-.outer {
-	width: 1000px;
-	box-sizing: border-box;
-	margin: auto;
-	margin-top: 100px;
-	margin-bottom: 150px;
-}
-
-.outer * {
-	font-family: 'NanumSquare';
-}
-
-.outer a {
-	text-decoration: none;
-}
-
-#index-area {
-	text-align: right;
-	font-size: 12px;
-}
-
-#index-area a {
-	color: gray
-}
-
-.sub-menu-area * {
-	padding: 5px;
-}
-
-.sub-menu-area>a {
-	font-size: 17px;
-	color: black;
-	font-weight: bolder;
-}
-
-/* 서브메뉴 스타일 끝 */
-
-/* 고객센터 FAQ 스타일 시작 */
-.faqComment {
-	padding: 10px;
-	padding-top: 17px;
-	font-size: 13px;
-}
-
-.faqComment>p {
-	color: red;
-	font-size: 11px;
-}
-
-.faqBtns {
-	margin-left: 5px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
-
-.faqBtns button {
-	background-color: lightgray;
-	border: none;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 14px;
-	margin: 4px 2px;
-	cursor: pointer;
-	width: 240px;
-	height: 30px;
-}
-
-.faqBtns button.active {
-	background-color: rgb(76, 60, 60);
-	color: white;
-	border: 1px solid rgb(76, 60, 60);
-}
-
-.faqQuestion {
-	padding-left: 30px;
-	border-bottom: 1px solid lightgray;
-}
-
-.faqQuestion tr {
-	height: 60px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.faqAnswer td {
-	font-size: 12px;
-}
-
-.faqAnswer tr {
-	height: 100px;
-}
-
-.faqAnswer {
-	padding-left: 30px;
-	display: none; /* 실행안되면 지우기 */
-	border-bottom: 1px solid lightgray;
-}
-/* 고객센터 FAQ 스타일 끝 */
-
-/*클래스 추가 이벤트 */
-.content2, .content3, .content4 {
-	display: none;
-}
-</style>
-
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	
+	<style>
+		/* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
+		div {
+			box-sizing: border-box;
+		}
+		
+		.outer {
+			width: 1000px;
+			box-sizing: border-box;
+			margin: auto;
+			margin-top: 100px;
+			margin-bottom: 150px;
+		}
+		
+		.outer * {
+			font-family: 'NanumSquare';
+		}
+		
+		.outer a {
+			text-decoration: none;
+		}
+		
+		#index-area {
+			text-align: right;
+			font-size: 12px;
+		}
+		
+		#index-area a {
+			color: gray
+		}
+		
+		.sub-menu-area * {
+			padding: 5px;
+		}
+		
+		.sub-menu-area>a {
+			font-size: 17px;
+			color: black;
+			font-weight: bolder;
+		}
+		
+		/* 서브메뉴 스타일 끝 */
+		
+		/* 고객센터 FAQ 스타일 시작 */
+		.faqComment {
+			padding: 10px;
+			padding-top: 17px;
+			font-size: 13px;
+		}
+		
+		.faqComment>p {
+			color: red;
+			font-size: 11px;
+		}
+		
+		.faqBtns {
+			margin-left: 5px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		
+		.faqBtns button {
+			background-color: lightgray;
+			border: none;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			margin: 4px 2px;
+			cursor: pointer;
+			width: 240px;
+			height: 30px;
+		}
+		
+		.faqBtns button.active {
+			background-color: rgb(76, 60, 60);
+			color: white;
+			border: 1px solid rgb(76, 60, 60);
+		}
+		
+		.faqQuestion {
+			padding-left: 30px;
+			border-bottom: 1px solid lightgray;
+		}
+		
+		.faqQuestion tr {
+			height: 60px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		
+		.faqAnswer td {
+			font-size: 12px;
+		}
+		
+		.faqAnswer tr {
+			height: 100px;
+		}
+		
+		.faqAnswer {
+			padding-left: 30px;
+			display: none; /* 실행안되면 지우기 */
+			border-bottom: 1px solid lightgray;
+		}
+		/* 고객센터 FAQ 스타일 끝 */
+		
+		/*클래스 추가 이벤트 */
+		.content2, .content3, .content4 {
+			display: none;
+		}
+	</style>
 
 </head>
-
 <body>
-
 
 	<%@ include file="../../common_user/menubar.jsp"%>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp"%>
