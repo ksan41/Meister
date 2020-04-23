@@ -82,4 +82,24 @@ public class CouponService {
 		
 		return result;
 	}
+	
+	/**산
+	 * 통합관리자- 선택쿠폰 삭제 서비스
+	 * @param arr : 삭제할 쿠폰번호들이 담긴 int 배열
+	 * @return : 처리된 행의 개수
+	 */
+	public int deleteCoupon(String cArr) {
+		
+		Connection conn = getConnection();
+		int result = new CouponDao().deleteCoupon(conn,cArr);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 }
