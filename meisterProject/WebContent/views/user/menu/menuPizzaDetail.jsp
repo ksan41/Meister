@@ -427,6 +427,46 @@ p {
 	text-align: right;
 	padding-right: 40px;
 }
+
+
+/*라디오버튼 숨김*/
+#price1, #price2 {
+    display: none;
+}
+label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 0px;
+    font-weight: 600;
+    text-align: center;
+    color: black;
+    /* border: 1px solid transparent; */
+}
+label:hover {
+    color: #2e9cdf;
+    cursor: pointer;
+}
+
+
+
+/*input 클릭시, label 스타일*/
+input:checked + label {
+      color: white;
+      background-color: red;
+      /* border-radius: 5px; */
+      /* border: 1px solid #ddd;
+      border-top: 2px solid #2e9cdf;
+      border-bottom: 1px solid #ffffff; */
+}
+#price1:checked ~ #content1,
+#price2:checked ~ #content2
+{
+    display: block;
+}
+
+/* 탭 메뉴 끝 */
+
+
 </style>
 
 
@@ -468,10 +508,14 @@ p {
 							<h2><%= list.get(0).getPizzaName() %></h2>
 								<hr>
 						</div>
-						<div id="info-size">
+						<div id="info-size" class="info-size">
 							<h2>사이즈 선택</h2>
-							<button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button>
-							<button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button>
+							<input id="price1" type="radio" name="price" value="<%= list2.get(0).getPizzaSize() %>" style="width:40; height: 150;">
+							<label for="price1" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</label>
+							<%-- <button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button> --%>
+							<input id="price2" type="radio" name="price" value="<%= list2.get(1).getPizzaSize() %>" style="width:40; height: 150;">
+							<label for="price2" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</label>
+							<%-- <button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button> --%>
 							<hr>
 						</div>
 						<div id="info-dough">
@@ -826,6 +870,9 @@ p {
 			
 			
 			$("#addCart").click(function(){
+ 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
+				console.log(pizzaSize);
+				
 				var dough = $(".dough-select input[type=radio]:checked").val();
 				$("#cart input[name=dough]").val(dough);
 				
@@ -857,7 +904,7 @@ p {
 				$("#cart input[name=etc]").val(etc);
 				$("#cart input[name=etcAmount]").val(etcAmount);
 				
-				$("#cart").submit();
+				//$("#cart").submit();
 				
 			});
 			
