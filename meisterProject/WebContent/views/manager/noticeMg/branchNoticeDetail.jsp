@@ -51,8 +51,8 @@
 
 						<div align="center">
 							<button class="button" onclick="location.href='<%= contextPath %>/imNoticeBlist.nom';">목록</button>
-							<button class="button" onclick="">수정</button>
-							<button class="button" onclick="">삭제</button>
+							<button class="button" onclick="updateForm();">수정</button>
+							<button class="button" onclick="deleteNotice();">삭제</button>
 						</div>
 					</div>
 				</div>
@@ -60,5 +60,20 @@
 		</div>
 		</main>
 	</div>
+		<form id="postForm" action="<%=contextPath%>/imNoticeBdelete.nom" method="post">
+		<input type="hidden" name="nno" value="<%= n.getNoticeNo() %>">
+	</form>
+	<script>
+		// 삭제하기 버튼 클릭시
+		function deleteNotice(){
+			$("#postForm").submit();
+		}
+		
+		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
+		function updateForm(){
+			$("#postForm").attr("action", "<%=contextPath%>/updateForm.no");
+			$("#postForm").submit();
+		}
+	</script>
 </body>
 </html>

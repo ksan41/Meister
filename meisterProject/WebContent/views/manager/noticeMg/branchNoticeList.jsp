@@ -79,7 +79,8 @@
 				location.href="<%= contextPath %>/imNoticeBenroll.nom";
 			});
 		});
-	
+		
+		// 상세페이지 조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
 				//console.log("클릭");

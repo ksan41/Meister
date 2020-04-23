@@ -229,13 +229,13 @@ public class NoticeDao {
 		}
 		return result;
 	}
-	
 
-	public int deleteBnotice(Connection conn, int nno) {
+	
+	public int deleteNotice(Connection conn, int nno) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("deleteBnotice");
+		String sql = prop.getProperty("deleteNotice");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -251,7 +251,6 @@ public class NoticeDao {
 		return result;
 	}
 	
-	updateNotice(conn, n)
 	public int updateNotice(Connection conn, Notice n) {
 		
 		int result = 0;

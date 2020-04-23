@@ -135,10 +135,10 @@ public class NoticeService {
 	 * @param nno		--> 삭제요청한 공지사항 글 번호
 	 * @return			--> 처리된 행의 개수
 	 */
-	public int deleteBnotice(int nno) {
+	public int deleteNotice(int nno) {
 		
 		Connection conn = getConnection();
-		int result = new NoticeDao().deleteBnotice(conn, nno);
+		int result = new NoticeDao().deleteNotice(conn, nno);
 		
 		if(result > 0) {
 			commit(conn);

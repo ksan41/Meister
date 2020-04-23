@@ -34,7 +34,7 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 		
 		int nno = Integer.parseInt(request.getParameter("nno"));
 		
-		int result = new NoticeService().deleteBnotice(nno);
+		int result = new NoticeService().deleteNotice(nno);
 		
 		if(result > 0) {// 공지사항 삭제 성공
 			
@@ -47,7 +47,7 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('공지사항 등록이 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeBdetail.nom?nno="+nno+"';</script>");
+			out.println("<script>alert('공지사항 삭제가 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeBdetail.nom?nno="+nno+"';</script>");
 			out.flush();
 		}
 	}
