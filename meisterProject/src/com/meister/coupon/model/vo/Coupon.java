@@ -7,8 +7,8 @@ public class Coupon {
 	private int couponNo;			// 쿠폰번호
 	private String couponName;		// 쿠폰명
 	private int couponDiscount;	// 할인율
-	private Date couponStart;		// 시작기간
-	private Date couponEnd;			// 종료기간
+	private String couponStart;		// 시작기간  (String으로 사용)
+	private String couponEnd;			// 종료기간 (String으로 사용)
 	private Date couponRegisterDate;// 등록일
 	private Date couponModifyDate;	// 수정일
 	private String couponStatus;   // 쿠폰 상태값(삭제여부)
@@ -16,7 +16,7 @@ public class Coupon {
 	public Coupon() {}
 
 
-	public Coupon(int couponNo, String couponName, int couponDiscount, Date couponStart, Date couponEnd,
+	public Coupon(int couponNo, String couponName, int couponDiscount, String couponStart, String couponEnd,
 			Date couponRegisterDate, Date couponModifyDate) {
 		super();
 		this.couponNo = couponNo;
@@ -29,7 +29,7 @@ public class Coupon {
 	}
 	
 
-	public Coupon(int couponNo, String couponName, int couponDiscount, Date couponStart, Date couponEnd,
+	public Coupon(int couponNo, String couponName, int couponDiscount, String couponStart, String couponEnd,
 			Date couponRegisterDate, Date couponModifyDate, String couponStatus) {
 		super();
 		this.couponNo = couponNo;
@@ -43,7 +43,7 @@ public class Coupon {
 	}
 
 
-	public Coupon(int couponNo, String couponName, Date couponStart, Date couponEnd) {
+	public Coupon(int couponNo, String couponName, String couponStart, String couponEnd) {
 		super();
 		this.couponNo = couponNo;
 		this.couponName = couponName;
@@ -82,22 +82,22 @@ public class Coupon {
 	}
 
 
-	public Date getCouponStart() {
+	public String getCouponStart() {
 		return couponStart;
 	}
 
 
-	public void setCouponStart(Date couponStart) {
+	public void setCouponStart(String couponStart) {
 		this.couponStart = couponStart;
 	}
 
 
-	public Date getCouponEnd() {
+	public String getCouponEnd() {
 		return couponEnd;
 	}
 
 
-	public void setCouponEnd(Date couponEnd) {
+	public void setCouponEnd(String couponEnd) {
 		this.couponEnd = couponEnd;
 	}
 

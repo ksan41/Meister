@@ -54,8 +54,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getDate("COUPON_START"),
-						rset.getDate("COUPON_END"),
+						rset.getString("COUPON_START"),
+						rset.getString("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -102,8 +102,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getDate("COUPON_START"),
-						rset.getDate("COUPON_END"),
+						rset.getString("COUPON_START"),
+						rset.getString("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -149,8 +149,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getDate("COUPON_START"),
-						rset.getDate("COUPON_END"),
+						rset.getString("COUPON_START"),
+						rset.getString("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -167,6 +167,21 @@ public class CouponDao {
 		}
 		
 		return list;
+		
+	}
+	
+	
+	/** 산
+	 * 통합관리자- 쿠폰 등록 dao
+	 * @param conn : CouponService에서 생성한 Connection객체
+	 * @param newC : 등록할 쿠폰 정보가 담긴 Coupon객체
+	 * @return : 처리된 행의개수
+	 */
+	public int insertCoupon(Connection conn, Coupon newC) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty(arg0);
 		
 	}
 }

@@ -58,4 +58,24 @@ public class CouponService {
 		close(conn);
 		return list;
 	}
+	
+	
+	/**산
+	 * 통합관리자- 쿠폰 등록 서비스
+	 * @param newC : 등록할 쿠폰 정보가 담긴 Coupon객체
+	 * @return : 처리된 행의개수
+	 */
+	public int insertCoupon(Coupon newC) {
+		
+		Connection conn = getConnection();
+		int result = new CouponDao().insertCoupon(conn,newC);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
 }

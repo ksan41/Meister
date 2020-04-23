@@ -250,6 +250,7 @@
 				</div>
 
 				<!-- Modal body -->
+				<form name="couponInsertForm" action="<%=contextPath%>/couponInsert.cm" method="post">
 				<div class="modal-body">
 					<table id="couponEnrollTable">
 						<tr>
@@ -273,10 +274,10 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" style="margin: auto;">
 					<!-- 하단버튼 영역-->
-					<button id="couponEnrollBtn" type="button" class="btn btn-danger" data-dismiss="modal"
+					<button id="couponEnrollBtn" type="submit" class="btn btn-danger" data-dismiss="modal"
 						style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">등록완료</button>
 				</div>
-
+				</form>
 			</div>
 		</div>
 	</div>
