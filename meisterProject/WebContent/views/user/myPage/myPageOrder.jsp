@@ -6,14 +6,6 @@
 	ArrayList<Orders> ordersList = (ArrayList<Orders>)request.getAttribute("ordersList");
 	ArrayList<Price> priceList = (ArrayList<Price>)request.getAttribute("priceList");
 
-	ArrayList<Object> pArr = new ArrayList<>();
-	ArrayList<Object> sArr = new ArrayList<>();
-	ArrayList<Object> eArr = new ArrayList<>();
-	
-	int pizzaCount = 0;
-	int sideCount = 0;
-	int etcCount = 0;
-	int totalCount = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -239,33 +231,30 @@ div {
 								}
 								%>
 								<%
-								String[] pStr = priceList.get(i).getPizzaNo().split(",");
+								int pizzaCount=0;
+								int sideCount=0;
+								int etcCount=0;
+								
+								String[] pStr = priceList.get(i).getPizzaCount().split(",");
 								for(int j=0; j<pStr.length; j++){
-									pArr.add(pStr[i]);
+									pizzaCount += Integer.parseInt(pStr[j]);
 								}
 								
 								if(priceList.get(i).getSideCount() != null){
 									String[] sStr = priceList.get(i).getSideCount().split(",");
 									for(int j=0; j<sStr.length; j++){
-										sArr.add(sStr[i]);
+										sideCount += Integer.parseInt(sStr[j]);
 									}
 								}
 								
 								if(priceList.get(i).getEtcCount() != null){
 									String[] eStr = priceList.get(i).getEtcCount().split(",");
 									for(int j=0; j<eStr.length; j++){
-										eArr.add(eStr[i]);
+										etcCount += Integer.parseInt(eStr[j]);
 									}
 								}
 								
-								pizzaCount = pArr.size();
-								if(!sArr.isEmpty()){
-									sideCount = sArr.size();									
-								}
-								if(!eArr.isEmpty()){
-									etcCount = eArr.size();
-								}
-								totalCount = pizzaCount + sideCount + etcCount;
+								int totalCount = pizzaCount + sideCount + etcCount;
 								%>
 								<%=pizzaName%> 외 <%=totalCount-1%>건 <%=priceList.get(i).getTotalPrice()%>원
 							</td>
