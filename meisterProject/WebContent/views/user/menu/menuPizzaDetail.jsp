@@ -499,7 +499,7 @@ p {
 						<h2>수량 선택</h2>
 						<div class="cntBtn-big">
 							<button id="cnt_down_p">-</button>
-							<input id="menu_cnt_p" type="text" name="피자번호" value="1" readonly>
+							<input id="menu_cnt_p" type="text" name="<%= list.get(0).getPizzaNo() %>" value="1" readonly>
 							<button id="cnt_up_p">+</button>
 						</div>
 						<hr>

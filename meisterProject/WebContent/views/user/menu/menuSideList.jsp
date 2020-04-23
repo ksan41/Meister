@@ -364,7 +364,7 @@ p {
 				
 				<% for(int i=0; i<list.size();i++) {  Side s = list.get(i);%>
 					<div id="menu-thumb">
-						<div id="menu-img">
+						<div id="menu-img" class="menu-img">
 							<input type="hidden" value="<%= s.getSideNo() %>">
 							<img src= "<%= s.getSideImg() %>" alt="">
 						</div>
@@ -429,7 +429,8 @@ p {
 						<!-- Modal footer -->
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
-							<button class="middle_btn" id="order-btn">주문하기</button>
+							<input type="hidden" value="<%= s.getSideNo() %>">
+							<button class="middle_btn order-btn" id="order-btn">주문하기</button>
 							<button class="middle_btn" id="close-btn" data-dismiss="modal">닫기</button>
 						</div>
 	
@@ -439,6 +440,33 @@ p {
 		<% } %>
 		<!-- 모달 끝 -->
 	</div>
+	
+	<script>
+		$(function(){
+			$(".menu-img").click(function(){
+				var sno = $(this).children().eq(0).val();
+				console.log(sno);
+				location.href="<%=contextPath%>/sideDetail.men?sno=" + sno;
+				
+			});
+		});
+		
+		$(function(){
+			$(".order-btn").click(function(){
+				var sno = $(this).prev().val();
+				console.log(sno);
+				location.href="<%=contextPath%>/sideDetail.men?sno=" + sno;
+				
+			});
+		});
+		
+		
+		
+	</script>
+	
+	
+	
+	
 	<%@ include file="../../common_user/footer.jsp"%>
 
 </body>

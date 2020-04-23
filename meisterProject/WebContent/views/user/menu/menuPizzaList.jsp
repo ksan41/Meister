@@ -519,7 +519,8 @@ p {
 							<!-- Modal footer -->
 							<div class="modal-footer" style="margin: auto;">
 								<!-- 하단버튼 영역-->
-								<button class="middle_btn" id="order-btn">주문하기</button>
+								<input type="hidden" value="<%= p.getPizzaNo()%>">
+								<button class="middle_btn order-btn" id="order-btn">주문하기</button>
 								<button class="middle_btn" id="close-btn" data-dismiss="modal">닫기</button>
 							</div>
 		
@@ -573,7 +574,8 @@ p {
 							<!-- Modal footer -->
 							<div class="modal-footer" style="margin: auto;">
 								<!-- 하단버튼 영역-->
-								<button class="middle_btn" id="order-btn">주문하기</button>
+								<input type="hidden" value="<%= p.getPizzaNo()%>">
+								<button class="middle_btn order-btn2" id="order-btn">주문하기</button>
 								<button class="middle_btn" id="close-btn" data-dismiss="modal">닫기</button>
 							</div>
 		
@@ -596,12 +598,29 @@ p {
 				
 			});
 		});
+		$(function(){
+			$(".order-btn").click(function(){
+				var pno = $(this).prev().val();
+				console.log(pno);
+				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
+				
+			});
+		});
 	</script>
 	
 	<script>
 		$(function(){
 			$(".menu-img2").click(function(){
 				var pno = $(this).children().eq(0).val();
+				console.log(pno);
+				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
+				
+			});
+		});
+		
+		$(function(){
+			$(".order-btn2").click(function(){
+				var pno = $(this).prev().val();
 				console.log(pno);
 				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
 				

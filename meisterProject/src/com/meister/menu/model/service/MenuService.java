@@ -15,7 +15,7 @@ import com.meister.menu.model.vo.Side;
 
 public class MenuService {
 	
-	/**
+	/**현영
 	 * 1. 피자 리스트 조회용 서비스
 	 * @return	--> 조회된 피자 담은 객체
 	 */
@@ -31,7 +31,7 @@ public class MenuService {
 		
 	}
 	
-	/**
+	/**현영
 	 * 2. 피자 사이즈, 가격 조회용 서비스
 	 * @return	--> 조회돈 사이즈 가격 담은 객체
 	 */
@@ -48,6 +48,10 @@ public class MenuService {
 	}
 	
 	
+	/**현영
+	 * 3. 사이드 리스트 조회용 서비스
+	 * @return	--> 조회된 사이드 담은 객체
+	 */
 	public ArrayList<Side> selectSideList(){
 		
 		Connection conn = getConnection();
@@ -60,6 +64,10 @@ public class MenuService {
 		
 	}
 	
+	/**현영
+	 * 4. 기타 리스트 조회용 서비스
+	 * @return	--> 조회된 기타 담은 객체
+	 */
 	public ArrayList<Etc> selectEtcList(){
 		
 		Connection conn = getConnection();
@@ -72,6 +80,10 @@ public class MenuService {
 		
 	}
 	
+	/**현영
+	 * 5. 도우 리스트 조회용 서비스
+	 * @return	--> 조회된 도우 담은 객체
+	 */	
 	public ArrayList<Dough> selectDoughList(){
 		
 		Connection conn = getConnection();
@@ -84,6 +96,11 @@ public class MenuService {
 		
 	}
 	
+	/**현영
+	 * 6. 피자 상세조회용 서비스
+	 * @param pno	--> 조회하고자하는 피자 번호
+	 * @return		--> 피자번호와 일치하는 Pizza 객체
+	 */
 	public ArrayList<Pizza> selectPizzaDetail(int pno){
 		
 		Connection conn = getConnection();
@@ -95,6 +112,11 @@ public class MenuService {
 		return list;
 	}
 	
+	/**현영
+	 * 6_1 피자 상세조회용 서비스
+	 * @param pno		--> 조회하고자하는 피자 번호
+	 * @return			--> 피자번호와 일치하는 PizzaSize 객체
+	 */
 	public ArrayList<PizzaSize> selectPizzaSizeDetail(int pno){
 		
 		Connection conn = getConnection();
@@ -104,6 +126,24 @@ public class MenuService {
 		close(conn);
 		
 		return list;
+	}
+	
+	/**
+	 * 7. 사이드 상세조회용 서비스
+	 * @param sno		--> 조회하고자하는 사이드 번호
+	 * @return			--> 피자번호와 일치하는 Side 객체
+	 */
+	public ArrayList<Side> selectSideDetail(int sno){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Side> list = new MenuDao().selectSideDetail(conn, sno);
+		
+		close(conn);
+		
+		return list;
+		
+		
 	}
 	
 	

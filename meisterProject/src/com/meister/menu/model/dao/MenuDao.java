@@ -287,6 +287,46 @@ public class MenuDao {
 		
 	}
 	
+	public ArrayList<Side> selectSideDetail(Connection conn, int sno){
+		
+		ArrayList<Side> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("sideDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sno);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Side s = new Side();
+				s.setSideNo(rset.getInt("SIDE_NO"));
+				s.setSideName(rset.getString("SIDE_NAME"));
+				s.setSideImg(rset.getString("SIDE_IMAGE"));
+				s.setSidePrice(rset.getInt("SIDE_PRICE"));
+				s.setSideContent(rset.getString("SIDE_CONTENT"));
+				s.setSideTopping(rset.getString("SIDE_TOPPING_CONTENT"));
+				s.setSideOrigin(rset.getString("SIDE_ORIGIN"));
+				
+				list.add(s);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+		
+	}
+	
 	
 	
 	
