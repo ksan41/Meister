@@ -853,7 +853,7 @@ input:checked + label {
 	</div>
 	<!-- 모달 끝 -->
 	
-	<form id="cart" action="insertSide.men" method="get">
+	<form id="cart" action="insertPizza.men" method="get">
 		<input type="hidden" name="pizzaNo" value="<%= list.get(0).getPizzaNo() %>">
 		<input type="hidden" name="pizzaSize" value="">
 		<input type="hidden" name="dough" value="">
@@ -871,7 +871,8 @@ input:checked + label {
 			
 			$("#addCart").click(function(){
  				var pizzaSize = $("#info-size input[type=radio]:checked").val();
-				console.log(pizzaSize);
+				//console.log(pizzaSize);
+				$("#cart input[name=pizzaSize]").val(pizzaSize);
 				
 				var dough = $(".dough-select input[type=radio]:checked").val();
 				$("#cart input[name=dough]").val(dough);
@@ -904,7 +905,7 @@ input:checked + label {
 				$("#cart input[name=etc]").val(etc);
 				$("#cart input[name=etcAmount]").val(etcAmount);
 				
-				//$("#cart").submit();
+				$("#cart").submit();
 				
 			});
 			
