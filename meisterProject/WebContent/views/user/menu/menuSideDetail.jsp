@@ -375,198 +375,198 @@ p {
 
 
 		<!-- inner영역에 콘텐츠 작성 -->
-		<div class="inner">
-			<div class="menuArea">
-				<div id="imgArea">
-					<img id="menu-img" src="<%= list.get(0).getSideImg() %>" alt="">
-					<br>
-					<br>
-					<p id="menu-detail-btn" data-toggle="modal"
-						data-target="#menu-detail-modal">메뉴정보 상세</p>
-				</div>
-				<div id="infoArea">
-					<div id="info-title">
-						<h2><%= list.get(0).getSideName() %></h2>
-						<%= list.get(0).getSidePrice() %>원
-							<hr>
+		<form action="<%= contextPath %>/insertSide.men" method="post">
+			<div class="inner">
+				<div class="menuArea">
+					<div id="imgArea">
+						<img id="menu-img" src="<%= list.get(0).getSideImg() %>" alt="">
+						<br>
+						<br>
+						<p id="menu-detail-btn" data-toggle="modal"
+							data-target="#menu-detail-modal">메뉴정보 상세</p>
 					</div>
-					<!-- 
-					<div id="info-pirce">
-						<h2>가격</h2>
-						<%= list.get(0).getSidePrice() %>
-						<hr>
-					</div> -->
-					<div id="info-amount">
-						<h2>수량 선택</h2>
-						<div class="cntBtn-big">
-							<button id="cnt_down_p">-</button>
-							<input id="menu_cnt_p" type="text" name="<%= list.get(0).getSideNo() %>" value="1"
-								readonly>
-							<button id="cnt_up_p">+</button>
+					<div id="infoArea">
+						<div id="info-title">
+							<h2><%= list.get(0).getSideName() %></h2>
+							<%= list.get(0).getSidePrice() %>원
+								<hr>
 						</div>
-						<hr>
-					</div>
-
-					<!-- 음료&기타영역 -->
-					<br>
-					<h2>음료&기타</h2>
-					<div class="etc-area">
 						<!-- 
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
-						</div>
-						<div class="etc-menu">
-							<div class="etc-info">
-								<img src="etc/0020020000032.png" alt="">
-								<div class="etc-info-text">
-									<b>콜라 1.25L<br> 2000원
-									</b>
-								</div>
-							</div>
-							<div class="etc-btn">
-								<div class="cntBtn-small">
-									<button class="cnt_down">-</button>
-									<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-										readonly>
-									<button class="cnt_up">+</button>
-								</div>
-							</div>
+						<div id="info-pirce">
+							<h2>가격</h2>
+							<%= list.get(0).getSidePrice() %>
+							<hr>
 						</div> -->
-						
-						<% for(Etc e : list2) { %>
+						<div id="info-amount">
+							<h2>수량 선택</h2>
+							<div class="cntBtn-big">
+								<button id="cnt_down_p">-</button>
+								<input id="menu_cnt_p" type="text" name="<%= list.get(0).getSideNo() %>" value="1"
+									readonly>
+								<button id="cnt_up_p">+</button>
+							</div>
+							<hr>
+						</div>
+	
+						<!-- 음료&기타영역 -->
+						<br>
+						<h2>음료&기타</h2>
+						<div class="etc-area">
+							<!-- 
 							<div class="etc-menu">
 								<div class="etc-info">
-									<img src="<%= e.getEtcImg() %>" alt="">
+									<img src="etc/0020020000032.png" alt="">
 									<div class="etc-info-text">
-										<b style="color:black;"><%=e.getEtcName() %><br> <%= e.getEtcPrice() %>원
+										<b>콜라 1.25L<br> 2000원
 										</b>
 									</div>
 								</div>
 								<div class="etc-btn">
 									<div class="cntBtn-small">
 										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="<%=e.getEtcNo() %>" value="0"
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
 											readonly>
 										<button class="cnt_up">+</button>
 									</div>
 								</div>
 							</div>
-						<% } %>
-						
-						
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div>
+							<div class="etc-menu">
+								<div class="etc-info">
+									<img src="etc/0020020000032.png" alt="">
+									<div class="etc-info-text">
+										<b>콜라 1.25L<br> 2000원
+										</b>
+									</div>
+								</div>
+								<div class="etc-btn">
+									<div class="cntBtn-small">
+										<button class="cnt_down">-</button>
+										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
+											readonly>
+										<button class="cnt_up">+</button>
+									</div>
+								</div>
+							</div> -->
+							
+							<% for(Etc e : list2) { %>
+								<div class="etc-menu">
+									<div class="etc-info">
+										<img src="<%= e.getEtcImg() %>" alt="">
+										<div class="etc-info-text">
+											<b style="color:black;"><%=e.getEtcName() %><br> <%= e.getEtcPrice() %>원
+											</b>
+										</div>
+									</div>
+									<div class="etc-btn">
+										<div class="cntBtn-small">
+											<button class="cnt_down">-</button>
+											<input class="menu-cnt" type="text" name="<%=e.getEtcNo() %>" value="0"
+												readonly>
+											<button class="cnt_up">+</button>
+										</div>
+									</div>
+								</div>
+							<% } %>
+							
+							
+						</div>
+						<br>
+						<br>
+						<br>
+						<button class="big_btn" id="#">장바구니에 추가</button>
 					</div>
-					<br>
-					<br>
-					<br>
-					<button class="big_btn" id="#">장바구니에 추가</button>
 				</div>
+	
+	
 			</div>
 
-
-		</div>
-
-
+		</form>
 	</div>
-
 
 	<!-- 모달 시작 -->
 	<div class="modal fade" id="menu-detail-modal">
