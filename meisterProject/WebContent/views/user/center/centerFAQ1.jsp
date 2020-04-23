@@ -179,22 +179,31 @@ div {
 							<td style="width: 900px;">예약주문만 가능한 경우는 왜 그런가요?</td>
 						</tr>
 					</table>
+				
 				</div>
 				
-				<% if(list.isEmpty()) { %> // 리스트가 비어 있을 경우
-				
+				  <% if(list.isEmpty()) { %> // 리스트가 비어 있을 경우
+				<tr>
+					
+				</tr>
 				<% } else { %> // 리스트가 비어 있지 않을 경우
 				
-					   <% for(Center c : list) { %>
+					   <% for(Faq f : list) { %>
 					   <tr>
-							<td><%=  %></td>
-							<td><%=  %></td>
-							<td><%=  %></td>
-							<td><%=  %></td>
+							<td><%= f.getFaqNo() %></td>
+							<td><%= f.getFaqType() %></td>
+							<td><%= f.getFaqQuestion() %></td>
+							<td><%= f.getFaqAnswer() %></td>
 					    </tr>
 					<% } %>
 					
 					<% } %>
+					
+					
+				
+				
+				
+				
 				
 			
 				
@@ -373,7 +382,7 @@ div {
 		    
 		    
 		    
-		    
+		  
 		    
 		    
 			

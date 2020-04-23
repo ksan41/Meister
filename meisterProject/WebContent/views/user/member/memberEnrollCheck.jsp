@@ -255,7 +255,7 @@
     		 
     		 //console.log(randomKey);
     		 if($("#eamailAnswer").val()==randomKey){
-    			 location.href="";
+    			 location.href="views/user/member/memberEnrollForm.jsp";
     		 }else{
     			 alert("이메일전송을 다시해주세요.!");
     		 }

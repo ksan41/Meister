@@ -100,6 +100,7 @@ public class MailServlet extends HttpServlet {
         }catch (Exception e) {
             e.printStackTrace();// TODO: handle exception
         }
+        
 //        HttpSession saveKey = request.getSession();
 //        saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
 //        

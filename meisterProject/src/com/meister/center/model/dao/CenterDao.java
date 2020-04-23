@@ -56,6 +56,7 @@ public class CenterDao {
 		return result;
 	}
 
+	
 	public int insertInquiryImage(Connection conn, CenterImage ci) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -108,6 +109,8 @@ public class CenterDao {
 		return storeList;
 	}
 
+	
+	
 	public ArrayList<Faq> selectList(Connection conn) {
 
 		ArrayList<Faq> list = new ArrayList<>();

@@ -46,7 +46,8 @@ public class CenterService {
 	
 	
 	
-	/** FAQ 리스트 조회
+	/** 태경 
+	 *  FAQ 리스트 조회
 	 * @return --> Center 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
 	public ArrayList<Faq> selectList() {
