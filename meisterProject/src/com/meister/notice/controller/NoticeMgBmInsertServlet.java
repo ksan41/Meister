@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class NoticeMgBmEnrollFormServlet
+ * Servlet implementation class NoticeMgBmInsertServlet
  */
-@WebServlet("/imNoticeBenroll.nom")
-public class NoticeMgBmEnrollFormServlet extends HttpServlet {
+@WebServlet("/iNoticeBinsert.nom")
+public class NoticeMgBmInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeMgBmEnrollFormServlet() {
+    public NoticeMgBmInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,8 @@ public class NoticeMgBmEnrollFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("views/manager/noticeMg/branchNoticeEnrollForm.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
