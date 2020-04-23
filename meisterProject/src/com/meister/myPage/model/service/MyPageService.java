@@ -224,6 +224,10 @@ public class MyPageService {
 	}
 	
 	
+	/**
+	 * 11_1. 피자 이름 조회용 서비스
+	 * @return	--> 피자 번호, 피자 이름이 담긴 ArrayList<Pizza>객체
+	 */
 	public ArrayList<Pizza> selectPizzaList() {
 		
 		Connection conn = getConnection();
@@ -236,6 +240,12 @@ public class MyPageService {
 	}
 	
 	
+	/**
+	 * 11_2. 해당 회원의 주문 배달상태 조회용 서비스
+	 * @param pi	--> 요청한 페이지, 한페이지 보여질 게시글 최대수가 담겨있는 객체
+	 * @param memberNo
+	 * @return
+	 */
 	public ArrayList<Orders> selectOrdersList(PageInfo pi, int memberNo) {
 		
 		Connection conn = getConnection();
@@ -248,6 +258,12 @@ public class MyPageService {
 	}
 	
 	
+	/**
+	 * 11_3. 해당 회원의 주문 정보 조회용 서비스
+	 * @param pi	--> 요청한 페이지, 한페이지 보여질 게시글 최대수가 담겨있는 객체
+	 * @param memberNo
+	 * @return
+	 */
 	public ArrayList<Price> selectPriceList(PageInfo pi, int memberNo) {
 		
 		Connection conn = getConnection();
@@ -258,5 +274,6 @@ public class MyPageService {
 		
 		return list;
 	}
+	
 
 }
