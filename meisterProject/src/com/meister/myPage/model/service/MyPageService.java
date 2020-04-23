@@ -10,9 +10,13 @@ import java.util.ArrayList;
 
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
+import com.meister.common.PageInfo;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Member;
+import com.meister.menu.model.vo.Pizza;
 import com.meister.myPage.model.dao.MyPageDao;
+import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Price;
 
 public class MyPageService {
 	
@@ -217,6 +221,42 @@ public class MyPageService {
 		close(conn);
 		
 		return listCount;
+	}
+	
+	
+	public ArrayList<Pizza> selectPizzaList() {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Pizza> list = new MyPageDao().selectPizzaList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	public ArrayList<Orders> selectOrdersList(PageInfo pi, int memberNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Orders> list = new MyPageDao().selectOrdersList(conn, pi, memberNo);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	public ArrayList<Price> selectPriceList(PageInfo pi, int memberNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Price> list = new MyPageDao().selectPriceList(conn, pi, memberNo);
+		
+		close(conn);
+		
+		return list;
 	}
 
 }

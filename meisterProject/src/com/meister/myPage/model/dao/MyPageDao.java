@@ -14,8 +14,12 @@ import java.util.Properties;
 
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
+import com.meister.common.PageInfo;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Member;
+import com.meister.menu.model.vo.Pizza;
+import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Price;
 
 public class MyPageDao {
 	
@@ -394,6 +398,114 @@ public class MyPageDao {
 		}
 		
 		return listCount;
+	}
+	
+	
+	public ArrayList<Pizza> selectPizzaList(Connection conn) {
+		
+		ArrayList<Pizza> list = new ArrayList<>();
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPizzaList");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			
+			while(rset.next()) {
+				Pizza p = new Pizza();
+				p.setPizzaNo(rset.getInt("PIZZA_NO"));
+				p.setPizzaName(rset.getString("PIZZA_NAME"));
+				
+				list.add(p);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+	}
+	
+	
+	public ArrayList<Orders> selectOrdersList(Connection conn, PageInfo pi, int memberNo){
+		
+		ArrayList<Orders> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOrdersList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Orders o = new Orders();
+				o.setReceiptNo(rset.getInt("RECEIPT_NO"));
+				o.setDeliveryStatus(rset.getString("DELIVERY_STATUS"));
+				o.setOrderNo(rset.getInt("ORDER_NO"));
+				
+				list.add(o);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
+	
+	public ArrayList<Price> selectPriceList(Connection conn, PageInfo pi, int memberNo) {
+		
+		ArrayList<Price> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPriceList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Price p = new Price();
+				p.setOrderNo(rset.getInt("ORDER_NO"));
+				p.setTotalPrice(rset.getInt("TOTAL_PRICE"));
+				p.setPizzaNo(rset.getString("PIZZA_NO"));
+				p.setPizzaCount(rset.getString("PIZZA_COUNT"));
+				p.setSideCount(rset.getString("SIDE_COUNT"));
+				p.setEtcCount(rset.getString("ETC_COUNT"));
+				
+				list.add(p);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 
 }
