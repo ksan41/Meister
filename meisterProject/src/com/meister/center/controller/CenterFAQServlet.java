@@ -76,13 +76,9 @@ public class CenterFAQServlet extends HttpServlet {
 		
 		
 		
-		
-		
 		// FAQ(FAQ테이블) 리스트 조회후  응답페이지
 		RequestDispatcher view = request.getRequestDispatcher("views/user/center/centerFAQ1.jsp");
 	    view.forward(request,response);
-		
-		
 	}
 
 	/**
