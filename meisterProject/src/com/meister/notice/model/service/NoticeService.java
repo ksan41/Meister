@@ -93,7 +93,7 @@ public class NoticeService {
 	
 	/**
 	 * 6. 공지사항 작성용 서비스
-	 * @param n		--> 제목, 내용, 작성자 회원번호가 담겨있는 Notice객체
+	 * @param n		--> 제목, 내용이 담겨있는 Notice객체
 	 * @return		--> 처리된 행의 개수
 	 */
 	public int insertNotice(Notice n) {
