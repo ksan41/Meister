@@ -185,7 +185,7 @@ div {
 				<div align="left"
 					style="font-size: 22px; font-weight: 700; padding-bottom: 15px;">주문내역</div>
 
-				<table id="noticeList" align="center" width="1000px">
+				<table class="orderList" id="orderList" align="center" width="1000px">
 					<thead>
 						<tr style="text-align: center;">
 							<th style="width: 80px;">포장(배달)</th>
@@ -199,13 +199,13 @@ div {
 							<td>수령완료</td>
 							<td>MeisterPizza_KH 외 1건 23,540원</td>
 							<td>20190827863688990015</td>
-							<td><button class="small_btn" id="#">상세보기</button></td>
+							<td><button class="small_btn detailBtn">상세보기</button></td>
 						</tr>
 						<tr>
 							<td>수령완료</td>
 							<td>MeisterPizza_KH 외 2건 45,540원</td>
 							<td>20190827863688990015</td>
-							<td><button class="small_btn" id="#">상세보기</button></td>
+							<td><button class="small_btn detailBtn">상세보기</button></td>
 						</tr>
 
 					</tbody>
@@ -222,6 +222,18 @@ div {
 			</div>
 		</div>
 	</div>
+	
+	<Script>
+		$(function(){
+			
+			$(".detailBtn").click(function(){
+				var ono = $(".orderList>tbody>tr").children().eq(2).text();
+				
+				location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
+			});
+			
+		});
+	</Script>
 
 	<%@ include file="../../common_user/footer.jsp"%>
 </body>
