@@ -109,10 +109,10 @@ div {
 }
 
 #infoTable{
-	width:100%; 
+	width:95%; 
 	height:50px;
 	font-size:20px;
-	font-weight:600;
+	margin:auto;
 }
 </style>
 </head>
@@ -142,31 +142,21 @@ div {
 		<!-- inner영역에 콘텐츠 작성 -->
 		<div class="inner">
 			<!-- 테이블 -->
-			<table id="infoTable" border="1">
+			<table id="infoTable">
 				<tr>
-					<td>포장</td>
-					<td>주문일시 2019-08-08 20:04</td>
-					<td>주문번호 000000000</td>
-					<td>수령완료</td>
+					<td width="10%">포장</td>
+					<td width="33%">주문일시 2019-08-08 20:04</td>
+					<td width="30%">주문번호 000000000</td>
+					<td width="27%" style="font-weight:bold; text-align:right;">
+						수령완료
+					</td>
 				</tr>
 			</table>
-			<!--<h4 id="order-title">
-				포장
-				<!-- 포장/배달여부 
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 주문일시
-				2019-08-08
-				20:10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				주문번호 000000000
-			</h4>
 			<hr>
-			<br>
-			<h3 id="order-status" style="font-weight: 600;">수령완료</h3>-->
-			<hr><br><br><br>
-
 
 			<div id="order-info">
 
-				<table style="font-size: 15px;" width="1000px" height="200px">
+				<table style="font-size: 15px;" width="1000px" height="200px" border="1">
 					<tr>
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
@@ -179,7 +169,7 @@ div {
 						<th width="10px"><hr class="xo" style="margin-right: 50px;"></th>
 						<th style="padding-right: 5%;">
 							<div>
-								<table style="width: 100%; height: 100%;">
+								<table style="width: 100%; height: 100%;" border="1">
 									<tr>
 										<td style="text-align: left;">주문금액</td>
 										<td style="font-size: 16px;">37,900 원</td>
@@ -187,9 +177,9 @@ div {
 
 									<tr>
 										<td style="text-align: left;">할인금액</td>
-										<td
-											style="padding-right: 8px; color: orangered; font-size: 16px;">-14,360
-											원</td>
+										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
+											-14,360원
+										</td>
 									</tr>
 
 									<tr>
@@ -206,7 +196,6 @@ div {
 							</div>
 						</th>
 					</tr>
-
 				</table>
 			</div>
 
@@ -219,7 +208,7 @@ div {
 
 			<div id="order-info2">
 
-				<table id="order-info2-table" border="0">
+				<table id="order-info2-table">
 					<tr>
 						<td class="order-info2-td"
 							style="width: 200px; padding-left: 25px;">결제방법</td>
@@ -250,9 +239,7 @@ div {
 
 			</div>
 
-			<hr>
-
-			<br>
+			<hr><br>
 
 			<div id="btns">
 				<button class="middle_btn" id="listBack" style="cursor: pointer;">목록으로</button>
