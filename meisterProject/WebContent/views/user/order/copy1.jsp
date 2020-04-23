@@ -193,10 +193,11 @@
                     <th></th>
                     <th colspan="2">
                         <form name="formPizza" method="get">
-                            <input type=hidden id="sell_price" name="sell_price" value="39900">
-                            <input type="text" id="amount" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" id="addBtn" value=" + " onclick="add();"><input type="button" id="delBtn" value=" - " onclick="del();">
-                            <input type="text" id="priceArea" name="sum" size="11" readonly>원
+                            <input type=hidden class="sell_price" name="sell_price" value="39900">
+                            <input type="text" class="amount" name="amount" value="1" size="3" onchange="change();">
+                            <input type="button" class="addBtn" value=" + " >
+                            <input type="button" id="delBtn" value=" - " onclick="del();">
+                            <input type="text" class="priceArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -234,9 +235,10 @@
                     <th></th>
                     <th colspan="2">
                         <form name="formSide" method="get">
-                            <input type=hidden name="sell_price" value="39900">
+                            <input type=hidden name="sell_price" value="8800">
                             <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+                            <input type="button" class="addBtn" value=" + " >
+                            <input type="button" value=" - " onclick="del();">
                             <input type="text" name="sum" size="11" readonly>원
                         </form>
                     </th>
