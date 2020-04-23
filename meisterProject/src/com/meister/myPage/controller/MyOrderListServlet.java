@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.common.PageInfo;
 import com.meister.member.model.vo.Member;
+import com.meister.menu.model.vo.Pizza;
 import com.meister.myPage.model.service.MyPageService;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
@@ -114,6 +115,7 @@ public class MyOrderListServlet extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 		
+		ArrayList<Pizza> pizzaList = new MyPageService().selectPizzaList();
 		ArrayList<Orders> ordersList = new MyPageService().selectOrdersList(pi, memberNo);
 		ArrayList<Price> priceList = new MyPageService().selectPriceList(pi, memberNo);
 		
