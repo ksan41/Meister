@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class NoticeMgEnrollFormServlet
  */
-@WebServlet("/NoticeMgEnrollFormServlet")
+@WebServlet("/imNoticeMenroll.nom")
 public class NoticeMgEnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
