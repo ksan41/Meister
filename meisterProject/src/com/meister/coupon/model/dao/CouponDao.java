@@ -54,8 +54,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getString("COUPON_START"),
-						rset.getString("COUPON_END"),
+						rset.getDate("COUPON_START"),
+						rset.getDate("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -102,8 +102,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getString("COUPON_START"),
-						rset.getString("COUPON_END"),
+						rset.getDate("COUPON_START"),
+						rset.getDate("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -149,8 +149,8 @@ public class CouponDao {
 						rset.getInt("COUPON_NO"),
 						rset.getString("COUPON_NAME"),
 						rset.getInt("COUPON_DISCOUNT"),
-						rset.getString("COUPON_START"),
-						rset.getString("COUPON_END"),
+						rset.getDate("COUPON_START"),
+						rset.getDate("COUPON_END"),
 						rset.getDate("COUPON_REGISTER_DATE"),
 						rset.getDate("COUPON_MODIFY_DATE"),
 						rset.getString("COUPON_STATUS")
@@ -181,7 +181,23 @@ public class CouponDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty(arg0);
+		String sql = prop.getProperty("insertCoupon");
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, newC.getCouponName());
+			pstmt.setInt(2, newC.getCouponDiscount());
+			pstmt.setDate(3, newC.getCouponStart());
+			pstmt.setDate(4, newC.getCouponEnd());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+				
+		return result;
 	}
 }

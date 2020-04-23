@@ -256,17 +256,17 @@
 						<tr>
 							<th>쿠폰명</th>
 							<td><input name="couponName" type="text" placeholder="쿠폰명을 입력해주세요"
-								style="width: 310px;"></td>
+								style="width: 310px;" required></td>
 						</tr>
 						<tr>
 							<th>할인율(%)</th>
 							<td style="text-align: left;"><input name="discount" type="number" step="5"
-								min="0" max="100" style="width: 100px;"></td>
+								min="0" max="100" style="width: 100px;" required></td>
 						</tr>
 						<tr>
 							<th>기간</th>
-							<td><input name="startDate" type="date" style="width: 145px;"> ~ <input
-								name="endDate" type="date" style="width: 145px;"></td>
+							<td><input name="startDate" type="date" style="width: 145px;" required> ~ <input
+								name="endDate" type="date" style="width: 145px;" required></td>
 						</tr>
 					</table>
 				</div>
@@ -274,7 +274,7 @@
 				<!-- Modal footer -->
 				<div class="modal-footer" style="margin: auto;">
 					<!-- 하단버튼 영역-->
-					<button id="couponEnrollBtn" type="submit" class="btn btn-danger" data-dismiss="modal"
+					<button id="couponEnrollBtn" type="submit" class="btn btn-danger"
 						style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">등록완료</button>
 				</div>
 				</form>
@@ -283,10 +283,5 @@
 	</div>
 	<!-- 모달 끝 -->
 	
-	<script>
-		$("#couponEnrollBtn").click(function(){
-			location.href="<%=contextPath%>/couponInsert.cm";			
-		});
-	</script>
 </body>
 </html>
