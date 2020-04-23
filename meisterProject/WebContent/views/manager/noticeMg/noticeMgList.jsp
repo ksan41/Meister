@@ -36,7 +36,7 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">고객 공지사항</h1>
 			<div align="right">
-				<button class="button" onclick="modify">등록</button>
+				<button class="button">등록</button>
 			</div>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -80,10 +80,18 @@
 	</div>
 	
 	<script>
+		// 공지사항 등록폼(imNoticeMenroll.nom)
+		$(function(){
+			$('.button').click(function(){
+				// 공지사항 등록 서블릿으로 이동
+				location.href="<%= contextPath %>/imNoticeMenroll.nom";
+			});
+		});
+	
 		// 공지사항 상세조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
-				console.log("클릭");
+				//console.log("클릭");
 				
 				// 현재 클릭했을 때의 해당 공지사항의 번호
 				var nno = $(this).children().eq(0).text();

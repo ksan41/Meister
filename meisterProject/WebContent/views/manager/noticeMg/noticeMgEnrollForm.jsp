@@ -55,7 +55,6 @@
 							<button class="button" onclick="">등록</button>
 							<button class="button" onclick="">취소</button>
 						</div>
-
 					</div>
 				</div>
 			</div>

@@ -1,11 +1,17 @@
 package com.meister.notice.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.notice.model.service.NoticeService;
+import com.meister.notice.model.vo.Notice;
 
 /**
  * Servlet implementation class NoticeMgEnrollFormServlet
@@ -27,7 +33,8 @@ public class NoticeMgEnrollFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/noticeMgEnrollForm.jsp");
+		view.forward(request, response);
 	}
 
 	/**
@@ -37,5 +44,4 @@ public class NoticeMgEnrollFormServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
