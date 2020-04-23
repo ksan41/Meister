@@ -507,5 +507,7 @@ public class MyPageDao {
 		
 		return list;
 	}
+	
+	
 
 }
