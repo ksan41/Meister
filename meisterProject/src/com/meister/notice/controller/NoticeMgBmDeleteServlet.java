@@ -1,6 +1,7 @@
 package com.meister.notice.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.notice.model.service.NoticeService;
 
+// 지점공지사항 삭제용 서블릿
 /**
  * Servlet implementation class NoticeMgBmDeleteServlet
  */
@@ -37,12 +39,16 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 		if(result > 0) {// 공지사항 삭제 성공
 			
 			request.getSession().setAttribute("msg", "공지사항 삭제 성공!");
-			response.sendRedirect("list.no");
+			response.sendRedirect("imNoticeBlist.nom");
 			
 		}else {//공지사항 삭제 실패
 			
-			request.setAttribute("msg", "공지사항삭제실패!");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('공지사항 등록이 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeBdetail.nom?nno="+nno+"';</script>");
+			out.flush();
 		}
 	}
 

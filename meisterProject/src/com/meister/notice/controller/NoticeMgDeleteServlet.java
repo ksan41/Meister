@@ -1,11 +1,15 @@
 package com.meister.notice.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.notice.model.service.NoticeService;
 
 /**
  * Servlet implementation class NoticeMgDeleteServlet
@@ -27,7 +31,24 @@ public class NoticeMgDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int nno = Integer.parseInt(request.getParameter("nno"));
 		
+		int result = new NoticeService().deleteMnotice(nno);
+		
+		if(result > 0) {// 공지사항 삭제 성공
+			
+			request.getSession().setAttribute("msg", "공지사항 삭제 성공!");
+			response.sendRedirect("imNoticeMlist.nom");
+			
+		}else {//공지사항 삭제 실패
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('공지사항 등록이 실패했습니다. 다시 등록해주세요 T^T'); location.href='/Meister/imNoticeMdetail.nom?nno="+nno+"';</script>");
+			out.flush();
+		}
 	}
 
 	/**
