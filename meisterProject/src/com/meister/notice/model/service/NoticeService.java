@@ -131,7 +131,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 5. 지점 공지사항 삭제용 서비스
+	 * 8. 지점 공지사항 삭제용 서비스
 	 * @param nno		--> 삭제요청한 공지사항 글 번호
 	 * @return			--> 처리된 행의 개수
 	 */
@@ -139,6 +139,26 @@ public class NoticeService {
 		
 		Connection conn = getConnection();
 		int result = new NoticeDao().deleteBnotice(conn, nno);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	/**연화
+	 * 9. 공지사항 수정용 서비스
+	 * @param n		--> 수정하고자하는 글 번호, 수정할 제목, 수정할 내용이 담겨있는 Notice객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int updateNotice(Notice n) {
+		
+		Connection conn = getConnection();
+		int result = new NoticeDao().updateNotice(conn, n);
 		
 		if(result > 0) {
 			commit(conn);
