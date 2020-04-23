@@ -52,8 +52,8 @@ public class MyOneDetailServlet extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('문의 조회에 실패했습니다. 다시 시도해주세요.');</script>");
-
+			out.println("<script>alert('문의 조회에 실패했습니다. 다시 시도해주세요.'); location.href='myOneList.my';</script>");
+			out.flush();
 		}
 	
 	}
