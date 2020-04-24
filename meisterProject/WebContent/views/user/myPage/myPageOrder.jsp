@@ -183,7 +183,7 @@ div {
 						<th style="font-weight: bold; font-size: 3.0em; padding-bottom: 30px">
 							<% int total = 0; %>
 							<% for(int i=0; i<priceList.size(); i++){ %>
-								<%total += priceList.get(i).getTotalPrice();%>
+								<% total += priceList.get(i).getTotalPrice(); %>
 							<% } %>
 							<%=total%> <b style="font-size:25px; color:white;">원</b>
 						</th>
@@ -280,19 +280,9 @@ div {
 	</div>
 	
 	<Script>
-		//$(function(){
-			//$(".detailBtn").click(function(){
-				//var ono = $(".orderList>tbody>tr").children().eq(2).text();
-				
-				//location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
-			//});
-		//});
-		
 		$(document).on("click",".trList",function(){
 			var index = $(".trList").index(this);
-			
-			var ono = $(".tdOrderNo:eq("+index+")").text();
-			
+			var ono = $(".tdOrderNo:eq(" + index + ")").text();
 			location.href="<%=contextPath%>/myOrderDetail.my?ono=" + ono;
 		});
 	</Script>

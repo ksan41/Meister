@@ -275,22 +275,5 @@ public class MyPageService {
 		return list;
 	}
 	
-	
-	/**
-	 * 12_1. 해당 회원의 ORDERS테이블 정보 조회용 서비스(주문 상세조회)
-	 * @param ono	--> 상세 조회할 주문의 주문 번호
-	 * @return
-	 */
-	public ArrayList<Orders> selectOrdersDetail(int ono) {
-		
-		Connection conn = getConnection();
-		
-		ArrayList<Orders> list = new MyPageDao().selectOrdersDetail(conn, ono);
-		
-		close(conn);
-		
-		return list;
-	}
-	
 
 }

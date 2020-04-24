@@ -522,34 +522,5 @@ public class MyPageDao {
 		return list;
 	}
 	
-	
-	// 12_1.
-	public ArrayList<Orders> selectOrdersDetail(Connection conn, int ono) {
-		
-		ArrayList<Orders> list = new ArrayList<>();
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectOrdersDetail");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, ono);
-			
-			rset = pstmt.executeQuery();
-			
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-	}
 
 }

@@ -11,6 +11,7 @@ public class Price {
 	private String sideCount;	// 사이드수량
 	private String etcNo;		// 기타상품번호
 	private String etcCount;	// 기타상품수량
+	private int totalPrice;		// 총가격
 	
 	// 장바구니 (CART) 테이블의 컬럼
 	private int cartNo;
@@ -34,8 +35,23 @@ public class Price {
 		this.memberNo = memberNo;
 	}
 
-
-
+	
+	public Price(int orderNo, String pizzaSize, String pizzaNo, String pizzaCount, String doughNo, String sideNo,
+			String sideCount, String etcNo, String etcCount, int totalPrice, int cartNo, int memberNo) {
+		super();
+		this.orderNo = orderNo;
+		this.pizzaSize = pizzaSize;
+		this.pizzaNo = pizzaNo;
+		this.pizzaCount = pizzaCount;
+		this.doughNo = doughNo;
+		this.sideNo = sideNo;
+		this.sideCount = sideCount;
+		this.etcNo = etcNo;
+		this.etcCount = etcCount;
+		this.totalPrice = totalPrice;
+		this.cartNo = cartNo;
+		this.memberNo = memberNo;
+	}
 
 	public Price(int orderNo, String pizzaSize,  String pizzaNo, String pizzaCount, String doughNo,
 			String sideNo, String sideCount, String etcNo, String etcCount) {
@@ -156,6 +172,15 @@ public class Price {
 
 	public void setMemberNo(int memberNo) {
 		this.memberNo = memberNo;
+	}
+	
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	@Override

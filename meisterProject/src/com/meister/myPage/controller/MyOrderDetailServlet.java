@@ -36,8 +36,6 @@ public class MyOrderDetailServlet extends HttpServlet {
 		int ono = Integer.parseInt(request.getParameter("ono"));
 		//int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
 		
-		//Orders ordersList = new MyPageService().selectOrdersDetail(ono);
-		
 		
 		/*
 		if(c != null) { // 문의조회 성공
