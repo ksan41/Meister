@@ -215,11 +215,11 @@
     </div>
     
      <%@ include file="../../common_user/footer.jsp"%>
-
+	
 	
 	
 	<script>
-	
+					
 	 
       /* (이메일) 인증번호 발송 버튼 클릭시 */
       $("#email_send").click(function(){
