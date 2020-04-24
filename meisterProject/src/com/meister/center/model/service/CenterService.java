@@ -145,4 +145,7 @@ public class CenterService {
 		close(conn);
 		return result;
 	}
+	
+	updateFaq(f)
+	
 }

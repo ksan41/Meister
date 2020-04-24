@@ -266,7 +266,7 @@
 						</select>
 						<br><br>
 						
-						<input type="text" name="faqQuestion" class="faqInputTitle" placeholder="질문 내용 입력">
+						<input name="faqQuestion" type="text" class="faqInputTitle" placeholder="질문 내용 입력">
 						<br><br>
 
 						<textarea name="faqAnswer" class="faqInputContent" placeholder="답변 내용 입력"></textarea>
@@ -302,15 +302,16 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+								<input type="hidden" name="faqNo" value="<%=list.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기" selected>피자주문하기</option>
 									<option value="주문확인">주문확인</option>
 									<option value="포장주문">포장주문</option>
 									<option value="홈페이지관련">홈페이지관련</option>
 								</select><br><br>
-								<input type="text" class="faqInputTitle" value="<%=list.get(i).getFaqQuestion()%>">
+								<input name="faqQuestion" type="text" class="faqInputTitle" value="<%=list.get(i).getFaqQuestion()%>">
 								<br><br>
-								<textarea class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
+								<textarea name="faqAnswer" class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
 								<br><br>
 
 								<!-- 버튼 영역 -->
@@ -345,15 +346,16 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+								<input type="hidden" name="faqNo" value="<%=rlist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인" selected>주문확인</option>
 									<option value="포장주문">포장주문</option>
 									<option value="홈페이지관련">홈페이지관련</option>
 								</select><br><br>
-								<input type="text" class="faqInputTitle" value="<%=rlist.get(i).getFaqQuestion()%>">
+								<input name="faqQuestion" type="text" class="faqInputTitle" value="<%=rlist.get(i).getFaqQuestion()%>">
 								<br> <br>
-								<textarea class="faqInputContent"><%=rlist.get(i).getFaqAnswer()%></textarea>
+								<textarea name="faqAnswer" class="faqInputContent"><%=rlist.get(i).getFaqAnswer()%></textarea>
 		
 								<br><br>
 		
@@ -389,15 +391,16 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+								<input type="hidden" name="faqNo" value="<%=plist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인">주문확인</option>
 									<option value="포장주문" selected>포장주문</option>
 									<option value="홈페이지관련">홈페이지관련</option>
 								</select><br><br>
-								<input type="text" class="faqInputTitle" value="<%=plist.get(i).getFaqQuestion()%>">
+								<input name="faqQuestion" type="text" class="faqInputTitle" value="<%=plist.get(i).getFaqQuestion()%>">
 								<br> <br>
-								<textarea class="faqInputContent"><%=plist.get(i).getFaqAnswer()%></textarea>
+								<textarea name="faqAnswer" class="faqInputContent"><%=plist.get(i).getFaqAnswer()%></textarea>
 		
 								<br><br>
 		
@@ -433,16 +436,16 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+								<input type="hidden" name="faqNo" value="<%=hlist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인">주문확인</option>
 									<option value="포장주문">포장주문</option>
 									<option value="홈페이지관련" selected>홈페이지관련</option>
 								</select><br><br>
-								<input type="text" class="faqInputTitle" value="<%=hlist.get(i).getFaqQuestion()%>">
+								<input name="faqQuestion" type="text" class="faqInputTitle" value="<%=hlist.get(i).getFaqQuestion()%>">
 								<br> <br>
-								<textarea class="faqInputContent"><%=hlist.get(i).getFaqAnswer()%></textarea>
-		
+								<textarea name="faqAnswer" class="faqInputContent" name="faqType"><%=hlist.get(i).getFaqAnswer()%></textarea>
 								<br><br>
 		
 								<!-- 버튼 영역 -->
