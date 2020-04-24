@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.order.model.vo.Delivery;
+import com.meister.order.model.vo.Price;
 
 public class OrderDao {
 	
@@ -99,6 +100,44 @@ public class OrderDao {
 		return deliveryList;
 	}
 	
+	public ArrayList<Price> ShowBasketList(Connection conn, int userNo){
+		ArrayList<Price> basketList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectBasketList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, userNo);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				basketList.add(new Price(rset.getInt("ORDER_NO"),
+												rset.getString("PIZZA_SIZE"),
+												rset.getInt("TOTAL_PRICE"),
+												rset.getString("PIZZA_NO"),
+												rset.getString("PIZZA_COUNT"),
+												rset.getString("DOUGH_NO"),
+												rset.getString("SIDE_NO"),
+												rset.getString("SIDE_COUNT"),
+												rset.getString("ETC_NO"),
+												rset.getString("ETC_COUNT"),
+												rset.getInt("CART_NO"),
+												rset.getInt("MEMBER_NO")));
+				System.out.println("지점1");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		//System.out.println("다오딴 : " + deliveryList.get(0));
+		return basketList;
+	}
+	
 	/**
 	 * @author 곽진아
 	 * @param userId 회원아이디
@@ -129,7 +168,7 @@ public class OrderDao {
 		return memberNo;
 	}
 	
-	public int deleteAddress(Connection conn, int index) {
+	/*public int deleteAddress(Connection conn, int index) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -153,5 +192,5 @@ public class OrderDao {
 			close(pstmt);
 		}
 		return result;
-	}
+	}*/
 }

@@ -13,8 +13,30 @@ public class Price {
 	private String etcNo;		// 기타상품번호
 	private String etcCount;	// 기타상품수량
 	
+	// 장바구니 (CART) 테이블의 컬럼
+	private int cartNo;
+	private int memberNo;
 	
 	public Price() {}
+
+	public Price(int orderNo, String pizzaSize, int totalPrice, String pizzaNo, String pizzaCount, String doughNo,
+			String sideNo, String sideCount, String etcNo, String etcCount, int cartNo, int memberNo) {
+		super();
+		this.orderNo = orderNo;
+		this.pizzaSize = pizzaSize;
+		this.totalPrice = totalPrice;
+		this.pizzaNo = pizzaNo;
+		this.pizzaCount = pizzaCount;
+		this.doughNo = doughNo;
+		this.sideNo = sideNo;
+		this.sideCount = sideCount;
+		this.etcNo = etcNo;
+		this.etcCount = etcCount;
+		this.cartNo = cartNo;
+		this.memberNo = memberNo;
+	}
+
+
 
 
 	public Price(int orderNo, String pizzaSize, int totalPrice, String pizzaNo, String pizzaCount, String doughNo,
@@ -132,14 +154,28 @@ public class Price {
 		this.etcCount = etcCount;
 	}
 
+	public int getCartNo() {
+		return cartNo;
+	}
+
+	public void setCartNo(int cartNo) {
+		this.cartNo = cartNo;
+	}
+
+	public int getMemberNo() {
+		return memberNo;
+	}
+
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
 
 	@Override
 	public String toString() {
 		return "Price [orderNo=" + orderNo + ", pizzaSize=" + pizzaSize + ", totalPrice=" + totalPrice + ", pizzaNo="
 				+ pizzaNo + ", pizzaCount=" + pizzaCount + ", doughNo=" + doughNo + ", sideNo=" + sideNo
-				+ ", sideCount=" + sideCount + ", etcNo=" + etcNo + ", etcCount=" + etcCount + "]";
+				+ ", sideCount=" + sideCount + ", etcNo=" + etcNo + ", etcCount=" + etcCount + ", cartNo=" + cartNo
+				+ ", memberNo=" + memberNo + "]";
 	}
-	
-	
 
 }

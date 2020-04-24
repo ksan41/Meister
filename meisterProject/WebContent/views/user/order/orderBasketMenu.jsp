@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList"%>
-<% 
-	
-	
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Price"%>
+<%
+	ArrayList<Price> deliveryList = (ArrayList<Price>)session.getAttribute("basketList");
+	int index = 0;
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,7 +152,10 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 장바구니</div>
         <hr>
-		<%if(result > 0){ %>
+		<%if(!basketList.isEmpty()){ %>
+			<%for(int i=0; i<basketList.size(); i++){ %>
+			<%Price p = basketList.get(i); %>
+			<%index = i; %>
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
             <table id="orderB1" border="0px;">

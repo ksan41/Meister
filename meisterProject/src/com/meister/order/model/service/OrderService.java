@@ -1,12 +1,16 @@
 package com.meister.order.model.service;
 
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
+import com.meister.order.model.vo.Price;
 
 public class OrderService {
 	
@@ -47,6 +51,20 @@ public class OrderService {
 	
 	/**
 	 * @author 곽진아
+	 * @param userNo 회원번호
+	 */
+	public ArrayList<Price> ShowBasketList(int userNo){
+		Connection conn = getConnection();
+		
+		ArrayList<Price> basketList = new OrderDao().ShowBasketList(conn, userNo);
+		
+		close(conn);
+		//System.out.println("서비스딴 : " + deliveryList.get(0));
+		return basketList;
+	}
+	
+	/**
+	 * @author 곽진아
 	 * @param userId 회원아이디
 	 */
 	public String getMemberNo(String userId) {
@@ -56,11 +74,11 @@ public class OrderService {
 		return userId;
 	}
 	
-	public int deleteAddress(int index) {
+	/*public int deleteAddress(int index) {
 		Connection conn = getConnection();
 		int result = new OrderDao().deleteAddress(conn, index);
 		close(conn);
 		return result; 
-	}
+	}*/
 
 }
