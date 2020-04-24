@@ -510,10 +510,10 @@ input:checked + label {
 						</div>
 						<div id="info-size" class="info-size">
 							<h2>사이즈 선택</h2>
-							<input id="price1" type="radio" name="price" value="<%= list2.get(0).getPizzaSize() %>" style="width:40; height: 150;">
+							<input id="price1" type="radio" name="price" value="<%= list2.get(0).getSizeNo() %>" style="width:40; height: 150;">
 							<label for="price1" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</label>
 							<%-- <button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button> --%>
-							<input id="price2" type="radio" name="price" value="<%= list2.get(1).getPizzaSize() %>" style="width:40; height: 150;">
+							<input id="price2" type="radio" name="price" value="<%= list2.get(1).getSizeNo() %>" style="width:40; height: 150;">
 							<label for="price2" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</label>
 							<%-- <button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button> --%>
 							<hr>
@@ -885,19 +885,21 @@ input:checked + label {
 				var sideAmount = "";
 				$(".side-area .menu-cnt").each(function(i, item){
 					if(item.value > 0){
-						side += item.name + " ";
+						side += item.name + ",";
+						console.log(side);
 						sideAmount += item.value + ",";
 					}
 				});
 				$("#cart input[name=side]").val(side);
 				$("#cart input[name=sideAmount]").val(sideAmount);
+
 				
 				
 				var etc = "";
 				var etcAmount = "";
 				$(".etc-area .menu-cnt").each(function(i, item){
 					if(item.value > 0){
-						etc += item.name + " ";
+						etc += item.name + ",";
 						etcAmount += item.value + ",";
 					}
 				});

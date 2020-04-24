@@ -1,12 +1,13 @@
 package com.meister.menu.model.service;
 
-import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.*;
 import static com.meister.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.menu.model.dao.MenuDao;
+import com.meister.menu.model.vo.AddCart;
 import com.meister.menu.model.vo.Dough;
 import com.meister.menu.model.vo.Etc;
 import com.meister.menu.model.vo.Pizza;
@@ -146,6 +147,22 @@ public class MenuService {
 		
 	}
 	
+	
+	public int insertAddCart(AddCart a) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MenuDao().insertAddCart(conn, a);
+		
+		if(result > 0) {
+			commit(conn);
+		}else{
+			rollback(conn);
+		}
+		
+		return result;
+		
+	}
 	
 	
 	

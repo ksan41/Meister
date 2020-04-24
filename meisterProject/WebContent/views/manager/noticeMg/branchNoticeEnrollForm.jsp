@@ -11,7 +11,7 @@
 	<title>meister_통합 - 지점공지사항 등록</title>
 	
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/bmMenubar.jsp"%>
+	<%@ include file="../../common_manager/imMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 
 	<link href="../resources/admin/dist/css/styles.css" rel="stylesheet" />

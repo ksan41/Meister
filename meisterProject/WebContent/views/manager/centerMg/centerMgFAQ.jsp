@@ -249,6 +249,14 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqInsert.cem" name="faqEnrollForm" method="post">
+						<select name="faqType">
+							<option value="pizzaOrder" selected>피자 주문하기</option>
+							<option value="orderConfirm">주문확인</option>
+							<option value="takeOut">포장 주문</option>
+							<option value="website">홈페이지 관련</option>
+						</select>
+						<br>
+						
 						<input type="text" name="faqQuestion" class="faqInputTitle" placeholder="질문 내용 입력">
 						<br><br>
 

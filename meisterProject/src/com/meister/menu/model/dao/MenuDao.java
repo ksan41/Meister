@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.meister.member.model.vo.Member;
+import com.meister.menu.model.vo.AddCart;
 import com.meister.menu.model.vo.Dough;
 import com.meister.menu.model.vo.Etc;
 import com.meister.menu.model.vo.Pizza;
@@ -324,6 +326,38 @@ public class MenuDao {
 		
 		return list;
 		
+		
+	}
+	
+	public int insertAddCart(Connection conn, AddCart a) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertPizza");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, a.getCartPizzaSize());
+			pstmt.setString(2, a.getCartPizzaNo());
+			pstmt.setString(3, a.getCartPizzaAmount());
+			pstmt.setString(4, a.getCartDough());
+			pstmt.setString(5, a.getCartSideNo());
+			pstmt.setString(6, a.getCartSideAmount());
+			pstmt.setString(7, a.getCartEtcNo());
+			pstmt.setString(8, a.getCartEtcAmount());
+			
+			result = pstmt.executeUpdate();
+			System.out.println("지점1" + result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 		
 	}
 	

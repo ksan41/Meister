@@ -154,7 +154,8 @@ public class CenterDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, f.getFaqQuestion());
+			pstmt.setString(1, f.get());
+			pstmt.setString(2, f.getFaqQuestion());
 			pstmt.setString(2, f.getFaqAnswer());
 			
 			result = pstmt.executeUpdate();
