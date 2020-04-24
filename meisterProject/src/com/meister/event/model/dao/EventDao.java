@@ -119,7 +119,7 @@ public class EventDao {
 		return at;
 	}
 	
-	public int insertEvent(Connection conn, Event e) {
+	public int insertEvent(Connection conn, Event ev) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -127,11 +127,11 @@ public class EventDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, e.getEventTitle());
-			pstmt.setDate(2, e.getEventOpenTime());
-			pstmt.setDate(3, e.getEventCloseTime());
-			pstmt.setString(4, e.getEventImage1());
-			pstmt.setString(5, e.getEventImage2());
+			pstmt.setString(1, ev.getEventTitle());
+			pstmt.setDate(2, ev.getEventOpenTime());
+			pstmt.setDate(3, ev.getEventCloseTime());
+			pstmt.setString(4, ev.getEventImage1());
+			pstmt.setString(5, ev.getEventImage2());
 			
 			result = pstmt.executeUpdate();
 			

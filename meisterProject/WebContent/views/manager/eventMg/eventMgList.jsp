@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event,java.util.ArrayList"%>
+	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event, java.util.ArrayList"%>
 <%
    ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
 %>
@@ -171,23 +171,23 @@
 				<div class="card-body">
 
 					<div align="right">
-						<button class="button" onclick="" data-toggle="modal" data-target="#eventEnrollModal">
+						<button class="button" data-toggle="modal" data-target="#eventEnrollModal">
 							이벤트 등록
 						</button>
 					</div>
 					<% if(list.isEmpty()){ %>
 						<p>조회된 결과가 없습니다</p>
 					<% } else { %>
-						<% for(int i=0;i<list.size();i++) { Event e = list.get(i); %>
+						<% for(int i=0; i<list.size(); i++) { Event ev = list.get(i); %>
 
 							<div class="thumbnail" align="center">
-								<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
+								<input type="hidden" name="bno" value="<%=ev.getEventNo() %>"> 
 								<a id="detail1">
-									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
 								</a>
-								<%=e.getEventTitle() %><br>
-								<%=e.getEventOpenTime() %> ~ <%=e.getEventCloseTime() %>
-								<p class="bannerStatus" style="color: red">배너노출상태 : <%=e.getEventStatus() %></p>
+								<%=ev.getEventTitle() %><br>
+								<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
+								<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
 								<div align="center">
 									<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
 									<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
@@ -212,8 +212,7 @@
 				<div class="modal-header">
 					<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트
 						등록</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						style="margin: 0; padding: 0;">&times;</button>
+					<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 				</div>
 
 				<!-- Modal body -->

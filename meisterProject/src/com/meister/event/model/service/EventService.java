@@ -48,11 +48,11 @@ public class EventService {
 	 * @param e		--> 제목, 내용이 담겨있는 Event객체
 	 * @return		--> 처리된 행의 개수
 	 */
-	public int insertEvent(Event e) {
+	public int insertEvent(Event ev) {
 		
 		Connection conn = getConnection();
 		
-		int result = new EventDao().insertEvent(conn, e);
+		int result = new EventDao().insertEvent(conn, ev);
 		
 		if(result > 0) {
 			commit(conn);

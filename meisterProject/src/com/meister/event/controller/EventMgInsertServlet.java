@@ -40,30 +40,33 @@ public class EventMgInsertServlet extends HttpServlet {
 		// faqType, faqQuestion, faqAnswer
 		request.setCharacterEncoding("utf-8");
 		
-		DateFormat format = new SimpleDateFormat("yy년 mm월 dd일");
+//		DateFormat format = new SimpleDateFormat("yy년 mm월 dd일");
 		
 		String eventTitle = request.getParameter("eventTitle");
 		
-		String from = "2018-09.06 11:11:11";
-		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		// String to Date Casting
+//		String from = "2018-09.06 11:11:11";
+//		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 //		Date eventOpenTime = format.format(request.getParameter("eventOpenTime"));
-		Date eventOpenTime = (Date) fm.parse(request.getParameter("eventOpenTime"));
+//		Date eventOpenTime = (Date) fm.parse(request.getParameter("eventOpenTime"));
 //		Date eventCloseTime = request.getParameter("eventCloseTime");
-		Date eventCloseTime = (Date) fm.parse(request.getParameter("eventCloseTime"));
-
+//		Date eventCloseTime = (Date) fm.parse(request.getParameter("eventCloseTime"));
+		
+		Date eventOpenTime = java.sql.Date.valueOf(request.getParameter("eventOpenTime"));
+		Date eventCloseTime = java.sql.Date.valueOf(request.getParameter("eventCloseTime"));
 		String eventImage1 = request.getParameter("eventImage1");
 		String eventImage2 = request.getParameter("eventImage2");
 		String eventStatus = request.getParameter("eventStatus");
 		
-		Event e = new Event();
-		e.setEventTitle(eventTitle);
-		e.setEventOpenTime(eventOpenTime);
-		e.setEventCloseTime(eventCloseTime);
-		e.setEventImage1(eventImage1);
-		e.setEventImage2(eventImage2);
-		e.setEventStatus(eventStatus);
+		Event ev = new Event();
+		ev.setEventTitle(eventTitle);
+		ev.setEventOpenTime(eventOpenTime);
+		ev.setEventCloseTime(eventCloseTime);
+		ev.setEventImage1(eventImage1);
+		ev.setEventImage2(eventImage2);
+		ev.setEventStatus(eventStatus);
 		
-		int result = new EventService().insertEvent(e);
+		int result = new EventService().insertEvent(ev);
 		
 		if(result > 0) {
 			
