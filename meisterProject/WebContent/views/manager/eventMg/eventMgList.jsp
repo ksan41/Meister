@@ -218,41 +218,37 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form action="" name="eventEnrollForm">
+					<form action="<%= contextPath %>/evMgInsert.evm" name="eventEnrollForm">
 						<table id="eventEnrollTable">
-							<tr style="">
+							<tr>
 								<th>제목</th>
-								<td><input type="text" placeholder="내용을 입력해주세요" size="40px">
+								<td><input name="eventTitle" type="text" placeholder="내용을 입력해주세요" size="40px">
 								</td>
 							</tr>
 							<tr>
 								<th>이벤트 기간</th>
-								<td><input type="date"> ~ <input type="date">
+								<td><input name="eventOpenTime" type="date"> ~ <input name="eventCloseTime" type="date">
 								</td>
 							</tr>
 							<tr>
 								<th>썸네일 이미지</th>
-								<td><input type="file" style="margin-left: 10px;"></td>
+								<td><input name="eventImage1" type="file" style="margin-left: 10px;"></td>
 							</tr>
 							<tr>
 								<th>상세 이미지</th>
-								<td><input type="file" style="margin-left: 10px;"></td>
+								<td><input name="eventImage2" type="file" style="margin-left: 10px;"></td>
 							</tr>
 							<tr>
-								<th>배너 등록여부</th>
-								<td><input type="checkbox" style="margin-left: 10px;"></td>
+								<th>노출여부</th>
+								<td><input name="eventStatus" type="checkbox" style="margin-left: 10px;"></td>
 							</tr>
 						</table>
-
-						<br>
-						<br>
+						<br><br>
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
+							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/evMgList.evm';">취소</button>
 						</div>
 					</form>
 				</div>
