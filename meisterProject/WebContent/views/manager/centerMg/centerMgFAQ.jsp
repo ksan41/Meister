@@ -301,7 +301,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
 								<select name="faqType">
 									<option value="피자주문하기" selected>피자주문하기</option>
 									<option value="주문확인">주문확인</option>
@@ -344,7 +344,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인" selected>주문확인</option>
@@ -388,7 +388,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인">주문확인</option>
@@ -432,7 +432,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
 									<option value="주문확인">주문확인</option>
