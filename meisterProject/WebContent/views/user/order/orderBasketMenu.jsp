@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% int result = 1; %>
+    pageEncoding="UTF-8" import="java.util.ArrayList"%>
+<% 
+	
+	
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -183,7 +186,7 @@
                 </tr>
                 
                 
-                
+                <%for(int i=0; i<holePizza.size(); i++){ %>
                 <tr style="border-bottom:1px solid;">
                     <th>피자이미지</th>
                     <th>
@@ -204,7 +207,7 @@
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-
+				<%} %>
                 <!-- <tr style="border-bottom:1px solid;">
                     <th>피자이미지</th>
                     <th>
@@ -225,7 +228,7 @@
                     </th>
                     <th></th>
                 </tr> -->
-              
+              	<%for(int i=0; i<sideNo.size(); i++){ %>
                 <tr style="border-bottom:1px solid;">
                     <th>사이드이미지</th>
                     <th>
@@ -245,7 +248,8 @@
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-
+				<%} %>
+				<%for(int i=0; i<etcNo.size(); i++){ %>
                 <tr style="border-bottom:1px solid;">
                     <th>기타이미지</th>
                     <th>
@@ -265,7 +269,7 @@
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-
+				<%} %>
                
             </table>
             <hr id="hr1">
@@ -361,12 +365,5 @@
         }
     </script>
      
-
-    
-    
-
-
-
-
 </body>
 </html>
