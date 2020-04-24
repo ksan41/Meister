@@ -69,12 +69,9 @@ public class CenterMgFaqListServlet extends HttpServlet {
 		
 		System.out.println(hlist);
 		
-	
-		
-		
 		
 		// FAQ(FAQ테이블) 리스트 조회후  응답페이지
-		RequestDispatcher view = request.getRequestDispatcher("views/user/center/centerFAQ1.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/manager/centerMg/centerMgFAQ.jsp");
 	    view.forward(request,response);
 	}
 
@@ -85,5 +82,4 @@ public class CenterMgFaqListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }
