@@ -41,8 +41,6 @@ public class CenterMgFaqListServlet extends HttpServlet {
 		System.out.println(list);
 		
 		
-		
-		
 		// FAQ(FAQ 테이블) 리스트 조회 후 응답페이지에 전달 (주문확인)
         ArrayList<Faq> rlist = new CenterService().selectrlist();
 		
@@ -57,9 +55,6 @@ public class CenterMgFaqListServlet extends HttpServlet {
 		request.setAttribute("plist",plist);
 		
 		System.out.println(plist);
-		
-		
-	
 		
 		
 		// FAQ(FAQ 테이블) 리스트 조회 후 응답페이지에 전달 (홈페이지 관련)

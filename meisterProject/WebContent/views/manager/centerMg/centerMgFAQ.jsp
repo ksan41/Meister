@@ -135,12 +135,12 @@
 					</div>
 
 
-
 					<div class="contentMg2">
 					
 						<% for (Faq f : list) { %>
 
 							<% if (f.getFaqType().equals("주문확인")) { %>
+							
 								<div class="faqQuestion">
 									<table>
 										<tr>
@@ -169,33 +169,32 @@
 					<div class="contentMg3">
 						
 						<% for (Faq f : list) { %>
+						
 							<% if (f.getFaqType().equals("포장주문")) { %>
 						
-							<div class="faqQuestion">
-								<table>
-									<tr>
-										<th style="width: 30px; text-align: center; color: blue">Q</th>
-										<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
-									</tr>
-								</table>
-							</div>
-							<div class="faqAnswer">
-								<table>
-									<tr>
-										<th
-											style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-										<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
-									</tr>
-								</table>
-								<div align="right">
-									<button class="button" onclick="" data-toggle="modal"
-										data-target="#faqUpdateModal">수정</button>
-									<button class="button" onclick="deleteConfirm();">삭제</button>
+								<div class="faqQuestion">
+									<table>
+										<tr>
+											<th style="width: 30px; text-align: center; color: blue">Q</th>
+											<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+										</tr>
+									</table>
 								</div>
-								<br>
-							</div>
+								<div class="faqAnswer">
+									<table>
+										<tr>
+											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+										</tr>
+									</table>
+									<div align="right">
+										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" onclick="deleteConfirm();">삭제</button>
+									</div>
+									<br>
+								</div>
+							<% } %>
 						<% } %>
-					<% } %>
 					</div>
 
 					<div class="contentMg4">
@@ -215,14 +214,12 @@
 								<div class="faqAnswer">
 									<table>
 										<tr>
-											<th
-												style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
 											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" onclick="" data-toggle="modal"
-											data-target="#faqUpdateModal">수정</button>
+										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -234,8 +231,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	</main>
+		</main>
 	</div>
 
 	<!-- 등록 버튼 모달 시작 -->
