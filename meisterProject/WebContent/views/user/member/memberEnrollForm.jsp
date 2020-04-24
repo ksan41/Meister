@@ -148,25 +148,25 @@ table {
 				<table style="text-align: left;">
 					<tr>
 						<th>이름</th>
-						<td colspan="2"><input class="text-area" type="text"
+						<td colspan="2"><input class="text-area" type="text" id="name"
 							name="name" style="height: 31px;"></td>
 
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td colspan="2"><input class="text-area" type="text"
+						<td colspan="2"><input class="text-area" type="text" id="userId"
 							name="userId" placeholder="" style="height: 31px;">&nbsp;&nbsp;
 							<button class="small_btn" id="doubleCheck"
 								style="display: inline;">중복확인</button></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
-						<td colspan="2"><input class="text-area" type="password"
+						<td colspan="2"><input class="text-area" type="password" id="userPwd"
 							name="userPwd" style="height: 31px; font-family: inherit;" placeholder= ></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
-						<td colspan="2"><input class="text-area" type="password"
+						<td colspan="2"><input class="text-area" type="password" id="userPwd1"
 							name="userPwd1" style="height: 31px;"></td>
 					</tr>
 					<tr>
@@ -216,7 +216,7 @@ table {
 			var pwd1 = document.getElementById("userPwd");
 			var pwd2 = document.getElementById("userPwd1");
 			
-
+							
 			// 1) 아이디 검사 
 			// 영문자 또는 숫자 포함해서 총 4~12자로 입력(단,첫글자 영문자로)
 			var regExp = /^[a-z][a-z\d]{3,11}$/i;
@@ -264,7 +264,7 @@ table {
 
 		}
 	</script>
-
+	
 
 	
 

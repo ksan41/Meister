@@ -105,10 +105,6 @@ div {
 	font-weight: 750;
 }
 
-#noticeList>tbody :nth-child(1) {
-	cursor: pointer;
-}
-
 /* 중간버튼 스타일 */
 .middle_btn {
 	display: block;
@@ -216,7 +212,7 @@ div {
 				<br>
 
 				<div id="btns" align="center">
-					<button class="middle_btn" id="#" onclick="location.href='/pizzaList.men';">피자 주문하기</button>
+					<button class="middle_btn" id="#" onclick="location.href='<%=contextPath%>/pizzaList.men';">피자 주문하기</button>
 				</div>
 
 			</div>

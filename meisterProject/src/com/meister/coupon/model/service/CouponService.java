@@ -102,4 +102,17 @@ public class CouponService {
 		
 		return result;
 	}
+	
+	
+	/**산
+	 * 통합-쿠폰관리 쿠폰발송
+	 * @param mList : 쿠폰을 발송할 회원번호가 담긴 String 배열
+	 * @param cList : 발송할 쿠폰번호가 담긴 String 배열
+	 * @return : 처리된 행의 개수
+	 */
+	public int sendCoupon(String[] mList,String[] cList) {
+		Connection conn = getConnection();
+		
+		
+	}
 }
