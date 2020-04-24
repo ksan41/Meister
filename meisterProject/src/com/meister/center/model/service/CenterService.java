@@ -127,15 +127,15 @@ public class CenterService {
 	
 	
 	/**연화
-	 * 공지사항 작성용 서비스
-	 * @param f		--> 제목, 내용이 담겨있는 Notice객체
+	 * FAQ 작성용 서비스
+	 * @param f		--> 제목, 내용이 담겨있는 FAQ객체
 	 * @return		--> 처리된 행의 개수
 	 */
 	public int insertFaq(Faq f) {
 		
 		Connection conn = getConnection();
 		
-		int result = new CenterDao().insertNotice(conn, n);
+		int result = new CenterDao().insertFaq(conn, f);
 		
 		if(result > 0) {
 			commit(conn);

@@ -13,6 +13,8 @@ import java.util.Properties;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
 import com.meister.center.model.vo.Faq;
+import com.meister.notice.model.vo.Notice;
+
 import static com.meister.common.JDBCTemplate.*;
 
 
@@ -144,7 +146,26 @@ public class CenterDao {
 	
 	
 	
+	public int insertFaq(Connection conn, Faq f) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, f.getFaqQuestion());
+			pstmt.setString(2, f.getFaqAnswer());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}   
        
        
-       
-	}
+}
