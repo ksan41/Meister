@@ -62,6 +62,9 @@ public class CenterService {
 		
 	}
 	
+    /** 태경
+     * @return
+     */
     public ArrayList<Faq> selectrlist() {
 		
 		Connection conn = getConnection();
@@ -74,29 +77,35 @@ public class CenterService {
 		
 	}
     
+    /**태경
+     * @return
+     */
     public ArrayList<Faq> selectpList() {
 	
-	Connection conn = getConnection();
-	
-	ArrayList<Faq> list = new CenterDao().selectList(conn);
-	
-	close(conn);
-	
-	return list;
-	
-}
+		Connection conn = getConnection();
+		
+		ArrayList<Faq> list = new CenterDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
     
+    /**태경
+     * @return
+     */
     public ArrayList<Faq> selecthList() {
 	
-	Connection conn = getConnection();
-	
-	ArrayList<Faq> list = new CenterDao().selectList(conn);
-	
-	close(conn);
-	
-	return list;
-	
-}
+		Connection conn = getConnection();
+		
+		ArrayList<Faq> list = new CenterDao().selectList(conn);
+		
+		close(conn);
+		
+		return list;
+		
+	}
 	
 
 	/** 지수

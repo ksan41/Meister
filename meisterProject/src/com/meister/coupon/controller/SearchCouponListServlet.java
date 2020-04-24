@@ -1,31 +1,25 @@
-package com.meister.notice.controller;
+package com.meister.coupon.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.notice.model.service.NoticeService;
-import com.meister.notice.model.vo.Notice;
-
-
-//////////지점관리자 공지사항 리스트(조회용)
 /**
- * Servlet implementation class NoticeMgBmListServlet
+ * Servlet implementation class SearchCouponListServlet
  */
-@WebServlet("/bmNoList.nom")
-public class NoticeBmListServlet extends HttpServlet {
+@WebServlet("/SearchCList.cm")
+public class SearchCouponListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeBmListServlet() {
+    public SearchCouponListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,13 +28,25 @@ public class NoticeBmListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		ArrayList<Notice> list = new NoticeService().selectBmList();
 		
-		request.setAttribute("list", list);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/manager/noticeMg/bmBranchNoticeList.jsp");
-		view.forward(request, response);
+		request.setCharacterEncoding("utf-8");
+		
+		// 쿠폰명으로 검색시 사용할 parameter
+		String searchName = null;
+		searchName = request.getParameter("couponName");
+		
+		// 쿠폰 기간별 조회시 사용할 parameter
+		Date startDate=null;
+		Date endDate=null;
+		
+		if(request.getParameter("startDate")!=null) {//startDate값이 존재한다면 변환
+			startDate = java.sql.Date.valueOf(request.getParameter("startDate"));
+		}
+		if(request.getParameter("endDate")!=null) {
+			endDate = java.sql.Date.valueOf(request.getParameter("endDate"));
+		}
+		
 		
 	}
 

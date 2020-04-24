@@ -109,28 +109,6 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<!-- 연령별 등 정렬이 필요할 시 사용할 부분 -->
-						<!-- <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0" align="center">
-                                        <thead align="center">
-                                            <tr>
-                                                <th style="height:50px;" width="20%">
-                                                    <label for="answer"></label>
-                                                    <select name="answer" id="answer">
-                                                        <option value="">전체</option>
-                                                        <option value="">등급별</option>
-                                                        <option value="">기간별</option>
-                                                    </select>
-                                                </th>
-                                                
-                                                <th width="70%"><input type="text" id="search" style="width: 100%; height:50px" placeholder="쿠폰명으로 조회"></th>
-                                                <th width="10%"><button class="button button5">검색</button></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                         
-                                        </tbody>
-                                    </table> -->
-
 						<div align="right">
 							<button class="button" onclick="memList();">다음으로</button>
 						</div>
