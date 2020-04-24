@@ -1,7 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Price"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.*, com.meister.menu.model.vo.*"%>
 <%
-	ArrayList<Price> deliveryList = (ArrayList<Price>)session.getAttribute("basketList");
+	Price basket = (Price)request.getAttribute("basket");
+
+	String[] sideNo = basket.getSideNo().split(","); // [5,4]
+	String[] sideCount = basket.getSideCount().split(",");
+	
+	String[] etcNo = basket.getEtcNo().split(",");
+	String[] etcCount = basket.getEtcCount().split(",");
+	
+	int pizzaPrice = 0;
+
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	
 	int index = 0;
 %>
 <!DOCTYPE html>
@@ -152,10 +169,7 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 장바구니</div>
         <hr>
-		<%if(!basketList.isEmpty()){ %>
-			<%for(int i=0; i<basketList.size(); i++){ %>
-			<%Price p = basketList.get(i); %>
-			<%index = i; %>
+		
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
             <table id="orderB1" border="0px;">
@@ -174,7 +188,9 @@
             </table>
             <br>
             <hr id="hr1">
-
+            
+            
+			
             <table id="orderB2" border="0px;" align="center">
                 <tr>
                     <th width="90%" colspan="5" style="text-align:left; color:white; background-color: rgb(76, 60, 60);">주문내역</th>
@@ -188,28 +204,48 @@
                     <th></th>
                 </tr>
                 
-                
-                <%for(int i=0; i<holePizza.size(); i++){ %>
-                <tr style="border-bottom:1px solid;">
-                    <th>피자이미지</th>
-                    <th>
-                        <p>
-                            30치즈&뉴욕 스트립 스테이크 더블치즈엣지<br>
-                            오리지널/L <br>
-                            39,900원
-                        </p>
-                    </th>
-                    <th></th>
-                    <th colspan="2">
-                        <form name="formPizza" class="formPizza" method="get">
-                            <input type="hidden" class="sellPrice" name="sellPrice" value="39900">
-                            <input type="text" class="amount" name="amount" value="1" size="3"">
-                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
-                        </form>
-                    </th>
-                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
-                </tr>
+              <%if(basket != null){ %> 
+              
+              
+                <%for(Pizza p : pList){ %>
+	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){ %>
+	                <tr style="border-bottom:1px solid;">
+	                    <th>피자이미지</th>
+	                    <th>
+	                        <p>
+	                            <%=p.getPizzaName() %><br>
+	                            	
+	                            	<%for(Dough d : dList){ %>
+	                            		<% if(d.getDoughNo() == Integer.parseInt(basket.getDoughNo())){ %>
+	                            			<%= d.getDoughName() %>
+	                            		<% } %>
+	                            	<%} %>
+	                            	
+	                            	/
+	                            
+	                            <% for(PizzaSize ps : sizeList){ %>
+	                            	<% if(basket.getPizzaSize().equals(String.valueOf(ps.getSizeNo()))){ %>
+	                            		<%= ps.getPizzaSize() %>
+	                            		<br>
+	                            		<% pizzaPrice = ps.getPizzaPrice(); %>
+	                            		<%= ps.getPizzaPrice() %>원
+	                            	<%} %>
+	                            <%} %>
+	                            
+	                        </p>
+	                    </th>
+	                    <th></th>
+	                    <th colspan="2">
+	                        <form name="formPizza" class="formPizza" method="get">
+	                            <input type="hidden" class="sellPrice" name="sellPrice" value="<%=pizzaPrice%>">
+	                            <input type="text" class="amount" name="amount" value="<%=basket.getPizzaCount() %>" size="3"">
+	                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
+	                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+	                        </form>
+	                    </th>
+	                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+	                </tr>
+	                <%} %>
 				<%} %>
                 <!-- <tr style="border-bottom:1px solid;">
                     <th>피자이미지</th>
@@ -231,28 +267,39 @@
                     </th>
                     <th></th>
                 </tr> -->
-              	<%for(int i=0; i<sideNo.size(); i++){ %>
-                <tr style="border-bottom:1px solid;">
-                    <th>사이드이미지</th>
-                    <th>
-                        <p>
-                            한돈 빠에야<br>
-                            8,800원
-                        </p>
-                    </th>
-                    <th></th>
-                    <th colspan="2">
-                        <form name="formSide" class="formSide" method="get">
-                            <input type=hidden class="sellPrice" value="8800">
-                            <input type="text" class="amount" name="amount" value="1" size="3"">
-                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
-                        </form>
-                    </th>
-                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
-                </tr>
+                
+                
+              	<% for(int i=0; i<sideNo.length; i++){   
+              			String side = sideNo[i];  %>
+              		<% for(Side s : sList){ %>
+              			<% if(s.getSideNo() == Integer.parseInt(side)){ %>
+		                <tr style="border-bottom:1px solid;">
+		                    <th>사이드이미지</th>
+		                    <th>
+		                        <p>
+		                            	<%=s.getSideName() %><br>
+		                            <%=s.getSidePrice() %>원
+		                        </p>
+		                    </th>
+		                    <th></th>
+		                    <th colspan="2">
+		                        <form name="formSide" class="formSide" method="get">
+		                            <input type=hidden class="sellPrice" value="<%=s.getSidePrice() %>">
+		                            <input type="text" class="amount" name="amount" value="<%= sideCount[i] %>" size="3"">
+		                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
+		                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+		                        </form>
+		                    </th>
+		                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+		                </tr>
+		                <%} %>
+                	<% } %>
 				<%} %>
-				<%for(int i=0; i<etcNo.size(); i++){ %>
+				
+				
+				
+				
+				<%-- <%for(int i=0; i<etcNo.size(); i++){ %> --%>
                 <tr style="border-bottom:1px solid;">
                     <th>기타이미지</th>
                     <th>
@@ -272,7 +319,7 @@
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-				<%} %>
+				<%-- <%} %> --%>
                
             </table>
             <hr id="hr1">
@@ -301,11 +348,13 @@
                 <br>
                 <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
             </div>
+            
+            
         <%}else{ %>    
 				<table id="orderB2" style="text-align:center; margin:auto;">
                 <tr>
                     <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
-                </tr>
+                </tr>A
                 <tr>
                     <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
                 </tr>
@@ -315,7 +364,7 @@
                
             </table>
            <%} %>
-        </div>
+        </div> 
         
         <script>
     	$(function(){
