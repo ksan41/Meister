@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import com.meister.event.model.vo.Event;
 import com.meister.member.model.dao.MemberDao;
+import com.meister.notice.model.vo.Notice;
 import com.sun.xml.internal.ws.api.message.Attachment;
 
 public class EventDao {
@@ -93,7 +94,6 @@ public class EventDao {
 		String sql = prop.getProperty("selectAttachment");
 
 		try {
-
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, bno);
 
@@ -117,5 +117,26 @@ public class EventDao {
 			close(pstmt);
 		}
 		return at;
+	}
+	
+	public int insertEvent(Connection conn, Event e) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertEvent");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, e.getNoticeTitle());
+			pstmt.setString(2, e.getNoticeContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 }

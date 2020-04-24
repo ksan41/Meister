@@ -2,6 +2,9 @@ package com.meister.event.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.center.model.service.CenterService;
-import com.meister.center.model.vo.Faq;
+import com.meister.event.model.service.EventService;
+import com.meister.event.model.vo.Event;
+
+
 
 /**
  * Servlet implementation class EventMgInsertServlet
@@ -35,16 +40,30 @@ public class EventMgInsertServlet extends HttpServlet {
 		// faqType, faqQuestion, faqAnswer
 		request.setCharacterEncoding("utf-8");
 		
-		String faqType = request.getParameter("faqType");
-		String faqQuestion = request.getParameter("faqQuestion");
-		String faqAnswer = request.getParameter("faqAnswer");
+		DateFormat format = new SimpleDateFormat("yy년 mm월 dd일");
 		
-		Faq f = new Faq();
-		f.setFaqType(faqType);
-		f.setFaqQuestion(faqQuestion);
-		f.setFaqAnswer(faqAnswer);
+		String eventTitle = request.getParameter("eventTitle");
 		
-		int result = new CenterService().insertFaq(f);
+		String from = "2018-09.06 11:11:11";
+		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		Date eventOpenTime = format.format(request.getParameter("eventOpenTime"));
+		Date eventOpenTime = (Date) fm.parse(request.getParameter("eventOpenTime"));
+//		Date eventCloseTime = request.getParameter("eventCloseTime");
+		Date eventCloseTime = (Date) fm.parse(request.getParameter("eventCloseTime"));
+
+		String eventImage1 = request.getParameter("eventImage1");
+		String eventImage2 = request.getParameter("eventImage2");
+		String eventStatus = request.getParameter("eventStatus");
+		
+		Event e = new Event();
+		e.setEventTitle(eventTitle);
+		e.setEventOpenTime(eventOpenTime);
+		e.setEventCloseTime(eventCloseTime);
+		e.setEventImage1(eventImage1);
+		e.setEventImage2(eventImage2);
+		e.setEventStatus(eventStatus);
+		
+		int result = new EventService().insertEvent(e);
 		
 		if(result > 0) {
 			
@@ -54,7 +73,7 @@ public class EventMgInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('FAQ 등록 성공'); location.href='/Meister/ceMgFaqList.cem';</script>");
+			out.println("<script>alert('EVENT 등록 성공'); location.href='/Meister/evMgList.evm';</script>");
 			out.flush();
 			
 		}else {		// 공지사항 작성 실패!
@@ -63,7 +82,7 @@ public class EventMgInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('FAQ 등록 실패'); location.href='/Meister/ceMgFaqList.cem';</script>");
+			out.println("<script>alert('FAQ 등록 실패'); location.href='/Meister/evMgList.evm';</script>");
 			out.flush();
 		}
 	}
