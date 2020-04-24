@@ -238,7 +238,9 @@ div {
 			<hr><br>
 
 			<div id="btns">
-				<button class="middle_btn" id="listBack" style="cursor: pointer;">목록으로</button>
+				<button class="middle_btn" id="listBack" style="cursor: pointer;"
+						onclick="location.href='<%=contextPath%>/myOrderList.my';">목록으로
+				</button>
 			</div>
 
 		</div>

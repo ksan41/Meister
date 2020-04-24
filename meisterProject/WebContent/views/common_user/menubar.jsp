@@ -6,9 +6,6 @@
 	
 	
 	Member loginUser = (Member)session.getAttribute("loginUser");
-	
-	
-
 %>    
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -59,7 +56,7 @@
         	position:absolute;
 			z-index:20000;
 			left:120%;
-			top:-30px;
+			top:-50px;
         }
 		#logoImg:hover{
 			cursor:pointer;
@@ -89,7 +86,7 @@
     <header style="margin: 0;padding: 0;"> 
     	<div class="header-area "  style="margin: 0;padding: 0;">
             <div id="sticky-header" class="main-header-area "  style="margin: 0;padding: 0;">
-                    <div class="row align-items-center" style="margin: 0;padding: 0;">
+                    <div class="row align-items-center" style="margin: 0;padding: 0; height:150px;">
                         <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;position:relative">
                             <div id="user-area">
                             	
