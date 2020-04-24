@@ -135,8 +135,8 @@ input[type=checkbox] {
 										<button id="nameSearchBtn" class="small_btn">검색</button></th>
 									<th style="vertical-align: middle;">기간별 조회</th>
 									<th><input type="date" id="searchStart" name="startDate" required>
-										~ <input type="date" id="searchEdn" name="endDate" required>
-										<button class="small_btn" type="submit">검색</button>
+										~ <input type="date" id="searchEnd" name="endDate" required>
+										<button id="dateSearchBtn" class="small_btn">검색</button>
 									</th>
 								</tr>
 							</thead>
@@ -149,7 +149,7 @@ input[type=checkbox] {
 							<button class="button" onclick="sendingCoupon();">쿠폰 발송</button>
 						</div>
 
-						<table class="table table-bordered" id="dataListTable"
+						<table class="table table-bordered" id="dataListTable2"
 							width="100%" cellspacing="0">
 							<thead>
 								<tr>
@@ -168,15 +168,16 @@ input[type=checkbox] {
 								</tr>
 								<%}else{ //조회된 쿠폰이 있을 경우%>
 								<% for(int i=0;i<cList.size();i++){ %>
-								<tr id="couponData">
-									<td><%=cList.get(i).getCouponNo() %></td>
-									<td><%=cList.get(i).getCouponName() %></td>
-									<td><%=cList.get(i).getCouponStart() %> ~ <%=cList.get(i).getCouponEnd() %></td>
-									<td><%=cList.get(i).getCouponDiscount()%>%</td>
-									<td><%=cList.get(i).getCouponRegisterDate() %></td>
-									<th><input class="cb" name="checkCou" type="checkbox"
-										value="<%=cList.get(i).getCouponNo()%>"></th>
-								</tr>
+								
+									<tr>
+										<td><%=cList.get(i).getCouponNo() %></td>
+										<td><%=cList.get(i).getCouponName() %></td>
+										<td><%=cList.get(i).getCouponStart() %> ~ <%=cList.get(i).getCouponEnd() %></td>
+										<td><%=cList.get(i).getCouponDiscount()%>%</td>
+										<td><%=cList.get(i).getCouponRegisterDate() %></td>
+										<th><input class="cb" name="checkCou" type="checkbox"
+											value="<%=cList.get(i).getCouponNo()%>"></th>
+									</tr>
 								<%} %>
 								<%} %>
 							</tbody>
@@ -190,48 +191,104 @@ input[type=checkbox] {
 		</main>
 	</div>
 
-	<script>
-		//체크박스 전체선택용 function
-		$(document).ready(function() {
-			$('.checkAll').click(function() {
-				$('.cb').prop('checked', this.checked);
-			});
+<script>
+	//체크박스 전체선택용 function
+	$(document).ready(function() {
+		$('.checkAll').click(function() {
+			$('.cb').prop('checked', this.checked);
 		});
-	
+	});
+
+	//이름검색용 ajax통신
+	$(document).on("click","#nameSearchBtn",function(){
+		var nameSearch = $("#nameSearch").val();
 		
-		$("#nameSearchBtn").click(function(){
-			var nameSearch = $("#nameSearch").val();
+		$.ajax({
+			url:"SearchCList.cm", // url : 요청할 url / 필수입력
+			data:{nameSearch:nameSearch}, // data: 요청시 전달할 데이터(key:value값들의 집합.)
+			type:"post",		  // type: 요청전송방식(get/post)
+			success:function(list){ // success: ajax통신 성공시 처리할 함수 지정
+				
+				$("#dataListTable2 tbody").html("");
+				
+				var data = "";
+				if(list.length>0){
+					for(var i=0;i<list.length;i++){
+						data+= "<tr>"+
+								   "<td>"+list[i].couponNo+"</td>"+
+								   "<td>"+list[i].couponName+"</td>"+
+								   "<td>"+list[i].couponStart+" ~ "+list[i].couponEnd+"</td>"+
+								   "<td>"+list[i].couponDiscount+"%</td>"+
+								   "<td>"+list[i].couponRegisterDate+"</td>"+
+								   "<th><input class=\"cb\" name=\"checkCou\" type=\"checkbox\" value=\""+list[i].couponNo+"\"></th>"+
+								"</tr>";
+					}
+				}else{
+					data+= "<tr>"+
+								"<td colspan=\"6\">"+
+									"조회된 결과가 없습니다."+
+								"</td>"+
+							"</tr>";	
+				}				
+				
+				$("#dataListTable2 tbody").html(data);
+				$("#nameSearch").val("");
+			},
+			error:function(){ // error: ajax통신 실패시 처리할 함수 지정
+				console.log("ajax 통신 실패");
+			}
+		});
+	});
+		
+		//날짜검색용 ajax통신
+		$(document).on("click","#dateSearchBtn",function(){
+			var searchStart = $("#searchStart").val();
+			var searchEnd = $("#searchEnd").val();
+			
 			
 			$.ajax({
 				url:"SearchCList.cm", // url : 요청할 url / 필수입력
-				data:{nameSearch:nameSearch}, // data: 요청시 전달할 데이터(key:value값들의 집합.)
+				data:{searchStart:searchStart,
+					searchEnd:searchEnd}, // data: 요청시 전달할 데이터(key:value값들의 집합.)
 				type:"get",		  // type: 요청전송방식(get/post)
-				success:function(result){ // success: ajax통신 성공시 처리할 함수 지정
+				success:function(list){ // success: ajax통신 성공시 처리할 함수 지정
 					console.log("ajax 통신 성공");
-					
-					$("#couponData").text("");
+					console.log(list);
+					$("#dataListTable2 tbody").html("");
 					
 					var data = "";
-					for(var i=0;i<result.length;i++){
-						data+=
-							   "<td>"+result[i].getCouponNo()+"</td>"+
-							   "<td>"+result[i].getCouponName()+"</td>"+
-							   "<td>"+result[i].getCouponStart()+" ~ "+result[i].getCouponEnd()+"</td>"+
-							   "<td>"+result[i].getCouponDiscount()+"%</td>"+
-							   "<td>"+result[i].getCouponRegisterDate()+"</td>"+
-							   "<th><input class=\"cb\" name=\"checkCou\" type=\"checkbox\" value=\""+result[i].getCouponNo()+"\"></th>"+
-					</tr>
+					if(list.length>0){
+						for(var i=0;i<list.length;i++){
+							data+= "<tr>"+
+									   "<td>"+list[i].couponNo+"</td>"+
+									   "<td>"+list[i].couponName+"</td>"+
+									   "<td>"+list[i].couponStart+" ~ "+list[i].couponEnd+"</td>"+
+									   "<td>"+list[i].couponDiscount+"%</td>"+
+									   "<td>"+list[i].couponRegisterDate+"</td>"+
+									   "<th><input class=\"cb\" name=\"checkCou\" type=\"checkbox\" value=\""+list[i].couponNo+"\"></th>"+
+									"</tr>";
+						}
+					}else{
+						data+= "<tr>"+
+									"<td colspan=\"6\">"+
+										"조회된 결과가 없습니다."+
+									"</td>"+
+								"</tr>";	
 					}
-				
+					
+					
+					$("#dataListTable2 tbody").html(data);
+					$("#searchStart").val("");
+					$("#searchEnd").val("");
 				},
 				error:function(){ // error: ajax통신 실패시 처리할 함수 지정
 					console.log("ajax 통신 실패");
 				}
 			});
-			
-		});
+	});
+	
 		
-	</script>
+</script>
 
 </body>
 </html>
