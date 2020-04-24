@@ -173,7 +173,7 @@
                             </div>
 
 
-
+							
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <table style="text-align: left;">
