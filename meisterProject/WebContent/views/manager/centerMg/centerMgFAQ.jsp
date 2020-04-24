@@ -5,8 +5,9 @@
 	ArrayList<Faq> rlist = (ArrayList<Faq>) request.getAttribute("rlist");
 	ArrayList<Faq> plist = (ArrayList<Faq>) request.getAttribute("plist");
 	ArrayList<Faq> hlist = (ArrayList<Faq>) request.getAttribute("hlist");
-	
+	Faq f = (Faq)request.getAttribute("f");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,15 +113,16 @@
 					<hr>
 	
 					<div class="contentMg1">
-						<% for (Faq f : list) { %>
+						
+						<% for(int i=0; i<list.size(); i++) { %>
 
-							<% if (f.getFaqType().equals("피자주문하기")) { %>
+							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
 							
 								<div class="faqQuestion">
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+											<td style="width: 900px;"><%=list.get(i).getFaqQuestion() %></td>
 										</tr>
 									</table>
 								</div>
@@ -128,7 +130,7 @@
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+											<td style="width: 800px;"><%=list.get(i).getFaqAnswer()%></td>
 										</tr>
 									</table>
 									<div align="right">
@@ -144,15 +146,15 @@
 
 					<div class="contentMg2">
 					
-						<% for (Faq f : rlist) { %>
+						<% for(int i=0; i<rlist.size(); i++) { %>
 
-							<% if (f.getFaqType().equals("주문확인")) { %>
+							<% if (rlist.get(i).getFaqType().equals("주문확인")) { %>
 							
 								<div class="faqQuestion">
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+											<td style="width: 900px;"><%=rlist.get(i).getFaqQuestion()%></td>
 										</tr>
 									</table>
 								</div>
@@ -160,7 +162,7 @@
 									<table>
 										<tr>
 											<th	style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+											<td style="width: 800px;"><%=rlist.get(i).getFaqAnswer()%></td>
 										</tr>
 									</table>
 									<div align="right">
@@ -174,16 +176,16 @@
 					</div>
 
 					<div class="contentMg3">
-						
-						<% for (Faq f : plist) { %>
-						
-							<% if (f.getFaqType().equals("포장주문")) { %>
+					
+						<% for(int i=0; i<plist.size(); i++) { %>
+
+							<% if (plist.get(i).getFaqType().equals("포장주문")) { %>
 						
 								<div class="faqQuestion">
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+											<td style="width: 900px;"><%=plist.get(i).getFaqQuestion()%></td>
 										</tr>
 									</table>
 								</div>
@@ -191,7 +193,7 @@
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+											<td style="width: 800px;"><%=plist.get(i).getFaqAnswer()%></td>
 										</tr>
 									</table>
 									<div align="right">
@@ -205,16 +207,16 @@
 					</div>
 
 					<div class="contentMg4">
-					
-						<% for (Faq f : hlist) { %>
+						
+						<% for(int i=0; i<hlist.size(); i++) { %>
 
-							<% if (f.getFaqType().equals("홈페이지관련")) { %>
+							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
 						
 								<div class="faqQuestion">
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+											<td style="width: 900px;"><%=hlist.get(i).getFaqQuestion()%></td>
 										</tr>
 									</table>
 								</div>
@@ -222,7 +224,7 @@
 									<table>
 										<tr>
 											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+											<td style="width: 800px;"><%=hlist.get(i).getFaqAnswer()%></td>
 										</tr>
 									</table>
 									<div align="right">
@@ -282,38 +284,157 @@
 	</div>
 	<!-- 등록 버튼 모달 끝 -->
 
-	<!-- 수정 버튼 모달 시작 -->
-	<div class="modal fade" id="faqUpdateModal">
-		<!-- modal별 id 변경해주세요-->
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
-					<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
-				</div>
-
-				<!-- Modal body -->
-				<div class="modal-body">
-					<form action="" name="faqEnrollForm">
-						<input type="text" class="faqInputTitle" value="기존 질문 내용"><%=f.getFaqQuestion()%>
-						<br> <br>
-						<textarea class="faqInputContent"><%=f.getFaqAnswer()%></textarea>
-
-						<br><br>
-
-						<!-- 버튼 영역 -->
-						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+	<% if(list.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<list.size();i++){ %>
+			<!-- '피자주문하기' 수정 버튼 모달 시작 -->
+			<div class="modal fade" id="faqUpdateModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 						</div>
-					</form>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form action="" name="faqEnrollForm">
+								<input type="text" class="faqInputTitle" value="<%=list.get(i).getFaqQuestion()%>">
+								<br> <br>
+								<textarea class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
+		
+								<br><br>
+		
+								<!-- 버튼 영역 -->
+								<div class="faqBtns" style="align-content: right;" align="center">
+									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- 수정 버튼 모달 끝 -->
+			<!-- 수정 버튼 모달 끝 -->
+		<%} %>
+	<%} %>
+	
+	<% if(rlist.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<rlist.size();i++){ %>	
+			<!-- '주문확인' 수정 버튼 모달 시작 -->
+			<div class="modal fade" id="faqUpdateModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form action="" name="faqEnrollForm">
+								<input type="text" class="faqInputTitle" value="<%=rlist.get(i).getFaqQuestion()%>">
+								<br> <br>
+								<textarea class="faqInputContent"><%=rlist.get(i).getFaqAnswer()%></textarea>
+		
+								<br><br>
+		
+								<!-- 버튼 영역 -->
+								<div class="faqBtns" style="align-content: right;" align="center">
+									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- '주문확인' 수정 버튼 모달 끝 -->
+		<%} %>
+	<%} %>
+	
+	<% if(plist.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<plist.size();i++){ %>
+			<!-- '포장주문' 수정 버튼 모달 시작 -->
+			<div class="modal fade" id="faqUpdateModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form action="" name="faqEnrollForm">
+								<input type="text" class="faqInputTitle" value="<%=plist.get(i).getFaqQuestion()%>">
+								<br> <br>
+								<textarea class="faqInputContent"><%=plist.get(i).getFaqAnswer()%></textarea>
+		
+								<br><br>
+		
+								<!-- 버튼 영역 -->
+								<div class="faqBtns" style="align-content: right;" align="center">
+									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- '포장주문' 수정 버튼 모달 끝 -->
+		<%} %>
+	<%} %>
+	
+	<% if(hlist.isEmpty()){%>
+	<%}else{ %>
+		<%for(int i=0;i<hlist.size();i++){ %>
+			<!-- '홈페이지관련' 수정 버튼 모달 시작 -->
+			<div class="modal fade" id="faqUpdateModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<form action="" name="faqEnrollForm">
+								<input type="text" class="faqInputTitle" value="<%=hlist.get(i).getFaqQuestion()%>">
+								<br> <br>
+								<textarea class="faqInputContent"><%=hlist.get(i).getFaqAnswer()%></textarea>
+		
+								<br><br>
+		
+								<!-- 버튼 영역 -->
+								<div class="faqBtns" style="align-content: right;" align="center">
+									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- '홈페이지관련' 수정 버튼 모달 끝 -->
+		<%} %>
+	<%} %>
 
 	<!-- 클래스 추가 제거 이벤트 (css변경) -->
 	<!-- activeMgFAQ1,2 버튼클릭 아이디	.contentMg1 버튼1의 내용 -->
