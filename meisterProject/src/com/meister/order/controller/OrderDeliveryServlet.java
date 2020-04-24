@@ -37,7 +37,6 @@ public class OrderDeliveryServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
 		session = request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		String userId = loginUser.getMemberId();
