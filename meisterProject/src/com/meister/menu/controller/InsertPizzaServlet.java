@@ -43,7 +43,15 @@ public class InsertPizzaServlet extends HttpServlet {
 		String cartEtcNo = request.getParameter("etc");
 		String cartEtcAmount = request.getParameter("etcAmount");
 		
+		cartSideNo = cartSideNo.substring(0, cartSideNo.length()-1);
+		cartSideAmount = cartSideAmount.substring(0, cartSideAmount.length()-1);
+		cartEtcNo = cartEtcNo.substring(0, cartEtcNo.length()-1);
+		cartEtcAmount = cartEtcAmount.substring(0, cartEtcAmount.length()-1);
+		
 		AddCart a = new AddCart(cartPizzaSize,cartPizzaNo,cartPizzaAmount,cartDough,cartSideNo,cartSideAmount,cartEtcNo,cartEtcAmount);
+		
+		//System.out.println(cartSideNo);
+		
 		
 		int result = new MenuService().insertAddCart(a);
 		
