@@ -369,6 +369,14 @@
 	            }
 	        });
 	    });
+	    
+		// FAQ 등록폼(ceMgFaqEnroll.cem)
+		$(function(){
+			$('.button').click(function(){
+				// 등록 서블릿으로 이동
+				location.href="<%= contextPath %>/ceMgFaqEnroll.cem";
+			});
+		});
 	
 	    function deleteConfirm(){
 	        confirm('정말 삭제하시겠습니까?');
