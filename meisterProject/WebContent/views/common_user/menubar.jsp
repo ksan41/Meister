@@ -84,10 +84,10 @@
 </head>
 <body style="margin:0; padding:0;">
 
-    <!-- 메인메뉴바 시작-->
-     <!-- header-start -->
-     <header style="margin: 0;padding: 0;"> 
-        <div class="header-area "  style="margin: 0;padding: 0;">
+	<!-- 메인메뉴바 시작-->
+    <!-- header-start -->
+    <header style="margin: 0;padding: 0;"> 
+    	<div class="header-area "  style="margin: 0;padding: 0;">
             <div id="sticky-header" class="main-header-area "  style="margin: 0;padding: 0;">
                     <div class="row align-items-center" style="margin: 0;padding: 0;">
                         <div class="col-xl-3 col-lg-2" style="margin: 0;padding: 0;position:relative">
@@ -95,16 +95,16 @@
                             	
                             
                             	<% if(loginUser == null) { %>
-                            	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
-                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
-                                <a href="<%=contextPath %>/showLoginPage.me">로그인</a>
-                                <a href="<%=contextPath %>/showEnrollCheck.me">회원가입</a>
-								<% } else { %>
-                                <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
-                                
-                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
-                                <a href="<%=contextPath %>/logoutU.me">로그아웃</a>
-                                <a href="<%=contextPath%>/myOrderList.my">마이페이지</a>
+	                            	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
+	                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
+	                                <a href="<%=contextPath %>/showLoginPage.me">로그인</a>
+	                                <a href="<%=contextPath %>/showEnrollCheck.me">회원가입</a>
+									<% } else { %>
+	                                <!-- 로그인했을시 장바구니, 로그아웃,마이페이지 보여지도록 -->
+	                                
+	                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
+	                                <a href="<%=contextPath %>/logoutU.me">로그아웃</a>
+	                                <a href="<%=contextPath%>/myOrderList.my">마이페이지</a>
                                 
                                 <% } %>
                                 

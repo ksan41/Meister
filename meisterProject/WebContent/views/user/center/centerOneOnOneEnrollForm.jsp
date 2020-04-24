@@ -6,121 +6,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>centerOneOnOneEnrollForm</title>
-<style>
-/* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
-div {
-	box-sizing: border-box;
-}
-
-.outer {
-	width: 1000px;
-	box-sizing: border-box;
-	margin: auto;
-	margin-top: 100px;
-	margin-bottom: 150px;
-}
-
-.outer * {
-	font-family: 'NanumSquare';
-}
-
-.outer a {
-	text-decoration: none;
-}
-
-#index-area {
-	text-align: right;
-	font-size: 12px;
-}
-
-#index-area a {
-	color: gray
-}
-
-.sub-menu-area * {
-	padding: 5px;
-}
-
-.sub-menu-area>a {
-	font-size: 17px;
-	color: black;
-	font-weight: bolder;
-}
-
-/* 서브메뉴 스타일 끝 */
-
-/* 고객센터 1:1문의 스타일 시작 */
-.oneComment {
-	padding: 10px;
-	padding-top: 17px;
-	font-size: 13px;
-	line-height: 22px;
-}
-
-.oneComment>p {
-	color: red;
-	font-size: 11px;
-}
-
-#t-area {
-	width: 930px;
-	height: 120px;
-	resize: none;
-	font-size: 10px;
-	line-height: 25px;
-	padding: 20px;
-	background: #F6F6F6;
-	border-color: #F6F6F6;
-	color: gray;
-}
-
-#radioBtns {
-	font-size: 12px;
-	padding-right: 20px;
-}
-
-#insertQuestionForm {
-	width: 700px;
-	margin:auto;
-}
-
-#insertQuestionForm tr {
-	height: 52px;
-}
-
-#insertQuestionForm tr>:nth-of-type(1) {
-	padding-left: 100px;
-	font-weight: 600;
-}
-/* 고객센터 1:1문의 스타일 끝 */
-#btns {display: flex;}
-#cbtn {
-	margin-right: 1%;
-	box-sizing: border-box;
-}
-
-#mbtn {
-	margin-left: 1%;
-	box-sizing: border-box;
-}
-/* 중간버튼 스타일 */
-.middle_btn {
-	display: block;
-	height: 40px;
-	width: 150px;
-	margin: 0 auto;
-	font-size: 15px;
-	font-weight: bolder;
-	color: white;
-	background-color: rgb(76, 60, 60);
-	border: 0;
-	border-radius: 5px;
-	cursor:pointer;
-}
-/* 중간버튼 스타일 */
-</style>
+	<meta charset="UTF-8">
+	<title>centerOneOnOneEnrollForm</title>
+	<style>
+		/* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
+		div {
+			box-sizing: border-box;
+		}
+		
+		.outer {
+			width: 1000px;
+			box-sizing: border-box;
+			margin: auto;
+			margin-top: 100px;
+			margin-bottom: 150px;
+		}
+		
+		.outer * {
+			font-family: 'NanumSquare';
+		}
+		
+		.outer a {
+			text-decoration: none;
+		}
+		
+		#index-area {
+			text-align: right;
+			font-size: 12px;
+		}
+		
+		#index-area a {
+			color: gray
+		}
+		
+		.sub-menu-area * {
+			padding: 5px;
+		}
+		
+		.sub-menu-area>a {
+			font-size: 17px;
+			color: black;
+			font-weight: bolder;
+		}
+		
+		/* 서브메뉴 스타일 끝 */
+		
+		/* 고객센터 1:1문의 스타일 시작 */
+		.oneComment {
+			padding: 10px;
+			padding-top: 17px;
+			font-size: 13px;
+			line-height: 22px;
+		}
+		
+		.oneComment>p {
+			color: red;
+			font-size: 11px;
+		}
+		
+		#t-area {
+			width: 930px;
+			height: 120px;
+			resize: none;
+			font-size: 10px;
+			line-height: 25px;
+			padding: 20px;
+			background: #F6F6F6;
+			border-color: #F6F6F6;
+			color: gray;
+		}
+		
+		#radioBtns {
+			font-size: 12px;
+			padding-right: 20px;
+		}
+		
+		#insertQuestionForm {
+			width: 700px;
+			margin:auto;
+		}
+		
+		#insertQuestionForm tr {
+			height: 52px;
+		}
+		
+		#insertQuestionForm tr>:nth-of-type(1) {
+			padding-left: 100px;
+			font-weight: 600;
+		}
+		/* 고객센터 1:1문의 스타일 끝 */
+		#btns {display: flex;}
+		#cbtn {
+			margin-right: 1%;
+			box-sizing: border-box;
+		}
+		
+		#mbtn {
+			margin-left: 1%;
+			box-sizing: border-box;
+		}
+		/* 중간버튼 스타일 */
+		.middle_btn {
+			display: block;
+			height: 40px;
+			width: 150px;
+			margin: 0 auto;
+			font-size: 15px;
+			font-weight: bolder;
+			color: white;
+			background-color: rgb(76, 60, 60);
+			border: 0;
+			border-radius: 5px;
+			cursor:pointer;
+		}
+		/* 중간버튼 스타일 */
+	</style>
 </head>
 <body>
 

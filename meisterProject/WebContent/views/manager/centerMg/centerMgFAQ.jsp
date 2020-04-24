@@ -242,27 +242,23 @@
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ
-						등록</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						style="margin: 0; padding: 0;">&times;</button>
+					<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 등록</h4>
+					<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 				</div>
 
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form action="" name="faqEnrollForm">
 						<input type="text" class="faqInputTitle" placeholder="질문 내용 입력">
-						<br> <br>
-						<textarea class="faqInputContent" placeholder="답변 내용 입력"></textarea>
+						<br><br>
 
-						<br> <br>
+						<textarea class="faqInputContent" placeholder="답변 내용 입력"></textarea>
+						<br><br>
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+							<button type="submit" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">등록</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 						</div>
 					</form>
 				</div>
@@ -279,10 +275,8 @@
 
 				<!-- Modal Header -->
 				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ
-						수정</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						style="margin: 0; padding: 0;">&times;</button>
+					<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
+					<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 				</div>
 
 				<!-- Modal body -->
@@ -292,14 +286,12 @@
 						<br> <br>
 						<textarea class="faqInputContent">기존 답변 내용</textarea>
 
-						<br> <br>
+						<br><br>
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">수정</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal"
-								style="width: 100px; height: 40px; background: #343a40">취소</button>
+							<button type="submit" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">수정</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 						</div>
 					</form>
 				</div>
@@ -309,7 +301,7 @@
 	<!-- 수정 버튼 모달 끝 -->
 
 	<!-- 클래스 추가 제거 이벤트 (css변경) -->
-	<!-- active1,2 버튼클릭 아이디	.content1 버튼1의 내용 -->
+	<!-- activeMgFAQ1,2 버튼클릭 아이디	.contentMg1 버튼1의 내용 -->
 	<script>
 		$("#activeMgFAQ1").click(
 			function() {
