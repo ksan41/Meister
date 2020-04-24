@@ -36,10 +36,12 @@ public class CenterMgFaqInsertServlet extends HttpServlet {
 		// title, content
 		request.setCharacterEncoding("utf-8");
 		
+		String faqType = request.getParameter("faqType");
 		String faqQuestion = request.getParameter("faqQuestion");
 		String faqAnswer = request.getParameter("faqAnswer");
 		
 		Faq f = new Faq();
+		f.setFaqType(faqType);
 		f.setFaqQuestion(faqQuestion);
 		f.setFaqAnswer(faqAnswer);
 		
