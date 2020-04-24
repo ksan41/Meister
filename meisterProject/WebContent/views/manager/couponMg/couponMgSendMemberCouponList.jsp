@@ -116,8 +116,8 @@ input[type=checkbox] {
 			<h1 class="mt-4">쿠폰관리</h1>
 			<br>
 			<ul id="ulNavi">
-				<li><a href="">쿠폰정보</a></li>
-				<li><a class="active" href="">쿠폰발송</a></li>
+				<li><a href="<%=contextPath%>/couponList.cm">쿠폰정보</a></li>
+				<li><a class="active">쿠폰발송</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -161,26 +161,31 @@ input[type=checkbox] {
 									<th width="5%"><input class="checkAll" type="checkbox"></th>
 								</tr>
 							</thead>
-							<tbody>
-								<%if(cList.isEmpty()){ //조회된 쿠폰이 없을경우 %>
-								<tr>
-									<th colspan="6">조회된 쿠폰이 없습니다. 쿠폰정보페이지에서 쿠폰을 등록해주세요.</th>
-								</tr>
-								<%}else{ //조회된 쿠폰이 있을 경우%>
-								<% for(int i=0;i<cList.size();i++){ %>
-								
+							<form name="sendCouList" action="<%=contextPath%>/sendCoupon.cm" method="post">
+							<input type="hidden" name="userNo" value="<%= mArr %>">
+								<tbody>
+									<%if(cList.isEmpty()){ //조회된 쿠폰이 없을경우 %>
 									<tr>
-										<td><%=cList.get(i).getCouponNo() %></td>
-										<td><%=cList.get(i).getCouponName() %></td>
-										<td><%=cList.get(i).getCouponStart() %> ~ <%=cList.get(i).getCouponEnd() %></td>
-										<td><%=cList.get(i).getCouponDiscount()%>%</td>
-										<td><%=cList.get(i).getCouponRegisterDate() %></td>
-										<th><input class="cb" name="checkCou" type="checkbox"
-											value="<%=cList.get(i).getCouponNo()%>"></th>
+										<th colspan="6">조회된 쿠폰이 없습니다. 쿠폰정보페이지에서 쿠폰을 등록해주세요.</th>
 									</tr>
-								<%} %>
-								<%} %>
-							</tbody>
+									<%}else{ //조회된 쿠폰이 있을 경우%>
+									
+									<% for(int i=0;i<cList.size();i++){ %>
+									
+										<tr>
+											<td><%=cList.get(i).getCouponNo() %></td>
+											<td><%=cList.get(i).getCouponName() %></td>
+											<td><%=cList.get(i).getCouponStart() %> ~ <%=cList.get(i).getCouponEnd() %></td>
+											<td><%=cList.get(i).getCouponDiscount()%>%</td>
+											<td><%=cList.get(i).getCouponRegisterDate() %></td>
+											<th><input class="cb" name="checkCou" type="checkbox"
+												value="<%=cList.get(i).getCouponNo()%>"></th>
+										</tr>
+									<%} %>
+									<%} %>
+								</tbody>
+								<input type="submit" id="hiddenNextBtn" style="display:none;">
+							</form>
 						</table>
 
 
@@ -198,7 +203,13 @@ input[type=checkbox] {
 			$('.cb').prop('checked', this.checked);
 		});
 	});
-
+	
+	//쿠폰발송 서블릿요청용 function
+	function sendingCoupon(){
+  	 	 $("#hiddenNextBtn").trigger("click");
+	}
+	
+	
 	//이름검색용 ajax통신
 	$(document).on("click","#nameSearchBtn",function(){
 		var nameSearch = $("#nameSearch").val();
