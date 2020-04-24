@@ -248,7 +248,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form action="" name="faqEnrollForm">
+					<form id="faqEnrollForm" action="<%= contextPath %>/iNoticeMinsert.nom" name="faqEnrollForm" method="post">
 						<input type="text" class="faqInputTitle" placeholder="질문 내용 입력">
 						<br><br>
 
