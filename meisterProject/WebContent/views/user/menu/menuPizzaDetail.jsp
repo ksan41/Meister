@@ -522,15 +522,6 @@ input:checked + label {
 							<h2>도우 선택</h2>
 							<div class="dough-select">
 								<% for(Dough d : list5){ %>
-								<!-- 
-								<span class="dough-name"><input type="radio" name="dough"
-									value="오리지널">오리지널 도우</span> <span class="dough-price"></span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="씬">씬 도우</span> <span class="dough-price"></span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="곡물">곡물 도우</span> <span class="dough-price">+1500원</span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="더블치즈엣지">더블치즈 엣지</span> <span class="dough-price">+3000원</span><br>  -->
 									<span class="dough-name"><input type="radio" name="dough"
 									value="<%= d.getDoughNo() %>"><%= d.getDoughName() %> 도우</span> <span class="dough-price">
 									<% if(d.getDoughAddPrice() > 0){ %>
@@ -553,75 +544,6 @@ input:checked + label {
 						<!-- 사이드디시 영역 -->
 						<h2>사이드디시</h2>
 						<div class="side-area">
-							<!-- 
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>  -->
 							<% for(Side s : list3){ %>
 								<div class="side-menu">
 									<div class="side-info">
@@ -649,126 +571,6 @@ input:checked + label {
 						<br>
 						<h2>음료&기타</h2>
 						<div class="etc-area">
-							<!-- 
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div> -->
 							
 							<% for(Etc e : list4) { %>
 								<div class="etc-menu">
@@ -793,7 +595,8 @@ input:checked + label {
 							
 						</div>
 						<br> <br> <br><br>
-						<button class="big_btn" id="addCart">장바구니에 추가</button>
+						
+						<button class="big_btn addCart" id="addCart">장바구니에 추가</button>
 					</div>
 				</div>
 	
@@ -869,49 +672,57 @@ input:checked + label {
 		$(function() {
 			
 			
-			$("#addCart").click(function(){
- 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
-				//console.log(pizzaSize);
-				$("#cart input[name=pizzaSize]").val(pizzaSize);
+			
+			$(".addCart").click(function(){
+				if(<%= loginUser %> != null){
+	 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
+					//console.log(pizzaSize);
+					$("#cart input[name=pizzaSize]").val(pizzaSize);
+					
+					var dough = $(".dough-select input[type=radio]:checked").val();
+					$("#cart input[name=dough]").val(dough);
+					
+					var pizzaAmount = $("#menu_cnt_p").val();
+					$("#cart input[name=pizzaAmount]").val(pizzaAmount);
+					
+					
+					var side = "";
+					var sideAmount = "";
+					$(".side-area .menu-cnt").each(function(i, item){
+						if(item.value > 0){
+							side += item.name + ",";
+							sideAmount += item.value + ",";
+						}
+					});
+					$("#cart input[name=side]").val(side);
+					$("#cart input[name=sideAmount]").val(sideAmount);
+	
+					
+					
+					var etc = "";
+					var etcAmount = "";
+					$(".etc-area .menu-cnt").each(function(i, item){
+						if(item.value > 0){
+							etc += item.name + ",";
+							etcAmount += item.value + ",";
+						}
+					});
+					
+					$("#cart input[name=etc]").val(etc);
+					$("#cart input[name=etcAmount]").val(etcAmount);
+					
+					
+					$("#cart").submit();
+					
+				}else{
+					location.href="<%=contextPath%>/loginU.me";
+				}
 				
-				var dough = $(".dough-select input[type=radio]:checked").val();
-				$("#cart input[name=dough]").val(dough);
-				
-				var pizzaAmount = $("#menu_cnt_p").val();
-				$("#cart input[name=pizzaAmount]").val(pizzaAmount);
-				
-				
-				var side = "";
-				var sideAmount = "";
-				$(".side-area .menu-cnt").each(function(i, item){
-					if(item.value > 0){
-						side += item.name + ",";
-						console.log(side);
-						sideAmount += item.value + ",";
-					}
-				});
-				$("#cart input[name=side]").val(side);
-				$("#cart input[name=sideAmount]").val(sideAmount);
-
-				
-				
-				var etc = "";
-				var etcAmount = "";
-				$(".etc-area .menu-cnt").each(function(i, item){
-					if(item.value > 0){
-						etc += item.name + ",";
-						etcAmount += item.value + ",";
-					}
-				});
-				
-				$("#cart input[name=etc]").val(etc);
-				$("#cart input[name=etcAmount]").val(etcAmount);
-				
-				$("#cart").submit();
 				
 			});
 			
 			
+
 
 			// 피자용 
 
@@ -954,7 +765,15 @@ input:checked + label {
 
 				num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 + 1);
 			});
+			
+			
+
 		});
+		
+
+		
+		
+		
 	</script>
 
 	<!-- 메뉴수량버튼 jquery -->
@@ -967,5 +786,7 @@ input:checked + label {
 
 
 	<%@ include file="../../common_user/footer.jsp"%>
+	
+	
 </body>
 </html>

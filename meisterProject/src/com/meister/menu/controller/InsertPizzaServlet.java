@@ -1,7 +1,9 @@
 package com.meister.menu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,6 +56,21 @@ public class InsertPizzaServlet extends HttpServlet {
 		
 		
 		int result = new MenuService().insertAddCart(a);
+		
+        if(result > 0) {	// 주문정보 담은 인서트 성공
+        	
+
+        	RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderDelivery.jsp");
+        	view.forward(request, response);
+
+        	
+        }else {	// 인서트 실패
+           	
+
+        	
+        }
+		
+		
 		
 		/*
 		 * System.out.println(cartPizzaSize); System.out.println(cartPizzaNo);
