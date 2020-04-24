@@ -40,18 +40,7 @@ public class EventMgInsertServlet extends HttpServlet {
 		// faqType, faqQuestion, faqAnswer
 		request.setCharacterEncoding("utf-8");
 		
-//		DateFormat format = new SimpleDateFormat("yy년 mm월 dd일");
-		
 		String eventTitle = request.getParameter("eventTitle");
-		
-		// String to Date Casting
-//		String from = "2018-09.06 11:11:11";
-//		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
-//		Date eventOpenTime = format.format(request.getParameter("eventOpenTime"));
-//		Date eventOpenTime = (Date) fm.parse(request.getParameter("eventOpenTime"));
-//		Date eventCloseTime = request.getParameter("eventCloseTime");
-//		Date eventCloseTime = (Date) fm.parse(request.getParameter("eventCloseTime"));
-		
 		Date eventOpenTime = java.sql.Date.valueOf(request.getParameter("eventOpenTime"));
 		Date eventCloseTime = java.sql.Date.valueOf(request.getParameter("eventCloseTime"));
 		String eventImage1 = request.getParameter("eventImage1");
@@ -70,8 +59,6 @@ public class EventMgInsertServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-//			request.getSession().setAttribute("msg", "FAQ 등록 성공");
-//			response.sendRedirect("views/manager/centerMg/centerMgFAQ.jsp");
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();

@@ -45,7 +45,7 @@ public class EventService {
 	
 	/**연화
 	 * 이벤트 작성용 서비스
-	 * @param e		--> 제목, 내용이 담겨있는 Event객체
+	 * @param ev		--> 제목, 내용이 담겨있는 Event객체
 	 * @return		--> 처리된 행의 개수
 	 */
 	public int insertEvent(Event ev) {
