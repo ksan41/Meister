@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.coupon.model.vo.Coupon"%>
+
+<%
+	String mArr = (String)request.getAttribute("mArr"); //쿠폰발송할 회원번호들이 담긴 문자열
+	ArrayList<Coupon> cList = (ArrayList<Coupon>)request.getAttribute("cList");
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -103,16 +109,21 @@
                                     <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0" align="center">
                                         <thead align="center">
                                             <tr>
-                                                <th style="height:50px;" width="20%">
-                                                    <label for="answer"></label>
-                                                    <select name="answer" id="answer">
-                                                        <option value="">전체</option>
-                                                        <option value="">기간별</option>
-                                                    </select>
-                                                </th>
-                                                
-                                                <th width="70%"><input type="text" id="search" style="width: 100%; height:50px" placeholder="쿠폰명으로 조회"></th>
-                                                <th width="10%"><button class="button button5">검색</button></th>
+				 								<form name="searchName" action="<%=contextPath%>/couponList.cm" method="post">
+													<th style="vertical-align:middle;">쿠폰명 검색</th>
+													<th><input name="couponName" type="text" id="search"
+														style="width: 120px;height:30px">
+													<button class="small_btn" type="submit">검색</button></th>
+												</form>
+												<form name="searchDate" action="<%=contextPath %>/couponList.cm" method="post">
+													<th style="vertical-align:middle;">기간별 조회</th>
+													<th>
+														<input type="date" name="startDate" required>
+														~
+														<input type="date" name="endDate">
+														<button class="small_btn" type="submit" required>검색</button></th>
+													</th>
+												</form>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -132,83 +143,28 @@
                                                 <th width="25%">기간</th>
                                                 <th width="8%">할인율</th>
                                                 <th width="15%">등록일</th>
-                                                <th width="5%"><input type="checkbox"></th>
+                                                <th width="5%"><input class="checkAll" type="checkbox"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2011/12/12</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>[골드] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2010/09/20</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>[실버] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2009/10/09</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2010/12/22</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2010/11/14</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2011/06/07</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2010/03/11</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2011/08/14</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>[매니아] 사이드메뉴 무료 쿠폰</td>
-                                                <td>2020-03-01 ~ 2020-04-01</td>
-                                                <td>40%</td>
-                                                <td>2011/06/02</td>
-                                                <th><input type="checkbox"></th>
-                                            </tr>
-
+                                        <%if(cList.isEmpty()){ //조회된 쿠폰이 없을경우 %>
+                                        	<tr>
+                                        		<th colspan="6">
+                                        			조회된 쿠폰이 없습니다. 쿠폰정보페이지에서 쿠폰을 등록해주세요.
+                                        		</th>
+                                        	</tr>
+                                        <%}else{ //조회된 쿠폰이 있을 경우%>
+                                        	<% for(int i=0;i<cList.size();i++){ %>
+	                                            <tr>
+	                                                <td><%=cList.get(i).getCouponNo() %></td>
+	                                                <td><%=cList.get(i).getCouponName() %></td>
+	                                                <td><%=cList.get(i).getCouponStart() %> ~ <%=cList.get(i).getCouponEnd() %></td>
+	                                                <td><%=cList.get(i).getCouponDiscount()%>%</td>
+	                                                <td><%=cList.get(i).getCouponRegisterDate() %></td>
+	                                                <th><input  class="cb" name="checkCou" type="checkbox" value="<%=cList.get(i).getCouponNo()%>"></th>
+	                                            </tr>
+                                            <%} %>
+                                         <%} %>
                                         </tbody>
                                     </table>
                                     
@@ -219,15 +175,18 @@
                     </div>
                 </main>
             </div>
+            
 	<script>
-            function deleteMem(){
-                confirm('정말 탈퇴하시겠습니까?');
-            };
+		$(document).ready(function() {
+			$('.checkAll').click(function() {
+				$('.cb').prop('checked', this.checked);
+			});
+		});
 
-            function sendingCoupon(){
-                alert('[매니아] 사이드메뉴 무료 쿠폰\n발송되었습니다!');
-            };
-        </script>
+		function sendingCoupon() {
+			
+		};
+	</script>
 
 </body>
 </html>
