@@ -101,7 +101,7 @@
 				</div>
 				<div class="card-body">
 					<div class="faqBtns">
-						<button id="activeMgFAQ1" class="active">피자 주문하기</button>
+						<button id="activeMgFAQ1" class="active">피자주문하기</button>
 						<button id="activeMgFAQ2">주문확인</button>
 						<button id="activeMgFAQ3">포장 주문</button>
 						<button id="activeMgFAQ4">홈페이지 관련</button>
@@ -257,10 +257,10 @@
 				<div class="modal-body">
 					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqInsert.cem" name="faqEnrollForm" method="post">
 						<select name="faqType">
-							<option value="pizzaOrder" selected>피자 주문하기</option>
-							<option value="orderConfirm">주문확인</option>
-							<option value="takeOut">포장 주문</option>
-							<option value="website">홈페이지 관련</option>
+							<option value="피자주문하기" selected>피자주문하기</option>
+							<option value="주문확인">주문확인</option>
+							<option value="포장주문">포장주문</option>
+							<option value="홈페이지관련">홈페이지관련</option>
 						</select>
 						<br><br>
 						
@@ -305,7 +305,7 @@
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">수정</button>
+							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
 							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 						</div>
 					</form>
