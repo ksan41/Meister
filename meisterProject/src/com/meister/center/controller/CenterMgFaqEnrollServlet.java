@@ -27,6 +27,7 @@ public class CenterMgFaqEnrollServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// 모달폼에서 값 전달.. 이게 아니고
 		//request.getRequestDispatcher("views/manager/noticeMg/branchNoticeEnrollForm.jsp").forward(request, response);
 		
 	}
