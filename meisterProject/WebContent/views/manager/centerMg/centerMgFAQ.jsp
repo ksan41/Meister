@@ -2,6 +2,10 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.center.model.vo.Faq"%>
 <%
 	ArrayList<Faq> list = (ArrayList<Faq>) request.getAttribute("list");
+	ArrayList<Faq> rlist = (ArrayList<Faq>) request.getAttribute("rlist");
+	ArrayList<Faq> plist = (ArrayList<Faq>) request.getAttribute("plist");
+	ArrayList<Faq> hlist = (ArrayList<Faq>) request.getAttribute("hlist");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -79,6 +83,9 @@
         .inactive{
         	background:lightgray;
         }
+        input{
+        	height: 25px;
+        }
 	</style>
 </head>
 <body class="sb-nav-fixed">
@@ -137,7 +144,7 @@
 
 					<div class="contentMg2">
 					
-						<% for (Faq f : list) { %>
+						<% for (Faq f : rlist) { %>
 
 							<% if (f.getFaqType().equals("주문확인")) { %>
 							
@@ -168,7 +175,7 @@
 
 					<div class="contentMg3">
 						
-						<% for (Faq f : list) { %>
+						<% for (Faq f : plist) { %>
 						
 							<% if (f.getFaqType().equals("포장주문")) { %>
 						
@@ -199,7 +206,7 @@
 
 					<div class="contentMg4">
 					
-						<% for (Faq f : list) { %>
+						<% for (Faq f : hlist) { %>
 
 							<% if (f.getFaqType().equals("홈페이지관련")) { %>
 						
@@ -255,7 +262,7 @@
 							<option value="takeOut">포장 주문</option>
 							<option value="website">홈페이지 관련</option>
 						</select>
-						<br>
+						<br><br>
 						
 						<input type="text" name="faqQuestion" class="faqInputTitle" placeholder="질문 내용 입력">
 						<br><br>
@@ -265,7 +272,7 @@
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
-							<button type="submit" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">등록</button>
+							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
 							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/ceMgFaqList.cem';">취소</button>
 						</div>
 					</form>
@@ -378,13 +385,7 @@
 	        });
 	    });
 	    
-		// FAQ 등록폼(ceMgFaqEnroll.cem)
-		$(function(){
-			$('.button').click(function(){
-				// 등록 서블릿으로 이동
-				location.href="<%= contextPath %>/ceMgFaqEnroll.cem";
-			});
-		});
+
 	
 	    function deleteConfirm(){
 	        confirm('정말 삭제하시겠습니까?');
