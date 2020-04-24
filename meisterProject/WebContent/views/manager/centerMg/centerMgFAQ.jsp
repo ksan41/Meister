@@ -5,7 +5,7 @@
 	ArrayList<Faq> rlist = (ArrayList<Faq>) request.getAttribute("rlist");
 	ArrayList<Faq> plist = (ArrayList<Faq>) request.getAttribute("plist");
 	ArrayList<Faq> hlist = (ArrayList<Faq>) request.getAttribute("hlist");
-
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -132,7 +132,7 @@
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -297,9 +297,9 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form action="" name="faqEnrollForm">
-						<input type="text" class="faqInputTitle" value="기존 질문 내용">
+						<input type="text" class="faqInputTitle" value="기존 질문 내용"><%=f.getFaqQuestion()%>
 						<br> <br>
-						<textarea class="faqInputContent">기존 답변 내용</textarea>
+						<textarea class="faqInputContent"><%=f.getFaqAnswer()%></textarea>
 
 						<br><br>
 
