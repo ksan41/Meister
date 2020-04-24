@@ -154,7 +154,7 @@ table {
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td colspan="2"><input class="text-area" type="text" id="userId"
+						<td colspan="2"><input class="text-area" type="text" 
 							name="userId" placeholder="영문,숫자 5~12글자 이하" style="height: 31px;">&nbsp;&nbsp;
 							<button class="small_btn" type="button" id="idCheck"
 								style="display: inline;">중복확인</button></td>
@@ -195,7 +195,7 @@ table {
 				<br>
 
 				<div id="btn-area">
-					<button class="middle_btn" type="submit" id="enroll_btn" onclick="return validate();" style="margin-left: 450px;" disabled
+					<button class="middle_btn" type="submit" id="joinBtn" onclick="return validate();" style="margin-left: 450px;" disabled
 					>가입하기</button>
 				</div>
 			</div>
@@ -274,13 +274,35 @@ table {
 			$("#idCheck").click(function(){
 				
 				// 아이디 입력하는 input 요소
-				var userId = $("enrollForm input[name=userId]");
+				var userId = $("#enrollForm input[name=userId]");
 				
 				$.ajax({
 					url:"idCheck.me",
-					data:{userId:userId,val()},
+					data:{userId:userId.val()},
 					type:"post",
-					success:function(){
+					success:function(result){ 
+						
+						if(result == 0) { // 사용 가능한 아이디 
+							
+							if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?")) {
+								
+								// 아이디 더 이상 수정이 불가하게끔
+								userId.attr("readonly","true");
+								// 회원가입 버튼 활성화
+								$("#joinBtn").removeAttr("disabled");
+								
+							} else {
+								userId.focus();
+								
+							}
+							
+							
+							
+						} else { // 사용 불가능한 아이디 
+							alert("사용할 수 없는 아이디 입니다.");
+							userId.focus();
+						
+						}
 						
 					}, error:function(){
 						console.log("ajax통신 실패!!");
