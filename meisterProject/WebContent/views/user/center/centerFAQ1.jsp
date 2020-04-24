@@ -164,70 +164,48 @@
 				<button id="active4">홈페이지 관련</button>
 
 			</div>
-
+			
 			<hr>
-			
-			
-            
+
 			<div class="content1">
-			
-			<%
-            for (Faq f : list) {
-            %>
-            
-            <%
-            if (f.getFaqType().equals("피자주문하기")) {
-            %>
 
-				<div class="faqQuestion">
-					<table>
-						<tr>
-							<th style="width: 30px; text-align: center; color: blue">Q</th>
-							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
-						</tr>
-					</table>
-				
-				</div>
-				
-				
-				
-			    <div class="faqAnswer">
-					<table>
-						<tr>
-							<th
-								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
-						</tr>
-					</table>
-				</div>
-				
-				 <%
-               }
-                 %>
-                 <%
-               }
-                 %>
-				
-				
-				
+				<% for (Faq f : list) { %>
 
+					<% if (f.getFaqType().equals("피자주문하기")) { %>
 
-
-
-				</div>
-				
+						<div class="faqQuestion">
+							<table>
+								<tr>
+									<th style="width: 30px; text-align: center; color: blue">Q</th>
+									<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+								</tr>
+							</table>
 		
-				
-				<div class="content2">
-				
-							<%
-            for (Faq f : list) {
-            %>
-            
-            <%
-            if (f.getFaqType().equals("주문확인")) {
-            %>
-				
+						</div>
+
+
+
+						<div class="faqAnswer">
+							<table>
+								<tr>
+									<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+									<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+								</tr>
+							</table>
+						</div>
+
+					<% } %>
+				<% } %>
+			</div>
+
+
+
+			<div class="content2">
+
+				<% for (Faq f : list) { %>
+
+					<% if (f.getFaqType().equals("주문확인")) { %>
+
 				<div class="faqQuestion">
 					<table>
 						<tr>
@@ -235,12 +213,12 @@
 							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
-				
+
 				</div>
-				
-				
-				
-			    <div class="faqAnswer">
+
+
+
+				<div class="faqAnswer">
 					<table>
 						<tr>
 							<th
@@ -249,46 +227,74 @@
 						</tr>
 					</table>
 				</div>
-				
-					 <%
-               }
-                 %>
-                 <%
-               }
-                 %>
-				
-				
-				
-				</div>
-				
-				
-				
-				<div class="content3">
-				
-			<%
+
+					<% } %>
+				<% } %>
+
+
+
+			</div>
+
+
+
+			<div class="content3">
+
+				<%
             for (Faq f : list) {
             %>
-            
-            <%
+
+				<%
             if (f.getFaqType().equals("포장주문")) {
-            	
-            	
-            
             %>
-            
-            <div class="faqQuestion">
+
+				<div class="faqQuestion">
 					<table>
 						<tr>
 							<th style="width: 30px; text-align: center; color: blue">Q</th>
 							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
 						</tr>
 					</table>
-				
+
 				</div>
-				
-				
-				
-			    <div class="faqAnswer">
+
+
+
+				<div class="faqAnswer">
+					<table>
+						<tr>
+							<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
+						</tr>
+					</table>
+				</div>
+
+				<% } %>
+				<% } %>
+
+
+			</div>
+
+
+
+			<div class="content4">
+
+				<% for (Faq f : list) { %>
+
+					<% if (f.getFaqType().equals("홈페이지관련")) { %>
+
+				<div class="faqQuestion">
+					<table>
+						<tr>
+							<th style="width: 30px; text-align: center; color: blue">Q</th>
+							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
+						</tr>
+					</table>
+
+				</div>
+
+
+
+				<div class="faqAnswer">
 					<table>
 						<tr>
 							<th
@@ -297,66 +303,23 @@
 						</tr>
 					</table>
 				</div>
-			 
-			   <% } %>
-               <% } %>
-				
-				
-	         </div>
-	         
-	         
-	         
-	         <div class="content4">
-	         
-	         	<%
-            for (Faq f : list) {
-            %>
-            
-            <%
-            if (f.getFaqType().equals("홈페이지관련")) {
-            	
-            	
-            
-            %>
-            
-              <div class="faqQuestion">
-					<table>
-						<tr>
-							<th style="width: 30px; text-align: center; color: blue">Q</th>
-							<td style="width: 900px;"><%=f.getFaqQuestion()%></td>
-						</tr>
-					</table>
-				
-				</div>
-				
-				
-				
-			    <div class="faqAnswer">
-					<table>
-						<tr>
-							<th
-								style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-							<td style="width: 800px;"><%=f.getFaqAnswer()%></td>
-						</tr>
-					</table>
-				</div>
-            
-            
-			   <% } %>
-               <% } %>
-				
-	         
-	         
-	         
-	         
-	         </div>
-	         
-	         
-				
-				</div>
-				
-				
-				</div>
+
+
+				<% } %>
+				<% } %>
+
+
+
+
+
+			</div>
+
+
+
+		</div>
+
+
+	</div>
 
 
 
