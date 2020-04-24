@@ -1,14 +1,17 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.member.model.vo.Member;
+import com.meister.myPage.model.service.MyPageService;
+import com.meister.order.model.vo.Orders;
 
 /**
  * Servlet implementation class MyOrderDetailServlet
@@ -31,6 +34,9 @@ public class MyOrderDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int ono = Integer.parseInt(request.getParameter("ono"));
+		//int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
+		
+		//Orders ordersList = new MyPageService().selectOrdersDetail(ono);
 		
 		
 		/*

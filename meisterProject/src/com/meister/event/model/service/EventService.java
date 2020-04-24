@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import com.meister.event.model.dao.EventDao;
 import com.meister.event.model.vo.Event;
+import com.meister.notice.model.dao.NoticeDao;
+import com.meister.notice.model.vo.Notice;
 import com.sun.xml.internal.ws.api.message.Attachment;
 
 public class EventService {
@@ -39,6 +41,26 @@ public class EventService {
 		close(conn);
 		return at;
 
+	}
+	
+	/**연화
+	 * 이벤트 작성용 서비스
+	 * @param ev		--> 제목, 내용이 담겨있는 Event객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int insertEvent(Event ev) {
+		
+		Connection conn = getConnection();
+		
+		int result = new EventDao().insertEvent(conn, ev);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 
 }

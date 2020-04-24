@@ -53,14 +53,14 @@ public class OrderService {
 	 * @author 곽진아
 	 * @param userNo 회원번호
 	 */
-	public ArrayList<Price> ShowBasketList(int userNo){
+	public Price ShowBasketList(int userNo){
 		Connection conn = getConnection();
 		
-		ArrayList<Price> basketList = new OrderDao().ShowBasketList(conn, userNo);
+		Price basket = new OrderDao().ShowBasketList(conn, userNo);
 		
 		close(conn);
 		//System.out.println("서비스딴 : " + deliveryList.get(0));
-		return basketList;
+		return basket;
 	}
 	
 	/**

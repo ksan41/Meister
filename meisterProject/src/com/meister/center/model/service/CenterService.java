@@ -145,4 +145,24 @@ public class CenterService {
 		close(conn);
 		return result;
 	}
+	
+	/**연화
+	 * 9. FAQ 수정용 서비스
+	 * @param f		--> 수정하고자하는 FAQ 번호, 수정할 제목, 수정할 내용이 담겨있는 FAQ객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int updateFaq(Faq f) {
+		
+		Connection conn = getConnection();
+		int result = new CenterDao().updateFaq(conn, f);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 }

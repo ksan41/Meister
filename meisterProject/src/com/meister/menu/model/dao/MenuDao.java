@@ -350,7 +350,7 @@ public class MenuDao {
 			pstmt.setString(8, a.getCartEtcAmount());
 			
 			result = pstmt.executeUpdate();
-			System.out.println("지점1" + result);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

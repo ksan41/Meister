@@ -11,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.center.model.service.CenterService;
 import com.meister.center.model.vo.Faq;
-import com.meister.notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class CenterMgFaqInsertServlet
+ * Servlet implementation class CenterMgFaqUpdateServlet
  */
-@WebServlet("/ceMgFaqInsert.cem")
-public class CenterMgFaqInsertServlet extends HttpServlet {
+@WebServlet("/ceMgFaqUpdate.cem")
+public class CenterMgFaqUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CenterMgFaqInsertServlet() {
+    public CenterMgFaqUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,38 +32,34 @@ public class CenterMgFaqInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// faqType, faqQuestion, faqAnswer
+		// 요청시 한글이 전달될 경우를 대비해서
 		request.setCharacterEncoding("utf-8");
 		
+		int faqNo = Integer.parseInt(request.getParameter("faqNo"));
 		String faqType = request.getParameter("faqType");
 		String faqQuestion = request.getParameter("faqQuestion");
 		String faqAnswer = request.getParameter("faqAnswer");
 		
 		Faq f = new Faq();
+		f.setFaqNo(faqNo);
 		f.setFaqType(faqType);
 		f.setFaqQuestion(faqQuestion);
 		f.setFaqAnswer(faqAnswer);
 		
-		int result = new CenterService().insertFaq(f);
+		int result = new CenterService().updateFaq(f);
 		
 		if(result > 0) {
 			
-//			request.getSession().setAttribute("msg", "FAQ 등록 성공");
-//			response.sendRedirect("views/manager/centerMg/centerMgFAQ.jsp");
-			response.setContentType("text/html; charset=UTF-8");
+			// 상세보기 요청
+			response.sendRedirect("ceMgFaqList.cem?faqNo=" + faqNo);
 			
-			PrintWriter out = response.getWriter();
-			
-			out.println("<script>alert('FAQ 등록 성공'); location.href='/Meister/ceMgFaqList.cem';</script>");
-			out.flush();
-			
-		}else {		// 공지사항 작성 실패!
+		}else {
 			
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('FAQ 등록 실패'); location.href='/Meister/ceMgFaqList.cem';</script>");
+			out.println("<script>alert('FAQ 수정이 실패했습니다. 다시 수정해!!!!'); location.href='/Meister/ceMgFaqList.cem?faqNo=" + faqNo + "';</script>");
 			out.flush();
 		}
 	}

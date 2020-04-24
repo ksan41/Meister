@@ -154,9 +154,9 @@ public class CenterDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, f.get());
+			pstmt.setString(1, f.getFaqType());
 			pstmt.setString(2, f.getFaqQuestion());
-			pstmt.setString(2, f.getFaqAnswer());
+			pstmt.setString(3, f.getFaqAnswer());
 			
 			result = pstmt.executeUpdate();
 			
@@ -166,7 +166,31 @@ public class CenterDao {
 			close(pstmt);
 		}
 		return result;
-	}   
+	}
+	
+	
+	public int updateFaq(Connection conn, Faq f) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, f.getFaqType());
+			pstmt.setString(2, f.getFaqQuestion());
+			pstmt.setString(3, f.getFaqAnswer());
+			pstmt.setInt(4, f.getFaqNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
        
        
 }

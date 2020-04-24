@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
-	
+	pageEncoding="UTF-8"
+	import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
+
 <%
 ArrayList<Pizza> list = (ArrayList<Pizza>)request.getAttribute("list");
 ArrayList<PizzaSize> list2 = (ArrayList<PizzaSize>)request.getAttribute("list2");
@@ -47,7 +48,6 @@ div {
 	margin-top: 100px;
 	margin-bottom: 150px;
 }
-
 
 /* 부트스트랩 덮어씌우기용 스타일 */
 a {
@@ -104,7 +104,6 @@ p {
 }
 
 /* 부트스트랩 덮어씌우기용 스타일 */
-
 .outer * {
 	font-family: 'NanumSquare';
 }
@@ -168,7 +167,6 @@ p {
 #menu-img {
 	width: 375px;
 	height: 375px;
-
 }
 
 #infoArea {
@@ -187,7 +185,7 @@ p {
 }
 
 /* 메뉴수량 큰버튼 */
-.cntBtn-big #menu_cnt_p {
+.cntBtn-big .menu_cnt_p {
 	height: 30px;
 	width: 100px;
 	text-align: center;
@@ -428,45 +426,41 @@ p {
 	padding-right: 40px;
 }
 
-
 /*라디오버튼 숨김*/
 #price1, #price2 {
-    display: none;
+	display: none;
 }
+
 label {
-    display: inline-block;
-    margin: 0 0 -1px;
-    padding: 15px 0px;
-    font-weight: 600;
-    text-align: center;
-    color: black;
-    /* border: 1px solid transparent; */
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 0px;
+	font-weight: 600;
+	text-align: center;
+	color: black;
+	/* border: 1px solid transparent; */
 }
+
 label:hover {
-    color: #2e9cdf;
-    cursor: pointer;
+	color: #2e9cdf;
+	cursor: pointer;
 }
-
-
 
 /*input 클릭시, label 스타일*/
-input:checked + label {
-      color: white;
-      background-color: red;
-      /* border-radius: 5px; */
-      /* border: 1px solid #ddd;
+input:checked+label {
+	color: white;
+	background-color: red;
+	/* border-radius: 5px; */
+	/* border: 1px solid #ddd;
       border-top: 2px solid #2e9cdf;
       border-bottom: 1px solid #ffffff; */
 }
-#price1:checked ~ #content1,
-#price2:checked ~ #content2
-{
-    display: block;
+
+#price1:checked ~ #content1, #price2:checked ~ #content2 {
+	display: block;
 }
 
 /* 탭 메뉴 끝 */
-
-
 </style>
 
 
@@ -495,310 +489,120 @@ input:checked + label {
 
 		<!-- inner영역에 콘텐츠 작성 -->
 		<%-- <form action="<%= contextPath %>/insertSide.men" method="post"> --%>
-			<div class="inner">
-				<div class="menuArea">
-					<div id="imgArea">
-						<img id="menu-img" src="<%= list.get(0).getPizzaImg() %>" alt="">
-						<br> <br>
-						<p id="menu-detail-btn" data-toggle="modal"
-							data-target="#menu-detail-modal">메뉴정보 상세</p>
-					</div>
-					<div id="infoArea">
-						<div id="info-title">
-							<h2><%= list.get(0).getPizzaName() %></h2>
-								<hr>
-						</div>
-						<div id="info-size" class="info-size">
-							<h2>사이즈 선택</h2>
-							<input id="price1" type="radio" name="price" value="<%= list2.get(0).getSizeNo() %>" style="width:40; height: 150;">
-							<label for="price1" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</label>
-							<%-- <button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button> --%>
-							<input id="price2" type="radio" name="price" value="<%= list2.get(1).getSizeNo() %>" style="width:40; height: 150;">
-							<label for="price2" style="width:180px; border-radius:10px; border:1px solid gray;"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</label>
-							<%-- <button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button> --%>
-							<hr>
-						</div>
-						<div id="info-dough">
-							<h2>도우 선택</h2>
-							<div class="dough-select">
-								<% for(Dough d : list5){ %>
-								<!-- 
-								<span class="dough-name"><input type="radio" name="dough"
-									value="오리지널">오리지널 도우</span> <span class="dough-price"></span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="씬">씬 도우</span> <span class="dough-price"></span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="곡물">곡물 도우</span> <span class="dough-price">+1500원</span><br>
-								<span class="dough-name"><input type="radio" name="dough"
-									value="더블치즈엣지">더블치즈 엣지</span> <span class="dough-price">+3000원</span><br>  -->
-									<span class="dough-name"><input type="radio" name="dough"
-									value="<%= d.getDoughNo() %>"><%= d.getDoughName() %> 도우</span> <span class="dough-price">
-									<% if(d.getDoughAddPrice() > 0){ %>
-										+<%= d.getDoughAddPrice() %>
-									<%} %></span><br>
-								<% } %>
-							</div>
-							<hr>
-						</div>
-						<div id="info-amount">
-							<h2>수량 선택</h2>
-							<div class="cntBtn-big">
-								<button id="cnt_down_p">-</button>
-								<input id="menu_cnt_p" type="text" name="<%= list.get(0).getPizzaNo() %>" value="1" readonly>
-								<button id="cnt_up_p">+</button>
-							</div>
-							<hr>
-						</div>
-	
-						<!-- 사이드디시 영역 -->
-						<h2>사이드디시</h2>
-						<div class="side-area">
-							<!-- 
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="side-menu">
-								<div class="side-info">
-									<img src="side/close-up-1854245_1280.jpg" alt="">
-									<div class="side-info-text">
-										<b>그리니시 샐러드<br> 8000원
-										</b>
-									</div>
-								</div>
-								<div class="side-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="사이드번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>  -->
-							<% for(Side s : list3){ %>
-								<div class="side-menu">
-									<div class="side-info">
-										<img src="<%= s.getSideImg() %>" alt="">
-										<div class="side-info-text">
-											<b style="color:black;"><%= s.getSideName() %><br> <%=s.getSidePrice() %>원
-											</b>
-										</div>
-									</div>
-									<div class="side-btn">
-										<div class="cntBtn-small">
-											<button class="cnt_down">-</button>
-											<input class="menu-cnt" type="text" name="<%=s.getSideNo() %>" value="0"
-												readonly>
-											<button class="cnt_up">+</button>
-										</div>
-									</div>
-								</div>
-							<% } %>
-						</div>
-						
-	
-						
-						<!-- 사이드디시 영역 -->
-						<br>
-						<h2>음료&기타</h2>
-						<div class="etc-area">
-							<!-- 
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div>
-							<div class="etc-menu">
-								<div class="etc-info">
-									<img src="etc/0020020000032.png" alt="">
-									<div class="etc-info-text">
-										<b>콜라 1.25L<br> 2000원
-										</b>
-									</div>
-								</div>
-								<div class="etc-btn">
-									<div class="cntBtn-small">
-										<button class="cnt_down">-</button>
-										<input class="menu-cnt" type="text" name="음료기타번호" value="0"
-											readonly>
-										<button class="cnt_up">+</button>
-									</div>
-								</div>
-							</div> -->
-							
-							<% for(Etc e : list4) { %>
-								<div class="etc-menu">
-									<div class="etc-info">
-										<img src="<%= e.getEtcImg() %>" alt="">
-										<div class="etc-info-text">
-											<b style="color:black;"><%=e.getEtcName() %><br> <%= e.getEtcPrice() %>원
-											</b>
-										</div>
-									</div>
-									<div class="etc-btn">
-										<div class="cntBtn-small">
-											<button class="cnt_down">-</button>
-											<input class="menu-cnt" type="text" name="<%=e.getEtcNo() %>" value="0"
-												readonly>
-											<button class="cnt_up">+</button>
-										</div>
-									</div>
-								</div>
-							<% } %>
-							
-							
-						</div>
-						<br> <br> <br><br>
-						<button class="big_btn" id="addCart">장바구니에 추가</button>
-					</div>
+		<div class="inner">
+			<div class="menuArea">
+				<div id="imgArea">
+					<img id="menu-img" src="<%= list.get(0).getPizzaImg() %>" alt="">
+					<br> <br>
+					<p id="menu-detail-btn" data-toggle="modal"
+						data-target="#menu-detail-modal">메뉴정보 상세</p>
 				</div>
-	
-	
+				<div id="infoArea">
+					<div id="info-title">
+						<h2><%= list.get(0).getPizzaName() %></h2>
+						<hr>
+					</div>
+					<div id="info-size" class="info-size">
+						<h2>사이즈 선택</h2>
+						<input id="price1" type="radio" name="price"
+							value="<%= list2.get(0).getSizeNo() %>"
+							style="width: 40; height: 150;"> <label for="price1"
+							style="width: 180px; border-radius: 10px; border: 1px solid gray;"><%= list2.get(0).getPizzaSize() %>
+							<%= list2.get(0).getPizzaPrice() %>원</label>
+						<%-- <button class="middle_btn" id="#"><%= list2.get(0).getPizzaSize() %> <%= list2.get(0).getPizzaPrice() %>원</button> --%>
+						<input id="price2" type="radio" name="price"
+							value="<%= list2.get(1).getSizeNo() %>"
+							style="width: 40; height: 150;"> <label for="price2"
+							style="width: 180px; border-radius: 10px; border: 1px solid gray;"><%= list2.get(1).getPizzaSize() %>
+							<%= list2.get(1).getPizzaPrice() %>원</label>
+						<%-- <button class="middle_btn" id="#"><%= list2.get(1).getPizzaSize() %> <%= list2.get(1).getPizzaPrice() %>원</button> --%>
+						<hr>
+					</div>
+					<div id="info-dough">
+						<h2>도우 선택</h2>
+						<div class="dough-select">
+							<% for(Dough d : list5){ %>
+							<span class="dough-name"><input type="radio" name="dough"
+								value="<%= d.getDoughNo() %>"><%= d.getDoughName() %> 도우</span>
+							<span class="dough-price"> <% if(d.getDoughAddPrice() > 0){ %>
+								+<%= d.getDoughAddPrice() %> <%} %></span><br>
+							<% } %>
+						</div>
+						<hr>
+					</div>
+					<div id="info-amount">
+						<h2>수량 선택</h2>
+						<div class="cntBtn-big">
+							<button class="cnt_down_p">-</button>
+							<input class="menu_cnt_p" type="text"
+								name="<%= list.get(0).getPizzaNo() %>" value="1" readonly>
+							<button class="cnt_up_p">+</button>
+						</div>
+						<hr>
+					</div>
+
+					<!-- 사이드디시 영역 -->
+					<h2>사이드디시</h2>
+					<div class="side-area">
+						<% for(Side s : list3){ %>
+						<div class="side-menu">
+							<div class="side-info">
+								<img src="<%= s.getSideImg() %>" alt="">
+								<div class="side-info-text">
+									<b style="color: black;"><%= s.getSideName() %><br> <%=s.getSidePrice() %>원
+									</b>
+								</div>
+							</div>
+							<div class="side-btn">
+								<div class="cntBtn-small">
+									<button class="cnt_down">-</button>
+									<input class="menu-cnt" type="text" name="<%=s.getSideNo() %>"
+										value="0" readonly>
+									<button class="cnt_up">+</button>
+								</div>
+							</div>
+						</div>
+						<% } %>
+					</div>
+
+
+
+					<!-- 사이드디시 영역 -->
+					<br>
+					<h2>음료&기타</h2>
+					<div class="etc-area">
+
+						<% for(Etc e : list4) { %>
+						<div class="etc-menu">
+							<div class="etc-info">
+								<img src="<%= e.getEtcImg() %>" alt="">
+								<div class="etc-info-text">
+									<b style="color: black;"><%=e.getEtcName() %><br> <%= e.getEtcPrice() %>원
+									</b>
+								</div>
+							</div>
+							<div class="etc-btn">
+								<div class="cntBtn-small">
+									<button class="cnt_down">-</button>
+									<input class="menu-cnt" type="text" name="<%=e.getEtcNo() %>"
+										value="0" readonly>
+									<button class="cnt_up">+</button>
+								</div>
+							</div>
+						</div>
+						<% } %>
+
+
+					</div>
+					<br> <br> <br>
+					<br>
+
+					<button class="big_btn" id="addCart">장바구니에 추가</button>
+				</div>
 			</div>
+
+
+		</div>
 
 		<!-- </form> -->
 	</div>
@@ -852,120 +656,143 @@ input:checked + label {
 		</div>
 	</div>
 	<!-- 모달 끝 -->
-	
+
 	<form id="cart" action="insertPizza.men" method="get">
-		<input type="hidden" name="pizzaNo" value="<%= list.get(0).getPizzaNo() %>">
-		<input type="hidden" name="pizzaSize" value="">
-		<input type="hidden" name="dough" value="">
-		<input type="hidden" name="pizzaAmount" value="">
-		<input type="hidden" name="side" value=""> <!-- 1, 2 -->
-		<input type="hidden" name="sideAmount" value=""> <!-- 1, 1 -->
-		<input type="hidden" name="etc" value=""><!-- 5, 6 -->
-		<input type="hidden" name="etcAmount" value=""><!-- 2, 1 -->
+		<input type="hidden" name="pizzaNo"
+			value="<%= list.get(0).getPizzaNo() %>"> <input type="hidden"
+			name="pizzaSize" value=""> <input type="hidden" name="dough"
+			value=""> <input type="hidden" name="pizzaAmount" value="">
+		<input type="hidden" name="side" value="">
+		<!-- 1, 2 -->
+		<input type="hidden" name="sideAmount" value="">
+		<!-- 1, 1 -->
+		<input type="hidden" name="etc" value="">
+		<!-- 5, 6 -->
+		<input type="hidden" name="etcAmount" value="">
+		<input type="submit" id="cartSub" name="sssub" style="display:none;">
+		<!-- 2, 1 -->
 	</form>
 
 	<!-- 메뉴수량버튼 jquery -->
 	<script>
-		$(function() {
-			
-			
-			$("#addCart").click(function(){
- 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
-				//console.log(pizzaSize);
-				$("#cart input[name=pizzaSize]").val(pizzaSize);
-				
-				var dough = $(".dough-select input[type=radio]:checked").val();
-				$("#cart input[name=dough]").val(dough);
-				
-				var pizzaAmount = $("#menu_cnt_p").val();
-				$("#cart input[name=pizzaAmount]").val(pizzaAmount);
+		
+			$(document).on("click","#addCart",function(){
 				
 				
-				var side = "";
-				var sideAmount = "";
-				$(".side-area .menu-cnt").each(function(i, item){
-					if(item.value > 0){
-						side += item.name + ",";
-						console.log(side);
-						sideAmount += item.value + ",";
-					}
-				});
-				$("#cart input[name=side]").val(side);
-				$("#cart input[name=sideAmount]").val(sideAmount);
-
+				<% if( loginUser != null){%>
+	 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
+					//console.log(pizzaSize);
+					$("#cart input[name=pizzaSize]").val(pizzaSize);
+					
+					var dough = $(".dough-select input[type=radio]:checked").val();
+					$("#cart input[name=dough]").val(dough);
+					
+					var pizzaAmount = $(".menu_cnt_p").val();
+					$("#cart input[name=pizzaAmount]").val(pizzaAmount);
+					
+					
+					var side = "";
+					var sideAmount = "";
+					$(".side-area .menu-cnt").each(function(i, item){
+						if(item.value > 0){
+							side += item.name + ",";
+							sideAmount += item.value + ",";
+						}
+					});
+					$("#cart input[name=side]").val(side);
+					$("#cart input[name=sideAmount]").val(sideAmount);
+	
+					
+					
+					var etc = "";
+					var etcAmount = "";
+					$(".etc-area .menu-cnt").each(function(i, item){
+						if(item.value > 0){
+							etc += item.name + ",";
+							etcAmount += item.value + ",";
+						}
+					});
+					
+					$("#cart input[name=etc]").val(etc);
+					$("#cart input[name=etcAmount]").val(etcAmount);
+					
+					
+					//$("#cart").submit();
+					$("#cartSub").trigger("click");
+				<%}else{%>
+					console.log("비회우ㅗㄴ");
+					location.href="<%=contextPath%>/loginU.me";	
+				<%}%>
+					
 				
-				
-				var etc = "";
-				var etcAmount = "";
-				$(".etc-area .menu-cnt").each(function(i, item){
-					if(item.value > 0){
-						etc += item.name + ",";
-						etcAmount += item.value + ",";
-					}
-				});
-				
-				$("#cart input[name=etc]").val(etc);
-				$("#cart input[name=etcAmount]").val(etcAmount);
-				
-				$("#cart").submit();
 				
 			});
 			
-			
+	
 
-			// 피자용 
-
-			$("#cnt_down_p").click(function() {
-				var num = $("#menu_cnt_p").val();
-
-				num = $("#menu_cnt_p").val(num * 1 - 1);
-
-				if (num.val() <= 0) {
-					num = $("#menu_cnt_p").val(1);
-				}
-
-			});
-
-			$("#cnt_up_p").click(function() {
-				var num = $("#menu_cnt_p").val();
-
-				num = $("#menu_cnt_p").val(num * 1 + 1);
-			});
-
-			//피자용
-
-			// 사이드디시/etc용
-
-			$(".cnt_down").click(function() {
-				var cntIndex = $(".cnt_down").index(this);
-				var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
-
-				num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 - 1);
-
-				if (num.val() < 0) {
-					num = $(".menu-cnt:eq(" + cntIndex + ")").val(0);
-				}
-
-			});
-
-			$(".cnt_up").click(function() {
-				var cntIndex = $(".cnt_up").index(this);
-				var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
-
-				num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 + 1);
-			});
-		});
+		
 	</script>
 
 	<!-- 메뉴수량버튼 jquery -->
 
 
+	<script>
+// 피자용 
+
+$(document).on("click",".cnt_down_p",function() {
+	console.log("-쿨릭");
+	var num = $(".menu_cnt_p").val();
+
+	num = $(".menu_cnt_p").val(num * 1 - 1);
+
+	if (num.val() <= 0) {
+		num = $(".menu_cnt_p").val(1);
+	}
+
+});
+
+$(document).on("click",".cnt_up_p",function() {
+	console.log("+쿨릭");
+	var num = $(".menu_cnt_p").val();
+
+	num = $(".menu_cnt_p").val(num * 1 + 1);
+});
+
+//피자용
+
+// 사이드디시/etc용
+
+$(".cnt_down").click(function() {
+	var cntIndex = $(".cnt_down").index(this);
+	var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
+
+	num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 - 1);
+
+	if (num.val() < 0) {
+		num = $(".menu-cnt:eq(" + cntIndex + ")").val(0);
+	}
+
+});
+
+$(".cnt_up").click(function() {
+	var cntIndex = $(".cnt_up").index(this);
+	var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
+
+	num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 + 1);
+});
+
+
+
+
+
+</script>
 
 
 
 
 
 
-	<%@ include file="../../common_user/footer.jsp"%>
+
+
 </body>
 </html>

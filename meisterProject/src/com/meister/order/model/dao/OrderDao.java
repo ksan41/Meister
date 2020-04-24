@@ -100,8 +100,8 @@ public class OrderDao {
 		return deliveryList;
 	}
 	
-	public ArrayList<Price> ShowBasketList(Connection conn, int userNo){
-		ArrayList<Price> basketList = new ArrayList<>();
+	public Price ShowBasketList(Connection conn, int userNo){
+		Price basket = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -113,10 +113,9 @@ public class OrderDao {
 			pstmt.setInt(1, userNo);
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				basketList.add(new Price(rset.getInt("ORDER_NO"),
+			if(rset.next()) {
+				basket = new Price(rset.getInt("ORDER_NO"),
 												rset.getString("PIZZA_SIZE"),
-												rset.getInt("TOTAL_PRICE"),
 												rset.getString("PIZZA_NO"),
 												rset.getString("PIZZA_COUNT"),
 												rset.getString("DOUGH_NO"),
@@ -124,8 +123,7 @@ public class OrderDao {
 												rset.getString("SIDE_COUNT"),
 												rset.getString("ETC_NO"),
 												rset.getString("ETC_COUNT"),
-												rset.getInt("CART_NO"),
-												rset.getInt("MEMBER_NO")));
+												rset.getInt("CART_NO"));
 				System.out.println("지점1");
 			}
 		} catch (SQLException e) {
@@ -135,7 +133,7 @@ public class OrderDao {
 			close(pstmt);
 		}
 		//System.out.println("다오딴 : " + deliveryList.get(0));
-		return basketList;
+		return basket;
 	}
 	
 	/**

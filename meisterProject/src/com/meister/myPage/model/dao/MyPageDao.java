@@ -36,7 +36,7 @@ public class MyPageDao {
 		}
 	}
 	
-	
+	// 1.
 	public ArrayList<Coupon> selectCouponList(Connection conn, int memberNo){
 		
 		ArrayList<Coupon> list = new ArrayList<>();
@@ -72,6 +72,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 2.
 	public ArrayList<Center> selectCenterList(Connection conn, int memberNo){
 		
 		ArrayList<Center> list = new ArrayList<>();
@@ -106,6 +107,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 3.
 	public Center selectCenter(Connection conn, int cno) {
 		
 		Center c = null;
@@ -144,6 +146,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 4.
 	public CenterImage selectCenterImage(Connection conn, int cno) {
 		
 		CenterImage ci = null;
@@ -180,6 +183,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 5.
 	public int deleteCenter(Connection conn, int cno) {
 		
 		int result = 0;
@@ -205,6 +209,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 6.
 	public int updateCenter(Connection conn, Center c) {
 		int result = 0;
 		
@@ -231,6 +236,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 6.
 	public int updateCenterImage(Connection conn, CenterImage ci) {
 		int result = 0;
 		
@@ -258,6 +264,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 6.
 	public int insertCenterImage(Connection conn, CenterImage ci) {
 		int result = 0;
 		
@@ -285,6 +292,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 7.
 	public String updateCheckPwd(Connection conn, String memberId) {
 		
 		String memberPwd = "";
@@ -316,6 +324,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 8.
 	public int updatePwd(Connection conn, Member m) {
 		
 		int result = 0;
@@ -342,6 +351,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 9.
 	public int updateMember(Connection conn, Member m) {
 		
 		int result = 0;
@@ -370,6 +380,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 10.
 	public int getOrderListCount(Connection conn, int memberNo) {
 		
 		int listCount = 0;
@@ -401,6 +412,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 11_1.
 	public ArrayList<Pizza> selectPizzaList(Connection conn) {
 		
 		ArrayList<Pizza> list = new ArrayList<>();
@@ -434,6 +446,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 11_2.
 	public ArrayList<Orders> selectOrdersList(Connection conn, int memberNo){
 		
 		ArrayList<Orders> list = new ArrayList<>();
@@ -470,6 +483,7 @@ public class MyPageDao {
 	}
 	
 	
+	// 11_3.
 	public ArrayList<Price> selectPriceList(Connection conn, int memberNo) {
 		
 		ArrayList<Price> list = new ArrayList<>();
@@ -509,5 +523,33 @@ public class MyPageDao {
 	}
 	
 	
+	// 12_1.
+	public ArrayList<Orders> selectOrdersDetail(Connection conn, int ono) {
+		
+		ArrayList<Orders> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOrdersDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
 
 }

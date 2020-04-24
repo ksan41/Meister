@@ -1,7 +1,9 @@
 package com.meister.menu.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,9 +45,32 @@ public class InsertPizzaServlet extends HttpServlet {
 		String cartEtcNo = request.getParameter("etc");
 		String cartEtcAmount = request.getParameter("etcAmount");
 		
+		cartSideNo = cartSideNo.substring(0, cartSideNo.length()-1);
+		cartSideAmount = cartSideAmount.substring(0, cartSideAmount.length()-1);
+		cartEtcNo = cartEtcNo.substring(0, cartEtcNo.length()-1);
+		cartEtcAmount = cartEtcAmount.substring(0, cartEtcAmount.length()-1);
+		
 		AddCart a = new AddCart(cartPizzaSize,cartPizzaNo,cartPizzaAmount,cartDough,cartSideNo,cartSideAmount,cartEtcNo,cartEtcAmount);
 		
+		//System.out.println(cartSideNo);
+		
+		
 		int result = new MenuService().insertAddCart(a);
+		
+        if(result > 0) {	// 주문정보 담은 인서트 성공
+        	
+        	
+        	RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderDelivery.jsp");
+        	view.forward(request, response);
+
+        	
+        }else {	// 인서트 실패
+           	
+
+        	
+        }
+		
+		
 		
 		/*
 		 * System.out.println(cartPizzaSize); System.out.println(cartPizzaNo);
