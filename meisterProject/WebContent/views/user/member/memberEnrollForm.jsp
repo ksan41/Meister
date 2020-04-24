@@ -136,7 +136,7 @@
         <!-- inner영역에 콘텐츠 작성 -->
         
         
-        <form id="" action="<%= contextPath %>/memberInsert.me">
+        <form id="" action="<%= contextPath %>/memberInsert.me" onsubmit="return validate()">
         <div class="inner">
             <table style="text-align: left;">
                 <tr>
@@ -204,27 +204,35 @@
     </div>
     
     
-    <!--  <script>
-    	
-    	function test() {
-    		var regExp = /^[a-z][a-z0-9]{5,12}+$/i;
-    		
-    		
-    		if(regExp.test()){
-    			 alert("제대로 입력했습니다!!");
-    				
-    		} else {
-    			alert("유효한 값이 아닙니다!!");
-    		}
-    		
-    		
-    	}
-    	
-     
     
-    </script>
-     -->
-   
+    
+	<script>
+		
+	  // 유효성 검사
+	  function validate() {
+		  
+		  var checkIP = /^[a-zA-Z0-9]{4,12}$/; //ID와 PASSWORD 유효성 검사 정규식
+	      var checkEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;  //Email 유효성 검사 정규식
+	      var checkPN =/^[0-9]{13}$/;s
+	      
+	      
+	      var name = document.getElementById("name");  //NAME
+	      var userID = document.getElementById("userID");  //ID
+	      var userPass = document.getElementById("userPass");  //PASSWORD
+	      var userPass2 = document.getElementById("userPass2");  //PASSWORD CHECKING
+	      var Email = document.getElementById("Email");  //EMAIL
+	     	
+	      
+	      
+
+		  
+		  
+	  }
+		
+	
+	
+	
+	</script>
     
     
     
