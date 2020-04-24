@@ -18,6 +18,7 @@
         }
         
         .outer *{
+        font-family: 'NanumSquare'
             
         }
 
@@ -148,7 +149,7 @@
                 <tr>
                     <th>아이디</th>
                     <td colspan="2">
-                        <input class="text-area" type="text" name="userId" placeholder="영문,숫자로만 5글자 이상~12자 이하로 입력">&nbsp;&nbsp;
+                        <input class="text-area" type="text" name="userId" placeholder="">&nbsp;&nbsp;
                         <button class="small_btn" id="doubleCheck" style="display: inline;">중복확인</button>
                     </td>
                 </tr>
