@@ -127,8 +127,11 @@ public class EventDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, e.getNoticeTitle());
-			pstmt.setString(2, e.getNoticeContent());
+			pstmt.setString(1, e.getEventTitle());
+			pstmt.setDate(2, e.getEventOpenTime());
+			pstmt.setDate(3, e.getEventCloseTime());
+			pstmt.setString(4, e.getEventImage1());
+			pstmt.setString(5, e.getEventImage2());
 			
 			result = pstmt.executeUpdate();
 			
