@@ -248,17 +248,17 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form id="faqEnrollForm" action="<%= contextPath %>/iNoticeMinsert.nom" name="faqEnrollForm" method="post">
-						<input type="text" class="faqInputTitle" placeholder="질문 내용 입력">
+					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqInsert.cem" name="faqEnrollForm" method="post">
+						<input type="text" name="faqQuestion" class="faqInputTitle" placeholder="질문 내용 입력">
 						<br><br>
 
-						<textarea class="faqInputContent" placeholder="답변 내용 입력"></textarea>
+						<textarea name="faqAnswer" class="faqInputContent" placeholder="답변 내용 입력"></textarea>
 						<br><br>
 
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
+							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/ceMgFaqList.cem';">취소</button>
 						</div>
 					</form>
 				</div>

@@ -17,10 +17,6 @@ public class Faq {
 		this.faqAnswer = faqAnswer;
 	}
 	
-	
-	
-
-
 	public int getFaqNo() {
 		return faqNo;
 	}

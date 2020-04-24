@@ -8,6 +8,8 @@ import com.meister.center.model.dao.CenterDao;
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
 import com.meister.center.model.vo.Faq;
+import com.meister.notice.model.dao.NoticeDao;
+import com.meister.notice.model.vo.Notice;
 
 import static com.meister.common.JDBCTemplate.*;
 
@@ -124,5 +126,23 @@ public class CenterService {
 	}
 	
 	
-	
+	/**연화
+	 * 공지사항 작성용 서비스
+	 * @param f		--> 제목, 내용이 담겨있는 Notice객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int insertFaq(Faq f) {
+		
+		Connection conn = getConnection();
+		
+		int result = new CenterDao().insertNotice(conn, n);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 }
