@@ -143,26 +143,26 @@ table {
 		<!-- inner영역에 콘텐츠 작성 -->
 
 
-		<form id="" action="<%=contextPath%>/memberInsert.me" method="post">
+		<form id="enrollForm" action="<%=contextPath%>/memberInsert.me" method="post">
 			<div class="inner">
 				<table style="text-align: left;">
 					<tr>
 						<th>이름</th>
 						<td colspan="2"><input class="text-area" type="text" id="name"
-							name="name" style="height: 31px;"></td>
+							name="name" style="height: 31px;" placeholder="한글 2글자 이상"></td>
 
 					</tr>
 					<tr>
 						<th>아이디</th>
 						<td colspan="2"><input class="text-area" type="text" id="userId"
-							name="userId" placeholder="" style="height: 31px;">&nbsp;&nbsp;
-							<button class="small_btn" id="doubleCheck"
+							name="userId" placeholder="영문,숫자 5~12글자 이하" style="height: 31px;">&nbsp;&nbsp;
+							<button class="small_btn" type="button" id="idCheck"
 								style="display: inline;">중복확인</button></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
 						<td colspan="2"><input class="text-area" type="password" id="userPwd"
-							name="userPwd" style="height: 31px; font-family: inherit;" placeholder= ></td>
+							name="userPwd" style="height: 31px; font-family: inherit;" placeholder="영문,숫자 8~15글자 이하" ></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
@@ -195,7 +195,7 @@ table {
 				<br>
 
 				<div id="btn-area">
-					<button class="middle_btn" id="enroll_btn" onclick="return validate();" style="margin-left: 450px;"
+					<button class="middle_btn" type="submit" id="enroll_btn" onclick="return validate();" style="margin-left: 450px;" disabled
 					>가입하기</button>
 				</div>
 			</div>
@@ -263,6 +263,38 @@ table {
 			return true;
 
 		}
+	</script>
+	
+	
+	<script>
+		
+		$(function() {
+			
+			// 중복확인 클릭했을 때
+			$("#idCheck").click(function(){
+				
+				// 아이디 입력하는 input 요소
+				var userId = $("enrollForm input[name=userId]");
+				
+				$.ajax({
+					url:"idCheck.me",
+					data:{userId:userId,val()},
+					type:"post",
+					success:function(){
+						
+					}, error:function(){
+						console.log("ajax통신 실패!!");
+					}
+					
+					
+				});
+				
+			});
+			
+		});
+	
+	
+	
 	</script>
 	
 
