@@ -12,6 +12,7 @@ div {
 	box-sizing: border-box;
 }
 
+
 .outer {
 	width: 1000px;
 	box-sizing: border-box;
@@ -21,7 +22,8 @@ div {
 }
 
 .outer * {
-	font-family: 'NanumSquare'
+	
+	font-family: inherit;
 }
 
 .outer a {
@@ -79,6 +81,7 @@ div {
 /* 중간버튼 스타일 */
 input {
 	border-radius: 5px;
+	
 }
 
 th {
@@ -146,53 +149,54 @@ table {
 					<tr>
 						<th>이름</th>
 						<td colspan="2"><input class="text-area" type="text"
-							name="name"></td>
+							name="name" style="height: 31px;"></td>
 
 					</tr>
 					<tr>
 						<th>아이디</th>
 						<td colspan="2"><input class="text-area" type="text"
-							name="userId" placeholder="">&nbsp;&nbsp;
+							name="userId" placeholder="" style="height: 31px;">&nbsp;&nbsp;
 							<button class="small_btn" id="doubleCheck"
 								style="display: inline;">중복확인</button></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
 						<td colspan="2"><input class="text-area" type="password"
-							name="userPwd" placeholder="영문,숫자로만 8글자 이상~16자 이하로 입력"></td>
+							name="userPwd" style="height: 31px; font-family: inherit;" placeholder= ></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
 						<td colspan="2"><input class="text-area" type="password"
-							name="userPwd1"></td>
+							name="userPwd1" style="height: 31px;"></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
 						<td colspan="2"><input class="text-area" type="date"
-							name="dateIn"></td>
+							name="dateIn" style="height: 31px;"></td>
 					</tr>
 					<tr>
 						<th>성별</th>
 						<td colspan="2" style="font-size: 15px;"><input type="radio"
-							name="gender" value="M">남 <input type="radio"
-							name="gender" value="F">여</td>
+							name="gender" value="M" >남 <input type="radio"
+							name="gender" value="F" >여</td>
 					</tr>
 					<tr>
 						<th>휴대전화</th>
 						<td colspan="2"><input class="text-area" id="phone"
-							name="phone" type="tel" placeholder="-포함해서 입력해주세요"></td>
+							name="phone" type="tel" placeholder="-포함해서 입력해주세요" style="height: 31px;"></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
 						<td colspan="2"><input class="text-area" type="email"
-							name="email"></td>
+							name="email" style="height: 31px;"></td>
 					</tr>
 				</table>
 				<br>
 				<br>
 
 				<div id="btn-area">
-					<button class="middle_btn" id="enroll_btn" onclick="return validate();">가입하기</button>
+					<button class="middle_btn" id="enroll_btn" onclick="return validate();" style="margin-left: 450px;"
+					>가입하기</button>
 				</div>
 			</div>
 
