@@ -151,7 +151,7 @@
 	
 	 <div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1>로그인</h1>
+        <h1 style="font-family: 'NanumSquare';">로그인</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 로그인</div>
