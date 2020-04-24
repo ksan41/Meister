@@ -166,7 +166,30 @@ public class CenterDao {
 			close(pstmt);
 		}
 		return result;
-	}   
+	}
+	
+	
+	public int updateFaq(Connection conn, Faq f) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateFaq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, f.getNoticeTitle());
+			pstmt.setString(2, f.getNoticeContent());
+			pstmt.setInt(3, f.getNoticeNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
        
        
 }
