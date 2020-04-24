@@ -95,6 +95,12 @@
 			width: 100%;
 			cursor: pointer;
 		}
+		tr{
+			height:50px;
+		}
+		input{
+			height:30px;
+		}
 		
 		/* 이벤트 목록 스타일 끝 */
 		.colLine {
@@ -214,7 +220,7 @@
 				<div class="modal-body">
 					<form action="" name="eventEnrollForm">
 						<table id="eventEnrollTable">
-							<tr>
+							<tr style="">
 								<th>제목</th>
 								<td><input type="text" placeholder="내용을 입력해주세요" size="40px">
 								</td>
