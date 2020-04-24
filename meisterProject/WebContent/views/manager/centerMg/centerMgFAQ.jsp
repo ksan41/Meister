@@ -134,7 +134,7 @@
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal<%=i%>">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -166,7 +166,7 @@
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModalr<%=i%>">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -197,7 +197,7 @@
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModalp<%=i%>">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -228,7 +228,7 @@
 										</tr>
 									</table>
 									<div align="right">
-										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModal">수정</button>
+										<button class="button" onclick="" data-toggle="modal" data-target="#faqUpdateModalh<%=i%>">수정</button>
 										<button class="button" onclick="deleteConfirm();">삭제</button>
 									</div>
 									<br>
@@ -259,7 +259,7 @@
 				<div class="modal-body">
 					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqInsert.cem" name="faqEnrollForm" method="post">
 						<select name="faqType">
-							<option value="피자주문하기" selected>피자주문하기</option>
+							<option value="피자주문하기">피자주문하기</option>
 							<option value="주문확인">주문확인</option>
 							<option value="포장주문">포장주문</option>
 							<option value="홈페이지관련">홈페이지관련</option>
@@ -288,7 +288,7 @@
 	<%}else{ %>
 		<%for(int i=0;i<list.size();i++){ %>
 			<!-- '피자주문하기' 수정 버튼 모달 시작 -->
-			<div class="modal fade" id="faqUpdateModal">
+			<div class="modal fade" id="faqUpdateModal<%=i%>">
 				<!-- modal별 id 변경해주세요-->
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -302,12 +302,17 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="" name="faqEnrollForm">
+								<select name="faqType">
+									<option value="피자주문하기" selected>피자주문하기</option>
+									<option value="주문확인">주문확인</option>
+									<option value="포장주문">포장주문</option>
+									<option value="홈페이지관련">홈페이지관련</option>
+								</select><br><br>
 								<input type="text" class="faqInputTitle" value="<%=list.get(i).getFaqQuestion()%>">
-								<br> <br>
-								<textarea class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
-		
 								<br><br>
-		
+								<textarea class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
+								<br><br>
+
 								<!-- 버튼 영역 -->
 								<div class="faqBtns" style="align-content: right;" align="center">
 									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
@@ -326,7 +331,7 @@
 	<%}else{ %>
 		<%for(int i=0;i<rlist.size();i++){ %>	
 			<!-- '주문확인' 수정 버튼 모달 시작 -->
-			<div class="modal fade" id="faqUpdateModal">
+			<div class="modal fade" id="faqUpdateModalr<%=i%>">
 				<!-- modal별 id 변경해주세요-->
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -340,6 +345,12 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="" name="faqEnrollForm">
+								<select name="faqType">
+									<option value="피자주문하기">피자주문하기</option>
+									<option value="주문확인" selected>주문확인</option>
+									<option value="포장주문">포장주문</option>
+									<option value="홈페이지관련">홈페이지관련</option>
+								</select><br><br>
 								<input type="text" class="faqInputTitle" value="<%=rlist.get(i).getFaqQuestion()%>">
 								<br> <br>
 								<textarea class="faqInputContent"><%=rlist.get(i).getFaqAnswer()%></textarea>
@@ -364,7 +375,7 @@
 	<%}else{ %>
 		<%for(int i=0;i<plist.size();i++){ %>
 			<!-- '포장주문' 수정 버튼 모달 시작 -->
-			<div class="modal fade" id="faqUpdateModal">
+			<div class="modal fade" id="faqUpdateModalp<%=i%>">
 				<!-- modal별 id 변경해주세요-->
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -378,6 +389,12 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="" name="faqEnrollForm">
+								<select name="faqType">
+									<option value="피자주문하기">피자주문하기</option>
+									<option value="주문확인">주문확인</option>
+									<option value="포장주문" selected>포장주문</option>
+									<option value="홈페이지관련">홈페이지관련</option>
+								</select><br><br>
 								<input type="text" class="faqInputTitle" value="<%=plist.get(i).getFaqQuestion()%>">
 								<br> <br>
 								<textarea class="faqInputContent"><%=plist.get(i).getFaqAnswer()%></textarea>
@@ -402,7 +419,7 @@
 	<%}else{ %>
 		<%for(int i=0;i<hlist.size();i++){ %>
 			<!-- '홈페이지관련' 수정 버튼 모달 시작 -->
-			<div class="modal fade" id="faqUpdateModal">
+			<div class="modal fade" id="faqUpdateModalh<%=i%>">
 				<!-- modal별 id 변경해주세요-->
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -416,6 +433,12 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="" name="faqEnrollForm">
+								<select name="faqType">
+									<option value="피자주문하기">피자주문하기</option>
+									<option value="주문확인">주문확인</option>
+									<option value="포장주문">포장주문</option>
+									<option value="홈페이지관련" selected>홈페이지관련</option>
+								</select><br><br>
 								<input type="text" class="faqInputTitle" value="<%=hlist.get(i).getFaqQuestion()%>">
 								<br> <br>
 								<textarea class="faqInputContent"><%=hlist.get(i).getFaqAnswer()%></textarea>
