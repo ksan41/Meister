@@ -177,9 +177,10 @@ public class CenterDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, f.getNoticeTitle());
-			pstmt.setString(2, f.getNoticeContent());
-			pstmt.setInt(3, f.getNoticeNo());
+			pstmt.setString(1, f.getFaqType());
+			pstmt.setString(2, f.getFaqQuestion());
+			pstmt.setString(3, f.getFaqAnswer());
+			pstmt.setInt(4, f.getFaqNo());
 			
 			result = pstmt.executeUpdate();
 			
