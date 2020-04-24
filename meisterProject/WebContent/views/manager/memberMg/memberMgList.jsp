@@ -156,7 +156,7 @@
 										<input type="date" name="startDate" required>
 										~
 										<input type="date" name="endDate" required>
-										<button class="small_btn" type="submit">검색</button></th>
+										<button class="small_btn" type="submit">검색</button>
 									</th>
 								</form>
 								</tr>
