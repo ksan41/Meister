@@ -72,7 +72,7 @@ public class EventMgInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('FAQ 등록 실패'); location.href='/Meister/evMgList.evm';</script>");
+			out.println("<script>alert('EVENT 등록 실패'); location.href='/Meister/evMgList.evm';</script>");
 			out.flush();
 		}
 	}

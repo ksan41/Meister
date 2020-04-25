@@ -49,6 +49,14 @@ public class NoticeMgBmInsertServlet extends HttpServlet {
 			request.getSession().setAttribute("msg", "공지사항이 성공적으로 등록되었습니다.");
 			response.sendRedirect("imNoticeBlist.nom");
 			
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('지점 공지사항 삭제 성공!'); location.href='/Meister/imNoticeBlist.nom';</script>");
+			out.flush();
+			
 		}else {		// 공지사항 작성 실패!
 			
 			response.setContentType("text/html; charset=UTF-8");

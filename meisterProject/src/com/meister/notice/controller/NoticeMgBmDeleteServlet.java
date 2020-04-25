@@ -38,8 +38,12 @@ public class NoticeMgBmDeleteServlet extends HttpServlet {
 		
 		if(result > 0) {// 공지사항 삭제 성공
 			
-			request.getSession().setAttribute("msg", "지점 공지사항 삭제 성공!");
-			response.sendRedirect("imNoticeBlist.nom");
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('지점 공지사항 삭제 성공!'); location.href='/Meister/imNoticeBlist.nom';</script>");
+			out.flush();
 			
 		}else {//공지사항 삭제 실패
 			
