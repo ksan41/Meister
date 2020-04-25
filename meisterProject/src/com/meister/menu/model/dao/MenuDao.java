@@ -2,6 +2,8 @@ package com.meister.menu.model.dao;
 
 
 import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,7 +15,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.meister.member.model.vo.Member;
 import com.meister.menu.model.vo.AddCart;
 import com.meister.menu.model.vo.Dough;
 import com.meister.menu.model.vo.Etc;
@@ -365,20 +366,30 @@ public class MenuDao {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**산
+	 * 통합관리자 - 피자 수정용 서비스
+	 * @param insertP : 입력받은 피자 정보가 담긴 Pizza객체
+	 * @param insertSizeM : 입력받은 피자M사이즈 가격정보 담긴 PizzaSize객체
+	 * @param insertSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
+	 * @return : 처리된 행의 개수
+	 */
+	public int updatePizza(Connection conn,Pizza insertP,PizzaSize insertSizeM,PizzaSize insertSizeL) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = "";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		
+		
+		return result;
+	}
 	
 
 }
