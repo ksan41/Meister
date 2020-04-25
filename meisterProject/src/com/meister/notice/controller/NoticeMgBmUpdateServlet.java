@@ -47,8 +47,20 @@ public class NoticeMgBmUpdateServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('지점 공지사항 수정 성공'); location.href='/Meister/imNoticeBdetail.nom?nno=" + nno + "';</script>");
+			out.flush();
+			
+			
+			
 			// 상세보기 요청
-			response.sendRedirect("imNoticeBdetail.nom?nno=" + nno);
+			//response.sendRedirect("imNoticeBdetail.nom?nno=" + nno);
+			
+			
+			
 			
 		}else {
 			
