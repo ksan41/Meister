@@ -83,7 +83,7 @@ div {
 /* 서브메뉴 스타일 끝 */
 #order-info {
 	width: 1000px;
-	height: 200px;
+	height: auto;
 	border: 0px;
 	background-color: #F6F6F6;
 	margin-top: 40px;
@@ -207,11 +207,11 @@ div {
 			<hr>
 
 			<div id="order-info">
-				<table style="font-size: 15px;" width="1000px" height="200px" border="1">
+				<table style="font-size: 15px;" width="1000px" height="200px">
 					<tr>
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
-								style="text-align: left; margin-left: 80px; color: black;">
+								style="text-align: left; margin-left: 80px; margin-top:40px; margin-bottom:20px; color: black;">
 								<b style="font-size: 17px;">주문내역</b> <br><br> 
 								<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
 									<% for(int j=0; j<pList.size(); j++){ %>
@@ -235,7 +235,7 @@ div {
 									<% pCount = Integer.parseInt(pizzaCount[i]); %>
 									<% pPrice = (pPrice + doughPrice) * pCount; %>
 									
-									<%=pName%> <%=pSize%> X <%=pCount%> / <%=pPrice %>원<br>
+									<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
 								<% } %>
 								
 								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
@@ -253,7 +253,7 @@ div {
 										<% sCount = Integer.parseInt(sideCount[i]); %>
 										<% sPrice = sPrice * sCount; %>
 										
-										<%=sName %> X <%=sCount %> / <%=sPrice %>원<br>
+										<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
 									<% } %>
 								<% } %>
 								
@@ -272,7 +272,7 @@ div {
 										<% eCount = Integer.parseInt(etcCount[i]); %>
 										<% ePrice = ePrice * eCount; %>
 										
-										<%=eName %> X <%=eCount %> / <%=ePrice %>원<br>										
+										<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>										
 									<% } %>
 								<% } %>
 								
