@@ -25,6 +25,14 @@
 	int pCount = 0;
 	int doughPrice = 0;
 	int pPrice = 0;
+	
+	String sName = "";
+	int sCount = 0;
+	int sPrice = 0;
+	
+	String eName = "";
+	int eCount = 0;
+	int ePrice = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -199,7 +207,7 @@ div {
 			<hr>
 
 			<div id="order-info">
-				<table style="font-size: 15px;" width="1000px" height="200px">
+				<table style="font-size: 15px;" width="1000px" height="200px" border="1">
 					<tr>
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
@@ -227,7 +235,7 @@ div {
 									<% pCount = Integer.parseInt(pizzaCount[i]); %>
 									<% pPrice = (pPrice + doughPrice) * pCount; %>
 									
-									<%=pName%> <%=pSize%> X <%=pCount%> / <%=pPrice %>원
+									<%=pName%> <%=pSize%> X <%=pCount%> / <%=pPrice %>원<br>
 								<% } %>
 								
 								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
@@ -235,7 +243,17 @@ div {
 									<% String[] sideCount = order.getSideCount().split(","); %>
 									
 									<% for(int i=0; i<sideNo.length; i++) { %>
+										<% for(int j=0; j<sList.size(); j++){ %>
+											<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
+												<% sName = sList.get(j).getSideName(); %>
+												<% sPrice = sList.get(j).getSidePrice(); %>
+											<% } %>
+										<% } %>
 										
+										<% sCount = Integer.parseInt(sideCount[i]); %>
+										<% sPrice = sPrice * sCount; %>
+										
+										<%=sName %> X <%=sCount %> / <%=sPrice %>원<br>
 									<% } %>
 								<% } %>
 								
@@ -244,7 +262,17 @@ div {
 									<% String[] etcCount = order.getEtcCount().split(","); %>
 									
 									<% for(int i=0; i<etcNo.length; i++) { %>
+										<% for(int j=0; j<eList.size(); j++){ %>
+											<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
+												<% eName = eList.get(j).getEtcName(); %>
+												<% ePrice = eList.get(j).getEtcPrice(); %>
+											<% } %>
+										<% } %>
 										
+										<% eCount = Integer.parseInt(etcCount[i]); %>
+										<% ePrice = ePrice * eCount; %>
+										
+										<%=eName %> X <%=eCount %> / <%=ePrice %>원<br>										
 									<% } %>
 								<% } %>
 								
