@@ -1,8 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.meister.order.model.vo.*"%>
+	pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Orders oInfo = (Orders)request.getAttribute("oInfo");
+	Payment pInfo = (Payment)request.getAttribute("pInfo");
+	
+	Price order = (Price)request.getAttribute("order");
+	
+	String[] pizzaSize = order.getPizzaSize().split(",");
+	String[] pizzaNo = order.getPizzaNo().split(",");
+	String[] pizzaCount = order.getPizzaCount().split(",");
+	
+	String[] sideNo = order.getSideNo().split(","); // [5,4]
+	String[] sideCount = order.getSideCount().split(",");
+	
+	String[] etcNo = order.getEtcNo().split(",");
+	String[] etcCount = order.getEtcCount().split(",");
+	
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 %>
 <!DOCTYPE html>
 <html>
@@ -104,6 +125,7 @@ div {
 #order-info2-table td {
 	padding: 4px;
 }
+#order-info2-table tr{height:38px;}
 
 #order-info2-table>tr>td {
 	color: red;
@@ -181,23 +203,26 @@ div {
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
 								style="text-align: left; margin-left: 80px; color: black;">
-								<b style="font-size: 17px;">주문내역</b> <br>
-								<br> 블랙타이거 슈림프 L X 1 / 35,900원<br> 코카콜라 1.25L x 1 /
-								2000원
+								<b style="font-size: 17px;">주문내역</b> <br><br> 
+								<% for(int i=0; i<pizzaSize.length; i++){ %>
+									<%=pList.get(Integer.parseInt(order.getPizzaNo())-100).getPizzaName()%>
+									<%=sizeList.get(Integer.parseInt(order.getPizzaSize())+100).getPizzaSize()%>
+								<% } %>
+								<br>
 							</p>
 						</th>
 						<th width="10px"><hr class="xo" style="margin-right: 50px;"></th>
 						<th style="padding-right: 5%;">
 							<div>
-								<table style="width: 100%; height: 100%;" border="1">
+								<table style="width: 100%; height: 100%;">
 									<tr>
 										<td style="text-align: left;">주문금액</td>
-										<td style="font-size: 16px;">37,900 원</td>
+										<td style="font-size: 16px; padding-left:9px;">37,900 원</td>
 									</tr>
 									<tr>
 										<td style="text-align: left;">할인금액</td>
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
-											-14,360원
+											-14,360 원
 										</td>
 									</tr>
 									<tr>
@@ -205,7 +230,7 @@ div {
 									</tr>
 									<tr style="font-weight: bolder;">
 										<td style="text-align: left;">결제금액</td>
-										<td style="font-size: 18px;">23,540 원</td>
+										<td style="font-size: 18px; padding-left:9px;"><%=pInfo.getPaymentPrice()%> 원</td>
 									</tr>
 								</table>
 							</div>
@@ -226,7 +251,7 @@ div {
 					<tr>
 						<td class="order-info2-td"
 							style="width: 200px; padding-left: 25px;">결제방법</td>
-						<td>신용카드</td>
+						<td><%=pInfo.getPaymentType()%></td>
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">수령인</td>

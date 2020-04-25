@@ -19,6 +19,7 @@ import com.meister.member.model.vo.Member;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Payment;
 import com.meister.order.model.vo.Price;
 
 public class MyPageDao {
@@ -593,6 +594,81 @@ public class MyPageDao {
 		}
 		
 		return oInfo;
+	}
+	
+	
+	// 12_3.
+	public Payment selectPaymentInfo(Connection conn, int ono) {
+		
+		Payment pInfo = new Payment();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPaymentInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				pInfo.setPaymentNo(rset.getInt("payment_no"));
+				pInfo.setPaymentPrice(rset.getInt("payment_price"));
+				pInfo.setPaymentType(rset.getString("payment_type"));
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return pInfo;
+	}
+	
+	
+	// 12_4.
+	public Price selectOrderProducts(Connection conn, int ono) {
+		
+		Price order = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset= null;
+		
+		String sql = prop.getProperty("selectOrderProducts");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				order = new Price(rset.getInt("order_no"),
+								  rset.getString("pizza_size"),
+								  rset.getString("pizza_no"),
+								  rset.getString("pizza_count"),
+								  rset.getString("dough_no"),
+								  rset.getString("side_no"),
+								  rset.getString("side_count"),
+								  rset.getString("etc_no"),
+								  rset.getString("etc_count"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return order;
 	}
 
 }

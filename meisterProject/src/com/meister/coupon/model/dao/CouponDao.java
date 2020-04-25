@@ -238,4 +238,41 @@ public class CouponDao {
 		
 		return result;
 	}
+	
+	
+	
+	/**산
+	 * 통합관리자- 쿠폰발송dao
+	 * @param conn :  : CouponService에서 생성한 Connection객체
+	 * @param mList :  : 쿠폰을 발송할 회원번호가 담긴 String 배열
+	 * @param cList  : 발송할 쿠폰번호가 담긴 String 배열
+	 * @return : 처리된 행의 개수
+	 */
+	public int sendCoupon(Connection conn,String[] mList,String[] cList) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = "INSERT ALL ";
+		String vals = ""; //insert할 쿠폰, 회원정보
+		
+		for(int i=0;i<cList.length;i++) {
+			for(int j=0;j<mList.length;j++) {
+				vals += "INTO MEMBER_COUPON VALUES("+cList[i]+","+mList[j]+",DEFAULT,DEFAULT,NULL) ";
+			}
+		}
+		vals +=" SELECT * FROM DUAL";
+		sql += vals;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

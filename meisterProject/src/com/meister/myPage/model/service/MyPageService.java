@@ -16,6 +16,7 @@ import com.meister.menu.model.vo.Pizza;
 import com.meister.myPage.model.dao.MyPageDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Payment;
 import com.meister.order.model.vo.Price;
 
 public class MyPageService {
@@ -307,6 +308,40 @@ public class MyPageService {
 		close(conn);
 		
 		return oInfo;
+	}
+	
+	
+	/**
+	 * 12_3. 해당 주문의 결제 정보 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Payment selectPaymentInfo(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Payment pInfo = new MyPageDao().selectPaymentInfo(conn, ono);
+		
+		close(conn);
+		
+		return pInfo;
+	}
+	
+	
+	/**
+	 * 12_4. 해당 주문의 주문 품목 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Price selectOrderProducts(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Price order = new MyPageDao().selectOrderProducts(conn, ono);
+		
+		close(conn);
+		
+		return order;
 	}
 	
 
