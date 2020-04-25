@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.meister.myPage.model.service.MyPageService;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Payment;
 
 /**
  * Servlet implementation class MyOrderDetailServlet
@@ -38,11 +39,11 @@ public class MyOrderDetailServlet extends HttpServlet {
 		
 		Delivery dInfo = new MyPageService().selectDeliveryInfo(ono);
 		Orders oInfo = new MyPageService().selectOrdersInfo(ono);
-		
+		Payment pInfo = new MyPageService().selectPaymentInfo(ono);
 
 			
-		request.setAttribute("dInfo", dInfo);
-		request.setAttribute("oInfo", oInfo);
+		request.setAttribute("dInfo", dInfo);	// deliveryInfo
+		request.setAttribute("oInfo", oInfo);	// ordersInfo
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOrderDetail.jsp");
 		view.forward(request, response);

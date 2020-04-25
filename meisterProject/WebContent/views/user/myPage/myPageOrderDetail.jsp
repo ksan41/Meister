@@ -104,6 +104,7 @@ div {
 #order-info2-table td {
 	padding: 4px;
 }
+#order-info2-table tr{height:38px;}
 
 #order-info2-table>tr>td {
 	color: red;
