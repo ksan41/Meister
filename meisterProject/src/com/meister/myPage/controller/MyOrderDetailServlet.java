@@ -44,6 +44,7 @@ public class MyOrderDetailServlet extends HttpServlet {
 			
 		request.setAttribute("dInfo", dInfo);	// deliveryInfo
 		request.setAttribute("oInfo", oInfo);	// ordersInfo
+		request.setAttribute("pInfo", pInfo);	// paymentInfo
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOrderDetail.jsp");
 		view.forward(request, response);

@@ -3,6 +3,7 @@
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Orders oInfo = (Orders)request.getAttribute("oInfo");
+	Payment pInfo = (Payment)request.getAttribute("pInfo");
 %>
 <!DOCTYPE html>
 <html>
@@ -190,15 +191,15 @@ div {
 						<th width="10px"><hr class="xo" style="margin-right: 50px;"></th>
 						<th style="padding-right: 5%;">
 							<div>
-								<table style="width: 100%; height: 100%;" border="1">
+								<table style="width: 100%; height: 100%;">
 									<tr>
 										<td style="text-align: left;">주문금액</td>
-										<td style="font-size: 16px;">37,900 원</td>
+										<td style="font-size: 16px; padding-left:9px;">37,900 원</td>
 									</tr>
 									<tr>
 										<td style="text-align: left;">할인금액</td>
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
-											-14,360원
+											-14,360 원
 										</td>
 									</tr>
 									<tr>
@@ -206,7 +207,7 @@ div {
 									</tr>
 									<tr style="font-weight: bolder;">
 										<td style="text-align: left;">결제금액</td>
-										<td style="font-size: 18px;">23,540 원</td>
+										<td style="font-size: 18px; padding-left:9px;"><%=pInfo.getPaymentPrice()%> 원</td>
 									</tr>
 								</table>
 							</div>
@@ -227,7 +228,7 @@ div {
 					<tr>
 						<td class="order-info2-td"
 							style="width: 200px; padding-left: 25px;">결제방법</td>
-						<td>신용카드</td>
+						<td><%=pInfo.getPaymentType()%></td>
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">수령인</td>
