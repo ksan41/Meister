@@ -656,7 +656,7 @@ div {
 								</div>
 				
 								<!-- Modal body -->
-								<div class="modal-body" style="width: 1100px; height: 600px">
+								<div class="modal-body" style="width: 1100px; height: 700px">
 				
 									<form class="menuUpdateFormP" action="<%=contextPath%>/pizzaUp.meng" method="post" enctype="multipart/form-data">
 									<input type="hidden" name="pNo" value="<%= pList.get(i).getPizzaNo() %>">
@@ -672,6 +672,11 @@ div {
 														<img class="menu-upImg" src="<%=pList.get(i).getPizzaImg() %>" alt="">
 													</div>
 												</td>
+											</tr>
+											<tr>
+												<th>메뉴소개</th>
+												<td><textarea name="contents" class="inputs" cols="50"
+														rows="8" style="resize: none;"><%=pList.get(i).getPizzaContent() %></textarea></td>
 											</tr>
 											<tr>
 												<th>토핑</th>
@@ -701,7 +706,7 @@ div {
 								<%} %>
 							<%} %>
 						</table>
-			
+						<input id="submitP" type="submit" style="display:none;">
 					</form>
 			
 				</div>
@@ -709,7 +714,7 @@ div {
 							<!-- Modal footer -->
 							<div class="modal-footer" style="margin: auto;">
 								<!-- 하단버튼 영역-->
-								<button class="big_btn" id="menuUpdateBtn" data-dismiss="modal"
+								<button class="big_btn" id="menuUpdateBtn" onclick="updateP();"
 									style="background: orange;">수정하기</button>
 							</div>
 			
@@ -797,8 +802,11 @@ div {
 			$("#menuFile").click();			
 		});
 	})
-
-
+</script>
+<script>
+	function updateP(){
+		$("#submitP").click();
+	}
 </script>	
 </body>
 </html>
