@@ -178,35 +178,30 @@
                             <div class="modal-body">
                                 <table style="text-align: left;">
                                     <tr>
-                                        <th>이름</th>
+                                        <th>아이디</th>
                                         <td colspan="2">
                                             <input class="text-area" type="text" name="name" style="width: 100%;">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th>생년월일</th>
-                                        <td colspan="2">
-                                            <input class="text-area" type="date" name="dateIn" style="width: 100%;">
-                                        </td>
-                                    </tr>
+                                 
                                     <tr>
                                         <th>이메일</th>
                                         <td colspan="2">
                                             <input class="text-area" type="email" name="email1">
-                                            &nbsp;@&nbsp;
+                                           
                                             
                                         </td>
                                     </tr>
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <button class="middle_btn" id="email_send" style="width: 100%;">인증번호발송</button>
+                                            <button class="middle_btn" id="email_send" style="width: 100%;">임시비밀번호발송</button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <input type="text" style="width: 100%;" placeholder="인증번호를 입력하세요">
+                                            <input type="text" style="width: 100%;" placeholder="임시비밀번호를 입력하세요">
                                         </td>
                                     </tr>
                                 </table>
