@@ -7,6 +7,10 @@
 	
 	Price order = (Price)request.getAttribute("order");
 	
+	String[] pizzaSize = order.getPizzaSize().split(",");
+	String[] pizzaNo = order.getPizzaNo().split(",");
+	String[] pizzaCount = order.getPizzaCount().split(",");
+	
 	String[] sideNo = order.getSideNo().split(","); // [5,4]
 	String[] sideCount = order.getSideCount().split(",");
 	
@@ -199,9 +203,12 @@ div {
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
 								style="text-align: left; margin-left: 80px; color: black;">
-								<b style="font-size: 17px;">주문내역</b> <br>
-								<br> 블랙타이거 슈림프 L X 1 / 35,900원<br> 코카콜라 1.25L x 1 /
-								2000원
+								<b style="font-size: 17px;">주문내역</b> <br><br> 
+								<% for(int i=0; i<pizzaSize.length; i++){ %>
+									<%=pList.get(Integer.parseInt(order.getPizzaNo())-100).getPizzaName()%>
+									<%=sizeList.get(Integer.parseInt(order.getPizzaSize())+100).getPizzaSize()%>
+								<% } %>
+								<br>
 							</p>
 						</th>
 						<th width="10px"><hr class="xo" style="margin-right: 50px;"></th>
