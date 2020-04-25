@@ -48,8 +48,16 @@ public class NoticeMgUpdateServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('고객 공지사항 수정 성공'); location.href='/Meister/imNoticeMdetail.nom?nno=" + nno + "';</script>");
+			out.flush();
+			
+			
 			// 상세보기 요청
-			response.sendRedirect("imNoticeMdetail.nom?nno=" + nno);
+//			response.sendRedirect("imNoticeMdetail.nom?nno=" + nno);
 			
 		}else {
 			
