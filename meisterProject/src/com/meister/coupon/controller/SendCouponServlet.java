@@ -1,6 +1,7 @@
 package com.meister.coupon.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
 import javax.servlet.ServletException;
@@ -48,10 +49,16 @@ public class SendCouponServlet extends HttpServlet {
 		
 		int result = new CouponService().sendCoupon(mList,cList);
 		
-		if(result>0) {
-			
-		}else {
-			
+		if(result>0) { //쿠폰 발송성공
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('선택한 쿠폰이 발송되었습니다.');location.href='/Meister/couponList.cm';</script>");
+			out.flush();
+		}else { //쿠폰 발송실패
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('쿠폰 발송 실패. 다시 시도해주세요.');location.href='/Meister/couponList.cm';</script>");
+			out.flush();
 		}
 	}
 

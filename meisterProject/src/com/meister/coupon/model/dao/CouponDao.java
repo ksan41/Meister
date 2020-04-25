@@ -252,8 +252,27 @@ public class CouponDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "";
+		String sql = "INSERT ALL ";
+		String vals = ""; //insert할 쿠폰, 회원정보
 		
+		for(int i=0;i<cList.length;i++) {
+			for(int j=0;j<mList.length;j++) {
+				vals += "INTO MEMBER_COUPON VALUES("+cList[i]+","+mList[j]+",DEFAULT,DEFAULT,NULL) ";
+			}
+		}
+		vals +=" SELECT * FROM DUAL";
+		sql += vals;
 		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 }
