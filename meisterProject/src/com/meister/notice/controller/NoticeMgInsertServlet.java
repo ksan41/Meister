@@ -46,8 +46,15 @@ public class NoticeMgInsertServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			request.getSession().setAttribute("msg", "공지사항이 성공적으로 등록되었습니다.");
-			response.sendRedirect("imNoticeMlist.nom");
+//			request.getSession().setAttribute("msg", "공지사항이 성공적으로 등록되었습니다.");
+//			response.sendRedirect("imNoticeMlist.nom");
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('공지사항이 성공적으로 등록되었습니다.'); location.href='/Meister/imNoticeMlist.nom';</script>");
+			out.flush();
 			
 		}else {		// 공지사항 작성 실패!
 			
