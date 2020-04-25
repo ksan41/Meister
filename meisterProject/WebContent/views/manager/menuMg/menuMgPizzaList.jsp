@@ -453,7 +453,17 @@ div {
 														data-toggle="modal" data-target="#menu-detail-modalP<%=i%>">
 												</h4>
 												<p>
-													<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
+													<%for(int j=0;j<psList.size();j++){ %>
+														<% if(pList.get(i).getPizzaNo()==psList.get(j).getPizzaNo()){ %>
+															<%if(psList.get(j).getPizzaSize().equals("L")){ %>
+																<b>L</b> <%=psList.get(j).getPizzaPrice() %>원 
+															<%} %>
+															&nbsp;&nbsp;
+															<%if(psList.get(j).getPizzaSize().equals("M")){ %>
+																<b>M</b> <%=psList.get(j).getPizzaPrice() %>원
+															<%} %>
+														<%} %>
+													<%} %>
 												</p>
 												<button class="button" data-toggle="modal"
 													data-target="#menu-update-ModalP<%=i%>">수정</button>
