@@ -327,5 +327,22 @@ public class MyPageService {
 		return pInfo;
 	}
 	
+	
+	/**
+	 * 12_4. 해당 주문의 주문 품목 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Price selectOrderProducts(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Price order = new MyPageDao().selectOrderProducts(conn, ono);
+		
+		close(conn);
+		
+		return order;
+	}
+	
 
 }

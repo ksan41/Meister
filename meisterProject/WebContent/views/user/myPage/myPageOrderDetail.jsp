@@ -1,9 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.meister.order.model.vo.*"%>
+	pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Orders oInfo = (Orders)request.getAttribute("oInfo");
 	Payment pInfo = (Payment)request.getAttribute("pInfo");
+	
+	Price order = (Price)request.getAttribute("order");
+	
+	String[] sideNo = order.getSideNo().split(","); // [5,4]
+	String[] sideCount = order.getSideCount().split(",");
+	
+	String[] etcNo = order.getEtcNo().split(",");
+	String[] etcCount = order.getEtcCount().split(",");
+	
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 %>
 <!DOCTYPE html>
 <html>
