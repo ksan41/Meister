@@ -165,4 +165,25 @@ public class CenterService {
 		
 		return result;
 	}
+	
+	/**연화
+	 * faq 삭제용 서비스
+	 * @param faqNo		--> 삭제요청한 faq 글 번호
+	 * @return			--> 처리된 행의 개수
+	 */
+	public int deleteFaq(int faqNo) {
+		
+		Connection conn = getConnection();
+		int result = new CenterDao().deleteFaq(conn, faqNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
 }

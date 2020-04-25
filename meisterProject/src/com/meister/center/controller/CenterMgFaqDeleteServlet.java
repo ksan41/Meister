@@ -1,11 +1,15 @@
 package com.meister.center.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.center.model.service.CenterService;
 
 /**
  * Servlet implementation class CenterMgFaqDeleteServlet
@@ -26,8 +30,25 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		int faqNo = Integer.parseInt(request.getParameter("faqNo"));
+		
+		int result = new CenterService().deleteFaq(faqNo);
+		
+		if(result > 0) {// 공지사항 삭제 성공
+			
+			request.getSession().setAttribute("msg", "FAQ 삭제 성공!");
+			response.sendRedirect("ceMgFaqlist.cem");
+			
+		}else {// FAQ 삭제 실패
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('FAQ 삭제 실패'); location.href='/Meister/ceMgFaqlist.cem?faqNo=" + faqNo + "';</script>");
+			out.flush();
+		}
 	}
 
 	/**
