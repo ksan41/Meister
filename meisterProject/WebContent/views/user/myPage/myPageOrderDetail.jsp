@@ -10,6 +10,7 @@
 	String[] pizzaSize = order.getPizzaSize().split(",");
 	String[] pizzaNo = order.getPizzaNo().split(",");
 	String[] pizzaCount = order.getPizzaCount().split(",");
+	String[] doughNo = order.getDoughNo().split(",");
 	
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
@@ -21,6 +22,8 @@
 	
 	String pName = "";
 	String pSize = "";
+	int pCount = 0;
+	int doughPrice = 0;
 	int pPrice = 0;
 %>
 <!DOCTYPE html>
@@ -202,15 +205,32 @@ div {
 							<p class="order_text_left"
 								style="text-align: left; margin-left: 80px; color: black;">
 								<b style="font-size: 17px;">주문내역</b> <br><br> 
-								<% for(int i=0; i<pizzaSize.length; i++){ %>
+								<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
 									<% for(int j=0; j<pList.size(); j++){ %>
 										<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
 											<% pName = pList.get(j).getPizzaName(); %>
 										<% } %>
 									<% } %>
+									<% for(int j=0; j<sizeList.size(); j++){ %>
+										<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+											<% pSize = sizeList.get(j).getPizzaSize(); %>
+											<% pPrice = sizeList.get(j).getPizzaPrice(); %>
+										<% } %>
+									<% } %>
+									<% for(int j=0; j<dList.size(); j++){ %>
+										<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
+											<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
+												<% doughPrice = dList.get(j).getDoughAddPrice(); %>
+											<% } %>
+										<% } %>
+									<% } %>
+									<% pCount = Integer.parseInt(pizzaCount[i]); %>
+									<% pPrice = (pPrice + doughPrice) * pCount; %>
+									
+									<%=pName%> <%=pSize%> X <%=pCount%> / <%=pPrice %>원
 								<% } %>
 								
-								<% if(order.getSideNo() != null && order.getSideCount() != null) { %>
+								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
 									<% String[] sideNo = order.getSideNo().split(","); %>
 									<% String[] sideCount = order.getSideCount().split(","); %>
 									
@@ -219,7 +239,7 @@ div {
 									<% } %>
 								<% } %>
 								
-								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { %>
+								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타상품 내용 %>
 									<% String[] etcNo = order.getEtcNo().split(","); %>
 									<% String[] etcCount = order.getEtcCount().split(","); %>
 									
@@ -228,7 +248,6 @@ div {
 									<% } %>
 								<% } %>
 								
-								<%=pName %>
 								<br>
 							</p>
 						</th>
