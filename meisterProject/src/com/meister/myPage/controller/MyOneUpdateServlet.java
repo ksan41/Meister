@@ -89,8 +89,13 @@ public class MyOneUpdateServlet extends HttpServlet {
 			int result = new MyPageService().updateCenter(c, ci);
 			
 			if(result > 0) {	// 문의 수정 성공했을 경우 상세보기 페이지 요청!
+				//response.sendRedirect("/Meister/myOneDetail.my?cno=" + cno);
 				
-				response.sendRedirect("/Meister/myOneDetail.my?cno=" + cno);
+				response.setContentType("text/html; charset=UTF-8");
+				
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('해당 1:1문의가 성공적으로 수정되었습니다.'); location.href='myOneList.my';</script>");
+				out.flush();
 				
 			}else {	// 문의 수정 실패
 				

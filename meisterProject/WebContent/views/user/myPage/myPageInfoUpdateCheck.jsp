@@ -151,6 +151,7 @@ table {
 	cursor:pointer;
 }
 /* 작은버튼 스타일 */
+input[type=password]{font-family:'inherit';}
 </style>
 </head>
 <body>
@@ -206,7 +207,7 @@ table {
 				</tr>
 				<tr>
 					<th>비밀번호</th>
-					<td><input type="text" name="inputPwd"></td>
+					<td><input type="password" name="inputPwd"></td>
 					<td><button type="submit" class="small_btn" id="#" style="margin: 10px">확인</button></td>
 				</tr>
 			</table>
