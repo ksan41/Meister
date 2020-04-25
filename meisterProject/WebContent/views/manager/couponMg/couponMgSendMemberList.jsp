@@ -128,7 +128,7 @@
 							<tbody>
 								<%if(list.isEmpty()){ %>
 									<tr>
-										<th colspan="6">조회된 데이터가 없습니다.</th>
+										<th colspan="6">조회된 회원정보가 없습니다.</th>
 									</tr>								
 								<%}else{ %>
 								<form name="couponSendMemList" action="<%=contextPath%>/couponSendCpList.cm" method="post">

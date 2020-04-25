@@ -36,7 +36,9 @@ public class CouponSendMemListServlet extends HttpServlet {
 		ArrayList<Member> list = new MemberService().selectMemberList();
 		
 		if(list.isEmpty()) {
-			
+			request.setAttribute("list", list);
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/couponMg/couponMgSendMemberList.jsp");
+			view.forward(request, response);
 		}else {
 			request.setAttribute("list", list);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/couponMg/couponMgSendMemberList.jsp");
