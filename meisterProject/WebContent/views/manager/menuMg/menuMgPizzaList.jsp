@@ -663,7 +663,7 @@ div {
 										<table class="menuUpdateTable">
 											<tr>
 												<th>메뉴명</th>
-												<td><input name="pName" type="text" class="inputs" value="<%=pList.get(i).getPizzaName()%>"></td>
+												<td><input name="pName" type="text" class="inputs" value="<%=pList.get(i).getPizzaName()%>" required></td>
 												<th rowspan="2">이미지첨부 <input id="menuFile" name="menuImg" type="file"
 													style="display: none;">
 												</th>
