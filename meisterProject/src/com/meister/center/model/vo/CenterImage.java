@@ -1,12 +1,12 @@
 package com.meister.center.model.vo;
 
 public class CenterImage {
-	private int fileNo; //이미지파일 번호
-	private String originName; //파일 원본명
-	private String changeName; //파일 수정명
-	private String filePath; //저장폴더 경로
-	private int fileLevel; //파일레벨(기본 1)
-	private int inqueryNo; //문의번호(참조할 문의글 번호)
+	private int fileNo; 		//이미지파일 번호
+	private String originName;	//파일 원본명
+	private String changeName;	//파일 수정명
+	private String filePath; 	//저장폴더 경로
+	private int fileLevel; 		//파일레벨(기본 1)
+	private int inqueryNo; 		//문의번호(참조할 문의글 번호)
 	
 	public CenterImage() {}
 

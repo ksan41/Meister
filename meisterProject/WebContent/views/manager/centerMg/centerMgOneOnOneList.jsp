@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.center.model.vo.Center"%>
+<%
+	ArrayList<Center> list = (ArrayList<Center>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,8 +37,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataListTable"
-							width="100%" cellspacing="0">
+						<table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th width="5%">No</th>
@@ -48,52 +50,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>35</td>
-									<td>제품관련</td>
-									<td>역삼점</td>
-									<td>피자가 너무 보기좋은데요?</td>
-									<td>user1</td>
-									<td>2020/03/12</td>
-									<td>처리중</td>
-								</tr>
-								<tr>
-									<td>34</td>
-									<td>배달서비스관련</td>
-									<td>역삼점</td>
-									<td>배달이 너무 빨라요~</td>
-									<td>user4</td>
-									<td>2020/01/20</td>
-									<td>답변완료</td>
-								</tr>
-								<tr>
-									<td>33</td>
-									<td>단순문의</td>
-									<td>역삼점</td>
-									<td>장인은 피자 경력이?</td>
-									<td>user5</td>
-									<td>2019/11/09</td>
-									<td>답변완료</td>
-								</tr>
-								<tr>
-									<td>32</td>
-									<td>단순문의</td>
-									<td>역삼점</td>
-									<td>절대미각 인가요?</td>
-									<td>user6</td>
-									<td>2019/10/22</td>
-									<td>답변완료</td>
-								</tr>
-								<tr>
-									<td>31</td>
-									<td>기타</td>
-									<td>역삼점</td>
-									<td>흔들리는 꽃들속에서~</td>
-									<td>user7</td>
-									<td>2019/08/14</td>
-									<td>답변완료</td>
-								</tr>
-
+								<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+									<tr>
+										<td colspan="4">존재하는 1:1 문의가 없습니다.</td>
+									</tr>
+								<% }else{ // 리스트가 비어있지 않을 경우 %>
+								
+									<% for(Center c : list){ %>
+										<tr>
+											<td><%= c.getInquiryNo() %></td>
+											<td><%= c.getInquiryType() %></td>
+											<td><%= c.getInquiryStore() %></td>
+											<td><%= c.getInquiryTitle() %></td>
+											<td><%= c.getMemberNo() %></td>
+											<td><%= c.getRegistDate() %></td>
+											<td><%= c.getInquiryProStatus() %></td>
+										</tr>
 							</tbody>
 						</table>
 					</div>
