@@ -112,7 +112,15 @@ public class CouponService {
 	 */
 	public int sendCoupon(String[] mList,String[] cList) {
 		Connection conn = getConnection();
+		int result = new CouponDao().sendCoupon(conn,mList,cList);
 		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
 		
+		return result;
 	}
 }

@@ -34,7 +34,7 @@ public class SendCouponServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		//회원번호 담긴 문자열 ->
-		String mArr = request.getParameter("mArr");
+		String mArr = request.getParameter("userNo");
 		StringTokenizer st = new StringTokenizer(mArr,",");
 		String[] mList = new String[st.countTokens()];
 		int cnt=0;
