@@ -1,11 +1,17 @@
 package com.meister.menu.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.menu.model.service.MenuService;
+import com.meister.menu.model.vo.Pizza;
+import com.meister.menu.model.vo.PizzaSize;
 
 /**
  * Servlet implementation class MenuMgPizzaListServlet
@@ -26,8 +32,15 @@ public class MenuMgPizzaListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		ArrayList<Pizza> pList = new MenuService().selectPizzaList(); //피자 리스트
+		ArrayList<PizzaSize> psList = new MenuService().selectPizzaSizeList();//피자사이즈 리스트
+		
+		request.setAttribute("pList", pList);
+		request.setAttribute("psList", psList);
+		request.getRequestDispatcher("views/manager/menuMg/menuMgPizzaList.jsp").forward(request, response);
+		
+		
 	}
 
 	/**
