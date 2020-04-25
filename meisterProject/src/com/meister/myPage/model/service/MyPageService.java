@@ -10,11 +10,11 @@ import java.util.ArrayList;
 
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
-import com.meister.common.PageInfo;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Member;
 import com.meister.menu.model.vo.Pizza;
 import com.meister.myPage.model.dao.MyPageDao;
+import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
 
@@ -273,6 +273,23 @@ public class MyPageService {
 		close(conn);
 		
 		return list;
+	}
+	
+	
+	/**
+	 * 12_1. 해당 주문의 배달 정보 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Delivery selectDeliveryInfo(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Delivery dInfo = new MyPageDao().selectDeliveryInfo(conn, ono);
+		
+		close(conn);
+		
+		return dInfo;
 	}
 	
 

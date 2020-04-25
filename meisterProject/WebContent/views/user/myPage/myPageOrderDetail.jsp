@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="com.meister.order.model.vo.*"%>
+<%
+	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -145,7 +148,15 @@ div {
 			<!-- 테이블 -->
 			<table id="infoTable">
 				<tr>
-					<td width="7%"><b style="color:black;">포장</b></td>
+					<td width="7%">
+						<b style="color:black;">
+						<% if(dInfo.getDeliveryMethod().equals("D")) { %>
+							배달
+						<% }else { %>
+							포장
+						<% } %>
+						</b>
+					</td>
 					<td width="7%"><b style="color:black;">주문일시</b></td>
 					<td width="20%">2019-08-08 20:04</td>
 					<td width="7%"><b style="color:black;">주문번호</b></td>
@@ -221,11 +232,11 @@ div {
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">매장주소</td>
-						<td>마이스터역삼점</td>
+						<td><%=dInfo.getBranchAddress() %></td>
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">매장정보</td>
-						<td>마이스터역삼점 02-xxx-xxxx</td>
+						<td><%=dInfo.getBranchName()%> <%=dInfo.getBranchPhone()%></td>
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">추가요청</td>

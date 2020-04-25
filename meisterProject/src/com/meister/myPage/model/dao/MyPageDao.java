@@ -14,10 +14,10 @@ import java.util.Properties;
 
 import com.meister.center.model.vo.Center;
 import com.meister.center.model.vo.CenterImage;
-import com.meister.common.PageInfo;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Member;
 import com.meister.menu.model.vo.Pizza;
+import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
 
@@ -502,7 +502,7 @@ public class MyPageDao {
 			while(rset.next()) {
 				Price p = new Price();
 				p.setOrderNo(rset.getInt("ORDER_NO"));
-				p.setTotalPrice(rset.getInt("TOTAL_PRICE"));
+				p.setTotalPrice(rset.getInt("PAYMENT_PRICE"));
 				p.setPizzaNo(rset.getString("PIZZA_NO"));
 				p.setPizzaCount(rset.getString("PIZZA_COUNT"));
 				p.setSideCount(rset.getString("SIDE_COUNT"));
@@ -522,5 +522,40 @@ public class MyPageDao {
 		return list;
 	}
 	
+	
+	// 12_1.
+	public Delivery selectDeliveryInfo(Connection conn, int ono) {
+		
+		Delivery dInfo = new Delivery();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDeliveryInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				dInfo.setOrderNo(rset.getInt("order_no"));
+				dInfo.setDeliveryMethod(rset.getString("delivery_method"));
+				dInfo.setBranchName(rset.getString("branch_name"));
+				dInfo.setBranchAddress(rset.getString("branch_address"));
+				dInfo.setBranchPhone(rset.getString("branch_phone"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return dInfo;
+	}
 
 }

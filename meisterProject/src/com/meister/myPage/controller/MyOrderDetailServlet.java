@@ -1,16 +1,16 @@
 package com.meister.myPage.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.member.model.vo.Member;
 import com.meister.myPage.model.service.MyPageService;
+import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 
 /**
@@ -36,24 +36,17 @@ public class MyOrderDetailServlet extends HttpServlet {
 		int ono = Integer.parseInt(request.getParameter("ono"));
 		//int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
 		
+		Delivery dInfo = new MyPageService().selectDeliveryInfo(ono);
+		//Orders oInfo = new MyPageService().selectOrdersInfo(ono);
 		
-		/*
-		if(c != null) { // 문의조회 성공
+
 			
-			request.setAttribute("c", c);
-			request.setAttribute("ci", ci);
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOneOnOneDetail.jsp");
-			view.forward(request, response);
-			
-		}else { // 문의조회 실패
-			
-			response.setContentType("text/html; charset=utf-8");
-			
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('문의 조회에 실패했습니다. 다시 시도해주세요.'); location.href='myOneList.my';</script>");
-			out.flush();
-		}*/
+		request.setAttribute("dInfo", dInfo);
+		
+		RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOrderDetail.jsp");
+		view.forward(request, response);
+		
+
 	}
 
 	/**
