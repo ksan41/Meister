@@ -37,11 +37,12 @@ public class MyOrderDetailServlet extends HttpServlet {
 		//int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
 		
 		Delivery dInfo = new MyPageService().selectDeliveryInfo(ono);
-		//Orders oInfo = new MyPageService().selectOrdersInfo(ono);
+		Orders oInfo = new MyPageService().selectOrdersInfo(ono);
 		
 
 			
 		request.setAttribute("dInfo", dInfo);
+		request.setAttribute("oInfo", oInfo);
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/user/myPage/myPageOrderDetail.jsp");
 		view.forward(request, response);

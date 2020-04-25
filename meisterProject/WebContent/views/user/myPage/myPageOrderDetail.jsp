@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" import="com.meister.order.model.vo.*"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
+	Orders oInfo = (Orders)request.getAttribute("oInfo");
 %>
 <!DOCTYPE html>
 <html>
@@ -158,14 +159,20 @@ div {
 						</b>
 					</td>
 					<td width="7%"><b style="color:black;">주문일시</b></td>
-					<td width="20%">2019-08-08 20:04</td>
+					<td width="20%"><%=oInfo.getOrderDate() %></td>
 					<td width="7%"><b style="color:black;">주문번호</b></td>
-					<td width="30%">000000000</td>
+					<td width="30%"><%=oInfo.getOrderNo() %></td>
 					<td width="29%"></td>
 				</tr>
 			</table>
 			<hr>
-			<b style="padding-left:25px; font-size:20px; color:black;">수령완료</b>
+			<b style="padding-left:25px; font-size:20px; color:black;">
+				<% if(oInfo.getDeliveryStatus().equals("T")) { %>
+					수령완료
+				<% }else { %>
+					주문처리중
+				<% } %>
+			</b>
 			<hr>
 
 			<div id="order-info">
@@ -223,12 +230,11 @@ div {
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">수령인</td>
-						<td>절대미각</td>
+						<td><%=oInfo.getOrderName()%></td>
 					</tr>
 					<tr>
-						<td class="order-info2-td" style="padding-left: 25px;">수령인
-							연락처</td>
-						<td>010-xxxx-xxxx</td>
+						<td class="order-info2-td" style="padding-left: 25px;">수령인 연락처</td>
+						<td><%=oInfo.getOrderPhone()%></td>
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">매장주소</td>
@@ -240,7 +246,7 @@ div {
 					</tr>
 					<tr>
 						<td class="order-info2-td" style="padding-left: 25px;">추가요청</td>
-						<td>토핑 많이요~</td>
+						<td><%=oInfo.getOrderRequest() %></td>
 					</tr>
 				</table>
 

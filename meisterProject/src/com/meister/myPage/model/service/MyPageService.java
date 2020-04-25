@@ -292,5 +292,22 @@ public class MyPageService {
 		return dInfo;
 	}
 	
+	
+	/**
+	 * 12_2. 해당 주문의 주문 정보 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Orders selectOrdersInfo(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Orders oInfo = new MyPageDao().selectOrdersInfo(conn, ono);
+		
+		close(conn);
+		
+		return oInfo;
+	}
+	
 
 }

@@ -557,5 +557,43 @@ public class MyPageDao {
 		
 		return dInfo;
 	}
+	
+	
+	// 12_2.
+	public Orders selectOrdersInfo(Connection conn, int ono) {
+		
+		Orders oInfo = new Orders();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOrdersInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				oInfo.setOrderDate(rset.getDate("order_date"));
+				oInfo.setOrderNo(rset.getInt("order_no"));
+				oInfo.setCouponDiscount(rset.getInt("coupon_discount"));
+				oInfo.setDeliveryStatus(rset.getString("delivery_status"));
+				oInfo.setOrderName(rset.getString("order_name"));
+				oInfo.setOrderPhone(rset.getString("order_phone"));
+				oInfo.setOrderRequest(rset.getString("order_request"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return oInfo;
+	}
 
 }
