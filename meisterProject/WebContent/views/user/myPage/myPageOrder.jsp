@@ -218,7 +218,7 @@ div {
 							</td>
 							<td>
 								<% String pizzaName = ""; 
-								switch(priceList.get(i).getPizzaNo().charAt(0)+""){
+								switch(priceList.get(i).getPizzaNo().substring(2)){
 								case "1": pizzaName = pizzaList.get(0).getPizzaName(); break;
 								case "2": pizzaName = pizzaList.get(1).getPizzaName(); break;
 								case "3": pizzaName = pizzaList.get(2).getPizzaName(); break;

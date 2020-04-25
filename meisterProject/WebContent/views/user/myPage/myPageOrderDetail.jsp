@@ -11,12 +11,6 @@
 	String[] pizzaNo = order.getPizzaNo().split(",");
 	String[] pizzaCount = order.getPizzaCount().split(",");
 	
-	String[] sideNo = order.getSideNo().split(","); // [5,4]
-	String[] sideCount = order.getSideCount().split(",");
-	
-	String[] etcNo = order.getEtcNo().split(",");
-	String[] etcCount = order.getEtcCount().split(",");
-	
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -24,6 +18,10 @@
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	
+	String pName = "";
+	String pSize = "";
+	int pPrice = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -205,9 +203,32 @@ div {
 								style="text-align: left; margin-left: 80px; color: black;">
 								<b style="font-size: 17px;">주문내역</b> <br><br> 
 								<% for(int i=0; i<pizzaSize.length; i++){ %>
-									<%=pList.get(Integer.parseInt(order.getPizzaNo())-100).getPizzaName()%>
-									<%=sizeList.get(Integer.parseInt(order.getPizzaSize())+100).getPizzaSize()%>
+									<% for(int j=0; j<pList.size(); j++){ %>
+										<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
+											<% pName = pList.get(j).getPizzaName(); %>
+										<% } %>
+									<% } %>
 								<% } %>
+								
+								<% if(order.getSideNo() != null && order.getSideCount() != null) { %>
+									<% String[] sideNo = order.getSideNo().split(","); %>
+									<% String[] sideCount = order.getSideCount().split(","); %>
+									
+									<% for(int i=0; i<sideNo.length; i++) { %>
+										
+									<% } %>
+								<% } %>
+								
+								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { %>
+									<% String[] etcNo = order.getEtcNo().split(","); %>
+									<% String[] etcCount = order.getEtcCount().split(","); %>
+									
+									<% for(int i=0; i<etcNo.length; i++) { %>
+										
+									<% } %>
+								<% } %>
+								
+								<%=pName %>
 								<br>
 							</p>
 						</th>
