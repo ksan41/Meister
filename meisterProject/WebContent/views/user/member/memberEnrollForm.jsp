@@ -276,8 +276,13 @@ table {
 				// 아이디 입력하는 input 요소
 				var userId = $("#enrollForm input[name=userId]");
 				
+				if(!userId.val()) {
+					alert("아이디를 입력해주세요.");
+					return;
+				}
+				
 				$.ajax({
-					url:"idCheck.me",
+					url:"/Meister/idCheck.me",
 					data:{userId:userId.val()},
 					type:"post",
 					success:function(result){ 
