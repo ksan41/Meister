@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.meister.member.model.vo.Member" %>
+<%
+String testParam = request.getParameter("name2");
+System.out.println(testParam);
+Member member = (Member)request.getAttribute("selectid");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,12 +110,12 @@
             <table>
                 <tr>
                     <th colspan="2">
-                        <h1>OOO 님의 아이디 입니다.</h1>
+                        <h1><%=member.getMemberName()%></h1>
                     </th>
                 </tr>
                 <tr>
-                    <td>아이디가보여져야함</td>
-                    <td>가입일 : 2020-02-02</td>
+                    <td><%=member.getMemberId() %></td>
+                    <td> 가입일 : <%=member.getMemberEnrolldate() %></td>
                 </tr>
                 <tr>
                     <td colspan="2">신용평가기관을 통해 실명 인증된 마이스터피자 아이디입니다.</td>
