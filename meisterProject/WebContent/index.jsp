@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList,
+com.meister.event.model.service.EventService,
+com.meister.event.model.vo.Event" %>
+<%
+ArrayList<Event> list = new EventService().selectList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,26 +77,15 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="customer_active owl-carousel">
+                    	<% for(Event event : list) { %>
                         <div class="single_customer d-flex">
                             <div class="thumb">
-                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
+                            	<a href="<%= contextPath %>/eDetail.ev?bno=<%=event.getEventNo() %>">
+                                <img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=event.getEventImage1()%>" alt="">
+                                </a>
                             </div>
                         </div>
-                        <div class="single_customer d-flex">
-                            <div class="thumb">
-                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="single_customer d-flex">
-                            <div class="thumb">
-                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="single_customer d-flex">
-                            <div class="thumb">
-                                <img src="<%=contextPath%>/views/common_user/img/testmonial/event1.png" alt="">
-                            </div>
-                        </div>
+                        <% } %>
                     </div>
                 </div>
             </div>

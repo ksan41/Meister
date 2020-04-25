@@ -64,13 +64,13 @@ public class MyInfoUpdateServlet extends HttpServlet {
 			response.setContentType("text/html; charset=utf-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('회원 정보가 성공적으로 수정되었습니다.'); location.href='myOrderList.my';</script>");
+			out.println("<script>alert('회원 정보가 성공적으로 수정되었습니다.'); history.back(-1);</script>");
 			
 		}else { // 회원정보수정 실패시
 			response.setContentType("text/html; charset=utf-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('회원 정보 수정에 실패했습니다. 다시 시도해주세요.'); location.href='myOrderList.my';</script>");	
+			out.println("<script>alert('회원 정보 수정에 실패했습니다. 다시 시도해주세요.'); history.back(-1);</script>");	
 		}
 		
 	}

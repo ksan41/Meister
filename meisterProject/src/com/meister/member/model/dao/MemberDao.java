@@ -466,4 +466,47 @@ private Properties prop = new Properties();
 		return count;
 		
 	}
+	
+	public  Member selectid(Connection conn, String name2, String email)  {
+		 
+	    Member selectid = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("idfind");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name2);
+			pstmt.setString(2, email);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+//				selectid = new Member(rset.getString("MEMBER_ID"));
+				selectid = new Member();
+				selectid.setMemberId(rset.getString("MEMBER_ID"));
+				selectid.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				selectid.setMemberName(rset.getString("MEMBER_NAME"));
+					
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally  {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return selectid;
+		
+	}
+	
+	
+	
 }
+

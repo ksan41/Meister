@@ -104,8 +104,7 @@ public class CenterOneOnOneInsertServlet extends HttpServlet {
 				response.setContentType("text/html; charset=utf-8");
 				
 				PrintWriter out = response.getWriter();
-				out.println("<script>alert('문의 등록에 실패했습니다. 다시 시도해주세요.');</script>");
-				//request.setAttribute("msg", "문의 등록에 실패했습니다. 다시 시도해주세요.");
+				out.println("<script>alert('문의 등록에 실패했습니다. 다시 시도해주세요.'); location.href='/cOneForm.ce';</script>");
 				
 			}
 		}

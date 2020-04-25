@@ -285,12 +285,14 @@ div {
 								<table style="width: 100%; height: 100%;">
 									<tr>
 										<td style="text-align: left;">주문금액</td>
-										<td style="font-size: 16px; padding-left:9px;">37,900 원</td>
+										<td style="font-size: 16px; padding-left:9px;">
+											 원
+										</td>
 									</tr>
 									<tr>
 										<td style="text-align: left;">할인금액</td>
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
-											-14,360 원
+											- 원
 										</td>
 									</tr>
 									<tr>

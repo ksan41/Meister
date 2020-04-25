@@ -50,7 +50,7 @@ public class EventDao {
 		ResultSet rset = null;
 
 		String sql = prop.getProperty("selectEventList");
-
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 
