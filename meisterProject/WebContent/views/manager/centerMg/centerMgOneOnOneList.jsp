@@ -37,7 +37,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0">
+						<table id="dataListTable" class="table table-bordered" id="dataListTable" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th width="5%">No</th>
@@ -66,6 +66,8 @@
 											<td><%= c.getRegistDate() %></td>
 											<td><%= c.getInquiryProStatus() %></td>
 										</tr>
+									<% } %>
+								<% } %>
 							</tbody>
 						</table>
 					</div>
@@ -74,5 +76,20 @@
 		</div>
 		</main>
 	</div>
+	
+	<script>
+		
+		// 1:1문의 상세조회
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				
+				// 현재 클릭했을 때의 해당 1:1문의의 번호
+				var nno = $(this).children().eq(0).text();
+				// 쿼리스트링 이용해서 전달값 전달
+				location.href="<%= contextPath %>/ceMgOneDetail.cem?nno=" + nno;
+			});
+		});
+	
+	</script>
 </body>
 </html>
