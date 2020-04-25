@@ -213,6 +213,40 @@ public class CenterDao {
 		return result;
 	}
 	
+	public ArrayList<Center> selectOneList(Connection conn){
+		
+		ArrayList<Center> list = new ArrayList<>();
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectOneList");
+		
+		try {
+			stmt = conn.createStatement();
+			rset = stmt.executeQuery(sql);
+			
+			while(rset.next()) {
+			
+				list.add(new Center(rset.getInt("NOTICE_NO"),
+									rset.getString("NOTICE_TITLE"),
+									rset.getDate("NOTICE_CREATE_DATE"),
+									rset.getInt("NOTICE_COUNT")));
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return list;
+		
+	}
+	
        
        
 }

@@ -186,4 +186,23 @@ public class CenterService {
 		return result;
 	}
 	
+	/**연화
+	 * 1:1문의 리스트 조회용 서비스
+	 * @return list --> Center 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
+	 */
+	public ArrayList<Center> selectOneList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Center> list = new CenterDao().selectOneList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	selectOneOnOne(ino)
+	
+	
 }

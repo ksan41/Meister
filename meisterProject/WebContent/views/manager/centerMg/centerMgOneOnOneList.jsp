@@ -84,9 +84,9 @@
 			$("#dataListTable>tbody>tr").click(function(){
 				
 				// 현재 클릭했을 때의 해당 1:1문의의 번호
-				var nno = $(this).children().eq(0).text();
+				var ino = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/ceMgOneDetail.cem?nno=" + nno;
+				location.href="<%= contextPath %>/ceMgOneDetail.cem?ino=" + ino;
 			});
 		});
 	
