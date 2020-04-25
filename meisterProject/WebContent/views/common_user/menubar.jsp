@@ -93,7 +93,7 @@
                             
                             	<% if(loginUser == null) { %>
 	                            	<!-- 로그인x시 장바구니, 로그인, 회원가입 보여지도록 -->
-	                                <a href="#"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
+	                                <a href="<%=contextPath %>/showLoginPage.me"><img src="<%=contextPath %>/views/common_user/img/icons/add_cart.png" alt=""></a>
 	                                <a href="<%=contextPath %>/showLoginPage.me">로그인</a>
 	                                <a href="<%=contextPath %>/showEnrollCheck.me">회원가입</a>
 									<% } else { %>
