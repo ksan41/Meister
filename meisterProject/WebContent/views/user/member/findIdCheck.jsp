@@ -193,38 +193,33 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
-                            	<form method="post" action="member_find_id.php">
+                            	<form class="form-horizontal" method="post" action="<%=contextPath%>/findId.me">
                                 <table style="text-align: left;">
                                     <tr>
                                         <th>이름</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="text" name="name2" style="width: 100%;">
+                                            <input class="text-area" type="text" name="name2" id="name2" required style="width: 100%;">
                                         </td>
                                     </tr>
                                    
                                     <tr>
                                         <th>이메일</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="email" name="email">
-                                            &nbsp;@&nbsp;
+                                            <input class="text-area" type="email" name="email" id="email" required>
+                                           
                                             
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th></th>
-                                        <td>
-                                            <button class="middle_btn" id="email_send" style="width: 100%;">인증번호발송</button>
-                                        </td>
+                                      
                                     </tr>
                                     <tr>
-                                        <th></th>
-                                        <td>
-                                            <input type="text" style="width: 100%;" placeholder="인증번호를 입력하세요">
-                                        </td>
+                                        
+                                       
                                     </tr>
                                 </table>
                                 
-                                </form>
+                               
                             </div>
 
                             <!-- Modal footer -->
@@ -232,9 +227,11 @@
                                 <!-- 하단버튼 영역-->
                                 
                                 <!--<a href=""></a>  -->
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                style="width:200px; height:50px; background-color: orange; border-color: orange; <%=contextPath%>/findId.me">아이디 조회</button>
+                                <button type="submit" class="btn btn-danger"
+                                style="width:200px; height:50px; background-color: orange; border-color: orange;"> 아이디 찾기</button>
                             </div>
+                            
+                            </form>
                         </div>
                     </div>
                 </div>
