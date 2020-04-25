@@ -428,7 +428,7 @@ table {
 
 							<tr>
 								<td>비밀번호</td>
-								<td style="padding: 10px;"><input type="text" name="inputPwd"></td>
+								<td style="padding: 10px;"><input type="password" name="inputPwd"></td>
 								<td>
 									<button type="submit" class="btn btn-danger" 
 										style="width: 100px; height: 30px; padding: 1px;">확인</button>
