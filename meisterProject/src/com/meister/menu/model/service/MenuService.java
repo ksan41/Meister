@@ -166,6 +166,28 @@ public class MenuService {
 	
 	
 	
+	/**산
+	 * 통합관리자 - 피자 수정용 서비스
+	 * @param insertP : 입력받은 피자 정보가 담긴 Pizza객체
+	 * @param insertSizeM : 입력받은 피자M사이즈 가격정보 담긴 PizzaSize객체
+	 * @param insertSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
+	 * @return : 처리된 행의 개수
+	 */
+	public int updatePizza(Pizza insertP,PizzaSize insertSizeM,PizzaSize insertSizeL) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MenuDao().updatePizza(conn,insertP,insertSizeM,insertSizeL);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 	
 	
 	
