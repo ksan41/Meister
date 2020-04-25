@@ -468,7 +468,13 @@
 	</form>
 
 	<script>
+	
+		// 삭제하기 버튼 클릭시
+		function deleteConfirm(){
+			$("#postForm").submit();
+		};
 
+	
 		// 클래스 추가 제거 이벤트 (css변경)
 		// activeMgFAQ1,2 버튼클릭 아이디	.contentMg1 버튼1의 내용
 		$("#activeMgFAQ1").click(
@@ -537,11 +543,6 @@
 	        });
 	    });
 
-	
-		// 삭제하기 버튼 클릭시
-		function deleteConfirm(){
-			$("#postForm").submit();
-		};
 	</script>
 </body>
 </html>

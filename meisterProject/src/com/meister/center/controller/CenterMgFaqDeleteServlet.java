@@ -38,7 +38,7 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 		if(result > 0) {// 공지사항 삭제 성공
 			
 			request.getSession().setAttribute("msg", "FAQ 삭제 성공!");
-			response.sendRedirect("ceMgFaqlist.cem");
+			response.sendRedirect("ceMgFaqList.cem");
 			
 		}else {// FAQ 삭제 실패
 			
