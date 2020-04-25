@@ -17,6 +17,9 @@ public class Orders {
 	private int cartNo;				// 장바구니번호
 	private int orderNo;			// 주문번호
 	
+	// 타 테이블 컬럼
+	private int couponDiscount;		// 할인율
+	
 	
 	public Orders() {}
 
@@ -37,6 +40,19 @@ public class Orders {
 		this.memberNo = memberNo;
 		this.cartNo = cartNo;
 		this.orderNo = orderNo;
+	}
+	
+
+	public Orders(String orderName, String orderPhone, String orderRequest, Date orderDate, String deliveryStatus,
+			int orderNo, int couponDiscount) {
+		super();
+		this.orderName = orderName;
+		this.orderPhone = orderPhone;
+		this.orderRequest = orderRequest;
+		this.orderDate = orderDate;
+		this.deliveryStatus = deliveryStatus;
+		this.orderNo = orderNo;
+		this.couponDiscount = couponDiscount;
 	}
 
 
@@ -157,6 +173,17 @@ public class Orders {
 
 	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
+	}
+
+	
+
+	public int getCouponDiscount() {
+		return couponDiscount;
+	}
+
+
+	public void setCouponDiscount(int couponDiscount) {
+		this.couponDiscount = couponDiscount;
 	}
 
 

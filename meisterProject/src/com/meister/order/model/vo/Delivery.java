@@ -14,10 +14,18 @@ public class Delivery {
 	private int branchNo;			// 지점번호
 	private int memberNo;			// 회원번호
 	private String referenceAddress; 	// 참고주소
+	private String deliveryStatus;	// 사용여부
+	private String deliveryMethod;	// 배달포장여부
 
 	// 타 테이블 컬럼
 	private String branchName; 		// 지점이름
 	private String branchPhone;		// 지점전화번호
+	
+	// 타 테이블 컬럼
+	private int orderNo;
+	private String branchAddress;	// 지점주소
+	
+	
 	
 	public Delivery() {
 		
@@ -72,6 +80,15 @@ public class Delivery {
 		this.memberNo = memberNo;
 	}
 	
+	public Delivery(String deliveryMethod, String branchName, String branchPhone, int orderNo, String branchAddress) {
+		super();
+		this.deliveryMethod = deliveryMethod;
+		this.branchName = branchName;
+		this.branchPhone = branchPhone;
+		this.orderNo = orderNo;
+		this.branchAddress = branchAddress;
+	}
+
 	public int getDeliveryNo() {
 		return deliveryNo;
 	}
@@ -159,6 +176,39 @@ public class Delivery {
 	public void setBranchPhone(String branchPhone) {
 		this.branchPhone = branchPhone;
 	}
+	
+
+	public String getDeliveryStatus() {
+		return deliveryStatus;
+	}
+
+	public void setDeliveryStatus(String deliveryStatus) {
+		this.deliveryStatus = deliveryStatus;
+	}
+
+	public String getDeliveryMethod() {
+		return deliveryMethod;
+	}
+
+	public void setDeliveryMethod(String deliveryMethod) {
+		this.deliveryMethod = deliveryMethod;
+	}
+
+	public int getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(int orderNo) {
+		this.orderNo = orderNo;
+	}
+
+	public String getBranchAddress() {
+		return branchAddress;
+	}
+
+	public void setBranchAddress(String branchAddress) {
+		this.branchAddress = branchAddress;
+	}
 
 	@Override
 	public String toString() {
@@ -169,3 +219,4 @@ public class Delivery {
 	}
 
 }
+
