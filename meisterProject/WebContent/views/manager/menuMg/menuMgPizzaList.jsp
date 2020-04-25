@@ -429,8 +429,7 @@ div {
 				<div class="card-body">
 					<div class="table-responsive">
 						<div align="right">
-							<button class="button" onclick="" data-toggle="modal"
-								data-target="#couponEnrollModal"
+							<button class="button" onclick="location.href='<%=contextPath %>/pizzaEnForm.meng';"
 								style="background-color: orange; width: 100px; height: 40px; font-size: 15px;">메뉴등록</button>
 						</div>
 						<div class="inner">
