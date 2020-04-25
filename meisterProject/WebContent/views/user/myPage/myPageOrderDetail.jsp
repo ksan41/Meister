@@ -10,6 +10,7 @@
 	String[] pizzaSize = order.getPizzaSize().split(",");
 	String[] pizzaNo = order.getPizzaNo().split(",");
 	String[] pizzaCount = order.getPizzaCount().split(",");
+	String[] doughNo = order.getDoughNo().split(",");
 	
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
@@ -21,7 +22,17 @@
 	
 	String pName = "";
 	String pSize = "";
+	int pCount = 0;
+	int doughPrice = 0;
 	int pPrice = 0;
+	
+	String sName = "";
+	int sCount = 0;
+	int sPrice = 0;
+	
+	String eName = "";
+	int eCount = 0;
+	int ePrice = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -72,7 +83,7 @@ div {
 /* 서브메뉴 스타일 끝 */
 #order-info {
 	width: 1000px;
-	height: 200px;
+	height: auto;
 	border: 0px;
 	background-color: #F6F6F6;
 	margin-top: 40px;
@@ -200,35 +211,71 @@ div {
 					<tr>
 						<th width="495px" style="padding-left: 2px;">
 							<p class="order_text_left"
-								style="text-align: left; margin-left: 80px; color: black;">
+								style="text-align: left; margin-left: 80px; margin-top:40px; margin-bottom:20px; color: black;">
 								<b style="font-size: 17px;">주문내역</b> <br><br> 
-								<% for(int i=0; i<pizzaSize.length; i++){ %>
+								<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
 									<% for(int j=0; j<pList.size(); j++){ %>
 										<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
 											<% pName = pList.get(j).getPizzaName(); %>
 										<% } %>
 									<% } %>
+									<% for(int j=0; j<sizeList.size(); j++){ %>
+										<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+											<% pSize = sizeList.get(j).getPizzaSize(); %>
+											<% pPrice = sizeList.get(j).getPizzaPrice(); %>
+										<% } %>
+									<% } %>
+									<% for(int j=0; j<dList.size(); j++){ %>
+										<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
+											<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
+												<% doughPrice = dList.get(j).getDoughAddPrice(); %>
+											<% } %>
+										<% } %>
+									<% } %>
+									<% pCount = Integer.parseInt(pizzaCount[i]); %>
+									<% pPrice = (pPrice + doughPrice) * pCount; %>
+									
+									<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
 								<% } %>
 								
-								<% if(order.getSideNo() != null && order.getSideCount() != null) { %>
+								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
 									<% String[] sideNo = order.getSideNo().split(","); %>
 									<% String[] sideCount = order.getSideCount().split(","); %>
 									
 									<% for(int i=0; i<sideNo.length; i++) { %>
+										<% for(int j=0; j<sList.size(); j++){ %>
+											<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
+												<% sName = sList.get(j).getSideName(); %>
+												<% sPrice = sList.get(j).getSidePrice(); %>
+											<% } %>
+										<% } %>
 										
+										<% sCount = Integer.parseInt(sideCount[i]); %>
+										<% sPrice = sPrice * sCount; %>
+										
+										<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
 									<% } %>
 								<% } %>
 								
-								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { %>
+								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타상품 내용 %>
 									<% String[] etcNo = order.getEtcNo().split(","); %>
 									<% String[] etcCount = order.getEtcCount().split(","); %>
 									
 									<% for(int i=0; i<etcNo.length; i++) { %>
+										<% for(int j=0; j<eList.size(); j++){ %>
+											<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
+												<% eName = eList.get(j).getEtcName(); %>
+												<% ePrice = eList.get(j).getEtcPrice(); %>
+											<% } %>
+										<% } %>
 										
+										<% eCount = Integer.parseInt(etcCount[i]); %>
+										<% ePrice = ePrice * eCount; %>
+										
+										<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>										
 									<% } %>
 								<% } %>
 								
-								<%=pName %>
 								<br>
 							</p>
 						</th>
