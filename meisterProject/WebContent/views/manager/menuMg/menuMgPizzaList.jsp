@@ -665,41 +665,41 @@ div {
 												<th>메뉴명</th>
 												<td><input name="pName" type="text" class="inputs" value="<%=pList.get(i).getPizzaName()%>" required></td>
 												<th rowspan="2">이미지첨부 <input id="menuFile" name="menuImg" type="file"
-													style="display: none;">
+													style="display: none;" required>
 												</th>
 												<td rowspan="2">
 													<div class="menu-update-img-area">
-														<img class="menu-upImg" src="<%=pList.get(i).getPizzaImg() %>" alt="">
+														<img class="menu-upImg" src="<%=pList.get(i).getPizzaImg()%>" alt="">
 													</div>
 												</td>
 											</tr>
 											<tr>
 												<th>메뉴소개</th>
 												<td><textarea name="contents" class="inputs" cols="50"
-														rows="8" style="resize: none;"><%=pList.get(i).getPizzaContent() %></textarea></td>
+														rows="8" style="resize: none;" required><%=pList.get(i).getPizzaContent() %></textarea></td>
 											</tr>
 											<tr>
 												<th>토핑</th>
 												<td><textarea name="toppings" class="inputs" cols="50"
-														rows="8" style="resize: none;"><%=pList.get(i).getPizzaTopping() %></textarea></td>
+														rows="8" style="resize: none;" required><%=pList.get(i).getPizzaTopping() %></textarea></td>
 				
 											</tr>
 											<tr>
 												<th rowspan="2">원산지</th>
 												<td rowspan="2"><textarea name="origins" class="inputs"
-														cols="50" rows="8" style="resize: none;"><%=pList.get(i).getPizzaOrigin() %></textarea></td>
+														cols="50" rows="8" style="resize: none;" required><%=pList.get(i).getPizzaOrigin() %></textarea></td>
 											<%for(int j=0;j<psList.size();j++){ %>
 												<%if(pList.get(i).getPizzaNo()== psList.get(j).getPizzaNo()){ %>	
 												<%if(psList.get(j).getPizzaSize().equals("L")){ %>
 												<th>L 사이즈 가격</th>
-												<td><input name="priceL" type="text" class="inputs" value="<%=psList.get(j).getPizzaPrice()%>">
+												<td><input name="priceL" type="text" class="inputs" value="<%=psList.get(j).getPizzaPrice()%>" required>
 													원</td>
 												<%} %>
 											</tr>
 												<%if(psList.get(j).getPizzaSize().equals("M")){ %>
 											<tr>
 												<th>M 사이즈 가격</th>
-												<td><input name="priceM" type="text" class="inputs" value="<%=psList.get(j).getPizzaPrice()%>">
+												<td><input name="priceM" type="text" class="inputs" value="<%=psList.get(j).getPizzaPrice()%>" required>
 													원<br></td>
 												<%} %>	
 											</tr>

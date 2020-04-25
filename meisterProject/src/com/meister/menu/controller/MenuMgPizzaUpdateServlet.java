@@ -56,17 +56,20 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			
 			// 3. DB에 insert할 데이터들 뽑아서 vo객체에 담기
 			
-			// 3_1. Board 객체
 			int pNo = Integer.parseInt(multiRequest.getParameter("pNo"));
 			String pizzaName = multiRequest.getParameter("pName");
 			String contents = multiRequest.getParameter("contents");
 			String toppings = multiRequest.getParameter("toppings");
 			String origins = multiRequest.getParameter("origins");
+			String menuImg = multiRequest.getParameter("menuImg");
+			
+			int priceL = Integer.parseInt(multiRequest.getParameter("priceL"));
+			int priceM = Integer.parseInt(multiRequest.getParameter("priceM"));
 			
 			// 기존에 서버에 업로드된 파일도 삭제
 			// 삭제시킬 파일객체 생성
 			// 파일경로 + 기존파일명(수정명)
-			File deleteImg = new File(savePath + multiRequest.getParameter("originFileName"));
+			File deleteImg = new File(savePath + multiRequest.getParameter("menuImg"));
 			deleteImg.delete();
 			
 			
@@ -76,12 +79,19 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			insertP.setPizzaContent(contents);
 			insertP.setPizzaTopping(toppings);
 			insertP.setPizzaOrigin(origins);
+			insertP.setPizzaImg(menuImg);
 			
 			// M사이즈용 객체생성
 			PizzaSize insertSizeM = new PizzaSize();
+			insertSizeM.setPizzaNo(pNo);
+			insertSizeM.setPizzaSize("M");
+			insertSizeM.setPizzaPrice(priceM);
 			
 			// L사이즈용 객체생성
 			PizzaSize insertSizeL = new PizzaSize();
+			insertSizeL.setPizzaNo(pNo);
+			insertSizeL.setPizzaSize("L");
+			insertSizeL.setPizzaPrice(priceL);
 			// 3_2. Attachment 테이블에 insert할 정보
 //			ArrayList<Attachment> list = new ArrayList<>();
 			
@@ -103,7 +113,8 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 //			}
 //			
 			
-			int result = new MenuService().insertPizza(insertP);
+			// 피자객체,사이즈객체(M),사이즈객체(L)로 서비스요청
+			int result = new MenuService().updatePizza(insertP,insertSizeM,insertSizeL);
 			
 			
 			if(result > 0) {//메뉴 수정 성공
