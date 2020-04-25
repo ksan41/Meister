@@ -480,24 +480,40 @@ div {
 							<br>
 							<div class="menu-area classic">
 								<h1 align="center">클래식</h1>
-								<div id="menu-thumb">
-									<div id="menu-img">
-										<img src="pizza/pizza-2802332_1280.jpg" alt="">
-									</div>
-									<div id="menu-info">
-										<h4>
-											치즈케이크 피자<img id="menu-detail"
-												src="img/icons/baseline_search_black_18dp.png" alt=""
-												data-toggle="modal" data-target="#menu-detail-modal">
-										</h4>
-										<p>
-											<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-										</p>
-										<button class="button" data-toggle="modal"
-											data-target="#menu-update-Modal">수정</button>
-										<button class="button" onclick="">삭제</button>
-									</div>
-								</div>
+								<% if(!pList.isEmpty()){ %>
+									<%for(int i=0;i<pList.size();i++){ %>
+										<% if(pList.get(i).getPizzaType().equals("2")){ %>
+										<div class="menu-thumb">
+											<div class="menu-img">
+												<img src="<%=pList.get(i).getPizzaImg()%>" alt="">
+											</div>
+											<div class="menu-info">
+												<h4>
+													<%=pList.get(i).getPizzaName() %><img class="menu-detail"
+														src="<%=contextPath %>/resources/siteImgs/PageIcons/baseline_search_black_18dp.png" alt=""
+														data-toggle="modal" data-target="#menu-detail-modalC<%=i%>">
+												</h4>
+												<p>
+													<%for(int j=0;j<psList.size();j++){ %>
+														<% if(pList.get(i).getPizzaNo()==psList.get(j).getPizzaNo()){ %>
+															<%if(psList.get(j).getPizzaSize().equals("L")){ %>
+																<b>L</b> <%=psList.get(j).getPizzaPrice() %>원 
+															<%} %>
+															&nbsp;&nbsp;
+															<%if(psList.get(j).getPizzaSize().equals("M")){ %>
+																<b>M</b> <%=psList.get(j).getPizzaPrice() %>원
+															<%} %>
+														<%} %>
+													<%} %>
+												</p>
+												<button class="button" data-toggle="modal"
+													data-target="#menu-update-ModalC<%=i%>">수정</button>
+												<button class="button" onclick="">삭제</button>
+											</div>
+										</div>
+										<%} %>
+									<%} %>
+								<%} %>
 
 							</div>
 							<!-- 클래식 -->
