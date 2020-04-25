@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.menu.model.vo.*"%>
+<%
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	ArrayList<PizzaSize> psList = (ArrayList<PizzaSize>)request.getAttribute("psList");
+%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -216,11 +220,10 @@ div {
 }
 
 .menu-area>div {
-	margin: auto;
 	display: inline-block;
 }
 
-#menu-thumb {
+.menu-thumb {
 	width: 250px;
 	height: 300px;
 	box-sizing: border-box;
@@ -230,7 +233,7 @@ div {
 	margin-left: 50px;
 }
 
-#menu-img {
+.menu-img {
 	overflow: hidden;
 	display: flex;
 	align-items: center;
@@ -241,26 +244,26 @@ div {
 	border-radius: 50%;
 }
 
-#menu-detail {
+.menu-detail {
 	width: 25px;
 	padding-left: 5px;
 }
 
-#menu-detail:hover {
+.menu-detail:hover {
 	cursor: pointer;
 }
 
-#menu-img>img {
+.menu-img>img {
 	width: 350px;
 	height: auto;
 }
 
-#menu-img>img:hover {
+.menu-img>img:hover {
 	cursor: pointer;
 	opacity: 70%;
 }
 
-#menu-info {
+.menu-info {
 	width: 100%;
 	height: 30%;
 	text-align: center;
@@ -436,26 +439,30 @@ div {
 							<!-- 프리미엄 -->
 							<div class="menu-area premium">
 								<h1 align="center">프리미엄</h1>
-
-								<div id="menu-thumb">
-									<div id="menu-img">
-										<img src="pizza/pizza-2802332_1280.jpg" alt="">
-									</div>
-									<div id="menu-info">
-										<h4>
-											치즈케이크 피자<img id="menu-detail"
-												src="img/icons/baseline_search_black_18dp.png" alt=""
-												data-toggle="modal" data-target="#menu-detail-modal">
-										</h4>
-										<p>
-											<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-										</p>
-										<button class="button" data-toggle="modal"
-											data-target="#menu-update-Modal">수정</button>
-										<button class="button" onclick="">삭제</button>
-									</div>
-								</div>
-
+								<% if(!pList.isEmpty()){ %>
+									<%for(int i=0;i<pList.size();i++){ %>
+										<% if(pList.get(i).getPizzaType().equals("1")){ %>
+										<div class="menu-thumb">
+											<div class="menu-img">
+												<img src="<%=pList.get(i).getPizzaImg()%>" alt="">
+											</div>
+											<div class="menu-info">
+												<h4>
+													<%=pList.get(i).getPizzaName() %><img class="menu-detail"
+														src="<%=contextPath %>/resources/siteImgs/PageIcons/baseline_search_black_18dp.png" alt=""
+														data-toggle="modal" data-target="#menu-detail-modalP<%=i%>">
+												</h4>
+												<p>
+													<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
+												</p>
+												<button class="button" data-toggle="modal"
+													data-target="#menu-update-ModalP<%=i%>">수정</button>
+												<button class="button" onclick="">삭제</button>
+											</div>
+										</div>
+										<%} %>
+									<%} %>
+								<%} %>
 							</div>
 							<!-- 프리미엄 -->
 							<!-- 클래식 -->
