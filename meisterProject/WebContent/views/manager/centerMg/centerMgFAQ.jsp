@@ -461,10 +461,16 @@
 			<!-- '홈페이지관련' 수정 버튼 모달 끝 -->
 		<%} %>
 	<%} %>
+	
+	
+	<form id="postForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+	</form>
 
-	<!-- 클래스 추가 제거 이벤트 (css변경) -->
-	<!-- activeMgFAQ1,2 버튼클릭 아이디	.contentMg1 버튼1의 내용 -->
 	<script>
+
+		// 클래스 추가 제거 이벤트 (css변경)
+		// activeMgFAQ1,2 버튼클릭 아이디	.contentMg1 버튼1의 내용
 		$("#activeMgFAQ1").click(
 			function() {
 				if ($('.contentMg1').css('display') == 'none')
@@ -516,9 +522,8 @@
 				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
 				$("#activeMgFAQ4").css({'background':'#555555','color':'white'});
 		});
-	</script>
 
-	<script>
+		// faq 슬라이딩
 	    $(function(){
 	        $(".faqQuestion").click(function(){
 	            var answer = $(this).next(); 
@@ -531,12 +536,12 @@
 	            }
 	        });
 	    });
-	    
 
 	
-	    function deleteConfirm(){
-	        confirm('정말 삭제하시겠습니까?');
-	    };
+		// 삭제하기 버튼 클릭시
+		function deleteConfirm(){
+			$("#postForm").submit();
+		};
 	</script>
 </body>
 </html>
