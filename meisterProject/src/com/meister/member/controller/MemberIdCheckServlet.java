@@ -15,6 +15,8 @@ import com.meister.member.model.service.MemberService;
  * Servlet implementation class MemberIdCheckServlet
  */
 @WebServlet("/idCheck.me")
+
+
 public class MemberIdCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

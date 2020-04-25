@@ -49,6 +49,13 @@ public class Member {
 		this.memberCouponCnt = memberCouponCnt;
 	}
 
+	
+
+	public Member(String memberId) {
+		super();
+		this.memberId = memberId;
+	}
+
 
 	public Member(int memberNo, String memberName, String memberId, String memberPwd, Date memberBirth,
 			String memberGender, String memberPhone, String memberEmail, Date memberEnrolldate, Date modifyDate,

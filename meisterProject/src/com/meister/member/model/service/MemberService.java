@@ -229,5 +229,19 @@ public class MemberService {
 		
 	}
 	
+
+	public Member selectid(String name2, String email) {
+		
+		Connection conn = getConnection();
+		
+		Member selectid= new MemberDao().selectid(conn, name2, email);
+		
+		close(conn);
+		
+		return selectid;
+	}
+	
+	
+	
 	
 }
