@@ -56,7 +56,7 @@ public class MyInfoDropOutFormServlet extends HttpServlet {
 			response.setContentType("text/html; charset=UTF-8");
 			 
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('비밀번호가 일치하지 않습니다. 다시 입력해주세요.');</script>");
+			out.println("<script>alert('비밀번호가 일치하지 않습니다. 다시 입력해주세요.'); history.back(-1);</script>");
 			out.flush();
 
 		}
