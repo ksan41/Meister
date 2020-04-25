@@ -578,7 +578,6 @@ public class MyPageDao {
 			if(rset.next()) {
 				oInfo.setOrderDate(rset.getDate("order_date"));
 				oInfo.setOrderNo(rset.getInt("order_no"));
-				oInfo.setCouponDiscount(rset.getInt("coupon_discount"));
 				oInfo.setDeliveryStatus(rset.getString("delivery_status"));
 				oInfo.setOrderName(rset.getString("order_name"));
 				oInfo.setOrderPhone(rset.getString("order_phone"));

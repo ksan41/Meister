@@ -149,7 +149,7 @@ div {
 			<!-- 테이블 -->
 			<table id="infoTable">
 				<tr>
-					<td width="7%">
+					<td width="8%">
 						<b style="color:black;">
 						<% if(dInfo.getDeliveryMethod().equals("D")) { %>
 							배달
@@ -158,11 +158,11 @@ div {
 						<% } %>
 						</b>
 					</td>
-					<td width="7%"><b style="color:black;">주문일시</b></td>
-					<td width="20%"><%=oInfo.getOrderDate() %></td>
+					<td width="6%"><b style="color:black;">주문일</b></td>
+					<td width="15%"><%=oInfo.getOrderDate() %></td>
 					<td width="7%"><b style="color:black;">주문번호</b></td>
 					<td width="30%"><%=oInfo.getOrderNo() %></td>
-					<td width="29%"></td>
+					<td width="35%"></td>
 				</tr>
 			</table>
 			<hr>
