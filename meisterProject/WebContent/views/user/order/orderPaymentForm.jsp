@@ -118,6 +118,7 @@
             background-color: orange;
             border:0;
             border-radius: 5px;
+            cursor:pointer;
         }
         /* 매장명 span태그 스타일 */
         #branchName{
@@ -158,19 +159,19 @@
                 	<%=dInfo.getBranchPhone()%>
                 </span>
                 <br><br><hr style="width: 1000px;">
-                
+                <form id="" action="<%=contextPath%>/orderPaySuccess.or" method="post">
                 <table style="text-align: left;">
                     <tr>
                         <th>이름</th>
                         <td>
-                            <input type="text" style="width: 100%;">
+                            <input type="text" name="name" style="width: 30%;">
                         </td>
                         <td style="colspan:3;"></td>
                     </tr>
                     <tr>
                         <th>연락처</th>
                         <td>
-                            <select id="txtMobile1" style="width: 60px; height: 30px; border-radius: 5px;">
+                            <select id="txtMobile1" name="phone1" style="width: 60px; height: 30px; border-radius: 5px;">
                                 <option value="010">010</option>
                                 <option value="016">016</option>
                                 <option value="017">017</option>
@@ -179,24 +180,20 @@
                             </select>
                             
                             &nbsp;&nbsp;-&nbsp;&nbsp;
-                            <input type="tel" size="6">
+                            <input type="tel" name="phone2" size="6">
                             &nbsp;&nbsp;-&nbsp;&nbsp;
-                            <input type="tel" size="6">
+                            <input type="tel" name="phone3" size="6">
                         </td>
                     </tr>
                     <tr>
                         <th>요청사항</th>
                         <td>
-                            <form>
-                                <input type="text" name="requirements" list="requirements" style="width: 100%;">
-                                <datalist id="requirements">
-                                    <option value="nopickle">피클은 빼주세요</option>
-                                    <option value="atthedoor">문앞에 놓아주세요</option>
-                                </datalist>
-                            </form>
+                        	<textarea name="requirements" style="width:600px; height:100px; resize:none;"></textarea>
                         </td>
                     </tr>
                 </table>
+                <input type="hidden" name="orderNo" value="<%= basket.getOrderNo()%>">
+		        </form>
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 주문내역
@@ -353,7 +350,6 @@
     </div>
     
     <script>
-    	$("#cRate option:selected").val();
     </script>
     
     <%@ include file="../../common_user/footer.jsp"%>
