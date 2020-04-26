@@ -8,11 +8,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.notice.model.vo.Notice;
 import com.meister.order.model.vo.Delivery;
+import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
 
 public class OrderDao {
@@ -272,6 +275,106 @@ public class OrderDao {
 		}
 		
 		return cInfo;
+	}
+	
+	
+	
+	public ArrayList<Orders> selectMgNowOrderList(Connection conn){
+		
+		ArrayList<Orders> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMgNowOrderList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Orders o = new Orders();
+				o.setReceiptNo(rset.getInt("RECEIPT_NO"));
+				o.setOrderName(rset.getString("ORDER_NAME"));
+				o.setOrderPhone(rset.getString("ORDER_PHONE"));
+				o.setOrderRequest(rset.getString("ORDER_REQUEST"));
+				o.setOrderDate(rset.getDate("ORDER_DATE"));
+				o.setOrderStatus(rset.getString("ORDER_STATUS"));
+				o.setDeliveryStatus(rset.getString("DELIVERY_STATUS"));
+				o.setMemberStatus(rset.getString("MEMBER_STATUS"));
+				o.setDeliveryNo(rset.getInt("DELIVERY_NO"));
+				o.setMemberNo(rset.getInt("MEMBER_NO"));
+				o.setCartNo(rset.getInt("CART_NO"));
+				o.setOrderNo(rset.getInt("ORDER_NO"));
+				
+				list.add(o);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	public ArrayList<Orders> selectMgPastOrderList(Connection conn){
+		
+		ArrayList<Orders> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMgPastOrderList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Orders o = new Orders();
+				o.setReceiptNo(rset.getInt("RECEIPT_NO"));
+				o.setOrderName(rset.getString("ORDER_NAME"));
+				o.setOrderPhone(rset.getString("ORDER_PHONE"));
+				o.setOrderRequest(rset.getString("ORDER_REQUEST"));
+				o.setOrderDate(rset.getDate("ORDER_DATE"));
+				o.setOrderStatus(rset.getString("ORDER_STATUS"));
+				o.setDeliveryStatus(rset.getString("DELIVERY_STATUS"));
+				o.setMemberStatus(rset.getString("MEMBER_STATUS"));
+				o.setDeliveryNo(rset.getInt("DELIVERY_NO"));
+				o.setMemberNo(rset.getInt("MEMBER_NO"));
+				o.setCartNo(rset.getInt("CART_NO"));
+				o.setOrderNo(rset.getInt("ORDER_NO"));
+				
+				list.add(o);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	
+	
+	
+	public int updateOrderStatus(Connection conn, Orders o) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateOrderStatus");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, o.getReceiptNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
 	}
 	
 	

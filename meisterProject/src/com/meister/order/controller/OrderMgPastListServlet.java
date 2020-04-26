@@ -33,7 +33,7 @@ public class OrderMgPastListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Orders> list = new OrderService().selectMgList();
+		ArrayList<Orders> list = new OrderService().selectMgPastOrderList();
 		
 		request.setAttribute("list", list);
 		

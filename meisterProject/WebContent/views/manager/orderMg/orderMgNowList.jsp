@@ -41,6 +41,9 @@
 	int basketPrice = 0;
 	int discountPrice = 0;
 	double dRate = 0;
+	
+	
+	int cnt = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -285,7 +288,7 @@
 	<%}else{ %>
 	
 		<%for(int k=0; k<list.size(); k++){ %>
-		
+		<% cnt++; %>
 			<!-- 주문 상세 모달 시작 -->
 			<div class="modal fade" id="myModal">
 				<!-- modal별 id 변경해주세요-->
@@ -416,7 +419,7 @@
 	<% } %>
 	
 	<form id="postFormOrders" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
-		<input type="hidden" name="ono" value="<%= list.get(k).getReceiptNo() %>">
+		<input type="hidden" name="ono" value="<%= list.get(cnt).getReceiptNo() %>">
 	</form>
 	
 	<script>
