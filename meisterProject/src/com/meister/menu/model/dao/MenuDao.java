@@ -384,7 +384,7 @@ public class MenuDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			
+			close(pstmt);
 		}
 		
 		
