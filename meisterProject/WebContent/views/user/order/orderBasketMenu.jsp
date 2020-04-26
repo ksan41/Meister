@@ -299,33 +299,28 @@
 				
 				
 				
-				<%for(int i=0; i<etcNo.length; i++){
-					String etc = etcNo[i]; %>
-					<%for(Etc e : eList){ %>
-						<% if(e.getEtcNo() == Integer.parseInt(etc)){ %>
+				<%-- <%for(int i=0; i<etcNo.size(); i++){ %> --%>
                 <tr style="border-bottom:1px solid;">
                     <th>기타이미지</th>
                     <th>
                         <p>
-                        	<%=e.getEtcName() %><br>
-                            <%=e.getEtcPrice() %>원
+                            코카콜라 1.25L<br>
+                            2,000원
                         </p>
                     </th>
                     <th></th>
                     <th colspan="2">
                         <form name="formEtc" class="formEtc" method="get">
-                            <input type=hidden class="sellPrice" value="<%=e.getEtcPrice()%>">
-                            <input type="text" class="amount" name="amount" value="<%=etcCount[i] %>" size="3"">
+                            <input type=hidden class="sellPrice" value="2000">
+                            <input type="text" class="amount" name="amount" value="1" size="3"">
                             <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
                             <input type="text" class="sumArea" name="sum" size="11" readonly>원
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-						<%} %>
-					<%} %>
-				<%} %>
-				
+				<%-- <%} %> --%>
+               
             </table>
             <hr id="hr1">
 
@@ -354,20 +349,21 @@
                 <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
             </div>
             
-          
+            
         <%}else{ %>    
 				<table id="orderB2" style="text-align:center; margin:auto;">
-	                <tr>
-	                    <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
-	                </tr>A
-	                <tr>
-	                    <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
-	                </tr>
-	                <tr>
-	                    <td style="font-size: .9em; color:darkgray;">마이스터피자의 맛있는 메뉴를 마음껏 골라 담으세요</td>
-	                </tr>
-            	</table>
-      	<%} %>
+                <tr>
+                    <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
+                </tr>A
+                <tr>
+                    <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
+                </tr>
+                <tr>
+                    <td style="font-size: .9em; color:darkgray;">마이스터피자의 맛있는 메뉴를 마음껏 골라 담으세요</td>
+                </tr>
+               
+            </table>
+           <%} %>
         </div> 
         
         <script>
