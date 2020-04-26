@@ -2,6 +2,8 @@ package com.meister.menu.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +37,7 @@ public class MenuMgPizzaInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("UTF-8");
 		
 		// 값이 enc타입(multi-part/formdata)로 넘어왔는지 확인
 		if(ServletFileUpload.isMultipartContent(request)) {
@@ -75,20 +78,24 @@ public class MenuMgPizzaInsertServlet extends HttpServlet {
 			p.setPizzaOrigin(origins);
 			
 			
-			int result = new MenuService().insertMenuPizza(p,pName,priceM,priceL);
+			int result = new MenuService().insertMenuPizza(p,priceM,priceL);
 			
 			
 			if(result > 0) { // 사진게시판 등록 성공
-				
-				response.sendRedirect("list.th");
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('메뉴 등록에 성공했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.flush();
 				
 			}else { // 사진게시판 등록 실패
 					
 				File deleteFile = new File(savePath + pImg);
 				deleteFile.delete();
 				
-				request.setAttribute("msg", "게시글 등록실패");
-				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('메뉴 등록에 실패했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.flush();
 				
 			}
 			

@@ -2,8 +2,6 @@ package com.meister.menu.model.dao;
 
 
 import static com.meister.common.JDBCTemplate.close;
-import static com.meister.common.JDBCTemplate.commit;
-import static com.meister.common.JDBCTemplate.rollback;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -418,6 +416,44 @@ public class MenuDao {
 			pstmt.setInt(1, updateSizeM.getPizzaPrice());
 			pstmt.setInt(2, updateSizeL.getPizzaPrice());
 			pstmt.setInt(3, updateSizeL.getSizeNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	
+	/**산
+	 * 통합관리자-피자등록용 DAO
+	 * @param conn : Service에서 생성한 Connection객체
+	 * @param p : 등록할 Pizza객체
+	 * @param priceM : 등록할 피자 M사이즈 가격
+	 * @param priceL : 등록할 피자 L사이즈 가격
+	 * @return : 처리된 행의 개수
+	 */
+	public int insertMenuPizza(Connection conn,Pizza p,int priceM,int priceL) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMenuPizza");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getPizzaName());
+			pstmt.setString(2, p.getPizzaType());
+			pstmt.setString(3, p.getPizzaImg());
+			pstmt.setString(4, p.getPizzaContent());
+			pstmt.setString(5, p.getPizzaTopping());
+			pstmt.setString(6, p.getPizzaOrigin());
+			pstmt.setInt(7, priceM);
+			pstmt.setInt(8, priceL);
 			
 			result = pstmt.executeUpdate();
 			

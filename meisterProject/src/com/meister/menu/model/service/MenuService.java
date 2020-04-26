@@ -203,12 +203,22 @@ public class MenuService {
 	 * @param priceL : 등록할 피자의 L사이즈 가격
 	 * @return : 처리된 행의 개수
 	 */
-	public int insertMenuPizza(Pizza p,String pName,int priceM,int priceL) {
+	public int insertMenuPizza(Pizza p,int priceM,int priceL) {
 		
 		Connection conn = getConnection();
 		
+		// 우선 피자 insert
+		int result = new MenuDao().insertMenuPizza(conn,p,priceM,priceL);
 		
+		if(result>0) {
+			commit(conn);
+		}else{
+			rollback(conn);
+		}
 		
+		close(conn);
+		
+		return result;
 		
 	}
 }
