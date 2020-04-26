@@ -283,6 +283,7 @@ table {
 				case "019": phone1 = "selected"; break;
 				case "011": phone1 = "selected"; break;
 				}%>
+				<%System.out.println(phone1); %>
 				<% String phone2 = phoneNo[1]; %>
 				<% String phone3 = phoneNo[2]; %>
 				
@@ -296,11 +297,11 @@ table {
 					<th>휴대전화</th>
 					<td colspan="2">
 						<select id="txtMobile1" name="phone1" style="height:33px; width:80px;">
-							<option value="010" <%=phone1%>>010</option>
-							<option value="016" <%=phone1%>>016</option>
-							<option value="017" <%=phone1%>>017</option>
-							<option value="019" <%=phone1%>>019</option>
-							<option value="011" <%=phone1%>>011</option>
+							<option value="010">010</option>
+							<option value="016">016</option>
+							<option value="017">017</option>
+							<option value="019">019</option>
+							<option value="011">011</option>
 						</select> - 
 						<input type="text" name="phone2" id="pel1" size="7" value="<%=phone2 %>" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
 						<input type="text" name="phone3" id="pel2" size="7" value="<%=phone3 %>" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
@@ -386,18 +387,11 @@ table {
 	                pwd2.value = "";
 	                pwd1.focus();
 	                return false;
-	            }else if(pwd1.value != pwd2.value){
-	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
-	                pwd2.value = "";
-	                pwe2.focus();
-	                return false;
-	            }else if(confirm("해당 비밀번호로 변경하시겠습니까?")){
-	            	return true;
 	            }
-
-	            /* 비밀번호값과 비밀번호확인값이 일치하는지 검사
+	            
 	            if(pwd1.value != pwd2.value){
 	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+	                pwd1.value="";
 	                pwd2.value = "";
 	                pwe2.focus();
 	                return false;
@@ -405,7 +399,7 @@ table {
 	            
 	            if(confirm("해당 비밀번호로 변경하시겠습니까?")){
 	            	return true;
-	            }*/
+	            }
 			};
 			
 			function test(){
