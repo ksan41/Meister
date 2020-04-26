@@ -168,7 +168,7 @@
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 이벤트 관리
 				</div>
-				<div class="card-body" align="center">
+				<div class="card-body" align="center" style="width:auto; height:700px; overflow-y:scroll;">
 
 					<div align="right">
 						<button class="button" data-toggle="modal" data-target="#eventEnrollModal">
