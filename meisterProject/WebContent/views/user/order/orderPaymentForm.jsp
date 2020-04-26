@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
+    pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Price basket = (Price)request.getAttribute("basket");
@@ -8,6 +8,8 @@
 	String[] pizzaNo = basket.getPizzaNo().split(",");
 	String[] pizzaCount = basket.getPizzaCount().split(",");
 	String[] doughNo = basket.getDoughNo().split(",");
+	
+	ArrayList<Coupon> cInfo = (ArrayList<Coupon>)request.getAttribute("cInfo");
 
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -148,11 +150,16 @@
 
             <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px; ">
                 <br>
-                <p ><%=dInfo.getMemPoCode()%> <%=dInfo.getMemAddress1()%> <%=dInfo.getMemAddress2()%></p>
-                <span id="branchName"><%=dInfo.getBranchName()%></span><span id="branchPhone"><%=dInfo.getBranchPhone()%></span>
+                <div style="font-size:18px; height:40px; color:gray;"><%=dInfo.getMemPoCode()%> <%=dInfo.getMemAddress1()%> <%=dInfo.getMemAddress2()%></div>
+                <span id="branchName">
+                	<%=dInfo.getBranchName()%>
+                </span>
+                <span id="branchPhone">
+                	<%=dInfo.getBranchPhone()%>
+                </span>
                 <br><br><hr style="width: 1000px;">
+                
                 <table style="text-align: left;">
-
                     <tr>
                         <th>이름</th>
                         <td>
@@ -194,9 +201,9 @@
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 주문내역
             </div>
-            <div style="width: 1000px; height: 250px; padding-left: 50px;">
+            <div style="width: 1000px; height: auto; padding-left: 50px;">
                 <br>
-                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">
+                <h4 style="color:rgb(76, 60, 60); line-height:40px;">
 		           	<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
 						<% for(int j=0; j<pList.size(); j++){ %>
 							<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
@@ -262,8 +269,8 @@
 							<%basketPrice += ePrice; %>									
 						<% } %>
 					<% } %>
-                </h5>
-                <hr>
+                </h4>
+                <br>
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 할인적용
@@ -274,23 +281,32 @@
                 <table>
                     <tr>
                         <td></td>
-                        
                     </tr>
-                    <tr>
-                        <th>보유쿠폰</th>
-                        <td style="width: 400px;">
-                            <select name="coupon" style="width:300px; height: 35px; border-radius: 5px;">
-                                <option value="coupon1" selected>고객감사 피자 30% 할인쿠폰</option>
-                                <option value="coupon1">고객감사 사이드디시 무료쿠폰</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>방문포장</th>
-                        <td>
-                            <input type="radio" style="vertical-align:middle">&nbsp; 40% 할인 (타쿠폰과 중복적용 불가)
-                        </td>
-                    </tr>
+                    	<% if(dInfo.getDeliveryMethod().equals("D")){ //배달 %>
+	                    <tr>
+	                        <th>보유쿠폰</th>
+	                        <td style="width: 400px;">
+	                            <select name="coupon" style="width:300px; height: 35px; border-radius: 5px;">
+	                            	<% if(cInfo != null){ %>
+	                            		<% for(int i=0; i<cInfo.size(); i++){ %>
+	                            			<option value="coupon1"><%=cInfo.get(i).getCouponName()%></option>
+	                            		<% } %>
+	                            	<% }else { %>
+	                            		<option>보유중인 쿠폰이 없습니다.</option>
+	                            	<% } %>
+	                            </select>
+	                        </td>
+	                    </tr>
+                    	
+                    	<% }else { // 포장 %>
+	                    <tr>
+	                        <th>방문포장</th>
+	                        <td>
+	                            <input type="radio" style="vertical-align:middle">&nbsp; 40% 할인 (타쿠폰과 중복적용 불가)
+	                        </td>
+	                    </tr>
+                    	
+                    	<% } %>
                 </table>
             </div>
             <br>
@@ -318,12 +334,16 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>총 할인 금액</td>
                     </tr>
+                    <% if(cInfo != null){ %>
+						<% dRate = cInfo.getCouponDiscount() * 0.01; %>
+					<% } %>
+					<%discountPrice = ((int)(basketPrice * dRate)); %>
                     <tr style="font-weight: bold;">
-                        <td>36,900원</td>
+                        <td><%=basketPrice %> 원</td>
                         <td>-</td>
-                        <td style="color: red;">6,900원</td>
+                        <td style="color: red;"><%=discountPrice %> 원</td>
                         <td>-</td>
-                        <td>30,000원</td>
+                        <td><%=basketPrice-discountPrice%> 원</td>
                     </tr>
                 </table>
             </div>

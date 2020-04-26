@@ -304,7 +304,6 @@ div {
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
 											<% if(discountInfo != null){ %>
 												<% dRate = discountInfo.getCouponDiscount() * 0.01; %>
-												<% System.out.println(dRate); %>
 											<% } %>
 											<%discountPrice = ((int)(basketPrice * dRate)); %>
 											-<%=discountPrice %> 원

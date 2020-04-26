@@ -50,6 +50,16 @@ public class Coupon {
 		this.couponStart = couponStart;
 		this.couponEnd = couponEnd;
 	}
+	
+	
+
+
+	public Coupon(int couponNo, String couponName, int couponDiscount) {
+		super();
+		this.couponNo = couponNo;
+		this.couponName = couponName;
+		this.couponDiscount = couponDiscount;
+	}
 
 
 	public int getCouponNo() {

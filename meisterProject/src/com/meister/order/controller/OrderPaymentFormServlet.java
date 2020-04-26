@@ -50,6 +50,7 @@ public class OrderPaymentFormServlet extends HttpServlet {
 
 		// 해당 요청을 처리하는 서비스클래스의 메소드 호출 후 처리 결과 받기
 		Delivery dInfo = new OrderService().selectDeliveryInfo(orderNo);
+		ArrayList<Coupon> cInfo = new OrderService().selectCouponInfo(memberNo);
 		
 		Price basket = new OrderService().ShowBasketList(memberNo);
 		
@@ -62,6 +63,7 @@ public class OrderPaymentFormServlet extends HttpServlet {
 		
 		// 처리 결과를 통해 사용자가 보게될 뷰 요청
 		request.setAttribute("dInfo", dInfo);	// deliveryInfo
+		request.setAttribute("cInfo", cInfo);
 		request.setAttribute("basket", basket);
 		request.setAttribute("pList", pList);
 		request.setAttribute("sizeList", sizeList);
