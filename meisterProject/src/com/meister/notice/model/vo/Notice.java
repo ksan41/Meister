@@ -8,7 +8,7 @@ public class Notice {
 	private String noticeTitle;		// 글제목
 	private String noticeContent;	// 글내용
 	private Date createDate;		// 작성일
-	private Date modifIyDate;		// 수정일
+	private Date modifiyDate;		// 수정일
 	private int noticeType;			// 1 -> 고객 , 2 -> 지점
 	private int count;				// 조회수
 	private String noticeStatus;	// 상태값(공개여부)
@@ -65,8 +65,27 @@ public class Notice {
 		this.noticeNo = noticeNo;
 		this.noticeTitle = noticeTitle;
 	}
-
 	
+	
+	/** 관리자용 고객공지사항 조회
+	 * @param noticeNo
+	 * @param noticeTitle
+	 * @param createDate
+	 * @param modifIyDate
+	 * @param count
+	 */
+	public Notice(int noticeNo, String noticeTitle, Date createDate, Date modifiyDate, int count) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.createDate = createDate;
+		this.modifiyDate = modifiyDate;
+		this.count = count;
+	}
+
+
+
+
 	/**연화
 	 * 4. 공지사항 작성
 	 * @param noticeTitle
