@@ -16,12 +16,34 @@ public class Orders {
 	private int memberNo;			// 회원번호
 	private int cartNo;				// 장바구니번호
 	private int orderNo;			// 주문번호
+	private String memberId;		// 회원아이디
 	
 	// 타 테이블 컬럼
 	private int couponDiscount;		// 할인율
 	
 	
 	public Orders() {}
+
+
+	public Orders(int receiptNo, String orderName, String orderPhone, String orderRequest, Date orderDate,
+			String orderStatus, String deliveryStatus, String memberStatus, int deliveryNo, int memberNo, int cartNo,
+			int orderNo, String memberId, int couponDiscount) {
+		super();
+		this.receiptNo = receiptNo;
+		this.orderName = orderName;
+		this.orderPhone = orderPhone;
+		this.orderRequest = orderRequest;
+		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
+		this.deliveryStatus = deliveryStatus;
+		this.memberStatus = memberStatus;
+		this.deliveryNo = deliveryNo;
+		this.memberNo = memberNo;
+		this.cartNo = cartNo;
+		this.orderNo = orderNo;
+		this.memberId = memberId;s
+		this.couponDiscount = couponDiscount;
+	}
 
 
 	public Orders(int receiptNo, String orderName, String orderPhone, String orderRequest, Date orderDate,
@@ -83,6 +105,16 @@ public class Orders {
 
 	public void setOrderPhone(String orderPhone) {
 		this.orderPhone = orderPhone;
+	}
+
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 
@@ -192,8 +224,10 @@ public class Orders {
 		return "Orders [receiptNo=" + receiptNo + ", orderName=" + orderName + ", orderPhone=" + orderPhone
 				+ ", orderRequest=" + orderRequest + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus
 				+ ", deliveryStatus=" + deliveryStatus + ", memberStatus=" + memberStatus + ", deliveryNo=" + deliveryNo
-				+ ", memberNo=" + memberNo + ", cartNo=" + cartNo + ", orderNo=" + orderNo + "]";
+				+ ", memberNo=" + memberNo + ", cartNo=" + cartNo + ", orderNo=" + orderNo + ", memberId=" + memberId
+				+ ", couponDiscount=" + couponDiscount + "]";
 	}
+
 	
 	
 

@@ -15,7 +15,7 @@ public class Center {
 	private String inquiryProStatus;// 처리상태
 	private int memberNo;			// 회원번호
 	private int receiptNo;			// 주문내역번호
-	private String memberId;	//회원아이디
+	private String memberId;		//회원아이디
 	
 	
 	public Center() {}
