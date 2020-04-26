@@ -53,7 +53,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 		e.setEventImage2(eventImage2);
 		e.setEventStatus(eventStatus);
 		
-		int result = new EventService().updateNotice(n);
+		int result = new EventService().updateEvent(e);
 		
 		if(result > 0) {
 			
@@ -61,12 +61,9 @@ public class EventMgUpdateServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('이벤트 수정 성공'); location.href='/Meister/imNoticeMdetail.nom?nno=" + nno + "';</script>");
+			out.println("<script>alert('이벤트 수정 성공'); location.href='/Meister/evMgDetail.evm?eno=" + eno + "';</script>");
 			out.flush();
-			
-			
-			// 상세보기 요청
-//			response.sendRedirect("imNoticeMdetail.nom?nno=" + nno);
+
 			
 		}else {
 			
@@ -74,7 +71,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('이벤트 수정 실패'); location.href='/Meister/imNoticeMdetail.nom?nno="+nno+"';</script>");
+			out.println("<script>alert('이벤트 수정 실패'); location.href='/Meister//Meister/evMgDetail.evm?eno=" + eno + "';</script>");
 			out.flush();
 		}
 	}

@@ -62,6 +62,24 @@ public class EventService {
 		return result;
 	}
 	
-
+	/**연화
+	 * 이벤트 수정용 서비스
+	 * @param e		--> 수정하고자하는 글 번호, 수정할 제목, 수정할 내용이 담겨있는 Event객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int updateEvent(Event e) {
+		
+		Connection conn = getConnection();
+		int result = new EventDao().updateEvent(conn, e);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
 
 }
