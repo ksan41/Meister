@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.meister.coupon.model.vo.Coupon;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Price;
 
@@ -241,7 +242,37 @@ public class OrderDao {
 	}
 	
 	
-	
+	public ArrayList<Coupon> selectCouponInfo(Connection conn, int memberNo) {
+		
+		ArrayList<Coupon> cInfo = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCouponInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				cInfo.add(new Coupon(rset.getInt("coupon_no"),
+									 rset.getString("coupon_name"),
+									 rset.getInt("coupon_discount")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return cInfo;
+	}
 	
 	
 	

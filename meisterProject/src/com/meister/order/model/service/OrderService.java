@@ -8,6 +8,7 @@ import static com.meister.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.meister.coupon.model.vo.Coupon;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Price;
@@ -98,7 +99,16 @@ public class OrderService {
 	}
 	
 	
-	
+	public ArrayList<Coupon> selectCouponInfo(int memberNo) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Coupon> cInfo = new OrderDao().selectCouponInfo(conn, memberNo);
+		
+		close(conn);
+		
+		return cInfo;
+	}
 	
 	
 	
