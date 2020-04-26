@@ -14,7 +14,11 @@
 	int sideSum = 0;
 	int etcSum = 0;
 	int totalPrice = 0;
-	int count = 0;
+	//int count = 0;
+	int pizzaPrintCount = 0;
+	int sidePrintCount = 0;
+	int etcPrintCount = 0;
+	
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -24,6 +28,7 @@
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 
 %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -229,6 +234,7 @@
 	                            <% for(PizzaSize ps : sizeList){ %>
 	                            	<% if(basket.getPizzaSize().equals(String.valueOf(ps.getSizeNo()))){ %>
 	                            		<%= ps.getPizzaSize() %>
+	                            		<%pizzaPrintCount++; %>
 	                            		<br>
 	                            		<% pizzaPrice = ps.getPizzaPrice(); %>
 	                            		<%= ps.getPizzaPrice() %>원
@@ -277,19 +283,20 @@
               			String side = sideNo[i];  %>
               		<% for(Side s : sList){ %>
               			<% if(s.getSideNo() == Integer.parseInt(side)){ %>
+              			<%sidePrintCount++; %>
 		                <tr style="border-bottom:1px solid;">
 		                    <th>사이드이미지</th>
 		                    <th>
 		                        <p>
 		                            	<%=s.getSideName() %><br>
-		                            	<% sideSum = s.getSidePrice(); %>
-		                            <%=sideSum %>원
+		                            	<% sideSum = s.getSidePrice() * Integer.parseInt(sideCount[i]); %>
+		                            <%=s.getSidePrice() %>원
 		                        </p>
 		                    </th>
 		                    <th></th>
 		                    <th colspan="2">
 		                        <form name="formSide" class="formSide" method="get">
-		                            <input type=hidden class="sellPrice" value="<%=sideSum %>">
+		                            <input type=hidden class="sellPrice" value="<%=s.getSidePrice() %>">
 		                            <input type="text" class="amount" name="amount" value="<%= sideCount[i] %>" size="3"">
 		                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
 		                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=sideSum %>">원
@@ -309,18 +316,19 @@
 					String etc = etcNo[i]; %>
 					<%for(Etc e : eList){ %>
 						<% if(e.getEtcNo() == Integer.parseInt(etc)){ %>
+						<%etcPrintCount++; %>
                 <tr style="border-bottom:1px solid;">
                     <th>기타이미지</th>
                     <th>
                         <p><%=e.getEtcName() %><br>
-                            <% etcSum = e.getEtcPrice(); %>
-		                    <%=etcSum %>원
+                            <% etcSum = e.getEtcPrice() * Integer.parseInt(etcCount[i]); %>
+		                    <%=e.getEtcPrice() %>원
                         </p>
                     </th>
                     <th></th>
                     <th colspan="2">
                         <form name="formEtc" class="formEtc" method="get">
-                            <input type=hidden class="sellPrice" value="<%=etcSum%>">
+                            <input type=hidden class="sellPrice" value="<%=e.getEtcPrice()%>">
                             <input type="text" class="amount" name="amount" value="<%=etcCount[i] %>" size="3"">
                             <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
                             <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=etcSum%>">원
@@ -349,7 +357,7 @@
                         </p>
                     </th>
                     <th>
-                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>
+                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>원
                     </th>
                 </tr>
             </table>
@@ -379,16 +387,19 @@
         </div> 	
         
         <script>
+        var totalPrice = 0;
+        
         $(function(){
         	console.log("totalPrice = " + <%=totalPrice%>);
-        	console.log("안녕!");
-        	var totalPrice = $('.totalPrice');
-        	totalPrice.innerText = <%=totalPrice%>;
+        	$(".totalPrice").text(<%=totalPrice%>);
         	
     	});
     	$(function(){
-        	$('.addBtn').click(function(){	
-  				$(this).prev().val(Number($(this).prev().val())+1);
+        	$('.addBtn').click(function(){
+        		if(($('.addBtn').prev().val() == 1)){
+        			$(this).next().style.enabled;
+        		}
+        		$(this).prev().val(Number($(this).prev().val())+1);
   				var amount = $(this).prev().val();
   				var price = $(this).prev().prev().val();
   				var sumPrice = amount * price;
@@ -401,6 +412,23 @@
   				var price = $(this).prev().prev().prev().val();
   				var sumPrice = amount * price;
   				$(this).next().val(sumPrice);
+        	});
+        	
+        	$('input.addBtn').click(function(){
+        		var totalPrice = $(".totalPrice").text();
+        		console.log(totalPrice);
+        		var addPrice = $(this).prev().prev().val();
+        		console.log(addPrice);
+        		var resultPrice = Number(totalPrice) + Number(addPrice);
+        		$(".totalPrice").text(resultPrice);
+        	});
+        	$('input.delBtn').click(function(){
+        		var totalPrice = $(".totalPrice").text();
+        		console.log(totalPrice);
+        		var delPrice = $(this).prev().prev().prev().val();
+        		console.log(delPrice);
+        		var resultPrice = Number(totalPrice) - Number(delPrice);
+        		$(".totalPrice").text(resultPrice);
         	});
         	
         	
