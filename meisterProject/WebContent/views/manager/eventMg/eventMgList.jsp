@@ -270,7 +270,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="eventDetailForm">
+							<form action="<%= contextPath %>/evMgDetail.evm" name="eventDetailForm">
 								<table id="eventDetailTable" style="width:700px">
 									<tr>
 										<th>제목</th>
@@ -332,55 +332,51 @@
 						<!-- Modal Header -->
 						<div class="modal-header">
 							<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트수정</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								style="margin: 0; padding: 0;">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 						</div>
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="" name="eventUpdateForm">
+							<form id="eventUpdateForm" action="<%= contextPath %>/evMgUpdate.evm" name="eventUpdateForm" method="post">
+								<input type="hidden" name="eno" value="<%=list.get(i).getEventNo()%>">
 								<table id="eventUpdateTable">
 									<tr>
 										<th>제목</th>
 										<td>
-											<input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>">
+											<input type="text" name="eventTitle" size="40px" value="<%=list.get(i).getEventTitle()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>이벤트 기간</th>
 										<td>
-											<input type="date" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>">
+											<input type="date" name="eventOpenTime" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" name="eventCloseTime" value="<%=list.get(i).getEventCloseTime()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
-											<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
+											<input type="file" name="eventImage1" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>상세 이미지</th>
 										<td>
-											<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
+											<input type="file" name="eventImage2" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>배너 등록여부</th>
 										<td>
-											<input type="checkbox" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>">
+											<input type="checkbox" name="eventStatus" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>">
 										</td>
 									</tr>
 								</table>
-		
-								<br>
-								<br>
+								<br><br>
 		
 								<!-- 버튼 영역 -->
 								<div class="faqBtns" style="align-content: right;" align="center">
-									<button type="submit" class="btn btn-danger" data-dismiss="modal"
-										style="width: 100px; height: 40px; background: #343a40">수정</button>
-									<button type="button" class="btn btn-danger" data-dismiss="modal"
-										style="width: 100px; height: 40px; background: #343a40">취소</button>
+									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+									<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 								</div>
 							</form>
 						</div>
