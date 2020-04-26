@@ -182,7 +182,6 @@
 									</th>
 								</tr>
 							 -->
-							 	
 							 	<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
 										<td colspan="5">존재하는 주문내역이 없습니다.</td>
@@ -286,7 +285,7 @@
 	<%}else{ %>
 	
 		<%for(int k=0; k<list.size(); k++){ %>
-	
+		
 			<!-- 주문 상세 모달 시작 -->
 			<div class="modal fade" id="myModal">
 				<!-- modal별 id 변경해주세요-->
