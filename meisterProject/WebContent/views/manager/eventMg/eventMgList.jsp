@@ -419,7 +419,7 @@
 		$(function(){
 		    $(".detailButton").click(function(){ 
 			
-			 	var eno = $(this).children().eq(0).val();
+			 	var bno = $(this).children().eq(0).val();
 				location.href="<%=contextPath%>/evMgDetail.evm?bno=" + bno;
 			});
         });
