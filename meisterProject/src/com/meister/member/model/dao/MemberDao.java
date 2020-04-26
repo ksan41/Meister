@@ -434,6 +434,12 @@ private Properties prop = new Properties();
 		
 	}
 	
+	
+	/** 아이디 중복체크 
+	 * @param conn
+	 * @param userId
+	 * @return
+	 */
 	public int idCheck(Connection conn, String userId) {
 		
 		int count = 0;
@@ -451,6 +457,7 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				count = rset.getInt(1);
+				System.out.println(userId);
 				
 			}
 			
@@ -467,6 +474,13 @@ private Properties prop = new Properties();
 		
 	}
 	
+	
+	/** 아이디 찾기
+	 * @param conn
+	 * @param name2
+	 * @param email
+	 * @return
+	 */
 	public  Member selectid(Connection conn, String name2, String email)  {
 		 
 	    Member selectid = null;
@@ -505,6 +519,56 @@ private Properties prop = new Properties();
 		return selectid;
 		
 	}
+	
+	
+	
+	
+	/** 비밀번호 찾기
+	 * @param conn
+	 * @param memberId
+	 * @param email
+	 * @return
+	 */
+	public  Member selectpwd(Connection conn, String memberId, String email)  {
+		 
+	    Member selectpwd = null;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("pwdfind");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, email);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+//				selectid = new Member(rset.getString("MEMBER_ID"));
+				selectpwd = new Member();
+				selectpwd.setMemberId(rset.getString("MEMBER_ID"));
+				selectpwd.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
+				selectpwd.setMemberName(rset.getString("MEMBER_NAME"));
+					
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally  {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return selectpwd;
+		
+	}
+	
+	
 	
 	
 	

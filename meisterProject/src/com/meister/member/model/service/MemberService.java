@@ -242,6 +242,18 @@ public class MemberService {
 	}
 	
 	
+	public Member selectpwd(String memberId, String email) {
+		
+		Connection conn = getConnection();
+		
+		Member selectpwd= new MemberDao().selectid(conn, memberId, email);
+		
+		close(conn);
+		
+		return selectpwd;
+	}
+	
+	
 	
 	
 }

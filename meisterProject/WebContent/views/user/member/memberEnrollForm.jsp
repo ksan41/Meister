@@ -154,8 +154,8 @@ table {
 					</tr>
 					<tr>
 						<th>아이디</th>
-						<td colspan="2"><input class="text-area" type="text" 
-							name="userId" placeholder="영문,숫자 5~12글자 이하" style="height: 31px;">&nbsp;&nbsp;
+						<td colspan="2"><input class="text-area" type="text" id="userId"
+							name="userId" placeholder="영문,숫자 5~12글자 이하" required style="height: 31px;">&nbsp;&nbsp;
 							<button class="small_btn" type="button" id="idCheck"
 								style="display: inline;">중복확인</button></td>
 					</tr>
@@ -211,7 +211,7 @@ table {
 		function validate() {
 
 			// 유효성 검사할 각각의 input 요소들 변수에 받아두기
-			var name = document.getElementById("Name");
+			var name = document.getElementById("name");
 			var id = document.getElementById("userId");
 			var pwd1 = document.getElementById("userPwd");
 			var pwd2 = document.getElementById("userPwd1");
@@ -289,16 +289,18 @@ table {
 						
 						if(result == 0) { // 사용 가능한 아이디 
 							
+
 							if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?")) {
-								
 								// 아이디 더 이상 수정이 불가하게끔
 								userId.attr("readonly","true");
 								// 회원가입 버튼 활성화
 								$("#joinBtn").removeAttr("disabled");
+						
+								
+								
 								
 							} else {
 								userId.focus();
-								
 							}
 							
 							
@@ -330,8 +332,8 @@ table {
 
 
 	<%@ include file="../../common_user/footer.jsp"%>
-
-
+	
+	
 
 
 </body>

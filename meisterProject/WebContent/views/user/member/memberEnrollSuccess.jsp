@@ -98,6 +98,7 @@
             <br><br><br><br>
             <div id="btn-area">
                 <button class="middle_btn" id="#">로그인</button>
+                <!-- <%=contextPath %>/showLoginPage.me -->
                 <br>
                 <p>
                     로그인페이지로 이동합니다.

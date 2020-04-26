@@ -176,18 +176,19 @@
 							
                             <!-- Modal body -->
                             <div class="modal-body">
+                            <form class="form-xorud" method="post" action="<%=contextPath%>/findPwd.me">
                                 <table style="text-align: left;">
                                     <tr>
                                         <th>아이디</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="text" name="name" style="width: 100%;">
+                                            <input class="text-area" type="text" name="memberId" id="memberId" style="width: 100%;">
                                         </td>
                                     </tr>
                                  
                                     <tr>
                                         <th>이메일</th>
                                         <td colspan="2">
-                                            <input class="text-area" type="email" name="email1">
+                                            <input class="text-area" type="email" name="email" id="email">
                                            
                                             
                                         </td>
@@ -213,6 +214,9 @@
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"
                                 style="width:200px; height:50px; background-color: orange; border-color: orange;">비밀번호 변경</button>
                             </div>
+                            
+                            </form>
+                            
                         </div>
                     </div>
                 </div>

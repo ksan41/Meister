@@ -212,7 +212,7 @@ public class Member {
 	public void setPaymentType(String paymentType) {
 		this.paymentType = paymentType;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Member [memberNo=" + memberNo + ", memberName=" + memberName + ", memberId=" + memberId + ", memberPwd="

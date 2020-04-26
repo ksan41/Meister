@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.member.model.service.MemberService;
+import com.meister.member.model.vo.Member;
+
 /**
  * Servlet implementation class FindPwdServlet
  */
@@ -26,8 +29,19 @@ public class FindPwdServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+ 
+		
+		String memberId = request.getParameter("memberId");
+		System.out.println(memberId);
+		String email = request.getParameter("email");
+		System.out.println(email);
+		
+		Member selectpwd= new MemberService().selectpwd(memberId, email);
+		
+		
+		
+		
 	}
 
 	/**
