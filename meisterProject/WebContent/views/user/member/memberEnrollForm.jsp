@@ -295,8 +295,8 @@ table {
 								userId.attr("readonly","true");
 								// 회원가입 버튼 활성화
 								$("#joinBtn").removeAttr("disabled");
-						
 								
+									
 								
 								
 							} else {

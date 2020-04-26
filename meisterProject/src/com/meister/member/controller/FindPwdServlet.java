@@ -1,6 +1,8 @@
 package com.meister.member.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,21 @@ public class FindPwdServlet extends HttpServlet {
 		System.out.println(email);
 		
 		Member selectpwd= new MemberService().selectpwd(memberId, email);
+		
+		
+		
+		if(selectpwd != null) {
+		request.setAttribute("selectpwd", selectpwd);
+		//response.sendRedirect(request.getContextPath() + "/showFindIdResult.me");
+		System.out.println("성공");
+		//System.out.println(request.getContextPath());
+		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findldSuccess.jsp");
+		view.forward(request, response);
+		
+		} else {
+			response.sendRedirect(request.getContextPath() + "/showFindPwdCheck.me");
+			System.out.println("실패");
+		}
 		
 		
 		

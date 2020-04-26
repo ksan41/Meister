@@ -333,7 +333,7 @@
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content3').addClass("content3").css("display", "none");
 			$('.content4').addClass("content4").css("display", "none");
-		    $("#active1").css({'background':'lightgray', 'color':'white'});
+		    $("#active1").css({'background':'lightgray', 'color':'black'});
             $("#active2").css({'background':'orange','color':'black'});
             $("#active3").css({'background':'lightgray','color':'black'});
             $("#active4").css({'background':'lightgray','color':'black'});
@@ -345,7 +345,7 @@
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content2').addClass("content2").css("display", "none");
 			$('.content4').addClass("content4").css("display", "none");
-		    $("#active1").css({'background':'lightgray','color':'white'});
+		    $("#active1").css({'background':'lightgray','color':'black'});
             $("#active2").css({'background':'lightgray','color':'black'});
             $("#active3").css({'background':'orange','color':'black'});
             $("#active4").css({'background':'lightgray','color':'black'});
@@ -357,7 +357,7 @@
 			$('.content1').addClass("content1").css("display", "none");
 			$('.content2').addClass("content2").css("display", "none");
 			$('.content3').addClass("content3").css("display", "none");
-		    $("#active1").css({'background':'lightgray','color':'white'});
+		    $("#active1").css({'background':'lightgray','color':'black'});
             $("#active2").css({'background':'lightgray','color':'black'});
             $("#active3").css({'background':'lightgray','color':'black'});
             $("#active4").css({'background':'orange','color':'black'});

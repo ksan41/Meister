@@ -11,7 +11,7 @@
 
     <%@ include file="../../common_user/menubar.jsp"%>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
-
+	
     
     <!-- 모달 부트스트랩-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath %>/resources/css/bootstrap.css">        
@@ -196,7 +196,7 @@
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <button class="middle_btn" id="email_send" style="width: 100%;">임시비밀번호발송</button>
+                                            <button class="middle_btn" id="xorud_send" style="width: 100%;">임시비밀번호발송</button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -242,7 +242,7 @@
 					
 	 
       /* (이메일) 인증번호 발송 버튼 클릭시 */
-      $("#email_send").click(function(){
+      $("#xorud_send").click(function(){
         var email = document.getElementById("email"); // 이메일
         randoumkey='';
         // 6) 이메일 유효성검사
@@ -256,7 +256,7 @@
             }
            
        $.ajax({
-          url:"email.e",
+          url:"MailPwd",
           data:{Email:email.value},
           success:function(data){
              alert("인증번호가 발송되었습니다.");
