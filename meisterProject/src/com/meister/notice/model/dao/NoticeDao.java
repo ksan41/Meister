@@ -46,17 +46,13 @@ public class NoticeDao {
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(sql);
 			
-			
 			while(rset.next()) {
 			
 				list.add(new Notice(rset.getInt("NOTICE_NO"),
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_CREATE_DATE"),
 									rset.getInt("NOTICE_COUNT")));
-				
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

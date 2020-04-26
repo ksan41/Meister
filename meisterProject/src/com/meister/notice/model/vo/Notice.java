@@ -8,7 +8,7 @@ public class Notice {
 	private String noticeTitle;		// 글제목
 	private String noticeContent;	// 글내용
 	private Date createDate;		// 작성일
-	private Date modifiyDate;		// 수정일
+	private Date modifIyDate;		// 수정일
 	private int noticeType;			// 1 -> 고객 , 2 -> 지점
 	private int count;				// 조회수
 	private String noticeStatus;	// 상태값(공개여부)

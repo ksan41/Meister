@@ -34,7 +34,7 @@ public class NoticeMgListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Notice> list = new NoticeService().selectList();
+		ArrayList<Notice> list = new NoticeService().selectMgList();
 		
 		request.setAttribute("list", list);
 		
