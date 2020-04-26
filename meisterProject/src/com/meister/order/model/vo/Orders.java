@@ -20,7 +20,8 @@ public class Orders {
 	
 	// 타 테이블 컬럼
 	private int couponDiscount;		// 할인율
-	
+	private String memAddress1;		// 회원주소
+	private String memAddress2;
 	
 	public Orders() {}
 
@@ -41,7 +42,7 @@ public class Orders {
 		this.memberNo = memberNo;
 		this.cartNo = cartNo;
 		this.orderNo = orderNo;
-		this.memberId = memberId;s
+		this.memberId = memberId;
 		this.couponDiscount = couponDiscount;
 	}
 
@@ -85,6 +86,27 @@ public class Orders {
 
 	public void setReceiptNo(int receiptNo) {
 		this.receiptNo = receiptNo;
+	}
+
+	
+
+	public String getMemAddress1() {
+		return memAddress1;
+	}
+
+
+	public void setMemAddress1(String memAddress1) {
+		this.memAddress1 = memAddress1;
+	}
+
+
+	public String getMemAddress2() {
+		return memAddress2;
+	}
+
+
+	public void setMemAddress2(String memAddress2) {
+		this.memAddress2 = memAddress2;
 	}
 
 
@@ -225,10 +247,8 @@ public class Orders {
 				+ ", orderRequest=" + orderRequest + ", orderDate=" + orderDate + ", orderStatus=" + orderStatus
 				+ ", deliveryStatus=" + deliveryStatus + ", memberStatus=" + memberStatus + ", deliveryNo=" + deliveryNo
 				+ ", memberNo=" + memberNo + ", cartNo=" + cartNo + ", orderNo=" + orderNo + ", memberId=" + memberId
-				+ ", couponDiscount=" + couponDiscount + "]";
+				+ ", couponDiscount=" + couponDiscount + ", memAddress1=" + memAddress1 + ", memAddress2=" + memAddress2
+				+ "]";
 	}
-
-	
-	
 
 }

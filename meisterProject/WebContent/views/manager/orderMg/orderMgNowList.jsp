@@ -282,64 +282,140 @@
 		</main>
 	</div>
 	
-	<!-- 주문 상세 모달 시작 -->
-	<div class="modal fade" id="myModal">
-		<!-- modal별 id 변경해주세요-->
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">주문
-						상세정보</h4>
-					<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
-				</div>
-
-				<!-- Modal body -->
-				<div class="modal-body">
-					<table>
-						<tr>
-							<td>주문번호 :</td>
-							<td><%= list.get(i).getReceiptNo() %></td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">주문일시 :</td>
-							<td><%= list.get(i).getOrderDate() %></td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">고객명 :</td>
-							<td><%= list.get(i).getOrderName() %></td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">연락처 :</td>
-							<td><%= list.get(i).getOrderPhone() %></td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">배달주소 :</td>
-							<td style="padding-top: 8px;"><%= list.get(i).getOrderPhone() %></td>
-						</tr>
-						<tr></tr>
-						<tr>
-							<td style="padding-top: 8px;">주문내용 :</td>
-							<td style="height: 100px;">주문내용</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">요청사항 :</td>
-							<td style="padding-top: 10px; height: 100px; padding-left: 10px;">치즈에
-								빼고 넣어주세요</td>
-						</tr>
-					</table>
-				</div>
-				<!-- Modal footer -->
-				<div class="modal-footer" style="margin: auto;">
-					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger" data-dismiss="modal"
-						style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">배달완료</button>
+	
+	<% if(list.isEmpty()){%>
+	<%}else{ %>
+	
+		<%for(int k=0; k<list.size(); k++){ %>
+	
+			<!-- 주문 상세 모달 시작 -->
+			<div class="modal fade" id="myModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">주문
+								상세정보</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<table>
+								<tr>
+									<td>주문번호 :</td>
+									<td><%= list.get(k).getReceiptNo() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">주문일시 :</td>
+									<td><%= list.get(k).getOrderDate() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">고객명 :</td>
+									<td><%= list.get(k).getOrderName() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">연락처 :</td>
+									<td><%= list.get(k).getOrderPhone() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">배달주소 :</td>
+									<td style="padding-top: 8px;"><%= list.get(k).getMemAddress1() %> + <%= list.get(k).getMemAddress2() %></td>
+								</tr>
+								<tr></tr>
+								<tr>
+									<td style="padding-top: 8px;">주문내용 :</td>
+									<td style="height: 100px;">
+										<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
+											<% for(int j=0; j<pList.size(); j++){ %>
+												<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
+													<% pName = pList.get(j).getPizzaName(); %>
+												<% } %>
+											<% } %>
+											<% for(int j=0; j<sizeList.size(); j++){ %>
+												<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+													<% pSize = sizeList.get(j).getPizzaSize(); %>
+													<% pPrice = sizeList.get(j).getPizzaPrice(); %>
+												<% } %>
+											<% } %>
+											<% for(int j=0; j<dList.size(); j++){ %>
+												<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
+													<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
+														<% doughPrice = dList.get(j).getDoughAddPrice(); %>
+													<% } %>
+												<% } %>
+											<% } %>
+											<% pCount = Integer.parseInt(pizzaCount[i]); %>
+											<% pPrice = (pPrice + doughPrice) * pCount; %>
+											
+											<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
+											<%basketPrice += pPrice; %>
+										<% } %>
+										
+										<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
+											<% String[] sideNo = order.getSideNo().split(","); %>
+											<% String[] sideCount = order.getSideCount().split(","); %>
+											
+											<% for(int i=0; i<sideNo.length; i++) { %>
+												<% for(int j=0; j<sList.size(); j++){ %>
+													<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
+														<% sName = sList.get(j).getSideName(); %>
+														<% sPrice = sList.get(j).getSidePrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% sCount = Integer.parseInt(sideCount[i]); %>
+												<% sPrice = sPrice * sCount; %>
+												
+												<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
+												<%basketPrice += sPrice; %>
+											<% } %>
+										<% } %>
+										
+										<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타상품 내용 %>
+											<% String[] etcNo = order.getEtcNo().split(","); %>
+											<% String[] etcCount = order.getEtcCount().split(","); %>
+											
+											<% for(int i=0; i<etcNo.length; i++) { %>
+												<% for(int j=0; j<eList.size(); j++){ %>
+													<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
+														<% eName = eList.get(j).getEtcName(); %>
+														<% ePrice = eList.get(j).getEtcPrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% eCount = Integer.parseInt(etcCount[i]); %>
+												<% ePrice = ePrice * eCount; %>
+												
+												<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>
+												<%basketPrice += ePrice; %>									
+											<% } %>
+										<% } %>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">요청사항 :</td>
+									<td style="padding-top: 10px; height: 100px; padding-left: 10px;">
+										<%= list.get(k).getOrderRequest() %>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer" style="margin: auto;">
+							<!-- 하단버튼 영역-->
+							<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
+								배달완료
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- 모달 끝 -->
+			<!-- 모달 끝 -->
+		<% } %>
+	<% } %>
 
 </body>
 </html>
