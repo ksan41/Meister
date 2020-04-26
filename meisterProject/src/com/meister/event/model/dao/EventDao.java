@@ -150,14 +150,17 @@ public class EventDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, n.getNoticeTitle());
-			pstmt.setString(2, n.getNoticeContent());
-			pstmt.setInt(3, n.getNoticeNo());
+			pstmt.setString(1, e.getEventTitle());
+			pstmt.setDate(2, e.getEventOpenTime());
+			pstmt.setDate(3, e.getEventCloseTime());
+			pstmt.setString(4, e.getEventImage1());
+			pstmt.setString(5, e.getEventImage2());
+			pstmt.setInt(6, e.getEventNo());
 			
 			result = pstmt.executeUpdate();
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}finally {
 			close(pstmt);
 		}
