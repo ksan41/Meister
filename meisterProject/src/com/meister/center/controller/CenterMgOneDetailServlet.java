@@ -35,7 +35,7 @@ public class CenterMgOneDetailServlet extends HttpServlet {
 
 		int ino = Integer.parseInt(request.getParameter("ino"));
 		
-		Center c = new CenterService().selectOneOnOne(ino);
+		Center c = new CenterService().selectOneList(ino);
 		
 		if(c != null) {	// 조회성공
 			

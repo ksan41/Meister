@@ -227,10 +227,17 @@ public class CenterDao {
 			
 			while(rset.next()) {
 			
-				list.add(new Center(rset.getInt("NOTICE_NO"),
-									rset.getString("NOTICE_TITLE"),
-									rset.getDate("NOTICE_CREATE_DATE"),
-									rset.getInt("NOTICE_COUNT")));
+				list.add(new Center(rset.getInt("INQUIRY_NO"),
+									rset.getString("INQUIRY_TITLE"),
+									rset.getString("INQUIRY_CONTENT"),
+									rset.getString("INQUIRY_ANSWER"),
+									rset.getDate("REGISTRATION_DATE"),
+									rset.getDate("MODIFY_DATE"),
+									rset.getInt("INQUIRY_TYPE"),
+									rset.getString("INQUIRY_STORE"),
+									rset.getString("INQUIRY_PRO_STATUS"),
+									rset.getInt("MEMBER_NO"),
+									rset.getInt("RECEIPT_NO")));
 				
 			}
 		} catch (SQLException e) {
@@ -241,5 +248,26 @@ public class CenterDao {
 			close(stmt);
 		}
 		return list;
+	}
+	
+	public int increaseCount(Connection conn, int ino) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, nno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 }

@@ -201,6 +201,23 @@ public class CenterService {
 		return list;
 	}
 	
+	/**연화
+	 * 조회수 증가용 서비스
+	 * @param ino	--> 상세조회된 공지사항 글 번호
+	 */
+	public void increaseCount(int ino) {
+		
+		Connection conn = getConnection();
+		int result = new NoticeDao().increaseCount(conn, ino);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+	}
+	
 	
 	
 	
