@@ -203,7 +203,7 @@ public class CenterService {
 	
 	/**연화
 	 * 1:1문의 상세조회용 서비스
-	 * @param ino	--> 조회하고자하는 공지사항 글번호
+	 * @param ino	--> 조회하고자하는 1:1문의 글번호
 	 * @return		--> 글번호와 일치하는 Center 객체
 	 */
 	public Center selectOne(int ino) {
