@@ -168,36 +168,29 @@ public class MenuService {
 	
 	/**산
 	 * 통합관리자 - 피자 수정용 서비스
-	 * @param insertP : 입력받은 피자 정보가 담긴 Pizza객체
-	 * @param insertSizeM : 입력받은 피자M사이즈 가격정보 담긴 PizzaSize객체
-	 * @param insertSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
+	 * @param updateP : 입력받은 피자 정보가 담긴 Pizza객체
+	 * @param updateSizeM : 입력받은 피자M사이즈 가격정보 담긴 PizzaSize객체
+	 * @param updateSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
 	 * @return : 처리된 행의 개수
 	 */
-	public int updatePizza(Pizza insertP,PizzaSize insertSizeM,PizzaSize insertSizeL) {
+	public int updatePizza(Pizza insertP,PizzaSize updateSizeM,PizzaSize updateSizeL) {
 		
 		Connection conn = getConnection();
 		
-		int result = new MenuDao().updatePizza(conn,insertP,insertSizeM,insertSizeL);
+		// 피자 update요청
+		int resultP = new MenuDao().updatePizza(conn,insertP);
 		
-		if(result>0) {
+		// 피자사이즈 update요청
+		int resultPs = new MenuDao().updatePizzaSize(conn, updateSizeM, updateSizeL);
+		
+		if(resultP>0 && resultPs>0) { //피자,사이즈 모두 성공했을때 커밋
 			commit(conn);
 		}else {
-			rollback(conn);
+			rollback(conn); // 둘중 하나라도 실패했을시 롤백
 		}
 		close(conn);
 		
-		return result;
+		return resultP*resultPs;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
