@@ -365,22 +365,30 @@ public class MenuDao {
 	
 	
 	
-	
+
 	/**산
-	 * 통합관리자 - 피자 수정용 서비스
-	 * @param insertP : 입력받은 피자 정보가 담긴 Pizza객체
-	 * @param insertSizeM : 입력받은 피자M사이즈 가격정보 담긴 PizzaSize객체
-	 * @param insertSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
+	 * 통합관리자 - 피자 수정용 dao
+	 * @param conn : MenuService에서 생성된 Connection객체
+	 * @param updateP : 수정할 피자 정보가 담긴 Pizza객체
 	 * @return : 처리된 행의 개수
 	 */
-	public int updatePizza(Connection conn,Pizza insertP,PizzaSize insertSizeM,PizzaSize insertSizeL) {
+	public int updatePizza(Connection conn,Pizza updateP) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "";
+		String sql = prop.getProperty("updatePizza");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, updateP.getPizzaName());
+			pstmt.setString(2, updateP.getPizzaImg());
+			pstmt.setString(3, updateP.getPizzaContent());
+			pstmt.setString(4, updateP.getPizzaTopping());
+			pstmt.setString(5, updateP.getPizzaOrigin());
+			pstmt.setInt(6, updateP.getPizzaNo());
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -391,5 +399,35 @@ public class MenuDao {
 		return result;
 	}
 	
+	
+	/**산
+	 * 통합 - 피자사이즈 수정용 dao
+	 * @param conn : MenuService에서 생성된 Connection객체
+	 * @param updateSizeM : 수정할 피자 M사이즈 가격정보가 담긴 PizzaSize객체
+	 * @param updateSizeL : 수정할 피자 L사이즈 가격정보가 담긴 PizzaSize객체
+	 * @return : 처리된 행의 개수
+	 */
+	public int updatePizzaSize(Connection conn,PizzaSize updateSizeM, PizzaSize updateSizeL) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updatePizzaSize");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, updateSizeM.getPizzaPrice());
+			pstmt.setInt(2, updateSizeL.getPizzaPrice());
+			pstmt.setInt(3, updateSizeL.getSizeNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 }
