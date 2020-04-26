@@ -203,86 +203,42 @@ public class OrderDao {
 	
 	
 	///////////////////지수/////////////////////////
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public Delivery selectDeliveryInfo(Connection conn, int orderNo) {
+		
+		Delivery dInfo = new Delivery();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDeliveryInfo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, orderNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				dInfo.setOrderNo(rset.getInt("order_no"));
+				dInfo.setMemAddress1(rset.getString("mem_address1"));
+				dInfo.setMemAddress2(rset.getString("mem_address2"));
+				dInfo.setMemPoCode(rset.getString("mem_po_code"));
+				dInfo.setDeliveryMethod(rset.getString("delivery_method"));
+				dInfo.setBranchName(rset.getString("branch_name"));
+				dInfo.setBranchAddress(rset.getString("branch_address"));
+				dInfo.setBranchPhone(rset.getString("branch_phone"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return dInfo;
+	}
 	
 	
 	

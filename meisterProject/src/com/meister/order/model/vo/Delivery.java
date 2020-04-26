@@ -25,6 +25,10 @@ public class Delivery {
 	private int orderNo;
 	private String branchAddress;	// 지점주소
 	
+	// 타 테이블 컬럼
+	private String memAddress1;		// 기본주소
+	private String memAddress2;		// 상세주소
+	private String memPoCode;		// 우편번호
 	
 	
 	public Delivery() {
@@ -87,6 +91,19 @@ public class Delivery {
 		this.branchPhone = branchPhone;
 		this.orderNo = orderNo;
 		this.branchAddress = branchAddress;
+	}
+
+	public Delivery(String deliveryMethod, String branchName, String branchPhone, int orderNo, String branchAddress,
+			String memAddress1, String memAddress2, String memPoCode) {
+		super();
+		this.deliveryMethod = deliveryMethod;
+		this.branchName = branchName;
+		this.branchPhone = branchPhone;
+		this.orderNo = orderNo;
+		this.branchAddress = branchAddress;
+		this.memAddress1 = memAddress1;
+		this.memAddress2 = memAddress2;
+		this.memPoCode = memPoCode;
 	}
 
 	public int getDeliveryNo() {
@@ -208,6 +225,31 @@ public class Delivery {
 
 	public void setBranchAddress(String branchAddress) {
 		this.branchAddress = branchAddress;
+	}
+
+	
+	public String getMemAddress1() {
+		return memAddress1;
+	}
+
+	public void setMemAddress1(String memAddress1) {
+		this.memAddress1 = memAddress1;
+	}
+
+	public String getMemAddress2() {
+		return memAddress2;
+	}
+
+	public void setMemAddress2(String memAddress2) {
+		this.memAddress2 = memAddress2;
+	}
+
+	public String getMemPoCode() {
+		return memPoCode;
+	}
+
+	public void setMemPoCode(String memPoCode) {
+		this.memPoCode = memPoCode;
 	}
 
 	@Override

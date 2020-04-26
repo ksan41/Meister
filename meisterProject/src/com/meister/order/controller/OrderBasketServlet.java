@@ -42,7 +42,7 @@ public class OrderBasketServlet extends HttpServlet {
 		
 		Member loginUser = (Member)request.getSession().getAttribute("loginUser");
 		int userNo = loginUser.getMemberNo();
-		System.out.println("orderBasket 딴에서 userNo = " + userNo);
+		//System.out.println("orderBasket 딴에서 userNo = " + userNo);
 		
 		// 3. 해당 요청을 처리하는 서비스클래스의 메소드 호출 후 처리 결과 받기
 		Price basket = new OrderService().ShowBasketList(userNo);

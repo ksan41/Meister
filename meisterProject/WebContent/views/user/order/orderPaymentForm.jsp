@@ -1,5 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
+<%
+	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
+	Price basket = (Price)request.getAttribute("basket");
+	
+	String[] pizzaSize = basket.getPizzaSize().split(",");
+	String[] pizzaNo = basket.getPizzaNo().split(",");
+	String[] pizzaCount = basket.getPizzaCount().split(",");
+	String[] doughNo = basket.getDoughNo().split(",");
+
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	
+	String pName = "";
+	String pSize = "";
+	int pCount = 0;
+	int doughPrice = 0;
+	int pPrice = 0;
+	
+	String sName = "";
+	int sCount = 0;
+	int sPrice = 0;
+	
+	String eName = "";
+	int eCount = 0;
+	int ePrice = 0;
+	
+	int basketPrice = 0;
+	int discountPrice = 0;
+	double dRate = 0;
+%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -114,8 +148,8 @@
 
             <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px; ">
                 <br>
-                <p >사용자입력주소(불러오기)</p>
-                <span id="branchName">매장명</span><span id="branchPhone">02-2222-2222</span>
+                <p ><%=dInfo.getMemPoCode()%> <%=dInfo.getMemAddress1()%> <%=dInfo.getMemAddress2()%></p>
+                <span id="branchName"><%=dInfo.getBranchName()%></span><span id="branchPhone"><%=dInfo.getBranchPhone()%></span>
                 <br><br><hr style="width: 1000px;">
                 <table style="text-align: left;">
 
@@ -124,7 +158,7 @@
                         <td>
                             <input type="text" style="width: 100%;">
                         </td>
-                        <td style="colspan:3;">&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" style="vertical-align:middle; width:40px;" >주문자와 동일</td>
+                        <td style="colspan:3;"></td>
                     </tr>
                     <tr>
                         <th>연락처</th>
@@ -162,9 +196,74 @@
             </div>
             <div style="width: 1000px; height: 250px; padding-left: 50px;">
                 <br>
-                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">30 치즈 & 뉴욕 스트립 스테이크 슈퍼시드 함유 도우 L X 1</h5>
+                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">
+		           	<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
+						<% for(int j=0; j<pList.size(); j++){ %>
+							<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
+								<% pName = pList.get(j).getPizzaName(); %>
+							<% } %>
+						<% } %>
+						<% for(int j=0; j<sizeList.size(); j++){ %>
+							<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+								<% pSize = sizeList.get(j).getPizzaSize(); %>
+								<% pPrice = sizeList.get(j).getPizzaPrice(); %>
+							<% } %>
+						<% } %>
+						<% for(int j=0; j<dList.size(); j++){ %>
+							<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
+								<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
+									<% doughPrice = dList.get(j).getDoughAddPrice(); %>
+								<% } %>
+							<% } %>
+						<% } %>
+						<% pCount = Integer.parseInt(pizzaCount[i]); %>
+						<% pPrice = (pPrice + doughPrice) * pCount; %>
+						
+						<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
+						<%basketPrice += pPrice; %>
+					<% } %>
+					
+					<% if(basket.getSideNo() != null && basket.getSideCount() != null) { // 주문한 사이드 내용 %>
+						<% String[] sideNo = basket.getSideNo().split(","); %>
+						<% String[] sideCount = basket.getSideCount().split(","); %>
+						
+						<% for(int i=0; i<sideNo.length; i++) { %>
+							<% for(int j=0; j<sList.size(); j++){ %>
+								<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
+									<% sName = sList.get(j).getSideName(); %>
+									<% sPrice = sList.get(j).getSidePrice(); %>
+								<% } %>
+							<% } %>
+							
+							<% sCount = Integer.parseInt(sideCount[i]); %>
+							<% sPrice = sPrice * sCount; %>
+							
+							<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
+							<%basketPrice += sPrice; %>
+						<% } %>
+					<% } %>
+					
+					<% if(basket.getEtcNo() != null && basket.getEtcCount() != null) { // 주문한 기타상품 내용 %>
+						<% String[] etcNo = basket.getEtcNo().split(","); %>
+						<% String[] etcCount = basket.getEtcCount().split(","); %>
+						
+						<% for(int i=0; i<etcNo.length; i++) { %>
+							<% for(int j=0; j<eList.size(); j++){ %>
+								<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
+									<% eName = eList.get(j).getEtcName(); %>
+									<% ePrice = eList.get(j).getEtcPrice(); %>
+								<% } %>
+							<% } %>
+							
+							<% eCount = Integer.parseInt(etcCount[i]); %>
+							<% ePrice = ePrice * eCount; %>
+							
+							<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>
+							<%basketPrice += ePrice; %>									
+						<% } %>
+					<% } %>
+                </h5>
                 <hr>
-                <h5 style="color:rgb(76, 60, 60); font-weight:bold;">30 치즈 & 뉴욕 스트립 스테이크 (슈퍼시드 함유 도우) L X 1 / 36,900원</h5>
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 할인적용
@@ -194,7 +293,8 @@
                     </tr>
                 </table>
             </div>
-            
+            <br>
+            <!-- 
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">결제수단 선택</div>
             <div style="width: 1000px; height: 140px; padding-left: 50px;">
                 <br>
@@ -204,6 +304,7 @@
                 <input type="radio" style="vertical-align:middle">&nbsp;무통장입금<br>
                 <hr><input type="checkbox" style="vertical-align:middle; width:25px; margin-right:5px;">기본 결제 수단으로 등록
             </div>
+             -->
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 최종결제금액
             </div>
