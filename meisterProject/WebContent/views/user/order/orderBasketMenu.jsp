@@ -346,7 +346,10 @@
             <div id="btns"> 
                 <button style="background:white; color:black; border:1px solid darkgray" class="middle_btn" id="cbtn">+ 메뉴 추가하기</button>
                 <br>
-                <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
+                <form name="orderNext" action="<%=contextPath %>/orderPayForm.or" method="post">
+                <input type="hidden" name="orderNo" value="<%= basket.getOrderNo()%>">
+                <button type="submit" style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
+                </form>
             </div>
             
             

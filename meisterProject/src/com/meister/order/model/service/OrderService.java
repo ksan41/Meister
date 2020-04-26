@@ -86,9 +86,16 @@ public class OrderService {
 	
 	///////////////////지수/////////////////////////
 	
-	
-	
-	
+	public Delivery selectDeliveryInfo(int orderNo) {
+		
+		Connection conn = getConnection();
+		
+		Delivery dInfo = new OrderDao().selectDeliveryInfo(conn, orderNo);
+		
+		close(conn);
+		
+		return dInfo;
+	}
 	
 	
 	
