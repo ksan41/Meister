@@ -430,51 +430,17 @@ public class MenuDao {
 	
 	
 	
-	
-	public int[] selectSeq(Connection conn) {
-		
-		int[] seq = new int[2];
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectSeq");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				seq[0] = rset.getInt("PNO");
-				seq[1] = rset.getInt("PSNO");
-			}
-			System.out.println("selectSeq");
-			System.out.println(seq[0]);
-			System.out.println(seq[1]);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(pstmt);
-		}
-		
-		return seq;
-	}
-	
-	
-	
+
 	/**산
-	 * 통합관리자-피자등록용 DAO
+	 * 통합관리자-피자등록(Pizza)
 	 * @param conn : Service에서 생성한 Connection객체
-	 * @param p : 등록할 Pizza객체
-	 * @param priceM : 등록할 피자 M사이즈 가격
-	 * @param priceL : 등록할 피자 L사이즈 가격
-	 * @return : 처리된 행의 개수
+	 * @param p : PIZZA테이블에 INSERT할 Pizza객체
+	 * @return : 처리된 행의개수
 	 */
-	public int insertMenuPizza(Connection conn,Pizza p,int priceM,int priceL) {
+	public int insertMenuPizza(Connection conn,Pizza p) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-
-		
 		String sql = prop.getProperty("insertMenuPizza");
 
 		try {
@@ -485,8 +451,6 @@ public class MenuDao {
 			pstmt.setString(4, p.getPizzaContent());
 			pstmt.setString(5, p.getPizzaTopping());
 			pstmt.setString(6, p.getPizzaOrigin());
-			pstmt.setInt(7, priceM);
-			pstmt.setInt(8, priceL);
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -498,4 +462,37 @@ public class MenuDao {
 		return result;
 	}
 
+	
+	
+	/**산
+	 * 통합관리자-피자등록(피자사이즈)
+	 * @param conn : Service에서 생성한 Connection객체
+	 * @param psList : PIZZA_SIZA에 INSERT할 PizzaSize객체(M사이즈,L사이즈)
+	 * @return : 처리된 행의 개수
+	 */
+	public int insertMenuPizzaSize(Connection conn, ArrayList<PizzaSize> psList) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMenuPizzaSize");
+		
+		try {
+
+			for (int i = 0; i < psList.size(); i++) {
+				PizzaSize ps = psList.get(i);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, ps.getPizzaPrice());
+				pstmt.setString(2, ps.getPizzaSize());
+
+				result = pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
