@@ -430,6 +430,37 @@ public class MenuDao {
 	
 	
 	
+	
+	public int[] selectSeq(Connection conn) {
+		
+		int[] seq = new int[2];
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectSeq");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				seq[0] = rset.getInt("PNO");
+				seq[1] = rset.getInt("PSNO");
+			}
+			System.out.println("selectSeq");
+			System.out.println(seq[0]);
+			System.out.println(seq[1]);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return seq;
+	}
+	
+	
+	
 	/**산
 	 * 통합관리자-피자등록용 DAO
 	 * @param conn : Service에서 생성한 Connection객체
@@ -442,8 +473,10 @@ public class MenuDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertMenuPizza");
+
 		
+		String sql = prop.getProperty("insertMenuPizza");
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, p.getPizzaName());
@@ -454,7 +487,6 @@ public class MenuDao {
 			pstmt.setString(6, p.getPizzaOrigin());
 			pstmt.setInt(7, priceM);
 			pstmt.setInt(8, priceL);
-			
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

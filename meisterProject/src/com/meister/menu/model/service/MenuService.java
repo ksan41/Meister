@@ -207,7 +207,7 @@ public class MenuService {
 		
 		Connection conn = getConnection();
 		
-		// 우선 피자 insert
+
 		int result = new MenuDao().insertMenuPizza(conn,p,priceM,priceL);
 		
 		if(result>0) {
