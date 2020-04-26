@@ -237,14 +237,16 @@
 								<th>상세 이미지</th>
 								<td><input name="eventImage2" type="file" style="margin-left: 10px;"></td>
 							</tr>
+							<!-- 
 							<tr>
 								<th>노출여부</th>
 								<td><input name="eventStatus" type="checkbox" style="margin-left: 10px;"></td>
 							</tr>
+							 -->
 						</table>
 						<br><br>
 
-						<!-- 버튼 영역 -->
+						<!-- 버튼영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
 							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/evMgList.evm';">취소</button>
