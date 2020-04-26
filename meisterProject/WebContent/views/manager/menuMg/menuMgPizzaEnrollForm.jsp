@@ -225,19 +225,19 @@
 				<div class="card-body">
 					<div class="table-responsive">
 						<div class="inner">
-							<form id="menuInsertForm" action="">
+							<form id="menuInsertForm" action="<%=contextPath%>/pizzaInsert.meng" method="post" enctype="multipart/form-data">
 								<table id="menuInsertTable">
 									<tr>
 										<th>메뉴구분</th>
-										<td><input type="radio" name="pizzaType" value="P">
-											프리미엄 <input type="radio" name="pizzaType" value="C">
+										<td><input type="radio" name="pizzaType" value="1">
+											프리미엄 <input type="radio" name="pizzaType" value="2">
 											클래식</td>
 									</tr>
 									<tr>
 										<th>메뉴명</th>
 										<td><input type="text" class="inputs"></td>
 										<th rowspan="2">이미지첨부 <input name="menuImg" type="file"
-											style="display: none;">
+											style="display: none;" onchange="loadImg(this);">
 										</th>
 										<td rowspan="2">
 											<div id="menu-insert-img-area">
@@ -267,9 +267,9 @@
 								</table>
 								<br>
 								<div id="menuInsertBtns">
-									<button type="submit" class="middle_btn" id="#"
+									<button type="submit" class="middle_btn"
 										style="background: orange;">등록하기</button>
-									<button type="button" class="middle_btn" id="#">목록으로</button>
+									<button type="button" class="middle_btn" onclick="location.href='<%=contextPath%>/menuMgPizzaList.meng';">목록으로</button>
 								</div>
 							</form>
 						</div>
@@ -279,5 +279,38 @@
 		</div>
 		</main>
 	</div>
+
+
+	<script>
+		// 미리보기 영역을 클릭하면 바로 파일 첨부할수있도록 함
+		$(function() {
+			$("#menu-insert-img-area").click(function() {
+				$("input[name=menuImg]").click();//해당 영역을 클릭하면 첫번째 파일첨부 클릭됨(첨부하기)
+			});
+		});
+
+		function loadImg(inputFile) {
+			// inputFile : 현재 변화가 생긴 input type="file" 요소
+			// num : 몇번째 input요소인지 확인 후 해당 영역에 미리보기 하기 위한 번호
+
+			// [참고] https://developer.mozilla.org/ko/docs/Web/API/FileReader
+
+			// file이 존재할 경우 --> input요소의 files속성인 배열의 0번 인덱스에 담김
+
+				// 파일을 읽어들일 FileReader 객체 생성(자바스크립트 제공객체)
+				var reader = new FileReader();
+
+				// 파일을 읽어주는 메소드 --> 해당 파일을 읽어들이는 순간 해당 파일만의 고유한 url부여
+				reader.readAsDataURL(inputFile.files[0]);
+
+				// 파일 읽기가 다 완료되었을때 실행할 메소드
+				reader.onload = function(e) {//e : 이벤트객체
+						$("#menu-img").attr("src", e.target.result);
+					}
+
+				};
+
+	</script>
+
 </body>
 </html>

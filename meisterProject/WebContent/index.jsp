@@ -20,7 +20,7 @@ ArrayList<Event> list = new EventService().selectList();
 	/* 배달/포장주문버튼 */
         .orderBtns{
             margin-top: 50px;
-            width:750px;
+            width:950px;
             height:200px;
             margin-left:auto;
             margin-right: auto;
@@ -33,12 +33,12 @@ ArrayList<Event> list = new EventService().selectList();
 
         .orderBtns>div{
             padding:10px;
-            margin-left: 20px;
+            margin-left: 50px;
             margin-right: 10px;
             float:left;
             height: 100%;
-            width:45%;
-            background-color: lightgray;
+            width:40%;
+            background-color: /* lightgray; */
             border-radius: 20px;
             color:#5A4847;
             font-size:32px;
@@ -50,6 +50,10 @@ ArrayList<Event> list = new EventService().selectList();
         	opacity:70%;
         }
         /* 배달/포장주문버튼 */
+        
+        #deliveryBtn{color:#6C98BF;}
+        #takeOutBtn{color:#D18551;}
+        
 </style>
 </head>
 <body>
@@ -58,8 +62,8 @@ ArrayList<Event> list = new EventService().selectList();
 
     <!-- 배달/포장주문 버튼 -->
     <div class="orderBtns">
-        <div id="deliveryBtn" onclick="orderDelivery();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic.png" alt="">배달주문</div>
-        <div id="takeOutBtn" onclick="orderTakeOut();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/takeOutPic.png" alt="">포장주문</div>
+        <div id="deliveryBtn" onclick="orderDelivery();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic1.png" alt="">배달주문 ></div>
+        <div id="takeOutBtn" onclick="orderTakeOut();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/takeOutPic2.png" alt="">포장주문 ></div>
     </div>
     <!-- 배달/포장주문 버튼 -->
 
