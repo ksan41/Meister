@@ -139,7 +139,12 @@
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
 			<a href="" style="color: orange">자주하는 질문</a> <span
-				style="color: lightgray; font-size: 17px;">|</span> <a href="">1:1문의</a>
+				style="color: lightgray; font-size: 17px;">|</span> 
+				<% if(loginUser !=null){ //로그인 했을경우%>
+				<a href="<%=contextPath%>/cOneForm.ce">1:1문의</a>
+				<%}else{ //로그인 안했을경우%>
+				<a href="<%=contextPath%>/showLoginPage.me">1:1문의</a>
+				<%} %>
 		</div>
 		<hr>
 

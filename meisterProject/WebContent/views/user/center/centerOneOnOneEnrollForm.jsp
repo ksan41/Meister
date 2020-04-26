@@ -210,7 +210,7 @@
 				<div id="btns">
 					<button
 						style="background: white; color: black; border: 1px solid darkgray"
-						class="middle_btn" id="cbtn" type="reset">취소</button>
+						class="middle_btn" id="cbtn" type="reset" onclick="history.back(-1);">취소</button>
 					<br>
 					<button type="submit" class="middle_btn" id="mbtn">등록</button>
 				</div>
