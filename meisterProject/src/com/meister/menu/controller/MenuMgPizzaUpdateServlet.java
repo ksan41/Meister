@@ -65,6 +65,9 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			
 			int priceL = Integer.parseInt(multiRequest.getParameter("priceL"));
 			int priceM = Integer.parseInt(multiRequest.getParameter("priceM"));
+			menuImg = savePath+multiRequest.getFilesystemName("menuImg");
+			System.out.println("삭제전");
+			System.out.println(menuImg);
 			
 			// 기존에 서버에 업로드된 파일도 삭제
 			// 삭제시킬 파일객체 생성
@@ -72,26 +75,28 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			File deleteImg = new File(savePath + multiRequest.getParameter("menuImg"));
 			deleteImg.delete();
 			
+			System.out.println("삭제후");
+			System.out.println(menuImg);
 			
-			Pizza insertP = new Pizza();
-			insertP.setPizzaNo(pNo);
-			insertP.setPizzaName(pizzaName);
-			insertP.setPizzaContent(contents);
-			insertP.setPizzaTopping(toppings);
-			insertP.setPizzaOrigin(origins);
-			insertP.setPizzaImg(menuImg);
+			Pizza updateP = new Pizza();
+			updateP.setPizzaNo(pNo);
+			updateP.setPizzaName(pizzaName);
+			updateP.setPizzaContent(contents);
+			updateP.setPizzaTopping(toppings);
+			updateP.setPizzaOrigin(origins);
+			updateP.setPizzaImg(menuImg);
 			
 			// M사이즈용 객체생성
-			PizzaSize insertSizeM = new PizzaSize();
-			insertSizeM.setPizzaNo(pNo);
-			insertSizeM.setPizzaSize("M");
-			insertSizeM.setPizzaPrice(priceM);
+			PizzaSize updateSizeM = new PizzaSize();
+			updateSizeM.setPizzaNo(pNo);
+			updateSizeM.setPizzaSize("M");
+			updateSizeM.setPizzaPrice(priceM);
 			
 			// L사이즈용 객체생성
-			PizzaSize insertSizeL = new PizzaSize();
-			insertSizeL.setPizzaNo(pNo);
-			insertSizeL.setPizzaSize("L");
-			insertSizeL.setPizzaPrice(priceL);
+			PizzaSize updateSizeL = new PizzaSize();
+			updateSizeL.setPizzaNo(pNo);
+			updateSizeL.setPizzaSize("L");
+			updateSizeL.setPizzaPrice(priceL);
 			// 3_2. Attachment 테이블에 insert할 정보
 //			ArrayList<Attachment> list = new ArrayList<>();
 			
@@ -114,28 +119,25 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 //			
 			
 			// 피자객체,사이즈객체(M),사이즈객체(L)로 서비스요청
-			int result = new MenuService().updatePizza(insertP,insertSizeM,insertSizeL);
+			int result = new MenuService().updatePizza(updateP,updateSizeM,updateSizeL);
 			
 			
 			if(result > 0) {//메뉴 수정 성공
 				
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
-				out.println("<script>alert('"+insertP.getPizzaName()+"메뉴 등록 성공했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.println("<script>alert('"+updateP.getPizzaName()+"메뉴 수정 성공했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
 				out.flush();
 			}else { //메뉴 수정 실패
 				
 				// 등록실패한 파일 찾아서 삭제
-				File deleteFile = new File(savePath + insertP.getPizzaImg());
+				File deleteFile = new File(savePath + updateP.getPizzaImg());
 				deleteFile.delete();
 				
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
-				out.println("<script>alert('메뉴 등록 실패. 다시 시도해주세요.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.println("<script>alert('메뉴 수정 실패. 다시 시도해주세요.');location.href='/Meister/menuMgPizzaList.meng';</script>");
 				out.flush();
-				// 에러페이지
-				//request.setAttribute("msg", "게시글 등록실패");
-				//request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 				
 			}
 			
