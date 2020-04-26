@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.meister.member.model.vo.Member;
+import com.meister.order.model.service.OrderService;
 import com.meister.order.model.vo.Orders;
 
 /**
@@ -47,7 +48,7 @@ public class OrderPaymentSuccessServlet extends HttpServlet {
 		newOrder.setOrderPhone(phone);
 		newOrder.setOrderRequest(requirements);
 		
-		
+		int result = new OrderService().insertOrders(newOrder);
 		
 		
 	}

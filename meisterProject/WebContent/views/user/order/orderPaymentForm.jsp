@@ -149,8 +149,8 @@
         <br>
         <!-- <div class="sub-menu-area"> -->
         <!-- inner영역에 콘텐츠 작성 -->
+        <form id="" action="<%=contextPath%>/orderPaySuccess.or" method="post">
         <div class="inner" style="font-size: 20px;">
-            
             <div style="width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px; background-color:rgb(76, 60, 60);">
                 수령인정보
             </div>
@@ -165,7 +165,6 @@
                 	<%=dInfo.getBranchPhone()%>
                 </span>
                 <br><br><hr style="width: 1000px;">
-                <form id="" action="<%=contextPath%>/orderPaySuccess.or" method="post">
                 <table style="text-align: left;">
                     <tr>
                         <th>이름</th>
@@ -199,7 +198,7 @@
                     </tr>
                 </table>
                 <input type="hidden" name="orderNo" value="<%= basket.getOrderNo()%>">
-		        </form>
+		        
             </div>
             <div style="background-color:rgb(76, 60, 60); width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px;">
                 주문내역
@@ -349,14 +348,14 @@
                         <td><%=basketPrice-discountPrice%> 원</td>
                     </tr>
                 </table>
+                <br><br>
+                
+            <button type="submit" class="big_btn" id="check_module">결제하기</button>
             </div>
-
-            <button class="big_btn" id="check_module">결제하기</button>
         </div>
+		</form>
     </div>
-    
-    <script>
-    </script>
+
     
     <!-- 결제 api -->
     <script>
