@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.Orders"%>
+<%
+	ArrayList<Orders> list = (ArrayList<Orders>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,8 +104,6 @@
 </head>
 <body class="sb-nav-fixed">
 
-
-
 	<div id="layoutSidenav_content" id="layoutSidenav_content">
 		<main>
 		<div class="container-fluid">
@@ -131,6 +132,7 @@
 								</tr>
 							</thead>
 							<tbody>
+							<!-- 
 								<tr data-toggle="modal" data-target="#myModal">
 									<td>14414</td>
 									<td>홍길동</td>
@@ -140,69 +142,23 @@
 										<button class="button" onclick="" style="background-color: yellowgreen;">접수</button>
 									</th>
 								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
+							 -->
+							 	
+							 	<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+									<tr>
+										<td colspan="5">존재하는 공지사항이 없습니다.</td>
+									</tr>
+								<% }else{ // 리스트가 비어있지 않을 경우 %>
+								
+									<% for(Notice n : list){ %>
+							 	<tr data-toggle="modal" data-target="#myModal">
 									<td>14414</td>
 									<td>홍길동</td>
 									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/09/20 13:24</td>
+									<td>2011/12/12 13:24</td>
 									<th>
 										<button class="button" onclick="" style="background-color: yellowgreen;">접수</button>
 									</th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2009/10/09 13:24</td>
-									<th>
-										<button class="button" onclick=""
-											style="background-color: yellowgreen;">접수</button>
-									</th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/12/22 13:24</td>
-									<th>
-										<button class="button" onclick=""
-											style="background-color: yellowgreen;">접수</button>
-									</th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/11/14 13:24</td>
-									<th><button class="button" onclick="">접수완료</button></th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/06/07 13:24</td>
-									<th><button class="button" onclick="">접수완료</button></th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/03/11 13:24</td>
-									<th><button class="button" onclick="">접수완료</button></th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/08/14 13:24</td>
-									<th><button class="button" onclick="">접수완료</button></th>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/06/02 13:24</td>
-									<th><button class="button" onclick="">접수완료</button></th>
 								</tr>
 							</tbody>
 						</table>

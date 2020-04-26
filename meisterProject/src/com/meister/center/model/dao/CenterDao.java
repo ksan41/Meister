@@ -236,9 +236,8 @@ public class CenterDao {
 									rset.getInt("INQUIRY_TYPE"),
 									rset.getString("INQUIRY_STORE"),
 									rset.getString("INQUIRY_PRO_STATUS"),
-									rset.getInt("MEMBER_NO"),
+									rset.getString("MEMBER_ID"),
 									rset.getInt("RECEIPT_NO")));
-				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

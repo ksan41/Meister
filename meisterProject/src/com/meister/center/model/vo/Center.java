@@ -15,6 +15,7 @@ public class Center {
 	private String inquiryProStatus;// 처리상태
 	private int memberNo;			// 회원번호
 	private int receiptNo;			// 주문내역번호
+	private String memberId;	//회원아이디
 	
 	
 	public Center() {}
@@ -44,6 +45,34 @@ public class Center {
 		this.inquiryTitle = inquiryTitle;
 		this.registDate = registDate;
 		this.inquiryProStatus = inquiryProStatus;
+	}
+	
+
+	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
+			Date modifyDate, int inquiryType, String inquiryStore, String inquiryProStatus,
+			String memberId,int receiptNo) {
+		super();
+		this.inquiryNo = inquiryNo;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryAnswer = inquiryAnswer;
+		this.registDate = registDate;
+		this.modifyDate = modifyDate;
+		this.inquiryType = inquiryType;
+		this.inquiryStore = inquiryStore;
+		this.inquiryProStatus = inquiryProStatus;
+		this.receiptNo = receiptNo;
+		this.memberId = memberId;
+	}
+
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 
@@ -162,8 +191,11 @@ public class Center {
 		return "Center [inquiryNo=" + inquiryNo + ", inquiryTitle=" + inquiryTitle + ", inquiryContent="
 				+ inquiryContent + ", inquiryAnswer=" + inquiryAnswer + ", registDate=" + registDate + ", modifyDate="
 				+ modifyDate + ", inquiryType=" + inquiryType + ", inquiryStore=" + inquiryStore + ", inquiryProStatus="
-				+ inquiryProStatus + ", memberNo=" + memberNo + ", receiptNo=" + receiptNo + "]";
+				+ inquiryProStatus + ", memberNo=" + memberNo + ", receiptNo=" + receiptNo + ", memberId=" + memberId
+				+ "]";
 	}
+
+
 	
 	
 

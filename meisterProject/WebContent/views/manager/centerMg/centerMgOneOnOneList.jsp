@@ -2,6 +2,9 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.center.model.vo.Center"%>
 <%
 	ArrayList<Center> list = (ArrayList<Center>)request.getAttribute("list");
+	
+	System.out.println(list);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -16,10 +19,7 @@
 	<!-- 메뉴바 include여기에 해주세요 -->
 	<%@ include file="../../common_manager/imMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
-	
-	<link href="../resources/admin/dist/css/styles.css" rel="stylesheet" />
-	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
     <style>
         tr{text-align: center;}
     </style>
@@ -67,7 +67,7 @@
 											<td><%= c.getInquiryProStatus() %></td>
 										</tr>
 									<% } %>
-								<% } %>
+								<%} %>
 							</tbody>
 						</table>
 					</div>
@@ -77,19 +77,6 @@
 		</main>
 	</div>
 	
-	<script>
-		
-		// 1:1문의 상세조회
-		$(function(){
-			$("#dataListTable>tbody>tr").click(function(){
-				
-				// 현재 클릭했을 때의 해당 1:1문의의 번호
-				var ino = $(this).children().eq(0).text();
-				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/ceMgOneDetail.cem?ino=" + ino;
-			});
-		});
-	
-	</script>
+
 </body>
 </html>

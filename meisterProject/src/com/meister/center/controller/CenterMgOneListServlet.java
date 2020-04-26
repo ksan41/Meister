@@ -36,7 +36,7 @@ public class CenterMgOneListServlet extends HttpServlet {
 		ArrayList<Center> list = new CenterService().selectOneList();
 		
 		request.setAttribute("list", list);
-		
+		response.setCharacterEncoding("utf-8");
 //		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
 //		view.forward(request, response);
 		request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneList.jsp").forward(request, response);
