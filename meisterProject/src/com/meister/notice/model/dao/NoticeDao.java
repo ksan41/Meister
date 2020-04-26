@@ -85,10 +85,7 @@ public class NoticeDao {
 								rset.getString("NOTICE_CONTENT"),
 								rset.getDate("NOTICE_CREATE_DATE"),
 								rset.getInt("NOTICE_COUNT"));
-				
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -170,6 +167,7 @@ public class NoticeDao {
 				list.add(new Notice(rset.getInt("NOTICE_NO"),
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_CREATE_DATE"),
+									rset.getDate("NOTICE_MODIFY_DATE"),
 									rset.getInt("NOTICE_COUNT")));
 			}
 		} catch (SQLException e) {
