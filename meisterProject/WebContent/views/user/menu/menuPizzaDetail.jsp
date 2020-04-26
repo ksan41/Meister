@@ -791,7 +791,7 @@ $(".cnt_up").click(function() {
 
 
 
-
+	<%@ include file="../../common_user/footer.jsp"%>
 
 
 </body>
