@@ -1,6 +1,7 @@
 package com.meister.event.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,7 +47,12 @@ public class EventMgDetailServlet extends HttpServlet {
      	   view.forward(request, response);
      	   
         } else {
-     	   
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('이벤트 실패  T^T'); location.href='views/manager/eventMg/eventMgList.jsp';</script>");
+			out.flush();
         }
 	}
 
