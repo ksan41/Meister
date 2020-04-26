@@ -1,6 +1,7 @@
 package com.meister.center.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,15 +36,20 @@ public class CenterMgOneDetailServlet extends HttpServlet {
 
 		int ino = Integer.parseInt(request.getParameter("ino"));
 		
-		Center c = new CenterService().selectOneList(ino);
+		Center c = new CenterService().selectOne(ino);
 		
 		if(c != null) {	// 조회성공
 			
-			new NoticeService().increaseCount(ino);
-
 			request.setAttribute("c", c);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneDetail.jsp");
 			view.forward(request, response);
+			
+			///////////////////////////////////////////////////////////////////////////
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('1:1 성공'); location.href='views/manager/centerMg/centerMgOneOnOneDetail.jsp';</script>");
+			out.flush();
 			
 		}else {			// 조회실패
 			

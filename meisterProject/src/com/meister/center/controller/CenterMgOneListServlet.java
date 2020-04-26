@@ -39,7 +39,6 @@ public class CenterMgOneListServlet extends HttpServlet {
 		
 //		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
 //		view.forward(request, response);
-		
 		request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOne.jsp").forward(request, response);
 	}
 
