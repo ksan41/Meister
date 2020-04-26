@@ -10,7 +10,11 @@
 	String[] etcCount = basket.getEtcCount().split(",");
 	
 	int pizzaPrice = 0;
-
+	// 추가
+	int sideSum = 0;
+	int etcSum = 0;
+	int totalPrice = 0;
+	int count = 0;
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -18,8 +22,7 @@
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
-	
-	int index = 0;
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -240,7 +243,8 @@
 	                            <input type="hidden" class="sellPrice" name="sellPrice" value="<%=pizzaPrice%>">
 	                            <input type="text" class="amount" name="amount" value="<%=basket.getPizzaCount() %>" size="3"">
 	                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-	                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+	                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=pizzaPrice%>">원
+	                            <%totalPrice += pizzaPrice; %>
 	                        </form>
 	                    </th>
 	                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -278,16 +282,18 @@
 		                    <th>
 		                        <p>
 		                            	<%=s.getSideName() %><br>
-		                            <%=s.getSidePrice() %>원
+		                            	<% sideSum = s.getSidePrice(); %>
+		                            <%=sideSum %>원
 		                        </p>
 		                    </th>
 		                    <th></th>
 		                    <th colspan="2">
 		                        <form name="formSide" class="formSide" method="get">
-		                            <input type=hidden class="sellPrice" value="<%=s.getSidePrice() %>">
+		                            <input type=hidden class="sellPrice" value="<%=sideSum %>">
 		                            <input type="text" class="amount" name="amount" value="<%= sideCount[i] %>" size="3"">
 		                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-		                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+		                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=sideSum %>">원
+		                            <%totalPrice += sideSum; %>
 		                        </form>
 		                    </th>
 		                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -307,16 +313,18 @@
                     <th>기타이미지</th>
                     <th>
                         <p><%=e.getEtcName() %><br>
-                            <%=e.getEtcPrice() %>원
+                            <% etcSum = e.getEtcPrice(); %>
+		                    <%=etcSum %>원
                         </p>
                     </th>
                     <th></th>
                     <th colspan="2">
                         <form name="formEtc" class="formEtc" method="get">
-                            <input type=hidden class="sellPrice" value="<%=e.getEtcPrice()%>">
+                            <input type=hidden class="sellPrice" value="<%=etcSum%>">
                             <input type="text" class="amount" name="amount" value="<%=etcCount[i] %>" size="3"">
                             <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=etcSum%>">원
+   		                    <%totalPrice += etcSum; %>
                         </form>
                     </th>
                     <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
@@ -368,9 +376,16 @@
 	                </tr>
             	</table>
       	<%} %>
-        </div> 
+        </div> 	
         
         <script>
+        $(function(){
+        	console.log("totalPrice = " + <%=totalPrice%>);
+        	console.log("안녕!");
+        	var totalPrice = $('.totalPrice');
+        	totalPrice.innerText = <%=totalPrice%>;
+        	
+    	});
     	$(function(){
         	$('.addBtn').click(function(){	
   				$(this).prev().val(Number($(this).prev().val())+1);
@@ -388,11 +403,7 @@
   				$(this).next().val(sumPrice);
         	});
         	
-        	$('input').click(function(){
-        		var totalPrice = $('.formEtc').children('.sumArea').val();
-            	$(".totalPrice").innerText = totalPrice;
-            	console.log(totalPrice);
-        	});
+        	
         });
         </script>
         
