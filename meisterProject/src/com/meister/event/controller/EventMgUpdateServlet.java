@@ -36,7 +36,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 		// 요청시 한글이 전달될 경우를 대비해서
 		request.setCharacterEncoding("utf-8");
 		
-		int eno = Integer.parseInt(request.getParameter("eno"));
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		String eventTitle = request.getParameter("eventTitle");
 		Date eventOpenTime = java.sql.Date.valueOf(request.getParameter("eventOpenTime"));
 		Date eventCloseTime = java.sql.Date.valueOf(request.getParameter("eventCloseTime"));
@@ -45,7 +45,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 		String eventStatus = request.getParameter("eventStatus");
 		
 		Event e = new Event();
-		e.setEventNo(eno);
+		e.setEventNo(bno);
 		e.setEventTitle(eventTitle);
 		e.setEventOpenTime(eventOpenTime);
 		e.setEventCloseTime(eventCloseTime);

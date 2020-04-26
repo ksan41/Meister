@@ -338,7 +338,7 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form id="eventUpdateForm" action="<%= contextPath %>/evMgUpdate.evm" name="eventUpdateForm" method="post">
-								<input type="hidden" name="eno" value="<%=list.get(i).getEventNo()%>">
+								<input type="hidden" name="bno" value="<%=list.get(i).getEventNo()%>">
 								<table id="eventUpdateTable">
 									<tr>
 										<th>제목</th>
