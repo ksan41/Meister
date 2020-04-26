@@ -146,20 +146,22 @@
 							 	
 							 	<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
-										<td colspan="5">존재하는 공지사항이 없습니다.</td>
+										<td colspan="5">존재하는 주문내역이 없습니다.</td>
 									</tr>
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
-									<% for(Notice n : list){ %>
-							 	<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/12/12 13:24</td>
-									<th>
-										<button class="button" onclick="" style="background-color: yellowgreen;">접수</button>
-									</th>
-								</tr>
+									<% for(Orders o : list){ %>
+									 	<tr data-toggle="modal" data-target="#myModal">
+											<td><%= o.getReceiptNo() %></td>
+											<td><%= o.getReceiptNo() %></td>
+											<td>치즈 L X 1, 콜라 L, 피클</td>
+											<td>2011/12/12 13:24</td>
+											<th>
+												<button class="button" onclick="" style="background-color: yellowgreen;">접수</button>
+											</th>
+										</tr>
+									<% } %>
+								<% } %>
 							</tbody>
 						</table>
 
