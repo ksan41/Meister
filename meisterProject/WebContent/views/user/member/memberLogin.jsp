@@ -142,6 +142,10 @@
         a{		
             color: white;
         }	
+        
+        
+       
+        
     </style>	
 
 
@@ -158,7 +162,7 @@
         <hr>
 		
         <!-- inner영역에 콘텐츠 작성 -->
-        <div class="inner" style="text-align: center;">
+        <div class="inner" style="text-align: center; cursor:pointer" >
             
             <div class="main">
                 <input id="tab1" type="radio" name="tabs" style="width: 200; height: 50;" checked><!--디폴트 메뉴-->
@@ -170,7 +174,7 @@
                 <section id="content1" style="padding-top: 0px">
                     <br><br>
                     
-                    <form action="<%= contextPath %>/loginU.me" method="post">
+                    <form action="<%= contextPath %>/loginU.me" method="post" style="cursor:pointer">
                     <input type="text" name="userId" style="width: 200px;" placeholder="아이디"> <br>
                     <input type="password" name="userPwd" style="width: 200px; margin-top: 10px;" placeholder="비밀번호" >
                     <br><br>

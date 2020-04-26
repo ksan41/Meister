@@ -60,6 +60,7 @@
             background-color: rgb(76, 60, 60);
             border:0;
             border-radius: 5px;
+            cursor:pointer;
         }
     /* 큰버튼 스타일 */
 
@@ -89,10 +90,18 @@
                 <br><br>
                 주문 접수 완료 후에는 취소가 불가능하오니 양해 부탁드립니다.</h5><br><br>
             <div id="btn-area">
-                <button class="big_btn" id="#" style="background-color:rgb(243, 156, 18);">주문내역확인</button>
+                <button class="big_btn" id="#" style="background-color:rgb(243, 156, 18);" onclick="checkOrder();">
+                	주문내역확인
+                </button>
             </div>
         </div>
     </div>
+    
+    <script>
+    	function checkOrder(){
+    		location.href="<%=contextPath%>/myOrderList.my";
+    	};
+    </script>
     <%@ include file="../../common_user/footer.jsp"%>
 </body>
 </html>
