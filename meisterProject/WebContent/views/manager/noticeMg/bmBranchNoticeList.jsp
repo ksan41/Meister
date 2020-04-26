@@ -20,6 +20,9 @@
 	<link href="../../resources/admin/dist/css/styles.css" rel="stylesheet" />
 	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+	<style>
+		table tr{text-align: center;}
+	</style>
 </head>
 <body class="sb-nav-fixed">
 
@@ -39,9 +42,10 @@
 							<thead>
 								<tr>
 									<th width="10%">No</th>
-									<th width="55%">제목</th>
-									<th width="20%">등록일</th>
-									<th width="15%">조회수</th>
+									<th width="50%">제목</th>
+									<th width="15%">등록일</th>
+									<th width="15%">수정일</th>
+									<th width="10%">조회수</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -57,6 +61,7 @@
 											<td><%= n.getNoticeNo() %></td>
 											<td><%= n.getNoticeTitle() %></td>
 											<td><%= n.getCreateDate() %></td>
+											<td><%= n.getModifiyDate() %></td>
 											<td><%= n.getCount() %></td>
 										</tr>
 									<% } %>
