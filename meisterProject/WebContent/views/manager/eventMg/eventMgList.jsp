@@ -186,7 +186,6 @@
 									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
 								</a>
 								<p class="eventTitle"><%=ev.getEventTitle() %></p>
-								<br>
 								<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
 								<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
 								<div align="center">
@@ -292,22 +291,22 @@
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
-											<div style="width:500px; height:250px; border:solid 1px black;">
-												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
+											<div style="width:500px; height:250px;">
+												<%=list.get(i).getEventImage1()%>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th>상세 이미지</th>
 										<td>
-											<div style="width:500px; height:250px; border:solid 1px black;">
-												<input type="file" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
+											<div style="width:500px; height:250px;">
+												<%=list.get(i).getEventImage2()%>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th>배너 등록여부</th>
-										<td><input type="checkbox" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>"></td>
+										<td style="color: red"><%=list.get(i).getEventStatus()%></td>
 									</tr>
 								</table>
 								<br><br>
@@ -428,10 +427,10 @@
 		
 		// 제목 누르면 상세페이지로
 		$(function(){
-		    $(".eventTitle").click(function(){ 
+		    $(".detailButton").click(function(){ 
 			
 			 	var eno = $(this).children().eq(0).val();
-				location.href="<%=contextPath%>/evMgDetail.evm?eno=" + eno;
+				location.href="<%=contextPath%>/evMgDetail.evm?bno=" + bno;
 			});
         });
 	</script>

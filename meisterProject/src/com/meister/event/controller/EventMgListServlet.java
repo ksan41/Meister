@@ -33,12 +33,11 @@ public class EventMgListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Event> list = new EventService().selectList();
+		ArrayList<Event> list = new EventService().selectMgList();
 		
 		request.setAttribute("list", list);
-		RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
-		view.forward(request, response);
-		
+
+		request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp").forward(request, response);
 	}
 
 	/**

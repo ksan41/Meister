@@ -32,14 +32,14 @@ public class EventMgDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int eno = Integer.parseInt(request.getParameter("eno"));
-        Event ev = new EventService().selectAtList(eno);
+		int bno = Integer.parseInt(request.getParameter("bno"));
+        Event e = new EventService().selectAtList(bno);
         
-        Event at = new EventService().selectAtList(eno);
+        Event at = new EventService().selectAtList(bno);
         
-        if(ev != null) {
+        if(e != null) {
      	   
-     	   request.setAttribute("ev", ev);
+     	   request.setAttribute("e", e);
      	   request.setAttribute("list1", at);
      	   
      	   RequestDispatcher view = request.getRequestDispatcher("views/user/event/eventMgDetail.jsp");
