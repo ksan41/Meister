@@ -1,11 +1,16 @@
 package com.meister.order.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.meister.order.model.service.OrderService;
+import com.meister.order.model.vo.Orders;
 
 /**
  * Servlet implementation class OrderMgStatusServlet
@@ -27,7 +32,37 @@ public class OrderMgStatusServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
 		
+		int ono = Integer.parseInt(request.getParameter("ono"));
+//		String title = request.getParameter("title");
+//		String content = request.getParameter("content");
+		
+		Orders o = new Orders();
+		o.setReceiptNo(ono);
+//		n.setNoticeTitle(title);
+//		n.setNoticeContent(content);
+		
+		int result = new OrderService().updateOrderStatus(o);
+		
+		if(result > 0) {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('접수 성공'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
+			out.flush();
+			
+		}else {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			
+			PrintWriter out = response.getWriter();
+			
+			out.println("<script>alert('접수실패'); location.href='/Meister/bmOrderNow.orm?ono="+ono+"';</script>");
+			out.flush();
+		}
 	}
 
 	/**
