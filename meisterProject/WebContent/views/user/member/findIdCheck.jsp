@@ -158,7 +158,7 @@
             <!-- 현재 페이지는 orange 로 표시 -->
             <a href="" style="color:orange">아이디찾기</a>
             <span style="color:lightgray; font-size: 17px;">|</span>
-            <a href="" >비밀번호찾기</a>
+            <a href="<%=contextPath%>/findPwd.me" >비밀번호찾기</a>
         </div>
         <hr>
 			

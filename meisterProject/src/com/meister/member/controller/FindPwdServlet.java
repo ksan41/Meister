@@ -32,7 +32,7 @@ public class FindPwdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
- 
+		
 		
 		String memberId = request.getParameter("memberId");
 		System.out.println(memberId);

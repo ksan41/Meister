@@ -141,7 +141,7 @@
         <div id="index-area"><a href="">홈</a> &gt; 아이디/비밀번호 찾기</div>
         <div class="sub-menu-area">
             <!-- 현재 페이지는 orange 로 표시 -->
-            <a href="">아이디찾기</a>
+            <a href="<%=contextPath%>/findId.me">아이디찾기</a>
             <span style="color:lightgray; font-size: 17px;">|</span>
             <a href="" style="color:orange">비밀번호찾기</a>
         </div>
