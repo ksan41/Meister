@@ -149,7 +149,7 @@ table {
 					<tr>
 						<th>이름</th>
 						<td colspan="2"><input class="text-area" type="text" id="name"
-							name="name" style="height: 31px;" placeholder="한글 2글자 이상"></td>
+							name="name"  required style="height: 31px;" placeholder="한글 2글자 이상"></td>
 
 					</tr>
 					<tr>
@@ -162,7 +162,7 @@ table {
 					<tr>
 						<th>비밀번호</th>
 						<td colspan="2"><input class="text-area" type="password" id="userPwd"
-							name="userPwd" style="height: 31px; font-family: inherit;" placeholder="영문,숫자 8~15글자 이하" ></td>
+							name="userPwd" required style="height: 31px; font-family: inherit;" placeholder="영문,숫자 8~15글자 이하" ></td>
 					</tr>
 					<tr>
 						<th>비밀번호 확인</th>
@@ -183,12 +183,12 @@ table {
 					<tr>
 						<th>휴대전화</th>
 						<td colspan="2"><input class="text-area" id="phone"
-							name="phone" type="tel" placeholder="-포함해서 입력해주세요" style="height: 31px;"></td>
+							name="phone"  type="tel" placeholder="-포함해서 입력해주세요" style="height: 31px;"></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
 						<td colspan="2"><input class="text-area" type="email"
-							name="email" style="height: 31px;"></td>
+							name="email"  style="height: 31px;"></td>
 					</tr>
 				</table>
 				<br>
