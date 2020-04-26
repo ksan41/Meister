@@ -670,5 +670,39 @@ public class MyPageDao {
 		
 		return order;
 	}
+	
+	
+	// 12_5.
+	public Coupon selectDiscountRate(Connection conn, int ono) {
+		
+		Coupon discountInfo = null;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDiscountRate");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, ono);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				discountInfo = new Coupon();
+				discountInfo.setCouponNo(rset.getInt("coupon_no"));
+				discountInfo.setCouponDiscount(rset.getInt("coupon_discount"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return discountInfo;
+	}
 
 }

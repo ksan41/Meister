@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
+	pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Orders oInfo = (Orders)request.getAttribute("oInfo");
 	Payment pInfo = (Payment)request.getAttribute("pInfo");
 	
 	Price order = (Price)request.getAttribute("order");
+	
+	Coupon discountInfo = (Coupon)request.getAttribute("discountInfo");
 	
 	String[] pizzaSize = order.getPizzaSize().split(",");
 	String[] pizzaNo = order.getPizzaNo().split(",");
@@ -33,6 +35,10 @@
 	String eName = "";
 	int eCount = 0;
 	int ePrice = 0;
+	
+	int basketPrice = 0;
+	int discountPrice = 0;
+	double dRate = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -236,6 +242,7 @@ div {
 									<% pPrice = (pPrice + doughPrice) * pCount; %>
 									
 									<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
+									<%basketPrice += pPrice; %>
 								<% } %>
 								
 								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
@@ -254,6 +261,7 @@ div {
 										<% sPrice = sPrice * sCount; %>
 										
 										<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
+										<%basketPrice += sPrice; %>
 									<% } %>
 								<% } %>
 								
@@ -272,13 +280,15 @@ div {
 										<% eCount = Integer.parseInt(etcCount[i]); %>
 										<% ePrice = ePrice * eCount; %>
 										
-										<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>										
+										<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>
+										<%basketPrice += ePrice; %>									
 									<% } %>
 								<% } %>
 								
 								<br>
 							</p>
 						</th>
+						
 						<th width="10px"><hr class="xo" style="margin-right: 50px;"></th>
 						<th style="padding-right: 5%;">
 							<div>
@@ -286,13 +296,18 @@ div {
 									<tr>
 										<td style="text-align: left;">주문금액</td>
 										<td style="font-size: 16px; padding-left:9px;">
-											 원
+											<%=basketPrice %> 원
 										</td>
 									</tr>
 									<tr>
 										<td style="text-align: left;">할인금액</td>
 										<td style="padding-right: 8px; color: orangered; font-size: 16px;">
-											- 원
+											<% if(discountInfo != null){ %>
+												<% dRate = discountInfo.getCouponDiscount() * 0.01; %>
+												<% System.out.println(dRate); %>
+											<% } %>
+											<%discountPrice = ((int)(basketPrice * dRate)); %>
+											-<%=discountPrice %> 원
 										</td>
 									</tr>
 									<tr>
@@ -300,7 +315,7 @@ div {
 									</tr>
 									<tr style="font-weight: bolder;">
 										<td style="text-align: left;">결제금액</td>
-										<td style="font-size: 18px; padding-left:9px;"><%=pInfo.getPaymentPrice()%> 원</td>
+										<td style="font-size: 18px; padding-left:9px;"><%=basketPrice-discountPrice%> 원</td>
 									</tr>
 								</table>
 							</div>

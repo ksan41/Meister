@@ -344,5 +344,22 @@ public class MyPageService {
 		return order;
 	}
 	
+	
+	/**
+	 * 12_5. 해당 주문의 할인 금액 조회용 서비스(주문 상세조회)
+	 * @param ono
+	 * @return
+	 */
+	public Coupon selectDiscountRate(int ono) {
+		
+		Connection conn = getConnection();
+		
+		Coupon discountInfo = new MyPageDao().selectDiscountRate(conn, ono);
+		
+		close(conn);
+		
+		return discountInfo;
+	}
+	
 
 }

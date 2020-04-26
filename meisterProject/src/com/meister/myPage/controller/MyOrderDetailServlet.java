@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.meister.coupon.model.vo.Coupon;
 import com.meister.menu.model.service.MenuService;
 import com.meister.menu.model.vo.Dough;
 import com.meister.menu.model.vo.Etc;
@@ -52,12 +53,15 @@ public class MyOrderDetailServlet extends HttpServlet {
 		
 		Price order = new MyPageService().selectOrderProducts(ono);
 		
+		Coupon discountInfo = new MyPageService().selectDiscountRate(ono);
+		
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
 		ArrayList<PizzaSize> sizeList = new MenuService().selectPizzaSizeList();
 		
 		ArrayList<Side> sList = new MenuService().selectSideList();
 		ArrayList<Etc> eList = new MenuService().selectEtcList();
 		ArrayList<Dough> dList = new MenuService().selectDoughList();
+		
 
 		
 		// 처리 결과를 통해 사용자가 보게될 뷰 요청
@@ -65,6 +69,7 @@ public class MyOrderDetailServlet extends HttpServlet {
 		request.setAttribute("oInfo", oInfo);	// ordersInfo
 		request.setAttribute("pInfo", pInfo);	// paymentInfo
 		request.setAttribute("order", order);
+		request.setAttribute("discountInfo", discountInfo);
 		request.setAttribute("pList", pList);
 		request.setAttribute("sizeList", sizeList);
 		request.setAttribute("sList", sList);
