@@ -289,7 +289,7 @@
 	                            <select name="coupon" style="width:300px; height: 35px; border-radius: 5px;">
 	                            	<% if(cInfo != null){ %>
 	                            		<% for(int i=0; i<cInfo.size(); i++){ %>
-	                            			<option value="coupon1"><%=cInfo.get(i).getCouponName()%></option>
+	                            			<option id="cRate" value="<%=cInfo.get(i).getCouponDiscount()%>"><%=cInfo.get(i).getCouponName()%></option>
 	                            		<% } %>
 	                            	<% }else { %>
 	                            		<option>보유중인 쿠폰이 없습니다.</option>
@@ -335,7 +335,7 @@
                         <td>총 할인 금액</td>
                     </tr>
                     <% if(cInfo != null){ %>
-						<% dRate = cInfo.getCouponDiscount() * 0.01; %>
+						<% //dRate = cInfo.getCouponDiscount() * 0.01; %>
 					<% } %>
 					<%discountPrice = ((int)(basketPrice * dRate)); %>
                     <tr style="font-weight: bold;">
@@ -351,6 +351,11 @@
             <button class="big_btn" id="#">결제하기</button>
         </div>
     </div>
+    
+    <script>
+    	$("#cRate option:selected").val();
+    </script>
+    
     <%@ include file="../../common_user/footer.jsp"%>
     
 </body>
