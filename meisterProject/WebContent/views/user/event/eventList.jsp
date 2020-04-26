@@ -150,7 +150,7 @@
 			
 				<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
 				<a id="detail1">
-				<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
+					<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
 				</a>
 
 			</div>

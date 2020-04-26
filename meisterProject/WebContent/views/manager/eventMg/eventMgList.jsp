@@ -185,7 +185,8 @@
 								<a id="detail1">
 									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
 								</a>
-								<%=ev.getEventTitle() %><br>
+								<p class="eventTitle"><%=ev.getEventTitle() %></p>
+								<br>
 								<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
 								<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
 								<div align="center">
@@ -425,11 +426,12 @@
 			}
 		});
 		
-		$(function(){  		
-		    $(".thumbnail").click(function(){ 
+		// 제목 누르면 상세페이지로
+		$(function(){
+		    $(".eventTitle").click(function(){ 
 			
-			 	var bno = $(this).children().eq(0).val();
-				location.href="<%=contextPath%>/evMgList.evm?bno=" + bno;
+			 	var eno = $(this).children().eq(0).val();
+				location.href="<%=contextPath%>/evMgDetail.evm?eno=" + eno;
 			});
         });
 	</script>

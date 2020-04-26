@@ -29,9 +29,8 @@ public class EventService {
 		return list;
 	}
 
-	/**
-	 * 태경 이벤트 상세 페이지
-	 * 
+	/**태경
+	 * 이벤트 상세 페이지
 	 * @return
 	 */
 	public Event selectAtList(int bno) {

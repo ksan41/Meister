@@ -108,7 +108,6 @@ public class EventDao {
 											 rset.getDate("EVENT_REGISTER_DATE"),
 											 rset.getDate("EVENT_MODIFY_DATE"));
 			}
-
 		} catch (SQLException e) {
 
 			e.printStackTrace();
