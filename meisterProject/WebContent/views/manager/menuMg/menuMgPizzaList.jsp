@@ -659,7 +659,7 @@ div {
 								<!-- Modal body -->
 				<div class="modal-body" style="width: 1100px; height: 700px">
 
-					<form class="menuUpdateFormP<%=upIndex %>"
+					<form class="menuUpdateFormP"
 						action="<%=contextPath%>/pizzaUp.meng" method="post"
 						enctype="multipart/form-data">
 						<input type="hidden" name="pNo"
@@ -670,11 +670,11 @@ div {
 								<td><input name="pName" type="text" class="inputs"
 									value="<%=pList.get(i).getPizzaName()%>" required></td>
 								<th rowspan="2">이미지첨부 <input class="menuFile" name="menuImg" onchange="loadImg(this);"
-									type="file" style="display: none;" required>
+									type="file" style="display: none;">
 								</th>
 								<td rowspan="2">
-									<div class="menu-update-img-area<%=i%>">
-										<img id="menuUpImg<%=i %>" class="menu-upImg"
+									<div class="menu-update-img-area">
+										<img id="menuUpImg" class="menu-upImg"
 											src="<%=contextPath%>/resources/siteImgs/menuImg/pizza/<%=pList.get(i).getPizzaImg()%>"
 											alt="">
 									</div>
@@ -764,9 +764,9 @@ div {
 				// 파일 읽기가 다 완료되었을때 실행할 메소드
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
-						$("#menuUpImg").attr("src", e.target.result);
+						$(".menu-upImg:eq("+<%=upIndex%>+")").attr("src", e.target.result);
 				};
-		}
+		};
 	</script>
 </body>
 </html>
