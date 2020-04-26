@@ -233,8 +233,6 @@ public class CenterDao {
 									rset.getInt("NOTICE_COUNT")));
 				
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -242,11 +240,6 @@ public class CenterDao {
 			close(rset);
 			close(stmt);
 		}
-		
 		return list;
-		
 	}
-	
-       
-       
 }

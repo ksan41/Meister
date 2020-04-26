@@ -153,8 +153,6 @@
 			</div>
 			<hr>
 
-
-
 			<div class="faqBtns">
 				<button id="active1">피자 주문하기</button>
 				<button id="active2">주문확인</button>
