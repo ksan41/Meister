@@ -110,7 +110,8 @@ public class MailServlet extends HttpServlet {
     	
     	Gson gson = new Gson();
     	
-    	gson.toJson(AuthenticationKey,response.getWriter()); 
+    	gson.toJson(AuthenticationKey,response.getWriter()); 	
+    	
 	
 	}
 

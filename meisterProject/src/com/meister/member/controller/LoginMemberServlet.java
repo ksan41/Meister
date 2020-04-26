@@ -58,11 +58,15 @@ public class LoginMemberServlet extends HttpServlet {
 			
 		} else {
 			
-			request.setAttribute("msg", "로그인에 실패했습니다");
-			response.sendRedirect("showLoginPage.me");
-			
-			System.out.println("실패");
 
+          response.setContentType("text/html; charset=UTF-8");
+ 
+          PrintWriter out = response.getWriter();
+ 
+          out.println("<script>alert('로그인에 실패했습니다'); location.href='showLoginPage.me';</script>");
+ 
+          out.flush();
+          
 		}
 		
 }
