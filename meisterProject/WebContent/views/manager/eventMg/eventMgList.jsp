@@ -168,7 +168,7 @@
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 이벤트 관리
 				</div>
-				<div class="card-body">
+				<div class="card-body" align="center">
 
 					<div align="right">
 						<button class="button" data-toggle="modal" data-target="#eventEnrollModal">
@@ -180,7 +180,7 @@
 					<% } else { %>
 						<% for(int i=0; i<list.size(); i++) { Event ev = list.get(i); %>
 
-							<div class="thumbnail" align="center">
+							<div class="thumbnail" align="center" style="height:400px; margin:auto; margin-top:70px">
 								<input type="hidden" name="bno" value="<%=ev.getEventNo() %>"> 
 								<a id="detail1">
 									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">

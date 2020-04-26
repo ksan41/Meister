@@ -57,7 +57,7 @@
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
 									<% for(Center c : list){ %>
-										<tr>
+										<tr style="height:900px;">
 											<td><%= c.getInquiryNo() %></td>
 											<td><%= c.getInquiryType() %></td>
 											<td><%= c.getInquiryStore() %></td>
