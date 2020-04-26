@@ -54,6 +54,8 @@ ArrayList<Event> list = new EventService().selectList();
         #deliveryBtn{color:#6C98BF;}
         #takeOutBtn{color:#D18551;}
         
+        .single_customer{width:500px;}
+        
 </style>
 </head>
 <body>
