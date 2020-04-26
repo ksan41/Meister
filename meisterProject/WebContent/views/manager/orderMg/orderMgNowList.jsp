@@ -404,7 +404,7 @@
 						<!-- Modal footer -->
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
-							<button type="button" class="btn btn-danger" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
+							<button onclick="orderManage();" type="button" class="btn btn-danger" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
 								주문접수
 							</button>
 						</div>
@@ -415,11 +415,16 @@
 		<% } %>
 	<% } %>
 	
-	orderManage
+	<form id="postFormOrders" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
+		<input type="hidden" name="receiptNo" value="<%= list.get(k).getReceiptNo() %>">
+	</form>
+	
 	<script>
 		
+		function orderManage(){
+			$("#postFormOrders").submit();
+		};
 		
-	
 	</script>
 </body>
 </html>

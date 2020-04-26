@@ -469,10 +469,6 @@
 
 
 	<script>
-		
-
-		
-
 			$("#activeMgFAQ1").click(
 				function() {
 					if ($('.contentMg1').css('display') == 'none')
