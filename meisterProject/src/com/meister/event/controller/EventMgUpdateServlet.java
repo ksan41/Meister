@@ -61,7 +61,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('이벤트 수정 성공'); location.href='/Meister/evMgDetail.evm?eno=" + eno + "';</script>");
+			out.println("<script>alert('이벤트 수정 성공'); location.href='/Meister/evMgDetail.evm?bno=" + bno + "';</script>");
 			out.flush();
 
 			
@@ -71,7 +71,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('이벤트 수정 실패'); location.href='/Meister//Meister/evMgDetail.evm?eno=" + eno + "';</script>");
+			out.println("<script>alert('이벤트 수정 실패'); location.href='/Meister/evMgDetail.evm?bno=" + bno + "';</script>");
 			out.flush();
 		}
 	}

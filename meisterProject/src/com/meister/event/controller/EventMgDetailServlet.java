@@ -42,7 +42,7 @@ public class EventMgDetailServlet extends HttpServlet {
      	   request.setAttribute("e", e);
      	   request.setAttribute("list1", at);
      	   
-     	   RequestDispatcher view = request.getRequestDispatcher("views/user/event/eventMgDetail.jsp");
+     	   RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
      	   view.forward(request, response);
      	   
         } else {
