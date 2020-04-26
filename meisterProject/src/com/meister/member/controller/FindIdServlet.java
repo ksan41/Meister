@@ -1,6 +1,7 @@
 package com.meister.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -73,8 +74,16 @@ public class FindIdServlet extends HttpServlet {
 		view.forward(request, response);
 		
 		} else {
-			response.sendRedirect(request.getContextPath() + "/showFindIdCheck.me");
-			System.out.println("실패");
+			
+
+         response.setContentType("text/html; charset=UTF-8");
+ 
+         PrintWriter out = response.getWriter();
+ 
+         out.println("<script>alert('아이디를 조회 할 수 없습니다'); location.href='showFindIdCheck.me';</script>");
+ 
+         out.flush();
+         
 		}
 		
 		
