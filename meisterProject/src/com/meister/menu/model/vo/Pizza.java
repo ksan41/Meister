@@ -6,7 +6,7 @@ public class Pizza {
 	
 	private int pizzaNo;			// 피자번호
 	private String pizzaName;		// 피자명
-	private String pizzaType;		// P: 프리미엄 C: 클래식
+	private String pizzaType;		// (1)P: 프리미엄 (2)C: 클래식
 	private String pizzaImg;		// 피자이미지 경로+이미지파일명
 	private String pizzaContent;	// 피자 설명
 	private String pizzaTopping;	// 피자 토핑 설명
