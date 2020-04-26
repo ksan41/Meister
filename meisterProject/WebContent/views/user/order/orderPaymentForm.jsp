@@ -419,7 +419,7 @@
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					msg += '카드 승인번호 : ' + rsp.apply_num;
 					
-					location.href="<%=contextPath%>";	
+					location.href="<%=contextPath%>/orderPaySuccess.or";	
 					
 				} else {
 					var msg = '결제에 실패하였습니다.';
