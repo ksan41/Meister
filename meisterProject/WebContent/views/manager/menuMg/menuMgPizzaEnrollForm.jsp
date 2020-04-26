@@ -235,7 +235,7 @@
 									</tr>
 									<tr>
 										<th>메뉴명</th>
-										<td><input type="text" class="inputs"></td>
+										<td><input name="pizzaName" type="text" class="inputs"></td>
 										<th rowspan="2">이미지첨부 <input name="menuImg" type="file"
 											style="display: none;" onchange="loadImg(this);">
 										</th>
@@ -246,10 +246,14 @@
 										</td>
 									</tr>
 									<tr>
+										<th>메뉴소개</th>
+										<td><textarea name="contents" class="inputs" cols="50"
+												rows="9" style="resize: none;"></textarea></td>
+									</tr>
+									<tr>
 										<th>토핑</th>
 										<td><textarea name="toppings" class="inputs" cols="50"
 												rows="9" style="resize: none;"></textarea></td>
-
 									</tr>
 									<tr>
 										<th rowspan="2">원산지</th>

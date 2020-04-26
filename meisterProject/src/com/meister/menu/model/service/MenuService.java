@@ -193,4 +193,22 @@ public class MenuService {
 		return resultP*resultPs;
 	}
 	
+	
+	
+	/**산
+	 * 통합관리자- 피자 등록 서비스
+	 * @param p : 등록할 피자정보가 담긴 Pizza객체
+	 * @param pName : 등록할 피자이름(사이즈 insert시 필요)
+	 * @param priceM : 등록할 피자의 M사이즈 가격
+	 * @param priceL : 등록할 피자의 L사이즈 가격
+	 * @return : 처리된 행의 개수
+	 */
+	public int insertMenuPizza(Pizza p,String pName,int priceM,int priceL) {
+		
+		Connection conn = getConnection();
+		
+		
+		
+		
+	}
 }
