@@ -415,6 +415,27 @@
 			<!-- 모달 끝 -->
 		<% } %>
 	<% } %>
+	
+	<script>
+		// 공지사항 등록폼(imNoticeMenroll.nom)
+		$(function(){
+			$('.button').click(function(){
+				// 공지사항 등록 서블릿으로 이동
+				location.href="<%= contextPath %>/imNoticeMenroll.nom";
+			});
+		});
+	
+		// 주문내역 상세조회
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				
+				// 현재 클릭했을 때의 해당 공지사항의 번호
+				var ono = $(this).children().eq(0).text();
+				// 쿼리스트링 이용해서 전달값 전달
+				location.href="<%= contextPath %>/imNoticeMdetail.nom?ono=" + ono;
+			});
+		});
+	</script>
 
 </body>
 </html>
