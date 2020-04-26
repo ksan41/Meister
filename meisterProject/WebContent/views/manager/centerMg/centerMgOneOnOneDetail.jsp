@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "com.meister.center.model.vo.Center"%>
+<%
+	Center c = (Center)request.getAttribute("c");
+	// 제목, 작성일, 조회수,내용
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,13 +57,6 @@
 		<div class="container-fluid">
 			<h1 class="mt-4">1:1 문의</h1>
 			<br>
-			<!-- <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="menubar_im.html">홈</a></li>
-                            <li class="breadcrumb-item active">지점 공지사항</li>
-                        </ol> -->
-			<!-- <div class="card mb-4">
-                            <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
-                        </div> -->
 			<div class="card mb-4">
 				<div class="card-header">
 					<i class="fas fa-table mr-1"></i> 1:1 문의 상세보기
@@ -74,41 +71,41 @@
 									<select name="answer" id="answer" disabled>
 										<option value="processing" selected>처리중</option>
 										<option value="reply">답변완료</option>
-								</select></th>
+									</select>
+								</th>
 							</tr>
 							<tr>
 								<td>아이디</td>
-								<th style="height: 50px;">user01</th>
+								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<th style="height: 50px;">010-7777-7777</th>
+								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<th style="height: 50px;">user01@naver.com</th>
+								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
 							</tr>
 							<tr>
 								<td>제목</td>
-								<th style="height: 50px;">현기증나요</th>
+								<th style="height: 50px;"><%= c.getInquiryTitle() %></th>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<th style="height: 250px; font-size: 13px;">안녕하세요 장인님<br>
-									너무 맛있어서 현기증 나요<br> 어떻게 하나요?
+								<th style="height: 250px; font-size: 13px;">
+									<%= c.getInquiryContent() %>
 								</th>
 							</tr>
 							<tr>
 								<td>답변</td>
-								<th style="height: 250px; font-size: 13px; color: brown"><textarea
-										id="contentArea"
-										style="font-size: 1.0em; color: cornflowerblue" readonly>답변내용</textarea>
+								<th style="height: 250px; font-size: 13px; color: brown">
+									<textarea id="contentArea" style="font-size: 1.0em; color: cornflowerblue" readonly><%= c.getInquiryAnswer() %></textarea>
 								</th>
 							</tr>
 						</table>
 
 						<div align="center">
-							<button class="button" onclick="">목록으로</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
 						</div>
 
 					</div>

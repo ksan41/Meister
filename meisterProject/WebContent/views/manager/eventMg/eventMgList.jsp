@@ -364,12 +364,6 @@
 											<input type="file" name="eventImage2" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
 										</td>
 									</tr>
-									<tr>
-										<th>배너 등록여부</th>
-										<td>
-											<input type="checkbox" name="eventStatus" style="margin-left: 10px;" value="<%=list.get(i).getEventStatus()%>">
-										</td>
-									</tr>
 								</table>
 								<br><br>
 		

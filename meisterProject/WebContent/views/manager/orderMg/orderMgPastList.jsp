@@ -154,54 +154,6 @@ h4, .h4 {
 									<td>치즈 L X 1, 콜라 L, 피클</td>
 									<td>2011/12/12 13:24</td>
 								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/09/20 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2009/10/09 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/12/22 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/11/14 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/06/07 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2010/03/11 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/08/14 13:24</td>
-								</tr>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/06/02 13:24</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
