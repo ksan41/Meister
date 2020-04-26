@@ -62,19 +62,6 @@ public class EventService {
 		return result;
 	}
 	
-	/**연화
-	 * 이벤트리스트 조회용 서비스
-	 * @return : 조회해온 이벤트객체들이 담긴 ArrayList
-	 */
-	public ArrayList<Event> selectMgList() {
 
-		Connection conn = getConnection();
-
-		ArrayList<Event> list = new EventDao().selectMgList(conn);
-
-		close(conn);
-
-		return list;
-	}
 
 }

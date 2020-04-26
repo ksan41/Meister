@@ -9,10 +9,10 @@ public class Event {
 	private Date eventOpenTime; 		// 시작일
 	private Date eventCloseTime; 		// 종료일
 	private String eventImage1;			// 썸네일 이미지
-	private String  eventImage2;		// 상세 이미지
-	private Date  eventRegisterDate;	// 등록일
-	private Date  eventModifyDate;		// 수정일 
-	private String  eventStatus;		// 노출여부
+	private String eventImage2;		// 상세 이미지
+	private Date eventRegisterDate;	// 등록일
+	private Date eventModifyDate;		// 수정일 
+	private String eventStatus;		// 노출여부
 	
 	public Event() {
 		

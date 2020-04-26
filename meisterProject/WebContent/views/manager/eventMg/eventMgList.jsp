@@ -237,12 +237,6 @@
 								<th>상세 이미지</th>
 								<td><input name="eventImage2" type="file" style="margin-left: 10px;"></td>
 							</tr>
-							<!-- 
-							<tr>
-								<th>노출여부</th>
-								<td><input name="eventStatus" type="checkbox" style="margin-left: 10px;"></td>
-							</tr>
-							 -->
 						</table>
 						<br><br>
 
