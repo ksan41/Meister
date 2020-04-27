@@ -84,7 +84,6 @@ public class BranchInsertServlet extends HttpServlet {
 			
 			Manager m = new Manager();
 			m.setManagerId(bmId);
-			m.setManagerPwd("0000");
 			m.setManagerType("지점");
 			m.setName(name);
 			m.setPhone(phone);
