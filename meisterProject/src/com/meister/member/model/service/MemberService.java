@@ -230,6 +230,11 @@ public class MemberService {
 	}
 	
 
+	/** 아이디 찾기
+	 * @param name2
+	 * @param email
+	 * @return
+	 */
 	public Member selectid(String name2, String email) {
 		
 		Connection conn = getConnection();
@@ -242,11 +247,16 @@ public class MemberService {
 	}
 	
 	
+	/** 비밀번호 찾기
+	 * @param memberId
+	 * @param email
+	 * @return
+	 */
 	public Member selectpwd(String memberId, String email) {
 		
 		Connection conn = getConnection();
 		
-		Member selectpwd= new MemberDao().selectid(conn, memberId, email);
+		Member selectpwd= new MemberDao().selectpwd(conn, memberId, email);
 		
 		close(conn);
 		

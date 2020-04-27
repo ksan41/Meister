@@ -553,6 +553,7 @@ private Properties prop = new Properties();
 				selectpwd.setMemberPwd(rset.getString("MEMBER_PWD"));
 				selectpwd.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
 				selectpwd.setMemberName(rset.getString("MEMBER_NAME"));
+				
 					
 			}
 			

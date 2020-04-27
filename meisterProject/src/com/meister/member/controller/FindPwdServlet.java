@@ -48,7 +48,7 @@ public class FindPwdServlet extends HttpServlet {
 		//response.sendRedirect(request.getContextPath() + "/showFindIdResult.me");
 		System.out.println("성공");
 		//System.out.println(request.getContextPath());
-		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findldSuccess.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findPwdSuccess.jsp");
 		view.forward(request, response);
 		
 		} else {
