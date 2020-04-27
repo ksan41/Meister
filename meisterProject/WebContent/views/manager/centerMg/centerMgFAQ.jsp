@@ -6,6 +6,7 @@
 	ArrayList<Faq> plist = (ArrayList<Faq>) request.getAttribute("plist");
 	ArrayList<Faq> hlist = (ArrayList<Faq>) request.getAttribute("hlist");
 	Faq f = (Faq)request.getAttribute("f");
+	System.out.println("지점1 : " + f);
 %>
 
 <!DOCTYPE html>
@@ -112,12 +113,13 @@
 					</div>
 					<hr>
 	
+					<% int upIndex = 0; %>	
 					<div class="contentMg1">
-						<% int upIndex = 0; %>
 						<% for(int i=0; i<list.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<%System.out.println("지점2 : " + f.getFaqNo()); %>
 									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
@@ -147,7 +149,7 @@
 
 
 					<div class="contentMg2">
-						<% int upIndex = 0; %>
+						<% upIndex = 0; %>
 						<% for(int i=0; i<rlist.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (rlist.get(i).getFaqType().equals("주문확인")) { %>
@@ -180,7 +182,7 @@
 					</div>
 
 					<div class="contentMg3">
-						<% int upIndex = 0; %>
+						<% upIndex = 0; %>
 						<% for(int i=0; i<plist.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (plist.get(i).getFaqType().equals("포장주문")) { %>
@@ -213,7 +215,7 @@
 					</div>
 
 					<div class="contentMg4">
-						<% int upIndex = 0; %>
+						<% upIndex = 0; %>
 						<% for(int i=0; i<hlist.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
@@ -546,7 +548,7 @@
 //		function deleteConfirm(){
 //			$(".postFormFaq").submit();
 //		};
-
+		// 삭제버튼
 		$(document).on("click",".deleteConfirm",function(){
 			console.log("클릭됨됨됨");
 			var index = $(".deleteConfirm").index(this);

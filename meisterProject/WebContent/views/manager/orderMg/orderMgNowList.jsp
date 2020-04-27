@@ -283,9 +283,9 @@
 	
 	<% if(list.isEmpty()){%>
 	<%}else{ %>
-	
+		<% int upIndex = 0; %>
 		<%for(int k=0; k<list.size(); k++){ %>
-		
+			<% upIndex++; %>
 			<!-- 주문 상세 모달 시작 -->
 			<div class="modal fade" id="myModal">
 				<!-- modal별 id 변경해주세요-->
@@ -404,9 +404,12 @@
 						<!-- Modal footer -->
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
-							<button onclick="orderManage();" type="button" class="btn btn-danger" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
-								주문접수
-							</button>
+							<form class="orderStatusManage" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
+								<input type="hidden" name="faqNo" value="<%= list.get(k).getReceiptNo() %>">
+								<button type="button" class="btn btn-danger orderManage" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
+									주문접수
+								</button>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -423,9 +426,15 @@
 	
 	<script>
 		
-		function orderManage(){
-			$("#postFormOrders").submit();
-		};
+//		function orderManage(){
+//			$("#postFormOrders").submit();
+//		};
+
+		$(document).on("click",".orderManage",function(){
+			console.log("클릭됨됨됨");
+			var index = $(".orderManage").index(this);
+			$(".orderStatusManage:eq("+index+")").submit();
+		});
 		
 	</script>
 </body>
