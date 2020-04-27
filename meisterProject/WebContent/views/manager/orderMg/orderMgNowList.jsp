@@ -415,9 +415,11 @@
 		<% } %>
 	<% } %>
 	
+	<!-- 
 	<form id="postFormOrders" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
 		<input type="hidden" name="ono" value="<%= list.get(k).getReceiptNo() %>">
 	</form>
+	 -->
 	
 	<script>
 		

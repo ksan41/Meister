@@ -463,9 +463,7 @@
 	<%} %>
 	
 	
-	<form id="postFormFaq" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
-	</form>
+
 
 
 	<script>
