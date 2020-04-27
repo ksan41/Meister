@@ -1,10 +1,14 @@
 package com.meister.notice.model.service;
 
-import static com.meister.common.JDBCTemplate.*;
+import static com.meister.common.JDBCTemplate.close;
+import static com.meister.common.JDBCTemplate.commit;
+import static com.meister.common.JDBCTemplate.getConnection;
+import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.meister.common.PageInfo;
 import com.meister.notice.model.dao.NoticeDao;
 import com.meister.notice.model.vo.Notice;
 
@@ -14,11 +18,11 @@ public class NoticeService {
 	 * 1. 고객공지사항 리스트 조회용 서비스
 	 * @return list --> Notice 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
-	public ArrayList<Notice> selectList(){
+	public ArrayList<Notice> selectList(PageInfo pi){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Notice> list = new NoticeDao().selectList(conn);
+		ArrayList<Notice> list = new NoticeDao().selectList(conn, pi);
 		
 		close(conn);
 		
@@ -182,4 +186,25 @@ public class NoticeService {
 		
 		return result;
 	}
+	
+	/**현영
+	 * 10. 게시판 리스트 총 갯수 조회용 서비스(페이징바)
+	 * @return	--> 게시판 총 게시글 갯수
+	 */
+	public int getListCount() {
+		
+		Connection conn = getConnection();
+		
+		int listCount = new NoticeDao().getListCount(conn);
+		
+		close(conn);
+		
+		return listCount;
+		
+	}
+	
+	
+	
+	
+	
 }
