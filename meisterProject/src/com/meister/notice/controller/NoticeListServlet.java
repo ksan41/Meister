@@ -71,7 +71,7 @@ public class NoticeListServlet extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
-		System.out.println(pi);
+		//System.out.println(pi);
 		// ---------- 페이징 처리 ----------------- 
 		
 		

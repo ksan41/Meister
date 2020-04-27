@@ -102,11 +102,11 @@ div {
 }*/
 
 /* .pagination {
-            display: inline-block;
-        } */
+    display: inline-block;
+} */
 .pagination a {
 	color: black;
-	padding: 5px 10px;
+ 	padding: 5px 10px;
 	text-decoration: none;
 	transition: background-color .3s;
 	border: 1px solid #ddd;
@@ -291,43 +291,69 @@ background-color
 			<br>
 			
 			<!-- 현재 페이지에 보여질 페이징바 -->
-			<!-- <div class="pagination" align="center">
+			<div class="pagination" align="center">
 				<div>
-					<a href="#">&laquo;</a> <a href="#">1</a> <a href="#" class="active">2</a>
-					<a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a>
-					<a href="#">&raquo;</a>
+					<% if(currentPage != 1){ %>
+					<!--  맨 처음으로(<<) -->
+					<a href="nList.no?currentPage=1">&laquo;&laquo;</a> 
+					<!-- 이전페이지로(<) -->
+					<a href="nList.no?currentPage=<%= currentPage-1 %>">&laquo;</a> 
+					<% } %>
+<!-- 					<a href="#">1</a> 
+					<a href="#" class="active">2</a>
+					<a href="#">3</a> 
+					<a href="#">4</a> 
+					<a href="#">5</a> 
+					<a href="#">6</a> -->
+					
+					<% for(int p=startPage; p<=endPage; p++){ %>
+						<% if(currentPage != p){ %>
+							<a href="nList.no?currentPage=<%=p%>"><%= p %></a> 
+						<%}else{ %>
+							<a href="#" class="active"><%= p %></a>
+						<%} %>
+					
+					<% } %>
+					
+					<% if(currentPage != maxPage){ %>
+					<!-- 다음페이지로(>) -->
+					<a href="nList.no?currentPage=<%= currentPage+1 %>">&raquo;</a>
+					<!--  맨 마지막으로(>>) -->
+					<a href="nList.no?currentPage=<%= maxPage %>">&raquo;&raquo;</a>
+					<%} %>
 				</div>
-			</div> -->
+			</div>
 			
-			<div class="pagingArea" align="center">
 			
-			<% if(currentPage != 1){ %>
-			<!--  맨 처음으로(<<) -->
-			<button onclick="location.href='nList.no?currentPage=1'"> &lt;&lt; </button>
 			
-			<!-- 이전페이지로(<) -->
-			<button onclick="location.href='nList.no?currentPage=<%= currentPage-1 %>'"> &lt; </button>
-			<% } %>
 			
-			<% for(int p=startPage; p<=endPage; p++){ %>
-				<% if(currentPage != p){ %>
-				<button onclick="location.href='nList.no?currentPage=<%=p%>';"><%= p %></button>
-				<%}else{ %>
-				<button disabled> <%= p %></button>
+<%-- 			<div class="pagingArea" align="center">
+			
+				<% if(currentPage != 1){ %>
+				<!--  맨 처음으로(<<) -->
+				<button onclick="location.href='nList.no?currentPage=1'"> &lt;&lt; </button>
+				
+				<!-- 이전페이지로(<) -->
+				<button onclick="location.href='nList.no?currentPage=<%= currentPage-1 %>'"> &lt; </button>
+				<% } %>
+				
+				<% for(int p=startPage; p<=endPage; p++){ %>
+					<% if(currentPage != p){ %>
+					<button onclick="location.href='nList.no?currentPage=<%=p%>';"><%= p %></button>
+					<%}else{ %>
+					<button disabled> <%= p %></button>
+					<%} %>
+				<% } %>
+				
+				<% if(currentPage != maxPage){ %>
+				<!-- 다음페이지로(>) -->
+				<button onclick="location.href='nList.no?currentPage=<%= currentPage+1 %>'"> &gt; </button>
+				
+				<!--  맨 마지막으로(>>) -->
+				<button onclick="location.href='nList.no?currentPage=<%= maxPage %>'"> &gt;&gt; </button>
 				<%} %>
-			<% } %>
 			
-			<% if(currentPage != maxPage){ %>
-			<!-- 다음페이지로(<) -->
-			<button onclick="location.href='nList.no?currentPage=<%= currentPage+1 %>'"> &gt; </button>
-			
-			<!--  맨 마지막으로(>>) -->
-			<button onclick="location.href='nList.no?currentPage=<%= maxPage %>'"> &gt;&gt; </button>
-			<%} %>
-			
-			
-			
-		</div>
+			</div> --%>
 		
 		</div>
 			

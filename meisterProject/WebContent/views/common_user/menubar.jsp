@@ -121,7 +121,7 @@
                                         <li><a href="#">매장검색</a>                                    
                                         </li>
                                         <li><a href="<%= contextPath %>/faqList.ce">고객센터</a></li>
-                                        <li><a href="<%= contextPath %>/nList.no">공지사항</a></li>
+                                        <li><a href="<%= contextPath %>/nList.no?currentPage=1">공지사항</a></li>
                                     </ul>
                                 </nav>
                             </div>
