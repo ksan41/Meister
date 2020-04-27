@@ -71,6 +71,19 @@
             clip: rect(0, 0, 0, 0);
             border: 0
         }
+        
+        
+        #thumb{
+            overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+        }
+        
+        #bImgArea{
+			height: 250px;
+			margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -117,28 +130,26 @@
 								</tr>
 
 								<tr>
-									<th>매장이미지 <input name="branchImg" type="file"
-										style="display: none;">
+									<th>매장이미지 
+									<input id="branchImg" type="file" style="display: none;" onchange="loadImg(this);">
 									</th>
 									<td colspan="3">
 										<div id="thumb"
-											style="border: 1px solid red; width: 250px; height: 250px;">
-											<img src="" alt="">
+											style="border: 1px solid lightgray; width: 250px; height: 250px;">
+											<img id="bImgArea">
 										</div>
 									</td>
 								</tr>
 								<tr>
 									<th>지점주소</th>
-									<td colspan="3"><input name="address"class="postcodify_address" type="text" />
-									<button id="postcodify_search_button">검색</button></td>
-										<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-										         <!-- jQuery와 Postcodify를 로딩한다 -->
+									<td colspan="3"><input style="width:350px;" name="address" type="text" id="sample5_address" placeholder="주소">
+									<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색">
 								</tr>
 								<tr>
 									<th>매장위치</th>
 									<td colspan="3" rowspan="3">
 										<div id="branchMap"
-											style="border: 1px solid red; width: 600px; height: 400px;"></div>
+											style="width: 600px; height: 400px;"></div>
 									</td>
 								</tr>
 								<tr>
@@ -148,8 +159,9 @@
 									<td colspan="4"></td>
 								</tr>
 								<tr>
-									<th name="latitude" colspan="2">위도:</th>
-									<th name="longitude" colspan="2">경도:</th>
+									<th colspan="4">위도:<input name="latitude" type="text" id="latitude" readonly>
+													경도:<input name="longitude" type="text" id="longitude" readonly>
+									</th>
 								</tr>
 							</table>
 						</form>
@@ -161,65 +173,80 @@
 	</div>
 
 	<script>
-		var uploadFile = $('.fileBox .uploadBtn');
-		uploadFile.on('change',
-				function() {
-					if (window.FileReader) {
-						var filename = $(this)[0].files[0].name;
-					} else {
-						var filename = $(this).val().split('/').pop().split(
-								'\\').pop();
-					}
-					$(this).siblings('.fileName').val(filename);
-				});
+		$(function(){
+			$("#thumb").click(function(){
+		$("#branchImg").click();
+			});
+		});
+
+		function loadImg(inputFile) {
+
+			var reader = new FileReader();
+
+			// 파일을 읽어주는 메소드 --> 해당 파일을 읽어들이는 순간 해당 파일만의 고유한 url부여
+			reader.readAsDataURL(inputFile.files[0]);
+
+			// 파일 읽기가 다 완료되었을때 실행할 메소드
+			reader.onload = function(e) {//e : 이벤트객체
+				// attr 해당 요소에 속성 부여
+				$("#bImgArea").attr("src", e.target.result);
+			};
+		}
 	</script>
 
-	
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70eee1adca78021e50b7669262f2474e"></script>
-	<script>
-		var mapContainer = document.getElementById('branchMap'), // 지도를 표시할 div 
-		mapOption = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			level : 3
-		// 지도의 확대 레벨
-		};
-
-		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-		var map = new kakao.maps.Map(mapContainer, mapOption);
-		
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
-
-		    // 정상적으로 검색이 완료됐으면 
-		     if (status === kakao.maps.services.Status.OK) {
-
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-		        // 결과값으로 받은 위치를 마커로 표시합니다
-		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
-		        });
-
-		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-		        });
-		        infowindow.open(map, marker);
-
-		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords);
-		    } 
-		};
-	</script>                
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 
 
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70eee1adca78021e50b7669262f2474e&libraries=services"></script>
+<script>
+    var mapContainer = document.getElementById('branchMap'), // 지도를 표시할 div
+        mapOption = {
+            center: new daum.maps.LatLng(37.537187, 127.005476), // 지도의 중심좌표
+            level: 5 // 지도의 확대 레벨
+        };
+
+    //지도를 미리 생성
+    var map = new daum.maps.Map(mapContainer, mapOption);
+    //주소-좌표 변환 객체를 생성
+    var geocoder = new daum.maps.services.Geocoder();
+    //마커를 미리 생성
+    var marker = new daum.maps.Marker({
+        position: new daum.maps.LatLng(37.537187, 127.005476),
+        map: map
+    });
+
+
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("sample5_address").value = addr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        $("#latitude").val(result.y);
+                        $("#longitude").val(result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+                    }
+                });
+            }
+        }).open();
+    }
+</script>
 
                 
 </body>
