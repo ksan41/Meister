@@ -99,12 +99,15 @@
 							<tr>
 								<td>답변</td>
 								<th style="height: 250px; font-size: 13px; color: brown">
-									<textarea class="inquiryAnswer" id="contentArea" style="font-size: 1.0em; color: cornflowerblue" readonly><%= c.getInquiryAnswer() %></textarea>
+									<textarea id="contentArea" style="font-size: 1.0em; color: cornflowerblue" readonly>
+										<%= c.getInquiryAnswer() %>
+									</textarea>
 								</th>
 							</tr>
 						</table>
 
 						<div align="center">
+							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
 							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
 						</div>
 
