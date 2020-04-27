@@ -84,6 +84,28 @@
 			height: 250px;
 			margin: auto;
         }
+        
+        
+        #menuInsertBtns{
+          margin-left: 450px;
+        }
+        
+        /* 중간버튼 스타일 */
+         .middle_btn{
+            display: block;
+            height:40px;
+            width:150px;
+            margin: 0 auto;
+            font-size: 15px;
+            font-weight: bolder;
+            color:white;
+            background-color: rgb(76, 60, 60);
+            border:0;
+            border-radius: 5px;
+            margin: 10px;
+            float: left;
+        }
+         /* 중간버튼 스타일 */
     </style>
 </head>
 <body>
@@ -100,38 +122,34 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<div id="btn-area" align="right">
-							<input id="modifyBtn" type="submit" value="등록하기"> <input
-								id="deleteBtn" type="submit" value="취소하기">
-						</div>
-						<form action="">
+						<form action="<%=contextPath%>/insertBranch.br" method="post" enctype="multipart/form-data">
 							<table style="width: 100%;">
 								<tr>
 									<th>지점명</th>
-									<td colspan="3"><input name="branchName" type="text"></td>
+									<td colspan="3"><input name="branchName" type="text" required></td>
 								</tr>
 								<tr>
 									<th>점주명</th>
-									<td><input name="name" type="text"></td>
+									<td><input name="name" type="text" required></td>
 									<th>지점계정</th>
-									<td><input name="bmId" type="text"></td>
+									<td><input name="bmId" type="text" required></td>
 								</tr>
 								<tr>
 									<th>개점일자</th>
-									<td><input name="enrollDate" type="date""></td>
+									<td><input name="enrollDate" type="date" required></td>
 									<th>매장전화번호</th>
-									<td><input name="phone" type="text"></td>
+									<td><input name="phone" type="text" required></td>
 								</tr>
 								<tr>
 									<th>영업시작시간</th>
-									<td><input name="open" type="text"></td>
+									<td><input name="open" type="text" required></td>
 									<th>영업종료시간</th>
-									<td><input name="close" type="text"></td>
+									<td><input name="close" type="text" required></td>
 								</tr>
 
 								<tr>
 									<th>매장이미지 
-									<input id="branchImg" type="file" style="display: none;" onchange="loadImg(this);">
+									<input name="branchImg" id="branchImg" type="file" style="display: none;" onchange="loadImg(this);">
 									</th>
 									<td colspan="3">
 										<div id="thumb"
@@ -142,7 +160,7 @@
 								</tr>
 								<tr>
 									<th>지점주소</th>
-									<td colspan="3"><input style="width:350px;" name="address" type="text" id="sample5_address" placeholder="주소">
+									<td colspan="3"><input style="width:350px;" name="address" type="text" id="sample5_address" placeholder="주소"  required readonly>
 									<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색">
 								</tr>
 								<tr>
@@ -159,11 +177,16 @@
 									<td colspan="4"></td>
 								</tr>
 								<tr>
-									<th colspan="4">위도:<input name="latitude" type="text" id="latitude" readonly>
-													경도:<input name="longitude" type="text" id="longitude" readonly>
+									<th colspan="4">위도:<input name="latitude" type="text" id="latitude" readonly  required>
+													경도:<input name="longitude" type="text" id="longitude" readonly  required>
 									</th>
 								</tr>
 							</table>
+							<div id="menuInsertBtns">
+									<button type="submit" class="middle_btn"
+										style="background: orange;">등록하기</button>
+									<button type="button" class="middle_btn" onclick="location.href='<%=contextPath%>/branchList.br';">목록으로</button>
+							</div>
 						</form>
 					</div>
 				</div>
