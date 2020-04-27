@@ -381,7 +381,7 @@
     };
 	// 다음	
 	function nextStep(){
-		}
+		
 	}
     
 	</script>
