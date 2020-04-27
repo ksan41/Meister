@@ -1,26 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*" %>
 <%
-	ArrayList<Orders> list = (ArrayList<Orders>)request.getAttribute("list");
+	ArrayList<Orders> orderList = (ArrayList<Orders>)request.getAttribute("orderList");
+	ArrayList<Price> priceList = (ArrayList<Price>)request.getAttribute("priceList");
 	
-	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
-	Orders oInfo = (Orders)request.getAttribute("oInfo");
-	Payment pInfo = (Payment)request.getAttribute("pInfo");
-	
-	Price order = (Price)request.getAttribute("order");
-		
-	String[] pizzaSize = order.getPizzaSize().split(",");
-	String[] pizzaNo = order.getPizzaNo().split(",");
-	String[] pizzaCount = order.getPizzaCount().split(",");
-	String[] doughNo = order.getDoughNo().split(",");
-	
+	// 조건처리용 메뉴정보들
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
-	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
-	
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
-	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	
+	String pizzaName="";
 	
 	String pName = "";
 	String pSize = "";
@@ -35,10 +26,6 @@
 	String eName = "";
 	int eCount = 0;
 	int ePrice = 0;
-	
-	int basketPrice = 0;
-	int discountPrice = 0;
-	double dRate = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -169,24 +156,58 @@
 								</tr>
 							</thead>
 							<tbody>
-							 	<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
+							 	<% if(orderList.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
 										<td colspan="5">존재하는 주문내역이 없습니다.</td>
 									</tr>
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
-									<% for(Orders o : list){ %>
-									 	
+									<% for(int i=0; i<orderList.size(); i++){ %>
 									 	<tr data-toggle="modal" data-target="#myModal">
-											<td><%= o.getReceiptNo() %></td>
-											<td><%= o.getMemberId() %></td>
+											<td><%= orderList.get(i).getReceiptNo() %></td>
+											<td><%= orderList.get(i).getOrderName()%></td>
 											<td>
-												<!-- 주문내용 -->
+												<!-- 주문 정보 -->
+												<% String[] pizzaNoList = priceList.get(i).getPizzaNo().split(","); %>
+												<% for(int j=0; j<pList.size(); j++){ %>
+													<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNoList[0])){ %>
+														<% pizzaName = pList.get(j).getPizzaName(); %>
+													<% } %>
+												<% } %>
+												
+												<%
+													int pizzaCount = 0;
+													int sideCount = 0;
+													int etcCount = 0;
+													
+													String[] pStr = priceList.get(i).getPizzaCount().split(",");
+													for(int j=0; j<pStr.length; j++){
+														pizzaCount += Integer.parseInt(pStr[j]);
+													}
+													
+													if(priceList.get(i).getSideCount() != null){
+														String[] sStr = priceList.get(i).getSideCount().split(",");
+														for(int j=0; j<sStr.length; j++){
+															sideCount += Integer.parseInt(sStr[j]);
+														}
+													}
+													
+													if(priceList.get(i).getEtcCount() != null){
+														String[] eStr = priceList.get(i).getEtcCount().split(",");
+														for(int j=0; j<eStr.length; j++){
+															etcCount += Integer.parseInt(eStr[j]);
+														}
+													}
+													
+													int totalCount = pizzaCount + sideCount + etcCount;
+												%>
+												
+												<%=pizzaName %> 외 <%=totalCount-1%>건 
 											</td>
-											<td><%= o.getOrderDate() %></td>
+											<td><%= orderList.get(i).getOrderDate() %></td>
 											<th>
 											<!-- <button class="button" onclick="" style="background-color: yellowgreen;">접수</button> -->
-												<% if(oInfo.getOrderStatus().equals("T")) { %>
+												<% if(orderList.get(i).getOrderStatus().equals("T")) { %>
 													주문접수완료
 												<% }else { %>
 													주문처리중
@@ -205,10 +226,10 @@
 	</div>
 	
 	
-	<% if(list.isEmpty()){%>
+	<% if(orderList.isEmpty()){%>
 	<%}else{ %>
 		<% int upIndex = 0; %>
-		<%for(int k=0; k<list.size(); k++){ %>
+		<%for(int k=0; k<orderList.size(); k++){ %>
 			<% upIndex++; %>
 			<!-- 주문 상세 모달 시작 -->
 			<div class="modal fade" id="myModal">
@@ -228,91 +249,98 @@
 							<table>
 								<tr>
 									<td>주문번호 :</td>
-									<td><%= list.get(k).getReceiptNo() %></td>
+									<td><%= orderList.get(k).getReceiptNo() %></td>
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">주문일시 :</td>
-									<td><%= list.get(k).getOrderDate() %></td>
+									<td><%= orderList.get(k).getOrderDate() %></td>
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">고객명 :</td>
-									<td><%= list.get(k).getOrderName() %></td>
+									<td><%= orderList.get(k).getOrderName() %></td>
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">연락처 :</td>
-									<td><%= list.get(k).getOrderPhone() %></td>
+									<td><%= orderList.get(k).getOrderPhone() %></td>
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">배달주소 :</td>
-									<td style="padding-top: 8px;"><%= list.get(k).getMemAddress1() %> + <%= list.get(k).getMemAddress2() %></td>
+									<td style="padding-top: 8px;">
+										<%= orderList.get(k).getMemAddress1() %><br>
+										<%= orderList.get(k).getMemAddress2() %>
+									</td>
 								</tr>
 								<tr></tr>
 								<tr>
 									<td style="padding-top: 8px;">주문내용 :</td>
 									<td style="height: 100px;">
-										<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
-											<% for(int j=0; j<pList.size(); j++){ %>
-												<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
-													<% pName = pList.get(j).getPizzaName(); %>
+										<!-- 주문내용 -->
+										<%
+											String[] pizzaSize = priceList.get(k).getPizzaSize().split(",");
+											String[] pizzaNo = priceList.get(k).getPizzaNo().split(",");
+											String[] pizzaCount = priceList.get(k).getPizzaCount().split(",");
+											String[] doughNo = priceList.get(k).getDoughNo().split(",");
+										%>
+										<% for(int l=0; l<pizzaSize.length; l++){ // 주문한 피자 내용 %>
+											<% for(int m=0; m<pList.size(); m++){ %>
+												<% if(pList.get(m).getPizzaNo() == Integer.parseInt(pizzaNo[l])){ %>
+													<% pName = pList.get(m).getPizzaName(); %>
 												<% } %>
 											<% } %>
-											<% for(int j=0; j<sizeList.size(); j++){ %>
-												<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
-													<% pSize = sizeList.get(j).getPizzaSize(); %>
-													<% pPrice = sizeList.get(j).getPizzaPrice(); %>
+											<% for(int m=0; m<sizeList.size(); m++){ %>
+												<% if(sizeList.get(m).getSizeNo() == Integer.parseInt(pizzaSize[l])){ %>
+													<% pSize = sizeList.get(m).getPizzaSize(); %>
+													<% pPrice = sizeList.get(m).getPizzaPrice(); %>
 												<% } %>
 											<% } %>
-											<% for(int j=0; j<dList.size(); j++){ %>
-												<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
-													<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
-														<% doughPrice = dList.get(j).getDoughAddPrice(); %>
+											<% for(int m=0; m<dList.size(); m++){ %>
+												<% if(dList.get(m).getDoughNo() == Integer.parseInt(doughNo[l])){ %>
+													<% if(dList.get(m).getDoughAddPrice()+"" != null) {%>
+														<% doughPrice = dList.get(m).getDoughAddPrice(); %>
 													<% } %>
 												<% } %>
 											<% } %>
-											<% pCount = Integer.parseInt(pizzaCount[i]); %>
+											<% pCount = Integer.parseInt(pizzaCount[l]); %>
 											<% pPrice = (pPrice + doughPrice) * pCount; %>
 											
 											<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
-											<%basketPrice += pPrice; %>
 										<% } %>
 										
-										<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
-											<% String[] sideNo = order.getSideNo().split(","); %>
-											<% String[] sideCount = order.getSideCount().split(","); %>
+										<% if(priceList.get(k).getSideNo() != null && priceList.get(k).getSideCount() != null) { // 주문한 사이드 내용 %>
+											<% String[] sideNo = priceList.get(k).getSideNo().split(","); %>
+											<% String[] sideCount = priceList.get(k).getSideCount().split(","); %>
 											
-											<% for(int i=0; i<sideNo.length; i++) { %>
-												<% for(int j=0; j<sList.size(); j++){ %>
-													<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
-														<% sName = sList.get(j).getSideName(); %>
-														<% sPrice = sList.get(j).getSidePrice(); %>
+											<% for(int l=0; l<sideNo.length; l++) { %>
+												<% for(int m=0; m<sList.size(); m++){ %>
+													<% if(sList.get(m).getSideNo() == Integer.parseInt(sideNo[l])){ %>
+														<% sName = sList.get(m).getSideName(); %>
+														<% sPrice = sList.get(m).getSidePrice(); %>
 													<% } %>
 												<% } %>
 												
-												<% sCount = Integer.parseInt(sideCount[i]); %>
+												<% sCount = Integer.parseInt(sideCount[l]); %>
 												<% sPrice = sPrice * sCount; %>
 												
 												<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
-												<%basketPrice += sPrice; %>
 											<% } %>
 										<% } %>
 										
-										<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타상품 내용 %>
-											<% String[] etcNo = order.getEtcNo().split(","); %>
-											<% String[] etcCount = order.getEtcCount().split(","); %>
+										<% if(priceList.get(k).getEtcNo() != null && priceList.get(k).getEtcCount() != null) { // 주문한 기타상품 내용 %>
+											<% String[] etcNo = priceList.get(k).getEtcNo().split(","); %>
+											<% String[] etcCount = priceList.get(k).getEtcCount().split(","); %>
 											
-											<% for(int i=0; i<etcNo.length; i++) { %>
-												<% for(int j=0; j<eList.size(); j++){ %>
-													<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
-														<% eName = eList.get(j).getEtcName(); %>
-														<% ePrice = eList.get(j).getEtcPrice(); %>
+											<% for(int l=0; l<etcNo.length; l++) { %>
+												<% for(int m=0; m<eList.size(); m++){ %>
+													<% if(eList.get(m).getEtcNo() == Integer.parseInt(etcNo[l])){ %>
+														<% eName = eList.get(m).getEtcName(); %>
+														<% ePrice = eList.get(m).getEtcPrice(); %>
 													<% } %>
 												<% } %>
 												
-												<% eCount = Integer.parseInt(etcCount[i]); %>
+												<% eCount = Integer.parseInt(etcCount[l]); %>
 												<% ePrice = ePrice * eCount; %>
 												
-												<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>
-												<%basketPrice += ePrice; %>									
+												<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>								
 											<% } %>
 										<% } %>
 									</td>
@@ -320,7 +348,8 @@
 								<tr>
 									<td style="padding-top: 8px;">요청사항 :</td>
 									<td style="padding-top: 10px; height: 100px; padding-left: 10px;">
-										<%= list.get(k).getOrderRequest() %>
+										<!-- 요청사항 -->
+										<%=orderList.get(k).getOrderRequest()%>
 									</td>
 								</tr>
 							</table>
@@ -329,7 +358,7 @@
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
 							<form class="orderStatusManage" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
-								<input type="hidden" name="faqNo" value="<%= list.get(k).getReceiptNo() %>">
+								<input type="hidden" name="faqNo" value="<%= orderList.get(k).getReceiptNo() %>">
 								<button type="button" class="btn btn-danger orderManage" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
 									주문접수
 								</button>
@@ -338,6 +367,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<!-- 모달 끝 -->
 		<% } %>
 	<% } %>

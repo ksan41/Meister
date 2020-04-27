@@ -9,12 +9,17 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Manager;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Payment;
 import com.meister.order.model.vo.Price;
 
+/**
+ * @author 최지수
+ *
+ */
 public class OrderService {
 	
 	/**
@@ -89,6 +94,10 @@ public class OrderService {
 	
 	///////////////////지수/////////////////////////
 	
+	/** 지수
+	 * @param orderNo
+	 * @return
+	 */
 	public Delivery selectDeliveryInfo(int orderNo) {
 		
 		Connection conn = getConnection();
@@ -101,6 +110,10 @@ public class OrderService {
 	}
 	
 	
+	/** 지수
+	 * @param memberNo
+	 * @return
+	 */
 	public ArrayList<Coupon> selectCouponInfo(int memberNo) {
 		
 		Connection conn = getConnection();
@@ -113,6 +126,10 @@ public class OrderService {
 	}
 	
 	
+	/** 지수
+	 * @param newOrder
+	 * @return
+	 */
 	public int insertOrders(Orders newOrder) {
 		
 		Connection conn = getConnection();
@@ -158,7 +175,39 @@ public class OrderService {
 	
 	
 	
+	/** 지수
+	 * 지점 번호 조회용 서비스
+	 * @param loginManager
+	 * @return
+	 */
+	public int selectBranchNo(Manager loginManager) {
+		
+		Connection conn = getConnection();
+		
+		int bno = new OrderDao().selectBranchNo(conn, loginManager);
+		
+		close(conn);
+		
+		return bno;
+	}
 	
+	
+	
+	/** 지수
+	 * Price테이블의 주문 컬럼들 조회용 서비스
+	 * @param orderList
+	 * @return
+	 */
+	public ArrayList<Price> selectPriceList(ArrayList<Orders> orderList){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Price> plist = new OrderDao().selectPriceList(conn, orderList);
+		
+		close(conn);
+		
+		return plist;
+	}
 	
 	
 	
@@ -605,11 +654,11 @@ public class OrderService {
 	 * 지점관리자용 배달 전 주문내역 리스트 조회용 서비스
 	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
-	public ArrayList<Orders> selectMgNowOrderList(){
+	public ArrayList<Orders> selectMgNowOrderList(int bno){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn);
+		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn, bno);
 		
 		close(conn);
 		
