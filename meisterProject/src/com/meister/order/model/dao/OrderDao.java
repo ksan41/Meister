@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Manager;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
@@ -644,9 +645,10 @@ public class OrderDao {
 	
 ////////////////////////////연화//////////////////////////////////////////////////////////////
 	
-	public ArrayList<Orders> selectMgNowOrderList(Connection conn){
+	public ArrayList<Orders> selectMgNowOrderList(Connection conn, int bcno){
 		
 		ArrayList<Orders> list = new ArrayList<>();
+		int bcno=0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -654,6 +656,7 @@ public class OrderDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -742,15 +745,27 @@ public class OrderDao {
 		return result;
 	}
 	
-	public int selectBranchNo(Connection conn, int loginManager) {
+	public int selectBranchNo(Connection conn, Manager loginManager) {
 		
-		int loginManagerNo = 0;
+		int result = 0;
 		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		String sql = prop.getProperty("selectBranchNo");
 		
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, x);
-		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, loginManager);
+			
+			rset = pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return result;
 	}
 	
 	

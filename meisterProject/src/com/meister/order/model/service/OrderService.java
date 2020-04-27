@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Manager;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
@@ -559,11 +560,11 @@ public class OrderService {
 	 * 지점관리자용 배달 전 주문내역 리스트 조회용 서비스
 	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
-	public ArrayList<Orders> selectMgNowOrderList(){
+	public ArrayList<Orders> selectMgNowOrderList(int bcno){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn);
+		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn, bcno);
 		
 		close(conn);
 		
@@ -608,19 +609,19 @@ public class OrderService {
 	}
 	
 	
-	public int selectBranchNo(int loginManager) {
+	public int selectBranchNo(Manager loginManager) {
 		
 		Connection conn = getConnection();
-		int loginManagerNo = new OrderDao().selectBranchNo(conn, loginManager);
+		int result = new OrderDao().selectBranchNo(conn, loginManager);
 		
-		if(loginManagerNo > 0) {
+		if(result > 0) {
 			commit(conn);
 		}else {
 			rollback(conn);
 		}
 		close(conn);
 		
-		return loginManagerNo;
+		return result;
 	}
 	
 	
