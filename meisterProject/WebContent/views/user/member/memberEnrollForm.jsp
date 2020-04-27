@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%String userEmail = request.getParameter("userEmail"); %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -188,7 +189,7 @@ table {
 					<tr>
 						<th>이메일</th>
 						<td colspan="2"><input class="text-area" type="email"
-							name="email"  style="height: 31px;"></td>
+							name="email" id="email" value='<%=userEmail %>' style="height: 31px;"></td>
 					</tr>
 				</table>
 				<br>
@@ -207,7 +208,7 @@ table {
 
 
 	<script>
-	
+	 
 		function validate() {
 
 			// 유효성 검사할 각각의 input 요소들 변수에 받아두기

@@ -499,7 +499,7 @@
 				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
 				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
 		});
-
+		
 		$("#activeMgFAQ3").click(
 			function() {
 				if ($('.contentMg3').css('display') == 'none')
@@ -512,7 +512,7 @@
 				$("#activeMgFAQ3").css({'background':'#555555','color':'white'});
 				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
 		});
-
+		
 		$("#activeMgFAQ4").click(
 			function() {
 				if ($('.contentMg4').css('display') == 'none')
