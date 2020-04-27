@@ -26,7 +26,7 @@ public class FindPwdServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -40,7 +40,7 @@ public class FindPwdServlet extends HttpServlet {
 		System.out.println(email);
 		
 		Member selectpwd= new MemberService().selectpwd(memberId, email);
-		
+		System.out.println(selectpwd);
 		
 		
 		if(selectpwd != null) {
@@ -51,9 +51,10 @@ public class FindPwdServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findPwdSuccess.jsp");
 		view.forward(request, response);
 		
-		} else {
+		} else { 
 			response.sendRedirect(request.getContextPath() + "/showFindPwdCheck.me");
 			System.out.println("실패");
+			
 		}
 		
 		

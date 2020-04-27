@@ -97,7 +97,7 @@
             <p>회원가입이 완료되었습니다.</p>
             <br><br><br><br>
             <div id="btn-area">
-                <button class="middle_btn" id="#">로그인</button>
+                <button class="middle_btn" id="#" onclick="location.href='<%=contextPath %>/showLoginPage.me'">로그인</button>
                 <!-- <%=contextPath %>/showLoginPage.me -->
                 <br>
                 <p>

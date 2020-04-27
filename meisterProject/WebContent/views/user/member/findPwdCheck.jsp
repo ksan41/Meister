@@ -256,7 +256,7 @@
             }
            
        $.ajax({
-          url:"MailPwd",
+          url:"email.e",
           data:{Email:email.value},
           success:function(data){
              alert("인증번호가 발송되었습니다.");
