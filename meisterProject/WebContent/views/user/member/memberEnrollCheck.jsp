@@ -234,7 +234,7 @@
                form.email.focus();
                return false;
             }
-           
+          
        $.ajax({
           url:"email.e",
           data:{Email:email.value},
@@ -252,10 +252,10 @@
       
       $(function(){
     	 $("#emailComplete"). click(function(){
-    		 
+    		 var email = $("#email").val();
     		 //console.log(randomKey);
     		 if($("#eamailAnswer").val()==randomKey){
-    			 location.href="views/user/member/memberEnrollForm.jsp";
+    			 location.href="views/user/member/memberEnrollForm.jsp?userEmail="+email;
     		 }else{
     			 alert("이메일전송을 다시해주세요.!");
     		 }

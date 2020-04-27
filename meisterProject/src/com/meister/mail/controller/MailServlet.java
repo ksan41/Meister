@@ -45,6 +45,7 @@ public class MailServlet extends HttpServlet {
         
         //
         String email = request.getParameter("Email");
+        
         System.out.println(email);
         
         Properties props = new Properties();
