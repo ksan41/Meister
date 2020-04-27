@@ -93,7 +93,7 @@ public class NoticeService {
 		return list;
 	}
 	/**연화
-	 * 5. 지점 공지사항 리스트 조회용 서비스
+	 * 지점 공지사항 리스트 조회용 서비스
 	 * @return
 	 */
 	public ArrayList<Notice> selectBmList(){
@@ -108,7 +108,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 6. 공지사항 작성용 서비스
+	 * 공지사항 작성용 서비스
 	 * @param n		--> 제목, 내용이 담겨있는 Notice객체
 	 * @return		--> 처리된 행의 개수
 	 */
@@ -128,7 +128,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 7. 지점 공지사항 작성용 서비스
+	 * 지점 공지사항 작성용 서비스
 	 * @param n		--> 제목, 내용이 담겨있는 Notice객체
 	 * @return		--> 처리된 행의 개수
 	 */
@@ -148,7 +148,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 8. 공지사항 삭제용 서비스
+	 * 공지사항 삭제용 서비스
 	 * @param nno		--> 삭제요청한 공지사항 글 번호
 	 * @return			--> 처리된 행의 개수
 	 */
@@ -168,7 +168,7 @@ public class NoticeService {
 	}
 	
 	/**연화
-	 * 9. 공지사항 수정용 서비스
+	 * 공지사항 수정용 서비스
 	 * @param n		--> 수정하고자하는 글 번호, 수정할 제목, 수정할 내용이 담겨있는 Notice객체
 	 * @return		--> 처리된 행의 개수
 	 */

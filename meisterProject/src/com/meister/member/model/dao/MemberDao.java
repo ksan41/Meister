@@ -203,7 +203,6 @@ private Properties prop = new Properties();
 			close(rset);
 			close(pstmt);
 		}
-		
 		return list;
 	}
 	

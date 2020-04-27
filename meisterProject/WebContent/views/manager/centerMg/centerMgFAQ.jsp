@@ -463,7 +463,7 @@
 	<%} %>
 	
 	
-	<form id="postFormFaq" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+	<form class="postFormFaq" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
 		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
 	</form>
 
@@ -539,9 +539,9 @@
 	        });
 	    });
 		
+		
 		function deleteConfirm(){
-			
-			$("#postFormFaq").submit();
+			$(".postFormFaq").submit();
 		};
 	    
 	</script>
