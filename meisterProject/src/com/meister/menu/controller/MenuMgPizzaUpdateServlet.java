@@ -38,8 +38,9 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("서블릿 요청성공");
 		request.setCharacterEncoding("utf-8");
+		
+		
 		
 		// 값이 enc타입(multi-part/formdata)로 넘어왔는지 확인
 		if(ServletFileUpload.isMultipartContent(request)) {
@@ -65,11 +66,9 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			String toppings = multiRequest.getParameter("toppings");
 			String origins = multiRequest.getParameter("origins");
 			
-			System.out.println("사이즈L 가격:"+multiRequest.getParameter("priceL"));
-			System.out.println("사이즈M 가격:"+multiRequest.getParameter("priceM"));
 			
-			//int priceL = Integer.parseInt(multiRequest.getParameter("priceL"));
-			//int priceM = Integer.parseInt(multiRequest.getParameter("priceM"));
+			int priceL = Integer.parseInt(multiRequest.getParameter("priceL"));
+			int priceM = Integer.parseInt(multiRequest.getParameter("priceM"));
 			int psNo = Integer.parseInt(multiRequest.getParameter("psNo"));
 			
 			// 기존에 서버에 업로드된 파일도 삭제
@@ -90,14 +89,14 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			PizzaSize updateSizeM = new PizzaSize();
 			updateSizeM.setPizzaNo(pNo);
 			updateSizeM.setPizzaSize("M");
-			//updateSizeM.setPizzaPrice(priceM);
+			updateSizeM.setPizzaPrice(priceM);
 			updateSizeM.setSizeNo(psNo);
 			
 			// L사이즈용 객체생성
 			PizzaSize updateSizeL = new PizzaSize();
 			updateSizeL.setPizzaNo(pNo);
 			updateSizeL.setPizzaSize("L");
-			//updateSizeL.setPizzaPrice(priceL);
+			updateSizeL.setPizzaPrice(priceL);
 			updateSizeL.setSizeNo(psNo);
 			
 			ArrayList<PizzaSize> psList = new ArrayList<>();
@@ -105,28 +104,28 @@ public class MenuMgPizzaUpdateServlet extends HttpServlet {
 			psList.add(updateSizeL);
 			
 			// 피자객체,사이즈객체(M),사이즈객체(L)로 서비스요청
-			//int result = new MenuService().updatePizza(updateP,psList);
+			int result = new MenuService().updatePizza(updateP,psList);
 			
 			response.setCharacterEncoding("utf-8");
 			
-//			if(result > 0) {//메뉴 수정 성공
-//				
-//				response.setContentType("text/html; charset=UTF-8");
-//				PrintWriter out = response.getWriter();
-//				out.println("<script>alert('"+updateP.getPizzaName()+"메뉴 수정 성공했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
-//				out.flush();
-//			}else { //메뉴 수정 실패
-//				
-//				// 등록실패한 파일 찾아서 삭제
-//				File deleteFile = new File(savePath + updateP.getPizzaImg());
-//				deleteFile.delete();
-//				
-//				response.setContentType("text/html; charset=UTF-8");
-//				PrintWriter out = response.getWriter();
-//				out.println("<script>alert('메뉴 수정 실패. 다시 시도해주세요.');location.href='/Meister/menuMgPizzaList.meng';</script>");
-//				out.flush();
-//				
-//			}
+			if(result > 0) {//메뉴 수정 성공
+				
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('"+updateP.getPizzaName()+"메뉴 수정 성공했습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.flush();
+			}else { //메뉴 수정 실패
+				
+				// 등록실패한 파일 찾아서 삭제
+				File deleteFile = new File(savePath + updateP.getPizzaImg());
+				deleteFile.delete();
+				
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('메뉴 수정 실패. 다시 시도해주세요.');location.href='/Meister/menuMgPizzaList.meng';</script>");
+				out.flush();
+				
+			}
 			
 		}
 		

@@ -742,7 +742,8 @@ div {
 
 	<script>
 		$(document).on("click",".updateBtn",function(){
-			var index = $(".menuFile").index(this);		
+			var index = $(".updateBtn").index(this);		
+			//console.log(index +"번 폼 실행");
 			$(".menuUpdateFormP:eq("+index+")").submit();
 		});
 	
