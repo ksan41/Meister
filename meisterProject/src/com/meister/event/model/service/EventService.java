@@ -5,6 +5,7 @@ import static com.meister.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.meister.center.model.dao.CenterDao;
 import com.meister.event.model.dao.EventDao;
 import com.meister.event.model.vo.Event;
 import com.meister.notice.model.dao.NoticeDao;
@@ -71,6 +72,26 @@ public class EventService {
 		
 		Connection conn = getConnection();
 		int result = new EventDao().updateEvent(conn, e);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	/**연화
+	 * faq 삭제용 서비스
+	 * @param faqNo		--> 삭제요청한 faq 글 번호
+	 * @return			--> 처리된 행의 개수
+	 */
+	public int deleteEvent(int bno) {
+		
+		Connection conn = getConnection();
+		int result = new EventDao().deleteEvent(conn, bno);
 		
 		if(result > 0) {
 			commit(conn);

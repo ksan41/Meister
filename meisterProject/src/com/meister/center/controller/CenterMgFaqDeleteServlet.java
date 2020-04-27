@@ -36,7 +36,7 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 		
 		int result = new CenterService().deleteFaq(faqNo);
 		
-		if(result > 0) {// 공지사항 삭제 성공
+		if(result > 0) {// 삭제 성공
 			
 			request.setAttribute("result", result);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneDetail.jsp");
