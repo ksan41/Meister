@@ -365,7 +365,7 @@ public class MenuDao {
 	
 
 	/**산
-	 * 통합관리자 - 피자 수정용 dao
+	 * 통합관리자 - 피자 수정용 dao(PIZZA테이블 UPDATE)
 	 * @param conn : MenuService에서 생성된 Connection객체
 	 * @param updateP : 수정할 피자 정보가 담긴 Pizza객체
 	 * @return : 처리된 행의 개수
@@ -399,26 +399,28 @@ public class MenuDao {
 	
 	
 	/**산
-	 * 통합 - 피자사이즈 수정용 dao
+	 * 통합 - 피자사이즈 수정용 dao(PIZZA_SIZE테이블 UPDATE)
 	 * @param conn : MenuService에서 생성된 Connection객체
 	 * @param updateSizeM : 수정할 피자 M사이즈 가격정보가 담긴 PizzaSize객체
 	 * @param updateSizeL : 수정할 피자 L사이즈 가격정보가 담긴 PizzaSize객체
 	 * @return : 처리된 행의 개수
 	 */
-	public int updatePizzaSize(Connection conn,PizzaSize updateSizeM, PizzaSize updateSizeL) {
+	public int updatePizzaSize(Connection conn,ArrayList<PizzaSize> psList) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
 		String sql = prop.getProperty("updatePizzaSize");
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, updateSizeM.getPizzaPrice());
-			pstmt.setInt(2, updateSizeL.getPizzaPrice());
-			pstmt.setInt(3, updateSizeL.getSizeNo());
-			
-			result = pstmt.executeUpdate();
-			
+			for(int i=0;i<psList.size();i++) {
+				PizzaSize ps = psList.get(i);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, ps.getPizzaPrice());
+				pstmt.setInt(2, ps.getSizeNo());
+				pstmt.setInt(3, ps.getPizzaNo());
+
+				result = pstmt.executeUpdate();
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
