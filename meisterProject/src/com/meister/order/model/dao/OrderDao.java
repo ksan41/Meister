@@ -742,6 +742,17 @@ public class OrderDao {
 		return result;
 	}
 	
+	public int selectBranchNo(Connection conn, int loginManager) {
+		
+		int loginManagerNo = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectBranchNo");
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, x);
+		
+	}
+	
 	
 //////////////////////////연화//////////////////////////////////////////////////////////////
 }

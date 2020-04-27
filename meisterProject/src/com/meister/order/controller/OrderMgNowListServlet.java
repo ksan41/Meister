@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.meister.member.model.service.MemberService;
 import com.meister.member.model.vo.Manager;
 import com.meister.menu.model.service.MenuService;
 import com.meister.menu.model.vo.Dough;
@@ -51,23 +50,19 @@ public class OrderMgNowListServlet extends HttpServlet {
 		Manager loginManager = (Manager)session.getAttribute("loginUser");
 		
 		//1. 지점번호 조회해오기(BRANCH테이블에서)
-		int bno = new OrderService().selectBranchNo(loginManager);
-		
+		int bcno = new OrderService().selectBranchNo(loginManager);
 		
 		//2. 위에서 가져온 지점번호로 주문정보 조회(ORDERS,DELIVERY 조인해서)
-		ArrayList<Orders> olist = new OrderService().selectMgNowOrderList(bno);
+		ArrayList<Orders> olist = new OrderService().selectMgNowOrderList(bcno);
 		
 		//3. 위의 olist의 주문번호로, PRICE테이블의 정보 가져오기
 		ArrayList<Price> plist = new OrderService().selectPrice(olist);
-		
 		
 //		Delivery dInfo = new MyPageService().selectDeliveryInfo();
 //		Orders oInfo = new MyPageService().selectOrdersInfo(ono);
 //		Payment pInfo = new MyPageService().selectPaymentInfo(ono);
 //		
 //		Price order = new MyPageService().selectOrderProducts(ono);
-//		
-//		
 		
 		
 		// jsp 조건처리용 메뉴정보들
