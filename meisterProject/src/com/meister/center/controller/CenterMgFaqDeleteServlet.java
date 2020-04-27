@@ -37,9 +37,6 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 		
 		if(result > 0) {// 공지사항 삭제 성공
 			
-//			request.getSession().setAttribute("msg", "FAQ 삭제 성공!");
-//			response.sendRedirect("ceMgFaqList.cem");
-			
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
@@ -53,7 +50,7 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('FAQ 삭제 실패'); location.href='/Meister/ceMgFaqlist.cem?faqNo=" + faqNo + "';</script>");
+			out.println("<script>alert('FAQ 삭제 실패'); location.href='/Meister/ceMgFaqList.cem?faqNo=" + faqNo + "';</script>");
 			out.flush();
 		}
 	}
