@@ -46,10 +46,12 @@ public class LoginAdminServlet extends HttpServlet {
 			session.setAttribute("loginManager",loginManager);
 			
 			if(loginManager.getManagerType().equals("통합")) { //통합관리자 계정일때 페이지
+				response.setCharacterEncoding("utf-8");
 				RequestDispatcher view = request.getRequestDispatcher("views/manager/branch/branchList.jsp");
 				view.forward(request, response);
 			}else { //지점관리자 계정일때 페이지
-				RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgNowList.jsp");
+				response.setCharacterEncoding("utf-8");
+				RequestDispatcher view = request.getRequestDispatcher("bmNoList.nom");
 				view.forward(request, response);
 			}
 			
