@@ -19,7 +19,8 @@ public class Center {
 	
 	// 다른 테이블 컬럼
 	private String memberId;		//회원아이디
-	
+	private String memberPhone;		// 휴대전화
+	private String memberEmail;		// 이메일
 	
 	
 	public Center() {}
@@ -49,6 +50,28 @@ public class Center {
 
 
 
+
+
+	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
+			Date modifyDate, int inquiryType, String inquiryStore, String inquiryProStatus, int memberNo, int receiptNo,
+			String inquiryStatus, String memberId, String memberPhone, String memberEmail) {
+		super();
+		this.inquiryNo = inquiryNo;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryAnswer = inquiryAnswer;
+		this.registDate = registDate;
+		this.modifyDate = modifyDate;
+		this.inquiryType = inquiryType;
+		this.inquiryStore = inquiryStore;
+		this.inquiryProStatus = inquiryProStatus;
+		this.memberNo = memberNo;
+		this.receiptNo = receiptNo;
+		this.inquiryStatus = inquiryStatus;
+		this.memberId = memberId;
+		this.memberPhone = memberPhone;
+		this.memberEmail = memberEmail;
+	}
 
 
 	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
@@ -141,6 +164,36 @@ public class Center {
 
 
 
+
+
+	public String getInquiryStatus() {
+		return inquiryStatus;
+	}
+
+
+	public void setInquiryStatus(String inquiryStatus) {
+		this.inquiryStatus = inquiryStatus;
+	}
+
+
+	public String getMemberPhone() {
+		return memberPhone;
+	}
+
+
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
+	}
+
+
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+
+
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
+	}
 
 
 	public String getMemberId() {

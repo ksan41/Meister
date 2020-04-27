@@ -43,10 +43,8 @@ public class CenterMgOneDetailServlet extends HttpServlet {
 			request.setAttribute("c", c);
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneDetail.jsp");
 			view.forward(request, response);
-//			
-//			///////////////////////////////////////////////////////////////////////////
+			
 //			response.setContentType("text/html; charset=UTF-8");
-//			
 //			PrintWriter out = response.getWriter();
 //			out.println("<script>alert('1:1 상세 조회 성공'); location.href='views/manager/centerMg/centerMgOneOnOneDetail.jsp';</script>");
 //			out.flush();

@@ -80,11 +80,11 @@
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
+								<th style="height: 50px;"><%= c.getMemberPhone() %></th>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
+								<th style="height: 50px;"><%= c.getMemberEmail() %></th>
 							</tr>
 							<tr>
 								<td>제목</td>
