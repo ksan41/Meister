@@ -222,6 +222,7 @@ public class OrderDao {
 			
 			if(rset.next()) {
 				dInfo.setOrderNo(rset.getInt("order_no"));
+				dInfo.setDeliveryNo(rset.getInt("delivery_no"));
 				dInfo.setMemAddress1(rset.getString("mem_address1"));
 				dInfo.setMemAddress2(rset.getString("mem_address2"));
 				dInfo.setMemPoCode(rset.getString("mem_po_code"));
@@ -276,7 +277,35 @@ public class OrderDao {
 	}
 	
 	
-	
+	public int insertOrders(Connection conn, Orders newOrder) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertOrders");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, newOrder.getOrderName());
+			pstmt.setString(2, newOrder.getOrderPhone());
+			pstmt.setString(3, newOrder.getOrderRequest());
+			pstmt.setInt(4, newOrder.getDeliveryNo());
+			pstmt.setInt(5, newOrder.getMemberNo());
+			pstmt.setInt(6, newOrder.getCartNo());
+			pstmt.setInt(7, newOrder.getOrderNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	

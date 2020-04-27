@@ -21,7 +21,8 @@ public class Orders {
 	// 타 테이블 컬럼
 	private int couponDiscount;		// 할인율
 	private String memAddress1;		// 회원주소
-	private String memAddress2;
+	private String memAddress2;		// 상세주소
+	private int totalPrice;			// 총결제금액(할인적용된 최종금액)
 	
 	public Orders() {}
 
@@ -241,6 +242,16 @@ public class Orders {
 	}
 
 
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Orders [receiptNo=" + receiptNo + ", orderName=" + orderName + ", orderPhone=" + orderPhone
@@ -250,5 +261,7 @@ public class Orders {
 				+ ", couponDiscount=" + couponDiscount + ", memAddress1=" + memAddress1 + ", memAddress2=" + memAddress2
 				+ "]";
 	}
+	
+
 
 }

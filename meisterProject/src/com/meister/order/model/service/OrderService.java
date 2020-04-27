@@ -112,6 +112,24 @@ public class OrderService {
 	}
 	
 	
+	public int insertOrders(Orders newOrder) {
+		
+		Connection conn = getConnection();
+		
+		int result = new OrderDao().insertOrders(conn, newOrder);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
 	
 	
 	
