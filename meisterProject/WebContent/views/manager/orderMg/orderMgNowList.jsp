@@ -8,9 +8,7 @@
 	Payment pInfo = (Payment)request.getAttribute("pInfo");
 	
 	Price order = (Price)request.getAttribute("order");
-	
-	Coupon discountInfo = (Coupon)request.getAttribute("discountInfo");
-	
+		
 	String[] pizzaSize = order.getPizzaSize().split(",");
 	String[] pizzaNo = order.getPizzaNo().split(",");
 	String[] pizzaCount = order.getPizzaCount().split(",");
@@ -418,11 +416,6 @@
 		<% } %>
 	<% } %>
 	
-	<!-- 
-	<form id="postFormOrders" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
-		<input type="hidden" name="ono" value="<%= list.get(k).getReceiptNo() %>">
-	</form>
-	 -->
 	
 	<script>
 		
