@@ -53,7 +53,7 @@ public class NoticeSearchServlet extends HttpServlet {
 			view.forward(request, response);
 			
 		}else if(noticeContentSearch != null) { // 내용 검색할 경우	
-			ArrayList<Notice> list2 = new NoticeService().searchContent(noticeTitleSearch);
+			ArrayList<Notice> list2 = new NoticeService().searchContent(noticeContentSearch);
 			request.setAttribute("list2", list2);
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
@@ -62,7 +62,7 @@ public class NoticeSearchServlet extends HttpServlet {
 		}else if(noticeContentSearch != null || noticeTitleSearch != null ) { // 제목  + 내용 검색할 경우	
 			ArrayList<Notice> list1 = new NoticeService().searchTitle(noticeTitleSearch);
 			request.setAttribute("list1", list1);
-			ArrayList<Notice> list2 = new NoticeService().searchContent(noticeTitleSearch);
+			ArrayList<Notice> list2 = new NoticeService().searchContent(noticeContentSearch);
 			request.setAttribute("list2", list2);
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");

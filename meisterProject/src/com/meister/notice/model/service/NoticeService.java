@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.common.PageInfo;
+import com.meister.member.model.dao.MemberDao;
+import com.meister.member.model.vo.Member;
 import com.meister.notice.model.dao.NoticeDao;
 import com.meister.notice.model.vo.Notice;
 
@@ -203,7 +205,40 @@ public class NoticeService {
 		
 	}
 	
-	
+    /** 현영
+     * 고객 공지사항 제목 검색용 서비스
+     * @param noticeTitleSearch : 조회할 제목(키워드)
+     * @return
+     */
+    public ArrayList<Notice> searchTitle(String noticeTitleSearch, PageInfo pi){
+    	
+    	Connection conn = getConnection();
+    	
+    	ArrayList<Notice> list = new NoticeDao().searchTitle(conn, noticeTitleSearch, pi);
+    	
+    	close(conn);
+    	return list;
+    }
+    
+    public ArrayList<Notice> searchContent(String noticeContentSearch, PageInfo pi){
+    	
+    	Connection conn = getConnection();
+    	
+    	ArrayList<Notice> list = new NoticeDao().searchContent(conn, noticeContentSearch, pi);
+    	
+    	close(conn);
+    	return list;
+    }
+    public ArrayList<Notice> searchTitleContent(String noticeTitleSearch, String noticeContentSearch, PageInfo pi){
+    	
+    	Connection conn = getConnection();
+    	
+    	ArrayList<Notice> list = new NoticeDao().searchTitleContent(conn, noticeTitleSearch, noticeContentSearch, pi);
+    	
+    	close(conn);
+    	return list;
+    	
+    }
 	
 	
 	

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.common.PageInfo;
+import com.meister.member.model.vo.Member;
 import com.meister.notice.model.vo.Notice;
 
 public class NoticeDao {
@@ -332,6 +333,130 @@ public class NoticeDao {
 		
 		return listCount;
 		
+		
+	}
+	
+	
+	public ArrayList<Notice> searchTitle(Connection conn, String noticeTitleSearch, PageInfo pi){
+		
+		ArrayList<Notice> list = new ArrayList<>();
+    	PreparedStatement pstmt = null;
+    	ResultSet rset = null;
+    	
+    	String sql = prop.getProperty("searchNoticeTitle");
+    	
+    	try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() -1;
+			pstmt.setString(1, "%"+noticeTitleSearch+"%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Notice n = new Notice();
+				n.setNoticeNo(rset.getInt("NOTICE_NO"));
+				n.setNoticeTitle(rset.getString("NOTICE_TITLE"));
+				n.setCreateDate(rset.getDate("NOTICE_CREATE_DATE"));
+				n.setCount(rset.getInt("NOTICE_COUNT"));
+				
+				list.add(n);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+    	return list;
+		
+		
+	}
+	
+	public ArrayList<Notice> searchContent(Connection conn, String noticeContentSearch, PageInfo pi){
+		
+		ArrayList<Notice> list = new ArrayList<>();
+    	PreparedStatement pstmt = null;
+    	ResultSet rset = null;
+    	
+    	String sql = prop.getProperty("searchNoticeContent");
+    	
+    	try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() -1;
+			pstmt.setString(1, "%"+noticeContentSearch+"%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Notice n = new Notice();
+				n.setNoticeNo(rset.getInt("NOTICE_NO"));
+				n.setNoticeTitle(rset.getString("NOTICE_TITLE"));
+				n.setCreateDate(rset.getDate("NOTICE_CREATE_DATE"));
+				n.setCount(rset.getInt("NOTICE_COUNT"));
+				
+				list.add(n);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+    	return list;
+		
+		
+	}
+	
+	public ArrayList<Notice> searchTitleContent(Connection conn, String noticeTitleSearch, String noticeContentSearch, PageInfo pi){
+		
+		ArrayList<Notice> list = new ArrayList<>();
+    	PreparedStatement pstmt = null;
+    	ResultSet rset = null;
+    	
+    	String sql = prop.getProperty("searchTitleContent");
+    	
+    	try {
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() -1;
+			pstmt.setString(1, "%"+noticeTitleSearch+"%");
+			pstmt.setString(2, "%"+noticeContentSearch+"%");
+			pstmt.setInt(3, startRow);
+			pstmt.setInt(4, endRow);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Notice n = new Notice();
+				n.setNoticeNo(rset.getInt("NOTICE_NO"));
+				n.setNoticeTitle(rset.getString("NOTICE_TITLE"));
+				n.setCreateDate(rset.getDate("NOTICE_CREATE_DATE"));
+				n.setCount(rset.getInt("NOTICE_COUNT"));
+				
+				list.add(n);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+    	return list;
 		
 	}
 	
