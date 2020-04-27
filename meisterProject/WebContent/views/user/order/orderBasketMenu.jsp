@@ -432,8 +432,21 @@
             		var resultPrice = Number(totalPrice) - Number(delPrice);
             		$(".totalPrice").text(resultPrice);
         		}
-  				
         	});
+        	
+        	$('button').click(function(){
+            	var contentRow = document.getElementsByClassName("contentRow");
+            	//console.log("deleteAll 1");
+            	//var rowCount = contentRow.length;
+            	console.log("contentRow : " + contentRow.length);
+
+           		for(var i=0; i<contentRow.length; i++){
+           			contentRow[i].remove();
+               		i--;
+           		}
+            	
+            });
+            
         });
         </script>
         
@@ -460,19 +473,19 @@
             //라인 삭제
             tr.remove();
         };
-        function deleteAll(obj){
+        /*function deleteAll(obj){
         	var contentRow = document.getElementsByClassName("contentRow");
         	//console.log("deleteAll 1");
-        	var rowCount = contentRow.length;
-        	console.log("contentRow : " + contentRow);
+        	//var rowCount = contentRow.length;
+        	console.log("contentRow : " + contentRow.length);
         	console.log("contentRow 개수 : " + rowCount);
         	
-        	for(var i=0; i<rowCount; i++){
+        	while(contentRow.length > 0){
         		contentRow[i].remove();
         		console.log(i);
         	}
         	
-        };
+        };*/
     </script>
      
 </body>
