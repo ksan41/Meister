@@ -28,6 +28,10 @@
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 
+	//
+	String addressArea = (String)session.getAttribute("addressArea");
+	Delivery checkedDelivery = (Delivery)request.getAttribute("checkedDelivery");
+	System.out.println("지점33 : " + checkedDelivery);
 %>
 
 <!DOCTYPE html>
@@ -187,11 +191,11 @@
                 </tr>
                 <tr style="height:15px;"></tr>
                 <tr>
-                    <th height="50px;" style="color:black">경기도 화성시 동탄원천로 12-34 504동 1304호</th>
+                    <th height="50px;" style="color:black"><%=checkedDelivery.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=checkedDelivery.getNewAddress2()%></th>
                     <!-- <th rowspan="2"><button class="small_btn" id="#">수정</button></th> -->
                 </tr>
                 <tr>
-                    <th style="color:gray;"><button style="background:white; color:darkgray; border:1px solid darkgray" id="mbtn">역삼점</button>&nbsp;&nbsp;&nbsp; 02-1111-1111</th>
+                    <th style="color:gray;"><button style="background:white; color:darkgray; border:1px solid darkgray" id="mbtn"><%=checkedDelivery.getBranchName() %></button>&nbsp;&nbsp;&nbsp; <%=checkedDelivery.getBranchPhone()%></th>
                 </tr>
                 
             </table>
@@ -371,6 +375,7 @@
         // 서블릿에서 전달받은 총 가격 표시 // 작성자 : 곽진아
         window.onload = $(function(){
         	$(".totalPrice").text(<%=totalPrice%>);
+        	console.log("지점 22 : " + <%=addressArea%>);
     	});
      	// 작성자 : 곽진아
     	$(function(){

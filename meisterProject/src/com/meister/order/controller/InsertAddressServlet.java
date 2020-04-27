@@ -63,7 +63,7 @@ public class InsertAddressServlet extends HttpServlet {
 		// 4. 처리 결과를 가지고 성공인지 실패인지 판단해서 사용자가 보게될 뷰 지정
 			if(result > 0) { // insert됨 --> 회원가입성공
 				
-				HttpSession session = request.getSession();
+				session = request.getSession();
 				session.setAttribute("d", d);
 				RequestDispatcher view = request.getRequestDispatcher("/orderDelivery.or"); // orderDelivery.or 서블릿 요청해라
 				view.forward(request, response);

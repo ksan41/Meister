@@ -192,18 +192,19 @@
             <div id="colorArea"></div>
             <div class="content">
 				<%if(!deliveryList.isEmpty()){ %>
-				<%for(int i=0; i<deliveryList.size(); i++){ %>
-					<%Delivery d = deliveryList.get(i); %>
-					<%index = i; %>
-				<input type="hidden" class="index" value="<%=index%>">
-                <div class="defaultSet"></div>
-                <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
-                <div id="textArea">
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
-                </div>
-                <div class="defaultSet" id="removeArea"><button id="remove" name="remove" onclick="removeAddress()">―</button></div>
-                <div class="defaultSet"></div>
-				<%}%>
+					<%for(int i=0; i<deliveryList.size(); i++){ %>
+						<%Delivery d = deliveryList.get(i); %>
+						<%index = i; %>
+					<input type="hidden" class="index" value="<%=index%>">
+					<!-- <form id=""><input type="hidden" id="address" value="<%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%><br>"><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%></form> -->
+	                <div class="defaultSet"></div>
+	                <div class="defaultSet"><input type="checkbox" class="checkbox" style="width:25px; height:25px; margin:40%;"></div>
+	                <div id="textArea">
+	                    <br><h4 id="DeliveryName" style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
+	                </div>
+	                <div class="defaultSet" id="removeArea"><button id="remove" name="remove" onclick="removeAddress()">―</button></div>
+	                <div class="defaultSet"></div>
+					<%}%>
 				<%}else{%>
 				<div class="defaultSet"></div>
                 <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
@@ -228,7 +229,7 @@
                     <h6>해당 주소로 배달을 진행하시겠습니까?</h6>
                 </div>
                 <div style="width:20%; height:60px; padding-left:8%;">
-                    <button id = "nextStep" style="width:120px; height:40px; font-size:14px; margin-top:8px; text-align:center; background-color: rgb(76, 60, 60); color:white">&nbsp;&nbsp;다음으로</button>
+                    <button onclick="nextStep();" style="width:120px; height:40px; font-size:14px; margin-top:8px; text-align:center; background-color: rgb(76, 60, 60); color:white">&nbsp;&nbsp;다음으로</button>
                 </div>
             </div>
           
@@ -381,8 +382,19 @@
     };
 	// 다음	
 	function nextStep(){
+		var index = 0;
+
+		console.log("지점1");
+		var checkbox = document.getElementsByClassName("checkbox");
+		console.log(checkbox);
+		for(var i=0; i<checkbox.length; i++){
+			console.log("지점100");
+			index = i;
+			console.log(index);
+		}
 		
-	}
+		location.href="<%=contextPath%>/basket.or?index=" + index;
+	};
     
 	</script>
 </body>
