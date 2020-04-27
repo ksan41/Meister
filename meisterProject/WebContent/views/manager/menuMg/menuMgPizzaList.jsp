@@ -639,10 +639,11 @@ div {
 
 
 	<!-- 프리미엄-메뉴수정 모달 시작 -->
-	<% int upIndex = 0; %>
+	<% int pIndex=0; %>
 	<% if(!pList.isEmpty()){ %>
 		<%for(int i=0;i<pList.size();i++){ %>
-		<% upIndex++; %>
+			<% if(pList.get(i).getPizzaType().equals("1")){ %>
+			<%pIndex++; %>
 					<div class="modal fade" id="menu-update-ModalP<%=i%>">
 						<!-- modal별 id 변경해주세요-->
 						<div class="modal-dialog"
@@ -659,22 +660,19 @@ div {
 								<!-- Modal body -->
 				<div class="modal-body" style="width: 1100px; height: 700px">
 
-					<form class="menuUpdateFormP"
-						action="<%=contextPath%>/pizzaUp.meng" method="post"
-						enctype="multipart/form-data">
-						<input type="hidden" name="pNo"
-							value="<%= pList.get(i).getPizzaNo() %>">
+					<form class="menuUpdateFormP" action="<%=contextPath%>/pizzaUp.meng" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="pNo" value="<%= pList.get(i).getPizzaNo() %>">
 						<table class="menuUpdateTable">
 							<tr>
 								<th>메뉴명</th>
 								<td><input name="pName" type="text" class="inputs"
 									value="<%=pList.get(i).getPizzaName()%>" required></td>
-								<th rowspan="2">이미지첨부 <input class="menuFile" name="menuImg" onchange="loadImg(this);"
-									type="file" style="display: none;">
+								<th rowspan="2">이미지첨부 <input class="menuFile" name="menuImg" onchange="loadImg(this,<%=pIndex %>);"
+									type="file" style="display: none;" value="<%=pList.get(i).getPizzaImg()%>">
 								</th>
 								<td rowspan="2">
 									<div class="menu-update-img-area">
-										<img id="menuUpImg" class="menu-upImg"
+										<img class="menu-upImg"
 											src="<%=contextPath%>/resources/siteImgs/menuImg/pizza/<%=pList.get(i).getPizzaImg()%>"
 											alt="">
 									</div>
@@ -697,6 +695,7 @@ div {
 								<%for(int j=0;j<psList.size();j++){ %>
 								<%if(pList.get(i).getPizzaNo()== psList.get(j).getPizzaNo()){ %>
 								<%if(psList.get(j).getPizzaSize().equals("L")){ %>
+								<input type="hidden" name="psNo" value="<%=psList.get(j).getSizeNo() %>">
 								<th>L 사이즈 가격</th>
 								<td><input name="priceL" type="text" class="inputs"
 									value="<%=psList.get(j).getPizzaPrice()%>" required> 원</td>
@@ -719,7 +718,7 @@ div {
 				<!-- Modal footer -->
 							<div class="modal-footer" style="margin: auto;">
 								<!-- 하단버튼 영역-->
-								<button class="big_btn updateBtn" id="menuUpdateBtn" style="background: orange;">수정하기</button>
+								<button class="updateBtn big_btn" style="background: orange;">수정하기</button>
 							</div>
 			
 						</div>
@@ -727,6 +726,7 @@ div {
 				</div>
 			<%} %>
 		<%} %>
+	<%} %>	
 	<!-- 프리미엄-메뉴수정 모달 끝 -->
 
 	
@@ -734,38 +734,36 @@ div {
 	$(function(){
 		$(".menu-update-img-area").click(function(){
 			var index = $(".menu-update-img-area").index(this);
-			$(".menuFile:eq("+index+")").click();			
+			$(".menuFile:eq("+index+")").click();
 		});
 	})
 </script>
 
 
 	<script>
-		$(".updateBtn").click(){
-			console.log("클릭");
-			var index = $(".updateBtn").index(this);		
+		$(document).on("click",".updateBtn",function(){
+			var index = $(".menuFile").index(this);		
 			$(".menuUpdateFormP:eq("+index+")").submit();
-		};
+		});
+	
+			
 		
-		function loadImg(inputFile) {
-			// inputFile : 현재 변화가 생긴 input type="file" 요소
-			// num : 몇번째 input요소인지 확인 후 해당 영역에 미리보기 하기 위한 번호
-
-			// [참고] https://developer.mozilla.org/ko/docs/Web/API/FileReader
-
-			// file이 존재할 경우 --> input요소의 files속성인 배열의 0번 인덱스에 담김
-
+		function loadImg(inputFile,index) {
+				
 				// 파일을 읽어들일 FileReader 객체 생성(자바스크립트 제공객체)
 				var reader = new FileReader();
 
 				// 파일을 읽어주는 메소드 --> 해당 파일을 읽어들이는 순간 해당 파일만의 고유한 url부여
 				reader.readAsDataURL(inputFile.files[0]);
-
+				
+					console.log("인덱스");
+					console.log(index);
 				// 파일 읽기가 다 완료되었을때 실행할 메소드
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
-						$(".menu-upImg:eq("+<%=upIndex%>+")").attr("src", e.target.result);
-				};
+					console.log("이벤트실행");
+						$(".menu-upImg:eq("+index+")").attr("src", e.target.result);
+				}
 		};
 	</script>
 </body>

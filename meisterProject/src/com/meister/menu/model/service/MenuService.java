@@ -173,7 +173,7 @@ public class MenuService {
 	 * @param updateSizeL : 입력받은 피자L사이즈 가격정보 담긴 PizzaSize객체
 	 * @return : 처리된 행의 개수
 	 */
-	public int updatePizza(Pizza insertP,PizzaSize updateSizeM,PizzaSize updateSizeL) {
+	public int updatePizza(Pizza insertP,ArrayList<PizzaSize> psList) {
 		
 		Connection conn = getConnection();
 		
@@ -181,7 +181,7 @@ public class MenuService {
 		int resultP = new MenuDao().updatePizza(conn,insertP);
 		
 		// 피자사이즈 update요청
-		int resultPs = new MenuDao().updatePizzaSize(conn, updateSizeM, updateSizeL);
+		int resultPs = new MenuDao().updatePizzaSize(conn, psList);
 		
 		if(resultP>0 && resultPs>0) { //피자,사이즈 모두 성공했을때 커밋
 			commit(conn);
