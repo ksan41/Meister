@@ -6,12 +6,26 @@
 	
 	// 조건처리용 메뉴정보들
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
-	ArrayList<Pizza> sizeList = (ArrayList<Pizza>)request.getAttribute("sizeList");
-	ArrayList<Pizza> dList = (ArrayList<Pizza>)request.getAttribute("dList");
-	ArrayList<Pizza> sList = (ArrayList<Pizza>)request.getAttribute("sList");
-	ArrayList<Pizza> eList = (ArrayList<Pizza>)request.getAttribute("eList");
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	
 	String pizzaName="";
+	
+	String pName = "";
+	String pSize = "";
+	int pCount = 0;
+	int doughPrice = 0;
+	int pPrice = 0;
+	
+	String sName = "";
+	int sCount = 0;
+	int sPrice = 0;
+	
+	String eName = "";
+	int eCount = 0;
+	int ePrice = 0;
 %>
 <!DOCTYPE html>
 <html>
@@ -251,19 +265,91 @@
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">배달주소 :</td>
-									<td style="padding-top: 8px;"><%= orderList.get(k).getMemAddress1() %> + <%= orderList.get(k).getMemAddress2() %></td>
+									<td style="padding-top: 8px;">
+										<%= orderList.get(k).getMemAddress1() %><br>
+										<%= orderList.get(k).getMemAddress2() %>
+									</td>
 								</tr>
 								<tr></tr>
 								<tr>
 									<td style="padding-top: 8px;">주문내용 :</td>
 									<td style="height: 100px;">
 										<!-- 주문내용 -->
+										<%
+											String[] pizzaSize = priceList.get(k).getPizzaSize().split(",");
+											String[] pizzaNo = priceList.get(k).getPizzaNo().split(",");
+											String[] pizzaCount = priceList.get(k).getPizzaCount().split(",");
+											String[] doughNo = priceList.get(k).getDoughNo().split(",");
+										%>
+										<% for(int l=0; l<pizzaSize.length; l++){ // 주문한 피자 내용 %>
+											<% for(int m=0; m<pList.size(); m++){ %>
+												<% if(pList.get(m).getPizzaNo() == Integer.parseInt(pizzaNo[l])){ %>
+													<% pName = pList.get(m).getPizzaName(); %>
+												<% } %>
+											<% } %>
+											<% for(int m=0; m<sizeList.size(); m++){ %>
+												<% if(sizeList.get(m).getSizeNo() == Integer.parseInt(pizzaSize[l])){ %>
+													<% pSize = sizeList.get(m).getPizzaSize(); %>
+													<% pPrice = sizeList.get(m).getPizzaPrice(); %>
+												<% } %>
+											<% } %>
+											<% for(int m=0; m<dList.size(); m++){ %>
+												<% if(dList.get(m).getDoughNo() == Integer.parseInt(doughNo[l])){ %>
+													<% if(dList.get(m).getDoughAddPrice()+"" != null) {%>
+														<% doughPrice = dList.get(m).getDoughAddPrice(); %>
+													<% } %>
+												<% } %>
+											<% } %>
+											<% pCount = Integer.parseInt(pizzaCount[l]); %>
+											<% pPrice = (pPrice + doughPrice) * pCount; %>
+											
+											<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
+										<% } %>
+										
+										<% if(priceList.get(k).getSideNo() != null && priceList.get(k).getSideCount() != null) { // 주문한 사이드 내용 %>
+											<% String[] sideNo = priceList.get(k).getSideNo().split(","); %>
+											<% String[] sideCount = priceList.get(k).getSideCount().split(","); %>
+											
+											<% for(int l=0; l<sideNo.length; l++) { %>
+												<% for(int m=0; m<sList.size(); m++){ %>
+													<% if(sList.get(m).getSideNo() == Integer.parseInt(sideNo[l])){ %>
+														<% sName = sList.get(m).getSideName(); %>
+														<% sPrice = sList.get(m).getSidePrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% sCount = Integer.parseInt(sideCount[l]); %>
+												<% sPrice = sPrice * sCount; %>
+												
+												<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
+											<% } %>
+										<% } %>
+										
+										<% if(priceList.get(k).getEtcNo() != null && priceList.get(k).getEtcCount() != null) { // 주문한 기타상품 내용 %>
+											<% String[] etcNo = priceList.get(k).getEtcNo().split(","); %>
+											<% String[] etcCount = priceList.get(k).getEtcCount().split(","); %>
+											
+											<% for(int l=0; l<etcNo.length; l++) { %>
+												<% for(int m=0; m<eList.size(); m++){ %>
+													<% if(eList.get(m).getEtcNo() == Integer.parseInt(etcNo[l])){ %>
+														<% eName = eList.get(m).getEtcName(); %>
+														<% ePrice = eList.get(m).getEtcPrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% eCount = Integer.parseInt(etcCount[l]); %>
+												<% ePrice = ePrice * eCount; %>
+												
+												<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>								
+											<% } %>
+										<% } %>
 									</td>
 								</tr>
 								<tr>
 									<td style="padding-top: 8px;">요청사항 :</td>
 									<td style="padding-top: 10px; height: 100px; padding-left: 10px;">
 										<!-- 요청사항 -->
+										<%=orderList.get(k).getOrderRequest()%>
 									</td>
 								</tr>
 							</table>

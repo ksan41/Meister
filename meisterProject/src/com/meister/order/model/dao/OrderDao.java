@@ -797,6 +797,8 @@ public class OrderDao {
 				o.setMemberNo(rset.getInt("MEMBER_NO"));
 				o.setCartNo(rset.getInt("CART_NO"));
 				o.setOrderNo(rset.getInt("ORDER_NO"));
+				o.setMemAddress1(rset.getString("MEM_ADDRESS1"));
+				o.setMemAddress2(rset.getString("MEM_ADDRESS2"));
 				
 				list.add(o);
 			}
