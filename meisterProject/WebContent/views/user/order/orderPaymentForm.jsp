@@ -35,6 +35,7 @@
 	int basketPrice = 0;
 	int discountPrice = 0;
 	double dRate = 0;
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -289,8 +290,8 @@
 	                        <th>보유쿠폰</th>
 	                        <td style="width: 400px;">
 	                            <select name="coupon" id="couponRate" style="width:300px; height: 35px; border-radius: 5px;">
-	                            	<option value="0" selected>사용할 쿠폰을 선택하세요.</option>
-	                            	<% if(cInfo != null){ %>
+	                            	<option value="0">사용할 쿠폰을 선택해주세요.</option>
+	                            	<% if(cInfo.size() != 0){ %>
 	                            		<% for(int i=0; i<cInfo.size(); i++){ %>
 	                            			<option value="<%=cInfo.get(i).getCouponDiscount()%>"><%=cInfo.get(i).getCouponName()%></option>
 	                            		<% } %>
@@ -344,7 +345,7 @@
                     <tr style="font-weight: bold;">
                         <td><%=basketPrice %> 원</td>
                         <td>-</td>
-                        <td style="color: red;"><%=discountPrice %> 원</td>
+                        <td style="color: red;" id="discountPrice">0</td>
                         <td>-</td>
                         <td><%=basketPrice-discountPrice%> 원</td>
                     </tr>
@@ -359,10 +360,14 @@
     
     <script>
 	    $(function(){
+	    	var value = 0;
+	    	
 	        $("#couponRate").change(function(){
-	            var value = $("option:selected").val();
-	            console.log(value);
+	            var value = Number($("#couponRate> option:selected").val());
+	            
+	            $("#discountPrice").text(value);
 	        });
+	        
 	    });
     </script>
     
@@ -439,11 +444,7 @@
 		});
 	</script>
 	<!-- 결제 api -->
-    
 
-    
-    
-    
     <%@ include file="../../common_user/footer.jsp"%>
     
 </body>
