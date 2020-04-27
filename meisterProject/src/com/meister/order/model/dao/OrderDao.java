@@ -645,10 +645,32 @@ public class OrderDao {
 	
 ////////////////////////////연화//////////////////////////////////////////////////////////////
 	
+	public int selectBranchNo(Connection conn, Manager loginManager) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectBranchNo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, loginManager.getLoginManager());
+			
+			rset = pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return result;
+	}
+	
 	public ArrayList<Orders> selectMgNowOrderList(Connection conn, int bcno){
 		
 		ArrayList<Orders> list = new ArrayList<>();
-		int bcno=0;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -683,6 +705,33 @@ public class OrderDao {
 			close(pstmt);
 		}
 		return list;
+	}
+	
+	public ArrayList<Price> selectPrice(Connection conn, ArrayList<Price> olist){
+		
+		ArrayList<Price> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPrice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Price p = new Price();
+				p.setOrderNo(rset.getInt(""));
+			}
+			
+			pstmt.setInt(1, olist.getReceiptNo());
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Orders> selectMgPastOrderList(Connection conn){
@@ -740,29 +789,6 @@ public class OrderDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			close(pstmt);
-		}
-		return result;
-	}
-	
-	public int selectBranchNo(Connection conn, Manager loginManager) {
-		
-		int result = 0;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectBranchNo");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, loginManager);
-			
-			rset = pstmt.executeQuery();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close(rset);
 			close(pstmt);
 		}
 		return result;

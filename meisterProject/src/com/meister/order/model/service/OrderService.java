@@ -556,6 +556,22 @@ public class OrderService {
 ////////////////////////////태경//////////////////////////////////////////////////////////////
 //////////////////////////연화//////////////////////////////////////////////////////////////
 	
+	public int selectBranchNo(Manager loginManager) {
+		
+		Connection conn = getConnection();
+		int result = new OrderDao().selectBranchNo(conn, loginManager);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+
+	
 	/**연화
 	 * 지점관리자용 배달 전 주문내역 리스트 조회용 서비스
 	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
@@ -565,6 +581,18 @@ public class OrderService {
 		Connection conn = getConnection();
 		
 		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn, bcno);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	public ArrayList<Price> selectPrice(ArrayList<Price> olist) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Price> list = new OrderDao().selectPrice(conn, olist);
 		
 		close(conn);
 		
@@ -608,21 +636,6 @@ public class OrderService {
 		return result;
 	}
 	
-	
-	public int selectBranchNo(Manager loginManager) {
-		
-		Connection conn = getConnection();
-		int result = new OrderDao().selectBranchNo(conn, loginManager);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		close(conn);
-		
-		return result;
-	}
 	
 	
 	
