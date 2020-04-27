@@ -76,7 +76,7 @@
 							</tr>
 							<tr>
 								<td>아이디</td>
-								<th style="height: 50px;"><%= c.getInquiryContent() %></th>
+								<th style="height: 50px;"><%= c.getMemberId() %></th>
 							</tr>
 							<tr>
 								<td>연락처</td>

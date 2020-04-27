@@ -58,8 +58,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataTable" width="100%"
-							cellspacing="0">
+						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 							<tr>
 								<td width="15%" style="padding-top: 20px;">처리상태</td>
 								<th style="height: 50px; color: red;"><label for="answer"></label>

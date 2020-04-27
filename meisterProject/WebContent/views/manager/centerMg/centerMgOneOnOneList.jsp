@@ -59,7 +59,7 @@
 											<td><%= c.getInquiryType() %></td>
 											<td><%= c.getInquiryStore() %></td>
 											<td><%= c.getInquiryTitle() %></td>
-											<td><%= c.getMemberNo() %></td>
+											<td><%= c.getMemberId() %></td>
 											<td><%= c.getRegistDate() %></td>
 											<td>
 												<% if(c.getInquiryProStatus().equals("Y")){ %>
