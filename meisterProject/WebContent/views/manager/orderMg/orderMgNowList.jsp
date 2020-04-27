@@ -11,6 +11,7 @@
 	ArrayList<Pizza> sList = (ArrayList<Pizza>)request.getAttribute("sList");
 	ArrayList<Pizza> eList = (ArrayList<Pizza>)request.getAttribute("eList");
 	
+	String pizzaName="";
 %>
 <!DOCTYPE html>
 <html>
@@ -147,18 +148,52 @@
 									</tr>
 								<% }else{ // 리스트가 비어있지 않을 경우 %>
 								
-									<% for(Orders o : orderList){ %>
-									 	
+									<% for(int i=0; i<orderList.size(); i++){ %>
 									 	<tr data-toggle="modal" data-target="#myModal">
-											<td><%= o.getReceiptNo() %></td>
-											<td><%= o.getMemberId() %></td>
+											<td><%= orderList.get(i).getReceiptNo() %></td>
+											<td><%= orderList.get(i).getOrderName()%></td>
 											<td>
-												<!-- 주문내용 -->
+												<!-- 주문 정보 -->
+												<% String[] pizzaNoList = priceList.get(i).getPizzaNo().split(","); %>
+												<% for(int j=0; j<pList.size(); j++){ %>
+													<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNoList[0])){ %>
+														<% pizzaName = pList.get(j).getPizzaName(); %>
+													<% } %>
+												<% } %>
+												
+												<%
+													int pizzaCount = 0;
+													int sideCount = 0;
+													int etcCount = 0;
+													
+													String[] pStr = priceList.get(i).getPizzaCount().split(",");
+													for(int j=0; j<pStr.length; j++){
+														pizzaCount += Integer.parseInt(pStr[j]);
+													}
+													
+													if(priceList.get(i).getSideCount() != null){
+														String[] sStr = priceList.get(i).getSideCount().split(",");
+														for(int j=0; j<sStr.length; j++){
+															sideCount += Integer.parseInt(sStr[j]);
+														}
+													}
+													
+													if(priceList.get(i).getEtcCount() != null){
+														String[] eStr = priceList.get(i).getEtcCount().split(",");
+														for(int j=0; j<eStr.length; j++){
+															etcCount += Integer.parseInt(eStr[j]);
+														}
+													}
+													
+													int totalCount = pizzaCount + sideCount + etcCount;
+												%>
+												
+												<%=pizzaName %> 외 <%=totalCount-1%>건 
 											</td>
-											<td><%= o.getOrderDate() %></td>
+											<td><%= orderList.get(i).getOrderDate() %></td>
 											<th>
 											<!-- <button class="button" onclick="" style="background-color: yellowgreen;">접수</button> -->
-												<% if(o.getOrderStatus().equals("T")) { %>
+												<% if(orderList.get(i).getOrderStatus().equals("T")) { %>
 													주문접수완료
 												<% }else { %>
 													주문처리중

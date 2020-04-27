@@ -383,8 +383,8 @@ public class OrderDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			for(int i=0; i<plist.size(); i++) {
-				pstmt.setInt(1, plist.get(i).getOrderNo());
+			for(int i=0; i<orderList.size(); i++) {
+				pstmt.setInt(1, orderList.get(i).getOrderNo());
 				rset = pstmt.executeQuery();
 				
 				if(rset.next()) {

@@ -48,8 +48,8 @@ public class OrderMgNowListServlet extends HttpServlet {
 		
 		// 지점 메뉴바에서 로그인된 해당 지점관리자 정보 가져오기
 		HttpSession session = request.getSession();
-		Manager loginManager = (Manager)session.getAttribute("loginUser");
-		System.out.println(loginManager);
+		Manager loginManager = (Manager)session.getAttribute("loginManager");
+
 		
 		//1. 지점번호 조회해오기(BRANCH테이블에서)
 		int bno = new OrderService().selectBranchNo(loginManager);
@@ -94,6 +94,7 @@ public class OrderMgNowListServlet extends HttpServlet {
 		request.setAttribute("sList", sList);
 		request.setAttribute("eList", eList);
 		request.setAttribute("dList", dList);
+		
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgNowList.jsp");
 		view.forward(request, response);
