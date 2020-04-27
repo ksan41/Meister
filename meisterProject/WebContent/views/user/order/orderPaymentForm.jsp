@@ -343,11 +343,11 @@
 					<% } %>
 					<%discountPrice = ((int)(basketPrice * dRate)); %>
                     <tr style="font-weight: bold;">
-                        <td><%=basketPrice %> 원</td>
+                        <td id="basketPrice"><%=basketPrice %></td>
                         <td>-</td>
                         <td style="color: red;" id="discountPrice">0</td>
                         <td>-</td>
-                        <td><%=basketPrice-discountPrice%> 원</td>
+                        <td id="finalPrice"><%=basketPrice %></td>
                     </tr>
                 </table>
                 <br><br>
@@ -365,7 +365,12 @@
 	        $("#couponRate").change(function(){
 	            var value = Number($("#couponRate> option:selected").val());
 	            
-	            $("#discountPrice").text(value);
+	            value = value * 0.01;
+	            var discountPrice = $("#basketPrice").text() * value;
+	            var finalPrice = $("#basketPrice").text() - discountPrice;
+	            
+	            $("#discountPrice").text(discountPrice);
+	            $("#finalPrice").text(finalPrice);
 	        });
 	        
 	    });
