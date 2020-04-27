@@ -207,9 +207,9 @@
 					</div>
 
 					<div class="contentMg4">
-						
+						<% int upIndex = 0; %>
 						<% for(int i=0; i<hlist.size(); i++) { %>
-
+							<% upIndex++; %>
 							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
 						
 								<div class="faqQuestion">
@@ -540,9 +540,15 @@
 	    });
 		
 		
-		function deleteConfirm(){
-			$(".postFormFaq").submit();
-		};
+//		function deleteConfirm(){
+//			$(".postFormFaq").submit();
+//		};
+
+		$(document).on("click",".deleteConfirm",function(){
+			console.log("클릭됨됨됨");
+			var index = $(".deleteConfirm").index(this);
+			$(".menuUpdateFormP:eq("+index+")").submit();
+		});
 	    
 	</script>
 </body>
