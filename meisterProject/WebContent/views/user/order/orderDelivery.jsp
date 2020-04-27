@@ -105,10 +105,10 @@
 	 	padding-top:45px;
 	    padding-left:35px;
 	 }
-	 .inner div:nth-child(3){
+	 /*.inner div:nth-child(3){
 	     width:100%;
 	     height:120px;
-	 }
+	 }*/
 	 .content>div{
 	 	height:120px;
 	 	float:left;
@@ -228,7 +228,7 @@
                     <h6>해당 주소로 배달을 진행하시겠습니까?</h6>
                 </div>
                 <div style="width:20%; height:60px; padding-left:8%;">
-                    <button style="width:120px; height:40px; font-size:14px; margin-top:8px; text-align:center; background-color: rgb(76, 60, 60); color:white">&nbsp;&nbsp;다음으로</button>
+                    <button id = "nextStep" style="width:120px; height:40px; font-size:14px; margin-top:8px; text-align:center; background-color: rgb(76, 60, 60); color:white">&nbsp;&nbsp;다음으로</button>
                 </div>
             </div>
           
@@ -294,7 +294,6 @@
            <!-- 모달 끝 -->
 
 	<script>
-	
     // 우편번호 찾기 찾기 화면을 넣을 element_곽진아
     var element_wrap = document.getElementById('wrap');
     function addPostInput(){
@@ -377,13 +376,13 @@
     
     // 배달지 삭제 함수_곽진아
 	function removeAddress(){
- 		HttpSession session = setAttribute("deliveryList", deliveryList);
+ 		session.setAttribute("deliveryList", deliveryList);
     	location.href="<%=contextPath%>/deleteAddress.or&index=<%=index%>";
     };
-
-
-    출처: https://pjsprogram.tistory.com/58 [행배]
-    	
+	// 다음	
+	function nextStep(){
+		}
+	}
     
 	</script>
 </body>

@@ -203,7 +203,7 @@
             <table id="orderB2" border="0px;" align="center">
                 <tr>
                     <th width="90%" colspan="5" style="text-align:left; color:white; background-color: rgb(76, 60, 60);">주문내역</th>
-                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" onclick="deleteAll(this);" id="#" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
+                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" id="deleteAll" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
                 </tr>
                 <tr style="border-bottom:1px solid;">
                     <th></th>
@@ -253,31 +253,10 @@
 	                            <%totalPrice += pizzaPrice; %>
 	                        </form>
 	                    </th>
-	                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+	                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
 	                </tr>
 	                <%} %>
 				<%} %>
-                <!-- <tr style="border-bottom:1px solid;">
-                    <th>피자이미지</th>
-                    <th>
-                        <p>
-                            30치즈&뉴욕 스트립 스테이크 더블치즈엣지<br>
-                            오리지널/L <br>
-                            39,900원
-                        </p>
-                    </th>
-                    <th></th>
-                    <th colspan="2">
-                        <form name="form2" method="get">
-                            <input type=hidden name="sell_price" value="39900">
-                            <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
-                            <input type="text" name="sum" size="11" readonly>원
-                        </form>
-                    </th>
-                    <th></th>
-                </tr> -->
-                
                 
               	<% for(int i=0; i<sideNo.length; i++){   
               			String side = sideNo[i];  %>
@@ -303,7 +282,7 @@
 		                            <%totalPrice += sideSum; %>
 		                        </form>
 		                    </th>
-		                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+		                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
 		                </tr>
 		                <%} %>
                 	<% } %>
@@ -335,7 +314,7 @@
    		                    <%totalPrice += etcSum; %>
                         </form>
                     </th>
-                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
 						<%} %>
 					<%} %>
@@ -385,16 +364,17 @@
             	</table>
       	<%} %>
         </div> 	
-        
-        <script>
-        var totalPrice = 0;
-        
-        $(function(){
-        	console.log("totalPrice = " + <%=totalPrice%>);
+    </div>
+    <%@ include file="../../common_user/footer.jsp"%>
+    
+	<script>
+        // 서블릿에서 전달받은 총 가격 표시 // 작성자 : 곽진아
+        window.onload = $(function(){
         	$(".totalPrice").text(<%=totalPrice%>);
     	});
-        
+     	// 작성자 : 곽진아
     	$(function(){
+    		// 수량 더하기 버튼 클릭시 해당 메뉴의 수량, 가격 변경하고 총가격도 반영시키는 함수
         	$('.addBtn').click(function(){
         		$(this).prev().val(Number($(this).prev().val())+1);
   				var amount = $(this).prev().val();
@@ -403,9 +383,7 @@
   				$(this).next().next().val(sumPrice);
   				
   				totalPrice = $(".totalPrice").text();
-        		console.log(totalPrice);
         		var addPrice = $(this).prev().prev().val();
-        		console.log(addPrice);
         		var resultPrice = Number(totalPrice) + Number(addPrice);
         		$(".totalPrice").text(resultPrice);
         		
@@ -414,7 +392,8 @@
         			console.log("지점21");
         		}
         	});
-        	
+    		
+        	// 수량 빼기 버튼 클릭시 해당 메뉴의 수량, 가격 변경하고 총가격도 반영시키는 함수
         	$('.delBtn').click(function(){
         		if($(this).prev().prev().val() == 1 ){ 
         			$(this).attr('disabled',true);
@@ -426,66 +405,43 @@
       				$(this).next().val(sumPrice);
 
       				totalPrice = $(".totalPrice").text();
-            		console.log(totalPrice);
             		var delPrice = $(this).prev().prev().prev().val();
-            		console.log(delPrice);
             		var resultPrice = Number(totalPrice) - Number(delPrice);
             		$(".totalPrice").text(resultPrice);
         		}
         	});
-        	
-        	$('button').click(function(){
+            
+            // 작성자 : 곽진아
+        	$('#deleteAll').click(function(){
             	var contentRow = document.getElementsByClassName("contentRow");
-            	//console.log("deleteAll 1");
-            	//var rowCount = contentRow.length;
-            	console.log("contentRow : " + contentRow.length);
 
            		for(var i=0; i<contentRow.length; i++){
            			contentRow[i].remove();
                		i--;
            		}
-            	
+           		$(".totalPrice").text(0);
             });
-            
+        	
+        	$(".deleteBtn").click(function(){
+  	   			alert("클릭됨");
+        	});
+        	$("#test1").click(function(){
+                $(this).text("클릭되었습니다.");
+            });
+        	
         });
         </script>
-        
-
-
-    </div>
-	
-	<%@ include file="../../common_user/footer.jsp"%>
-	
-    
-
-<!-- <form name="form" method="get">
-    수량 : <input type=hidden name="sell_price" value="5500">
-<input type="text" name="amount" value="1" size="3" onchange="change();">
-<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
-
-금액 : <input type="text" name="sum" size="11" readonly>원
-</form> -->
 
     <script type="text/javascript">
+    	
         function deleteLine(obj) {
             var tr = $(obj).parent().parent();
-        
+        	var totalPrice = $(obj).parent().parent().children('.sumArea');
+        	
             //라인 삭제
             tr.remove();
+
         };
-        /*function deleteAll(obj){
-        	var contentRow = document.getElementsByClassName("contentRow");
-        	//console.log("deleteAll 1");
-        	//var rowCount = contentRow.length;
-        	console.log("contentRow : " + contentRow.length);
-        	console.log("contentRow 개수 : " + rowCount);
-        	
-        	while(contentRow.length > 0){
-        		contentRow[i].remove();
-        		console.log(i);
-        	}
-        	
-        };*/
     </script>
      
 </body>
