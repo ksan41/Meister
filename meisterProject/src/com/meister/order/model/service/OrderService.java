@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Manager;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
@@ -158,7 +159,16 @@ public class OrderService {
 	
 	
 	
-	
+	public int selectBranchNo(Manager loginManager) {
+		
+		Connection conn = getConnection();
+		
+		int bno = new OrderDao().selectBranchNo(conn, loginManager);
+		
+		close(conn);
+		
+		
+	}
 	
 	
 	
