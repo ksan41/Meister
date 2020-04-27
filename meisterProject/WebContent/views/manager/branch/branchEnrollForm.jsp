@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
     <title>meister_통합 - 지점등록</title>
     
     <!-- 메뉴바 include여기에 해주세요 -->
@@ -73,79 +74,91 @@
     </style>
 </head>
 <body>
-	        <div class="layoutSidenav_content" id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid">
-                    <h1 class="mt-4">지점 관리</h1><!-- 제목-->
-                    <br>
-                    <div class="card mb-4">    <!-- 아이콘은 위에 메뉴에서 해당 i태그 가져오세요-->
-                        <div class="card-header"><i class="fas fa-table mr-1"></i>지점 등록</div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <div id="btn-area" align="right">
-                                    <input id="modifyBtn" type="submit" value="등록하기">
-                                    <input id="deleteBtn" type="submit" value="취소하기">
-                                </div>
-                                <form action="">
-                                <table style="width: 100%;">
-                                    <tr>
-                                        <th>지점명</th>
-                                        <td colspan="3"><input name="branchName" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>점주명</th>
-                                        <td><input name="name" type="text"></td>
-                                        <th>지점계정</th>
-                                        <td><input name="bmId" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>개점일자</th>
-                                        <td><input name="enrollDate" type="date""></td>
-                                        <th>매장전화번호</th>
-                                        <td><input name="phone" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>영업시작시간</th>
-                                        <td><input name="open" type="text"></td>
-                                        <th>영업종료시간</th>
-                                        <td><input name="close" type="text"></td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <th>매장이미지
-                                            <input name="branchImg" type="file" style="display: none;">
-                                        </th>
-                                        <td colspan="3">
-                                            <div id="thumb" style="border: 1px solid red; width:250px;height:250px;">
-                                                <img src="" alt="">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>지점주소</th>
-                                        <td colspan="3"><input name="address" type="text"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>매장위치</th>
-                                        <td colspan="3" rowspan="3">
-                                            <div id="branchMap" style="border:1px solid red; width:600px; height:400px;"></div>
-                                        </td>
-                                    </tr>
-                                    <tr><td colspan="4"></td></tr>
-                                    <tr><td colspan="4"></td></tr>
-                                    <tr>
-                                        <th name="latitude" colspan="2">위도: </th>
-                                        <th name="longitude" colspan="2">경도: </th> 
-                                    </tr>
-                                </table>
-                                </form>
-                            </div>
-                        
+	<div class="layoutSidenav_content" id="layoutSidenav_content">
+		<main>
+		<div class="container-fluid">
+			<h1 class="mt-4">지점 관리</h1>
+			<!-- 제목-->
+			<br>
+			<div class="card mb-4">
+				<!-- 아이콘은 위에 메뉴에서 해당 i태그 가져오세요-->
+				<div class="card-header">
+					<i class="fas fa-table mr-1"></i>지점 등록
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<div id="btn-area" align="right">
+							<input id="modifyBtn" type="submit" value="등록하기"> <input
+								id="deleteBtn" type="submit" value="취소하기">
+						</div>
+						<form action="">
+							<table style="width: 100%;">
+								<tr>
+									<th>지점명</th>
+									<td colspan="3"><input name="branchName" type="text"></td>
+								</tr>
+								<tr>
+									<th>점주명</th>
+									<td><input name="name" type="text"></td>
+									<th>지점계정</th>
+									<td><input name="bmId" type="text"></td>
+								</tr>
+								<tr>
+									<th>개점일자</th>
+									<td><input name="enrollDate" type="date""></td>
+									<th>매장전화번호</th>
+									<td><input name="phone" type="text"></td>
+								</tr>
+								<tr>
+									<th>영업시작시간</th>
+									<td><input name="open" type="text"></td>
+									<th>영업종료시간</th>
+									<td><input name="close" type="text"></td>
+								</tr>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								<tr>
+									<th>매장이미지 <input name="branchImg" type="file"
+										style="display: none;">
+									</th>
+									<td colspan="3">
+										<div id="thumb"
+											style="border: 1px solid red; width: 250px; height: 250px;">
+											<img src="" alt="">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>지점주소</th>
+									<td colspan="3"><input name="address"class="postcodify_address" type="text" />
+									<button id="postcodify_search_button">검색</button></td>
+										<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+										         <!-- jQuery와 Postcodify를 로딩한다 -->
+								</tr>
+								<tr>
+									<th>매장위치</th>
+									<td colspan="3" rowspan="3">
+										<div id="branchMap"
+											style="border: 1px solid red; width: 600px; height: 400px;"></div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="4"></td>
+								</tr>
+								<tr>
+									<td colspan="4"></td>
+								</tr>
+								<tr>
+									<th name="latitude" colspan="2">위도:</th>
+									<th name="longitude" colspan="2">경도:</th>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+	</div>
 
 	<script>
 		var uploadFile = $('.fileBox .uploadBtn');
@@ -161,11 +174,6 @@
 				});
 	</script>
 
-	<script>
-		function deleteMypageModify() {
-			confirm('정말 수정하시겠습니까?');
-		};
-	</script>
 	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70eee1adca78021e50b7669262f2474e"></script>
 	<script>
@@ -205,7 +213,14 @@
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
 		    } 
+		};
 	</script>                
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+		<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+
+
+
                 
 </body>
 </html>
