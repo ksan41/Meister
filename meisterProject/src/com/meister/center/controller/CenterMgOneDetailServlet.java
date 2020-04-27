@@ -48,14 +48,14 @@ public class CenterMgOneDetailServlet extends HttpServlet {
 //			response.setContentType("text/html; charset=UTF-8");
 //			
 //			PrintWriter out = response.getWriter();
-//			out.println("<script>alert('1:1 성공'); location.href='views/manager/centerMg/centerMgOneOnOneDetail.jsp';</script>");
+//			out.println("<script>alert('1:1 상세 조회 성공'); location.href='views/manager/centerMg/centerMgOneOnOneDetail.jsp';</script>");
 //			out.flush();
 			
 		}else {			// 조회실패
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
-			out.println("<script>alert('1:1 실패'); location.href='views/manager/centerMg/centerMgOneOnOneList.jsp';</script>");
+			out.println("<script>alert('1:1 상세 조회 실패'); location.href='views/manager/centerMg/centerMgOneOnOneList.jsp';</script>");
 			out.flush();
 		}
 	}

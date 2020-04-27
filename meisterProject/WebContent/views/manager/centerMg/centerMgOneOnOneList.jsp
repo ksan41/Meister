@@ -79,11 +79,11 @@
 		// 공지사항 상세조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
-
+				console.log("클릭");
 				// 현재 클릭했을 때의 해당 공지사항의 번호
-				var nno = $(this).children().eq(0).text();
+				var cno = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/ceMgOnrDetail.cem?cno=" + cno;
+				location.href="<%= contextPath %>/ceMgOneDetail.cem?cno=" + cno;
 			});
 		});
 	
