@@ -175,24 +175,27 @@
 							이벤트 등록
 						</button>
 					</div>
+					<% int upIndex = 0; %>	
 					<% if(list.isEmpty()){ %>
 						<p>조회된 결과가 없습니다</p>
 					<% } else { %>
 						<% for(int i=0; i<list.size(); i++) { Event ev = list.get(i); %>
-
+							<% upIndex++; %>
 							<div class="thumbnail" align="center" style="height:400px; margin:auto; margin-top:70px">
-								<input type="hidden" name="bno" value="<%=ev.getEventNo() %>"> 
-								<a id="detail1">
-									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
-								</a>
-								<p class="eventTitle"><%=ev.getEventTitle() %></p>
-								<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
-								<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
-								<div align="center">
-									<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-									<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-									<button class="button" class="deleteButton">삭제</button>
-								</div>
+								<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
+									<input type="hidden" name="bno" value="<%=ev.getEventNo() %>"> 
+									<a id="detail1">
+										<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
+									</a>
+									<p class="eventTitle"><%=ev.getEventTitle() %></p>
+									<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
+									<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
+									<div align="center">
+										<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
+										<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+										<button class="button" class="deleteButton">삭제</button>
+									</div>
+								</form>
 							</div>
 						<% } %>
 					<% } %>
@@ -394,6 +397,13 @@
 				//???? 이벤트 삭제 서블릿
 			
 			}
+		});
+		
+		// 삭제버튼
+		$(document).on("click",".deleteButton",function(){
+			console.log("클릭됨됨됨");
+			var index = $(".deleteButton").index(this);
+			$(".eventDelete:eq("+index+")").submit();
 		});
 		
 		$(document).on("click",".modifyButton",function(){
