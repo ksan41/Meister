@@ -105,10 +105,6 @@
 	 	padding-top:45px;
 	    padding-left:35px;
 	 }
-	 .inner div:nth-child(3){
-	     width:100%;
-	     height:120px;
-	 }
 	 .content>div{
 	 	height:120px;
 	 	float:left;
@@ -238,6 +234,7 @@
 	
     </div>
     <%@ include file="../../common_user/footer.jsp"%>
+    
      <!-- 다른 요소에 모달 적용하고 싶으면, 속성에 data-toggle="modal" ,  data-target="#myModal" 타겟명은 따로 지정 -->
   <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><!-- modal별 id 변경해주세요
     버튼
@@ -270,8 +267,7 @@
 						<p id="addPostInput">
 						
 						</p>
-						<input type="button" onclick="addPostInput(); sample3_execDaumPostcode();" value="우편번호 찾기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(76, 60, 60); font-weight:bold;"><br>
-						<div id="wrap" style="display:none; border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+						<input type="button" onclick="addPostInput(); sample3_execDaumPostcode();" value="우편번호 찾기" style="border:none; border-radius:4px; width:562px; height: 40px; font-size:large; margin:3px; color:white; background-color:rgb(76, 60, 60); font-weight:bold;"><br>						<div id="wrap" style="display:none; border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 						</div>
 						<div>
@@ -380,10 +376,6 @@
  		HttpSession session = setAttribute("deliveryList", deliveryList);
     	location.href="<%=contextPath%>/deleteAddress.or&index=<%=index%>";
     };
-
-
-    출처: https://pjsprogram.tistory.com/58 [행배]
-    	
     
 	</script>
 </body>

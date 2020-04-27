@@ -41,7 +41,7 @@ public class InsertAddressServlet extends HttpServlet {
 		String newAddress2 = request.getParameter("newAddress2");
 		String newPoCode = request.getParameter("newPoCode");
 		String deliveryName = request.getParameter("deliveryName");
-		int branchNo = 1; // 이 부분 해결하기 !!!!!!!!!!!!!!!!
+		int branchNo = 106; // 이 부분 해결하기 !!!!!!!!!!!!!!!!
 		
 		//System.out.println("userId = " + request.getParameter("userId"));
 		//System.out.println("memberId = " + request.getParameter("memberId"));
