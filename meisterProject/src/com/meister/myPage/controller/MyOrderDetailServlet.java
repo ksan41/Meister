@@ -44,7 +44,7 @@ public class MyOrderDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int ono = Integer.parseInt(request.getParameter("ono"));
-		//int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
+//		int memberNo = ((Member)request.getSession().getAttribute("loginUser")).getMemberNo();
 		
 		// 해당 요청을 처리하는 서비스클래스의 메소드 호출 후 처리 결과 받기
 		Delivery dInfo = new MyPageService().selectDeliveryInfo(ono);

@@ -11,7 +11,7 @@
 	<title>meister_지점 - 지난 주문내역</title>
 	
 	<!-- 메뉴바 include여기에 해주세요 -->
-	<%@ include file="../../common_manager/imMenubar.jsp"%>
+	<%@ include file="../../common_manager/bmMenubar.jsp"%>
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<!-- 모달 부트스트랩-->
