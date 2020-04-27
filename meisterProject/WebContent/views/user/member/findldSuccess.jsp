@@ -122,10 +122,10 @@ Member member = (Member)request.getAttribute("selectid");
                 </tr>
                 <tr>
                     <td>
-                        <button class="middle_btn" id="#" style="background-color: orange;">로그인</button>
+                        <button class="middle_btn" id="#" style="background-color: orange;" onclick="location.href='<%=contextPath %>/showLoginPage.me'">로그인</button>
                     </td>
                     <td>
-                        <button class="middle_btn" id="#">비밀번호 찾기</button>
+                        <button class="middle_btn" id="#" onclick="location.href='<%=contextPath %>/findPwd.me'">비밀번호 찾기</button>
                     </td>
                 </tr>
             </table>
