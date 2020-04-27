@@ -41,7 +41,7 @@ public class InsertAddressServlet extends HttpServlet {
 		String newAddress2 = request.getParameter("newAddress2");
 		String newPoCode = request.getParameter("newPoCode");
 		String deliveryName = request.getParameter("deliveryName");
-		int branchNo = 106; // 이 부분 해결하기 !!!!!!!!!!!!!!!!
+		int branchNo = 105; // 이 부분 해결하기 !!!!!!!!!!!!!!!!
 		
 		//System.out.println("userId = " + request.getParameter("userId"));
 		//System.out.println("memberId = " + request.getParameter("memberId"));
@@ -55,7 +55,6 @@ public class InsertAddressServlet extends HttpServlet {
 		int memberNo = Integer.parseInt(new OrderService().getMemberNo(userId));
 		//String referenceAddress = request.getParameter("sample3_extraAddress").substring(request.getParameter("sample3_extraAddress").indexOf(","));
 		String referenceAddress = request.getParameter("referenceAddress");
-
 		Delivery d = new Delivery(newAddress1, newAddress2, newPoCode, deliveryName, branchNo, memberNo, referenceAddress);
 		
 		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기

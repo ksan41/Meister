@@ -10,7 +10,16 @@
 	String[] etcCount = basket.getEtcCount().split(",");
 	
 	int pizzaPrice = 0;
-
+	// 추가
+	int sideSum = 0;
+	int etcSum = 0;
+	int totalPrice = 0;
+	int pizzaPrintCount = 0;
+	int sidePrintCount = 0;
+	int etcPrintCount = 0;
+	
+	//
+	int index;
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -18,9 +27,9 @@
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
-	
-	int index = 0;
+
 %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -194,7 +203,7 @@
             <table id="orderB2" border="0px;" align="center">
                 <tr>
                     <th width="90%" colspan="5" style="text-align:left; color:white; background-color: rgb(76, 60, 60);">주문내역</th>
-                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" id="#" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
+                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" id="deleteAll" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
                 </tr>
                 <tr style="border-bottom:1px solid;">
                     <th></th>
@@ -209,12 +218,11 @@
               
                 <%for(Pizza p : pList){ %>
 	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){ %>
-	                <tr style="border-bottom:1px solid;">
+	                <tr style="border-bottom:1px solid;" class="contentRow">
 	                    <th>피자이미지</th>
 	                    <th>
 	                        <p>
 	                            <%=p.getPizzaName() %><br>
-	                            	
 	                            	<%for(Dough d : dList){ %>
 	                            		<% if(d.getDoughNo() == Integer.parseInt(basket.getDoughNo())){ %>
 	                            			<%= d.getDoughName() %>
@@ -226,6 +234,7 @@
 	                            <% for(PizzaSize ps : sizeList){ %>
 	                            	<% if(basket.getPizzaSize().equals(String.valueOf(ps.getSizeNo()))){ %>
 	                            		<%= ps.getPizzaSize() %>
+	                            		<%pizzaPrintCount++; %>
 	                            		<br>
 	                            		<% pizzaPrice = ps.getPizzaPrice(); %>
 	                            		<%= ps.getPizzaPrice() %>원
@@ -240,44 +249,26 @@
 	                            <input type="hidden" class="sellPrice" name="sellPrice" value="<%=pizzaPrice%>">
 	                            <input type="text" class="amount" name="amount" value="<%=basket.getPizzaCount() %>" size="3"">
 	                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-	                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+	                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=pizzaPrice%>">원
+	                            <%totalPrice += pizzaPrice; %>
 	                        </form>
 	                    </th>
-	                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+	                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
 	                </tr>
 	                <%} %>
 				<%} %>
-                <!-- <tr style="border-bottom:1px solid;">
-                    <th>피자이미지</th>
-                    <th>
-                        <p>
-                            30치즈&뉴욕 스트립 스테이크 더블치즈엣지<br>
-                            오리지널/L <br>
-                            39,900원
-                        </p>
-                    </th>
-                    <th></th>
-                    <th colspan="2">
-                        <form name="form2" method="get">
-                            <input type=hidden name="sell_price" value="39900">
-                            <input type="text" name="amount" value="1" size="3" onchange="change();">
-                            <input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
-                            <input type="text" name="sum" size="11" readonly>원
-                        </form>
-                    </th>
-                    <th></th>
-                </tr> -->
-                
                 
               	<% for(int i=0; i<sideNo.length; i++){   
               			String side = sideNo[i];  %>
               		<% for(Side s : sList){ %>
               			<% if(s.getSideNo() == Integer.parseInt(side)){ %>
-		                <tr style="border-bottom:1px solid;">
+              			<%sidePrintCount++; %>
+		                <tr style="border-bottom:1px solid;"  class="contentRow">
 		                    <th>사이드이미지</th>
 		                    <th>
 		                        <p>
 		                            	<%=s.getSideName() %><br>
+		                            	<% sideSum = s.getSidePrice() * Integer.parseInt(sideCount[i]); %>
 		                            <%=s.getSidePrice() %>원
 		                        </p>
 		                    </th>
@@ -287,10 +278,11 @@
 		                            <input type=hidden class="sellPrice" value="<%=s.getSidePrice() %>">
 		                            <input type="text" class="amount" name="amount" value="<%= sideCount[i] %>" size="3"">
 		                            <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-		                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+		                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=sideSum %>">원
+		                            <%totalPrice += sideSum; %>
 		                        </form>
 		                    </th>
-		                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+		                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
 		                </tr>
 		                <%} %>
                 	<% } %>
@@ -299,27 +291,35 @@
 				
 				
 				
-				<%-- <%for(int i=0; i<etcNo.size(); i++){ %> --%>
-                <tr style="border-bottom:1px solid;">
+				<%for(int i=0; i<etcNo.length; i++){
+					String etc = etcNo[i]; %>
+					<%for(Etc e : eList){ %>
+						<% if(e.getEtcNo() == Integer.parseInt(etc)){ %>
+						<%etcPrintCount++; %>
+                <tr style="border-bottom:1px solid;"  class="contentRow">
                     <th>기타이미지</th>
                     <th>
-                        <p>
-                            코카콜라 1.25L<br>
-                            2,000원
+                        <p><%=e.getEtcName() %><br>
+                            <% etcSum = e.getEtcPrice() * Integer.parseInt(etcCount[i]); %>
+		                    <%=e.getEtcPrice() %>원
                         </p>
                     </th>
                     <th></th>
                     <th colspan="2">
                         <form name="formEtc" class="formEtc" method="get">
-                            <input type=hidden class="sellPrice" value="2000">
-                            <input type="text" class="amount" name="amount" value="1" size="3"">
+                            <input type=hidden class="sellPrice" value="<%=e.getEtcPrice()%>">
+                            <input type="text" class="amount" name="amount" value="<%=etcCount[i] %>" size="3"">
                             <input type="button" class="addBtn" value=" + " ><input type="button" class="delBtn" value=" - ">
-                            <input type="text" class="sumArea" name="sum" size="11" readonly>원
+                            <input type="text" class="sumArea" name="sum" size="11" readonly value="<%=etcSum%>">원
+   		                    <%totalPrice += etcSum; %>
                         </form>
                     </th>
-                    <th><button class="small_btn" onclick="deleteLine(this);">삭제</button></th>
+                    <th><button class="small_btn deleteBtn" onclick="deleteLine(this);">삭제</button></th>
                 </tr>
-				<%-- <%} %> --%>
+						<%} %>
+					<%} %>
+				<%} %>
+	
                
             </table>
             <hr id="hr1">
@@ -336,7 +336,7 @@
                         </p>
                     </th>
                     <th>
-                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>
+                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>원
                     </th>
                 </tr>
             </table>
@@ -346,78 +346,102 @@
             <div id="btns"> 
                 <button style="background:white; color:black; border:1px solid darkgray" class="middle_btn" id="cbtn">+ 메뉴 추가하기</button>
                 <br>
-                <form name="orderNext" action="<%=contextPath %>/orderPayForm.or" method="post">
-                <input type="hidden" name="orderNo" value="<%= basket.getOrderNo()%>">
-                <button type="submit" style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
-                </form>
+                <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
             </div>
             
             
         <%}else{ %>    
 				<table id="orderB2" style="text-align:center; margin:auto;">
                 <tr>
-                    <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
-                </tr>A
-                <tr>
-                    <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
-                </tr>
-                <tr>
-                    <td style="font-size: .9em; color:darkgray;">마이스터피자의 맛있는 메뉴를 마음껏 골라 담으세요</td>
-                </tr>
-               
-            </table>
-           <%} %>
-        </div> 
-        
-        <script>
+	                    <td height="300px"><img src="img/shoppingbasket.jpg" alt="orderBasket"></td>
+	                </tr>A
+	                <tr>
+	                    <td style="font-size: 2.0em;">장바구니가 비어 있습니다.</td>
+	                </tr>
+	                <tr>
+	                    <td style="font-size: .9em; color:darkgray;">마이스터피자의 맛있는 메뉴를 마음껏 골라 담으세요</td>
+	                </tr>
+            	</table>
+      	<%} %>
+        </div> 	
+    </div>
+    <%@ include file="../../common_user/footer.jsp"%>
+    
+	<script>
+        // 서블릿에서 전달받은 총 가격 표시 // 작성자 : 곽진아
+        window.onload = $(function(){
+        	$(".totalPrice").text(<%=totalPrice%>);
+    	});
+     	// 작성자 : 곽진아
     	$(function(){
-        	$('.addBtn').click(function(){	
-  				$(this).prev().val(Number($(this).prev().val())+1);
+    		// 수량 더하기 버튼 클릭시 해당 메뉴의 수량, 가격 변경하고 총가격도 반영시키는 함수
+        	$('.addBtn').click(function(){
+        		$(this).prev().val(Number($(this).prev().val())+1);
   				var amount = $(this).prev().val();
   				var price = $(this).prev().prev().val();
   				var sumPrice = amount * price;
   				$(this).next().next().val(sumPrice);
+  				
+  				totalPrice = $(".totalPrice").text();
+        		var addPrice = $(this).prev().prev().val();
+        		var resultPrice = Number(totalPrice) + Number(addPrice);
+        		$(".totalPrice").text(resultPrice);
+        		
+        		if($(this).prev().val() > 1){
+        			$(this).next().attr('disabled',false);
+        			console.log("지점21");
+        		}
         	});
-        	
+    		
+        	// 수량 빼기 버튼 클릭시 해당 메뉴의 수량, 가격 변경하고 총가격도 반영시키는 함수
         	$('.delBtn').click(function(){
-  				$(this).prev().prev().val(Number($(this).prev().prev().val())-1);
-  				var amount = $(this).prev().prev().val();
-  				var price = $(this).prev().prev().prev().val();
-  				var sumPrice = amount * price;
-  				$(this).next().val(sumPrice);
+        		if($(this).prev().prev().val() == 1 ){ 
+        			$(this).attr('disabled',true);
+        		}else{
+        			$(this).prev().prev().val(Number($(this).prev().prev().val())-1);
+      				var amount = $(this).prev().prev().val();
+      				var price = $(this).prev().prev().prev().val();
+      				var sumPrice = amount * price;
+      				$(this).next().val(sumPrice);
+
+      				totalPrice = $(".totalPrice").text();
+            		var delPrice = $(this).prev().prev().prev().val();
+            		var resultPrice = Number(totalPrice) - Number(delPrice);
+            		$(".totalPrice").text(resultPrice);
+        		}
         	});
+            
+            // 작성자 : 곽진아
+        	$('#deleteAll').click(function(){
+            	var contentRow = document.getElementsByClassName("contentRow");
+
+           		for(var i=0; i<contentRow.length; i++){
+           			contentRow[i].remove();
+               		i--;
+           		}
+           		$(".totalPrice").text(0);
+            });
         	
-        	$('input').click(function(){
-        		var totalPrice = $('.formPizza').children('input.sellPrice').val();
-            	$("b").text = 1000;
-            	console.log(totalPrice);
+        	$(".deleteBtn").click(function(){
+  	   			alert("클릭됨");
         	});
+        	$("#test1").click(function(){
+                $(this).text("클릭되었습니다.");
+            });
+        	
         });
         </script>
-        
-
-
-    </div>
-	
-	<%@ include file="../../common_user/footer.jsp"%>
-	
-    
-
-<!-- <form name="form" method="get">
-    수량 : <input type=hidden name="sell_price" value="5500">
-<input type="text" name="amount" value="1" size="3" onchange="change();">
-<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();"><br>
-
-금액 : <input type="text" name="sum" size="11" readonly>원
-</form> -->
 
     <script type="text/javascript">
+    	
         function deleteLine(obj) {
             var tr = $(obj).parent().parent();
-        
+        	var totalPrice = $(obj).parent().parent().children('.sumArea');
+        	
             //라인 삭제
             tr.remove();
-        }
+
+        };
     </script>
      
 </body>
