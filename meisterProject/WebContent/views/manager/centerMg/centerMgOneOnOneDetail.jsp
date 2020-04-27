@@ -99,7 +99,7 @@
 							<tr>
 								<td>답변</td>
 								<th style="height: 250px; font-size: 13px; color: brown">
-									<textarea id="contentArea" style="font-size: 1.0em; color: cornflowerblue" readonly><%= c.getInquiryAnswer() %></textarea>
+									<textarea class="inquiryAnswer" id="contentArea" style="font-size: 1.0em; color: cornflowerblue" readonly><%= c.getInquiryAnswer() %></textarea>
 								</th>
 							</tr>
 						</table>

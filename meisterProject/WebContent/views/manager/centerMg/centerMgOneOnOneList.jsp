@@ -61,7 +61,13 @@
 											<td><%= c.getInquiryTitle() %></td>
 											<td><%= c.getMemberNo() %></td>
 											<td><%= c.getRegistDate() %></td>
-											<td><%= c.getInquiryProStatus() %></td>
+											<td>
+												<% if(c.getInquiryProStatus().equals("Y")){ %>
+													답변완료
+												<% } else { %>
+													처리중
+												<% } %>
+											</td>
 										</tr>
 									<% } %>
 								<%} %>
@@ -76,11 +82,10 @@
 	
 	<script>
 	
-		// 공지사항 상세조회
+		// 1:1문의 상세조회
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
-				console.log("클릭");
-				// 현재 클릭했을 때의 해당 공지사항의 번호
+				// 현재 클릭했을 때의 해당 1:1문의의 번호
 				var cno = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
 				location.href="<%= contextPath %>/ceMgOneDetail.cem?cno=" + cno;

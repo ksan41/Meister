@@ -264,17 +264,17 @@ public class CenterDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				c = new Center(rset.getInt("C.INQUIRY_NO"),
-							   rset.getString("C.INQUIRY_TITLE"),
-							   rset.getString("C.INQUIRY_CONTENT"),
-							   rset.getString("C.INQUIRY_ANSWER"),
-							   rset.getDate("C.REGISTRATION_DATE"),
-							   rset.getDate("C.MODIFY_DATE"),
-							   rset.getInt("C.INQUIRY_TYPE"),
-							   rset.getString("C.INQUIRY_STORE"),
-							   rset.getString("C.INQUIRY_PRO_STATUS"),
-							   rset.getInt("C.RECEIPT_NO"),
-							   rset.getString("M.MEMBER_ID"));
+				c = new Center(rset.getInt("INQUIRY_NO"),
+							   rset.getString("INQUIRY_TITLE"),
+							   rset.getString("INQUIRY_CONTENT"),
+							   rset.getString("INQUIRY_ANSWER"),
+							   rset.getDate("REGISTRATION_DATE"),
+							   rset.getDate("MODIFY_DATE"),
+							   rset.getInt("INQUIRY_TYPE"),
+							   rset.getString("INQUIRY_STORE"),
+							   rset.getString("INQUIRY_PRO_STATUS"),
+							   rset.getInt("RECEIPT_NO"),
+							   rset.getString("MEMBER_ID"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
