@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Payment;
 import com.meister.order.model.vo.Price;
 
 public class OrderDao {
@@ -305,6 +306,34 @@ public class OrderDao {
 		}
 		
 		return result;
+	}
+	
+	
+	// 현영 
+	public int paymentInsert(Connection conn, Payment pm) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("paymentInsert");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pm.getPaymentPrice());
+			pstmt.setString(2, pm.getPaymentType());
+			pstmt.setInt(3, pm.getReceiptNo());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
 	}
 	
 	

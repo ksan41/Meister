@@ -32,14 +32,27 @@ public class OrderPaymentInsert extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		request.setCharacterEncoding("utf-8");
+		
 		int rno = Integer.parseInt(request.getParameter("rno"));
+		String pay_method = request.getParameter("pay_method");
+		int amount = Integer.parseInt(request.getParameter("amount"));
 		
-		ArrayList<Payment> list = new OrderService().paymentInsert(rno);
-		request.setAttribute("list", list);
+		Payment pm = new Payment();
+		pm.setPaymentPrice(amount);
+		pm.setPaymentType(pay_method);
+		pm.setReceiptNo(rno);
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderPaymentSuccess.jsp");
-		view.forward(request, response);
+		int result = new OrderService().paymentInsert(pm);
+		
+		if(result > 0) {
+			
+			RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderPaymentSuccess.jsp");
+			view.forward(request, response);
+			
+		}
+		
 	
 	}
 

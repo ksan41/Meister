@@ -12,6 +12,7 @@ import com.meister.coupon.model.vo.Coupon;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
+import com.meister.order.model.vo.Payment;
 import com.meister.order.model.vo.Price;
 
 public class OrderService {
@@ -127,6 +128,32 @@ public class OrderService {
 		close(conn);
 		
 		return result;
+	}
+	
+	
+	/** 현영
+	 * 결제 api 서비스용
+	 * @param pm insert용
+	 * @return
+	 */
+	public int paymentInsert(Payment pm) {
+		
+		Connection conn = getConnection();
+		
+		int result = new OrderDao().paymentInsert(conn, pm);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+		
+		
 	}
 	
 	

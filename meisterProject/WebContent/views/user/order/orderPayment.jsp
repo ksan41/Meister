@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.meister.order.model.vo.*" %>
+<%-- <%
+	int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
+%> --%>
 <!DOCTYPE html>
 <html>
 <head>
-
     <!-- 결제 api -->
       <script type="text/javascript"
 		src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
@@ -20,9 +22,9 @@
 <body>
 
 
-		<!-- 결제 api -->
+	<!-- 결제 api -->
     <script>
-		$("#check_module").click(function() {
+		$(function() {
 			var IMP = window.IMP; // 생략가능
 			IMP.init('imp93450906');
 			// 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
@@ -91,20 +93,12 @@
 			});
 		});
 	</script>
-	<script>
+ 	<script>
 	    function requestPay() {
 	      // IMP.request_pay(param, callback) 호출
 	      IMP.request_pay({ // param
-	          pg: "inicis",
 	          pay_method: "카드결제",
-	          merchant_uid: "ORD20180131-0000011",
-	          name: "노르웨이 회전 의자",
-	          amount: 64900,
-	          buyer_email: "gildong@gmail.com",
-	          buyer_name: "홍길동",
-	          buyer_tel: "010-4242-4242",
-	          buyer_addr: "서울특별시 강남구 신사동",
-	          buyer_postcode: "01181"
+	          amount: <%-- <%= totalPrice %> --%>100,
 	      }, function (rsp) { // callback
 	          if (rsp.success) {
 	              
