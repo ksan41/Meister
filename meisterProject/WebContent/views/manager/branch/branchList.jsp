@@ -134,7 +134,7 @@
                                         <thead>
                                             <tr>
                                                 <td colspan="6">
-                                                    <button class="middle_btn" id="#">지점등록</button>
+                                                    <button class="middle_btn" onclick="location.href='<%=contextPath%>/branchEnrollForm.br'">지점등록</button>
                                                 </td>
                                             </tr>
                                             <tr>
