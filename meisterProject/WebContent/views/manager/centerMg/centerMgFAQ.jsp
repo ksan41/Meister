@@ -109,7 +109,7 @@
 						<button id="activeMgFAQ4">홈페이지 관련</button>
 					</div>
 					<div align="right">
-						<button class="button" onclick="" data-toggle="modal" data-target="#faqEnrollModal">등록</button>
+						<button class="button" data-toggle="modal" data-target="#faqEnrollModal">등록</button>
 					</div>
 					<hr>
 	
@@ -138,7 +138,7 @@
 										</table>
 										<div align="right">
 											<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal<%=i%>">수정</button>
-											<button class="button" onclick="deleteConfirm();">삭제</button>
+											<button class="button deleteConfirm">삭제</button>
 										</div>
 										<br>
 									</div>
@@ -172,7 +172,7 @@
 										</table>
 										<div align="right">
 											<button class="button" data-toggle="modal" data-target="#faqUpdateModalr<%=i%>">수정</button>
-											<button class="button" onclick="deleteConfirm();">삭제</button>
+											<button class="button deleteConfirm">삭제</button>
 										</div>
 										<br>
 									</div>
@@ -205,7 +205,7 @@
 										</table>
 										<div align="right">
 											<button class="button" data-toggle="modal" data-target="#faqUpdateModalp<%=i%>">수정</button>
-											<button class="button" onclick="deleteConfirm();">삭제</button>
+											<button class="button deleteConfirm">삭제</button>
 										</div>
 										<br>
 									</div>
