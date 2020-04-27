@@ -392,46 +392,48 @@
         $(function(){
         	console.log("totalPrice = " + <%=totalPrice%>);
         	$(".totalPrice").text(<%=totalPrice%>);
-        	
     	});
+        
     	$(function(){
         	$('.addBtn').click(function(){
-        		if(($('.addBtn').prev().val() == 1)){
-        			$(this).next().style.enabled;
-        		}
         		$(this).prev().val(Number($(this).prev().val())+1);
   				var amount = $(this).prev().val();
   				var price = $(this).prev().prev().val();
   				var sumPrice = amount * price;
   				$(this).next().next().val(sumPrice);
-        	});
-        	
-        	$('.delBtn').click(function(){
-  				$(this).prev().prev().val(Number($(this).prev().prev().val())-1);
-  				var amount = $(this).prev().prev().val();
-  				var price = $(this).prev().prev().prev().val();
-  				var sumPrice = amount * price;
-  				$(this).next().val(sumPrice);
-        	});
-        	
-        	$('input.addBtn').click(function(){
-        		var totalPrice = $(".totalPrice").text();
+  				
+  				totalPrice = $(".totalPrice").text();
         		console.log(totalPrice);
         		var addPrice = $(this).prev().prev().val();
         		console.log(addPrice);
         		var resultPrice = Number(totalPrice) + Number(addPrice);
         		$(".totalPrice").text(resultPrice);
-        	});
-        	$('input.delBtn').click(function(){
-        		var totalPrice = $(".totalPrice").text();
-        		console.log(totalPrice);
-        		var delPrice = $(this).prev().prev().prev().val();
-        		console.log(delPrice);
-        		var resultPrice = Number(totalPrice) - Number(delPrice);
-        		$(".totalPrice").text(resultPrice);
+        		
+        		if($(this).prev().val() > 1){
+        			$(this).next().attr('disabled',false);
+        			console.log("지점21");
+        		}
         	});
         	
-        	
+        	$('.delBtn').click(function(){
+        		if($(this).prev().prev().val() == 1 ){ 
+        			$(this).attr('disabled',true);
+        		}else{
+        			$(this).prev().prev().val(Number($(this).prev().prev().val())-1);
+      				var amount = $(this).prev().prev().val();
+      				var price = $(this).prev().prev().prev().val();
+      				var sumPrice = amount * price;
+      				$(this).next().val(sumPrice);
+
+      				totalPrice = $(".totalPrice").text();
+            		console.log(totalPrice);
+            		var delPrice = $(this).prev().prev().prev().val();
+            		console.log(delPrice);
+            		var resultPrice = Number(totalPrice) - Number(delPrice);
+            		$(".totalPrice").text(resultPrice);
+        		}
+  				
+        	});
         });
         </script>
         
