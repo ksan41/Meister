@@ -211,28 +211,30 @@
 						<% for(int i=0; i<hlist.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
-						
-								<div class="faqQuestion">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=hlist.get(i).getFaqQuestion()%></td>
-										</tr>
-									</table>
-								</div>
-								<div class="faqAnswer">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=hlist.get(i).getFaqAnswer()%></td>
-										</tr>
-									</table>
-									<div align="right">
-										<button class="button" data-toggle="modal" data-target="#faqUpdateModalh<%=i%>">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
+								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<div class="faqQuestion">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: blue">Q</th>
+												<td style="width: 900px;"><%=hlist.get(i).getFaqQuestion()%></td>
+											</tr>
+										</table>
 									</div>
-									<br>
-								</div>
+									<div class="faqAnswer">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+												<td style="width: 800px;"><%=hlist.get(i).getFaqAnswer()%></td>
+											</tr>
+										</table>
+										<div align="right">
+											<button class="button" data-toggle="modal" data-target="#faqUpdateModalh<%=i%>">수정</button>
+											<button class="button deleteConfirm">삭제</button>
+											<!-- <button class="button" onclick="deleteConfirm();">삭제</button> -->
+										</div>
+										<br>
+									</div>
+								</form>
 							<% } %>
 						<% } %>
 					</div>
@@ -462,11 +464,6 @@
 		<%} %>
 	<%} %>
 	
-	
-	<form class="postFormFaq" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
-	</form>
-
 
 	<script>
 			$("#activeMgFAQ1").click(
@@ -547,7 +544,7 @@
 		$(document).on("click",".deleteConfirm",function(){
 			console.log("클릭됨됨됨");
 			var index = $(".deleteConfirm").index(this);
-			$(".menuUpdateFormP:eq("+index+")").submit();
+			$(".faqDeleteForm:eq("+index+")").submit();
 		});
 	    
 	</script>
