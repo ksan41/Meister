@@ -14,11 +14,12 @@
 	int sideSum = 0;
 	int etcSum = 0;
 	int totalPrice = 0;
-	//int count = 0;
 	int pizzaPrintCount = 0;
 	int sidePrintCount = 0;
 	int etcPrintCount = 0;
 	
+	//
+	int index;
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
 	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
@@ -202,7 +203,7 @@
             <table id="orderB2" border="0px;" align="center">
                 <tr>
                     <th width="90%" colspan="5" style="text-align:left; color:white; background-color: rgb(76, 60, 60);">주문내역</th>
-                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" id="#" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
+                    <td width="10%" style=" color:white; background-color: rgb(76, 60, 60);"><button class="small_btn" onclick="deleteAll(this);" id="#" style="background: rgb(243, 156, 18);">전체 삭제</button></td>
                 </tr>
                 <tr style="border-bottom:1px solid;">
                     <th></th>
@@ -217,12 +218,11 @@
               
                 <%for(Pizza p : pList){ %>
 	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){ %>
-	                <tr style="border-bottom:1px solid;">
+	                <tr style="border-bottom:1px solid;" class="contentRow">
 	                    <th>피자이미지</th>
 	                    <th>
 	                        <p>
 	                            <%=p.getPizzaName() %><br>
-	                            	
 	                            	<%for(Dough d : dList){ %>
 	                            		<% if(d.getDoughNo() == Integer.parseInt(basket.getDoughNo())){ %>
 	                            			<%= d.getDoughName() %>
@@ -284,7 +284,7 @@
               		<% for(Side s : sList){ %>
               			<% if(s.getSideNo() == Integer.parseInt(side)){ %>
               			<%sidePrintCount++; %>
-		                <tr style="border-bottom:1px solid;">
+		                <tr style="border-bottom:1px solid;"  class="contentRow">
 		                    <th>사이드이미지</th>
 		                    <th>
 		                        <p>
@@ -317,7 +317,7 @@
 					<%for(Etc e : eList){ %>
 						<% if(e.getEtcNo() == Integer.parseInt(etc)){ %>
 						<%etcPrintCount++; %>
-                <tr style="border-bottom:1px solid;">
+                <tr style="border-bottom:1px solid;"  class="contentRow">
                     <th>기타이미지</th>
                     <th>
                         <p><%=e.getEtcName() %><br>
@@ -459,7 +459,20 @@
         
             //라인 삭제
             tr.remove();
-        }
+        };
+        function deleteAll(obj){
+        	var contentRow = document.getElementsByClassName("contentRow");
+        	//console.log("deleteAll 1");
+        	var rowCount = contentRow.length;
+        	console.log("contentRow : " + contentRow);
+        	console.log("contentRow 개수 : " + rowCount);
+        	
+        	for(var i=0; i<rowCount; i++){
+        		contentRow[i].remove();
+        		console.log(i);
+        	}
+        	
+        };
     </script>
      
 </body>
