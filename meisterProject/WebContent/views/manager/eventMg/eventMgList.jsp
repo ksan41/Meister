@@ -183,7 +183,7 @@
 							<% upIndex++; %>
 							<div class="thumbnail" align="center" style="height:400px; margin:auto; margin-top:70px">
 								<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
-									<input type="hidden" name="bno" value="<%=ev.getEventNo() %>"> 
+									<input type="hidden" name="bno" value="<%=ev.getEventNo() %>">
 									<a id="detail1">
 										<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
 									</a>
