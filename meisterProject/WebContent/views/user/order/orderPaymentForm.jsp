@@ -149,7 +149,7 @@
         <br>
         <!-- <div class="sub-menu-area"> -->
         <!-- inner영역에 콘텐츠 작성 -->
-        <!-- <form id="" method="post"> -->
+        <!-- <form id="" method="post" action=""> -->
         <div class="inner" style="font-size: 20px;">
             <div style="width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px; background-color:rgb(76, 60, 60);">
                 수령인정보
@@ -288,13 +288,14 @@
 	                    <tr>
 	                        <th>보유쿠폰</th>
 	                        <td style="width: 400px;">
-	                            <select name="coupon" style="width:300px; height: 35px; border-radius: 5px;">
+	                            <select name="coupon" id="couponRate" style="width:300px; height: 35px; border-radius: 5px;">
+	                            	<option value="0" selected>사용할 쿠폰을 선택하세요.</option>
 	                            	<% if(cInfo != null){ %>
 	                            		<% for(int i=0; i<cInfo.size(); i++){ %>
-	                            			<option id="cRate" value="<%=cInfo.get(i).getCouponDiscount()%>"><%=cInfo.get(i).getCouponName()%></option>
+	                            			<option value="<%=cInfo.get(i).getCouponDiscount()%>"><%=cInfo.get(i).getCouponName()%></option>
 	                            		<% } %>
 	                            	<% }else { %>
-	                            		<option>보유중인 쿠폰이 없습니다.</option>
+	                            		<option value="0" selected>보유중인 쿠폰이 없습니다.</option>
 	                            	<% } %>
 	                            </select>
 	                        </td>
@@ -355,6 +356,16 @@
         </div>
 		<!-- </form> -->
     </div>
+    
+    <script>
+	    $(function(){
+	        $("#couponRate").change(function(){
+	            var value = $("option:selected").val();
+	            console.log(value);
+	        });
+	    });
+    </script>
+    
 	
 	<!-- 결제 api -->
     <script>
