@@ -3,6 +3,7 @@ package com.meister.center.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,12 @@ public class CenterMgFaqDeleteServlet extends HttpServlet {
 		int result = new CenterService().deleteFaq(faqNo);
 		
 		if(result > 0) {// 공지사항 삭제 성공
+			
+			request.setAttribute("result", result);
+			RequestDispatcher view = request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneDetail.jsp");
+			view.forward(request, response);
+			
+			///////////////////////////////////////////////////////////////////////////
 			
 			response.setContentType("text/html; charset=UTF-8");
 			

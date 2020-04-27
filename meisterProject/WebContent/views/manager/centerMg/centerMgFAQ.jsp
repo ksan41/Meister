@@ -113,95 +113,101 @@
 					<hr>
 	
 					<div class="contentMg1">
-						
+						<% int upIndex = 0; %>
 						<% for(int i=0; i<list.size(); i++) { %>
-
+							<% upIndex++; %>
 							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
-							
-								<div class="faqQuestion">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=list.get(i).getFaqQuestion() %></td>
-										</tr>
-									</table>
-								</div>
-								<div class="faqAnswer">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=list.get(i).getFaqAnswer()%></td>
-										</tr>
-									</table>
-									<div align="right">
-										<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal<%=i%>">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
+								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<div class="faqQuestion">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: blue">Q</th>
+												<td style="width: 900px;"><%=list.get(i).getFaqQuestion() %></td>
+											</tr>
+										</table>
 									</div>
-									<br>
-								</div>
+									<div class="faqAnswer">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+												<td style="width: 800px;"><%=list.get(i).getFaqAnswer()%></td>
+											</tr>
+										</table>
+										<div align="right">
+											<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal<%=i%>">수정</button>
+											<button class="button" onclick="deleteConfirm();">삭제</button>
+										</div>
+										<br>
+									</div>
+								</form>
 							<% } %>
 						<% } %>
 					</div>
 
 
 					<div class="contentMg2">
-					
+						<% int upIndex = 0; %>
 						<% for(int i=0; i<rlist.size(); i++) { %>
-
+							<% upIndex++; %>
 							<% if (rlist.get(i).getFaqType().equals("주문확인")) { %>
-							
-								<div class="faqQuestion">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=rlist.get(i).getFaqQuestion()%></td>
-										</tr>
-									</table>
-								</div>
-								<div class="faqAnswer">
-									<table>
-										<tr>
-											<th	style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=rlist.get(i).getFaqAnswer()%></td>
-										</tr>
-									</table>
-									<div align="right">
-										<button class="button" data-toggle="modal" data-target="#faqUpdateModalr<%=i%>">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
+								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<div class="faqQuestion">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: blue">Q</th>
+												<td style="width: 900px;"><%=rlist.get(i).getFaqQuestion()%></td>
+											</tr>
+										</table>
 									</div>
-									<br>
-								</div>
+									<div class="faqAnswer">
+										<table>
+											<tr>
+												<th	style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+												<td style="width: 800px;"><%=rlist.get(i).getFaqAnswer()%></td>
+											</tr>
+										</table>
+										<div align="right">
+											<button class="button" data-toggle="modal" data-target="#faqUpdateModalr<%=i%>">수정</button>
+											<button class="button" onclick="deleteConfirm();">삭제</button>
+										</div>
+										<br>
+									</div>
+								</form>
 							<% } %>
 						<% } %>
 					</div>
 
 					<div class="contentMg3">
-					
+						<% int upIndex = 0; %>
 						<% for(int i=0; i<plist.size(); i++) { %>
-
+							<% upIndex++; %>
 							<% if (plist.get(i).getFaqType().equals("포장주문")) { %>
-						
-								<div class="faqQuestion">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: blue">Q</th>
-											<td style="width: 900px;"><%=plist.get(i).getFaqQuestion()%></td>
-										</tr>
-									</table>
-								</div>
-								<div class="faqAnswer">
-									<table>
-										<tr>
-											<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
-											<td style="width: 800px;"><%=plist.get(i).getFaqAnswer()%></td>
-										</tr>
-									</table>
-									<div align="right">
-										<button class="button" data-toggle="modal" data-target="#faqUpdateModalp<%=i%>">수정</button>
-										<button class="button" onclick="deleteConfirm();">삭제</button>
+								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<div class="faqQuestion">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: blue">Q</th>
+												<td style="width: 900px;"><%=plist.get(i).getFaqQuestion()%></td>
+											</tr>
+										</table>
 									</div>
-									<br>
-								</div>
+									<div class="faqAnswer">
+										<table>
+											<tr>
+												<th style="width: 30px; text-align: center; color: red; font-weight: bold;">A</th>
+												<td style="width: 800px;"><%=plist.get(i).getFaqAnswer()%></td>
+											</tr>
+										</table>
+										<div align="right">
+											<button class="button" data-toggle="modal" data-target="#faqUpdateModalp<%=i%>">수정</button>
+											<button class="button" onclick="deleteConfirm();">삭제</button>
+										</div>
+										<br>
+									</div>
+								</form>
 							<% } %>
 						<% } %>
 					</div>
@@ -212,6 +218,7 @@
 							<% upIndex++; %>
 							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
 											<tr>
@@ -465,61 +472,61 @@
 	<%} %>
 
 	<script>
-			$("#activeMgFAQ1").click(
-				function() {
-					if ($('.contentMg1').css('display') == 'none')
-						$('.contentMg1').addClass("contentMg1").css("display", "block");
-					$('.contentMg2').addClass("contentMg2").css("display", "none");
-					$('.contentMg3').addClass("contentMg3").css("display", "none");
-					$('.contentMg4').addClass("contentMg4").css("display", "none");
-					$("#activeMgFAQ1").css({'background':'#555555','color':'white'});
-					$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
-			});
-	
-			$("#activeMgFAQ2").click(
-				function() {
-					if ($('.contentMg2').css('display') == 'none')
-						$('.contentMg2').addClass("contentMg2").css("display", "block");
-					$('.contentMg1').addClass("contentMg1").css("display", "none");
-					$('.contentMg3').addClass("contentMg3").css("display", "none");
-					$('.contentMg4').addClass("contentMg4").css("display", "none");
-					$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ2").css({'background':'#555555','color':'white'});
-					$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
-			});
-	
-			$("#activeMgFAQ3").click(
-				function() {
-					if ($('.contentMg3').css('display') == 'none')
-						$('.contentMg3').addClass("contentMg3").css("display", "block");
-					$('.contentMg1').addClass("contentMg1").css("display", "none");
-					$('.contentMg2').addClass("contentMg2").css("display", "none");
-					$('.contentMg4').addClass("contentMg4").css("display", "none");
-					$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ3").css({'background':'#555555','color':'white'});
-					$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
-			});
-	
-			$("#activeMgFAQ4").click(
-				function() {
-					if ($('.contentMg4').css('display') == 'none')
-						$('.contentMg4').addClass("contentMg4").css("display", "block");
-					$('.contentMg1').addClass("contentMg1").css("display", "none");
-					$('.contentMg2').addClass("contentMg2").css("display", "none");
-					$('.contentMg3').addClass("contentMg3").css("display", "none");
-					$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
-					$("#activeMgFAQ4").css({'background':'#555555','color':'white'});
-			});
+		$("#activeMgFAQ1").click(
+			function() {
+				if ($('.contentMg1').css('display') == 'none')
+					$('.contentMg1').addClass("contentMg1").css("display", "block");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
+		});
+
+		$("#activeMgFAQ2").click(
+			function() {
+				if ($('.contentMg2').css('display') == 'none')
+					$('.contentMg2').addClass("contentMg2").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
+		});
+
+		$("#activeMgFAQ3").click(
+			function() {
+				if ($('.contentMg3').css('display') == 'none')
+					$('.contentMg3').addClass("contentMg3").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg4').addClass("contentMg4").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'#555555','color':'white'});
+				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
+		});
+
+		$("#activeMgFAQ4").click(
+			function() {
+				if ($('.contentMg4').css('display') == 'none')
+					$('.contentMg4').addClass("contentMg4").css("display", "block");
+				$('.contentMg1').addClass("contentMg1").css("display", "none");
+				$('.contentMg2').addClass("contentMg2").css("display", "none");
+				$('.contentMg3').addClass("contentMg3").css("display", "none");
+				$("#activeMgFAQ1").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ2").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
+				$("#activeMgFAQ4").css({'background':'#555555','color':'white'});
+		});
 		
-		</script>
-		
-		<script>
+	</script>
+	
+	<script>
 
 		
 		$(function(){
