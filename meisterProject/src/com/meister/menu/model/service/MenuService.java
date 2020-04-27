@@ -195,22 +195,24 @@ public class MenuService {
 	
 	
 	
+
 	/**산
-	 * 통합관리자- 피자 등록 서비스
-	 * @param p : 등록할 피자정보가 담긴 Pizza객체
-	 * @param pName : 등록할 피자이름(사이즈 insert시 필요)
-	 * @param priceM : 등록할 피자의 M사이즈 가격
-	 * @param priceL : 등록할 피자의 L사이즈 가격
-	 * @return : 처리된 행의 개수
+	 * 통합관리자-피자등록용 서비스
+	 * @param p : PIZZA테이블에 INSERT할 Pizza객체
+	 * @param psList :  PIZZA_SIZE테이블에 INSERT할 ArrayList<PizzaSize> 객체
+	 * @return : 처리된 행의개수
 	 */
-	public int insertMenuPizza(Pizza p,int priceM,int priceL) {
+	public int insertMenuPizza(Pizza p,ArrayList<PizzaSize> psList) {
 		
 		Connection conn = getConnection();
 		
-
-		int result = new MenuDao().insertMenuPizza(conn,p,priceM,priceL);
+		//피자 insert
+		int result1 = new MenuDao().insertMenuPizza(conn,p);
 		
-		if(result>0) {
+		//피자 사이즈 insert
+		int result2 = new MenuDao().insertMenuPizzaSize(conn,psList);
+		
+		if(result1>0 && result2>0) {
 			commit(conn);
 		}else{
 			rollback(conn);
@@ -218,7 +220,7 @@ public class MenuService {
 		
 		close(conn);
 		
-		return result;
+		return result1*result2;
 		
 	}
 }

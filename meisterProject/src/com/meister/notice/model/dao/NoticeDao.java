@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.meister.common.PageInfo;
 import com.meister.notice.model.vo.Notice;
 
 public class NoticeDao {
@@ -34,17 +35,22 @@ public class NoticeDao {
 	}
 		
 		
-	public ArrayList<Notice> selectList(Connection conn){
+	public ArrayList<Notice> selectList(Connection conn, PageInfo pi){
 		
 		ArrayList<Notice> list = new ArrayList<>();
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectList");
+		String sql = prop.getProperty("noticeSelectList");
 		
 		try {
-			stmt = conn.createStatement();
-			rset = stmt.executeQuery(sql);
+			pstmt = conn.prepareStatement(sql);
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() -1;
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 			
@@ -52,13 +58,14 @@ public class NoticeDao {
 									rset.getString("NOTICE_TITLE"),
 									rset.getDate("NOTICE_CREATE_DATE"),
 									rset.getInt("NOTICE_COUNT")));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
 		
 		return list;
@@ -298,6 +305,40 @@ public class NoticeDao {
 		}
 		return result;
 	}
+	
+	
+	public int getListCount(Connection conn) {
+		
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null; 
+		
+		String sql = prop.getProperty("getListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 
 }

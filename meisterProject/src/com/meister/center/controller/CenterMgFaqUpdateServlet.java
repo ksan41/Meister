@@ -32,7 +32,6 @@ public class CenterMgFaqUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 요청시 한글이 전달될 경우를 대비해서
 		request.setCharacterEncoding("utf-8");
 		
 		int faqNo = Integer.parseInt(request.getParameter("faqNo"));

@@ -170,7 +170,7 @@ div {
 		<br>
 
 		<div align="center">
-			<button class="listBtn" onclick="location.href='<%= contextPath %>/nList.no';">목록</button>
+			<button class="listBtn" onclick="location.href='<%= contextPath %>/nList.no?currentPage=1';">목록</button>
 		</div>
 
 	</div>

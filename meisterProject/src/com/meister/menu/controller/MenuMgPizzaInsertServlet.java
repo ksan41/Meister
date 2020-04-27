@@ -3,6 +3,7 @@ package com.meister.menu.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +16,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.meister.common.MyFileRenamePolicy;
 import com.meister.menu.model.service.MenuService;
 import com.meister.menu.model.vo.Pizza;
+import com.meister.menu.model.vo.PizzaSize;
 import com.oreilly.servlet.MultipartRequest;
 
 /**
@@ -77,8 +79,19 @@ public class MenuMgPizzaInsertServlet extends HttpServlet {
 			p.setPizzaTopping(toppings);
 			p.setPizzaOrigin(origins);
 			
+			PizzaSize psM = new PizzaSize();
+			psM.setPizzaSize("M");
+			psM.setPizzaPrice(priceM);
 			
-			int result = new MenuService().insertMenuPizza(p,priceM,priceL);
+			PizzaSize psL = new PizzaSize();
+			psL.setPizzaSize("L");
+			psL.setPizzaPrice(priceL);
+			
+			ArrayList<PizzaSize> psList = new ArrayList<>();
+			psList.add(psM);
+			psList.add(psL);
+			
+			int result = new MenuService().insertMenuPizza(p,psList);
 			
 			
 			if(result > 0) { // 사진게시판 등록 성공

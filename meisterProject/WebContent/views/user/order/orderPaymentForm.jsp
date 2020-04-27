@@ -149,7 +149,7 @@
         <br>
         <!-- <div class="sub-menu-area"> -->
         <!-- inner영역에 콘텐츠 작성 -->
-        <form id="" action="<%=contextPath%>/orderPaySuccess.or" method="post">
+        <!-- <form id="" method="post"> -->
         <div class="inner" style="font-size: 20px;">
             <div style="width:1000px; height:50px; color: white; padding-left:50px; padding-top: 13px; background-color:rgb(76, 60, 60);">
                 수령인정보
@@ -353,11 +353,10 @@
             <button type="submit" class="big_btn" id="check_module">결제하기</button>
             </div>
         </div>
-		</form>
+		<!-- </form> -->
     </div>
-
-    
-    <!-- 결제 api -->
+	
+	<!-- 결제 api -->
     <script>
 		$("#check_module").click(function() {
 			var IMP = window.IMP; // 생략가능
@@ -402,7 +401,7 @@
 				buyer_tel : '<%= loginUser.getMemberPhone() %>',
 				buyer_addr : '서울특별시 강남구 삼성동',
 				buyer_postcode : '123-456',
-				m_redirect_url : '<%= contextPath %>'
+				m_redirect_url : '<%= contextPath %>/orderPaySuccess.or'
 					/* 'https://www.yourdomain.com/payments/complete' */
 			/*  
 			    모바일 결제시,
@@ -418,7 +417,7 @@
 					msg += '결제 금액 : ' + rsp.paid_amount;
 					msg += '카드 승인번호 : ' + rsp.apply_num;
 					
-					location.href="<%=contextPath%>/orderPaySuccess.or";	
+					location.href="<%= contextPath %>/orderPaySuccess.or";
 					
 				} else {
 					var msg = '결제에 실패하였습니다.';
@@ -429,6 +428,8 @@
 		});
 	</script>
 	<!-- 결제 api -->
+    
+
     
     
     

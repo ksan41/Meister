@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.order.model.dao.OrderDao;
 import com.meister.order.model.vo.Delivery;
+import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Price;
 
 public class OrderService {
@@ -552,4 +553,61 @@ public class OrderService {
 	
 	
 	////////////////////////////태경//////////////////////////////////////////////////////////////
+//////////////////////////연화//////////////////////////////////////////////////////////////
+	
+	
+	/**연화
+	 * 지점관리자용 배달 전 주문내역 리스트 조회용 서비스
+	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
+	 */
+	public ArrayList<Orders> selectMgNowOrderList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Orders> list = new OrderDao().selectMgNowOrderList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	/**연화
+	 * 지점관리자용 배달완료 주문내역 리스트 조회용 서비스
+	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
+	 */
+	public ArrayList<Orders> selectMgPastOrderList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Orders> list = new OrderDao().selectMgPastOrderList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	
+	
+	/**연화
+	 * 주문상태 수정용 서비스
+	 * @param o		--> 수정하고자하는 Orders 객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int updateOrderStatus(Orders o) {
+		
+		Connection conn = getConnection();
+		int result = new OrderDao().updateOrderStatus(conn, o);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	
+//////////////////////////연화//////////////////////////////////////////////////////////////
 }
