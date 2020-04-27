@@ -156,8 +156,8 @@ table {
 						<th>아이디</th>
 						<td colspan="2"><input class="text-area" type="text" id="userId"
 							name="userId" placeholder="영문,숫자 5~12글자 이하" required style="height: 31px;">&nbsp;&nbsp;
-							<button class="small_btn" type="button" id="idCheck"
-								style="display: inline;">중복확인</button></td>
+							<button class="small_btn" type="button" id="idCheck" onclick="return validatel();"
+								style="display: inline;" >중복확인</button></td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
@@ -219,8 +219,8 @@ table {
 							
 			// 1) 아이디 검사 
 			// 영문자 또는 숫자 포함해서 총 4~12자로 입력(단,첫글자 영문자로)
-			var regExp = /^[a-z][a-z\d]{3,11}$/i;
-
+			var regExp = /^[a-z][a-z\d]{5,12}$/i;
+			
 			if (!regExp.test(id.value)) {
 				alert("유효한 아이디를 입력하세요!!");
 				// 아이디에 입력한 값이 없어진다.
@@ -265,6 +265,31 @@ table {
 		}
 	</script>
 	
+	<script>
+	
+		function validatel() {
+			
+			var id = document.getElementById("userId");
+			
+			// 1) 아이디 검사 
+			// 영문자 또는 숫자 포함해서 총 4~12자로 입력(단,첫글자 영문자로)
+			var regExp = /^[a-z][a-z\d]{5,12}$/i;
+			
+			if (!regExp.test(id.value)) {
+				alert("유효한 아이디를 입력하세요!!");
+				// 아이디에 입력한 값이 없어진다.
+				id.value = "";
+				// focus 그 부분에 깜빡거린다.
+				id.focus();
+				return false;
+			}
+			
+			
+			
+		}
+	
+	</script>
+	
 	
 	<script>
 		
@@ -292,7 +317,7 @@ table {
 
 							if(confirm("사용가능한 아이디입니다. 사용하시겠습니까?")) {
 								// 아이디 더 이상 수정이 불가하게끔
-								userId.attr("readonly","true");
+								
 								// 회원가입 버튼 활성화
 								$("#joinBtn").removeAttr("disabled");
 								

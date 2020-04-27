@@ -550,6 +550,7 @@ private Properties prop = new Properties();
 //				selectid = new Member(rset.getString("MEMBER_ID"));
 				selectpwd = new Member();
 				selectpwd.setMemberId(rset.getString("MEMBER_ID"));
+				selectpwd.setMemberPwd(rset.getString("MEMBER_PWD"));
 				selectpwd.setMemberEnrolldate(rset.getDate("MEMBER_ENROLLDATE"));
 				selectpwd.setMemberName(rset.getString("MEMBER_NAME"));
 					
