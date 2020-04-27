@@ -119,8 +119,7 @@
 							<% upIndex++; %>
 							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-									<%System.out.println("지점2 : " + f.getFaqNo()); %>
-									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<input type="hidden" name="faqNo" value="<%= list.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
 											<tr>
@@ -154,7 +153,7 @@
 							<% upIndex++; %>
 							<% if (rlist.get(i).getFaqType().equals("주문확인")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<input type="hidden" name="faqNo" value="<%= rlist.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
 											<tr>
@@ -187,7 +186,7 @@
 							<% upIndex++; %>
 							<% if (plist.get(i).getFaqType().equals("포장주문")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<input type="hidden" name="faqNo" value="<%= plist.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
 											<tr>
@@ -220,7 +219,7 @@
 							<% upIndex++; %>
 							<% if (hlist.get(i).getFaqType().equals("홈페이지관련")) { %>
 								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-									<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+									<input type="hidden" name="faqNo" value="<%= hlist.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
 											<tr>

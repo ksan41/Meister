@@ -54,8 +54,6 @@ public class OrderMgNowListServlet extends HttpServlet {
 		
 		Price order = new MyPageService().selectOrderProducts(ono);
 		
-		Coupon discountInfo = new MyPageService().selectDiscountRate(ono);
-		
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
 		ArrayList<PizzaSize> sizeList = new MenuService().selectPizzaSizeList();
 		

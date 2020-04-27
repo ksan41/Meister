@@ -169,17 +169,6 @@
 								</tr>
 							</thead>
 							<tbody>
-							<!-- 
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/12/12 13:24</td>
-									<th>
-										<button class="button" onclick="" style="background-color: yellowgreen;">접수</button>
-									</th>
-								</tr>
-							 -->
 							 	<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 									<tr>
 										<td colspan="5">존재하는 주문내역이 없습니다.</td>
@@ -188,6 +177,7 @@
 								
 									<% for(Orders o : list){ %>
 									 	<tr data-toggle="modal" data-target="#myModal">
+									 		<input type="hidden" name="ono" value="<%= o.getReceiptNo() %>">
 											<td><%= o.getReceiptNo() %></td>
 											<td><%= o.getMemberId() %></td>
 											<td>
@@ -418,10 +408,6 @@
 	
 	
 	<script>
-		
-//		function orderManage(){
-//			$("#postFormOrders").submit();
-//		};
 
 		$(document).on("click",".orderManage",function(){
 			console.log("클릭됨됨됨");
