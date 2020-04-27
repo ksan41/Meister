@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.meister.coupon.model.vo.Coupon;
+import com.meister.member.model.vo.Manager;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Payment;
@@ -338,11 +339,77 @@ public class OrderDao {
 	
 	
 	
+	public int selectBranchNo(Connection conn, Manager loginManager) {
+		
+		int bno = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectBranchNo");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, loginManager.getManagerNo());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				bno = rset.getInt("branch_no");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return bno;
+	}
 	
 	
 	
-	
-	
+	public ArrayList<Price> selectPriceList(Connection conn, ArrayList<Orders> orderList){
+		
+		ArrayList<Price> plist = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPriceList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			for(int i=0; i<plist.size(); i++) {
+				pstmt.setInt(1, plist.get(i).getOrderNo());
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					plist.add(new Price(rset.getInt("order_no"),
+										rset.getString("pizza_size"),
+										rset.getString("pizza_no"),
+										rset.getString("pizza_count"),
+										rset.getString("dough_no"),
+										rset.getString("side_no"),
+										rset.getString("side_count"),
+										rset.getString("etc_no"),
+										rset.getString("etc_count")));
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return plist;
+	}
 	
 	
 	
@@ -702,7 +769,7 @@ public class OrderDao {
 	
 ////////////////////////////연화//////////////////////////////////////////////////////////////
 	
-	public ArrayList<Orders> selectMgNowOrderList(Connection conn){
+	public ArrayList<Orders> selectMgNowOrderList(Connection conn, int bno){
 		
 		ArrayList<Orders> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -712,6 +779,8 @@ public class OrderDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {

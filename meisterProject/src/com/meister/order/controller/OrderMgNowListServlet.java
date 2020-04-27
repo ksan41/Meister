@@ -49,16 +49,17 @@ public class OrderMgNowListServlet extends HttpServlet {
 		// 지점 메뉴바에서 로그인된 해당 지점관리자 정보 가져오기
 		HttpSession session = request.getSession();
 		Manager loginManager = (Manager)session.getAttribute("loginUser");
+		System.out.println(loginManager);
 		
 		//1. 지점번호 조회해오기(BRANCH테이블에서)
 		int bno = new OrderService().selectBranchNo(loginManager);
 		
 		
 		//2. 위에서 가져온 지점번호로 주문정보 조회(ORDERS,DELIVERY 조인해서)
-		ArrayList<Orders> olist = new OrderService().selectMgNowOrderList(bno);
+		ArrayList<Orders> orderList = new OrderService().selectMgNowOrderList(bno);
 		
 		//3. 위의 olist의 주문번호로, PRICE테이블의 정보 가져오기
-		ArrayList<Price> plist = new OrderService().selectPrice(olist);
+		ArrayList<Price> priceList = new OrderService().selectPriceList(orderList);
 		
 		
 //		Delivery dInfo = new MyPageService().selectDeliveryInfo();
@@ -78,14 +79,16 @@ public class OrderMgNowListServlet extends HttpServlet {
 		ArrayList<Etc> eList = new MenuService().selectEtcList();
 		ArrayList<Dough> dList = new MenuService().selectDoughList();
 		
-		request.setAttribute("list", list);
 		
 		
 		// 처리 결과를 통해 사용자가 보게될 뷰 요청
-		request.setAttribute("dInfo", dInfo);	// deliveryInfo
-		request.setAttribute("oInfo", oInfo);	// ordersInfo
-		request.setAttribute("pInfo", pInfo);	// paymentInfo
-		request.setAttribute("order", order);
+//		request.setAttribute("list", list);
+//		request.setAttribute("dInfo", dInfo);	// deliveryInfo
+//		request.setAttribute("oInfo", oInfo);	// ordersInfo
+//		request.setAttribute("pInfo", pInfo);	// paymentInfo
+//		request.setAttribute("order", order);
+		request.setAttribute("orderList", orderList);
+		request.setAttribute("priceList", priceList);
 		request.setAttribute("pList", pList);
 		request.setAttribute("sizeList", sizeList);
 		request.setAttribute("sList", sList);
