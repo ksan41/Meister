@@ -306,7 +306,9 @@
 	                    <tr>
 	                        <th>방문포장</th>
 	                        <td>
-	                            <input type="radio" style="vertical-align:middle">&nbsp; 40% 할인 (타쿠폰과 중복적용 불가)
+	                        	<select id="couponRate" style="width:300px; height: 35px; border-radius: 5px;">
+	                        		<option value="40">방문포장 40% 할인 (타쿠폰과 중복적용 불가)</option>
+	                        	</select>
 	                        </td>
 	                    </tr>
                     	
@@ -343,11 +345,11 @@
 					<% } %>
 					<%discountPrice = ((int)(basketPrice * dRate)); %>
                     <tr style="font-weight: bold;">
-                        <td id="basketPrice"><%=basketPrice %></td>
+                        <td id="basketPrice"><%=basketPrice%></td>
                         <td>-</td>
                         <td style="color: red;" id="discountPrice">0</td>
                         <td>-</td>
-                        <td id="finalPrice"><%=basketPrice %></td>
+                        <td id="finalPrice"><%=basketPrice%></td>
                     </tr>
                 </table>
                 <br><br>
