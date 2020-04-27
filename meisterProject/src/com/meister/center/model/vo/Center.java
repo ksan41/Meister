@@ -17,7 +17,9 @@ public class Center {
 	private int receiptNo;			// 주문내역번호
 	private String inquiryStatus;	// 답변상태
 	
+	// 다른 테이블 컬럼
 	private String memberId;		//회원아이디
+	
 	
 	
 	public Center() {}
