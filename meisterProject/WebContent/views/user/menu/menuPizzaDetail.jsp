@@ -701,7 +701,7 @@ input:checked+label {
 					});
 					$("#cart input[name=side]").val(side);
 					$("#cart input[name=sideAmount]").val(sideAmount);
-	
+					
 					
 					
 					var etc = "";
