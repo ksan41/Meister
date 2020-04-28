@@ -367,13 +367,13 @@
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
-											<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>">
+											<input type="file" name="eventImage1" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>상세 이미지</th>
 										<td>
-											<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>">
+											<input type="file" name="eventImage2" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
 										</td>
 									</tr>
 								</table>
