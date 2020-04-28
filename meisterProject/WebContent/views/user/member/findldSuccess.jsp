@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.meister.member.model.vo.Member" %>
 <%
-String testParam = request.getParameter("name2");
-System.out.println(testParam);
-Member member = (Member)request.getAttribute("selectid");
+	String testParam = request.getParameter("name2");
+	Member member = (Member)request.getAttribute("selectid");
 %>
 <!DOCTYPE html>
 <html>
