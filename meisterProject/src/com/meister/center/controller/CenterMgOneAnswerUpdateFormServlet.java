@@ -13,16 +13,16 @@ import com.meister.center.model.service.CenterService;
 import com.meister.center.model.vo.Center;
 
 /**
- * Servlet implementation class CenterMgOneAnswerInsertServlet
+ * Servlet implementation class CenterMgOneAnswerServlet
  */
-@WebServlet("/ceMgOneAnswerInsert.cem")
-public class CenterMgOneAnswerInsertServlet extends HttpServlet {
+@WebServlet("/ceMgOneAnswerUpdateForm.cem")
+public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CenterMgOneAnswerInsertServlet() {
+    public CenterMgOneAnswerUpdateFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +32,14 @@ public class CenterMgOneAnswerInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
-		
 		int ino = Integer.parseInt(request.getParameter("ino"));
-		String inquiryAnswer = request.getParameter("inquiryAnswer");
 		
-		Center c = new Center();
-		c.setInquiryNo(ino);
-		c.setInquiryAnswer(inquiryAnswer);
+		Center c = new CenterService().selectAnswer(ino);
 		
-		int result = new CenterService().insertOneOnOne(c);
-		
-		if(result > 0) {
+		if(c != null) {
 			
-			response.setContentType("text/html; charset=UTF-8");
-			
-			PrintWriter out = response.getWriter();
-			
-			out.println("<script>alert('1:1문의 답변 성공'); location.href='/Meister/ceMgOneDetail?ino=" + ino + "';</script>");
-			out.flush();
+			request.setAttribute("c", c);
+			request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
 			
 		}else {
 			
@@ -58,7 +47,7 @@ public class CenterMgOneAnswerInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('1:1문의 답변 실패했습니다. 다시해!!!!'); location.href='/Meister/ceMgOneDetail?ino=" + ino + "';</script>");
+			out.println("<script>alert('1:1문의 답변 폼이 실패했습니다. 다시해!!!!'); location.href='/Meister/ceMgOneDetail.cem?ino=" + ino + "';</script>");
 			out.flush();
 		}
 	}
@@ -70,4 +59,5 @@ public class CenterMgOneAnswerInsertServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

@@ -103,7 +103,7 @@
 
 						<div align="center">
 							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
-							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneAnswerEnroll.cem';">답변입력</button>
+							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneAnswerUpdateForm.cem';">답변입력</button>
 						</div>
 
 					</div>
