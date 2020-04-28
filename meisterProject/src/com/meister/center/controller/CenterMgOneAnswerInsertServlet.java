@@ -58,7 +58,7 @@ public class CenterMgOneAnswerInsertServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('1:1문의 답변 실패했습니다. 다시해!!!!'); location.href='/Meister/imNoticeMdetail.nom?ino=" + ino + "';</script>");
+			out.println("<script>alert('1:1문의 답변 실패했습니다. 다시해!!!!'); location.href='/Meister/ceMgOneDetail?ino=" + ino + "';</script>");
 			out.flush();
 		}
 	}

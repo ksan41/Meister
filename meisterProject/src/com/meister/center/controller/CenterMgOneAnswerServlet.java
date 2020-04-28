@@ -15,7 +15,7 @@ import com.meister.notice.model.vo.Notice;
 /**
  * Servlet implementation class CenterMgOneAnswerServlet
  */
-@WebServlet("/ceMgOneAnswer.cem")
+@WebServlet("/ceMgOneAnswerEnroll.cem")
 public class CenterMgOneAnswerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
