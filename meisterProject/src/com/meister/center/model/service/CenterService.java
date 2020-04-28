@@ -223,7 +223,7 @@ public class CenterService {
 	 * @param c		--> 제목, 내용이 담겨있는 Center객체
 	 * @return		--> 처리된 행의 개수
 	 */
-	public Center insertOneOnOne(Center c) {
+	public int insertOneOnOne(Center c) {
 		
 		Connection conn = getConnection();
 		

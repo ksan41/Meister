@@ -286,6 +286,25 @@ public class CenterDao {
 		return c;
 	}
 	
-	insertOneOnOne(conn, c)
+	public int insertOneOnOne(Connection conn, Center c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertOneOnOne");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getInquiryAnswer());
+			pstmt.setInt(2, c.getInquiryNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }
