@@ -1,4 +1,4 @@
-package com.meister.order.controller;
+package com.meister.order.model.vo;
 
 public class Cart {
 	private int cartNo;
@@ -8,6 +8,13 @@ public class Cart {
 	
 	public Cart() {}
 
+	public Cart( int orderNo, int memberNo, int totalPrice) {
+		super();
+		this.orderNo = orderNo;
+		this.memberNo = memberNo;
+		this.totalPrice = totalPrice;
+	}
+	
 	public Cart(int cartNo, int orderNo, int memberNo, int totalPrice) {
 		super();
 		this.cartNo = cartNo;

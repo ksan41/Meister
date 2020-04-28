@@ -285,5 +285,27 @@ public class CenterDao {
 		}
 		return c;
 	}
+
+	
+	public int updateInquiryAnswer(Connection conn, Center c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateInquiryAnswer");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getInquiryAnswer());
+			pstmt.setInt(2, c.getInquiryNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }

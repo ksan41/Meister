@@ -62,7 +62,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<form id="OneAnswerForm" action="<%= contextPath %>/imNoticeMupdate.nom" method="post">
+						<form id="oneAnswerForm" action="<%= contextPath %>/ceMgOneAnswerInsert.nom" method="post">
 							<input type="hidden" name="ino" value="<%=c.getInquiryNo()%>">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<tr>
@@ -96,7 +96,7 @@
 								<tr>
 									<td>답변</td>
 									<th style="height: 250px; font-size: 13px; color: brown"><textarea
-											id="contentArea"
+											id="contentArea" name="inquiryAnswer"
 											style="font-size: 1.0em; color: cornflowerblue"
 											placeholder="답변을 작성해주세요"></textarea></th>
 								</tr>

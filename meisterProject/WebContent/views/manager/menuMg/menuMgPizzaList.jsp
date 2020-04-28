@@ -419,8 +419,8 @@ div {
 			<br>
 			<ul id="ulNavi">
 				<li><a class="active" href="">피자</a></li>
-				<li><a href="">사이드디시</a></li>
-				<li><a href="">음료&기타</a></li>
+				<li><a href="<%=contextPath%>/menuMgSideList.meng">사이드디시</a></li>
+				<li><a href="<%=contextPath%>/menuMgEtcList.meng">음료&기타</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -748,6 +748,10 @@ div {
 		});
 	
 			
+		//$(document).on("change",".menuFile",function(){
+		//});
+		
+		
 		
 		function loadImg(inputFile,index) {
 				
@@ -763,9 +767,9 @@ div {
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
 					console.log("이벤트실행");
-						$(".menu-upImg:eq("+index+")").attr("src", e.target.result);
-				}
-		};
+					$(".menu-upImg:eq("+index+")").attr("src", e.target.result);
+				};
+		}
 	</script>
 </body>
 </html>

@@ -80,6 +80,7 @@ public class NoticeService {
 		return prevN;
 		
 	}
+	
 	/**연화
 	 * 관리자용 고객공지사항 리스트 조회용 서비스
 	 * @return list --> Notice 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
@@ -94,6 +95,8 @@ public class NoticeService {
 		
 		return list;
 	}
+	
+	
 	/**연화
 	 * 지점 공지사항 리스트 조회용 서비스
 	 * @return
@@ -126,6 +129,7 @@ public class NoticeService {
 			rollback(conn);
 		}
 		close(conn);
+		
 		return result;
 	}
 	

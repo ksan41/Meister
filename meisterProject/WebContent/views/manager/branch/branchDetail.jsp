@@ -79,9 +79,6 @@
                         <div class="card-header"><i class="fas fa-table mr-1"></i>지점 상세조회</div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <div id="btn-area" align="right">
-                                    <input type="button" value="목록으로">
-                                </div>
                                 <form action="">
                                     <table id="branchDetailTable" style="width: 100%;">
                                         <tr>

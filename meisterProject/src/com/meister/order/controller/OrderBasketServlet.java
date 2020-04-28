@@ -28,7 +28,7 @@ import com.meister.order.model.vo.Price;
 @WebServlet("/basket.or")
 public class OrderBasketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     	HttpSession session = null;
+     	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,7 +41,7 @@ public class OrderBasketServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		session = request.getSession();
+		HttpSession session = request.getSession();
 		String addressArea = (String)session.getAttribute("addressArea");
 		session.setAttribute("addressArea", addressArea);
 		Member loginUser = (Member)request.getSession().getAttribute("loginUser");

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Manager;
 import com.meister.order.model.dao.OrderDao;
+import com.meister.order.model.vo.Cart;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Payment;
@@ -348,17 +349,22 @@ public class OrderService {
 	
 	/////////////////////진아//////////////////////////////////
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * @author 곽진아
+	 */
+	public int insertBasketPayment(Cart cart) {
+
+		Connection conn = getConnection();
+		
+		int result = new OrderDao().insertBasketPayment(conn, cart);
+		
+		close(conn);
+		System.out.println("insertBasketPayment Service 까지 왔어" + result);
+		return result;
+		
+		
+
+	}
 	
 	
 	

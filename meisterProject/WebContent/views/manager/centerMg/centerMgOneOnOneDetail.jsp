@@ -75,23 +75,23 @@
 							</tr>
 							<tr>
 								<td>아이디</td>
-								<th style="height: 50px;"><%= c.getMemberId() %></th>
+								<th style="height: 50px;" readonly><%= c.getMemberId() %></th>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<th style="height: 50px;"><%= c.getMemberPhone() %></th>
+								<th style="height: 50px;" readonly><%= c.getMemberPhone() %></th>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<th style="height: 50px;"><%= c.getMemberEmail() %></th>
+								<th style="height: 50px;" readonly><%= c.getMemberEmail() %></th>
 							</tr>
 							<tr>
 								<td>제목</td>
-								<th style="height: 50px;"><%= c.getInquiryTitle() %></th>
+								<th style="height: 50px;" readonly><%= c.getInquiryTitle() %></th>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<th style="height: 250px; font-size: 13px;"><%= c.getInquiryContent() %></th>
+								<th style="height: 250px; font-size: 13px;" readonly><%= c.getInquiryContent() %></th>
 							</tr>
 							<tr>
 								<td>답변</td>
@@ -103,7 +103,7 @@
 
 						<div align="center">
 							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
-							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneAnswer.cem';">답변입력</button>
+							<button class="button" onclick="updateForm();">답변입력</button>
 						</div>
 
 					</div>
@@ -113,5 +113,16 @@
 		</main>
 	</div>
 
+	<form id="postForm" action="<%=contextPath%>/ceMgOneAnswerUpdateForm.cem" method="post">
+		<input type="hidden" name="ino" value="<%= c.getInquiryNo() %>">
+	</form>
+	
+	<script>
+		// 답변입력 버튼 클릭시
+		function updateForm(){
+			$("#postForm").submit();
+		}
+	</script>
+	
 </body>
 </html>
