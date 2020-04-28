@@ -360,7 +360,6 @@ public class OrderDao {
 			if(rset.next()) {
 				bno = rset.getInt("branch_no");
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -368,7 +367,6 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return bno;
 	}
 	
@@ -402,7 +400,6 @@ public class OrderDao {
 										rset.getString("etc_count")));
 				}
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -410,7 +407,6 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		
 		return plist;
 	}
 	
@@ -818,7 +814,7 @@ public class OrderDao {
 		return list;
 	}
 	
-	public ArrayList<Orders> selectMgPastOrderList(Connection conn){
+	public ArrayList<Orders> selectMgPastOrderList(Connection conn, int bno){
 		
 		ArrayList<Orders> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -828,6 +824,8 @@ public class OrderDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -844,6 +842,8 @@ public class OrderDao {
 				o.setMemberNo(rset.getInt("MEMBER_NO"));
 				o.setCartNo(rset.getInt("CART_NO"));
 				o.setOrderNo(rset.getInt("ORDER_NO"));
+				o.setMemAddress1(rset.getString("MEM_ADDRESS1"));
+				o.setMemAddress2(rset.getString("MEM_ADDRESS2"));
 				
 				list.add(o);
 			}

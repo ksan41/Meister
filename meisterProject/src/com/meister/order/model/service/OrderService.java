@@ -669,11 +669,11 @@ public class OrderService {
 	 * 지점관리자용 배달완료 주문내역 리스트 조회용 서비스
 	 * @return list --> Orders 테이블로 부터 조회된 데이터들이 담겨있는 ArrayList
 	 */
-	public ArrayList<Orders> selectMgPastOrderList(){
+	public ArrayList<Orders> selectMgPastOrderList(int bno){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Orders> list = new OrderDao().selectMgPastOrderList(conn);
+		ArrayList<Orders> list = new OrderDao().selectMgPastOrderList(conn, bno);
 		
 		close(conn);
 		

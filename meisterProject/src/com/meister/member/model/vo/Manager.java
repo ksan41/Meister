@@ -15,7 +15,31 @@ public class Manager {
 	private Date modifyDate;	//관리자 정보 수정일
 	private String status;		// 퇴사여부('N','Y')기본값 'Y'
 	
+	// 새로 생성
+	private String loginManager;
+	
 	public Manager() {}
+	
+	
+	
+	public Manager(int managerNo, String managerId, String managerPwd, String managerType, String name, String phone,
+			String email, String gender, Date enrollDate, Date modifyDate, String status, String loginManager) {
+		super();
+		this.managerNo = managerNo;
+		this.managerId = managerId;
+		this.managerPwd = managerPwd;
+		this.managerType = managerType;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.gender = gender;
+		this.enrollDate = enrollDate;
+		this.modifyDate = modifyDate;
+		this.status = status;
+		this.loginManager = loginManager;
+	}
+
+
 
 	public Manager(int managerNo, String managerId, String managerPwd, String managerType, String name, String phone,
 			String email, String gender, Date enrollDate, Date modifyDate, String status) {
@@ -32,6 +56,20 @@ public class Manager {
 		this.modifyDate = modifyDate;
 		this.status = status;
 	}
+	
+	
+
+	public String getLoginManager() {
+		return loginManager;
+	}
+
+
+
+	public void setLoginManager(String loginManager) {
+		this.loginManager = loginManager;
+	}
+
+
 
 	public int getManagerNo() {
 		return managerNo;
@@ -121,14 +159,15 @@ public class Manager {
 		this.status = status;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Manager [managerNo=" + managerNo + ", managerId=" + managerId + ", managerPwd=" + managerPwd
 				+ ", managerType=" + managerType + ", name=" + name + ", phone=" + phone + ", email=" + email
 				+ ", gender=" + gender + ", enrollDate=" + enrollDate + ", modifyDate=" + modifyDate + ", status="
-				+ status + "]";
+				+ status + ", loginManager=" + loginManager + "]";
 	}
-	
-	
-	
+
+
 }

@@ -1,5 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*" %>
+<%
+	ArrayList<Orders> orderList = (ArrayList<Orders>)request.getAttribute("orderList");
+	ArrayList<Price> priceList = (ArrayList<Price>)request.getAttribute("priceList");
+	
+	// 조건처리용 메뉴정보들
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
+	
+	String pizzaName="";
+	
+	String pName = "";
+	String pSize = "";
+	int pCount = 0;
+	int doughPrice = 0;
+	int pPrice = 0;
+	
+	String sName = "";
+	int sCount = 0;
+	int sPrice = 0;
+	
+	String eName = "";
+	int eCount = 0;
+	int ePrice = 0;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,22 +144,9 @@ h4, .h4 {
 					<div class="table-responsive">
 						<table style="margin: auto;">
 							<tr>
-								<td><input type="date"
-									style="width: 150px; text-align: center;" name="startDay"
-									placeholder="0000-00-00"> ~</td>
-								<td><input type="date"
-									style="width: 150px; text-align: center;" name="lastDay"
-									placeholder="0000-00-00"></td>
-								<td><input type="text"
-									style="width: 150px; margin-left: 10px;" name="userName"
-									placeholder="  고객명"></td>
-								<!-- 검색이벤트 사용
-                                                1.  S ? L ?
-                                                select 주문번호 고객명 주문정보 주문일시
-                                                form 테이블
-                                                조인이 필요시 조인사용
-                                                where Between ? and ? AND USERNAME=?// 날짜 보낸값으로 조건검사
-                                            -->
+								<td><input type="date" style="width: 150px; text-align: center;" name="startDay" placeholder="0000-00-00"> ~</td>
+								<td><input type="date" style="width: 150px; text-align: center;" name="lastDay" placeholder="0000-00-00"></td>
+								<td><input type="text" style="width: 150px; margin-left: 10px;" name="userName" placeholder="  고객명"></td>
 								<td><button style="margin-left: 10px;">검색</button></td>
 							</tr>
 						</table>
@@ -148,12 +162,57 @@ h4, .h4 {
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-toggle="modal" data-target="#myModal">
-									<td>14414</td>
-									<td>홍길동</td>
-									<td>치즈 L X 1, 콜라 L, 피클</td>
-									<td>2011/12/12 13:24</td>
-								</tr>
+								<% if(orderList.isEmpty()){ // 리스트가 비어있을 경우 %>
+									<tr>
+										<td colspan="5">존재하는 주문내역이 없습니다.</td>
+									</tr>
+								<% }else{ // 리스트가 비어있지 않을 경우 %>
+									<% for(int i=0; i<orderList.size(); i++){ %>
+										<tr data-toggle="modal" data-target="#myModal">
+											<td><%= orderList.get(i).getReceiptNo() %></td>
+											<td><%= orderList.get(i).getOrderName()%></td>
+											<td>
+												<!-- 주문 정보 -->
+												<% String[] pizzaNoList = priceList.get(i).getPizzaNo().split(","); %>
+												<% for(int j=0; j<pList.size(); j++){ %>
+													<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNoList[0])){ %>
+														<% pizzaName = pList.get(j).getPizzaName(); %>
+													<% } %>
+												<% } %>
+												
+												<%
+													int pizzaCount = 0;
+													int sideCount = 0;
+													int etcCount = 0;
+													
+													String[] pStr = priceList.get(i).getPizzaCount().split(",");
+													for(int j=0; j<pStr.length; j++){
+														pizzaCount += Integer.parseInt(pStr[j]);
+													}
+													
+													if(priceList.get(i).getSideCount() != null){
+														String[] sStr = priceList.get(i).getSideCount().split(",");
+														for(int j=0; j<sStr.length; j++){
+															sideCount += Integer.parseInt(sStr[j]);
+														}
+													}
+													
+													if(priceList.get(i).getEtcCount() != null){
+														String[] eStr = priceList.get(i).getEtcCount().split(",");
+														for(int j=0; j<eStr.length; j++){
+															etcCount += Integer.parseInt(eStr[j]);
+														}
+													}
+													
+													int totalCount = pizzaCount + sideCount + etcCount;
+												%>
+												
+												<%= pizzaName %> 외 <%=totalCount-1%>건 
+											</td>
+											<td><%= orderList.get(i).getOrderDate() %></td>
+										</tr>
+									<% } %>
+								<% } %>
 							</tbody>
 						</table>
 					</div>
@@ -163,68 +222,146 @@ h4, .h4 {
 		</main>
 	</div>
 
-	<!-- 모달 시작 -->
-	<div class="modal fade" id="myModal">
-		<!-- modal별 id 변경해주세요-->
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<!-- Modal Header -->
-				<div class="modal-header">
-					<h4 class="modal-title" style="margin: auto; padding: 0;">주문
-						상세정보</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						style="margin: 0; padding: 0;">&times;</button>
-				</div>
-
-				<!-- Modal body -->
-				<div class="modal-body">
-					<table>
-						<tr>
-							<td>주문번호 :</td>
-							<td>14441</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">주문일시 :</td>
-							<td style="padding-top: 8px; padding-left: 10px;">2020-03-31
-								13:24</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">고객명 :</td>
-							<td style="padding-top: 8px;">홍길동</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">연락처 :</td>
-							<td style="padding-top: 8px;">010-0000-0000</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">배달주소 :</td>
-							<td style="padding-top: 8px;">인천 송도문화로</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">주문내용 :</td>
-							<td style="padding-top: 8px;">치즈</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">요청사항 :</td>
-							<td style="height: 100px; padding-top: 8px;">빨리 갔다주세요</td>
-						</tr>
-						<tr>
-							<td style="padding-top: 8px;">배달일시 :</td>
-							<td style="height: 100px; padding-top: 8px;">2020-4-16 3:50</td>
-						</tr>
-					</table>
-				</div>
-				<!-- Modal footer -->
-				<div class="modal-footer" style="margin: auto;">
-					<!-- 하단버튼 영역-->
-					<button type="button" class="btn btn-danger" data-dismiss="modal"
-						style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">확인</button>
+	<% if(orderList.isEmpty()){%>
+	<%}else{ %>
+		<% int upIndex = 0; %>
+		<%for(int k=0; k<orderList.size(); k++){ %>
+			<% upIndex++; %>
+			<!-- 모달 시작 -->
+			<div class="modal fade" id="myModal">
+				<!-- modal별 id 변경해주세요-->
+				<div class="modal-dialog">
+					<div class="modal-content">
+		
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title" style="margin: auto; padding: 0;">주문
+								상세정보</h4>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
+						</div>
+		
+						<!-- Modal body -->
+						<div class="modal-body">
+							<table>
+								<tr>
+									<td>주문번호 :</td>
+									<td><%= orderList.get(k).getReceiptNo() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">주문일시 :</td>
+									<td style="padding-top: 8px; padding-left: 10px;"><%= orderList.get(k).getOrderDate() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">고객명 :</td>
+									<td style="padding-top: 8px;"><%= orderList.get(k).getOrderName() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">연락처 :</td>
+									<td style="padding-top: 8px;"><%= orderList.get(k).getOrderPhone() %></td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">배달주소 :</td>
+									<td style="padding-top: 8px;">
+										<%= orderList.get(k).getMemAddress1() %><br>
+										<%= orderList.get(k).getMemAddress2() %>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">주문내용 :</td>
+									<td style="padding-top: 8px;">
+										<!-- 주문내용 -->
+										<%
+											String[] pizzaSize = priceList.get(k).getPizzaSize().split(",");
+											String[] pizzaNo = priceList.get(k).getPizzaNo().split(",");
+											String[] pizzaCount = priceList.get(k).getPizzaCount().split(",");
+											String[] doughNo = priceList.get(k).getDoughNo().split(",");
+										%>
+										<% for(int l=0; l<pizzaSize.length; l++){ // 주문한 피자 내용 %>
+											<% for(int m=0; m<pList.size(); m++){ %>
+												<% if(pList.get(m).getPizzaNo() == Integer.parseInt(pizzaNo[l])){ %>
+													<% pName = pList.get(m).getPizzaName(); %>
+												<% } %>
+											<% } %>
+											<% for(int m=0; m<sizeList.size(); m++){ %>
+												<% if(sizeList.get(m).getSizeNo() == Integer.parseInt(pizzaSize[l])){ %>
+													<% pSize = sizeList.get(m).getPizzaSize(); %>
+													<% pPrice = sizeList.get(m).getPizzaPrice(); %>
+												<% } %>
+											<% } %>
+											<% for(int m=0; m<dList.size(); m++){ %>
+												<% if(dList.get(m).getDoughNo() == Integer.parseInt(doughNo[l])){ %>
+													<% if(dList.get(m).getDoughAddPrice()+"" != null) {%>
+														<% doughPrice = dList.get(m).getDoughAddPrice(); %>
+													<% } %>
+												<% } %>
+											<% } %>
+											<% pCount = Integer.parseInt(pizzaCount[l]); %>
+											<% pPrice = (pPrice + doughPrice) * pCount; %>
+											
+											<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
+										<% } %>
+										
+										<% if(priceList.get(k).getSideNo() != null && priceList.get(k).getSideCount() != null) { // 주문한 사이드 내용 %>
+											<% String[] sideNo = priceList.get(k).getSideNo().split(","); %>
+											<% String[] sideCount = priceList.get(k).getSideCount().split(","); %>
+											
+											<% for(int l=0; l<sideNo.length; l++) { %>
+												<% for(int m=0; m<sList.size(); m++){ %>
+													<% if(sList.get(m).getSideNo() == Integer.parseInt(sideNo[l])){ %>
+														<% sName = sList.get(m).getSideName(); %>
+														<% sPrice = sList.get(m).getSidePrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% sCount = Integer.parseInt(sideCount[l]); %>
+												<% sPrice = sPrice * sCount; %>
+												
+												<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
+											<% } %>
+										<% } %>
+										
+										<% if(priceList.get(k).getEtcNo() != null && priceList.get(k).getEtcCount() != null) { // 주문한 기타상품 내용 %>
+											<% String[] etcNo = priceList.get(k).getEtcNo().split(","); %>
+											<% String[] etcCount = priceList.get(k).getEtcCount().split(","); %>
+											
+											<% for(int l=0; l<etcNo.length; l++) { %>
+												<% for(int m=0; m<eList.size(); m++){ %>
+													<% if(eList.get(m).getEtcNo() == Integer.parseInt(etcNo[l])){ %>
+														<% eName = eList.get(m).getEtcName(); %>
+														<% ePrice = eList.get(m).getEtcPrice(); %>
+													<% } %>
+												<% } %>
+												
+												<% eCount = Integer.parseInt(etcCount[l]); %>
+												<% ePrice = ePrice * eCount; %>
+												
+												<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>								
+											<% } %>
+										<% } %>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">요청사항 :</td>
+									<td style="height: 100px; padding-top: 8px;">
+										<%=orderList.get(k).getOrderRequest()%>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding-top: 8px;">배달일시 :</td>
+									<td style="height: 100px; padding-top: 8px;"><%=orderList.get(k).getOrderDate()%></td>
+								</tr>
+							</table>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer" style="margin: auto;">
+							<!-- 하단버튼 영역-->
+							<button type="button" class="btn btn-danger" data-dismiss="modal"
+								style="width: 200px; height: 50px; background: #343a40; border-color: #343a40;">확인</button>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<!-- 모달 끝 -->
+			<!-- 모달 끝 -->
 
 </body>
 </html>
