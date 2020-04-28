@@ -65,7 +65,7 @@ ArrayList<Event> list = new EventService().selectList();
 
     <!-- 배달/포장주문 버튼 -->
     <div class="orderBtns">
-        <div id="deliveryBtn" onclick="orderDelivery();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic1.png" alt="">배달주문 ></div>
+        <div id="deliveryBtn"><img src="<%=contextPath %>/resources/siteImgs/pageImg/deliveryPic1.png" alt="">배달주문 ></div>
         <div id="takeOutBtn" onclick="orderTakeOut();"><img src="<%=contextPath %>/resources/siteImgs/pageImg/takeOutPic2.png" alt="">포장주문 ></div>
     </div>
     <!-- 배달/포장주문 버튼 -->
@@ -102,15 +102,18 @@ ArrayList<Event> list = new EventService().selectList();
 	<%@ include file="views/common_user/footer.jsp"%>
 	
 	<script>
-		function orderDelivery(){
+		$(document).on("click","#deliveryBtn",function(){
 			if(<%=loginUser%> != null){
-				location.href="<%=contextPath%>/orderDelivery.or";
+				console.log("지점1");
+				//location.href="<%=contextPath%>/orderDelivery.or";
 			}else{
 				console.log("지점2");
-				location.href="<%=contextPath%>/showLoginPage.me";
+				//location.href="<%=contextPath%>/showLoginPage.me";
 			}
-			
-		};
+		});
+	
+	
+		
 		function orderTakeOut(){
 			location.href="<%=contextPath%>/orderTakeOut.or";
 		}

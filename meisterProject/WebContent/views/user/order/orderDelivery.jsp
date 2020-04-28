@@ -382,19 +382,16 @@
     };
 	// 다음	
 	function nextStep(){
-		var index = 0;
+		var index = <%=index%>;
 		var checkbox = document.getElementsByClassName("checkbox");
 		
 		for(var i=0; i<checkbox.length; i++){
 			if(checkbox[i].getAttribute("checked")){
 				index = i;
-				<%System.out.println("수고했어~1");%>
-				console.log("i = " + i + "index = " + index);
 			}
-			<%System.out.println("수고했어~2");%>
 		}
 		
-		location.href="<%=contextPath%>/basket.or?index=" + <%=index%>;
+		location.href="<%=contextPath%>/basket.or?index=" + index;
 	};
     
 	</script>

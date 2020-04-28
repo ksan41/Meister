@@ -7,7 +7,6 @@
 	String[] sideCount = {};
 	String[] etcNo = {};
 	String[] etcCount = {};
-	System.out.println("지점22 : " + basket.getSideNo());
 	if(!((basket.getSideNo() == null) || basket.getSideNo().equals(""))){
 		sideNo = basket.getSideNo().split(","); // [5,4]
 		sideCount = basket.getSideCount().split(",");
@@ -41,7 +40,6 @@
 	//
 	String addressArea = (String)session.getAttribute("addressArea");
 	Delivery checkedDelivery = (Delivery)request.getAttribute("checkedDelivery");
-	System.out.println("지점33 : " + checkedDelivery);
 	int userNo = (int)request.getAttribute("userNo");
 %>
 
@@ -401,7 +399,6 @@
         		
         		if($(this).prev().val() > 1){
         			$(this).next().attr('disabled',false);
-        			console.log("지점21");
         		}
         	});
     		
@@ -433,14 +430,6 @@
            		}
            		$(".totalPrice").text(0);
             });
-        	
-        	$(".deleteBtn").click(function(){
-  	   			alert("클릭됨");
-        	});
-        	$("#test1").click(function(){
-                $(this).text("클릭되었습니다.");
-            });
-        	
         });
         </script>
 
@@ -456,7 +445,6 @@
         };
         function nextStep(){
         	var totalPrice = document.getElementById("totalPrice").innerText;
-        	//console.log(totalPrice);
         	location.href="<%=contextPath%>/basketPayment.or?orderNo=" + <%= basket.getOrderNo() %> + "&loginUser=" + <%= userNo %> + "&totalPrice=" + totalPrice;
         	
         }
