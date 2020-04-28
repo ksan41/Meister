@@ -47,7 +47,7 @@ public class LoginAdminServlet extends HttpServlet {
 			
 			if(loginManager.getManagerType().equals("통합")) { //통합관리자 계정일때 페이지
 				response.setCharacterEncoding("utf-8");
-				RequestDispatcher view = request.getRequestDispatcher("views/manager/branch/branchList.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("branchList.br");
 				view.forward(request, response);
 			}else { //지점관리자 계정일때 페이지
 				response.setCharacterEncoding("utf-8");
