@@ -181,14 +181,15 @@ background-color
 			<br>
 			<br>
 			<div align="center">
-				<!-- <form action="nList.no" method="get"> -->
-					<select id="noticeSearchOption" name="searchType" style="padding-top:3px;">
+				 <%-- <form id="searchNoForm" action="<%=contextPath %>/nList.no" method="get"> --%>
+					<select id="noticeSearchOption" name="category" style="padding-top:3px;">
+						<option value="">선택</option>
 						<option value="title">제목</option>
 						<option value="content">내용</option>
-						<option value="titlecontent">제목+내용</option>
+						<option value="title+content">제목+내용</option>
 					</select> 
-					<input type="text" name="keyword" style="height: 30px; width: 300px;">
-					<input type="submit" id="searchBtn" value="검색" style="height: 30px;">
+					<input type="text" class="searchKeyword" name="keyword" style="height: 30px; width: 300px;">
+					<input type="button" id="searchBtn" value="검색" style="height: 30px;">
 				<!-- </form> -->
 			</div>
 			<br>
@@ -205,69 +206,6 @@ background-color
 					</tr>
 				</thead>
 				<tbody>
-					<!-- 
-					<tr>
-						<td>338</td>
-						<td>연극 <환상동화> 이벤트 당첨자 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>337</td>
-						<td>수퍼소닉 예매권 증정 이벤트 1차 당첨자 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>336</td>
-						<td>설 연휴(1월 25일) 영업매장 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>335</td>
-						<td>12월 31일 (화) 연장영업 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>334</td>
-						<td>크리스마스 이브 (24일) 연장영업 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>333</td>
-						<td>쥬만지: 넥스트레벨 예매권 증정 이벤트 당첨자 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>332</td>
-						<td>최현우의 빌리브 콘서트 티켓 증정 이벤트 당첨자 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>331</td>
-						<td>[공지]도미노피자 개인정보 처리방침 개정 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>330</td>
-						<td>[틴매니아 ‘학교대항전 2’ 이벤트 당첨 학교 안내]</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					<tr>
-						<td>329</td>
-						<td>[공지]도미노피자 이용약관 개정 안내</td>
-						<td>2020-02-21</td>
-						<td>233</td>
-					</tr>
-					 -->
-					
 					<% if(list.isEmpty()){ // 리스트가 비어있을 경우 %>
 						<tr>
 							<td colspan="4">존재하는 공지사항이 없습니다.</td>
@@ -335,25 +273,43 @@ background-color
 		</div>
 			
 	</div>
-	
+
 	<form id="searchNotice" action="nList.no" method="get">
 	
 		<input type="hidden" name="searchType" value="">
 		<input type="hidden" name="keyword" value="">
 		
-	
+		<input type="submit" id="searchSub" name="sssub" style="display:none;">
 	</form>
 	
 	<script>
-		$(document).on("click","#searchBtn",function(){
-			
-			$("#noticeSearchOption").change(function(){
-	            var value = $("#noticeSearchOption> option:selected").val();
-			});
+		
+		var searchType = "";
+		$("#noticeSearchOption").change(function(){
+			searchType = $("#noticeSearchOption[name=category]").val();
+	        console.log(searchType);
+	        
 		});
+	
+		$(document).on("click","#searchBtn",function(){
+			$("#searchNotice input[name=searchType]").val(searchType);
+			console.log(searchType);
+			
+			var keyword = $(".searchKeyword").val();
+			$("#searchNotice input[name=keyword]").val(keyword);
+			console.log(keyword);
+			
+			
+			$("#searchSub").trigger("click");
+		});
+		
 	</script>
 	
 	<script>
+		
+		/* function submitSearch(){
+			$("#searchNoForm").submit();
+		}; */
 	
 		$(function(){
 			$("#noticeList>tbody>tr").click(function(){
