@@ -182,6 +182,7 @@
 						<% for(int i=0; i<list.size(); i++) { Event ev = list.get(i); %>
 							<% upIndex++; %>
 							<div class="thumbnail" align="center" style="height:400px; margin:auto; margin-top:70px">
+								<form action="<%= contextPath %>/evMgDelete.evm" name="eventDetailForm">
 									<input type="hidden" name="bno" value="<%=ev.getEventNo() %>">
 									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
 									<p class="eventTitle"><%=ev.getEventTitle() %></p>
@@ -190,8 +191,9 @@
 									<div align="center">
 										<button class="button detailButton" type="button" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
 										<button class="button modifyButton" type="button" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button deleteButton" type="button" onclick="location.href='<%= contextPath %>/evMgDelete.evm?bno=" + bno + "'">삭제</button>
+										<button class="button deleteButton" type="submit">삭제</button>
 									</div>
+								</form>
 							</div>
 						<% } %>
 					<% } %>
@@ -294,7 +296,7 @@
 										<th>썸네일 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<%=list.get(i).getEventImage1()%>
+												<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>
 											</div>
 										</td>
 									</tr>
@@ -302,7 +304,7 @@
 										<th>상세 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<%=list.get(i).getEventImage2()%>
+												<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>
 											</div>
 										</td>
 									</tr>
