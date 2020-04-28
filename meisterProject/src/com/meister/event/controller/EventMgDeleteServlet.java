@@ -42,8 +42,6 @@ public class EventMgDeleteServlet extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
 			view.forward(request, response);
 			
-			///////////////////////////////////////////////////////////////////////////
-			
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
