@@ -391,28 +391,6 @@
 		<%} %>
 	<%} %>
 	
-	
-	<form id="deleteForm" action="<%=contextPath%>/evMgDelete.evm" method="post">
-		<input type="hidden" name="bno" value="<%= list.get().getEventNo() %>">
-	</form>
-	
-	<script>
-		<!--삭제하기 버튼 클릭시-->
-		function deleteButton(){
-			$("#postForm").submit();
-		};
-		
-		// 삭제버튼
-//		$(document).on("click",".deleteButton",function(){
-//			console.log("클릭");
-//			var index = $(".deleteButton").index(this);
-//			$(".thumbnail:eq("+index+")").submit();
-//		});
-	</script>
-		
-
-	
-	
 
 </body>
 </html>
