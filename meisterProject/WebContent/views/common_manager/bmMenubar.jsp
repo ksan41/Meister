@@ -76,7 +76,7 @@
 				</div>
 				<div class="sb-sidenav-footer">
 					<div class="small">Logged in as:</div>
-					역삼점
+					<%=loginUser.getName() %>님 접속중
 				</div>
 			</nav>
 		</div>
