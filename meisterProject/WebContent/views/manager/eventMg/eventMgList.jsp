@@ -191,9 +191,9 @@
 									<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
 									<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
 									<div align="center">
-										<button class="button" class="detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-										<button class="button" class="modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button" class="deleteButton">삭제</button>
+										<button class="button detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
+										<button class="button modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+										<button class="button deleteButton">삭제</button>
 									</div>
 								</form>
 							</div>
