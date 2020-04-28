@@ -337,7 +337,7 @@ public class NoticeDao {
 	}
 	
 	
-	public ArrayList<Notice> searchTitle(Connection conn, String noticeTitleSearch, PageInfo pi){
+	public ArrayList<Notice> searchTitle(Connection conn, String keyword, PageInfo pi){
 		
 		ArrayList<Notice> list = new ArrayList<>();
     	PreparedStatement pstmt = null;
@@ -349,7 +349,7 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
 			int endRow = startRow + pi.getBoardLimit() -1;
-			pstmt.setString(1, "%"+noticeTitleSearch+"%");
+			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, startRow);
 			pstmt.setInt(3, endRow);
 			
@@ -378,7 +378,7 @@ public class NoticeDao {
 		
 	}
 	
-	public ArrayList<Notice> searchContent(Connection conn, String noticeContentSearch, PageInfo pi){
+	public ArrayList<Notice> searchContent(Connection conn, String keyword, PageInfo pi){
 		
 		ArrayList<Notice> list = new ArrayList<>();
     	PreparedStatement pstmt = null;
@@ -390,7 +390,7 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
 			int endRow = startRow + pi.getBoardLimit() -1;
-			pstmt.setString(1, "%"+noticeContentSearch+"%");
+			pstmt.setString(1, "%"+keyword+"%");
 			pstmt.setInt(2, startRow);
 			pstmt.setInt(3, endRow);
 			
@@ -419,7 +419,7 @@ public class NoticeDao {
 		
 	}
 	
-	public ArrayList<Notice> searchTitleContent(Connection conn, String noticeTitleSearch, String noticeContentSearch, PageInfo pi){
+	public ArrayList<Notice> searchTitleContent(Connection conn, String keyword, PageInfo pi){
 		
 		ArrayList<Notice> list = new ArrayList<>();
     	PreparedStatement pstmt = null;
@@ -431,8 +431,8 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
 			int endRow = startRow + pi.getBoardLimit() -1;
-			pstmt.setString(1, "%"+noticeTitleSearch+"%");
-			pstmt.setString(2, "%"+noticeContentSearch+"%");
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setString(2, "%"+keyword+"%");
 			pstmt.setInt(3, startRow);
 			pstmt.setInt(4, endRow);
 			

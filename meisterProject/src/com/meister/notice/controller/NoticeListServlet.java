@@ -76,54 +76,19 @@ public class NoticeListServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		// 공지사항 제목 검색시 사용할 parameter
-		String noticeTitleSearch = null;
-		noticeTitleSearch = request.getParameter("noticeTitleSearch");
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
 		
-		// 공지사항 내용 검색시 사용할 parameter
-		String noticeContentSearch = null;
-		noticeContentSearch = request.getParameter("noticeContentSearch");
+		System.out.println(searchType);
+		System.out.println(keyword);
 		
-		
-		
-		if(noticeTitleSearch != null) {	// 제목 검색할 경우
-			ArrayList<Notice> list = new NoticeService().searchTitle(noticeTitleSearch, pi);
-			request.setAttribute("pi", pi);
-			request.setAttribute("list", list);
+		ArrayList<Notice> list = new NoticeService().selectList(pi);
+		request.setAttribute("pi", pi);
+		request.setAttribute("list", list);
 			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
-			view.forward(request, response);
-			
-		}else if(noticeContentSearch != null) { // 내용 검색할 경우	
-			ArrayList<Notice> list = new NoticeService().searchContent(noticeContentSearch, pi);
-			request.setAttribute("pi", pi);
-			request.setAttribute("list", list);
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
-			view.forward(request, response);
-			
-		}else if(noticeContentSearch != null || noticeTitleSearch != null ) { // 제목  + 내용 검색할 경우	
-			ArrayList<Notice> list = new NoticeService().searchTitleContent(noticeTitleSearch, noticeContentSearch, pi);
-			request.setAttribute("pi", pi);
-			request.setAttribute("list", list);
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
-			view.forward(request, response);
-			
-			
-		}else {
-			
-			ArrayList<Notice> list = new NoticeService().selectList(pi);
-			request.setAttribute("pi", pi);
-			request.setAttribute("list", list);
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
-			view.forward(request, response);
-			
-		}
-		
-		
-		
+		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+		view.forward(request, response);
+
 		
 	}
 

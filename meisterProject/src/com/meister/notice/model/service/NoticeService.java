@@ -210,30 +210,30 @@ public class NoticeService {
      * @param noticeTitleSearch : 조회할 제목(키워드)
      * @return
      */
-    public ArrayList<Notice> searchTitle(String noticeTitleSearch, PageInfo pi){
+    public ArrayList<Notice> searchTitle(String keyword, PageInfo pi){
     	
     	Connection conn = getConnection();
     	
-    	ArrayList<Notice> list = new NoticeDao().searchTitle(conn, noticeTitleSearch, pi);
+    	ArrayList<Notice> list = new NoticeDao().searchTitle(conn, keyword, pi);
     	
     	close(conn);
     	return list;
     }
     
-    public ArrayList<Notice> searchContent(String noticeContentSearch, PageInfo pi){
+    public ArrayList<Notice> searchContent(String keyword, PageInfo pi){
     	
     	Connection conn = getConnection();
     	
-    	ArrayList<Notice> list = new NoticeDao().searchContent(conn, noticeContentSearch, pi);
+    	ArrayList<Notice> list = new NoticeDao().searchContent(conn, keyword, pi);
     	
     	close(conn);
     	return list;
     }
-    public ArrayList<Notice> searchTitleContent(String noticeTitleSearch, String noticeContentSearch, PageInfo pi){
+    public ArrayList<Notice> searchTitleContent(String keyword, PageInfo pi){
     	
     	Connection conn = getConnection();
     	
-    	ArrayList<Notice> list = new NoticeDao().searchTitleContent(conn, noticeTitleSearch, noticeContentSearch, pi);
+    	ArrayList<Notice> list = new NoticeDao().searchTitleContent(conn, keyword, pi);
     	
     	close(conn);
     	return list;
