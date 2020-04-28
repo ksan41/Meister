@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.menu.model.vo.*"%>
+    
+<%
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -202,7 +207,7 @@
             display: inline-block;
         }
 
-        #menu-thumb{
+        .menu-thumb{
             width:250px;
             height:300px;
             box-sizing: border-box;
@@ -212,7 +217,7 @@
             margin-left: 50px;
         }
 
-        #menu-img{
+        .menu-img{
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -223,25 +228,25 @@
             border-radius: 50%;
         }
         
-        #menu-detail{
+        .menu-detail{
             width:25px;
             padding-left:5px;
         }
 
-        #menu-detail:hover{
+        .menu-detail:hover{
             cursor: pointer;
         }
 
-        #menu-img>img{
+        .menu-img>img{
             width:350px;
             height:auto;
             
         }
-        #menu-img>img:hover{
+        .menu-img>img:hover{
             cursor: pointer;
             opacity: 70%;
         }
-        #menu-info{
+        .menu-info{
             width:100%;
             height:30%;
             text-align: center;
@@ -388,9 +393,9 @@
 			<h1 class="mt-4">메뉴관리</h1>
 			<br>
 			<ul id="ulNavi">
-				<li><a href="">피자</a></li>
-				<li><a class="active" href="">사이드디시</a></li>
-				<li><a href="">음료&기타</a></li>
+				<li><a href="<%=contextPath%>/menuMgPizzaList.meng">피자</a></li>
+				<li><a class="active">사이드디시</a></li>
+				<li><a href="<%=contextPath%>/menuMgEtcList.meng">음료&기타</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
@@ -405,56 +410,27 @@
 						</div>
 						<div class="inner">
 							<!-- 사이드디시 영역 -->
-							<div class="menu-area premium">
-								<div id="menu-thumb">
-									<div id="menu-img">
-										<img src="side/close-up-1854245_1280.jpg" alt="">
-									</div>
-									<div id="menu-info">
-										<h4>
-											그리니시 샐러드<img id="menu-detail"
-												src="img/icons/baseline_search_black_18dp.png" alt=""
-												data-toggle="modal" data-target="#menu-detail-modal">
-										</h4>
-										<p>10000원</p>
-										<button class="button" data-toggle="modal"
-											data-target="#menu-update-Modal">수정</button>
-										<button class="button" onclick="">삭제</button>
-									</div>
-								</div>
-								<div id="menu-thumb">
-									<div id="menu-img">
-										<img src="side/close-up-1854245_1280.jpg" alt="">
-									</div>
-									<div id="menu-info">
-										<h4>
-											그리니시 샐러드<img id="menu-detail"
-												src="img/icons/baseline_search_black_18dp.png" alt=""
-												data-toggle="modal" data-target="#menu-detail-modal">
-										</h4>
-										<p>10000원</p>
-										<button class="button" data-toggle="modal"
-											data-target="#menu-update-Modal">수정</button>
-										<button class="button" onclick="">삭제</button>
-									</div>
-								</div>
-								<div id="menu-thumb">
-									<div id="menu-img">
-										<img src="side/close-up-1854245_1280.jpg" alt="">
-									</div>
-									<div id="menu-info">
-										<h4>
-											그리니시 샐러드<img id="menu-detail"
-												src="img/icons/baseline_search_black_18dp.png" alt=""
-												data-toggle="modal" data-target="#menu-detail-modal">
-										</h4>
-										<p>10000원</p>
-										<button class="button" data-toggle="modal"
-											data-target="#menu-update-Modal">수정</button>
-										<button class="button" onclick="">삭제</button>
-									</div>
-								</div>
-							</div>
+							<% if(!sList.isEmpty()){ %>
+								<%for(int i=0;i<sList.size();i++){ %>
+									<div class="menu-area premium">
+										<div class="menu-thumb">
+											<div class="menu-img">
+												<img src="<%=contextPath %>/resources/menuImg/side/<%=sList.get(i).getSideImg() %>" alt="">
+											</div>
+											<div class="menu-info">
+												<h4>
+													<%=sList.get(i).getSideName() %><img class="menu-detail"
+														src="<%=contextPath %>/resources/siteImgs/img/icons/baseline_search_black_18dp.png" alt=""
+														data-toggle="modal" data-target="#menu-detail-modal">
+												</h4>
+												<p><%=sList.get(i).getSidePrice() %>원</p>
+												<button class="button" data-toggle="modal"
+													data-target="#menu-update-Modal">수정</button>
+												<button class="button" onclick="">삭제</button>
+											</div>
+										</div>
+									<%} %>
+								<%} %>	
 							<!-- 사이드디시 영역 -->
 						</div>
 					</div>

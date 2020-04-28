@@ -353,9 +353,9 @@
 			<h1 class="mt-4">메뉴관리</h1>
 			<br>
 			<ul id="ulNavi">
-				<li><a href="">피자</a></li>
-				<li><a href="">사이드디시</a></li>
-				<li><a class="active" href="">음료&기타</a></li>
+				<li><a href="<%=contextPath%>/menuMgPizzaList.meng">피자</a></li>
+				<li><a href="<%=contextPath%>/menuMgSideList.meng">사이드디시</a></li>
+				<li><a class="active">음료&기타</a></li>
 			</ul>
 			<div class="card mb-4">
 				<div class="card-header">
