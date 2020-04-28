@@ -35,13 +35,9 @@ public class OrderMgStatusServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int ono = Integer.parseInt(request.getParameter("ono"));
-//		String title = request.getParameter("title");
-//		String content = request.getParameter("content");
 		
 		Orders o = new Orders();
 		o.setReceiptNo(ono);
-//		n.setNoticeTitle(title);
-//		n.setNoticeContent(content);
 		
 		int result = new OrderService().updateOrderStatus(o);
 		
@@ -51,7 +47,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('접수 성공'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
+			out.println("<script>alert('접수성공'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
 			out.flush();
 			
 		}else {
@@ -60,7 +56,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('접수실패'); location.href='/Meister/bmOrderNow.orm?ono="+ono+"';</script>");
+			out.println("<script>alert('접수실패'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
 			out.flush();
 		}
 	}

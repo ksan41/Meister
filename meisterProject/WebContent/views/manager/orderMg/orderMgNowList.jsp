@@ -357,21 +357,28 @@
 						<!-- Modal footer -->
 						<div class="modal-footer" style="margin: auto;">
 							<!-- 하단버튼 영역-->
-							<form class="orderStatusManage" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
-								<input type="hidden" name="faqNo" value="<%= orderList.get(k).getReceiptNo() %>">
-								<button type="button" class="btn btn-danger orderManage" class="orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
-									주문접수
-								</button>
-							</form>
+								<% if (orderList.get(k).getOrderStatus().equals("F")){ %>
+									<form class="orderStatusManage" action="<%=contextPath%>/bmOrderStatus.orm" method="post">
+										<input type="hidden" name="ono" value="<%= orderList.get(k).getReceiptNo() %>">
+										<button type="button" class="btn btn-danger orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
+											주문접수
+										</button>
+									</form>
+								<% } else { %>
+									<form class="orderStatusManage" action="<%=contextPath%>/bmDeliveryStatus.orm" method="post">
+										<input type="hidden" name="ono" value="<%= orderList.get(k).getReceiptNo() %>">
+										<button type="button" class="btn btn-danger orderManage" style="width: 200px; height: 50px; background: yellowgreen; border-color: yellowgreen;">
+											배달완료
+										</button>
+									</form>
+								<% } %>
 						</div>
 					</div>
 				</div>
 			</div>
-			
 			<!-- 모달 끝 -->
 		<% } %>
 	<% } %>
-	
 	
 	<script>
 
