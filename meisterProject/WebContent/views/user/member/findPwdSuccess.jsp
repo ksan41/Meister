@@ -109,7 +109,7 @@
                 변경된 비밀번호로 로그인 해주세요
             </div>
             <div id="btn-area">
-                <button  class="big_btn" id="#" style="background-color: orange;" onclick="location.href=''">로그인</button>
+                <button  class="big_btn" id="#" style="background-color: orange;" onclick="location.href='<%=contextPath %>/showLoginPage.me'">로그인</button>
             </div>
         </div>
     </div>
