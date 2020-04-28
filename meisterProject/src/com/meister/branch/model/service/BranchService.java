@@ -1,10 +1,12 @@
 package com.meister.branch.model.service;
 
+import static com.meister.common.JDBCTemplate.close;
 import static com.meister.common.JDBCTemplate.commit;
 import static com.meister.common.JDBCTemplate.getConnection;
 import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.meister.branch.model.dao.BranchDao;
 import com.meister.branch.model.vo.Branch;
@@ -36,5 +38,35 @@ public class BranchService {
 		}
 		
 		return resultM*resultB;
+	}
+	
+	
+	/**산
+	 * 통합관리자-지점리스트 조회용 서비스
+	 * @return : 조회된 Branch객체가 담긴 ArrayList
+	 */
+	public ArrayList<Branch> selectBranchList(){
+		
+		Connection conn = getConnection();
+		ArrayList<Branch> bList = new BranchDao().selectBranchList(conn);
+		
+		close(conn);
+		
+		return bList;
+	}
+	
+	
+	/**산
+	 * 통합관리자-지점관리자 조회용 서비스
+	 * @return : 조회된 Manager객체가 담긴 ArrayList
+	 */
+	public ArrayList<Manager> selectManagerList(){
+		
+		Connection conn = getConnection();
+		ArrayList<Manager> mList = new BranchDao().selectManagerList(conn);
+		
+		close(conn);
+		
+		return mList;
 	}
 }
