@@ -161,10 +161,8 @@
 		<script>  		
 	        $(function(){  		
 			    $(".thumbnail").click(function(){ 
-				//console.log("클릭");
 				
 			 	var bno = $(this).children().eq(0).val();
-			 	/* console.log(bno); */
 				location.href="<%=contextPath%>/eDetail.ev?bno=" + bno;
 				
 				
@@ -172,7 +170,6 @@
 	        }); 
 	             
 	         <%-- $("#detail1").click(function (){
-				console.log($(".bnobno").val());
 	        	/* var bno = $(".bnobno").val(); */
 	        	
 	        	location.href="<%=contextPath%>/eDetail.ev?bno=" + bno;

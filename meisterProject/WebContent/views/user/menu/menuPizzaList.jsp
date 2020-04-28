@@ -593,7 +593,7 @@ p {
 			$(".menu-img").click(function(){
 				var pno = $(this).children().eq(0).val();
 				//var pno = $()
-				console.log(pno);
+				//console.log(pno);
 				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
 				
 			});
@@ -601,7 +601,7 @@ p {
 		$(function(){
 			$(".order-btn").click(function(){
 				var pno = $(this).prev().val();
-				console.log(pno);
+				//console.log(pno);
 				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
 				
 			});
@@ -612,7 +612,7 @@ p {
 		$(function(){
 			$(".menu-img2").click(function(){
 				var pno = $(this).children().eq(0).val();
-				console.log(pno);
+				//console.log(pno);
 				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
 				
 			});
@@ -621,7 +621,7 @@ p {
 		$(function(){
 			$(".order-btn2").click(function(){
 				var pno = $(this).prev().val();
-				console.log(pno);
+				//console.log(pno);
 				location.href="<%=contextPath%>/pizzaDetail.men?pno=" + pno;
 				
 			});

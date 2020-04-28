@@ -445,7 +445,7 @@ p {
 		$(function(){
 			$(".menu-img").click(function(){
 				var sno = $(this).children().eq(0).val();
-				console.log(sno);
+				//console.log(sno);
 				location.href="<%=contextPath%>/sideDetail.men?sno=" + sno;
 				
 			});
@@ -454,7 +454,7 @@ p {
 		$(function(){
 			$(".order-btn").click(function(){
 				var sno = $(this).prev().val();
-				console.log(sno);
+				//console.log(sno);
 				location.href="<%=contextPath%>/sideDetail.men?sno=" + sno;
 				
 			});

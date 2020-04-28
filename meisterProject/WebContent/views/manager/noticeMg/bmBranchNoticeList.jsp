@@ -78,7 +78,6 @@
 	<script>
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
-				console.log("클릭");
 				
 				// 현재 클릭했을 때의 해당 공지사항의 번호
 				var nno = $(this).children().eq(0).text();

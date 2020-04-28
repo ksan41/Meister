@@ -720,7 +720,7 @@ input:checked+label {
 					//$("#cart").submit();
 					$("#cartSub").trigger("click");
 				<%}else{%>
-					console.log("비회우ㅗㄴ");
+					//console.log("비회우ㅗㄴ");
 					location.href="<%=contextPath%>/loginU.me";	
 				<%}%>
 					
@@ -740,7 +740,7 @@ input:checked+label {
 // 피자용 
 
 $(document).on("click",".cnt_down_p",function() {
-	console.log("-쿨릭");
+	//console.log("-쿨릭");
 	var num = $(".menu_cnt_p").val();
 
 	num = $(".menu_cnt_p").val(num * 1 - 1);
@@ -752,7 +752,7 @@ $(document).on("click",".cnt_down_p",function() {
 });
 
 $(document).on("click",".cnt_up_p",function() {
-	console.log("+쿨릭");
+	//console.log("+쿨릭");
 	var num = $(".menu_cnt_p").val();
 
 	num = $(".menu_cnt_p").val(num * 1 + 1);

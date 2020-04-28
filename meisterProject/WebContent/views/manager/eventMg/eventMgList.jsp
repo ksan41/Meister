@@ -401,7 +401,6 @@
 		
 		// 삭제버튼
 		$(document).on("click",".deleteButton",function(){
-			console.log("클릭됨됨됨");
 			var index = $(".deleteButton").index(this);
 			$(".eventDelete:eq("+index+")").submit();
 		});

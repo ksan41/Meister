@@ -412,7 +412,7 @@ p {
 				var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
 
 				num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 - 1);
-				console.log(num.val());
+				//console.log(num.val());
 
 				if (num.val() <= 0) {
 					num = $(".menu-cnt:eq(" + cntIndex + ")").val(1);
