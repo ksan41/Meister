@@ -111,7 +111,7 @@
                         <div class="card mb-4">
                             <div class="card-header"><i class="fas fa-table mr-1"></i>지점조회</div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div class="table-responsive" style="width:auto;height:600px;overflow-y:scroll;">
                                     <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0" align="center">
                                         <thead align="center">
                                             <tr>
@@ -135,7 +135,7 @@
                                                 <th width="20%">전화번호</th>
                                                 <th width="15%">개점일</th>
                                                 <th width="30%">지점주소</th>
-                                                <th width="15%">수정/탈퇴</th>
+                                                <!-- <th width="15%">수정/탈퇴</th>-->
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -151,10 +151,10 @@
 	                                                <td><%=bList.get(i).getPhone() %></td>
 	                                                <td><%=bList.get(i).getOpeningDate() %></td>
 	                                                <td><%=bList.get(i).getAddress() %></td>
-	                                                <th>
+	                                                <!--  <th>
 	                                                    <button class="button" data-toggle="modal" data-target="#branchUpdateModal">수정</button>
 	                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-	                                                </th>
+	                                                </th>-->
 	                                            </tr>
                                             <%} %>
                                           <%} %>  

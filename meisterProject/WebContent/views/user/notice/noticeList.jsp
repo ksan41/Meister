@@ -4,7 +4,8 @@
 	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	
-	
+	String keyword = String.valueOf(request.getParameter("keyword"));
+	String noticeContentSearch = String.valueOf(request.getParameter("noticeContentSearch"));
 	
 	
 	int currentPage = pi.getCurrentPage();
@@ -180,15 +181,15 @@ background-color
 			<br>
 			<br>
 			<div align="center">
-				<form>
-					<select id="noticeSearchOption" name="" style="padding-top:3px;">
+				<!-- <form action="nList.no" method="get"> -->
+					<select id="noticeSearchOption" name="searchType" style="padding-top:3px;">
 						<option value="title">제목</option>
 						<option value="content">내용</option>
-						<option value="title+content">제목+내용</option>
+						<option value="titlecontent">제목+내용</option>
 					</select> 
-					<input type="text" name="" style="height: 30px; width: 300px;">
-					<input type="submit" value="검색" style="height: 30px;">
-				</form>
+					<input type="text" name="keyword" style="height: 30px; width: 300px;">
+					<input type="submit" id="searchBtn" value="검색" style="height: 30px;">
+				<!-- </form> -->
 			</div>
 			<br>
 			<br>
@@ -296,13 +297,14 @@ background-color
 			<!-- 현재 페이지에 보여질 페이징바 -->
 			<div class="pagination" align="center">
 				<div>
+				
 					<% if(currentPage != 1){ %>
 					<!--  맨 처음으로(<<) -->
 					<a href="nList.no?currentPage=1">&laquo;&laquo;</a> 
 					<!-- 이전페이지로(<) -->
 					<a href="nList.no?currentPage=<%= currentPage-1 %>">&laquo;</a> 
 					<% } %>
-<!-- 					<a href="#">1</a> 
+<!-- 				<a href="#">1</a> 
 					<a href="#" class="active">2</a>
 					<a href="#">3</a> 
 					<a href="#">4</a> 
@@ -324,45 +326,35 @@ background-color
 					<!--  맨 마지막으로(>>) -->
 					<a href="nList.no?currentPage=<%= maxPage %>">&raquo;&raquo;</a>
 					<%} %>
+						
+					
 				</div>
 			</div>
 			
-			
-			
-			
-<%-- 			<div class="pagingArea" align="center">
-			
-				<% if(currentPage != 1){ %>
-				<!--  맨 처음으로(<<) -->
-				<button onclick="location.href='nList.no?currentPage=1'"> &lt;&lt; </button>
-				
-				<!-- 이전페이지로(<) -->
-				<button onclick="location.href='nList.no?currentPage=<%= currentPage-1 %>'"> &lt; </button>
-				<% } %>
-				
-				<% for(int p=startPage; p<=endPage; p++){ %>
-					<% if(currentPage != p){ %>
-					<button onclick="location.href='nList.no?currentPage=<%=p%>';"><%= p %></button>
-					<%}else{ %>
-					<button disabled> <%= p %></button>
-					<%} %>
-				<% } %>
-				
-				<% if(currentPage != maxPage){ %>
-				<!-- 다음페이지로(>) -->
-				<button onclick="location.href='nList.no?currentPage=<%= currentPage+1 %>'"> &gt; </button>
-				
-				<!--  맨 마지막으로(>>) -->
-				<button onclick="location.href='nList.no?currentPage=<%= maxPage %>'"> &gt;&gt; </button>
-				<%} %>
-			
-			</div> --%>
 		
 		</div>
 			
 	</div>
 	
-		<script>
+	<form id="searchNotice" action="nList.no" method="get">
+	
+		<input type="hidden" name="searchType" value="">
+		<input type="hidden" name="keyword" value="">
+		
+	
+	</form>
+	
+	<script>
+		$(document).on("click","#searchBtn",function(){
+			
+			$("#noticeSearchOption").change(function(){
+	            var value = $("#noticeSearchOption> option:selected").val();
+			});
+		});
+	</script>
+	
+	<script>
+	
 		$(function(){
 			$("#noticeList>tbody>tr").click(function(){
 				// 현재 클릭했을 때의 해당 공지사항의 번호
@@ -375,6 +367,10 @@ background-color
 		});
 		
 	</script>
+	
+
+	
+
 	
 	
 
