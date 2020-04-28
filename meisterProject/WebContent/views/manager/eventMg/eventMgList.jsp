@@ -246,7 +246,7 @@
 						<!-- 버튼영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/evMgList.evm';">취소</button>
+							<button type="reset" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/evMgList.evm';">취소</button>
 						</div>
 					</form>
 				</div>
@@ -257,7 +257,9 @@
 	
 	<% if(list.isEmpty()){%>
 	<%}else{ %>
+		<% upIndex = 0; %>
 		<%for(int i=0;i<list.size();i++){ %>
+		<% upIndex++; %>
 			<!-- 상세 버튼 모달 시작 -->
 			<div class="modal fade" id="eventDetailModal<%=i%>">
 				<!-- modal별 id 변경해주세요-->
@@ -267,13 +269,13 @@
 						<!-- Modal Header -->
 						<div class="modal-header">
 							<h4 class="modal-title" style="margin: auto; padding: 0;">이벤트상세내용</h4>
-							<button type="button" class="close" data-dismiss="modal"
-								style="margin: 0; padding: 0;">&times;</button>
+							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 						</div>
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="<%= contextPath %>/evMgDetail.evm" name="eventDetailForm">
+							<form action="<%= contextPath %>/evMgDetail.evm" name="eventDetailForm" enctype="multipart/form-data">
+								<input type="hidden" name="eno" value="<%= list.get(i).getEventNo() %>">
 								<table id="eventDetailTable" style="width:700px">
 									<tr>
 										<th>제목</th>
@@ -309,8 +311,8 @@
 								<br><br>
 		
 								<!-- 버튼 영역 -->
-								<div class="faqBtns" style="align-content: right;" align="center">
-									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">
+								<div class="eventBtns" style="align-content: right;" align="center">
+									<button type="button" class="btn btn-danger detail" data-toggle="modal" data-target="#eventDetailModal<%=i%>" style="width: 100px; height: 40px; background: #343a40">
 										확인
 									</button>
 								</div>
@@ -325,7 +327,9 @@
 	
 	<% if(list.isEmpty()){%>
 	<%}else{ %>
+		<% upIndex = 0; %>
 		<%for(int i=0;i<list.size();i++){ %>
+			<% upIndex++; %>
 			<!-- 수정 버튼 모달 시작 -->
 			<div class="modal fade" id="eventUpdateModal<%=i%>">
 				<!-- modal별 id 변경해주세요-->
@@ -383,8 +387,8 @@
 			<!-- 수정 버튼 모달 끝 -->
 		<%} %>
 	<%} %>
-	
 	<script>
+		
 		$(document).on("click",".mbutton",function(){
 			var dropCheck = confirm("해당 이벤트를 삭제하시겠습니까?");
 			var index = $(".deleteButton").index(this);
@@ -405,6 +409,9 @@
 			$(".eventDelete:eq("+index+")").submit();
 		});
 		
+
+		
+		// 수정버튼
 		$(document).on("click",".modifyButton",function(){
 			var dropCheck = confirm("해당 이벤트를 수정하시겠습니까?");
 			var index = $(".deleteButton").index(this);
@@ -418,14 +425,6 @@
 			}
 		});
 		
-		// 제목 누르면 상세페이지로
-		$(function(){
-		    $(".detailButton").click(function(){ 
-			
-			 	var bno = $(this).children().eq(0).val();
-				location.href="<%=contextPath%>/evMgDetail.evm?bno=" + bno;
-			});
-        });
 	</script>
 
 </body>
