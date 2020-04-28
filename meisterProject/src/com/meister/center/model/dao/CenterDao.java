@@ -286,4 +286,6 @@ public class CenterDao {
 		return c;
 	}
 	
+	insertOneOnOne(conn, c)
+	
 }

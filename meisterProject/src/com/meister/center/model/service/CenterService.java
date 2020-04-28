@@ -217,6 +217,29 @@ public class CenterService {
 		return c;
 	}
 	
+
+	/**연화
+	 * 1:1문의 답변 작성용 서비스
+	 * @param c		--> 제목, 내용이 담겨있는 Center객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public Center insertOneOnOne(Center c) {
+		
+		Connection conn = getConnection();
+		
+		int result = new CenterDao().insertOneOnOne(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	
 	
 	
 	
