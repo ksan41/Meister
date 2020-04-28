@@ -359,8 +359,10 @@ public class OrderService {
 		int result = new OrderDao().insertBasketPayment(conn, cart);
 		
 		close(conn);
-		
+		System.out.println("insertBasketPayment Service 까지 왔어" + result);
 		return result;
+		
+		
 
 	}
 	

@@ -209,14 +209,14 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, c.getOrderNo());
-			pstmt.setInt(6,  c.getMemberNo());
-			pstmt.setInt(7, c.getTotalPrice());
+			pstmt.setInt(2,  c.getMemberNo());
+			pstmt.setInt(3, c.getTotalPrice());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
-		}
+		}System.out.println("insertBasketPayment Dao까지 왔어" + result);
 		return result;
 	}
 	///////////////////지수/////////////////////////
