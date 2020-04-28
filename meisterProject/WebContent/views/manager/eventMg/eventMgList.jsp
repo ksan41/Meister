@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.meister.event.model.vo.Event, java.util.ArrayList"%>
 <%
-   ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
+	ArrayList<Event> list = (ArrayList<Event>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
@@ -190,7 +190,7 @@
 								<div align="center">
 									<button class="button detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
 									<button class="button modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-									<button class="button deleteButton">삭제</button>
+									<button class="button deleteButton" onclick="location.href='<%= contextPath %>//evMgDelete.evm';">삭제</button>
 								</div>
 							</div>
 						<% } %>
@@ -392,15 +392,22 @@
 	<%} %>
 	
 	
-	<form id="postForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
-		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+	<form id="deleteForm" action="<%=contextPath%>/evMgDelete.evm" method="post">
+		<input type="hidden" name="bno" value="<%= list.get().getEventNo() %>">
 	</form>
-
+	
 	<script>
 		<!--삭제하기 버튼 클릭시-->
 		function deleteButton(){
 			$("#postForm").submit();
 		};
+		
+		// 삭제버튼
+//		$(document).on("click",".deleteButton",function(){
+//			console.log("클릭");
+//			var index = $(".deleteButton").index(this);
+//			$(".thumbnail:eq("+index+")").submit();
+//		});
 	</script>
 		
 
