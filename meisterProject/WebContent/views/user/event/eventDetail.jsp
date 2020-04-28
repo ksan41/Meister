@@ -17,11 +17,12 @@
         /* 서브메뉴 스타일 시작 (위에 웹폰트 링크도 복붙해주세요)*/
         div{box-sizing: border-box;}
         .outer{
-            width:1000px;
+            width:1300px;
             box-sizing: border-box;
             margin: auto;
             margin-top: 100px;
             margin-bottom: 150px;
+            height:auto;
         }
         
         .outer *{
@@ -51,10 +52,11 @@
         /* 이벤트 상세페이지 스타일 시작 */
         #eventDetailTitle{
             /* border:1px solid black; */
-            height:100px;
+            height:auto;
             padding-top:22px;
             font-size:17px;
             font-weight:600;
+            margin-left:50px;
         }
         .middle_btn{
             display: block;
@@ -94,8 +96,8 @@
                 <%=list.getEventTitle() %>
                
                 <p style="font-size:12px; color:dimgray;"><%=list.getEventOpenTime()%></p>
-                
-                	
+                <hr>
+                <br><br><br>	
                 <img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.getEventImage2()%>">
                 
                 
