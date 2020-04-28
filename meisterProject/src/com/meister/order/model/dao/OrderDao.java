@@ -916,5 +916,26 @@ public class OrderDao {
 		return result;
 	}
 	
+	
+	public int updateDeliveryStatus(Connection conn, Orders o) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateDeliveryStatus");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, o.getReceiptNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
 //////////////////////////연화//////////////////////////////////////////////////////////////
 }
