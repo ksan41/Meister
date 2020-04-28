@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import = "com.meister.center.model.vo.Center"%>
+<%
+	Center c = (Center)request.getAttribute("c");
+	// 제목, 작성일, 조회수,내용
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,25 +73,23 @@
 							</tr>
 							<tr>
 								<td>아이디</td>
-								<th style="height: 50px;" readonly>user01</th>
+								<th style="height: 50px;" readonly><%= c.getMemberId() %></th>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<th style="height: 50px;" readonly>010-7777-7777</th>
+								<th style="height: 50px;" readonly><%= c.getMemberPhone() %></th>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<th style="height: 50px;" readonly>user01@naver.com</th>
+								<th style="height: 50px;" readonly><%= c.getMemberEmail() %></th>
 							</tr>
 							<tr>
 								<td>제목</td>
-								<th style="height: 50px;" readonly>현기증나요</th>
+								<th style="height: 50px;" readonly><%= c.getInquiryTitle() %></th>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<th style="height: 250px; font-size: 13px;" readonly>안녕하세요 장인님<br>
-									너무 맛있어서 현기증 나요<br> 어떻게 하나요?
-								</th>
+								<th style="height: 250px; font-size: 13px;" readonly><%= c.getInquiryContent() %></th>
 							</tr>
 							<tr>
 								<td>답변</td>
@@ -99,8 +101,10 @@
 						</table>
 
 						<div align="center">
+							
 							<button class="button" onclick="">등록</button>
-							<button class="button" onclick="">취소</button>
+							
+							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">취소</button>
 						</div>
 
 					</div>
