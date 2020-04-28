@@ -244,6 +244,17 @@ public class NoticeService {
     	
     }
 	
+    public int getSearchListCount(String keyword) {
+    	
+		Connection conn = getConnection();
+		
+		int listCount = new NoticeDao().getSearchListCount(conn, keyword);
+		
+		close(conn);
+		
+		return listCount;
+    	
+    }
 	
 	
 }

@@ -36,17 +36,15 @@ public class NoticeListServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		
 		//검색 카테고리
 		String searchType = request.getParameter("searchType");
 		//검색어
 		String keyword = request.getParameter("keyword");
-		
-		System.out.println(searchType);
-		System.out.println(keyword);
+	
 		
 		// ---------- 페이징 처리 -----------------
 		int listCount;		// 총 게시글 갯수
+		int listCount2;		// 총 게시글 갯수
 		int currentPage;	// 현재 체이지(즉, 요청한 페이지)
 		int startPage;		// 현재 페이지 하단에 보여지는 페이징바의 시작수
 		int endPage;		// 현재 페이지 하단에 보여지는 페이징바의 끝수
@@ -57,6 +55,9 @@ public class NoticeListServlet extends HttpServlet {
 		
 		//* listCount : 총 게시글 갯수
 		listCount = new NoticeService().getListCount();
+		
+		//* listCount : 총 게시글 갯수
+		listCount2 = new NoticeService().getSearchListCount(keyword);
 		
 		//* currentPage : 현재 페이지(즉, 요청한 페이지)
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
@@ -82,15 +83,68 @@ public class NoticeListServlet extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
+		PageInfo pi2 = new PageInfo(listCount2, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 		//System.out.println(pi);
 		// ---------- 페이징 처리 ----------------- 
+
+
 		
-		ArrayList<Notice> list = new NoticeService().selectList(pi);
-		request.setAttribute("pi", pi);
-		request.setAttribute("list", list);
+		System.out.println(searchType);
+		System.out.println(keyword);
+		
+		
+		if(searchType != null) {
+			if(searchType.equals("title")) {	// 제목 검색할 경우
+				ArrayList<Notice> list = new NoticeService().searchTitle(keyword, pi2);
+				request.setAttribute("keyword", keyword);
+				request.setAttribute("category", searchType);
+				request.setAttribute("pi2", pi2);
+				request.setAttribute("list", list);
+				
+				RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+				view.forward(request, response);
+				
+			}else if(searchType.equals("content")) { // 내용 검색할 경우	
+				ArrayList<Notice> list = new NoticeService().searchContent(keyword, pi2);
+				request.setAttribute("keyword", keyword);
+				request.setAttribute("category", searchType);
+				request.setAttribute("pi2", pi2);
+				request.setAttribute("list", list);
+				
+				RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+				view.forward(request, response);
+				
+			}else if(searchType.equals("titlecontent")) { // 제목  + 내용 검색할 경우	
+				ArrayList<Notice> list = new NoticeService().searchTitleContent(keyword, pi2);
+				request.setAttribute("keyword", keyword);
+				request.setAttribute("category", searchType);
+				request.setAttribute("pi2", pi2);
+				request.setAttribute("list", list);
+				
+				RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+				view.forward(request, response);
+				
+				
+			}
 			
-		RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
-		view.forward(request, response);
+			
+			
+		}else{
+			
+			ArrayList<Notice> list = new NoticeService().selectList(pi);
+			request.setAttribute("keyword", keyword);
+			request.setAttribute("category", searchType);
+			request.setAttribute("pi", pi);
+			request.setAttribute("list", list);
+			
+			RequestDispatcher view = request.getRequestDispatcher("views/user/notice/noticeList.jsp");
+			view.forward(request, response);
+			
+		}
+		
+		
+
+
 
 		
 	}

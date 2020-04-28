@@ -13,7 +13,7 @@ public class PageInfo {
 	public PageInfo() {
 		
 	}
-
+	
 	public PageInfo(int listCount, int currentPage, int startPage, int endPage, int maxPage, int pageLimit,
 			int boardLimit) {
 		super();
@@ -88,6 +88,12 @@ public class PageInfo {
 				+ ", endPage=" + endPage + ", maxPage=" + maxPage + ", pageLimit=" + pageLimit + ", boardLimit="
 				+ boardLimit + "]";
 	}
+
+
+
+
+
+
 	
 	
 

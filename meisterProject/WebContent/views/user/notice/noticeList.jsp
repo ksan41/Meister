@@ -5,7 +5,7 @@
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	
 	String keyword = String.valueOf(request.getParameter("keyword"));
-	String noticeContentSearch = String.valueOf(request.getParameter("noticeContentSearch"));
+	String searchType = String.valueOf(request.getParameter("searchType"));
 	
 	
 	int currentPage = pi.getCurrentPage();
@@ -181,16 +181,17 @@ background-color
 			<br>
 			<br>
 			<div align="center">
-				 <%-- <form id="searchNoForm" action="<%=contextPath %>/nList.no" method="get"> --%>
-					<select id="noticeSearchOption" name="category" style="padding-top:3px;">
-						<option value="">선택</option>
+				 <form id="searchNoForm" action="<%=contextPath %>/nList.no" method="get">
+					<select id="noticeSearchOption" name="searchType" style="padding-top:3px;">
+						<option value="select">선택</option>
 						<option value="title">제목</option>
 						<option value="content">내용</option>
-						<option value="title+content">제목+내용</option>
+						<option value="titlecontent">제목+내용</option>
 					</select> 
 					<input type="text" class="searchKeyword" name="keyword" style="height: 30px; width: 300px;">
-					<input type="button" id="searchBtn" value="검색" style="height: 30px;">
-				<!-- </form> -->
+					<input type="hidden" name="currentPage" value="1">
+					<input type="submit" id="searchBtn" value="검색" style="height: 30px;">
+				</form>
 			</div>
 			<br>
 			<br>
@@ -235,35 +236,62 @@ background-color
 			<!-- 현재 페이지에 보여질 페이징바 -->
 			<div class="pagination" align="center">
 				<div>
-				
-					<% if(currentPage != 1){ %>
-					<!--  맨 처음으로(<<) -->
-					<a href="nList.no?currentPage=1">&laquo;&laquo;</a> 
-					<!-- 이전페이지로(<) -->
-					<a href="nList.no?currentPage=<%= currentPage-1 %>">&laquo;</a> 
-					<% } %>
-<!-- 				<a href="#">1</a> 
-					<a href="#" class="active">2</a>
-					<a href="#">3</a> 
-					<a href="#">4</a> 
-					<a href="#">5</a> 
-					<a href="#">6</a> -->
 					
-					<% for(int p=startPage; p<=endPage; p++){ %>
-						<% if(currentPage != p){ %>
-							<a href="nList.no?currentPage=<%=p%>"><%= p %></a> 
-						<%}else{ %>
-							<a href="#" class="active"><%= p %></a>
+					<%if(searchType != null){%>
+						<% if(currentPage != 1){ %>
+							<!--  맨 처음으로(<<) -->
+							<a href="nList.no?currentPage=1&searchType=<%=searchType%>&keyword=<%=keyword%>">&laquo;&laquo;</a> 
+							<!-- 이전페이지로(<) -->
+							<a href="nList.no?currentPage=<%= currentPage-1 %>&searchType=<%=searchType%>&keyword=<%=keyword%>">&laquo;</a> 
+						<% } %>
+						
+						<% for(int p=startPage; p<=endPage; p++){ %>
+							<% if(currentPage != p){ %>
+								<a href="nList.no?currentPage=<%=p%>&searchType=<%=searchType%>&keyword=<%=keyword%>"><%= p %></a> 
+							<%}else{ %>
+								<a href="#" class="active"><%= p %></a>
+							<%} %>
+						
+						<% } %>
+						
+						<% if(currentPage != maxPage){ %>
+							<!-- 다음페이지로(>) -->
+							<a href="nList.no?currentPage=<%= currentPage+1 %>&searchType=<%=searchType%>&keyword=<%=keyword%>">&raquo;</a>
+							<!--  맨 마지막으로(>>) -->
+							<a href="nList.no?currentPage=<%= maxPage %>&searchType=<%=searchType%>&keyword=<%=keyword%>">&raquo;&raquo;</a>
+						<%} %>
+					
+					<%}else { %>
+						<% if(currentPage != 1){ %>
+							<!--  맨 처음으로(<<) -->
+							<a href="nList.no?currentPage=1">&laquo;&laquo;</a> 
+							<!-- 이전페이지로(<) -->
+							<a href="nList.no?currentPage=<%= currentPage-1 %>">&laquo;</a> 
+							<% } %>
+		<!-- 					<a href="#">1</a> 
+							<a href="#" class="active">2</a>
+							<a href="#">3</a> 
+							<a href="#">4</a> 
+							<a href="#">5</a> 
+							<a href="#">6</a> -->
+							
+							<% for(int p=startPage; p<=endPage; p++){ %>
+								<% if(currentPage != p){ %>
+									<a href="nList.no?currentPage=<%=p%>"><%= p %></a> 
+								<%}else{ %>
+									<a href="#" class="active"><%= p %></a>
+								<%} %>
+							
+							<% } %>
+							
+							<% if(currentPage != maxPage){ %>
+							<!-- 다음페이지로(>) -->
+							<a href="nList.no?currentPage=<%= currentPage+1 %>">&raquo;</a>
+							<!--  맨 마지막으로(>>) -->
+							<a href="nList.no?currentPage=<%= maxPage %>">&raquo;&raquo;</a>
 						<%} %>
 					
 					<% } %>
-					
-					<% if(currentPage != maxPage){ %>
-					<!-- 다음페이지로(>) -->
-					<a href="nList.no?currentPage=<%= currentPage+1 %>">&raquo;</a>
-					<!--  맨 마지막으로(>>) -->
-					<a href="nList.no?currentPage=<%= maxPage %>">&raquo;&raquo;</a>
-					<%} %>
 						
 					
 				</div>
@@ -273,18 +301,19 @@ background-color
 		</div>
 			
 	</div>
-
-	<form id="searchNotice" action="nList.no" method="get">
 	
+	<%-- <form id="searchNotice" action="<%= contextPath %>/nList.no" method="get">
+
 		<input type="hidden" name="searchType" value="">
 		<input type="hidden" name="keyword" value="">
+		<input type="hidden" name="currentPage" value="1">
 		
 		<input type="submit" id="searchSub" name="sssub" style="display:none;">
-	</form>
+	</form> --%>
 	
 	<script>
 		
-		var searchType = "";
+		/* var searchType = "";
 		$("#noticeSearchOption").change(function(){
 			searchType = $("#noticeSearchOption[name=category]").val();
 	        console.log(searchType);
@@ -301,9 +330,10 @@ background-color
 			
 			
 			$("#searchSub").trigger("click");
-		});
+		}); */
 		
 	</script>
+
 	
 	<script>
 		
