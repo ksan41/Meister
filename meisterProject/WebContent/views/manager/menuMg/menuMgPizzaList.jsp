@@ -767,7 +767,7 @@ div {
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
 					console.log("이벤트실행");
-					$(".menu-upImg:eq("+index+")").attr("src", e.target.result);
+					$(".menu-upImg:eq("+(index-1)+")").attr("src", e.target.result);
 				};
 		}
 	</script>
