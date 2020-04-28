@@ -6,7 +6,6 @@ import static com.meister.common.JDBCTemplate.getConnection;
 import static com.meister.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.util.ArrayList;
 
 import com.meister.member.model.dao.MemberDao;
@@ -261,6 +260,31 @@ public class MemberService {
 		close(conn);
 		
 		return selectpwd;
+	}
+	
+	
+	
+	
+        /** 임시 비밀번호
+         * @param memberId
+         * @param email
+         * @return
+         */
+        public int memberPwdcheck(String memberId, String temp1) {
+		
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().memberPwdcheck(conn, memberId, temp1);
+		
+		if(result>0) {
+    		commit(conn);
+    	}else {
+    		rollback(conn);
+    	}
+    	
+    	close(conn);
+		
+		return result;
 	}
 	
 	

@@ -110,9 +110,10 @@
 					</div>
 					<div align="right">
 						<button class="button" data-toggle="modal" data-target="#faqEnrollModal">등록</button>
+							
 					</div>
 					<hr>
-	
+		
 					<% int upIndex = 0; %>	
 					<div class="contentMg1">
 						<% for(int i=0; i<list.size(); i++) { %>
@@ -285,6 +286,7 @@
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
+							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">삭제</button>
 							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/ceMgFaqList.cem';">취소</button>
 						</div>
 					</form>
@@ -327,6 +329,7 @@
 								<!-- 버튼 영역 -->
 								<div class="faqBtns" style="align-content: right;" align="center">
 									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
+	
 									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 								</div>
 							</form>

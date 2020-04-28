@@ -196,7 +196,7 @@
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <button class="middle_btn" id="xorud_send" style="width: 100%;">임시비밀번호발송</button>
+                                            <button type="button" class="middle_btn" id="xorud_send" style="width: 100%;">임시비밀번호발송</button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -244,6 +244,7 @@
       /* (이메일) 인증번호 발송 버튼 클릭시 */
       $("#xorud_send").click(function(){
         var email = document.getElementById("email"); // 이메일
+        var memberId = document.getElementById("memberId"); // 아이디
         randoumkey='';
         // 6) 이메일 유효성검사
         //mail이 입력되었는지 확인하기
@@ -256,8 +257,8 @@
             }
            
        $.ajax({
-          url:"email.e",
-          data:{Email:email.value},
+          url:"MailPwd",
+          data:{Email:email.value, memberId:memberId.value},
           success:function(data){
              alert("인증번호가 발송되었습니다.");
              console.log(data);

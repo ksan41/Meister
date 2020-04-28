@@ -72,7 +72,7 @@ public class CenterFAQServlet extends HttpServlet {
 		
 		System.out.println(hlist);
 		
-	
+		
 		
 		
 		

@@ -572,6 +572,34 @@ private Properties prop = new Properties();
 	
 	
 	
+	public int memberPwdcheck(Connection conn, String memberId, String temp1)  {
+		 
+	    int result = 0;
+		System.out.println("dao : "+memberId);
+		System.out.println("dao : "+temp1);
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("pwdfindcode");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, temp1);
+			pstmt.setString(2, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally  {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
 	
 }
 
