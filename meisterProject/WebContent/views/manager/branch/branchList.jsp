@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.branch.model.vo.*"%>
 <%
-	ArrayList<Branch> bList = (ArrayList<Branch>)session.getAttribute("bList");
-	ArrayList<Manager> mList = (ArrayList<Manager>)session.getAttribute("mList");
+	ArrayList<Branch> bList = (ArrayList<Branch>)request.getAttribute("bList");
+	ArrayList<Manager> mList = (ArrayList<Manager>)request.getAttribute("mList");
 
 %>    
     
@@ -139,17 +139,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>역삼점</td>
-                                                <td>02-2222-2222</td>
-                                                <td>2011/12/12</td>
-                                                <td>서울시 강남구 역삼동</td>
-                                                <th>
-                                                    <button class="button" data-toggle="modal" data-target="#branchUpdateModal">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
+										<% if(bList.isEmpty()){ %>
+											<tr>
+												<th colspan="6">조회된 지점정보가 업습니다.</th>
+											</tr>
+										<%}else{ %>    
+											<%for(int i=0;i<bList.size();i++){ %>                                    
+	                                            <tr>
+	                                                <td><%=bList.get(i).getBranchNo() %></td>
+	                                                <td><%=bList.get(i).getBranchName() %></td>
+	                                                <td><%=bList.get(i).getPhone() %></td>
+	                                                <td><%=bList.get(i).getOpeningDate() %></td>
+	                                                <td><%=bList.get(i).getAddress() %></td>
+	                                                <th>
+	                                                    <button class="button" data-toggle="modal" data-target="#branchUpdateModal">수정</button>
+	                                                    <button class="button" onclick="deleteBranch()">삭제</button>
+	                                                </th>
+	                                            </tr>
+                                            <%} %>
+                                          <%} %>  
                                         </tbody>
                                     </table>
                                     
@@ -244,5 +252,24 @@
                 </div>
             </div>
             <!-- 모달 끝 -->
+            
+<script>
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				
+				// 현재 클릭이벤트가 발생한 공지사항 번호
+				// this : 선택한 tr
+				// 		   tr의 자식(td)들 중 0번째값
+				// 24번째 글을 선택했을때, nno에 24가 담기게됨
+				var bno = $(this).children().eq(0).text();
+								
+				// url값으로 nno값(선택된 글번호) 같이 전달
+				// 전달값은 url뒤에 ?로 표시됨. : 쿼리스트링
+				// 쿼리스트링을 이용해서 전달값 전달
+				location.href="<%=contextPath%>/branchDetail.br?bno=" + bno;
+				
+			});		
+		})	
+</script>            
 </body>
 </html>
