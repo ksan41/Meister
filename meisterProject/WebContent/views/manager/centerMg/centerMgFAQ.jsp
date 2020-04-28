@@ -119,7 +119,7 @@
 						<% for(int i=0; i<list.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
-								<form class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+								<form id="faqDeleteForm" class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
 									<input type="hidden" name="faqNo" value="<%= list.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
@@ -138,7 +138,7 @@
 										</table>
 										<div align="right">
 											<button class="button" type="submit" data-toggle="modal" data-target="#faqUpdateModal<%=i%>">수정</button>
-											<button class="button deleteConfirm">삭제</button>
+											<button class="button deleteConfirm" onclick="deleteFAQ();">삭제</button>
 										</div>
 										<br>
 									</div>
@@ -303,13 +303,13 @@
 				<!-- modal별 id 변경해주세요-->
 				<div class="modal-dialog">
 					<div class="modal-content">
-		
+						
 						<!-- Modal Header -->
 						<div class="modal-header">
 							<h4 class="modal-title" style="margin: auto; padding: 0;">FAQ 수정</h4>
 							<button type="button" class="close" data-dismiss="modal" style="margin: 0; padding: 0;">&times;</button>
 						</div>
-		
+						
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
@@ -528,9 +528,9 @@
 		});
 		
 	</script>
-	
+									
 	<script>
-
+						
 		
 		$(function(){
 	        $(".faqQuestion").click(function(){

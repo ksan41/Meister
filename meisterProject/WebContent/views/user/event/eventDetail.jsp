@@ -80,22 +80,33 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈</a> &gt; 이벤트</div>
         <hr>
-	
-        <!-- inner영역에 콘텐츠 작성 -->
+		
+        <!-- inner영역에 콘텐츠 작성 -->	
         <div class="inner">
+        
+        
+ 
+ 			
+ 			
+ 			
             <div id="eventDetailTitle">
                 <!-- 입맛 따라 가격 따라 다양하게 즐기는 환상 조합! 하프앤하프 시그니처 5종 -->
                 <%=list.getEventTitle() %>
-                <p style="font-size:12px; color:dimgray;">2020-04-03 ~ 2020-04-28</p>
+                <p style="font-size:12px; color:dimgray;"><%=list.getEventStatus()%></p>
+                
             </div>
+            
+          	
 			
-            <img src= width="1000">
-				
+            <img src="">
+			 
+			
+			
             <br><br><br><br>
 			
             <a href="<%=contextPath%>/eList.ev"><button class="middle_btn">목록보기</button></a>
           	
-            
+        
         </div>
 
 

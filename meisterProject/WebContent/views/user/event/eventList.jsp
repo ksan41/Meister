@@ -145,9 +145,9 @@
 		<div class="inner">
 			
 			<% for(Event e : list) { %>
-
-			<div class="thumbnail" align="center">
 			
+			<div class="thumbnail" align="center">
+				
 				<input type="hidden" name="bno" value="<%=e.getEventNo() %>"> 
 				<a id="detail1">
 					<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=e.getEventImage1()%>">
