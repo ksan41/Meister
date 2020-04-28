@@ -95,6 +95,8 @@ public class NoticeService {
 		
 		return list;
 	}
+	
+	
 	/**연화
 	 * 지점 공지사항 리스트 조회용 서비스
 	 * @return

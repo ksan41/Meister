@@ -239,7 +239,25 @@ public class CenterService {
 		return result;
 	}
 	
-	
+	/**연화
+	 * 1:1문의 답변 등록
+	 * @param ino
+	 */
+	public int updateInquiryAnswer(int ino) {
+		
+		Connection conn = getConnection();
+		int result = new CenterDao().updateInquiryAnswer(conn, ino);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+		
+	}
 	
 	
 	

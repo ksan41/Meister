@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.meister.center.model.service.CenterService;
 import com.meister.center.model.vo.Center;
-import com.meister.notice.model.service.NoticeService;
-import com.meister.notice.model.vo.Notice;
 
 /**
  * Servlet implementation class CenterMgOneAnswerServlet
@@ -36,12 +34,12 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 		
 		int ino = Integer.parseInt(request.getParameter("ino"));	// "42"
 		
-		Center c = new CenterService().selectNotice(ino);
+		Center c = new CenterService().updateInquiryAnswer(ino);
 		
 		if(c != null) {
 			
 			request.setAttribute("c", c);
-			request.getRequestDispatcher("views/manager/noticeMg/noticeMgUpdateForm.jsp").forward(request, response);
+			request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
 			
 		}else {
 			
@@ -49,7 +47,7 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('고객 공지사항 수정폼이 실패했습니다. 다시해!!!!'); location.href='/Meister/imNoticeMdetail.nom?nno="+nno+"';</script>");
+			out.println("<script>alert('1:1문의 입력폼이 실패했습니다. 다시해!!!!'); location.href='/Meister/ceMgOneDetail.cem?ino=" + ino + "';</script>");
 			out.flush();
 		}
 	}
