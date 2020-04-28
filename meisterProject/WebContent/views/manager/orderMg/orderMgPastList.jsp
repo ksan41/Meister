@@ -95,7 +95,7 @@ h2, .h2 {
   		margin-inline-start: 0px;
   		margin-inline-end: 0px;
  			 font-weight: bold;
-}s
+}
 
 h3, .h3 {
 			display: block;
@@ -126,7 +126,6 @@ h4, .h4 {
 <body class="sb-nav-fixed">
 
 	<div id="layoutSidenav_content">
-
 		<main>
 		<div class="container-fluid">
 			<h1 class="mt-4">지난 주문내역</h1>
@@ -142,15 +141,6 @@ h4, .h4 {
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table style="margin: auto;">
-							<tr>
-								<td><input type="date" style="width: 150px; text-align: center;" name="startDay" placeholder="0000-00-00"> ~</td>
-								<td><input type="date" style="width: 150px; text-align: center;" name="lastDay" placeholder="0000-00-00"></td>
-								<td><input type="text" style="width: 150px; margin-left: 10px;" name="userName" placeholder="  고객명"></td>
-								<td><button style="margin-left: 10px;">검색</button></td>
-							</tr>
-						</table>
-						<br>
 						<!-- 내용작성-->
 						<table class="table table-bordered" id="dataListTable" width="60%" cellspacing="0";>
 							<thead>
@@ -223,6 +213,7 @@ h4, .h4 {
 	</div>
 
 	<% if(orderList.isEmpty()){%>
+	
 	<%}else{ %>
 		<% int upIndex = 0; %>
 		<%for(int k=0; k<orderList.size(); k++){ %>
@@ -362,6 +353,7 @@ h4, .h4 {
 				</div>
 			</div>
 			<!-- 모달 끝 -->
-
+		<% } %>
+	<% } %>
 </body>
 </html>

@@ -28,10 +28,8 @@
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 
-	//
 	String addressArea = (String)session.getAttribute("addressArea");
 	Delivery checkedDelivery = (Delivery)request.getAttribute("checkedDelivery");
-	System.out.println("지점33 : " + checkedDelivery);
 %>
 
 <!DOCTYPE html>

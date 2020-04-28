@@ -1,31 +1,23 @@
-package com.meister.branch.controller;
+package com.meister.center.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.meister.branch.model.service.BranchService;
-import com.meister.branch.model.vo.Branch;
-import com.meister.member.model.vo.Manager;
 
 /**
- * Servlet implementation class BranchListServlet
+ * Servlet implementation class CenterMgOneAnswerServlet
  */
-@WebServlet("/branchList.br")
-public class BranchListServlet extends HttpServlet {
+@WebServlet("/ceMgOneAnswer.cem")
+public class CenterMgOneAnswerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BranchListServlet() {
+    public CenterMgOneAnswerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,16 +27,7 @@ public class BranchListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Branch> bList = new BranchService().selectBranchList();
-		ArrayList<Manager> mList = new BranchService().selectManagerList();
 		
-		
-		response.setCharacterEncoding("utf-8");
-		
-		request.setAttribute("bList", bList);
-		request.setAttribute("mList", mList);
-		RequestDispatcher view = request.getRequestDispatcher("views/manager/branch/branchList.jsp");
-		view.forward(request, response);
 	}
 
 	/**

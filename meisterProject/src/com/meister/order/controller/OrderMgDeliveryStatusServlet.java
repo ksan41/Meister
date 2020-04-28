@@ -13,16 +13,16 @@ import com.meister.order.model.service.OrderService;
 import com.meister.order.model.vo.Orders;
 
 /**
- * Servlet implementation class OrderMgStatusServlet
+ * Servlet implementation class OrderMgDeliveryStatusServlet
  */
-@WebServlet("/bmOrderStatus.orm")
-public class OrderMgStatusServlet extends HttpServlet {
+@WebServlet("/bmDeliveryStatus.orm")
+public class OrderMgDeliveryStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OrderMgStatusServlet() {
+    public OrderMgDeliveryStatusServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +31,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("utf-8");
 		
 		int ono = Integer.parseInt(request.getParameter("ono"));
@@ -39,7 +39,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 		Orders o = new Orders();
 		o.setReceiptNo(ono);
 		
-		int result = new OrderService().updateOrderStatus(o);
+		int result = new OrderService().updateDeliveryStatus(o);
 		
 		if(result > 0) {
 			
@@ -47,7 +47,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('주문 접수 성공'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
+			out.println("<script>alert('배달상태 변경 성공'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
 			out.flush();
 			
 		}else {
@@ -56,7 +56,7 @@ public class OrderMgStatusServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('주문 접수 실패'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
+			out.println("<script>alert('배달상태 변경 실패'); location.href='/Meister/bmOrderNow.orm?ono=" + ono + "';</script>");
 			out.flush();
 		}
 	}

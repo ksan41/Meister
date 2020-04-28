@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,com.meister.branch.model.vo.*"%>
+<%
+	ArrayList<Branch> bList = (ArrayList<Branch>)request.getAttribute("bList");
+	ArrayList<Manager> mList = (ArrayList<Manager>)request.getAttribute("mList");
+
+%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,27 +115,13 @@
                                     <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0" align="center">
                                         <thead align="center">
                                             <tr>
-                                                <th style="height:50px;" width="20%">
-                                                    <label for="answer"></label>
-                                                    <select name="answer" id="answer">
-                                                        <option value="processing" selected>지점정보 선택</option>
-                                                        <option value="reply">전체</option>
-                                                        <option value="reply">지점명</option>
-                                                        <option value="reply">지점정보</option>
-                                                    </select>
-                                                </th>
-                                                
-                                                <th width="70%"><input type="text" id="search" style="width: 100%; height:50px" placeholder="검색어를 입력해주세요."></th>
-                                                <th width="10%"><button class="button button5">검색</button></th>
-                                            </tr>
+
                                         </thead>
                                         <tbody>
                                         
                                         </tbody>
                                     </table>
-
                                     <br>
-
                                     <table class="table table-bordered" id="dataListTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -147,105 +139,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>역삼점</td>
-                                                <td>02-2222-2222</td>
-                                                <td>2011/12/12</td>
-                                                <td>서울시 강남구 역삼동</td>
-                                                <th>
-                                                    <button class="button" data-toggle="modal" data-target="#branchUpdateModal">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>8</td>
-                                                <td>강남점</td>
-                                                <td>02-1111-2222</td>
-                                                <td>2010/09/20</td>
-                                                <td>서울시 강남구 강남동</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>7</td>
-                                                <td>교대점</td>
-                                                <td>02-0000-9999</td>
-                                                <td>2009/10/09</td>
-                                                <td>서울시 서초구 교대</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>양재점</td>
-                                                <td>02-6666-5555</td>
-                                                <td>2010/12/22</td>
-                                                <td>서울지 서초구 양재</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>위례점</td>
-                                                <td>031-9999-5555</td>
-                                                <td>2010/11/14</td>
-                                                <td>경기도 성남시 위례</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>송도점</td>
-                                                <td>032-5555-9999</td>
-                                                <td>2011/06/07</td>
-                                                <td>인천광역시 연수구 송도</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>수원</td>
-                                                <td>031-9999-5555</td>
-                                                <td>2010/03/11</td>
-                                                <td>경기도 수원시 팔달구</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>동탄</td>
-                                                <td>031-5555-2222</td>
-                                                <td>2011/08/14</td>
-                                                <td>경기도 동탄시</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>시흥점</td>
-                                                <td>031-1111-2222</td>
-                                                <td>2011/06/02</td>
-                                                <td>경기도 시흥</td>
-                                                <th>
-                                                    <button class="button" onclick="">수정</button>
-                                                    <button class="button" onclick="deleteBranch()">삭제</button>
-                                                </th>
-                                            </tr>
+										<% if(bList.isEmpty()){ %>
+											<tr>
+												<th colspan="6">조회된 지점정보가 업습니다.</th>
+											</tr>
+										<%}else{ %>    
+											<%for(int i=0;i<bList.size();i++){ %>                                    
+	                                            <tr>
+	                                                <td><%=bList.get(i).getBranchNo() %></td>
+	                                                <td><%=bList.get(i).getBranchName() %></td>
+	                                                <td><%=bList.get(i).getPhone() %></td>
+	                                                <td><%=bList.get(i).getOpeningDate() %></td>
+	                                                <td><%=bList.get(i).getAddress() %></td>
+	                                                <th>
+	                                                    <button class="button" data-toggle="modal" data-target="#branchUpdateModal">수정</button>
+	                                                    <button class="button" onclick="deleteBranch()">삭제</button>
+	                                                </th>
+	                                            </tr>
+                                            <%} %>
+                                          <%} %>  
                                         </tbody>
                                     </table>
                                     
@@ -340,5 +252,24 @@
                 </div>
             </div>
             <!-- 모달 끝 -->
+            
+<script>
+		$(function(){
+			$("#dataListTable>tbody>tr").click(function(){
+				
+				// 현재 클릭이벤트가 발생한 공지사항 번호
+				// this : 선택한 tr
+				// 		   tr의 자식(td)들 중 0번째값
+				// 24번째 글을 선택했을때, nno에 24가 담기게됨
+				var bno = $(this).children().eq(0).text();
+								
+				// url값으로 nno값(선택된 글번호) 같이 전달
+				// 전달값은 url뒤에 ?로 표시됨. : 쿼리스트링
+				// 쿼리스트링을 이용해서 전달값 전달
+				location.href="<%=contextPath%>/branchDetail.br?bno=" + bno;
+				
+			});		
+		})	
+</script>            
 </body>
 </html>

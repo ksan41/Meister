@@ -209,6 +209,22 @@ public class OrderService {
 		return plist;
 	}
 	
+	/**연화
+	 * Price테이블의 지난 주문 컬럼들 조회용 서비스
+	 * @param orderList
+	 * @return
+	 */
+	public ArrayList<Price> selectPastPriceList(ArrayList<Orders> orderList){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Price> plist = new OrderDao().selectPastPriceList(conn, orderList);
+		
+		close(conn);
+		
+		return plist;
+	}
+	
 	
 	
 	
@@ -691,6 +707,26 @@ public class OrderService {
 		
 		Connection conn = getConnection();
 		int result = new OrderDao().updateOrderStatus(conn, o);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
+	}
+	
+	/**연화
+	 * 주문상태 수정용 서비스
+	 * @param o		--> 수정하고자하는 Orders 객체
+	 * @return		--> 처리된 행의 개수
+	 */
+	public int updateDeliveryStatus(Orders o) {
+		
+		Connection conn = getConnection();
+		int result = new OrderDao().updateDeliveryStatus(conn, o);
 		
 		if(result > 0) {
 			commit(conn);

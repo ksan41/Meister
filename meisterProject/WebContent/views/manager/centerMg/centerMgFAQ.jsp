@@ -286,7 +286,6 @@
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">삭제</button>
 							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/ceMgFaqList.cem';">취소</button>
 						</div>
 					</form>
@@ -546,13 +545,9 @@
 	        });
 	    });
 		
-		
-//		function deleteConfirm(){
-//			$(".postFormFaq").submit();
-//		};
+
 		// 삭제버튼
 		$(document).on("click",".deleteConfirm",function(){
-			console.log("클릭됨됨됨");
 			var index = $(".deleteConfirm").index(this);
 			$(".faqDeleteForm:eq("+index+")").submit();
 		});

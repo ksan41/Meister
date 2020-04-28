@@ -220,8 +220,6 @@ public class CouponDao {
 		String sql = "UPDATE COUPON SET COUPON_STATUS='N' "
 				+ "WHERE COUPON_NO IN("+cArr+")";
 		
-//		System.out.println(sql);
-		
 		try {
 //			pstmt = conn.prepareStatement(sql);
 //			result = pstmt.executeUpdate();

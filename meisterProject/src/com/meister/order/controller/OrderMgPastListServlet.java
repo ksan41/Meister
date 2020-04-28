@@ -55,7 +55,7 @@ public class OrderMgPastListServlet extends HttpServlet {
 		ArrayList<Orders> orderList = new OrderService().selectMgPastOrderList(bno);
 		
 		//3. 위의 olist의 주문번호로, PRICE테이블의 정보 가져오기
-		ArrayList<Price> priceList = new OrderService().selectPriceList(orderList);
+		ArrayList<Price> priceList = new OrderService().selectPastPriceList(orderList);
 		
 		
 //		Delivery dInfo = new MyPageService().selectDeliveryInfo();
@@ -63,7 +63,6 @@ public class OrderMgPastListServlet extends HttpServlet {
 //		Payment pInfo = new MyPageService().selectPaymentInfo(ono);
 //		
 //		Price order = new MyPageService().selectOrderProducts(ono);
-		
 		
 		// jsp 조건처리용 메뉴정보들
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
@@ -89,7 +88,7 @@ public class OrderMgPastListServlet extends HttpServlet {
 		request.setAttribute("dList", dList);
 		
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgNowList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgPastList.jsp");
 		view.forward(request, response);
 	}
 
