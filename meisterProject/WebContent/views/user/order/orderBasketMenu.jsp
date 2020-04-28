@@ -271,7 +271,6 @@
 	                </tr>
 	                <%} %>
 				<%} %>
-                <%if(!sList.isEmpty()){ %>
               	<% for(int i=0; i<sideNo.length; i++){   
               			String side = sideNo[i];  %>
               		<% for(Side s : sList){ %>
@@ -301,10 +300,8 @@
 		                <%} %>
                 	<% } %>
 				<%} %>
-				<%} %>
 				
 				
-				<%if(!eList.isEmpty()){ %>
 				<%for(int i=0; i<etcNo.length; i++){
 					String etc = etcNo[i]; %>
 					<%for(Etc e : eList){ %>
@@ -332,7 +329,6 @@
                 </tr>
 						<%} %>
 					<%} %>
-				<%} %>
 				<%} %>
                
             </table>
