@@ -126,7 +126,6 @@ h4, .h4 {
 <body class="sb-nav-fixed">
 
 	<div id="layoutSidenav_content">
-
 		<main>
 		<div class="container-fluid">
 			<h1 class="mt-4">지난 주문내역</h1>

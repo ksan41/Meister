@@ -198,11 +198,27 @@ public class OrderService {
 	 * @param orderList
 	 * @return
 	 */
-	public ArrayList<Price> selectPriceList(ArrayList<Orders> orderList){
+	public ArrayList<Price> selectNowPriceList(ArrayList<Orders> orderList){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Price> plist = new OrderDao().selectPriceList(conn, orderList);
+		ArrayList<Price> plist = new OrderDao().selectNowPriceList(conn, orderList);
+		
+		close(conn);
+		
+		return plist;
+	}
+	
+	/** 지수
+	 * Price테이블의 주문 컬럼들 조회용 서비스
+	 * @param orderList
+	 * @return
+	 */
+	public ArrayList<Price> selectPastPriceList(ArrayList<Orders> orderList){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Price> plist = new OrderDao().selectPastPriceList(conn, orderList);
 		
 		close(conn);
 		

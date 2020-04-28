@@ -372,14 +372,53 @@ public class OrderDao {
 	
 	
 	// 지수
-	public ArrayList<Price> selectPriceList(Connection conn, ArrayList<Orders> orderList){
+	public ArrayList<Price> selectNowPriceList(Connection conn, ArrayList<Orders> orderList){
 		
 		ArrayList<Price> plist = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectPriceList");
+		String sql = prop.getProperty("selectNowPriceList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			for(int i=0; i<orderList.size(); i++) {
+				pstmt.setInt(1, orderList.get(i).getOrderNo());
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					plist.add(new Price(rset.getInt("order_no"),
+										rset.getString("pizza_size"),
+										rset.getString("pizza_no"),
+										rset.getString("pizza_count"),
+										rset.getString("dough_no"),
+										rset.getString("side_no"),
+										rset.getString("side_count"),
+										rset.getString("etc_no"),
+										rset.getString("etc_count")));
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return plist;
+	}
+	
+	// 지수
+	public ArrayList<Price> selectPastPriceList(Connection conn, ArrayList<Orders> orderList){
+		
+		ArrayList<Price> plist = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPastPriceList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
