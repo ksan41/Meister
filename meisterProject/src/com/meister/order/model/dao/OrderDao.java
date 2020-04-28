@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.member.model.vo.Manager;
+import com.meister.order.model.vo.Cart;
 import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Payment;
@@ -104,6 +105,9 @@ public class OrderDao {
 		return deliveryList;
 	}
 	
+	/**
+	 * @author 곽진아
+	 */
 	public Price ShowBasketList(Connection conn, int userNo){
 		Price basket = null;
 		PreparedStatement pstmt = null;
@@ -151,7 +155,7 @@ public class OrderDao {
 		String memberNo = "";
 		
 		String sql = prop.getProperty("selectMemberNo");
-		System.out.println("지점 5 에서 userId : " + userId);
+		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
@@ -195,17 +199,26 @@ public class OrderDao {
 		}
 		return result;
 	}*/
+	public int insertBasketPayment(Connection conn, Cart c) {
+		PreparedStatement pstmt = null;
+		int result = 0;
 	
+		String sql = prop.getProperty("insertBasketPayment");
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, c.getOrderNo());
+			pstmt.setInt(6,  c.getMemberNo());
+			pstmt.setInt(7, c.getTotalPrice());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	///////////////////지수/////////////////////////
 	// 지수
 	public Delivery selectDeliveryInfo(Connection conn, int orderNo) {

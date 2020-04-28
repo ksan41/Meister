@@ -2,12 +2,21 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.*, com.meister.menu.model.vo.*"%>
 <%
 	Price basket = (Price)request.getAttribute("basket");
-
-	String[] sideNo = basket.getSideNo().split(","); // [5,4]
-	String[] sideCount = basket.getSideCount().split(",");
+	String[] sideNo = {};
+	String[] sideCount = {};
+	String[] etcNo = {};
+	String[] etcCount = {};
+	System.out.println("지점22 : " + basket.getSideNo());
+	if(!((basket.getSideNo() == null) || basket.getSideNo().equals(""))){
+		sideNo = basket.getSideNo().split(","); // [5,4]
+		sideCount = basket.getSideCount().split(",");
+	}
 	
-	String[] etcNo = basket.getEtcNo().split(",");
-	String[] etcCount = basket.getEtcCount().split(",");
+	if(!((basket.getEtcNo() == null) || basket.getEtcNo().equals(""))){
+		etcNo = basket.getEtcNo().split(",");
+		etcCount = basket.getEtcCount().split(",");
+	}
+	
 	
 	int pizzaPrice = 0;
 	// 추가

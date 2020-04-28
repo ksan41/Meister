@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.meister.order.model.service.OrderService;
+import com.meister.order.model.vo.Cart;
 
 /**
  * Servlet implementation class OrderBasketPaymentServlet
@@ -31,34 +32,27 @@ public class OrderBasketPaymentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 1. request에 담겨있는 요청시 전달값 뽑아서 변수 또는 객체에 기록하기 (getParameter)
+
 		int orderNo = Integer.parseInt(request.getParameter("orderNo"));
 		int loginUser = Integer.parseInt(request.getParameter("loginUser"));
 		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
 
 		session = request.getSession();
 
-		Cart cart = new Cart
+		Cart cart = new Cart(orderNo, loginUser, totalPrice);
 		
-		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기
-		int result = new OrderService().insertBasketPayment(d);
+		int result = new OrderService().insertBasketPayment(cart);
+		request.setAttribute("cart", cart);
 		
-		// 4. 처리 결과를 가지고 성공인지 실패인지 판단해서 사용자가 보게될 뷰 지정
-			if(result > 0) { // insert됨 --> 회원가입성공
-				
-				session = request.getSession();
-				session.setAttribute("d", d);
-				RequestDispatcher view = request.getRequestDispatcher("/orderDelivery.or"); // orderDelivery.or 서블릿 요청해라
-				view.forward(request, response);
-				
-			}else { // insert안됨 --> 회원가입실패
-				
-				request.setAttribute("msg", "배달주소 등록 실패!!");
-				RequestDispatcher view = request.getRequestDispatcher("/views/common_user/errorPage.jsp");
-				view.forward(request, response);
-				
-				
-			}
+		if(result > 0) {
+			RequestDispatcher view = request.getRequestDispatcher("<%=contextPath%>/views/user/order/orderPaymentForm.jsp");
+			view.forward(request, response);
+		}else { // 에러페이지로 넘기기
+			RequestDispatcher view = request.getRequestDispatcher("<%=contextPath%>");
+			view.forward(request, response);
+		}
+		
+			
 	}
 
 
