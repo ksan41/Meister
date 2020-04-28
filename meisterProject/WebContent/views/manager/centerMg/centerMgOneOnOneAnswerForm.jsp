@@ -15,7 +15,7 @@
 	<!-- 메뉴바 include여기에 해주세요 -->
 	
 	<link href="../resources/admin/dist/css/styles.css" rel="stylesheet" />
-	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous"/>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 	
 	<style>
@@ -69,23 +69,23 @@
 							</tr>
 							<tr>
 								<td>아이디</td>
-								<th style="height: 50px;">user01</th>
+								<th style="height: 50px;" readonly>user01</th>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<th style="height: 50px;">010-7777-7777</th>
+								<th style="height: 50px;" readonly>010-7777-7777</th>
 							</tr>
 							<tr>
 								<td>이메일</td>
-								<th style="height: 50px;">user01@naver.com</th>
+								<th style="height: 50px;" readonly>user01@naver.com</th>
 							</tr>
 							<tr>
 								<td>제목</td>
-								<th style="height: 50px;">현기증나요</th>
+								<th style="height: 50px;" readonly>현기증나요</th>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<th style="height: 250px; font-size: 13px;">안녕하세요 장인님<br>
+								<th style="height: 250px; font-size: 13px;" readonly>안녕하세요 장인님<br>
 									너무 맛있어서 현기증 나요<br> 어떻게 하나요?
 								</th>
 							</tr>

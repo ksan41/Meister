@@ -159,13 +159,6 @@ public class Center {
 
 
 
-
-
-
-
-
-
-
 	public String getInquiryStatus() {
 		return inquiryStatus;
 	}
