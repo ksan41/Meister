@@ -93,6 +93,7 @@ public class OrderDao {
 												rset.getString("MEM_ADDRESS2"),
 												rset.getString("BRANCH_NAME"),
 												rset.getString("BRANCH_PHONE"),
+												rset.getString("MEM_PO_CODE"),
 												rset.getString("DELIVERY_METHOD")));
 			}
 		} catch (SQLException e) {

@@ -174,7 +174,7 @@
 
             <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px; ">
                 <br>
-                <div style="font-size:18px; height:40px; color:gray;"><%=dInfo.getMemPoCode()%> <%=dInfo.getMemAddress1()%> <%=dInfo.getMemAddress2()%></div>
+                <div style="font-size:18px; height:40px; color:gray;"><%=dInfo.getNewPoCode() %> <%=dInfo.getNewAddress1()%> <%=dInfo.getNewAddress2() %></div>
                 <span id="branchName">
                 	<%=dInfo.getBranchName()%>
                 </span>

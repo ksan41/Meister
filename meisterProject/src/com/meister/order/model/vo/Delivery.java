@@ -47,7 +47,7 @@ public class Delivery {
 	}
 	
 	public Delivery(int memberNo, String deliveryName, String newAddress1, String newAddress2, String branchName,
-			String branchPhone, String deliveryMethod) {
+			String branchPhone, String newPoCode, String deliveryMethod) {
 		super();
 		this.memberNo = memberNo;
 		this.deliveryName = deliveryName;
@@ -55,6 +55,7 @@ public class Delivery {
 		this.newAddress2 = newAddress2;
 		this.branchName = branchName;
 		this.branchPhone = branchPhone;
+		this.newPoCode = newPoCode;
 		this.deliveryMethod = deliveryMethod;
 	}
 
