@@ -376,7 +376,6 @@
 	<script>
 
 		$(document).on("click",".orderManage",function(){
-			console.log("클릭됨됨됨");
 			var index = $(".orderManage").index(this);
 			$(".orderStatusManage:eq("+index+")").submit();
 		});

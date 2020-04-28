@@ -88,7 +88,7 @@ public class OrderMgPastListServlet extends HttpServlet {
 		request.setAttribute("dList", dList);
 		
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgNowList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/manager/orderMg/orderMgPastList.jsp");
 		view.forward(request, response);
 	}
 

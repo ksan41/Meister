@@ -95,7 +95,7 @@ h2, .h2 {
   		margin-inline-start: 0px;
   		margin-inline-end: 0px;
  			 font-weight: bold;
-}s
+}
 
 h3, .h3 {
 			display: block;
@@ -222,6 +222,7 @@ h4, .h4 {
 	</div>
 
 	<% if(orderList.isEmpty()){%>
+	
 	<%}else{ %>
 		<% int upIndex = 0; %>
 		<%for(int k=0; k<orderList.size(); k++){ %>
@@ -361,6 +362,7 @@ h4, .h4 {
 				</div>
 			</div>
 			<!-- 모달 끝 -->
-
+		<% } %>
+	<% } %>
 </body>
 </html>

@@ -370,16 +370,15 @@ public class OrderDao {
 		return bno;
 	}
 	
-	
-	// 지수
-	public ArrayList<Price> selectNowPriceList(Connection conn, ArrayList<Orders> orderList){
+	//연화
+	public ArrayList<Price> selectPriceList(Connection conn, ArrayList<Orders> orderList){
 		
 		ArrayList<Price> plist = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectNowPriceList");
+		String sql = prop.getProperty("selectPriceList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -410,7 +409,7 @@ public class OrderDao {
 		return plist;
 	}
 	
-	// 지수
+	// 연화
 	public ArrayList<Price> selectPastPriceList(Connection conn, ArrayList<Orders> orderList){
 		
 		ArrayList<Price> plist = new ArrayList<>();
