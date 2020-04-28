@@ -207,9 +207,9 @@
 					<%}%>
 				<%}else{%>
 				<div class="defaultSet"></div>
-                <div class="defaultSet"><input type="checkbox" style="width:25px; height:25px; margin:40%;"></div>
+                <div class="defaultSet"></div>
                 <div id="textArea">
-                    <br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">등록된 배달지가 없습니다.</h4>
+                    <br><br><h4 style="font-weight:bold; color:rgb(76, 60, 60);">등록된 배달지가 없습니다.</h4>
                 </div>
                 <div class="defaultSet" id="removeArea"></div>
                 <div class="defaultSet"></div>
