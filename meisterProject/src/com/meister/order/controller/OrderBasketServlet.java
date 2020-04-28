@@ -25,21 +25,19 @@ import com.meister.order.model.vo.Price;
 /**
  * Servlet implementation class OrderBasketServlet
  */
+
 @WebServlet("/basket.or")
 public class OrderBasketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public OrderBasketServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
+    /**
+     * @author 곽진아
+     */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String addressArea = (String)session.getAttribute("addressArea");
@@ -69,6 +67,7 @@ public class OrderBasketServlet extends HttpServlet {
 		
 		ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(loginUser.getMemberId());
 		Delivery checkedDelivery = deliveryList.get(index);
+		session.setAttribute("dInfo", checkedDelivery);
 		
 		// 4. 처리 결과를 통해 사용자가 보게될 뷰 요청
 		request.setAttribute("basket", basket);
@@ -85,9 +84,6 @@ public class OrderBasketServlet extends HttpServlet {
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

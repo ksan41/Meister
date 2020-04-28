@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.order.model.vo.*, com.meister.menu.model.vo.*"%>
 <%
 	Price basket = (Price)request.getAttribute("basket");
+	session.setAttribute("basket", basket);
 	String[] sideNo = {};
 	String[] sideCount = {};
 	String[] etcNo = {};
@@ -457,6 +458,7 @@
         	var totalPrice = document.getElementById("totalPrice").innerText;
         	//console.log(totalPrice);
         	location.href="<%=contextPath%>/basketPayment.or?orderNo=" + <%= basket.getOrderNo() %> + "&loginUser=" + <%= userNo %> + "&totalPrice=" + totalPrice;
+        	
         }
     </script>
      

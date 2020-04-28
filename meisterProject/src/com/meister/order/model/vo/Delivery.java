@@ -45,6 +45,18 @@ public class Delivery {
 		this.branchName = branchName;
 		this.branchPhone = branchPhone;
 	}
+	
+	public Delivery(int memberNo, String deliveryName, String newAddress1, String newAddress2, String branchName,
+			String branchPhone, String deliveryMethod) {
+		super();
+		this.memberNo = memberNo;
+		this.deliveryName = deliveryName;
+		this.newAddress1 = newAddress1;
+		this.newAddress2 = newAddress2;
+		this.branchName = branchName;
+		this.branchPhone = branchPhone;
+		this.deliveryMethod = deliveryMethod;
+	}
 
 	public Delivery(String newAddress1, String newAddress2, String newPoCode,
 			String deliveryName, int branchNo, int memberNo, String referenceAddress) {
@@ -257,8 +269,12 @@ public class Delivery {
 		return "Delivery [deliveryNo=" + deliveryNo + ", newAddress1=" + newAddress1 + ", newAddress2=" + newAddress2
 				+ ", newPoCode=" + newPoCode + ", addressStatus=" + addressStatus + ", deliveryName=" + deliveryName
 				+ ", branchNo=" + branchNo + ", memberNo=" + memberNo + ", referenceAddress=" + referenceAddress
-				+ ", branchName=" + branchName + ", branchPhone=" + branchPhone + "]";
+				+ ", deliveryStatus=" + deliveryStatus + ", deliveryMethod=" + deliveryMethod + ", branchName="
+				+ branchName + ", branchPhone=" + branchPhone + ", orderNo=" + orderNo + ", branchAddress="
+				+ branchAddress + ", memAddress1=" + memAddress1 + ", memAddress2=" + memAddress2 + ", memPoCode="
+				+ memPoCode + "]";
 	}
 
+	
 }
 

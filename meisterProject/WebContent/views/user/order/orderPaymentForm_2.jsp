@@ -4,10 +4,22 @@
 	Delivery dInfo = (Delivery)session.getAttribute("dInfo");
 	Price basket = (Price)request.getAttribute("basket");
 	
-	String[] pizzaSize = basket.getPizzaSize().split(",");
-	String[] pizzaNo = basket.getPizzaNo().split(",");
-	String[] pizzaCount = basket.getPizzaCount().split(",");
-	String[] doughNo = basket.getDoughNo().split(",");
+	System.out.println("orderPaymentForm.jsp 에서 딜리버리랑 바스켓 : " + dInfo + ", " + basket);
+	
+	//String[] pizzaSize = basket.getPizzaSize().split(",");
+	//String[] pizzaNo = basket.getPizzaNo().split(",");
+	//String[] pizzaCount = basket.getPizzaCount().split(",");
+	//String[] doughNo = basket.getDoughNo().split(",");
+	
+	String[] pizzaSizeArr = null;
+	String[] pizzaNoArr = null;
+	String[] pizzaCountArr = null;
+	String[] doughNoArr = null;
+	
+	String pizzaSize = null;
+	String pizzaNo = null;
+	String pizzaCount = null;
+	String doughNo = null;
 	
 	ArrayList<Coupon> cInfo = (ArrayList<Coupon>)request.getAttribute("cInfo");
 
@@ -17,6 +29,41 @@
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	
+	if(basket.getPizzaSize().indexOf(",") != -1){
+		pizzaSize = basket.getPizzaSize();
+	}else{
+		pizzaSizeArr = basket.getPizzaSize().split(",");
+	}
+	
+	if(basket.getPizzaNo().indexOf(",") != -1){
+		pizzaNo = basket.getPizzaNo();
+	}else{
+		pizzaNoArr = basket.getPizzaNo().split(",");
+	}
+	
+	if(basket.getPizzaCount().indexOf(",") != -1){
+		pizzaCount = basket.getPizzaCount();
+	}else{
+		pizzaCountArr = basket.getPizzaCount().split(",");
+	}
+	
+	if(basket.getDoughNo().indexOf(",") != -1){
+		doughNo = basket.getDoughNo();
+	}else{
+		doughNoArr = basket.getDoughNo().split(",");
+	}
+	
+	System.out.println("orderPaymentForm.jsp 에서  pizzaSize : " + pizzaSize);
+	System.out.println("orderPaymentForm.jsp 에서  pizzaNo : " + pizzaNo);
+	System.out.println("orderPaymentForm.jsp 에서  pizzaCount : " + pizzaCount);
+	System.out.println("orderPaymentForm.jsp 에서  doughNo : " + doughNo);
+	System.out.println("orderPaymentForm.jsp 에서  cInfo : " + cInfo);
+	System.out.println("orderPaymentForm.jsp 에서  pList : " + pList);
+	System.out.println("orderPaymentForm.jsp 에서  sizeList : " + sizeList);
+	System.out.println("orderPaymentForm.jsp 에서  sList : " + sList);
+	System.out.println("orderPaymentForm.jsp 에서  eList : " + eList);
+	System.out.println("orderPaymentForm.jsp 에서  dList : " + dList);
 	
 	String pName = "";
 	String pSize = "";
@@ -36,22 +83,7 @@
 	int discountPrice = 0;
 	double dRate = 0;
 
-	
-	System.out.println("\\\\\\\\\\\\\"");
 	System.out.println(dInfo);
-	System.out.println(basket);
-	System.out.println(pizzaSize);
-	System.out.println(pizzaNo);
-	System.out.println(pizzaCount);
-	System.out.println(doughNo);
-	System.out.println(cInfo);
-	System.out.println(pList);
-	System.out.println(sizeList);
-	System.out.println(sList);
-	System.out.println(eList);
-	System.out.println(dList);
-	
-	
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -223,14 +255,16 @@
             <div style="width: 1000px; height: auto; padding-left: 50px;">
                 <br>
                 <h4 style="color:rgb(76, 60, 60); line-height:40px;">
-		           	<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
-						<% for(int j=0; j<pList.size(); j++){ %>
-							<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
-								<% pName = pList.get(j).getPizzaName(); %>
+                	<%if(pizzaSizeArr.length > 0){ %>
+			           	<% for(int i=0; i<pizzaSizeArr.length; i++){ // 주문한 피자 내용 %>
+							<% for(int j=0; j<pList.size(); j++){ %>
+								<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNoArr[i])){ %>
+									<% pName = pList.get(j).getPizzaName(); %>
+								<% } %>
 							<% } %>
 						<% } %>
 						<% for(int j=0; j<sizeList.size(); j++){ %>
-							<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+							<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSizeArr[i])){ %>
 								<% pSize = sizeList.get(j).getPizzaSize(); %>
 								<% pPrice = sizeList.get(j).getPizzaPrice(); %>
 							<% } %>
@@ -242,6 +276,16 @@
 								<% } %>
 							<% } %>
 						<% } %>
+					<% }else{ %>
+						<% for(int i=0; i<pizzaSizeArr.length; i++){ // 주문한 피자 내용 %>
+							<% if(pList.get(i).getPizzaNo() == Integer.parseInt(pizzaNo)){ %>
+								<% pName = pList.get(i).getPizzaName(); %>
+							<% } %>
+						<% } %>
+						
+						
+					<% } %>
+						
 						<% pCount = Integer.parseInt(pizzaCount[i]); %>
 						<% pPrice = (pPrice + doughPrice) * pCount; %>
 						
