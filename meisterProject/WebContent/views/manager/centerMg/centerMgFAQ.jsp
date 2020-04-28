@@ -6,7 +6,6 @@
 	ArrayList<Faq> plist = (ArrayList<Faq>) request.getAttribute("plist");
 	ArrayList<Faq> hlist = (ArrayList<Faq>) request.getAttribute("hlist");
 	Faq f = (Faq)request.getAttribute("f");
-	System.out.println("지점1 : " + f);
 %>
 
 <!DOCTYPE html>
