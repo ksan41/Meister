@@ -69,4 +69,37 @@ public class BranchService {
 		
 		return mList;
 	}
+	
+	
+	/**산
+	 * 통합관리자-지점 상세조회용 서비스
+	 * @param bno : 조회할 지점번호
+	 * @return : 조회된 Branch객체
+	 */
+	public Branch selectOneBranch(int bno) {
+		
+		Connection conn = getConnection();
+		
+		Branch b = new BranchDao().selectOneBranch(conn,bno);
+		
+		close(conn);
+		return b;
+	}
+	
+	
+	/**산
+	 * 통합관리자- 지점 상세조회용 서비스
+	 * @param bno : 조회할 지점번호
+	 * @return : 조회된 Manager객체
+	 */
+	public Manager selectOneManager(int bno) {
+		
+		Connection conn = getConnection();
+		
+		Manager m = new BranchDao().selectOneManager(conn,bno);
+		
+		close(conn);
+		return m;
+		
+	}
 }

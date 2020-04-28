@@ -38,12 +38,11 @@ public class BranchListServlet extends HttpServlet {
 		ArrayList<Branch> bList = new BranchService().selectBranchList();
 		ArrayList<Manager> mList = new BranchService().selectManagerList();
 		
-		HttpSession session = request.getSession();
 		
 		response.setCharacterEncoding("utf-8");
 		
-		session.setAttribute("bList", bList);
-		session.setAttribute("mList", mList);
+		request.setAttribute("bList", bList);
+		request.setAttribute("mList", mList);
 		RequestDispatcher view = request.getRequestDispatcher("views/manager/branch/branchList.jsp");
 		view.forward(request, response);
 	}

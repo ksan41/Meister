@@ -179,4 +179,83 @@ public class BranchDao {
 		
 		return mList;
 	}
+	
+	
+	
+	
+	/**산
+	 * 통합관리자-지점상세조회용
+	 * @param conn 
+	 * @param bno : 조회할 지점번호
+	 * @return : 조회된 Branch객체
+	 */
+	public Branch selectOneBranch(Connection conn,int bno) {
+		
+		Branch b = null;
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectOneBranch");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				b = new Branch();
+				b.setBranchName(rset.getString("BRANCH_NAME"));
+				b.setOpenTime(rset.getString("OPEN_TIME"));
+				b.setCloseTime(rset.getString("CLOSE_TIME"));
+				b.setOpeningDate(rset.getDate("OPENING_DATE"));
+				b.setAddress(rset.getString("BRANCH_ADDRESS"));
+				b.setPhone(rset.getString("BRANCH_PHONE"));
+				b.setBranchImg(rset.getString("BRANCH_IMAGE"));
+				b.setLatitude(rset.getString("LATITUDE"));
+				b.setLongtitude(rset.getString("LONGITUDE"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return b;
+	}
+	
+	
+	
+	/**산
+	 * 통합관리자-지점상세조회용
+	 * @param conn
+	 * @param bno : 조회할 지점번호
+	 * @return : 조회된 Manager객체
+	 */
+	public Manager selectOneManager(Connection conn,int bno) {
+		
+		Manager m = null;
+		ResultSet rset = null;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectOneManager");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m=new Manager();
+				m.setManagerId(rset.getString("MANAGER_ID"));
+				m.setName(rset.getString("MANAGER_NAME"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;
+	}
 }
