@@ -34,7 +34,7 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 		
 		int ino = Integer.parseInt(request.getParameter("ino"));	// "42"
 		
-		Center c = new CenterService().updateInquiryAnswer(ino);
+		Center c = new CenterService().updateInquiryAnswer(ino);//폼서블릿으로 다시 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		
 		if(c != null) {
 			

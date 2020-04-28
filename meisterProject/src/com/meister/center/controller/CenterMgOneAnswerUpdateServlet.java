@@ -41,7 +41,7 @@ public class CenterMgOneAnswerUpdateServlet extends HttpServlet {
 		c.setInquiryNo(ino);
 		c.setInquiryAnswer(inquiryAnswer);
 		
-		int result = new CenterService().insertOneOnOne(c);
+		int result = new CenterService().updateInquiryAnswer(c);
 		
 		if(result > 0) {
 			

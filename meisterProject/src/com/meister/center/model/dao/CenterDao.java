@@ -285,29 +285,9 @@ public class CenterDao {
 		}
 		return c;
 	}
+
 	
-	public int insertOneOnOne(Connection conn, Center c) {
-		
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertOneOnOne");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, c.getInquiryAnswer());
-			pstmt.setInt(2, c.getInquiryNo());
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}
-	
-	public int updateInquiryAnswer(Connection conn, int ino) {
+	public int updateInquiryAnswer(Connection conn, Center c) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -315,9 +295,8 @@ public class CenterDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, n.getNoticeTitle());
-			pstmt.setString(2, n.getNoticeContent());
-			pstmt.setInt(3, n.getNoticeNo());
+			pstmt.setString(1, c.getInquiryAnswer());
+			pstmt.setInt(2, c.getInquiryNo());
 			
 			result = pstmt.executeUpdate();
 			
