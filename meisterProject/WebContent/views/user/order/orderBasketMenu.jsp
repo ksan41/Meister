@@ -28,8 +28,11 @@
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 
+	//
 	String addressArea = (String)session.getAttribute("addressArea");
 	Delivery checkedDelivery = (Delivery)request.getAttribute("checkedDelivery");
+	System.out.println("지점33 : " + checkedDelivery);
+	int userNo = (int)request.getAttribute("userNo");
 %>
 
 <!DOCTYPE html>
@@ -259,7 +262,7 @@
 	                </tr>
 	                <%} %>
 				<%} %>
-                
+                <%if(!sList.isEmpty()){ %>
               	<% for(int i=0; i<sideNo.length; i++){   
               			String side = sideNo[i];  %>
               		<% for(Side s : sList){ %>
@@ -289,10 +292,10 @@
 		                <%} %>
                 	<% } %>
 				<%} %>
+				<%} %>
 				
 				
-				
-				
+				<%if(!eList.isEmpty()){ %>
 				<%for(int i=0; i<etcNo.length; i++){
 					String etc = etcNo[i]; %>
 					<%for(Etc e : eList){ %>
@@ -321,7 +324,7 @@
 						<%} %>
 					<%} %>
 				<%} %>
-	
+				<%} %>
                
             </table>
             <hr id="hr1">
@@ -338,7 +341,7 @@
                         </p>
                     </th>
                     <th>
-                        총금액 <b style="font-size: 3.0em;" class="totalPrice"></b>원
+                        총금액 <b style="font-size: 3.0em;" class="totalPrice" id="totalPrice"></b>원
                     </th>
                 </tr>
             </table>
@@ -348,7 +351,7 @@
             <div id="btns"> 
                 <button style="background:white; color:black; border:1px solid darkgray" class="middle_btn" id="cbtn">+ 메뉴 추가하기</button>
                 <br>
-                <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn">주문하기</button>
+                <button style="background:red; color:white; border:1px solid darkgray" class="middle_btn" id="obtn" onclick="nextStep();">주문하기</button>
             </div>
             
             
@@ -445,6 +448,11 @@
             tr.remove();
 
         };
+        function nextStep(){
+        	var totalPrice = document.getElementById("totalPrice").innerText;
+        	//console.log(totalPrice);
+        	location.href="<%=contextPath%>/orderPayForm.or?orderNo=" + <%= basket.getOrderNo() %> + "&userNo=" + <%= userNo %> + "&totalPrice=" + totalPrice;
+        }
     </script>
      
 </body>
