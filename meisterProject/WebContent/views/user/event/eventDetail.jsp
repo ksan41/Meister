@@ -87,19 +87,24 @@
         
  
  			
- 			
+ 		
  			
             <div id="eventDetailTitle">
                 <!-- 입맛 따라 가격 따라 다양하게 즐기는 환상 조합! 하프앤하프 시그니처 5종 -->
                 <%=list.getEventTitle() %>
-                <p style="font-size:12px; color:dimgray;"><%=list.getEventStatus()%></p>
+               
+                <p style="font-size:12px; color:dimgray;"><%=list.getEventOpenTime()%></p>
+                
+                	
+                <img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.getEventImage2()%>">
+                
                 
             </div>
             
+          
+            
           	
-			
-            <img src="">
-			 
+		
 			
 			
             <br><br><br><br>
