@@ -303,8 +303,8 @@
 									<tr>
 										<th>상세 이미지</th>
 										<td>
-											<div style="width:500px; height:250px;">
-												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>" readonly>
+											<div style="width:500px; height:800px;">
+												<img style="height:700px;" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>" readonly>
 											</div>
 										</td>
 									</tr>
