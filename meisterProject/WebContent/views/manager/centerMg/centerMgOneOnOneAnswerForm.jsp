@@ -62,51 +62,52 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-							<tr>
-								<td width="15%" style="padding-top: 20px;">처리상태</td>
-								<th style="height: 50px; color: red;"><label for="answer"></label>
-									<select name="answer" id="answer">
-										<option value="processing" selected>처리중</option>
-										<option value="reply">답변완료</option>
-								</select></th>
-							</tr>
-							<tr>
-								<td>아이디</td>
-								<th style="height: 50px;" readonly><%= c.getMemberId() %></th>
-							</tr>
-							<tr>
-								<td>연락처</td>
-								<th style="height: 50px;" readonly><%= c.getMemberPhone() %></th>
-							</tr>
-							<tr>
-								<td>이메일</td>
-								<th style="height: 50px;" readonly><%= c.getMemberEmail() %></th>
-							</tr>
-							<tr>
-								<td>제목</td>
-								<th style="height: 50px;" readonly><%= c.getInquiryTitle() %></th>
-							</tr>
-							<tr>
-								<td>내용</td>
-								<th style="height: 250px; font-size: 13px;" readonly><%= c.getInquiryContent() %></th>
-							</tr>
-							<tr>
-								<td>답변</td>
-								<th style="height: 250px; font-size: 13px; color: brown"><textarea
-										id="contentArea"
-										style="font-size: 1.0em; color: cornflowerblue"
-										placeholder="답변을 작성해주세요"></textarea></th>
-							</tr>
-						</table>
-
-						<div align="center">
-							
-							<button class="button" onclick="">등록</button>
-							
-							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">취소</button>
-						</div>
-
+						<form id="OneAnswerForm" action="<%= contextPath %>/imNoticeMupdate.nom" method="post">
+							<input type="hidden" name="ino" value="<%=c.getInquiryNo()%>">
+							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+								<tr>
+									<td width="15%" style="padding-top: 20px;">처리상태</td>
+									<th style="height: 50px; color: red;"><label for="answer"></label>
+										<select name="answer" id="answer">
+											<option value="processing" selected>처리중</option>
+											<option value="reply">답변완료</option>
+									</select></th>
+								</tr>
+								<tr>
+									<td>아이디</td>
+									<th style="height: 50px;" readonly><%= c.getMemberId() %></th>
+								</tr>
+								<tr>
+									<td>연락처</td>
+									<th style="height: 50px;" readonly><%= c.getMemberPhone() %></th>
+								</tr>
+								<tr>
+									<td>이메일</td>
+									<th style="height: 50px;" readonly><%= c.getMemberEmail() %></th>
+								</tr>
+								<tr>
+									<td>제목</td>
+									<th style="height: 50px;" readonly><%= c.getInquiryTitle() %></th>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<th style="height: 250px; font-size: 13px;" readonly><%= c.getInquiryContent() %></th>
+								</tr>
+								<tr>
+									<td>답변</td>
+									<th style="height: 250px; font-size: 13px; color: brown"><textarea
+											id="contentArea"
+											style="font-size: 1.0em; color: cornflowerblue"
+											placeholder="답변을 작성해주세요"></textarea></th>
+								</tr>
+							</table>
+	
+							<div align="center">
+								
+								<button class="button" type="submit">등록</button>
+								<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">취소</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
