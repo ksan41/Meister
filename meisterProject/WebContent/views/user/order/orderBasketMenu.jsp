@@ -451,7 +451,7 @@
         function nextStep(){
         	var totalPrice = document.getElementById("totalPrice").innerText;
         	//console.log(totalPrice);
-        	location.href="<%=contextPath%>/orderPayForm.or?orderNo=" + <%= basket.getOrderNo() %> + "&userNo=" + <%= userNo %> + "&totalPrice=" + totalPrice;
+        	location.href="<%=contextPath%>/basketPayment.or?orderNo=" + <%= basket.getOrderNo() %> + "&loginUser=" + <%= userNo %> + "&totalPrice=" + totalPrice;
         }
     </script>
      
