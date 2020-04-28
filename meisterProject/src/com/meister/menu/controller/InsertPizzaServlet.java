@@ -60,7 +60,7 @@ public class InsertPizzaServlet extends HttpServlet {
         if(result > 0) {	// 주문정보 담은 인서트 성공
         	
         	
-        	RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderDelivery.jsp");
+        	RequestDispatcher view = request.getRequestDispatcher("orderDelivery.or");
         	view.forward(request, response);
 
         	
