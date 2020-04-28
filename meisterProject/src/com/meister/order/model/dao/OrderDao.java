@@ -339,8 +339,8 @@ public class OrderDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pm.getPaymentPrice());
-			pstmt.setString(2, pm.getPaymentType());
-			pstmt.setInt(3, pm.getReceiptNo());
+			//pstmt.setString(2, pm.getPaymentType());
+			//pstmt.setInt(3, pm.getReceiptNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {

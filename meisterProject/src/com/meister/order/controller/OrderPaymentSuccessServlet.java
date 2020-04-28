@@ -64,6 +64,7 @@ public class OrderPaymentSuccessServlet extends HttpServlet {
 			request.setAttribute("totalPrice", totalPrice);
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderPayment.jsp");
+			//RequestDispatcher view = request.getRequestDispatcher("orderPayInsert.or");
 			view.forward(request, response);
 			
 		}else { // 새 Orders insert실패

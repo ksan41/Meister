@@ -36,12 +36,13 @@ public class OrderPaymentInsert extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int rno = Integer.parseInt(request.getParameter("rno"));
-		String pay_method = request.getParameter("pay_method");
-		int amount = Integer.parseInt(request.getParameter("amount"));
+		//String pay_method = request.getParameter("pay_method");
+		//int amount = Integer.parseInt(request.getParameter("amount"));
+		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
 		
 		Payment pm = new Payment();
-		pm.setPaymentPrice(amount);
-		pm.setPaymentType(pay_method);
+		pm.setPaymentPrice(totalPrice);
+		//pm.setPaymentType(pay_method);
 		pm.setReceiptNo(rno);
 		
 		int result = new OrderService().paymentInsert(pm);
