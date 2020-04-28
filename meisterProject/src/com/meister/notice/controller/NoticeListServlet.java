@@ -34,6 +34,17 @@ public class NoticeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+		
+		
+		//검색 카테고리
+		String searchType = request.getParameter("searchType");
+		//검색어
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println(searchType);
+		System.out.println(keyword);
+		
 		// ---------- 페이징 처리 -----------------
 		int listCount;		// 총 게시글 갯수
 		int currentPage;	// 현재 체이지(즉, 요청한 페이지)
@@ -73,14 +84,6 @@ public class NoticeListServlet extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, startPage, endPage, maxPage, pageLimit, boardLimit);
 		//System.out.println(pi);
 		// ---------- 페이징 처리 ----------------- 
-		
-		request.setCharacterEncoding("utf-8");
-		
-		String searchType = request.getParameter("searchType");
-		String keyword = request.getParameter("keyword");
-		
-		System.out.println(searchType);
-		System.out.println(keyword);
 		
 		ArrayList<Notice> list = new NoticeService().selectList(pi);
 		request.setAttribute("pi", pi);
