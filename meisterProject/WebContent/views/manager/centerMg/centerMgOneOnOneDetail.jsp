@@ -103,7 +103,7 @@
 
 						<div align="center">
 							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
-							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneAnswerUpdateForm.cem';">답변입력</button>
+							<button class="button" onclick="updateForm();">답변입력</button>
 						</div>
 
 					</div>
@@ -113,5 +113,16 @@
 		</main>
 	</div>
 
+	<form id="postForm" action="<%=contextPath%>/ceMgOneAnswerUpdateForm.cem" method="post">
+		<input type="hidden" name="ino" value="<%= c.getInquiryNo() %>">
+	</form>
+	
+	<script>
+		// 답변입력 버튼 클릭시
+		function updateForm(){
+			$("#postForm").submit();
+		}
+	</script>
+	
 </body>
 </html>
