@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.meister.member.model.vo.Member;
 import com.meister.order.model.service.OrderService;
-import com.meister.order.model.vo.Delivery;
 
 /**
  * Servlet implementation class OrderBasketPaymentServlet
@@ -40,8 +38,10 @@ public class OrderBasketPaymentServlet extends HttpServlet {
 
 		session = request.getSession();
 
+		Cart cart = new Cart
+		
 		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기
-		int result = new OrderService().insertAddress(d);
+		int result = new OrderService().insertBasketPayment(d);
 		
 		// 4. 처리 결과를 가지고 성공인지 실패인지 판단해서 사용자가 보게될 뷰 지정
 			if(result > 0) { // insert됨 --> 회원가입성공
