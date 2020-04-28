@@ -728,6 +728,97 @@ div {
 		<%} %>
 	<%} %>	
 	<!-- 프리미엄-메뉴수정 모달 끝 -->
+	
+	
+	<!-- 클래식-메뉴수정 모달 시작 -->
+	<% if(!pList.isEmpty()){ %>
+		<%for(int i=0;i<pList.size();i++){ %>
+			<% if(pList.get(i).getPizzaType().equals("2")){ %>
+			<%pIndex++; %>
+					<div class="modal fade" id="menu-update-ModalC<%=i%>">
+						<!-- modal별 id 변경해주세요-->
+						<div class="modal-dialog"
+							style="max-width: 100%; width: auto; display: table;">
+							<div class="modal-content">
+				
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<h2 class="modal-title" style="margin: auto; padding: 0;">메뉴수정</h2>
+									<button type="button" class="close" data-dismiss="modal"
+										style="margin: 0; padding: 0;">&times;</button>
+								</div>
+				
+								<!-- Modal body -->
+				<div class="modal-body" style="width: 1100px; height: 700px">
+
+					<form class="menuUpdateFormP" action="<%=contextPath%>/pizzaUp.meng" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="pNo" value="<%= pList.get(i).getPizzaNo() %>">
+						<table class="menuUpdateTable">
+							<tr>
+								<th>메뉴명</th>
+								<td><input name="pName" type="text" class="inputs"
+									value="<%=pList.get(i).getPizzaName()%>" required></td>
+								<th rowspan="2">이미지첨부 <input class="menuFile" name="menuImg" onchange="loadImg(this,<%=pIndex %>);"
+									type="file" style="display: none;" value="<%=pList.get(i).getPizzaImg()%>">
+								</th>
+								<td rowspan="2">
+									<div class="menu-update-img-area">
+										<img class="menu-upImg"
+											src="<%=contextPath%>/resources/siteImgs/menuImg/pizza/<%=pList.get(i).getPizzaImg()%>"
+											alt="">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>메뉴소개</th>
+								<td><textarea name="contents" class="inputs" cols="50"
+										rows="8" style="resize: none;" required><%=pList.get(i).getPizzaContent() %></textarea></td>
+							</tr>
+							<tr>
+								<th>토핑</th>
+								<td><textarea name="toppings" class="inputs" cols="50"
+										rows="8" style="resize: none;" required><%=pList.get(i).getPizzaTopping() %></textarea></td>
+							</tr>
+							<tr>
+								<th rowspan="2">원산지</th>
+								<td rowspan="2"><textarea name="origins" class="inputs"
+										cols="50" rows="8" style="resize: none;" required><%=pList.get(i).getPizzaOrigin() %></textarea></td>
+								<%for(int j=0;j<psList.size();j++){ %>
+								<%if(pList.get(i).getPizzaNo()== psList.get(j).getPizzaNo()){ %>
+								<%if(psList.get(j).getPizzaSize().equals("L")){ %>
+								<input type="hidden" name="psNo" value="<%=psList.get(j).getSizeNo() %>">
+								<th>L 사이즈 가격</th>
+								<td><input name="priceL" type="text" class="inputs"
+									value="<%=psList.get(j).getPizzaPrice()%>" required> 원</td>
+								<%} %>
+							</tr>
+							<%if(psList.get(j).getPizzaSize().equals("M")){ %>
+							<tr>
+								<th>M 사이즈 가격</th>
+								<td><input name="priceM" type="text" class="inputs"
+									value="<%=psList.get(j).getPizzaPrice()%>" required> 원<br></td>
+								<%} %>
+							</tr>
+							<%} %>
+							<%} %>
+						</table>
+					</form>
+
+				</div>
+
+				<!-- Modal footer -->
+							<div class="modal-footer" style="margin: auto;">
+								<!-- 하단버튼 영역-->
+								<button class="updateBtn big_btn" style="background: orange;">수정하기</button>
+							</div>
+			
+						</div>
+					</div>
+				</div>
+			<%} %>
+		<%} %>
+	<%} %>	
+	<!-- 프리미엄-메뉴수정 모달 끝 -->
 
 	
 <script>
