@@ -118,7 +118,7 @@
 						<% for(int i=0; i<list.size(); i++) { %>
 							<% upIndex++; %>
 							<% if (list.get(i).getFaqType().equals("피자주문하기")) { %>
-								<form id="faqDeleteForm" class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+								<form id="faqDeleteForm" class="faqDeleteForm" action="<%=contextPath%>/ceMgFaqUpdate.cem" method="post">
 									<input type="hidden" name="faqNo" value="<%= list.get(i).getFaqNo() %>">
 									<div class="faqQuestion">
 										<table>
@@ -267,7 +267,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqInsert.cem" name="faqEnrollForm" method="post">
+					<form id="faqEnrollForm" action="<%= contextPath %>/ceMgFaqEnroll.cem" name="faqEnrollForm" method="post">
 						<select name="faqType">
 							<option value="피자주문하기">피자주문하기</option>
 							<option value="주문확인">주문확인</option>
@@ -285,7 +285,7 @@
 						<!-- 버튼 영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/ceMgFaqList.cem';">취소</button>
+							<button type="reset" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 						</div>
 					</form>
 				</div>
@@ -311,7 +311,7 @@
 						
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqUpdateForm">
 								<input type="hidden" name="faqNo" value="<%=list.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기" selected>피자주문하기</option>
@@ -323,11 +323,9 @@
 								<br><br>
 								<textarea name="faqAnswer" class="faqInputContent"><%=list.get(i).getFaqAnswer()%></textarea>
 								<br><br>
-
-								<!-- 버튼 영역 -->
+								<!-- 버튼영역 -->
 								<div class="faqBtns" style="align-content: right;" align="center">
 									<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">수정</button>
-	
 									<button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100px; height: 40px; background: #343a40">취소</button>
 								</div>
 							</form>
@@ -356,7 +354,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqUpdateForm">
 								<input type="hidden" name="faqNo" value="<%=rlist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
@@ -401,7 +399,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqUpdateForm">
 								<input type="hidden" name="faqNo" value="<%=plist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>
@@ -412,7 +410,6 @@
 								<input name="faqQuestion" type="text" class="faqInputTitle" value="<%=plist.get(i).getFaqQuestion()%>">
 								<br> <br>
 								<textarea name="faqAnswer" class="faqInputContent"><%=plist.get(i).getFaqAnswer()%></textarea>
-		
 								<br><br>
 		
 								<!-- 버튼 영역 -->
@@ -446,7 +443,7 @@
 		
 						<!-- Modal body -->
 						<div class="modal-body">
-							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqEnrollForm">
+							<form action="<%= contextPath %>/ceMgFaqUpdate.cem" name="faqUpdateForm">
 								<input type="hidden" name="faqNo" value="<%=hlist.get(i).getFaqNo()%>">
 								<select name="faqType">
 									<option value="피자주문하기">피자주문하기</option>

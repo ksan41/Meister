@@ -16,14 +16,14 @@ import com.meister.notice.model.service.NoticeService;
 /**
  * Servlet implementation class CenterMgFaqInsertServlet
  */
-@WebServlet("/ceMgFaqInsert.cem")
-public class CenterMgFaqInsertServlet extends HttpServlet {
+@WebServlet("/ceMgFaqEnroll.cem")
+public class CenterMgFaqEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CenterMgFaqInsertServlet() {
+    public CenterMgFaqEnrollServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
