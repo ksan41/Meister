@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.meister.order.model.vo.*" %>
-<%-- <%
+<%
 	int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
-%> --%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,17 +98,16 @@
 	      // IMP.request_pay(param, callback) 호출
 	      IMP.request_pay({ // param
 	          pay_method: "카드결제",
-	          amount: <%-- <%= totalPrice %> --%>100,
+	          amount: <%= totalPrice %>,
 	      }, function (rsp) { // callback
 	          if (rsp.success) {
 	              
 	              // 결제 성공 시 로직,
-	        	  location.href="<%= contextPath %>/orderPayInsert.or";
-	        	  
+	        	  location.href="<%=contextPath%>/orderPaySuccess.or";
 	          } else {
 	              
 	              // 결제 실패 시 로직,
-	              
+	             
 	          }
 	      });
 	    }

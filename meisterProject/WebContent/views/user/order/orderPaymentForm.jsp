@@ -35,21 +35,6 @@
 	int basketPrice = 0;
 	int discountPrice = 0;
 	double dRate = 0;
-
-	
-	System.out.println("\\\\\\\\\\\\\"");
-	System.out.println(dInfo);
-	System.out.println(basket);
-	System.out.println(pizzaSize);
-	System.out.println(pizzaNo);
-	System.out.println(pizzaCount);
-	System.out.println(doughNo);
-	System.out.println(cInfo);
-	System.out.println(pList);
-	System.out.println(sizeList);
-	System.out.println(sList);
-	System.out.println(eList);
-	System.out.println(dList);
 	
 	
 %>
@@ -301,7 +286,6 @@
                     <tr>
                         <td></td>
                     </tr>
-                    	<% if(dInfo.getDeliveryMethod().equals("D")){ //배달 %>
 	                    <tr>
 	                        <th>보유쿠폰</th>
 	                        <td style="width: 400px;">
@@ -317,18 +301,6 @@
 	                            </select>
 	                        </td>
 	                    </tr>
-                    	
-                    	<% }else { // 포장 %>
-	                    <tr>
-	                        <th>방문포장</th>
-	                        <td>
-	                        	<select id="couponRate" style="width:300px; height: 35px; border-radius: 5px;">
-	                        		<option value="40">방문포장 40% 할인 (타쿠폰과 중복적용 불가)</option>
-	                        	</select>
-	                        </td>
-	                    </tr>
-                    	
-                    	<% } %>
                 </table>
             </div>
             <br>
@@ -370,7 +342,7 @@
                 </table>
                 <br><br>
 	        <input type="hidden" name="cartNo" value="<%=basket.getCartNo()%>">
-	        <input type="hidden" name="totalPrice" value="" id="totalPrice">
+	        <input type="hidden" name="totalPrice" value="<%=basketPrice %>" id="totalPrice">
 	        <input type="hidden" name="deliveryNo" value="<%=dInfo.getDeliveryNo()%>">
                 
             <button type="submit" class="big_btn" id="check_module">결제하기</button>

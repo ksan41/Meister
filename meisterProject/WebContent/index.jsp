@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList,
 com.meister.event.model.service.EventService,
-com.meister.event.model.vo.Event" %>
+com.meister.event.model.vo.Event,
+com.meister.member.model.vo.*"%>
 <%
 ArrayList<Event> list = new EventService().selectList();
 %>
@@ -102,7 +103,13 @@ ArrayList<Event> list = new EventService().selectList();
 	
 	<script>
 		function orderDelivery(){
-			location.href="<%=contextPath%>/orderDelivery.or";
+			if(<%=loginUser%> != null){
+				location.href="<%=contextPath%>/orderDelivery.or";
+			}else{
+				console.log("지점2");
+				location.href="<%=contextPath%>/showLoginPage.me";
+			}
+			
 		};
 		function orderTakeOut(){
 			location.href="<%=contextPath%>/orderTakeOut.or";
