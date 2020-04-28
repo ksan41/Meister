@@ -147,7 +147,7 @@
 		var positions = [];
 		<%for(int i=0; i<list.size();i++){%>
 			positions.push({
-				content: '<%=list.get(i).getBranchName()%>',
+				content: '<div><%=list.get(i).getBranchName()%><div>',
 				latlng: new kakao.maps.LatLng(<%=list.get(i).getLatitude()%>, <%=list.get(i).getLongtitude()%>)
 			});
 		<%}%>
@@ -185,6 +185,7 @@
 		        infowindow.close();
 		    };
 		}
+
 	</script>
     
     
