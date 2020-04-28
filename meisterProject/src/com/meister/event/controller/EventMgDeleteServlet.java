@@ -49,7 +49,7 @@ public class EventMgDeleteServlet extends HttpServlet {
 			out.println("<script>alert('Event 삭제 성공!'); location.href='/Meister/evMgList.evm?bno=" + bno + "';</script>");
 			out.flush();
 			
-		}else {// FAQ 삭제 실패
+		}else {// 이벤트 삭제 실패
 			
 			response.setContentType("text/html; charset=UTF-8");
 			

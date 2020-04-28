@@ -284,19 +284,19 @@
 								<table id="eventDetailTable" style="width:700px">
 									<tr>
 										<th>제목</th>
-										<td><input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>">
+										<td><input type="text" size="40px" value="<%=list.get(i).getEventTitle()%>" readonly>
 										</td>
 									</tr>
 									<tr>
 										<th>이벤트 기간</th>
-										<td><input type="date" value="<%=list.get(i).getEventOpenTime()%>"> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>">
+										<td><input type="date" value="<%=list.get(i).getEventOpenTime()%>" readonly> ~ <input type="date" value="<%=list.get(i).getEventCloseTime()%>" readonly>
 										</td>
 									</tr>
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>">
+												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>" readonly>
 											</div>
 										</td>
 									</tr>
@@ -304,13 +304,13 @@
 										<th>상세 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>">
+												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>" readonly>
 											</div>
 										</td>
 									</tr>
 									<tr>
 										<th>배너 등록여부</th>
-										<td style="color: red"><%=list.get(i).getEventStatus()%></td>
+										<td style="color: red" readonly><%=list.get(i).getEventStatus()%></td>
 									</tr>
 								</table>
 								<br><br>
@@ -367,13 +367,13 @@
 									<tr>
 										<th>썸네일 이미지</th>
 										<td>
-											<input type="file" name="eventImage1" style="margin-left: 10px;" value="<%=list.get(i).getEventImage1()%>">
+											<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>">
 										</td>
 									</tr>
 									<tr>
 										<th>상세 이미지</th>
 										<td>
-											<input type="file" name="eventImage2" style="margin-left: 10px;" value="<%=list.get(i).getEventImage2()%>">
+											<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>">
 										</td>
 									</tr>
 								</table>
