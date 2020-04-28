@@ -1,6 +1,7 @@
 package com.meister.myPage.model.service;
 
 import static com.meister.common.JDBCTemplate.close;
+
 import static com.meister.common.JDBCTemplate.commit;
 import static com.meister.common.JDBCTemplate.getConnection;
 import static com.meister.common.JDBCTemplate.rollback;
