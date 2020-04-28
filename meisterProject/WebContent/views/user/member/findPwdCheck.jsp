@@ -202,7 +202,7 @@
                                     <tr>
                                         <th></th>
                                         <td>
-                                            <input type="text" style="width: 100%;" placeholder="임시비밀번호를 입력하세요">
+                                            <input type="text"  id="eamailAnswer" style="width: 100%;" placeholder="임시비밀번호를 입력하세요">
                                         </td>
                                     </tr>
                                 </table>
@@ -211,7 +211,7 @@
                             <!-- Modal footer -->
                             <div class="modal-footer" style="margin:auto;">
                                 <!-- 하단버튼 영역-->
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" id="emailComplete"
                                 style="width:200px; height:50px; background-color: orange; border-color: orange;">비밀번호 변경</button>
                             </div>
                             
@@ -276,7 +276,8 @@
     		 
     		 //console.log(randomKey);
     		 if($("#eamailAnswer").val()==randomKey){
-    			 location.href="views/user/member/memberEnrollForm.jsp";
+    			 location.href="views/user/member/findPwdSuccess.jsp";
+    			 
     		 }else{
     			 alert("이메일전송을 다시해주세요.!");
     		 }
