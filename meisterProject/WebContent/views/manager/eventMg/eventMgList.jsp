@@ -296,7 +296,7 @@
 										<th>썸네일 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>
+												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>">
 											</div>
 										</td>
 									</tr>
@@ -304,7 +304,7 @@
 										<th>상세 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>
+												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>">
 											</div>
 										</td>
 									</tr>
