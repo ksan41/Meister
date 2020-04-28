@@ -55,9 +55,17 @@ public class OrderBasketServlet extends HttpServlet {
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
 		ArrayList<PizzaSize> sizeList = new MenuService().selectPizzaSizeList();
 		
-		ArrayList<Side> sList = new MenuService().selectSideList();
-		ArrayList<Etc> eList = new MenuService().selectEtcList();
+		ArrayList<Side> sList = null;
+		ArrayList<Etc> eList = null;
 		ArrayList<Dough> dList = new MenuService().selectDoughList();
+		
+		if(!new MenuService().selectSideList().isEmpty()) {
+			sList = new MenuService().selectSideList();
+		}
+		if(!new MenuService().selectEtcList().isEmpty()) {
+			eList = new MenuService().selectEtcList();
+		}
+
 		
 		ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(loginUser.getMemberId());
 		Delivery checkedDelivery = deliveryList.get(index);
@@ -70,6 +78,7 @@ public class OrderBasketServlet extends HttpServlet {
 		request.setAttribute("eList", eList);
 		request.setAttribute("dList", dList);
 		request.setAttribute("checkedDelivery", checkedDelivery);
+		request.setAttribute("userNo", userNo);
 		
 		System.out.println(basket);
 		RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderBasketMenu.jsp");
