@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.meister.notice.model.service.NoticeService;
-import com.meister.notice.model.vo.Notice;
+import com.meister.center.model.service.CenterService;
+import com.meister.center.model.vo.Center;
 
 /**
  * Servlet implementation class CenterMgOneAnswerServlet
@@ -34,11 +34,11 @@ public class CenterMgOneAnswerServlet extends HttpServlet {
 		
 		int ino = Integer.parseInt(request.getParameter("ino"));
 		
-		Notice n = new NoticeService().selectNotice(ino);
+		Center c = new CenterService().selectAnswer(ino);
 		
-		if(n != null) {
+		if(c != null) {
 			
-			request.setAttribute("n", n);
+			request.setAttribute("c", c);
 			request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
 			
 		}else {
