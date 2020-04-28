@@ -182,20 +182,16 @@
 						<% for(int i=0; i<list.size(); i++) { Event ev = list.get(i); %>
 							<% upIndex++; %>
 							<div class="thumbnail" align="center" style="height:400px; margin:auto; margin-top:70px">
-								<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
-									<input type="hidden" name="bno" value="<%=ev.getEventNo() %>">
-									<a id="detail1">
-										<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
-									</a>
-									<p class="eventTitle"><%=ev.getEventTitle() %></p>
-									<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
-									<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
-									<div align="center">
-										<button class="button detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
-										<button class="button modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
-										<button class="button deleteButton">삭제</button>
-									</div>
-								</form>
+								<input type="hidden" name="bno" value="<%=ev.getEventNo() %>">
+									<img id="123" class="thumbImg" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=ev.getEventImage1()%>">
+								<p class="eventTitle"><%=ev.getEventTitle() %></p>
+								<%=ev.getEventOpenTime() %> ~ <%=ev.getEventCloseTime() %>
+								<p class="bannerStatus" style="color: red">배너노출상태 : <%=ev.getEventStatus() %></p>
+								<div align="center">
+									<button class="button detailButton" data-toggle="modal" data-target="#eventDetailModal<%=i%>">상세</button>
+									<button class="button modifyButton" data-toggle="modal" data-target="#eventUpdateModal<%=i%>">수정</button>
+									<button class="button deleteButton">삭제</button>
+								</div>
 							</div>
 						<% } %>
 					<% } %>
@@ -204,6 +200,13 @@
 		</div>
 		</main>
 	</div>
+	
+	<!-- 이벤트 삭제용 form태그 -->
+	<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
+	<input type="hidden" id="delBno" name="bno">
+	</form>
+
+	
 	
 	<!-- 등록 버튼 모달 시작 -->
 	<div class="modal fade" id="eventEnrollModal">
@@ -275,7 +278,7 @@
 						<!-- Modal body -->
 						<div class="modal-body">
 							<form action="<%= contextPath %>/evMgDetail.evm" name="eventDetailForm" enctype="multipart/form-data">
-								<input type="hidden" name="eno" value="<%= list.get(i).getEventNo() %>">
+								<input type="hidden" name="bno" value="<%= list.get(i).getEventNo() %>">
 								<table id="eventDetailTable" style="width:700px">
 									<tr>
 										<th>제목</th>
@@ -387,45 +390,22 @@
 			<!-- 수정 버튼 모달 끝 -->
 		<%} %>
 	<%} %>
+	
+	
+	<form id="postForm" action="<%=contextPath%>/ceMgFaqDelete.cem" method="post">
+		<input type="hidden" name="faqNo" value="<%= f.getFaqNo() %>">
+	</form>
+
 	<script>
-		
-		$(document).on("click",".mbutton",function(){
-			var dropCheck = confirm("해당 이벤트를 삭제하시겠습니까?");
-			var index = $(".deleteButton").index(this);
-			
-			if(dropCheck){ //확인 클릭시
-				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
-				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
-				
-				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
-				//???? 이벤트 삭제 서블릿
-			
-			}
-		});
-		
-		// 삭제버튼
-		$(document).on("click",".deleteButton",function(){
-			var index = $(".deleteButton").index(this);
-			$(".eventDelete:eq("+index+")").submit();
-		});
+		<!--삭제하기 버튼 클릭시-->
+		function deleteButton(){
+			$("#postForm").submit();
+		};
+	</script>
 		
 
-		
-		// 수정버튼
-		$(document).on("click",".modifyButton",function(){
-			var dropCheck = confirm("해당 이벤트를 수정하시겠습니까?");
-			var index = $(".deleteButton").index(this);
-			
-			if(dropCheck){ //확인 클릭시
-				//var memNo = $(".memberNo:eq("+index+")").text(); //선택된 해당 회원번호
-				var memNo = $("tbody>tr:eq("+(index-1)+")>td:eq(0)").text();
-				
-				location.href="<%=contextPath%>/deleteMember.memg?memNo="+memNo;
-			
-			}
-		});
-		
-	</script>
+	
+	
 
 </body>
 </html>

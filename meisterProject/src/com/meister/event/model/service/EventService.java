@@ -91,6 +91,7 @@ public class EventService {
 	public int deleteEvent(int bno) {
 		
 		Connection conn = getConnection();
+		
 		int result = new EventDao().deleteEvent(conn, bno);
 		
 		if(result > 0) {
