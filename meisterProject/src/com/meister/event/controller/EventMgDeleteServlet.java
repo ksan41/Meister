@@ -38,15 +38,11 @@ public class EventMgDeleteServlet extends HttpServlet {
 		
 		if(result > 0) {// 이벤트 삭제 성공
 			
-			request.setAttribute("result", result);
-			RequestDispatcher view = request.getRequestDispatcher("views/manager/eventMg/eventMgList.jsp");
-			view.forward(request, response);
-			
 			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('Event 삭제 성공!'); location.href='/Meister/evMgList.evm?bno=" + bno + "';</script>");
+			out.println("<script>alert('Event 삭제 성공!'); location.href='evMgList.evm';</script>");
 			out.flush();
 			
 		}else {// 이벤트 삭제 실패
