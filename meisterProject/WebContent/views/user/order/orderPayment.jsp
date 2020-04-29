@@ -40,12 +40,11 @@
 	    }, function (rsp) { // callback
 	      if (rsp.success) {
 	    	  
-
+			
 	    	  
 	    	  
 	    	  
 	          // 결제 성공 시 로직,
-	    	  //url : 'http://localhost:9911/Meister/views/user/order/orderPaymentSuccess.jsp'
 	      } else {
 	          // 결제 실패 시 로직,
 	      }

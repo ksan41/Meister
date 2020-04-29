@@ -3,15 +3,19 @@ package com.meister.order.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.meister.member.model.vo.Manager;
+import com.meister.member.model.vo.Member;
 import com.meister.order.model.service.OrderService;
+import com.meister.order.model.vo.Orders;
 import com.meister.order.model.vo.Payment;
+import com.meister.order.model.vo.Price;
 
 /**
  * Servlet implementation class OrderPaymentInsert
@@ -35,9 +39,24 @@ public class OrderPaymentInsert extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		int rno = Integer.parseInt(request.getParameter("rno"));
+		// 지점 메뉴바에서 로그인된 해당 지점관리자 정보 가져오기
+		HttpSession session = request.getSession();
+		Member loginManager = (Member)session.getAttribute("loginUser");
+		
+		
+		//1. 회원번호
+		int mno = loginManager.getMemberNo();
+		
+		
+		//2. 위에서 가져온 회원번호로 주문번호 조회(RECEIPT_NO)
+		int rno = new OrderService().selectOrdersRno(mno);
+		
+		
+		//int rno = Integer.parseInt(request.getParameter("rno"));
 		//String pay_method = request.getParameter("pay_method");
 		//int amount = Integer.parseInt(request.getParameter("amount"));
+		
+		//3. 결제창에서 총 결제금액 가져오기
 		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
 		
 		Payment pm = new Payment();
