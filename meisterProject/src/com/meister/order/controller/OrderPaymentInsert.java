@@ -47,13 +47,15 @@ public class OrderPaymentInsert extends HttpServlet {
 		
 		int result = new OrderService().paymentInsert(pm);
 		
-		if(result > 0) {
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderPaymentSuccess.jsp");
-			view.forward(request, response);
-			
-		}
-		
+		/*
+		 * if(result > 0) {
+		 * 
+		 * RequestDispatcher view =
+		 * request.getRequestDispatcher("views/user/order/orderPaymentSuccess.jsp");
+		 * view.forward(request, response);
+		 * 
+		 * }
+		 */
 	
 	}
 

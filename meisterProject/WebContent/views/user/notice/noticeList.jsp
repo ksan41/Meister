@@ -183,7 +183,7 @@ background-color
 			<div align="center">
 				 <form id="searchNoForm" action="<%=contextPath %>/nList.no" method="get">
 					<select id="noticeSearchOption" name="searchType" style="padding-top:3px;">
-						<option value="select">선택</option>
+						<option value="">선택</option>
 						<option value="title">제목</option>
 						<option value="content">내용</option>
 						<option value="titlecontent">제목+내용</option>
@@ -237,7 +237,7 @@ background-color
 			<div class="pagination" align="center">
 				<div>
 					
-					<%if(searchType != null){%>
+					<%if(!searchType.equals("null")){%>
 						<% if(currentPage != 1){ %>
 							<!--  맨 처음으로(<<) -->
 							<a href="nList.no?currentPage=1&searchType=<%=searchType%>&keyword=<%=keyword%>">&laquo;&laquo;</a> 
@@ -261,7 +261,7 @@ background-color
 							<a href="nList.no?currentPage=<%= maxPage %>&searchType=<%=searchType%>&keyword=<%=keyword%>">&raquo;&raquo;</a>
 						<%} %>
 					
-					<%}else { %>
+					<%}else{ %>
 						<% if(currentPage != 1){ %>
 							<!--  맨 처음으로(<<) -->
 							<a href="nList.no?currentPage=1">&laquo;&laquo;</a> 
