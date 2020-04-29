@@ -55,45 +55,13 @@
 	.content div{
 		float:left;
 	}
-	.emptyAreaLong{
-		width:100%;
-		height:100px;
-	}
-	.emptyAreaShort{
-		width:100%;
-		height:40px;
-	}
-	.leftSide{
-		width:40%;
-		height:1000px;
-	}
-	.buttonArea{
-		width:50%;
-		height:100%;
-		text-align:center;
-		padding-top:15px;
-		border-top-left-radius: 5px;
-		border-top-right-radius: 5px;
-		border:1px solid rgb(76, 60, 60);
-		cursor:pointer;
-	}
-	.defaultColor{
-		background-color:rgb(76, 60, 60);
-	}
-	.selectArea{
-		width:100%;
-		height:90px;
-	}
-	.showBranchArea{
-		width:100%;
-		height:250px;	
-	}
-	.rightSide{
-		width:60%;
-		height:1000px;
-	}
 
 	#tableArea{width:100%; height:100%;}
+	
+	#branchListArea tr{
+		height:130px;
+		border-bottom:1px solid lightgray;
+	}
 
 	/* content 스타일 끝*/
 </style>
@@ -108,9 +76,20 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 매장검색</div>
         <hr><br>
-		<div class="content" id="map">
-		
-		</div>
+        <div style="float:left; width:300px; height:700px; overflow:auto; border:1px solid lightgray;">
+        	<table id="branchListArea">
+        		<% for(int i=0; i<list.size(); i++) { %>
+        			<tr>
+        				<td style="padding-left:20px;">
+        					<b style="color:black; font-size:18px;"><%=list.get(i).getBranchName() %></b> <br>
+        					<%=list.get(i).getPhone() %> <br>
+        					<%=list.get(i).getAddress() %>
+        				</td>
+        			</tr>
+        		<% } %>
+        	</table>
+        </div>
+		<div class="content" id="map"></div>
     </div>
     
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=05ce2f005ff8ce8d8dd46de6e5e208e6"></script>
