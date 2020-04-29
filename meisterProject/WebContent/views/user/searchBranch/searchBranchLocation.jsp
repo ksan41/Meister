@@ -1,10 +1,13 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.meister.branch.model.vo.Branch"%>
+<%
+	ArrayList<Branch> list = (ArrayList<Branch>)request.getAttribute("branchList");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>searchBranchLocation</title>
 	<%@ include file="../../common_user/menubar.jsp" %>
 	<%@ include file="../../common_user/menubarMenuIMG.jsp" %>
 
@@ -47,7 +50,7 @@
 	/* content 스타일 시작*/
 	
 	.content{
-		height:1000px;	
+		height:700px;	
 	}
 	.content div{
 		float:left;
@@ -66,11 +69,13 @@
 	}
 	.buttonArea{
 		width:50%;
-		height:60px;
+		height:100%;
 		text-align:center;
 		padding-top:15px;
 		border-top-left-radius: 5px;
 		border-top-right-radius: 5px;
+		border:1px solid rgb(76, 60, 60);
+		cursor:pointer;
 	}
 	.defaultColor{
 		background-color:rgb(76, 60, 60);
@@ -87,10 +92,9 @@
 		width:60%;
 		height:1000px;
 	}
-	div{
-		border:1px solid red;
-	}
-	
+
+	#tableArea{width:100%; height:100%;}
+
 	/* content 스타일 끝*/
 </style>
 <body>
@@ -99,28 +103,75 @@
 
 	<div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">장바구니</h1>
+        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">매장검색</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 매장검색</div>
-        <hr>
-		<div class="content">
-			<div class="emptyAreaLong"></div>
-			<div class="leftSide">
-				<div class="buttonArea defaultColor">
-					<h3>지역 검색</h3>
-				</div>
-				<div class="buttonArea">
-					<h3>매장명</h3>
-				</div>
-				<div class="emptyAreaShort defaultColor"></div>
-				<div class="selectArea defaultColor"></div>
-				<div class="showBranchArea defaultColor"></div>
-				<div class="showBranchArea defaultColor"></div>
-			</div>
-			<div class="rightSide"></div>
+        <hr><br>
+		<div class="content" id="map">
+		
 		</div>
     </div>
+    
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=05ce2f005ff8ce8d8dd46de6e5e208e6"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(<%=list.get(0).getLatitude()%>, <%=list.get(0).getLongtitude()%>), // 지도의 중심좌표
+	        level: 7 // 지도의 확대 레벨
+	    };
+	
+		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		
+		
+		// ** 지도에 여러 개의 마커 표시하기 **
+		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+		var positions = [];
+		<%for(int i=0; i<list.size();i++){%>
+			positions.push({
+				content: '<div><%=list.get(i).getBranchName()%><div>',
+				latlng: new kakao.maps.LatLng(<%=list.get(i).getLatitude()%>, <%=list.get(i).getLongtitude()%>)
+			});
+		<%}%>
+	
+		
+		for (var i = 0; i < positions.length; i ++) {
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].latlng // 마커의 위치
+		    });
+		
+		    // 마커에 표시할 인포윈도우를 생성합니다 
+		    var infowindow = new kakao.maps.InfoWindow({
+		        content: positions[i].content // 인포윈도우에 표시할 내용
+		    });
+		
+		    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+		    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+		    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+		}
+		
+		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+		function makeOverListener(map, marker, infowindow) {
+		    return function() {
+		        infowindow.open(map, marker);
+		    };
+		}
+		
+		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+		function makeOutListener(infowindow) {
+		    return function() {
+		        infowindow.close();
+		    };
+		}
+
+	</script>
+    
+    
 	<%@ include file="../../common_user/footer.jsp"%>
 	
 </body>
