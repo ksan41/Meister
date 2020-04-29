@@ -500,6 +500,32 @@ public class MenuDao {
 	
 	
 	/**산
+	 * 통합관리자- 피자사이즈 삭제용 dao
+	 * @param conn : service에서 생성된 Connection객체
+	 * @param pno : 삭제할 피자번호
+	 * @return : 처리된 행의개수
+	 */
+	public int deletePizzaSize(Connection conn,int pno) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deletePizzaSize");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	
+	
+	/**산
 	 * 통합관리자- 피자 삭제용 dao
 	 * @param conn : service에서 생성된 Connection객체
 	 * @param pno : 삭제할 피자번호
@@ -508,7 +534,17 @@ public class MenuDao {
 	public int deletePizza(Connection conn,int pno) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = 
+		String sql = prop.getProperty("deletePizza");
 		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, pno);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
 	}
 }

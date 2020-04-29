@@ -31,15 +31,19 @@ public class MenuMgPizzaDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		int pno = Integer.parseInt(request.getParameter("delPno"));
 		
 		int result = new MenuService().deletePizza(pno);
 		
+		
 		if(result>0) {
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('해당 메뉴가 성공적으로 삭제되었습니다.');location.href='/Meister/menuMgPizzaList.meng';</script>");
 			out.flush();
 		}else {
+			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('메뉴 삭제 실패. 다시 시도해주세요.');location.href='/Meister/menuMgPizzaList.meng';</script>");
 			out.flush();
