@@ -102,7 +102,6 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		//System.out.println("다오딴 : " + deliveryList.get(0));
 		return deliveryList;
 	}
 	
@@ -141,7 +140,6 @@ public class OrderDao {
 			close(rset);
 			close(pstmt);
 		}
-		//System.out.println("다오딴 : " + deliveryList.get(0));
 		return basket;
 	}
 	
@@ -175,31 +173,6 @@ public class OrderDao {
 		return memberNo;
 	}
 	
-	/*public int deleteAddress(Connection conn, int index) {
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		String sql = prop.getProperty("insertAddress");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, d.getNewAddress1());
-			pstmt.setString(2, d.getNewAddress2());
-			pstmt.setString(3, d.getNewPoCode());
-			pstmt.setString(4, d.getDeliveryName());
-			pstmt.setInt(5, d.getBranchNo());
-			pstmt.setInt(6,  d.getMemberNo());
-			pstmt.setString(7, d.getReferenceAddress());
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		return result;
-	}*/
 	public int insertBasketPayment(Connection conn, Cart c) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -220,8 +193,6 @@ public class OrderDao {
 		}System.out.println("insertBasketPayment Dao까지 왔어" + result);
 		return result;
 	}
-	///////////////////지수/////////////////////////
-	// 지수
 	public Delivery selectDeliveryInfo(Connection conn, int orderNo) {
 		
 		Delivery dInfo = new Delivery();
@@ -250,7 +221,6 @@ public class OrderDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -284,7 +254,6 @@ public class OrderDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -317,7 +286,6 @@ public class OrderDao {
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
@@ -339,12 +307,10 @@ public class OrderDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pm.getPaymentPrice());
-			//pstmt.setString(2, pm.getPaymentType());
 			pstmt.setInt(2, pm.getReceiptNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
@@ -375,7 +341,6 @@ public class OrderDao {
 				bno = rset.getInt("branch_no");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -414,7 +379,6 @@ public class OrderDao {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -453,7 +417,6 @@ public class OrderDao {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);
@@ -481,7 +444,6 @@ public class OrderDao {
 				rno = rset.getInt("RECEIPT_NO");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rset);

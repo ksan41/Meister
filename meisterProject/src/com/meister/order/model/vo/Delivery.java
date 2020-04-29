@@ -1,7 +1,7 @@
 package com.meister.order.model.vo;
 
 /**
- * @author cocod
+ * @author 곽진아
  *
  */
 public class Delivery {

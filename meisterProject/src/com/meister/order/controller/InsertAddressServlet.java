@@ -52,7 +52,7 @@ public class InsertAddressServlet extends HttpServlet {
 				
 				session = request.getSession();
 				session.setAttribute("d", d);
-				RequestDispatcher view = request.getRequestDispatcher("/orderDelivery.or"); // orderDelivery.or 서블릿 요청해라
+				RequestDispatcher view = request.getRequestDispatcher("/orderDelivery.or");
 				view.forward(request, response);
 				
 			}else {

@@ -18,8 +18,6 @@ import com.meister.order.model.vo.Delivery;
 @WebServlet("/orderDelivery.or")
 public class OrderDeliveryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	HttpSession session = null;
 		
     public OrderDeliveryServlet() {
         super();
@@ -30,13 +28,12 @@ public class OrderDeliveryServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		session = request.getSession();
+		HttpSession session =  request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		if(loginUser == null) {
 			response.sendRedirect(request.getContextPath() + "/showLoginPage.me");
 		}else {
 			String userId = loginUser.getMemberId();
-			System.out.println("orderDeliveryServlet 딴에서 userId = " + userId);
 			
 			ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(userId);
 			

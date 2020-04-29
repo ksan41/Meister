@@ -54,7 +54,6 @@ public class OrderService {
 		ArrayList<Delivery> deliveryList = new OrderDao().ShowOrderDeliveryList(conn, userId);
 		
 		close(conn);
-		//System.out.println("서비스딴 : " + deliveryList.get(0));
 		return deliveryList;
 	}
 	
@@ -68,7 +67,6 @@ public class OrderService {
 		Price basket = new OrderDao().ShowBasketList(conn, userNo);
 		
 		close(conn);
-		//System.out.println("서비스딴 : " + deliveryList.get(0));
 		return basket;
 	}
 	
@@ -82,18 +80,6 @@ public class OrderService {
 		close(conn);
 		return userId;
 	}
-	
-	/*public int deleteAddress(int index) {
-		Connection conn = getConnection();
-		int result = new OrderDao().deleteAddress(conn, index);
-		close(conn);
-		return result; 
-	}*/
-	
-	
-	
-	
-	///////////////////지수/////////////////////////
 	
 	/** 지수
 	 * @param orderNo

@@ -43,7 +43,6 @@ public class OrderBasketServlet extends HttpServlet {
 		Price basket = new OrderService().ShowBasketList(userNo);
 		if(basket != null) {
 			request.setAttribute("basket", basket);
-			System.out.println("저기요");
 		}
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
 		ArrayList<PizzaSize> sizeList = new MenuService().selectPizzaSizeList();
@@ -54,15 +53,6 @@ public class OrderBasketServlet extends HttpServlet {
 
 		ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(loginUser.getMemberId());
 		Delivery checkedDelivery = deliveryList.get(index);
-		/*System.out.println( "loginUser = " + loginUser
-							+ "\n deliveryList = " + deliveryList 
-							+"\n checkedDelivery = " + checkedDelivery
-							+ "\n basket = " + basket 
-							+ "\n pList = " + pList 
-							+ " \n eList = "+  eList 
-							+ " \n sizeList = " + sizeList 
-							+ " \n dList = " + dList 
-							+ " \n userNo = " + userNo);*/
 		
 		session.setAttribute("dInfo", checkedDelivery);
 		request.setAttribute("pList", pList);
