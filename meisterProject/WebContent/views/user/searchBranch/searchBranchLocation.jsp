@@ -80,7 +80,7 @@
         	<table id="branchListArea">
         		<% for(int i=0; i<list.size(); i++) { %>
         			<tr>
-        				<td style="padding-left:20px;">
+        				<td style="padding-left:20px; padding-right:20px;">
         					<b style="color:black; font-size:18px;"><%=list.get(i).getBranchName() %></b> <br>
         					<%=list.get(i).getPhone() %> <br>
         					<%=list.get(i).getAddress() %>
