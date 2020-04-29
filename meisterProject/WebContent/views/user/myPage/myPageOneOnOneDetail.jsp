@@ -4,6 +4,7 @@
 	Center c = (Center)request.getAttribute("c");
 	CenterImage ci = (CenterImage)request.getAttribute("ci");
 	// 첨부파일이 없었을 경우 ci = null
+	System.out.println(c);
 %>
 <!DOCTYPE html>
 <html>
@@ -292,8 +293,10 @@ div {
 				<div id="btns">
 					<button class="middle_btn" id="dbtn" onclick="deleteCenter();" 
 						style="background: orangered;">삭제</button>
+					<% if(c.getInquiryAnswer() == null) { %>
 					<button class="middle_btn" id="mbtn" onclick="updateCenter();"
 						style="background: white; color: black; border: 1px solid darkgray">수정</button>
+					<% } %>
 					<button class="middle_btn" id="lbtn" onclick="location.href='<%=contextPath%>/myOneList.my';">목록</button>
 				</div>
 			</div>
