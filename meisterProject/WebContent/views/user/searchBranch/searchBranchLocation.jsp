@@ -108,25 +108,8 @@
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 매장검색</div>
         <hr><br>
-		<div class="content">
-		<table id="tableArea" border="1">
-			<tr>
-				<td width="40%" height="10%" style="border-bottom:none;">
-					<div class="buttonArea defaultColor">
-						<h3>지역 검색</h3>
-					</div>
-					<div class="buttonArea">
-						<h3>매장명</h3>
-					</div>
-				</td>
-				<td id="map" rowspan="2" width="60%"></td>
-			</tr>
-			<tr>
-				<td id="list" height="90%">
-
-				</td>
-			</tr>
-		</table>
+		<div class="content" id="map">
+		
 		</div>
     </div>
     
