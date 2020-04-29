@@ -340,7 +340,7 @@ public class OrderDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pm.getPaymentPrice());
 			//pstmt.setString(2, pm.getPaymentType());
-			//pstmt.setInt(3, pm.getReceiptNo());
+			pstmt.setInt(2, pm.getReceiptNo());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -460,6 +460,36 @@ public class OrderDao {
 			close(pstmt);
 		}
 		return plist;
+	}
+	
+	public int selectOrdersRno(Connection conn, int mno) {
+		
+		int rno = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("paymentInsertRno");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mno);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				rno = rset.getInt("RECEIPT_NO");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return rno;
+		
+		
 	}
 	
 	

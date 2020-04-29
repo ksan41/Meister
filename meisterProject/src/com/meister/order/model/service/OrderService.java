@@ -227,6 +227,18 @@ public class OrderService {
 	}
 	
 	
+	public int selectOrdersRno(int mno) {
+		
+		Connection conn = getConnection();
+		
+		int rno = new OrderDao().selectOrdersRno(conn, mno);
+		
+		close(conn);
+		
+		return rno;
+		
+	}
+	
 	
 	
 	
