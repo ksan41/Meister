@@ -53,6 +53,26 @@ public class Center {
 
 
 	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
+			Date modifyDate, int inquiryType, String inquiryStore, String inquiryProStatus, int receiptNo,
+			String memberId, String memberEmail, String memberPhone) {
+		super();
+		this.inquiryNo = inquiryNo;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.inquiryAnswer = inquiryAnswer;
+		this.registDate = registDate;
+		this.modifyDate = modifyDate;
+		this.inquiryType = inquiryType;
+		this.inquiryStore = inquiryStore;
+		this.inquiryProStatus = inquiryProStatus;
+		this.receiptNo = receiptNo;
+		this.memberId = memberId;
+		this.memberEmail = memberEmail;
+		this.memberPhone = memberPhone;
+	}
+
+
+	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
 			Date modifyDate, int inquiryType, String inquiryStore, String inquiryProStatus, int memberNo, int receiptNo,
 			String inquiryStatus, String memberId, String memberPhone, String memberEmail) {
 		super();
@@ -315,7 +335,8 @@ public class Center {
 				+ inquiryContent + ", inquiryAnswer=" + inquiryAnswer + ", registDate=" + registDate + ", modifyDate="
 				+ modifyDate + ", inquiryType=" + inquiryType + ", inquiryStore=" + inquiryStore + ", inquiryProStatus="
 				+ inquiryProStatus + ", memberNo=" + memberNo + ", receiptNo=" + receiptNo + ", inquiryStatus="
-				+ inquiryStatus + ", memberId=" + memberId + "]";
+				+ inquiryStatus + ", memberId=" + memberId + ", memberPhone=" + memberPhone + ", memberEmail="
+				+ memberEmail + "]";
 	}
 
 }
