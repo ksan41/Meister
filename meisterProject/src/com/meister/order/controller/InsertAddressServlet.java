@@ -14,37 +14,27 @@ import com.meister.member.model.vo.Member;
 import com.meister.order.model.service.OrderService;
 import com.meister.order.model.vo.Delivery;
 
-/**
- * Servlet implementation class InsertAddressServlet
- */
 @WebServlet("/insertAddress.or")
 public class InsertAddressServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	HttpSession session = null;
 	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public InsertAddressServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
  
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @author 곽진아
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 1. request에 담겨있는 요청시 전달값 뽑아서 변수 또는 객체에 기록하기 (getParameter)
 		String newAddress1 = request.getParameter("newAddress1");
 		String newAddress2 = request.getParameter("newAddress2");
 		String newPoCode = request.getParameter("newPoCode");
 		String deliveryName = request.getParameter("deliveryName");
-		int branchNo = 105; // 이 부분 해결하기 !!!!!!!!!!!!!!!!
-		
-		//System.out.println("userId = " + request.getParameter("userId"));
-		//System.out.println("memberId = " + request.getParameter("memberId"));
+		int branchNo = (int)(Math.random() * 10 + 101); // 지점 랜덤으로 입력되게 설정
+
 		
 		session = request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
@@ -53,22 +43,19 @@ public class InsertAddressServlet extends HttpServlet {
 		System.out.println("insertAddressServlet 딴에서 userId = " + userId);
 		
 		int memberNo = Integer.parseInt(new OrderService().getMemberNo(userId));
-		//String referenceAddress = request.getParameter("sample3_extraAddress").substring(request.getParameter("sample3_extraAddress").indexOf(","));
 		String referenceAddress = request.getParameter("referenceAddress");
 		Delivery d = new Delivery(newAddress1, newAddress2, newPoCode, deliveryName, branchNo, memberNo, referenceAddress);
 		
-		// 3. 서비스 클래스에 메소드 호출(전달값 전달) 및 처리 결과 받기
 		int result = new OrderService().insertAddress(d);
 		
-		// 4. 처리 결과를 가지고 성공인지 실패인지 판단해서 사용자가 보게될 뷰 지정
-			if(result > 0) { // insert됨 --> 회원가입성공
+			if(result > 0) {
 				
 				session = request.getSession();
 				session.setAttribute("d", d);
 				RequestDispatcher view = request.getRequestDispatcher("/orderDelivery.or"); // orderDelivery.or 서블릿 요청해라
 				view.forward(request, response);
 				
-			}else { // insert안됨 --> 회원가입실패
+			}else {
 				
 				request.setAttribute("msg", "배달주소 등록 실패!!");
 				RequestDispatcher view = request.getRequestDispatcher("/views/common_user/errorPage.jsp");
@@ -78,11 +65,7 @@ public class InsertAddressServlet extends HttpServlet {
 			}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

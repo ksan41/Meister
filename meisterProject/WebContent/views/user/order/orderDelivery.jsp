@@ -220,7 +220,7 @@
                 <div id="bottom" style="width:50%;">
                     <button type="button" class="addDeliveryAddress" data-toggle="modal"  data-target="#myModal" style="width:120px; height:40px; font-size:14px; margin-top:10px; margin-left:10%;" >+&nbsp;&nbsp;배달주소등록</button>
                 </div>
-                <div id="bottom" style="width:50%; padding-left:23%; padding-top:2.2%;">
+                <div id="bottom" style="width:50%; padding-left:23%; padding-top:2.6%;">
                     <h6 style="color:white;">* 배달주소는 최대 5개까지 등록 가능합니다.</h6>
                 </div>
                 <div style="width:100%; height:20px;"></div>
@@ -380,14 +380,16 @@
  		session.setAttribute("deliveryList", deliveryList);
     	location.href="<%=contextPath%>/deleteAddress.or&index=<%=index%>";
     };
-	// 다음	
+    
+	// 장바구니 페이지로 넘어가는 함수_곽진아	
 	function nextStep(){
-		var index = <%=index%>;
+		var index = 0;
 		var checkbox = document.getElementsByClassName("checkbox");
+		var length = checkbox.length;
 		
-		for(var i=0; i<checkbox.length; i++){
-			if(checkbox[i].getAttribute("checked")){
-				index = i;
+		for(var i=0; i<length; i++){
+			if(checkbox[i].checked){
+				index =	 i;
 			}
 		}
 		

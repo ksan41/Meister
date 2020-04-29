@@ -102,15 +102,14 @@ ArrayList<Event> list = new EventService().selectList();
 	<%@ include file="views/common_user/footer.jsp"%>
 	
 	<script>
-		$(document).on("click","#deliveryBtn",function(){
-			if(<%=loginUser%> != null){
-				console.log("지점1");
-				//location.href="<%=contextPath%>/orderDelivery.or";
-			}else{
-				console.log("지점2");
-				//location.href="<%=contextPath%>/showLoginPage.me";
-			}
-		});
+		
+		
+			$(document).on("click","#deliveryBtn",function(){
+				location.href="<%=contextPath%>/orderDelivery.or";
+			});
+	
+
+		
 	
 	
 		

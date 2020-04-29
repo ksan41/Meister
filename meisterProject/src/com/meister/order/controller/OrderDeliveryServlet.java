@@ -15,21 +15,14 @@ import com.meister.member.model.vo.Member;
 import com.meister.order.model.service.OrderService;
 import com.meister.order.model.vo.Delivery;
 
-/**
- * Servlet implementation class OrderDeliveryServlet
- */
 @WebServlet("/orderDelivery.or")
 public class OrderDeliveryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	HttpSession session = null;
 		
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public OrderDeliveryServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -39,27 +32,22 @@ public class OrderDeliveryServlet extends HttpServlet {
 		
 		session = request.getSession();
 		Member loginUser = (Member)session.getAttribute("loginUser");
-		String userId = loginUser.getMemberId();
-		System.out.println("orderDeliveryServlet 딴에서 userId = " + userId);
-		
-		// 3. 해당 요청을 처리하는 서비스클래스의 메소드 호출 후 처리 결과 받기
-		ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(userId);
-		//System.out.println("서블릿딴 : " +deliveryList.get(0));
-		
-		// 4. 처리 결과를 통해 사용자가 보게될 뷰 요청
-		session = request.getSession();
-		session.setAttribute("deliveryList", deliveryList);
-		RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderDelivery.jsp");
-		view.forward(request, response);
-
-		
+		if(loginUser == null) {
+			response.sendRedirect(request.getContextPath() + "/showLoginPage.me");
+		}else {
+			String userId = loginUser.getMemberId();
+			System.out.println("orderDeliveryServlet 딴에서 userId = " + userId);
+			
+			ArrayList<Delivery> deliveryList = new OrderService().ShowOrderDeliveryList(userId);
+			
+			session = request.getSession();
+			session.setAttribute("deliveryList", deliveryList);
+			RequestDispatcher view = request.getRequestDispatcher("/views/user/order/orderDelivery.jsp");
+			view.forward(request, response);
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
