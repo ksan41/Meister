@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
-	Delivery dInfo = (Delivery)session.getAttribute("dInfo");
+	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
 	Price basket = (Price)request.getAttribute("basket");
 	
 	String[] pizzaSize = basket.getPizzaSize().split(",");
@@ -36,7 +36,7 @@
 	int discountPrice = 0;
 	double dRate = 0;
 	
-	
+	System.out.println(dInfo);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -344,7 +344,7 @@
 	        <input type="hidden" name="cartNo" value="<%=basket.getCartNo()%>">
 	        <input type="hidden" name="totalPrice" value="<%=basketPrice %>" id="totalPrice">
 	        <input type="hidden" name="deliveryNo" value="<%=dInfo.getDeliveryNo()%>">
-                
+	        
             <button type="submit" class="big_btn" id="check_module">결제하기</button>
             </div>
         </div>

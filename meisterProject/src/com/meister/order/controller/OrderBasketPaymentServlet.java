@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.meister.coupon.model.service.CouponService;
 import com.meister.coupon.model.vo.Coupon;
 import com.meister.menu.model.service.MenuService;
 import com.meister.menu.model.vo.Dough;
@@ -21,6 +20,7 @@ import com.meister.menu.model.vo.PizzaSize;
 import com.meister.menu.model.vo.Side;
 import com.meister.order.model.service.OrderService;
 import com.meister.order.model.vo.Cart;
+import com.meister.order.model.vo.Delivery;
 import com.meister.order.model.vo.Price;
 
 /**
@@ -56,6 +56,9 @@ public class OrderBasketPaymentServlet extends HttpServlet {
 		request.setAttribute("cart", cart);
 		request.setAttribute("basket", basket);
 		
+		Delivery dInfo = new OrderService().selectDeliveryInfo(orderNo);
+		request.setAttribute("dInfo", dInfo);
+		
 
 		ArrayList<Pizza> pList = new MenuService().selectPizzaList();
 		ArrayList<PizzaSize> sizeList = new MenuService().selectPizzaSizeList();
@@ -80,6 +83,7 @@ public class OrderBasketPaymentServlet extends HttpServlet {
 		
 		ArrayList<Coupon> cInfo = new OrderService().selectCouponInfo(loginUser);
 		request.setAttribute("cInfo", cInfo);
+		
 		
 		if(result > 0) {
 			RequestDispatcher view = request.getRequestDispatcher("views/user/order/orderPaymentForm.jsp");
