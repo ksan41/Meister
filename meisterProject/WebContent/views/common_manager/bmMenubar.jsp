@@ -55,20 +55,20 @@
 						<div class="sb-sidenav-menu-heading">주문</div>
 						<a class="nav-link" href="<%=contextPath%>/bmOrderNow.orm">
 							<div class="sb-nav-link-icon">
-								<i class="fas fa-map-marker-alt"></i>
+								<i class="fa fa-shopping-cart"></i>
 							</div>
 							주문현황
 						</a>
 						<a class="nav-link" href="<%=contextPath%>/bmOrderPast.orm">
 							<div class="sb-nav-link-icon">
-								<i class="fas fa-user-alt"></i>
+								<i class="fa fa-list-alt"></i>
 							</div>
 							지난 주문내역
 						</a>
 						<div class="sb-sidenav-menu-heading">공지사항</div>
 						<a class="nav-link" href="<%=contextPath%>/bmNoList.nom ">
 							<div class="sb-nav-link-icon">
-								<i class="fa fa-question-circle"></i>
+								<i class="fa fa-info-circle"></i>
 							</div>
 							지점 공지사항
 						</a>
