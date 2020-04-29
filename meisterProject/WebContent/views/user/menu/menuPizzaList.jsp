@@ -361,7 +361,7 @@ p {
 						<div id="menu-thumb">
 							<div id="menu-img" class="menu-img">
 								<input type="hidden" value="<%= p.getPizzaNo()%>">
-								<img src= "<%= p.getPizzaImg() %>" alt="">
+								<img src= "<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>" alt="">
 							</div>
 							<div id="menu-info">
 								<h3>
@@ -443,7 +443,7 @@ p {
 						<div id="menu-thumb">
 							<div id="menu-img2" class="menu-img2">
 								<input type="hidden" value="<%= p.getPizzaNo() %>">
-								<img src= "<%= p.getPizzaImg() %>" alt="">
+								<img src= "<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>" alt="">
 							</div>
 							<div id="menu-info">
 								<h3>
