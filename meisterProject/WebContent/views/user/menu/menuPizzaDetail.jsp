@@ -721,7 +721,7 @@ input:checked+label {
 					$("#cartSub").trigger("click");
 				<%}else{%>
 					//console.log("비회우ㅗㄴ");
-					location.href="<%=contextPath%>/loginU.me";	
+					location.href="<%=contextPath%>/showLoginPage.me";	
 				<%}%>
 					
 				
