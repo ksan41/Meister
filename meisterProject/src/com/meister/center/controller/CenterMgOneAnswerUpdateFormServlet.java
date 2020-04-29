@@ -32,14 +32,17 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
+
 		int ino = Integer.parseInt(request.getParameter("ino"));
+		Center c = new Center();
 		
-		Center c = new CenterService().updateInquiryAnswer(ino);//폼서블릿으로 다시 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		int result = new CenterService().updateInquiryAnswer(c, ino);//폼서블릿으로 다시 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		
-		if(c != null) {
+		if(result > 0) {
 			
-			request.setAttribute("c", c);
-			request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
+			//request.setAttribute("result", result);
+			//request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
 			
 		}else {
 			
@@ -47,7 +50,7 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			
-			out.println("<script>alert('1:1문의 입력폼이 실패했습니다. 다시해!!!!'); location.href='/Meister/ceMgOneDetail.cem?ino=" + ino + "';</script>");
+			out.println("<script>alert('1:1문의 답변 등록이 실패했습니다. 다시해!!!!'); location.href='/Meister/imNoticeMdetail.nom?ino=" + ino + "';</script>");
 			out.flush();
 		}
 	}

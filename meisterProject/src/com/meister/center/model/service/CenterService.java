@@ -222,10 +222,10 @@ public class CenterService {
 	 * 1:1문의 답변 등록
 	 * @param ino
 	 */
-	public int updateInquiryAnswer(int ino) {
+	public int updateInquiryAnswer(Center c, int ino) {
 		
 		Connection conn = getConnection();
-		int result = new CenterDao().updateInquiryAnswer(conn, ino);
+		int result = new CenterDao().updateInquiryAnswer(conn, c, ino);
 		
 		if(result > 0) {
 			commit(conn);
@@ -234,7 +234,7 @@ public class CenterService {
 		}
 		close(conn);
 		
-		return c;
+		return result;
 		
 	}
 	
