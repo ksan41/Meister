@@ -4,7 +4,7 @@
 	Center c = (Center)request.getAttribute("c");
 	CenterImage ci = (CenterImage)request.getAttribute("ci");
 	// 첨부파일이 없었을 경우 ci = null
-	System.out.println(c);
+
 %>
 <!DOCTYPE html>
 <html>

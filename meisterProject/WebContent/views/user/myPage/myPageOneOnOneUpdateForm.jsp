@@ -257,9 +257,9 @@ div {box-sizing: border-box;}
 				<input type="hidden" name="cno" value=<%=c.getInquiryNo()%>>
 
 				<div id="btns">
-					<button onclick="location.href='<%=contextPath%>/myOneList.my';" 
+					<button onclick="history.back(-1);" 
 						style="background: white; color: black; border: 1px solid darkgray"
-						class="middle_btn" id="cbtn">취소</button>
+						class="middle_btn" id="cbtn" type="reset">취소</button>
 					<br>
 					<button class="middle_btn" id="mbtn" type="submit">수정</button>
 				</div>
