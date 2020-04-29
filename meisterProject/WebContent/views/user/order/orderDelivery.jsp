@@ -200,7 +200,7 @@
 	                <div class="defaultSet"></div>
 	                <div class="defaultSet"><input type="checkbox" class="checkbox" style="width:25px; height:25px; margin:40%;"></div>
 	                <div id="textArea">
-	                    <br><h4 id="DeliveryName" style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<%=d.getReferenceAddress()%></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
+	                    <br><h4 id="DeliveryName" style="font-weight:bold; color:rgb(76, 60, 60);"><%=d.getDeliveryName()%></h4><h4 style="color:rgb(76, 60, 60);"><%=d.getNewAddress1()%>&nbsp;&nbsp;&nbsp;<%=d.getNewAddress2()%>&nbsp;&nbsp;&nbsp;<% if(d.getReferenceAddress() != null){ d.getReferenceAddress();} %></h4><%=d.getBranchName()%>&nbsp;&nbsp;&nbsp;<%=d.getBranchPhone()%>
 	                </div>
 	                <div class="defaultSet" id="removeArea"><button id="remove" name="remove" onclick="removeAddress()">―</button></div>
 	                <div class="defaultSet"></div>
