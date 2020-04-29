@@ -11,7 +11,6 @@ public class Payment {
 	private String paymentDefault;
 	private int receiptNo;
 	
-	
 	public Payment() {}
 
 
