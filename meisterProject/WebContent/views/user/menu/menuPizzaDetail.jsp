@@ -626,7 +626,7 @@ input:checked+label {
 				<div class="modal-body">
 					<div id="menu-detail1-modal">
 						<div id="menu-detail1-modal-img">
-							<img id="menu-detail-img" src="<%= list.get(0).getPizzaImg() %>"
+							<img id="menu-detail-img" src="<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= list.get(0).getPizzaImg() %>"
 								alt="">
 						</div>
 						<div id="menu-detail1-modal-info">
