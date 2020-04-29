@@ -289,25 +289,28 @@ public class CenterDao {
 	}
 
 	
-	public int updateInquiryAnswer(Connection conn, Center c) {
+	public int updateInquiryAnswer(Connection conn, int ino) {
 		
-		int result = 0;
+		//int result = 0;
+		
+		Center c = null;
+		
 		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 		String sql = prop.getProperty("updateInquiryAnswer");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, c.getInquiryAnswer());
-			pstmt.setInt(2, c.getInquiryNo());
+			pstmt.setInt(1, ino);
 			
-			result = pstmt.executeUpdate();
+			rset = pstmt.executeQuery();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);
 		}
-		return result;
+		return c;
 	}
 	
 }

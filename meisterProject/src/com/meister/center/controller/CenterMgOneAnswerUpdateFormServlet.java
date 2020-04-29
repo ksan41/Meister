@@ -32,7 +32,7 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int ino = Integer.parseInt(request.getParameter("ino"));	// "42"
+		int ino = Integer.parseInt(request.getParameter("ino"));
 		
 		Center c = new CenterService().updateInquiryAnswer(ino);//폼서블릿으로 다시 수정!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		
