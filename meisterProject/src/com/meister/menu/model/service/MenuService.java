@@ -232,14 +232,15 @@ public class MenuService {
 	public int deletePizza(int pno) {
 		
 		Connection conn = getConnection();
-		int result = new MenuDao().deletePizza(conn,pno);
+		int result1 = new MenuDao().deletePizzaSize(conn,pno);
+		int result2 = new MenuDao().deletePizza(conn,pno);
 		
-		if(result>0) {
+		if(result1>0 && result2>0) {
 			commit(conn);
 		}else {
 			rollback(conn);
 		}
 		
-		return result;
+		return result1*result2;
 	}
 }
