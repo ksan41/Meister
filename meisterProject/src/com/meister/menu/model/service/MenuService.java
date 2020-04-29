@@ -223,4 +223,23 @@ public class MenuService {
 		return result1*result2;
 		
 	}
+	
+	/**산
+	 * 통합관리자-피자 삭제용 서비스
+	 * @param pno :삭제할 피자번호
+	 * @return : 처리된 행의 개수
+	 */
+	public int deletePizza(int pno) {
+		
+		Connection conn = getConnection();
+		int result = new MenuDao().deletePizza(conn,pno);
+		
+		if(result>0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		return result;
+	}
 }

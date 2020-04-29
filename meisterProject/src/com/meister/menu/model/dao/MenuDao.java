@@ -497,4 +497,18 @@ public class MenuDao {
 		
 		return result;
 	}
+	
+	
+	/**산
+	 * 통합관리자- 피자 삭제용 dao
+	 * @param conn : service에서 생성된 Connection객체
+	 * @param pno : 삭제할 피자번호
+	 * @return : 처리된 행의개수
+	 */
+	public int deletePizza(Connection conn,int pno) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = 
+		
+	}
 }

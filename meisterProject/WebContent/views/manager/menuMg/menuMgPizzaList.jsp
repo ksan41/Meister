@@ -439,6 +439,7 @@ div {
 								<% if(!pList.isEmpty()){ %>
 									<%for(int i=0;i<pList.size();i++){ %>
 										<% if(pList.get(i).getPizzaType().equals("1")){ %>
+										<input type="hidden"  class="delPno1" value="<%=pList.get(i).getPizzaNo() %>">
 										<div class="menu-thumb">
 											<div class="menu-img">
 												<img src="<%=contextPath%>/resources/siteImgs/menuImg/pizza/<%=pList.get(i).getPizzaImg()%>" alt="">
@@ -464,7 +465,7 @@ div {
 												</p>
 												<button class="button" data-toggle="modal"
 													data-target="#menu-update-ModalP<%=i%>">수정</button>
-												<button class="button" onclick="">삭제</button>
+												<button class="button pDelete">삭제</button>
 											</div>
 										</div>
 										<%} %>
@@ -480,6 +481,7 @@ div {
 								<% if(!pList.isEmpty()){ %>
 									<%for(int i=0;i<pList.size();i++){ %>
 										<% if(pList.get(i).getPizzaType().equals("2")){ %>
+										<input type="hidden" class="delPno1" value="<%=pList.get(i).getPizzaNo() %>">
 										<div class="menu-thumb">
 											<div class="menu-img">
 												<img src="<%=contextPath%>/resources/siteImgs/menuImg/pizza/<%=pList.get(i).getPizzaImg()%>" alt="">
@@ -505,7 +507,7 @@ div {
 												</p>
 												<button class="button" data-toggle="modal"
 													data-target="#menu-update-ModalC<%=i%>">수정</button>
-												<button class="button" onclick="">삭제</button>
+												<button class="button pDelete">삭제</button>
 											</div>
 										</div>
 										<%} %>
@@ -820,14 +822,30 @@ div {
 	<%} %>	
 	<!-- 프리미엄-메뉴수정 모달 끝 -->
 
+<form id="deletePizza" action="<%=contextPath %>/pizzaDelete.meng" method="post">
+<input type="hidden" id="delPno" name="delPno">
+</form>	
+	
 	
 <script>
+	
 	$(function(){
 		$(".menu-update-img-area").click(function(){
 			var index = $(".menu-update-img-area").index(this);
 			$(".menuFile:eq("+index+")").click();
 		});
 	})
+	
+	$(document).on("click",".pDelete",function(){
+		var index = $(".pDelete").index(this);
+		var del = $(".delPno1:eq("+index+")").val();
+		
+		var result = confirm("해당 메뉴를 삭제하시겠습니까?");
+		if(result){//확인 클릭시
+			$("#delPno").val(del);
+			$("#deletePizza").submit();
+		}
+	});
 </script>
 
 
