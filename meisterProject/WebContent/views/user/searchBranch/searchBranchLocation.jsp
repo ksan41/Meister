@@ -91,8 +91,7 @@
         </div>
 		<div class="content" id="map"></div>
     </div>
-    
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=05ce2f005ff8ce8d8dd46de6e5e208e6"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70eee1adca78021e50b7669262f2474e&libraries=services"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
