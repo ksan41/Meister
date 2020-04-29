@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
 	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
+	Delivery dInfoChecked = (Delivery)session.getAttribute("dInfo");
 	Price basket = (Price)request.getAttribute("basket");
 	
 	String[] pizzaSize = basket.getPizzaSize().split(",");
@@ -159,12 +160,12 @@
 
             <div style="width:1000px; height:auto; padding-left: 50px; padding-bottom: 20px; ">
                 <br>
-                <div style="font-size:18px; height:40px; color:gray;">&nbsp;&nbsp;<%=dInfo.getMemPoCode() %>&nbsp;&nbsp;&nbsp;&nbsp; <%=dInfo.getMemAddress1()%>번지 <%=dInfo.getMemAddress2() %></div>
+                <div style="font-size:18px; height:40px; color:gray;">&nbsp;&nbsp;<%=dInfoChecked.getNewPoCode() %>&nbsp;&nbsp;&nbsp;&nbsp; <%=dInfoChecked.getNewAddress1()%>번지 <%=dInfoChecked.getNewAddress2() %></div>
                 <span id="branchName">
-                	<%=dInfo.getBranchName()%>
+                	<%=dInfoChecked.getBranchName()%>
                 </span>
                 <span id="branchPhone">
-                	<%=dInfo.getBranchPhone()%>
+                	<%=dInfoChecked.getBranchPhone()%>
                 </span>
                 <br><br><hr style="width: 1000px;">
                 <table style="text-align: left;">
