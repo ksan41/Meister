@@ -496,7 +496,7 @@ p {
 							<div class="modal-body">
 								<div id="menu-detail1-modal">
 									<div id="menu-detail1-modal-img">
-										<img id="menu-detail-img" src="<%= p.getPizzaImg() %>"
+										<img id="menu-detail-img" src="<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>"
 											alt="">
 									</div>
 									<div id="menu-detail1-modal-info">
@@ -551,7 +551,7 @@ p {
 							<div class="modal-body">
 								<div id="menu-detail1-modal">
 									<div id="menu-detail1-modal-img">
-										<img id="menu-detail-img" src="<%= p.getPizzaImg() %>"
+										<img id="menu-detail-img" src="<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>"
 											alt="">
 									</div>
 									<div id="menu-detail1-modal-info">

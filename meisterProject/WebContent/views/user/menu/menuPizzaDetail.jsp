@@ -492,7 +492,7 @@ input:checked+label {
 		<div class="inner">
 			<div class="menuArea">
 				<div id="imgArea">
-					<img id="menu-img" src="<%= list.get(0).getPizzaImg() %>" alt="">
+					<img id="menu-img" src="<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= list.get(0).getPizzaImg() %>" alt="">
 					<br> <br>
 					<p id="menu-detail-btn" data-toggle="modal"
 						data-target="#menu-detail-modal">메뉴정보 상세</p>
