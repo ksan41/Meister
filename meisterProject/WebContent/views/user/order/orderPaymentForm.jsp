@@ -345,7 +345,7 @@
 	        <input type="hidden" name="cartNo" value="<%=basket.getCartNo()%>">
 	        <input type="hidden" name="totalPrice" value="<%=basketPrice %>" id="totalPrice">
 	        <input type="hidden" name="deliveryNo" value="<%=dInfo.getDeliveryNo()%>">
-	        
+	        <input type="hidden" name="discountPrice" value="<%=basketPrice-discountPrice %>">
             <button type="submit" class="big_btn" id="check_module">결제하기</button>
             </div>
         </div>
