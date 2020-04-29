@@ -33,7 +33,8 @@ public class MyFileRenamePolicy implements FileRenamePolicy {
 		// >> 원본명에 .이 위치해있는 인덱스 알아내기
 		int dot = originName.lastIndexOf("."); // 3
 		
-		String ext = originName.substring(dot); // .jpg
+		String ext = originName.substring(dot).toLowerCase(); // .jpg
+		
 		
 		// 이제 각각 추출한 값들 다 조합해서 수정명 
 		String fileName = currentTime + ranNum + ext;
