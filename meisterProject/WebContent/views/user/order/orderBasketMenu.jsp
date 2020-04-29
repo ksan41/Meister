@@ -443,6 +443,8 @@
             tr.remove();
 
         };
+        
+     	// 작성자 : 곽진아
         function nextStep(){
         	var totalPrice = document.getElementById("totalPrice").innerText;
         	location.href="<%=contextPath%>/basketPayment.or?orderNo=" + <%= basket.getOrderNo() %> + "&loginUser=" + <%= userNo %> + "&totalPrice=" + totalPrice;

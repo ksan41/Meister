@@ -380,14 +380,16 @@
  		session.setAttribute("deliveryList", deliveryList);
     	location.href="<%=contextPath%>/deleteAddress.or&index=<%=index%>";
     };
-	// 다음	
+    
+	// 장바구니 페이지로 넘어가는 함수_곽진아	
 	function nextStep(){
-		var index = <%=index%>;
+		var index = 0;
 		var checkbox = document.getElementsByClassName("checkbox");
+		var length = checkbox.length;
 		
-		for(var i=0; i<checkbox.length; i++){
-			if(checkbox[i].getAttribute("checked")){
-				index = i;
+		for(var i=0; i<length; i++){
+			if(checkbox[i].checked){
+				index =	 i;
 			}
 		}
 		
