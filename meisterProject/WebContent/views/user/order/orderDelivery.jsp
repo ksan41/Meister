@@ -218,9 +218,9 @@
                 <div id="bottom">
                 </div>
                 <div id="bottom" style="width:50%;">
-                    <button type="button" class="addDeliveryAddress" data-toggle="modal"  data-target="#myModal" style="width:120px; height:40px; font-size:14px; margin-top:10px; margin-left:10%;" >+&nbsp;&nbsp;배달주소등록</button>
+                    <button type="button" class="addDeliveryAddress" data-toggle="modal"  data-target="#myModal" style="width:120px; height:40px; font-size:14px; margin-top:10px; margin-left:10%; margin-bottom:2%;" >+&nbsp;&nbsp;배달주소등록</button>
                 </div>
-                <div id="bottom" style="width:50%; padding-left:23%; padding-top:2.6%;">
+                <div id="bottom" style="width:50%; padding-left:23%; padding-top:2.6%; padding-bottom:1%;">
                     <h6 style="color:white;">* 배달주소는 최대 5개까지 등록 가능합니다.</h6>
                 </div>
                 <div style="width:100%; height:20px;"></div>
