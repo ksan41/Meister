@@ -19,7 +19,6 @@
 	
 	
 	int pizzaPrice = 0;
-	// 추가
 	int sideSum = 0;
 	int etcSum = 0;
 	int totalPrice = 0;
@@ -27,7 +26,6 @@
 	int sidePrintCount = 0;
 	int etcPrintCount = 0;
 	
-	//
 	int index;
 	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
 	
@@ -37,7 +35,6 @@
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
 	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
 
-	//
 	String addressArea = (String)session.getAttribute("addressArea");
 	Delivery checkedDelivery = (Delivery)request.getAttribute("checkedDelivery");
 	int userNo = (int)request.getAttribute("userNo");
@@ -175,10 +172,6 @@
             width:1000px;
             text-align: center;
         }
-
-        
-
-
 
     </style>
 </head>
