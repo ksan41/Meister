@@ -204,7 +204,7 @@
                     <!-- <th rowspan="2"><button class="small_btn" id="#">수정</button></th> -->
                 </tr>
                 <tr>
-                    <th style="color:gray;"><button style="background:white; color:darkgray; border:1px solid darkgray" id="mbtn"><%=checkedDelivery.getBranchName() %></button>&nbsp;&nbsp;&nbsp; <%=checkedDelivery.getBranchPhone()%></th>
+                    <th style="color:gray;"><button style="background:white; color:darkgray; border:1px solid darkgray; cursor:default;" id="mbtn"><%=checkedDelivery.getBranchName() %></button>&nbsp;&nbsp;&nbsp; <%=checkedDelivery.getBranchPhone()%></th>
                 </tr>
                 
             </table>
