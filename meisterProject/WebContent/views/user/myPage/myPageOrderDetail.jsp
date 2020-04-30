@@ -1,26 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.meister.order.model.vo.*, com.meister.coupon.model.vo.*, com.meister.menu.model.vo.*, java.util.ArrayList"%>
 <%
-	Delivery dInfo = (Delivery)request.getAttribute("dInfo");
-	Orders oInfo = (Orders)request.getAttribute("oInfo");
-	Payment pInfo = (Payment)request.getAttribute("pInfo");
+	Delivery dInfo = (Delivery)request.getAttribute("dInfo");	// 해당 주문의 배달 정보
+	Orders oInfo = (Orders)request.getAttribute("oInfo");		// 해당 주문의 주문 정보
+	Payment pInfo = (Payment)request.getAttribute("pInfo");		// 해당 주문의 결제 정보
 	
-	Price order = (Price)request.getAttribute("order");
+	Price order = (Price)request.getAttribute("order");			// 해당 주문의 주문 상품 정보
 	
-	Coupon discountInfo = (Coupon)request.getAttribute("discountInfo");
+	Coupon discountInfo = (Coupon)request.getAttribute("discountInfo");	// 해당 주문에 사용된 쿠폰 정보
 	
-	String[] pizzaSize = order.getPizzaSize().split(",");
+	String[] pizzaSize = order.getPizzaSize().split(",");	
 	String[] pizzaNo = order.getPizzaNo().split(",");
 	String[] pizzaCount = order.getPizzaCount().split(",");
 	String[] doughNo = order.getDoughNo().split(",");
 	
-	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");
+	ArrayList<Pizza> pList = (ArrayList<Pizza>)request.getAttribute("pList");		// 피자 리스트
+	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");	// 피자 사이즈 리스트
+	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");		// 피자 도우 리스트
 	
-	ArrayList<PizzaSize> sizeList = (ArrayList<PizzaSize>)request.getAttribute("sizeList");
-	
-	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");
-	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");
-	ArrayList<Dough> dList = (ArrayList<Dough>)request.getAttribute("dList");
+	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");			// 사이드메뉴 리스트
+	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");			// 기타메뉴 리스트
 	
 	String pName = "";
 	String pSize = "";
@@ -220,68 +219,68 @@ div {
 								style="text-align: left; margin-left: 80px; margin-top:40px; margin-bottom:20px; color: black;">
 								<b style="font-size: 17px;">주문내역</b> <br><br> 
 								<% for(int i=0; i<pizzaSize.length; i++){ // 주문한 피자 내용 %>
-									<% for(int j=0; j<pList.size(); j++){ %>
-										<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ %>
+									<% for(int j=0; j<pList.size(); j++){ // 주문한 피자 이름 조회 %>
+										<% if(pList.get(j).getPizzaNo() == Integer.parseInt(pizzaNo[i])){ // 피자 리스트의 피자 이름과 비교 %>
 											<% pName = pList.get(j).getPizzaName(); %>
 										<% } %>
 									<% } %>
-									<% for(int j=0; j<sizeList.size(); j++){ %>
-										<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ %>
+									<% for(int j=0; j<sizeList.size(); j++){ // 주문한 피자 사이즈 조회 %>
+										<% if(sizeList.get(j).getSizeNo() == Integer.parseInt(pizzaSize[i])){ // 피자 사이즈 리스트와 비교 %>
 											<% pSize = sizeList.get(j).getPizzaSize(); %>
 											<% pPrice = sizeList.get(j).getPizzaPrice(); %>
 										<% } %>
 									<% } %>
-									<% for(int j=0; j<dList.size(); j++){ %>
-										<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ %>
-											<% if(dList.get(j).getDoughAddPrice()+"" != null) {%>
+									<% for(int j=0; j<dList.size(); j++){ // 주문한 피자의 도우 옵션 조회 %>
+										<% if(dList.get(j).getDoughNo() == Integer.parseInt(doughNo[i])){ // 도우 리스트와 비교 %>
+											<% if(dList.get(j).getDoughAddPrice()+"" != null) { // 도우에 추가 금액이 있을 경우 %>
 												<% doughPrice = dList.get(j).getDoughAddPrice(); %>
 											<% } %>
 										<% } %>
 									<% } %>
-									<% pCount = Integer.parseInt(pizzaCount[i]); %>
-									<% pPrice = (pPrice + doughPrice) * pCount; %>
+									<% pCount = Integer.parseInt(pizzaCount[i]); // 주문한 피자 수량 %>
+									<% pPrice = (pPrice + doughPrice) * pCount; // 주문한 피자 가격 %>
 									
-									<%=pName%> <%=pSize%> x <%=pCount%> / <%=pPrice %>원<br>
-									<%basketPrice += pPrice; %>
+									<%= pName%> <%= pSize%> x <%= pCount%> / <%= pPrice %>원<br>
+									<% basketPrice += pPrice; %>
 								<% } %>
 								
-								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 내용 %>
+								<% if(order.getSideNo() != null && order.getSideCount() != null) { // 주문한 사이드 상품이 있을 경우 %>
 									<% String[] sideNo = order.getSideNo().split(","); %>
 									<% String[] sideCount = order.getSideCount().split(","); %>
 									
-									<% for(int i=0; i<sideNo.length; i++) { %>
+									<% for(int i=0; i<sideNo.length; i++) { // 주문한 사이드 상품 내용 %>
 										<% for(int j=0; j<sList.size(); j++){ %>
 											<% if(sList.get(j).getSideNo() == Integer.parseInt(sideNo[i])){ %>
-												<% sName = sList.get(j).getSideName(); %>
-												<% sPrice = sList.get(j).getSidePrice(); %>
+												<% sName = sList.get(j).getSideName(); // 주문한 사이드 상품 이름 %>
+												<% sPrice = sList.get(j).getSidePrice(); // 주문한 사이드 상품 가격 %>
 											<% } %>
 										<% } %>
 										
-										<% sCount = Integer.parseInt(sideCount[i]); %>
-										<% sPrice = sPrice * sCount; %>
+										<% sCount = Integer.parseInt(sideCount[i]); // 주문한 사이드 상품 수량 %>
+										<% sPrice = sPrice * sCount; // 주문한 사이드 상품 총 가격 %>
 										
-										<%=sName %> x <%=sCount %> / <%=sPrice %>원<br>
-										<%basketPrice += sPrice; %>
+										<%= sName %> x <%= sCount %> / <%= sPrice %>원<br>
+										<% basketPrice += sPrice; %>
 									<% } %>
 								<% } %>
 								
-								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타상품 내용 %>
+								<% if(order.getEtcNo() != null && order.getEtcCount() != null) { // 주문한 기타 상품이 있을 경우 %>
 									<% String[] etcNo = order.getEtcNo().split(","); %>
 									<% String[] etcCount = order.getEtcCount().split(","); %>
 									
-									<% for(int i=0; i<etcNo.length; i++) { %>
+									<% for(int i=0; i<etcNo.length; i++) { // 주문한 기타 상품 내용 %>
 										<% for(int j=0; j<eList.size(); j++){ %>
 											<% if(eList.get(j).getEtcNo() == Integer.parseInt(etcNo[i])){ %>
-												<% eName = eList.get(j).getEtcName(); %>
-												<% ePrice = eList.get(j).getEtcPrice(); %>
+												<% eName = eList.get(j).getEtcName(); // 주문한 기타 상품 이름 %>
+												<% ePrice = eList.get(j).getEtcPrice(); // 주문한 기타 상품 가격 %>
 											<% } %>
 										<% } %>
 										
-										<% eCount = Integer.parseInt(etcCount[i]); %>
-										<% ePrice = ePrice * eCount; %>
+										<% eCount = Integer.parseInt(etcCount[i]); // 주문한 기타 상품 수량 %>
+										<% ePrice = ePrice * eCount; // 주문한 기타 상품 총 가격 %>
 										
-										<%=eName %> x <%=eCount %> / <%=ePrice %>원<br>
-										<%basketPrice += ePrice; %>									
+										<%= eName %> x <%= eCount %> / <%= ePrice %>원<br>
+										<% basketPrice += ePrice; %>									
 									<% } %>
 								<% } %>
 								
