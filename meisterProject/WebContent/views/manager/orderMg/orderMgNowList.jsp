@@ -206,7 +206,6 @@
 											</td>
 											<td><%= orderList.get(i).getOrderDate() %></td>
 											<th>
-											<!-- <button class="button" onclick="" style="background-color: yellowgreen;">접수</button> -->
 												<% if(orderList.get(i).getOrderStatus().equals("T")) { %>
 													주문접수완료
 												<% }else { %>
