@@ -42,7 +42,7 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 //		c.setInquiryAnswer(inquiryAnswer);
 		
 		//int result = new CenterService().updateInquiryAnswer(c);
-		Center c = new CenterService().updateInquiryAnswer(ino);
+		Center c = new CenterService().selectCenter(ino);
 		
 		if(c != null) {
 			
