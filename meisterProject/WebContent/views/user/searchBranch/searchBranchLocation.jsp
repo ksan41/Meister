@@ -71,10 +71,10 @@
 
 	<div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">매장검색</h1>
+        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">매장위치</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
-        <div id="index-area"><a href="">홈 </a> &gt; 매장검색</div>
+        <div id="index-area"><a href="">홈 </a> &gt; 매장위치</div>
         <hr><br>
         <div style="float:left; width:300px; height:700px; overflow:auto; border:1px solid lightgray;">
         	<table id="branchListArea">
