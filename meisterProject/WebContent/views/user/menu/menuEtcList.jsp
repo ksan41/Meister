@@ -377,7 +377,7 @@ p {
 				<% for(Etc e : list) {%>
 					<div id="menu-thumb">
 						<div id="menu-img">
-							<img src="<%=contextPath %>/resources/siteImgs/menuImg/etc/<%= e.getEtcImg() %>" alt="">
+							<img src="<%= e.getEtcImg() %>" alt="">
 						</div>
 						<div id="menu-info">
 							<h3><%= e.getEtcName() %></h3>
