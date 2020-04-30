@@ -62,7 +62,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<form id="oneAnswerForm" action="<%= contextPath %>/ceMgOneAnswerInsert.nom" method="post">
+						<form id="oneAnswerForm" action="<%= contextPath %>/ceMgOneAnswerUpdate.cem" method="post">
 							<input type="hidden" name="ino" value="<%=c.getInquiryNo()%>">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<tr>
@@ -71,7 +71,8 @@
 										<select name="answer" id="answer">
 											<option value="processing" selected>처리중</option>
 											<option value="reply">답변완료</option>
-									</select></th>
+										</select>
+									</th>
 								</tr>
 								<tr>
 									<td>아이디</td>
@@ -95,17 +96,15 @@
 								</tr>
 								<tr>
 									<td>답변</td>
-									<th style="height: 250px; font-size: 13px; color: brown"><textarea
-											id="contentArea" name="inquiryAnswer"
-											style="font-size: 1.0em; color: cornflowerblue"
-											placeholder="답변을 작성해주세요"></textarea></th>
+									<th style="height: 250px; font-size: 13px; color: brown">
+										<textarea id="contentArea" name="inquiryAnswer" style="font-size: 1.0em; color: cornflowerblue" placeholder="답변을 작성해주세요" required></textarea>
+									</th>
 								</tr>
 							</table>
 	
 							<div align="center">
-								
 								<button class="button" type="submit">등록</button>
-								<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">취소</button>
+								<button class="button" type="button" onclick="location.href='<%= contextPath %>/ceMgOneDetail.cem';">취소</button>
 							</div>
 						</form>
 					</div>
@@ -114,6 +113,5 @@
 		</div>
 		</main>
 	</div>
-
 </body>
 </html>

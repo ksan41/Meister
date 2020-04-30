@@ -289,7 +289,7 @@ public class CenterDao {
 	}
 
 	
-	public int updateInquiryAnswer(Connection conn, Center c, int ino) {
+	public int updateInquiryAnswer(Connection conn, Center c) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -298,7 +298,7 @@ public class CenterDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, c.getInquiryAnswer());
-			pstmt.setInt(2, ino);
+			pstmt.setInt(2, c.getInquiryNo());
 			
 			result = pstmt.executeUpdate();
 			

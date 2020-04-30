@@ -236,13 +236,13 @@ public class CenterService {
 	
 	
 	/**연화
-	 * 1:1문의 답변 등록
-	 * @param ino
+	 * 1:1문의 답변값 입력
+	 * @param ino	--> 수정할 1:1문의 번호
 	 */
-	public Center updateInquiryAnswer(int ino) {
+	public int updateInquiryAnswer(Center c) {
 		
 		Connection conn = getConnection();
-		int result = new CenterDao().updateInquiryAnswer(conn, c, ino);
+		int result = new CenterDao().updateInquiryAnswer(conn, c);
 		
 		if(result > 0) {
 			commit(conn);
@@ -252,7 +252,6 @@ public class CenterService {
 		close(conn);
 		
 		return result;
-		
 	}
 	
 	
