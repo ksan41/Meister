@@ -118,7 +118,7 @@
                                     <ul id="navigation">
                                         <li><a href="<%= contextPath %>/pizzaList.men">메뉴</a></li>
                                         <li><a href="<%= contextPath %>/eList.ev">이벤트</a></li>
-                                        <li><a href="<%=contextPath%>/searchLocation.se">매장검색</a></li>
+                                        <li><a href="<%=contextPath%>/searchLocation.se">매장위치</a></li>
                                         <li><a href="<%= contextPath %>/faqList.ce">고객센터</a></li>
                                         <li><a href="<%= contextPath %>/nList.no?currentPage=1">공지사항</a></li>
                                     </ul>
