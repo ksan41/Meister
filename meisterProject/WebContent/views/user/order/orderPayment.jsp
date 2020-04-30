@@ -43,7 +43,8 @@
 		        if ( rsp.success ) {
 		        	//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
 		        	$.ajax({
-		        		url: "http://localhost:9911/Meister/orderPayInsert.or", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
+		        		//url: "http://localhost:9911/Meister/orderPayInsert.or", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
+		        		url: "http://172.30.1.48:9911/Meister/orderPayInsert.or", //cross-domain error가 발생하지 않도록 동일한 도메인으로 전송
 		        		type: "POST",
 		        		data: {
 		        			totalPrice : totalPrice
@@ -60,7 +61,7 @@
 
 		        			alert(msg);
 		        			
-		        			location.href='http://localhost:9911/Meister/paymentSuccess.or';
+		        			location.href='http://172.30.1.48:9911/Meister/paymentSuccess.or';
 		        		//} else {
 		        			
 		        			//[3] 아직 제대로 결제가 되지 않았습니다.
