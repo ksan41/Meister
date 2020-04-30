@@ -203,12 +203,6 @@
 		</main>
 	</div>
 	
-	<!-- 이벤트 삭제용 form태그 -->
-	<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
-	<input type="hidden" id="delBno" name="bno">
-	</form>
-
-	
 	
 	<!-- 등록 버튼 모달 시작 -->
 	<div class="modal fade" id="eventEnrollModal">
@@ -296,7 +290,7 @@
 										<th>썸네일 이미지</th>
 										<td>
 											<div style="width:500px; height:250px;">
-												<img src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>" readonly>
+												<img style="width:100%; height:230px" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage1()%>" readonly>
 											</div>
 										</td>
 									</tr>
@@ -304,7 +298,7 @@
 										<th>상세 이미지</th>
 										<td>
 											<div style="width:500px; height:800px;">
-												<img style="height:700px;" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>" readonly>
+												<img style="height:700px; width:100%;" src="<%= contextPath %>/resources/siteImgs/eventImg/<%=list.get(i).getEventImage2()%>" readonly>
 											</div>
 										</td>
 									</tr>
@@ -392,6 +386,12 @@
 			<!-- 수정 버튼 모달 끝 -->
 		<%} %>
 	<%} %>
+	
+		
+	<!-- 이벤트 삭제용 form태그 -->
+	<form class="eventDelete" action="<%=contextPath%>/evMgDelete.evm" method="post">
+		<input type="hidden" id="delBno" name="bno">
+	</form>
 	
 
 </body>

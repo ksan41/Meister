@@ -38,7 +38,6 @@ public class EventMgUpdateServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 요청시 한글이 전달될 경우를 대비해서
 		request.setCharacterEncoding("utf-8");
 		
 		//multipart/formdata로 넘어왔는지 조건확인
@@ -90,11 +89,11 @@ public class EventMgUpdateServlet extends HttpServlet {
 				
 			}else {
 				
-				File deleteFile = new File(savePath + eventImage1);
-				deleteFile.delete();
+				File deleteFile1 = new File(savePath + eventImage1);
+				deleteFile1.delete();
 				
-				deleteFile = new File(savePath + eventImage2);
-				deleteFile.delete();
+				File deleteFile2 = new File(savePath + eventImage2);
+				deleteFile2.delete();
 				
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
