@@ -56,7 +56,20 @@
 									<% for(Center c : list){ %>
 										<tr>
 											<td><%= c.getInquiryNo() %></td>
-											<td><%= c.getInquiryType() %></td>
+											<td>
+												<% String inquiryType = ""; %>
+												<% switch(c.getInquiryType()){
+													case 1: inquiryType="제품관련"; break;
+													case 2: inquiryType="배달서비스 관련"; break;
+													case 3: inquiryType="직원 서비스 관련"; break;
+													case 4: inquiryType="콜센타 관련"; break;
+													case 5: inquiryType="칭찬"; break;
+													case 6: inquiryType="제안"; break;
+													case 7: inquiryType="단순문의"; break;
+													case 8: inquiryType="기타";
+												 } %>
+												 <%= inquiryType %>
+											</td>
 											<td><%= c.getInquiryStore() %></td>
 											<td><%= c.getInquiryTitle() %></td>
 											<td><%= c.getMemberId() %></td>
@@ -86,9 +99,9 @@
 		$(function(){
 			$("#dataListTable>tbody>tr").click(function(){
 				// 현재 클릭했을 때의 해당 1:1문의의 번호
-				var cno = $(this).children().eq(0).text();
+				var ino = $(this).children().eq(0).text();
 				// 쿼리스트링 이용해서 전달값 전달
-				location.href="<%= contextPath %>/ceMgOneDetail.cem?cno=" + cno;
+				location.href="<%= contextPath %>/ceMgOneDetail.cem?ino=" + ino;
 			});
 		});
 	

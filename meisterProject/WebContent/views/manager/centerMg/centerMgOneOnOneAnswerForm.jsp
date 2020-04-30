@@ -67,11 +67,12 @@
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<tr>
 									<td width="15%" style="padding-top: 20px;">처리상태</td>
-									<th style="height: 50px; color: red;"><label for="answer"></label>
-										<select name="answer" id="answer">
-											<option value="processing" selected>처리중</option>
-											<option value="reply">답변완료</option>
-										</select>
+									<th style="height: 50px; color: red;">
+										<% if(c.getInquiryProStatus().equals("Y")){ %>
+											답변완료
+										<% } else { %>
+											처리중
+										<% } %>
 									</th>
 								</tr>
 								<tr>
