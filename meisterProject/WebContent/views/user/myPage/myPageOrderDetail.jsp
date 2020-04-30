@@ -21,23 +21,23 @@
 	ArrayList<Side> sList = (ArrayList<Side>)request.getAttribute("sList");			// 사이드메뉴 리스트
 	ArrayList<Etc> eList = (ArrayList<Etc>)request.getAttribute("eList");			// 기타메뉴 리스트
 	
-	String pName = "";
-	String pSize = "";
-	int pCount = 0;
-	int doughPrice = 0;
-	int pPrice = 0;
+	String pName = "";		// 주문된 피자의 이름을 담을 변수
+	String pSize = "";		// 주문된 피자의 사이즈를 담을 변수
+	int pCount = 0;			// 주문된 피자의 개수를 담을 변수
+	int doughPrice = 0;		// 주문된 피자의 도우 추가금액을 담을 변수
+	int pPrice = 0;			// 주문된 피자의 가격
 	
-	String sName = "";
-	int sCount = 0;
-	int sPrice = 0;
+	String sName = "";		// 주문된 사이드 메뉴의 이름을 담을 변수
+	int sCount = 0;			// 주문된 사이드 메뉴의 개수를 담을 변수
+	int sPrice = 0;			// 주문된 사이드 메뉴의 가격
 	
-	String eName = "";
-	int eCount = 0;
-	int ePrice = 0;
+	String eName = "";		// 주문된 기타 메뉴의 이름을 담을 변수
+	int eCount = 0;			// 주문된 기타 메뉴의 개수를 담을 변숴
+	int ePrice = 0;			// 주문된 기타 메뉴의 가격
 	
-	int basketPrice = 0;
-	int discountPrice = 0;
-	double dRate = 0;
+	int basketPrice = 0;	// 주문 상품의 총 가격
+	int discountPrice = 0;	// 할인 금액
+	double dRate = 0;		// 사용자가 주문 시 선택했던 쿠폰의 할인율
 %>
 <!DOCTYPE html>
 <html>
