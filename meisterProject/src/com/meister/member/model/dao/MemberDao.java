@@ -456,7 +456,7 @@ private Properties prop = new Properties();
 			
 			if(rset.next()) {
 				count = rset.getInt(1);
-				System.out.println(userId);
+				//System.out.println(userId);
 				
 			}
 			
@@ -575,8 +575,8 @@ private Properties prop = new Properties();
 	public int memberPwdcheck(Connection conn, String memberId, String temp1)  {
 		 
 	    int result = 0;
-		System.out.println("dao : "+memberId);
-		System.out.println("dao : "+temp1);
+		//System.out.println("dao : "+memberId);
+		//System.out.println("dao : "+temp1);
 		PreparedStatement pstmt = null;
 		
 		String sql = prop.getProperty("pwdfindcode");

@@ -35,25 +35,25 @@ public class FindPwdServlet extends HttpServlet {
 		
 		
 		String memberId = request.getParameter("memberId");
-		System.out.println(memberId);
+		//System.out.println(memberId);
 		String email = request.getParameter("email");
-		System.out.println(email);
+		//System.out.println(email);
 		
 		Member selectpwd= new MemberService().selectpwd(memberId, email);
-		System.out.println(selectpwd);
+		//System.out.println(selectpwd);
 		
 		
 		if(selectpwd != null) {
 		request.setAttribute("selectpwd", selectpwd);
 		//response.sendRedirect(request.getContextPath() + "/showFindIdResult.me");
-		System.out.println("성공");
+		//System.out.println("성공");
 		//System.out.println(request.getContextPath());
 		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findPwdSuccess.jsp");
 		view.forward(request, response);
 		
 		} else { 
 			response.sendRedirect(request.getContextPath() + "/showFindPwdCheck.me");
-			System.out.println("실패");
+			//System.out.println("실패");
 			
 		}
 		

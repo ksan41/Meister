@@ -132,7 +132,7 @@ public class OrderDao {
 												rset.getString("ETC_NO"),
 												rset.getString("ETC_COUNT"),
 												rset.getInt("CART_NO"));
-				System.out.println("지점1");
+				//System.out.println("지점1");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -190,7 +190,7 @@ public class OrderDao {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
-		}System.out.println("insertBasketPayment Dao까지 왔어" + result);
+		}//System.out.println("insertBasketPayment Dao까지 왔어" + result);
 		return result;
 	}
 	public Delivery selectDeliveryInfo(Connection conn, int orderNo) {

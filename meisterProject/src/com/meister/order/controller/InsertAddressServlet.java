@@ -40,7 +40,7 @@ public class InsertAddressServlet extends HttpServlet {
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		String userId = loginUser.getMemberId();
 		
-		System.out.println("insertAddressServlet 딴에서 userId = " + userId);
+		//System.out.println("insertAddressServlet 딴에서 userId = " + userId);
 		
 		int memberNo = Integer.parseInt(new OrderService().getMemberNo(userId));
 		String referenceAddress = request.getParameter("referenceAddress");

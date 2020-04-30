@@ -36,8 +36,6 @@
 	int basketPrice = 0;
 	int discountPrice = 0;
 	double dRate = 0;
-	
-	System.out.println(dInfo);
 %>
 <!DOCTYPE html>
 <html lang="en">

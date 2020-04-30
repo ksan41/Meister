@@ -66,7 +66,7 @@ public class MemberInsertServlet extends HttpServlet {
 			// response.sendRedirect =views/user/member/memberEnrollSuccess.jsp
 			
 			
-			 System.out.println("ok");
+			 //System.out.println("ok");
 			 RequestDispatcher view = request.getRequestDispatcher("views/user/member/memberEnrollSuccess.jsp");
 			 view.forward(request, response);
 			 

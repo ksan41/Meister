@@ -36,9 +36,9 @@ public class LoginMemberServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String userId = request.getParameter("userId");
-		System.out.println(userId);
+		//System.out.println(userId);
 		String userPwd = request.getParameter("userPwd");
-		System.out.println(userPwd);
+		//System.out.println(userPwd);
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
 		

@@ -54,9 +54,9 @@ public class FindIdServlet extends HttpServlet {
 		 
 		
 		String name2 = request.getParameter("name2");
-		System.out.println(name2);
+		//System.out.println(name2);
 		String email = request.getParameter("email");
-		System.out.println(email);
+		//System.out.println(email);
 		
 		Member selectid = new MemberService().selectid(name2, email);
 		
@@ -68,7 +68,7 @@ public class FindIdServlet extends HttpServlet {
 		if(selectid != null) {
 		request.setAttribute("selectid", selectid);
 		//response.sendRedirect(request.getContextPath() + "/showFindIdResult.me");
-		System.out.println("성공");
+		//System.out.println("성공");
 		//System.out.println(request.getContextPath());
 		RequestDispatcher view = request.getRequestDispatcher("views/user/member/findldSuccess.jsp");
 		view.forward(request, response);

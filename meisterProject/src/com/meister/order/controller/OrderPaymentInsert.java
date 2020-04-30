@@ -55,7 +55,7 @@ public class OrderPaymentInsert extends HttpServlet {
 		
 		//3. 결제창에서 총 결제금액 가져오기
 		int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
-		System.out.println(totalPrice);
+		//System.out.println(totalPrice);
 		
 		Payment pm = new Payment();
 		pm.setPaymentPrice(totalPrice);
