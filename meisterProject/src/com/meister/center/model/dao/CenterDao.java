@@ -249,7 +249,7 @@ public class CenterDao {
 		return list;
 	}
 	
-	public Center selectOne(Connection conn, int cno) {
+	public Center selectOne(Connection conn, int ino) {
 		
 		Center c = null;
 		
@@ -259,7 +259,7 @@ public class CenterDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cno);
+			pstmt.setInt(1, ino);
 			
 			rset = pstmt.executeQuery();
 			
@@ -309,5 +309,4 @@ public class CenterDao {
 		}
 		return result;
 	}
-	
 }

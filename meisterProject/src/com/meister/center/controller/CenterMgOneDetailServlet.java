@@ -34,9 +34,9 @@ public class CenterMgOneDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int cno = Integer.parseInt(request.getParameter("cno"));
+		int ino = Integer.parseInt(request.getParameter("ino"));
 		
-		Center c = new CenterService().selectOne(cno);
+		Center c = new CenterService().selectOne(ino);
 		
 		if(c != null) {	// 조회성공
 			

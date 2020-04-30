@@ -203,14 +203,14 @@ public class CenterService {
 	
 	/**연화
 	 * 1:1문의 상세조회용 서비스
-	 * @param cno	--> 조회하고자하는 1:1문의 글번호
+	 * @param ino	--> 조회하고자하는 1:1문의 글번호
 	 * @return		--> 글번호와 일치하는 Center 객체
 	 */
-	public Center selectOne(int cno) {
+	public Center selectOne(int ino) {
 		
 		Connection conn = getConnection();
 		
-		Center c = new CenterDao().selectOne(conn, cno);
+		Center c = new CenterDao().selectOne(conn, ino);
 		
 		close(conn);
 		
