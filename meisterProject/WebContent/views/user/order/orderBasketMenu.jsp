@@ -230,9 +230,9 @@
               
               
                 <%for(Pizza p : pList){ %>
-	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){ %>
+	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){%>
 	                <tr style="border-bottom:1px solid;" class="contentRow">
-	                    <th>피자이미지</th>
+	                    <th><img src= "<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>" alt="" width="200"></th>
 	                    <th>
 	                        <p>
 	                            <%=p.getPizzaName() %><br>
@@ -276,7 +276,7 @@
               			<% if(s.getSideNo() == Integer.parseInt(side)){ %>
               			<%sidePrintCount++; %>
 		                <tr style="border-bottom:1px solid;"  class="contentRow">
-		                    <th>사이드이미지</th>
+		                    <th><img src= "<%= s.getSideImg() %>" alt="" width="200"></th>
 		                    <th>
 		                        <p>
 		                            	<%=s.getSideName() %><br>
@@ -307,7 +307,7 @@
 						<% if(e.getEtcNo() == Integer.parseInt(etc)){ %>
 						<%etcPrintCount++; %>
                 <tr style="border-bottom:1px solid;"  class="contentRow">
-                    <th>기타이미지</th>
+                    <th><img src= "<%= e.getEtcImg() %>" alt="" width="200"></th>
                     <th>
                         <p><%=e.getEtcName() %><br>
                             <% etcSum = e.getEtcPrice() * Integer.parseInt(etcCount[i]); %>
