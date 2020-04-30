@@ -483,7 +483,7 @@
 				$("#activeMgFAQ3").css({'background':'lightgray','color':'black'});
 				$("#activeMgFAQ4").css({'background':'lightgray','color':'black'});
 		});
-
+		
 		$("#activeMgFAQ2").click(
 			function() {
 				if ($('.contentMg2').css('display') == 'none')
