@@ -164,7 +164,7 @@ background-color
 		<br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		<div id="index-area">
-			<a href="">홈</a> &gt; 공지사항
+			<a href="<%=contextPath%>">홈</a> &gt; 공지사항
 		</div>
 		<!-- <div class="sub-menu-area">
             현재 페이지는 orange 로 표시
@@ -183,7 +183,7 @@ background-color
 			<div align="center">
 				 <form id="searchNoForm" action="<%=contextPath %>/nList.no" method="get">
 					<select id="noticeSearchOption" name="searchType" style="padding-top:3px;">
-						<option value="">선택</option>
+						<!-- <option value="">선택</option> -->
 						<option value="title">제목</option>
 						<option value="content">내용</option>
 						<option value="titlecontent">제목+내용</option>
