@@ -235,6 +235,10 @@
 	
     </div>
     <%@ include file="../../common_user/footer.jsp"%>
+     <!-- 다른 요소에 모달 적용하고 싶으면, 속성에 data-toggle="modal" ,  data-target="#myModal" 타겟명은 따로 지정 -->
+  <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><!-- modal별 id 변경해주세요
+    버튼
+  </button>-->
   
           <!-- 모달 시작 -->
           <div class="modal fade" id="myModal">
