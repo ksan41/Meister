@@ -310,39 +310,4 @@ public class CenterDao {
 		return result;
 	}
 	
-	public Center selectCenter(Connection conn, int ino) {
-		
-		Center c = null;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectCenter");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, ino);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				c = new Center(rset.getInt("INQUIRY_NO"),
-							   rset.getString("INQUIRY_TITLE"),
-							   rset.getString("INQUIRY_CONTENT"),
-							   rset.getDate("REGISTRATION_DATE"),
-							   rset.getDate("MODIFY_DATE"),
-							   rset.getInt("INQUIRY_TYPE"),
-							   rset.getString("INQUIRY_STORE"),
-							   rset.getString("INQUIRY_PRO_STATUS"),
-							   rset.getInt("MEMBER_NO"),
-							   rset.getInt("RECEIPT_NO"));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		return c;
-	}
 }
