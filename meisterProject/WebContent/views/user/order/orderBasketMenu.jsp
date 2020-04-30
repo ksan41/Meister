@@ -380,7 +380,6 @@
         // 서블릿에서 전달받은 총 가격 표시 // 작성자 : 곽진아
         window.onload = $(function(){
         	$(".totalPrice").text(<%=totalPrice%>);
-        	console.log("지점 22 : " + <%=addressArea%>);
     	});
      	// 작성자 : 곽진아
     	$(function(){

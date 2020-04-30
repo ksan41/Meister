@@ -272,7 +272,7 @@
           data:{Email:email.value},
           success:function(data){
              alert("인증번호가 발송되었습니다.");
-             console.log(data);
+             //console.log(data);
              randomKey = data;
           },error:function(){
              alert("이메일발송실패");

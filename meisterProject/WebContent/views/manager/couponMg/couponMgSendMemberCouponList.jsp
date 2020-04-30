@@ -264,7 +264,7 @@ input[type=checkbox] {
 				type:"get",		  // type: 요청전송방식(get/post)
 				success:function(list){ // success: ajax통신 성공시 처리할 함수 지정
 					console.log("ajax 통신 성공");
-					console.log(list);
+					//console.log(list);
 					$("#dataListTable2 tbody").html("");
 					
 					var data = "";

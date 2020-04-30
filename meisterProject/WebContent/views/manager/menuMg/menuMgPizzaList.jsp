@@ -870,12 +870,12 @@ div {
 				// 파일을 읽어주는 메소드 --> 해당 파일을 읽어들이는 순간 해당 파일만의 고유한 url부여
 				reader.readAsDataURL(inputFile.files[0]);
 				
-					console.log("인덱스");
-					console.log(index);
+					//console.log("인덱스");
+					//console.log(index);
 				// 파일 읽기가 다 완료되었을때 실행할 메소드
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
-					console.log("이벤트실행");
+					//console.log("이벤트실행");
 					$(".menu-upImg:eq("+(index-1)+")").attr("src", e.target.result);
 				};
 		}
