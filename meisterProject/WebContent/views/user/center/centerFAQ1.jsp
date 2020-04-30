@@ -159,7 +159,7 @@
 			<hr>
 
 			<div class="faqBtns">
-				<button id="active1">피자 주문하기</button>
+				<button id="active1" style="background-color: orange;">피자 주문하기</button>
 				<button id="active2">주문확인</button>
 				<button id="active3">포장 주문</button>
 				<button id="active4">홈페이지 관련</button>
@@ -313,7 +313,7 @@
 
 
 	<!-- 클래스 추가 제거 이벤트 (css변경) -->
-
+	
 	<script>
 		$("#active1").click(function() {
 			if ($('.content1').css('display') == 'none')
@@ -326,7 +326,7 @@
             $("#active3").css({'background':'lightgray','color':'black'});
             $("#active4").css({'background':'lightgray','color':'black'});
 		});
-	
+		
 		$("#active2").click(function() {
 			if ($('.content2').css('display') == 'none')
 				$('.content2').addClass("content2").css("display", "block");
