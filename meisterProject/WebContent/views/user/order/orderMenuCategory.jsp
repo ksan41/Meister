@@ -100,20 +100,6 @@
         <div id="index-area"><a href="">홈</a> &gt; <a href="">주문선택 방법</a></div>
         <hr>                
         <br>    
-        <!-- 서브메뉴 우측 인덱스 -->
-        
-        
-        
-        <!-- <div class="sub-menu-area">
-            <!-- 현재 페이지는 orange 로 표시 -->
-            <!-- <a href="" style="color:orange">아이디찾기</a> -->
-            <!-- <span style="color:lightgray; font-size: 17px;">|</span> -->
-            <!-- <a href="" >비밀번호찾기</a> -->
-        <!-- </div> -->
-        <!-- <hr>   -->
-        
-
-
 
         <!-- inner영역에 콘텐츠 작성 -->
         <div class="inner">
