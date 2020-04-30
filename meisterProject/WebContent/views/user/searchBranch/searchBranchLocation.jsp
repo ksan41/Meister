@@ -71,7 +71,7 @@
 
 	<div class="outer">
         <!-- 서브메뉴 타이틀 -->
-        <h1 style="font-weight:bold; color:rgb(76, 60, 60);">매장위치</h1>
+        <h1>매장위치</h1>
         <br>
         <!-- 서브메뉴 우측 인덱스 -->
         <div id="index-area"><a href="">홈 </a> &gt; 매장위치</div>
