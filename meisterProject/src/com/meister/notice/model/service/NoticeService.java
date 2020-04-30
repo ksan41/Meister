@@ -45,7 +45,6 @@ public class NoticeService {
 		close(conn);
 		
 		return n;
-		
 	}
 	
 	/**현영

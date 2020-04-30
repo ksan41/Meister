@@ -111,7 +111,7 @@ public class CenterService {
 	
 
 	/** 지수
-	 * 2. 지점명 조회용 서비스
+	 * 지점명 조회용 서비스
 	 * @return	--> 현재 영업중인 지점명들이 담긴 ArrayList<String>객체
 	 */
 	public ArrayList<String> selectStores(){
@@ -147,7 +147,7 @@ public class CenterService {
 	}
 	
 	/**연화
-	 * 9. FAQ 수정용 서비스
+	 * FAQ 수정용 서비스
 	 * @param f		--> 수정하고자하는 FAQ 번호, 수정할 제목, 수정할 내용이 담겨있는 FAQ객체
 	 * @return		--> 처리된 행의 개수
 	 */
@@ -217,12 +217,29 @@ public class CenterService {
 		return c;
 	}
 	
+	/**연화
+	 * 1:1문의 상세조회용 서비스
+	 * @param ino	--> 조회하고자하는 1:1문의 글번호
+	 * @return		--> 글번호와 일치하는 Center 객체
+	 */
+	public Center selectCenter(int ino) {
+		
+		Connection conn = getConnection();
+		
+		Center c = new CenterDao().selectCenter(conn, ino);
+		
+		close(conn);
+		
+		return c;
+	}
+	
+	
 	
 	/**연화
 	 * 1:1문의 답변 등록
 	 * @param ino
 	 */
-	public int updateInquiryAnswer(Center c, int ino) {
+	public Center updateInquiryAnswer(int ino) {
 		
 		Connection conn = getConnection();
 		int result = new CenterDao().updateInquiryAnswer(conn, c, ino);

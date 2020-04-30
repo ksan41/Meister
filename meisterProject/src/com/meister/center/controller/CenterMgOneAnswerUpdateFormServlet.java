@@ -35,22 +35,24 @@ public class CenterMgOneAnswerUpdateFormServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		int ino = Integer.parseInt(request.getParameter("ino"));
-		String inquiryAnswer = request.getParameter("inquiryAnswer");
+		//String inquiryAnswer = request.getParameter("inquiryAnswer");
 		
-		Center c = new Center();
-		c.setInquiryNo(ino);
-		c.setInquiryAnswer(inquiryAnswer);
+//		Center c = new Center();
+//		c.setInquiryNo(ino);
+//		c.setInquiryAnswer(inquiryAnswer);
 		
-		int result = new CenterService().updateInquiryAnswer(c);
+		//int result = new CenterService().updateInquiryAnswer(c);
+		Center c = new CenterService().updateInquiryAnswer(ino);
 		
-		if(result > 0) {
+		if(c != null) {
 			
-			response.setContentType("text/html; charset=UTF-8");
+			request.setAttribute("c", c);
+			request.getRequestDispatcher("views/manager/centerMg/centerMgOneOnOneAnswerForm.jsp").forward(request, response);
 			
-			PrintWriter out = response.getWriter();
-			
-			out.println("<script>alert('1:1문의 답변 성공'); location.href='/Meister/ceMgOneDetail?ino=" + ino + "';</script>");
-			out.flush();
+//			response.setContentType("text/html; charset=UTF-8");
+//			PrintWriter out = response.getWriter();
+//			out.println("<script>alert('1:1문의 답변 성공'); location.href='/Meister/ceMgOneDetail?ino=" + ino + "';</script>");
+//			out.flush();
 			
 		}else {
 			

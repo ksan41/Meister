@@ -54,7 +54,7 @@ public class EventMgUpdateServlet extends HttpServlet {
 			//     multiRequest로 변환할 request,저장경로,지정사이즈,인코딩값,이름변경클래스생성
 			MultipartRequest multiRequest = new MultipartRequest(
 					request,savePath,maxSize,"UTF-8",new MyFileRenamePolicy()
-					);
+			);
 			
 			// 3. DB에 insert할 데이터들 뽑아서 vo객체에 담기
 			

@@ -102,8 +102,6 @@ public class NoticeDao {
 			close(pstmt);
 		}
 		return n;
-		
-		
 	}
 	
 	public int increaseCount(Connection conn, int nno) {

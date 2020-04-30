@@ -105,7 +105,6 @@
 							<button class="button" onclick="location.href='<%= contextPath %>/ceMgOneList.cem';">목록으로</button>
 							<button class="button" onclick="updateForm();">답변입력</button>
 						</div>
-
 					</div>
 				</div>
 			</div>

@@ -46,10 +46,20 @@ public class Center {
 
 
 
-
-
-
-
+	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, Date registDate, Date modifyDate,
+			int inquiryType, String inquiryStore, String inquiryProStatus, int memberNo, int receiptNo) {
+		super();
+		this.inquiryNo = inquiryNo;
+		this.inquiryTitle = inquiryTitle;
+		this.inquiryContent = inquiryContent;
+		this.registDate = registDate;
+		this.modifyDate = modifyDate;
+		this.inquiryType = inquiryType;
+		this.inquiryStore = inquiryStore;
+		this.inquiryProStatus = inquiryProStatus;
+		this.memberNo = memberNo;
+		this.receiptNo = receiptNo;
+	}
 
 
 	public Center(int inquiryNo, String inquiryTitle, String inquiryContent, String inquiryAnswer, Date registDate,
