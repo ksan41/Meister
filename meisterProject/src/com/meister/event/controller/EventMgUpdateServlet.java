@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.meister.center.model.vo.CenterImage;
 import com.meister.common.MyFileRenamePolicy;
 import com.meister.event.model.service.EventService;
 import com.meister.event.model.vo.Event;
@@ -63,8 +64,8 @@ public class EventMgUpdateServlet extends HttpServlet {
 			String eventTitle = multiRequest.getParameter("eventTitle");
 			Date eventOpenTime = java.sql.Date.valueOf(multiRequest.getParameter("eventOpenTime"));
 			Date eventCloseTime = java.sql.Date.valueOf(multiRequest.getParameter("eventCloseTime"));
-			String eventImage1 = multiRequest.getParameter("eventImage1");
-			String eventImage2 = multiRequest.getParameter("eventImage2");
+			String eventImage1 = multiRequest.getFilesystemName("eventImage1");
+			String eventImage2 = multiRequest.getFilesystemName("eventImage2");
 			String eventStatus = multiRequest.getParameter("eventStatus");
 			
 			Event e = new Event();
@@ -75,6 +76,29 @@ public class EventMgUpdateServlet extends HttpServlet {
 			e.setEventImage1(eventImage1);
 			e.setEventImage2(eventImage2);
 			e.setEventStatus(eventStatus);
+			
+			
+			CenterImage ci = null;
+			// 새로이 추가된 첨부파일이 있을 경우
+			if(multiRequest.getOriginalFileName("upfile") != null) {
+				ci = new CenterImage();
+				ci.setOriginName(multiRequest.getOriginalFileName("upfile"));	// 새로 추가된 파일의 원본명
+				ci.setChangeName(multiRequest.getFilesystemName("upfile"));	// 새로 추가된 파일의 수정명
+				ci.setFilePath(savePath);
+				
+				// 기존의 첨부파일이 있었을 경우 --> 기존의 첨부파일 정보 찾아서 update
+				if(multiRequest.getParameter("originFileNo") != null) {
+					ci.setFileNo(Integer.parseInt(multiRequest.getParameter("originFileNo")));
+					
+					// 기존에 서버에 업로드된 파일도 삭제
+					File deleteFile = new File(savePath + multiRequest.getParameter("originFileName"));
+					deleteFile.delete();
+					
+				}else {	// 기존의 첨부파일이 없었을 경우 --> 새로이 CenterImage 테이블에 insert
+					ci.setInqueryNo(bno);
+				}
+			}
+			
 			
 			int result = new EventService().updateEvent(e);
 			
@@ -89,11 +113,11 @@ public class EventMgUpdateServlet extends HttpServlet {
 				
 			}else {
 				
-				File deleteFile1 = new File(savePath + eventImage1);
-				deleteFile1.delete();
-				
-				File deleteFile2 = new File(savePath + eventImage2);
-				deleteFile2.delete();
+//				File deleteFile1 = new File(savePath + eventImage1);
+//				deleteFile1.delete();
+//				
+//				File deleteFile2 = new File(savePath + eventImage2);
+//				deleteFile2.delete();
 				
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();

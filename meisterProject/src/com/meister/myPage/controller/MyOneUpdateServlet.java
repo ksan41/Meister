@@ -105,8 +105,7 @@ public class MyOneUpdateServlet extends HttpServlet {
 				out.println("<script>alert('1:1문의 수정에 실패했습니다. 다시 시도해주세요.'); location.href='myOneList.my';</script>");
 				out.flush();
 			}
-		}		
-		
+		}
 	}
 
 	/**
