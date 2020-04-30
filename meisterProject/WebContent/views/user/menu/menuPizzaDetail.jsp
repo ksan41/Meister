@@ -424,6 +424,7 @@ p {
 	color: orange;
 	text-align: right;
 	padding-right: 40px;
+	cursor: pointer;
 }
 
 /*라디오버튼 숨김*/
@@ -475,7 +476,7 @@ input:checked+label {
 		<br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		<div id="index-area">
-			<a href="">홈</a> &gt;메뉴
+			<a href="<%=contextPath%>">홈</a> &gt;메뉴
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
@@ -676,9 +677,14 @@ input:checked+label {
 	<!-- 메뉴수량버튼 jquery -->
 	<script>
 		
-			$(document).on("click","#addCart",function(){
+		
+		$(document).on("click","#addCart",function(){
+			
+			if($('input:radio[name=dough]').is(':checked')==false){
+				alert("도우를 선택해주세요");
+			}else{
 				
-				
+			
 				<% if( loginUser != null){%>
 	 				var pizzaSize = $("#info-size input[type=radio]:checked").val();
 					//console.log(pizzaSize);
@@ -725,67 +731,64 @@ input:checked+label {
 				<%}%>
 					
 				
+				}
 				
 			});
-			
-	
-
-		
+				
 	</script>
 
 	<!-- 메뉴수량버튼 jquery -->
 
 
 	<script>
-// 피자용 
-
-$(document).on("click",".cnt_down_p",function() {
-	//console.log("-쿨릭");
-	var num = $(".menu_cnt_p").val();
-
-	num = $(".menu_cnt_p").val(num * 1 - 1);
-
-	if (num.val() <= 0) {
-		num = $(".menu_cnt_p").val(1);
-	}
-
-});
-
-$(document).on("click",".cnt_up_p",function() {
-	//console.log("+쿨릭");
-	var num = $(".menu_cnt_p").val();
-
-	num = $(".menu_cnt_p").val(num * 1 + 1);
-});
-
-//피자용
-
-// 사이드디시/etc용
-
-$(".cnt_down").click(function() {
-	var cntIndex = $(".cnt_down").index(this);
-	var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
-
-	num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 - 1);
-
-	if (num.val() < 0) {
-		num = $(".menu-cnt:eq(" + cntIndex + ")").val(0);
-	}
-
-});
-
-$(".cnt_up").click(function() {
-	var cntIndex = $(".cnt_up").index(this);
-	var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
-
-	num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 + 1);
-});
-
-
+		// 피자용 
+		
+		$(document).on("click",".cnt_down_p",function() {
+			//console.log("-쿨릭");
+			var num = $(".menu_cnt_p").val();
+		
+			num = $(".menu_cnt_p").val(num * 1 - 1);
+		
+			if (num.val() <= 0) {
+				num = $(".menu_cnt_p").val(1);
+			}
+		
+		});
+		
+		$(document).on("click",".cnt_up_p",function() {
+			//console.log("+쿨릭");
+			var num = $(".menu_cnt_p").val();
+		
+			num = $(".menu_cnt_p").val(num * 1 + 1);
+		});
+		
+		//피자용
+		
+		// 사이드디시/etc용
+		
+		$(".cnt_down").click(function() {
+			var cntIndex = $(".cnt_down").index(this);
+			var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
+		
+			num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 - 1);
+		
+			if (num.val() < 0) {
+				num = $(".menu-cnt:eq(" + cntIndex + ")").val(0);
+			}
+		
+		});
+		
+		$(".cnt_up").click(function() {
+			var cntIndex = $(".cnt_up").index(this);
+			var num = $(".menu-cnt:eq(" + cntIndex + ")").val();
+		
+			num = $(".menu-cnt:eq(" + cntIndex + ")").val(num * 1 + 1);
+		});
 
 
+	</script>
+	
 
-</script>
 
 
 

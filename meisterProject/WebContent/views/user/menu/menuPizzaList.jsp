@@ -295,7 +295,7 @@ p {
 		<br>
 		<!-- 서브메뉴 우측 인덱스 -->
 		<div id="index-area">
-			<a href="">홈</a> &gt;메뉴
+			<a href="<%=contextPath%>">홈</a> &gt;메뉴
 		</div>
 		<div class="sub-menu-area">
 			<!-- 현재 페이지는 orange 로 표시 -->
