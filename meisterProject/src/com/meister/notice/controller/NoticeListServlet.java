@@ -93,8 +93,8 @@ public class NoticeListServlet extends HttpServlet {
 
 
 		
-//		System.out.println(searchType);
-//		System.out.println(keyword);
+		System.out.println(searchType);
+		System.out.println(keyword);
 		
 		
 		if(searchType != null) {

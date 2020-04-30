@@ -309,52 +309,7 @@ p {
 			<!-- 프리미엄 -->
 			<div class="menu-area premium">
 				<h1 align="center">프리미엄</h1>
-				<!-- 
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div> -->
+
 				
 				<% for(int i=0; i<list1.size();i++) {  Pizza p = list1.get(i);%>
 					<% if(p.getPizzaType().equals("1")) {%>
@@ -391,52 +346,7 @@ p {
 			<br>
 			<div class="menu-area classic">
 				<h1 align="center">클래식</h1>
-				<!-- 
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>
-				<div id="menu-thumb">
-					<div id="menu-img">
-						<img src="pizzas/pizza-2802332_1280.jpg" alt="">
-					</div>
-					<div id="menu-info">
-						<h3>
-							치즈케이크 피자<img id="menu-detail"
-								src="/Meister/resources/siteImgs/PageIcons/baseline_search_black_18dp.png"
-								alt="" data-toggle="modal" data-target="#menu-detail-modal">
-						</h3>
-						<p>
-							<b>L</b> 30000원 &nbsp;&nbsp;<b>M</b> 18000원
-						</p>
-					</div>
-				</div>-->
+
 				
 				<% for(int i = 0; i<list1.size();i++) { Pizza p = list1.get(i);%>
 					<% if(p.getPizzaType().equals("2")) {%>
