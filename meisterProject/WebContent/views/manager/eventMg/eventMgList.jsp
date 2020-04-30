@@ -251,7 +251,7 @@
 						<!-- 버튼영역 -->
 						<div class="faqBtns" style="align-content: right;" align="center">
 							<button type="submit" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40">등록</button>
-							<button type="reset" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40" onclick="location.href='<%= contextPath %>/evMgList.evm';">취소</button>
+							<button type="reset" class="btn btn-danger" style="width: 100px; height: 40px; background: #343a40" data-dismiss="modal">취소</button>
 						</div>
 					</form>
 				</div>
