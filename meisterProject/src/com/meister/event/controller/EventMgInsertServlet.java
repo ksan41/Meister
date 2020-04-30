@@ -89,10 +89,10 @@ public class EventMgInsertServlet extends HttpServlet {
 				out.flush();
 				
 			}else {		// 공지사항 작성 실패!
-				File deleteFile = new File(savePath + eventImage1);
-				deleteFile.delete();
-				deleteFile = new File(savePath + eventImage2);
-				deleteFile.delete();
+				File deleteFile1 = new File(savePath + eventImage1);
+				deleteFile1.delete();
+				File deleteFile2 = new File(savePath + eventImage2);
+				deleteFile2.delete();
 				
 				response.setContentType("text/html; charset=UTF-8");
 				

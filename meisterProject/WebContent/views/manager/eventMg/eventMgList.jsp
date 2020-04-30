@@ -225,7 +225,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form action="<%= contextPath %>/evMgInsert.evm" name="eventEnrollForm" enctype="multipart/form-data">
+					<form action="<%= contextPath %>/evMgInsert.evm" method="post" name="eventEnrollForm" enctype="multipart/form-data">
 						<table id="eventEnrollTable">
 							<tr>
 								<th>제목</th>
