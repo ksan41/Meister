@@ -225,7 +225,7 @@
                 <%for(Pizza p : pList){ %>
 	                <% if(p.getPizzaNo() == Integer.parseInt(basket.getPizzaNo())){%>
 	                <tr style="border-bottom:1px solid;" class="contentRow">
-	                    <th><img src= "<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>" alt="" width="200"></th>
+	                    <th><img src= "<%=contextPath %>/resources/siteImgs/menuImg/pizza/<%= p.getPizzaImg() %>" alt="" width="200" height="200"></th>
 	                    <th>
 	                        <p>
 	                            <%=p.getPizzaName() %><br>
