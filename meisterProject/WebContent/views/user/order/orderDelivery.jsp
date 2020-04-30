@@ -241,7 +241,7 @@
   </button>-->
   
           <!-- 모달 시작 -->
-          <div class="modal fade" id="myModal"> <!-- modal별 id 변경해주세요-->
+          <div class="modal fade" id="myModal">
             <div class="modal-dialog">
               <div class="modal-content">
               
@@ -257,11 +257,6 @@
                         <input type="hidden" id="confmKey" name="confmKey" value=""/>
                         <input type="hidden" id="returnUrl" name="returnUrl" value=""/>
                         <input type="hidden" id="resultType" name="resultType" value=""/>
-                        <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START-->
-                        <!-- 
-                        <input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
-                            -->
-                        <!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
                         <input type="text" id="sample3_postcode" name="newPoCode" style="width:562px; height: 40px; font-size:large; margin:3px;"placeholder="건물명, 도로명, 지번으로 검색하세요" readonly >
 						
 						<p id="addPostInput">
