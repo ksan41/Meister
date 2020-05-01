@@ -258,13 +258,7 @@ div {
 						<td width="270px" height="200px" align="center" valign="top"
 							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">답변</td>
 						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
-							<textarea id="contentArea" style="font-size: 1.0em; color: cornflowerblue" disabled>
-								<% if(c.getInquiryAnswer() != null){ %>
-									<%=c.getInquiryAnswer() %>
-								<% }else { %>
-								
-								<% } %>
-							</textarea>
+							<textarea id="contentArea" style="font-size: 1.0em; color: cornflowerblue" disabled><% if(c.getInquiryAnswer() != null){ %><%=c.getInquiryAnswer() %><% }else { %><% } %></textarea>
 						</td>
 					</tr>
 					<tr>
