@@ -517,9 +517,6 @@ div {
 							</div>
 							<!-- 클래식 -->
 						</div>
-
-
-
 					</div>
 				</div>
 			</div>
@@ -641,6 +638,7 @@ div {
 
 
 	<!-- 프리미엄-메뉴수정 모달 시작 -->
+	<!-- pIndex : 수정모달 인덱스 카운트용 변수(프리미엄,클래식 공동사용) -->
 	<% int pIndex=0; %>
 	<% if(!pList.isEmpty()){ %>
 		<%for(int i=0;i<pList.size();i++){ %>
@@ -682,25 +680,36 @@ div {
 							</tr>
 							<tr>
 								<th>메뉴소개</th>
-								<td><textarea name="contents" class="inputs" cols="50"
-										rows="8" style="resize: none;" required><%=pList.get(i).getPizzaContent() %></textarea></td>
+								<td>
+									<textarea name="contents" class="inputs" cols="50"
+									rows="8" style="resize: none;" required><%=pList.get(i).getPizzaContent() %>
+									</textarea>
+								</td>
 							</tr>
 							<tr>
 								<th>토핑</th>
-								<td><textarea name="toppings" class="inputs" cols="50"
-										rows="8" style="resize: none;" required><%=pList.get(i).getPizzaTopping() %></textarea></td>
+								<td>
+									<textarea name="toppings" class="inputs" cols="50"
+									rows="8" style="resize: none;" required><%=pList.get(i).getPizzaTopping() %>
+									</textarea>
+								</td>
 							</tr>
 							<tr>
 								<th rowspan="2">원산지</th>
-								<td rowspan="2"><textarea name="origins" class="inputs"
-										cols="50" rows="8" style="resize: none;" required><%=pList.get(i).getPizzaOrigin() %></textarea></td>
+								<td rowspan="2">
+									<textarea name="origins" class="inputs"
+									cols="50" rows="8" style="resize: none;" required><%=pList.get(i).getPizzaOrigin() %>
+									</textarea>
+								</td>
 								<%for(int j=0;j<psList.size();j++){ %>
 								<%if(pList.get(i).getPizzaNo()== psList.get(j).getPizzaNo()){ %>
 								<%if(psList.get(j).getPizzaSize().equals("L")){ %>
 								<input type="hidden" name="psNo" value="<%=psList.get(j).getSizeNo() %>">
 								<th>L 사이즈 가격</th>
-								<td><input name="priceL" type="text" class="inputs"
-									value="<%=psList.get(j).getPizzaPrice()%>" required> 원</td>
+								<td>
+									<input name="priceL" type="text" class="inputs"
+									value="<%=psList.get(j).getPizzaPrice()%>" required> 원
+								</td>
 								<%} %>
 							</tr>
 							<%if(psList.get(j).getPizzaSize().equals("M")){ %>
@@ -852,15 +861,9 @@ div {
 	<script>
 		$(document).on("click",".updateBtn",function(){
 			var index = $(".updateBtn").index(this);		
-			//console.log(index +"번 폼 실행");
 			$(".menuUpdateFormP:eq("+index+")").submit();
 		});
-	
 			
-		//$(document).on("change",".menuFile",function(){
-		//});
-		
-		
 		
 		function loadImg(inputFile,index) {
 				
@@ -870,12 +873,9 @@ div {
 				// 파일을 읽어주는 메소드 --> 해당 파일을 읽어들이는 순간 해당 파일만의 고유한 url부여
 				reader.readAsDataURL(inputFile.files[0]);
 				
-					//console.log("인덱스");
-					//console.log(index);
 				// 파일 읽기가 다 완료되었을때 실행할 메소드
 				reader.onload = function(e) {//e : 이벤트객체
 					// attr 해당 요소에 속성 부여
-					//console.log("이벤트실행");
 					$(".menu-upImg:eq("+(index-1)+")").attr("src", e.target.result);
 				};
 		}
