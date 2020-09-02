@@ -183,24 +183,24 @@ div {
 						</tr>
 					</thead>
 					<tbody>
-						<% if(list.isEmpty()){ %>
+						<% if(list.isEmpty()){ %> <!-- 해당 회원이 작성한 문의가 없을 경우 -->
 							<tr>
 								<td colspan="4">존재하는 문의가 없습니다.</td>
 							</tr>
-						<% }else { %>
+						<% }else { %> <!-- 작성한 문의가 있을 경우 -->
 							<% int count = list.size(); %>
+							
 							<% for(int i=0;i<list.size();i++){ %>
 							<tr class="trList">
 								<td><%=count--%></td>
 								<td><%=list.get(i).getInquiryTitle()%></td>
 								<td><%=list.get(i).getRegistDate()%></td>
-								<% if(list.get(i).getInquiryProStatus().equals("N")){ %>
+								<% if(list.get(i).getInquiryProStatus().equals("N")){ %> <!-- 해당 문의에 등록된 답변이 없을 경우 -->
 									<td>처리중</td>
-								<% }else { %>
+								<% }else { %> <!-- 등록된 답변이 있을 경우 -->
 									<td>답변완료</td>
 								<% }%>
 								<td><input type="hidden" class="hiddenNo" value="<%=list.get(i).getInquiryNo()%>"></td>
-
 							</tr>
 							<% } %>
 							
@@ -226,9 +226,8 @@ div {
 		
 		<script>
 			$(document).on("click",".trList",function(){
-				//var cno = $(this).children().eq(0).text();
-				var index = $(".trList").index(this);
 				
+				var index = $(".trList").index(this);
 				var cno = $(".hiddenNo:eq("+index+")").val();
 				
 				location.href="<%=contextPath%>/myOneDetail.my?cno=" + cno;

@@ -4,7 +4,6 @@
 	Center c = (Center)request.getAttribute("c");
 	CenterImage ci = (CenterImage)request.getAttribute("ci");
 	// 첨부파일이 없었을 경우 ci = null
-
 %>
 <!DOCTYPE html>
 <html>
@@ -233,7 +232,7 @@ div {
 								case 7: type="단순문의"; break;
 								case 8: type="기타";
 							 } %>
-							 <%=type %>
+							 <%= type %>
 						</td>
 					</tr>
 					<tr>
@@ -249,9 +248,8 @@ div {
 					<tr>
 						<td width="270px" height="200px" align="center" valign="top"
 							style="font-size: 1.2em; font-weight:700; color: gray; padding-top: 2%;">내용</td>
-						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;"
-							valign="top"><textarea id="contentArea"
-								style="font-size: 1.1em;" disabled><%=c.getInquiryContent() %></textarea>
+						<td style="padding-left: 1%; font-size: 1.3em; padding-top: 1%;" valign="top">
+							<textarea id="contentArea" style="font-size: 1.1em;" disabled><%=c.getInquiryContent() %></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -287,10 +285,13 @@ div {
 				<div id="btns">
 					<button class="middle_btn" id="dbtn" onclick="deleteCenter();" 
 						style="background: orangered;">삭제</button>
+						
+					<!-- 문의에 대한 답변이 아직 등록되지 않은 경우에만 문의 수정이 가능하도록 조건문 -->
 					<% if(c.getInquiryAnswer() == null) { %>
 					<button class="middle_btn" id="mbtn" onclick="updateCenter();"
 						style="background: white; color: black; border: 1px solid darkgray">수정</button>
 					<% } %>
+					
 					<button class="middle_btn" id="lbtn" onclick="location.href='<%=contextPath%>/myOneList.my';">목록</button>
 				</div>
 			</div>
@@ -302,12 +303,12 @@ div {
 	</form>
 		
 	<script>
-		// 삭제하기 버튼 클릭시
+		// 삭제하기 버튼 클릭 시
 		function deleteCenter(){
 			$("#postForm").submit();
 		}
 		
-		// 수정하기 버튼 클릭시 (수정하기 페이지 요청)
+		// 수정하기 버튼 클릭 시 (수정하기 페이지 요청)
 		function updateCenter(){
 			$("#postForm").attr("action", "<%=contextPath%>/myOneUpdateForm.my");
 			$("#postForm").submit();

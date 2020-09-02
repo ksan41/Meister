@@ -277,14 +277,12 @@ table {
 				<% String[] phoneNo = loginUser.getMemberPhone().split("-"); %>
 				<% String[] selected = new String[5]; %>
 				<% switch(phoneNo[0]){
-				case "010": selected[0] = "selected"; break;
-				case "016": selected[1] = "selected"; break;
-				case "017": selected[2] = "selected"; break;
-				case "019": selected[3] = "selected"; break;
-				case "011": selected[4] = "selected"; break;
+					case "010": selected[0] = "selected"; break;
+					case "016": selected[1] = "selected"; break;
+					case "017": selected[2] = "selected"; break;
+					case "019": selected[3] = "selected"; break;
+					case "011": selected[4] = "selected"; break;
 				}%>
-				<% String phone2 = phoneNo[1]; %>
-				<% String phone3 = phoneNo[2]; %>
 				
 				<form id="updateAreaForm" action="<%=contextPath%>/myInfoUpdate.my" method="post">
 				<table style="text-align: left;">
@@ -296,18 +294,17 @@ table {
 					<th>휴대전화</th>
 					<td colspan="2">
 						<select id="txtMobile1" name="phone1" style="height:33px; width:80px;">
-							<option value="010" <%=selected[0] %>>010</option>
-							<option value="016" <%=selected[1] %>>016</option>
-							<option value="017" <%=selected[2] %>>017</option>
-							<option value="019" <%=selected[3] %>>019</option>
-							<option value="011" <%=selected[4] %>>011</option>
+							<option value="010" <%=selected[0]%>>010</option>
+							<option value="016" <%=selected[1]%>>016</option>
+							<option value="017" <%=selected[2]%>>017</option>
+							<option value="019" <%=selected[3]%>>019</option>
+							<option value="011" <%=selected[4]%>>011</option>
 						</select> - 
-						<input type="text" name="phone2" id="pel1" size="7" value="<%=phone2 %>" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
-						<input type="text" name="phone3" id="pel2" size="7" value="<%=phone3 %>" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+						<input type="text" name="phone2" id="pel1" size="7" value="<%=phoneNo[1]%>"
+						 onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> - 
+						<input type="text" name="phone3" id="pel2" size="7" value="<%=phoneNo[2]%>"
+						 onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 					</td>
-					<!-- <td> -->
-					<!-- <input type="text" id="pel2" size="4" /> -->
-					<!-- </td> -->
 				</tr>
 				<tr>
 					<th>이메일</th>
@@ -315,27 +312,6 @@ table {
 						<input type="email" name="email" size="30" value="<%=loginUser.getMemberEmail()%>">
 					</td>
 				</tr>
-				<!--
-				<tr>
-					<th>인증번호 발송</th>
-					<td><input type="radio"> 이메일
-						<button class="small_btn" style="display: inline-block;" id="#">인증번호 발송</button>
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<th colspan="5px"
-						style="font-size: 0.7em; color: gray; width: 400px; vertical-align: top;">
-						<label>휴대전화 번호 및 이메일 주소를 변경하셨을 경우에 한하여 인증절차를 거쳐야 정보수정이
-							완료됩니다.</label>
-					</th>
-				</tr>
-				<tr>
-					<th>인증번호 입력</th>
-					<td><input type="text">
-						<button class="small_btn" style="display: inline-block;" id="#">인증하기</button></td>
-				</tr>
-				 -->
 			</table>
 			
 			<br><br><br>
@@ -370,10 +346,10 @@ table {
 				}
 
 			};
-			
-			// 비밀번호 수정 유효성 검사
+	
+			// 비밀번호 수정 시 유효성 검사
 			function validPwdTest(){
-				// 유효성 검사할 각각의 input 요소를 변수에 받아두기
+				// 유효성 검사할 각각의 input 요소
 				var pwd1 = document.getElementById("inputPwd1");
 				var pwd2 = document.getElementById("inputPwd2");
 	
@@ -392,7 +368,7 @@ table {
 	                alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
 	                pwd1.value="";
 	                pwd2.value = "";
-	                pwe2.focus();
+	                pwd1.focus();
 	                return false;
 	            }
 	            
@@ -400,7 +376,7 @@ table {
 	            	return true;
 	            }
 			};
-			
+		
 			function test(){
 				location.href='<%=contextPath%>/myOrderList.my';
 			}

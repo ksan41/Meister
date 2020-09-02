@@ -208,7 +208,7 @@ input[type=password]{font-family:'inherit';}
 				<tr>
 					<th>비밀번호</th>
 					<td><input type="password" name="inputPwd"></td>
-					<td><button type="submit" class="small_btn" id="#" style="margin: 10px">확인</button></td>
+					<td><button type="submit" class="small_btn" style="margin: 10px">확인</button></td>
 				</tr>
 			</table>
 			</form>

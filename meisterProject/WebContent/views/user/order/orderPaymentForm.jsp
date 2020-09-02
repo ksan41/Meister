@@ -325,7 +325,7 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td>총 할인 금액</td>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>총 할인 금액</td>
+                        <td>총 결제 금액</td>
                     </tr>
                     <% if(cInfo != null){ %>
 						<% //dRate = cInfo.getCouponDiscount() * 0.01; %>
